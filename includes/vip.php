@@ -179,3 +179,11 @@ function makeblog_filter_the_content_shortlink( $ret, $post_id ) {
 }
 
 vip_main_feed_redirect( 'http://feeds.feedburner.com/makezineonline' );
+
+
+add_action( 'init', function() {
+    if ( 0 === strpos( $_SERVER['REQUEST_URI'], '/pub/' ) ) {
+        wp_redirect( esc_url_raw( 'http://archive.makezine.com' . $_SERVER['REQUEST_URI'] ) );
+        exit;
+    }
+} );

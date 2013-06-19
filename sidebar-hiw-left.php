@@ -10,23 +10,22 @@
 ?>
 				<div class="span3 sidebar-left">
 					<ul class="left-nav">
-						<li><a href="http://blog.makezine.com/hardware-innovation-workshop/overview/">Overview</a></li>
-						<li><a href="http://blog.makezine.com/hardware-innovation-workshop/register/">Register</a></li>
-						<li><a href="http://blog.makezine.com/hardware-innovation-workshop/hotel/">Hotel</a></li>
-						<li><a href="http://blog.makezine.com/hardware-innovation-workshop/parking/">Parking</a></li>
-						<li><a href="http://blog.makezine.com/hardware-innovation-workshop/agenda/">Agenda at a Glance</a></li>
-						<li><a href="http://blog.makezine.com/hardware-innovation-workshop/master-class/">Master Class Workshop</a></li>
-						<li><a href="http://blog.makezine.com/hardware-innovation-workshop/keynotes/">Speaker Roster</a></li>
-						<li><a href="http://blog.makezine.com/hardware-innovation-workshop/innovators/">Showcase Innovators</a></li>  
+						<li><a href="http://blog.makezine.com/hardware-innovation-workshop/">Home</a></li>
 						<li><a href="http://blog.makezine.com/hardware-innovation-workshop/research/">Maker Market Research</a></li>
 						<li><a href="http://blog.makezine.com/hardware-innovation-workshop/press/">Press</a></li>
 						<li><a href="http://blog.makezine.com/hardware-innovation-workshop/contact/">Contact</a></li>
+						<li><a href="http://blog.makezine.com/hardware-innovation-workshop/overview/">2013 Hardware Innovation Workshop</a></li>
+                        	<div style="padding-left:15px;">
+								<li><a href="http://blog.makezine.com/hardware-innovation-workshop/agenda/">Agenda</a></li>
+								<li><a href="http://blog.makezine.com/hardware-innovation-workshop/keynotes/">Speaker Roster</a></li>
+								<li><a href="http://blog.makezine.com/hardware-innovation-workshop/innovators/">Showcase Innovators</a></li>  
+								<li><a href="http://blog.makezine.com/hardware-innovation-workshop/master-class/">Master Class Workshop</a></li>
+                        	</div>  
 						<li><a href="http://blog.makezine.com/hardware-innovation-workshop/overview-2012/">Hardware Innovation Workshop 2012</a></li>
-						<div style="padding-left:15px;">
+                        	<div style="padding-left:15px;">
 							<li><a href="http://blog.makezine.com/hardware-innovation-workshop/overview-2012/agenda-2012/">2012 Agenda</a></li>
 							<li><a href="http://blog.makezine.com/hardware-innovation-workshop/overview-2012/speaker-roster-2012/">2012 Speaker Roster</a></li>
-							<li><a href="http://blog.makezine.com/hardware-innovation-workshop/overview-2012/showcase-innovators-2012/">2012 Showcase Innovators</a></li>
-						</div>  
+							<li><a href="http://blog.makezine.com/hardware-innovation-workshop/overview-2012/showcase-innovators-2012/">2012 Showcase Innovators</a></li> 
 					</ul>
 
 					<h4>Follow us:</h4>
@@ -41,8 +40,8 @@
 					<!--<img src="http://cdn.makezine.com/make/bootstrap/img/etc/quote.png" alt="Quote" class="quote"/> -->
 				<div class="row">
 					<blockquote>
-						<p><strong>New! Maker Pro Digital Manufacturing Workshop</strong></p>
-						<p>This year we've added a half-day session for maker pros looking for guidance and insight into getting their projects and ideas to the next stage. Beginning at 10am to 1pm, Tuesday, May 14, the three-hour manufacturing deep dive is designed for makers exploring options for getting to scale with their final prototypes. Presented by experts who can facilitate the transition and have extensive experience in small, medium, and large scale manufacturing for startups. Participants are encouraged to bring their designs and prototypes to the workshop.</p>
+						<p><strong style="color:#0075BE">New from the editors of MAKE magazine!</strong></p>
+						<p><a href="http://blog.makezine.com/maker-pro-newsletter/">Maker Pro Newsletter</a> is a weekly roundup of news about the impact makers are having on business and technology. From new hardware products and devices, hot startups, incubators and innovators, to new tools and market trends, Maker Pro delivers a quick read to keep you up to speed on the business of making. <a href="http://makezine.com/magazine/newsletter/makerpro/?utm_medium=email&utm_campaign=Maker%20Pro%203&utm_content=Maker%20Pro%203+CID_29125aad483db7e7122133ed32737560&utm_source=Email%20Campaign&utm_term=Click%20here&utm_medium=email&utm_campaign=Maker%20Pro%20Newsletter%209&utm_content=Maker%20Pro%20Newsletter%209+CID_9dece7899be7475df05542bdbc5f4d04&utm_source=Email%20Campaign&utm_term=here">Subscribe today</a>!</p>
 					</blockquote>
 				</div><!-- END row-->
 					<div class="clear"></div>

@@ -416,7 +416,7 @@ function itunes_feed() {
 
 add_action('template_redirect', 'itunes_feed');
 
-add_action('pre_get_posts', 'make_mf_remove_tag_from_home' );
+// add_action('pre_get_posts', 'make_mf_remove_tag_from_home' );
 
 /**
  * Take Maker Faire posts that don't have MF tag, and remove from the main query.
@@ -835,7 +835,7 @@ function make_get_better_tag_title() {
 function make_rss_post_thumbnail($content) {
 	global $post;
 	if( has_post_thumbnail($post->ID) ) {
-		$content =  '<a href="' . get_permalink() . '">' . get_the_post_thumbnail($post->ID, 'archive-thumb', array( 'style' => 'float:left; margin:0 15px 15px 0;' ) ) . '</a>' . get_the_excerpt() . '<p><a href="' . get_permalink() . '">Read the full article on MAKE</a></p>';
+		$content =  '<a href="' . get_permalink() . '">' . get_the_post_thumbnail($post->ID, 'archive-thumb', array( 'style' => 'float:left; margin:0 15px 15px 0;' ) ) . '</a>' . get_the_excerpt() . '<p><a href="' . get_permalink() . '">Read more on MAKE</a></p>';
 	}
 	return $content;
 }

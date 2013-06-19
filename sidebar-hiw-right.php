@@ -21,7 +21,7 @@
 					<div class="atclear"></div></div>
 					<script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=xa-4f98388529c0fff4"></script>
 					<!-- AddThis Button END -->
-					<h3>Title Sponsor</h3>
+					<h4>Title Sponsor</h4>
 					<ul class="unstyled" id="sponsors">
 						<li>
 							<a style="margin-bottom:10px;" href="http://www.ge.com/" class="thumbnail">
@@ -32,7 +32,7 @@
 					<style type="text/css">
 						ul.unstyled li a {margin-bottom:10px;}
 					</style>
-					<h3>Supporting Sponsors</h3>
+					<h4>Supporting Sponsors</h4>
 					<ul class="unstyled" id="sponsors">
 					  	<li>
 							<a style="margin-bottom:10px;" href="http://www.google.com/entrepreneurs/" class="thumbnail">
@@ -50,7 +50,7 @@
 							</a>
 						</li>
 					</ul>
-						<h3>Media Sponsor</h3>
+						<h4>Media Sponsor</h4>
 					<ul class="unstyled" id="sponsors">
 						<li>
 							<a style="margin-bottom:10px;" href="http://www.engadget.com/expand/about/" target="_blank">
@@ -58,7 +58,7 @@
 							</a>
 						</li>
 					</ul>
-					<h3>Press</h3>
+					<h4>Press</h4>
 						<img class="thumbnail" src="http://makezineblog.files.wordpress.com/2013/03/hiw_web-asset_cnet-quote1.jpg" alt="">
 					<img src="http://cdn.makezine.com/make/bootstrap/img/etc/businessweek.jpg" alt="Bloomberg Businessweek" class="thumbnail" width="130">
 					<h4>The Maker Movement Meets the VCs</h4>

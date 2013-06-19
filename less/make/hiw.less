@@ -1,7 +1,5 @@
 body.hiw {
     background-color: #eee;
-}
-.hiw {
     .header-bottom {
         background-color: transparent;
         border: none;
@@ -22,6 +20,11 @@ body.hiw {
     ul.left-nav {
         margin-left: 0;
         li {
+            font-size: 18px;
+            line-height: 130%;
+            border-bottom:1px dashed #999;
+            padding: 5px 0;
+            list-style-type: none;
             font-size: 16px;
             line-height: 130%;
             border-bottom-color: #999999;
@@ -59,7 +62,7 @@ body.hiw {
             color: #333;
             font-size: 18px;
             margin-bottom: 5px;
-            margin-top:10px;
+            margin-top: 10px;
             line-height: 20px;
             text-transform: none;
         }
@@ -71,14 +74,29 @@ body.hiw {
             line-height: 130%;
         }
     }
-    #header {
+    .single {
+        background-attachment: scroll;
+        background-clip: border-box;
+        background-color: transparent;
         background-image: none;
-        border: none;
+        background-origin: padding-box;
+        background-position: 0 0;
+        background-repeat: repeat-x;
+        background-size: auto auto;
+        border-bottom-color: -moz-use-text-color;
+        border-bottom-style: none;
+        border-bottom-width: 0;
+        font-family: "proxima-nova", sans-serif;
         padding-top: 0;
-        padding-top: 0;
-        h1 {
-            padding-bottom: 20px;
+        .container {
             padding-top: 20px;
+            padding-bottom: 20px;
+            ul {
+                li {
+                    font-size: 18px;
+                    line-height: 140%;
+                }
+            }
         }
     }
     .fix {
@@ -107,30 +125,20 @@ body.hiw {
             }
         }
     }
-    .single {
-        background-attachment: scroll;
-        background-clip: border-box;
-        background-color: transparent;
+    #header {
+        border:none;
         background-image: none;
-        background-origin: padding-box;
-        background-position: 0 0;
-        background-repeat: repeat-x;
-        background-size: auto auto;
-        border-bottom-color: -moz-use-text-color;
-        border-bottom-style: none;
-        border-bottom-width: 0;
-        font-family: "proxima-nova", sans-serif;
+        border: none;
         padding-top: 0;
-        .container {
-            padding-top: 20px;
+        h1 {
             padding-bottom: 20px;
-            ul {
-                li {
-                    font-size: 18px;
-                    line-height: 140%;
-                }
-            }
+            padding-top: 20px;
         }
+    }
+    .container {
+        background-color: #fff;
+        padding-left: 20px;
+        padding-right: 20px;
     }
     .navbar {
         .navbar-inner {
@@ -139,9 +147,24 @@ body.hiw {
             }
         }
     }
-    .container {
-        background-color: #fff;
-        padding-left: 20px;
-        padding-right: 20px;
+    .header-wrap {
+        margin-left:20px;
+        margin-right:20px;
+        border-top: 1px solid #00AEEF;
+        border-bottom: 1px solid #00AEEF;
+        text-align:center;
+        padding-top:20px;
+        padding-bottom:50px;
+        h2 {
+            color: #ED1D24;
+            width: 660px;
+            font-size: 24px;
+            line-height: 28px;
+            padding-top: 25px;
+        }
     }
+}
+body.hiw h3, body.hiw h4, body.hiw h5, body.hiw h6 {
+    line-height: 20px;
+    margin-bottom: 16px;
 }

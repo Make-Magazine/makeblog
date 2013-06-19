@@ -180,7 +180,7 @@ class MAKE_WP_CLI_Command extends WP_CLI_Command {
 			} else {
 				WP_CLI::success( "Added " . $redirect['url'] . " to " . $title );
 			}
-			$bitly = make_bitly_url( esc_url ($redirect['url'] ) );
+			$bitly = make_bitly_url( esc_url_raw ($redirect['url'] ) );
 			$bitlyurl = update_post_meta( $post_id, 'bitly_url', $bitly );
 			if ( !$bitlyurl ) {
 				WP_CLI::warning( "Didn't add the Bit.ly URL meta..." );

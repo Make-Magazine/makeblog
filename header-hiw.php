@@ -70,17 +70,19 @@
 					</div> <!-- END row -->	
 				</div> <!-- END container -->		
 				</div> <!-- END header -->
-				<div class="header-bottom">
+				<div class="header-wrap">
 					<div class="container">	
 						<div class="row">
+							<div class="tag-area">
 							<div class="span9">
-								<h2>Welcome to the 2013 Hardware Innovation Workshop <br /><span>Experience the open hardware revolution firsthand!</span></h2> 
+								<h2>Thanks to all our great sponsors, presenters, and attendees for making the 2013 Hardware Innovation Workshop a success!</h2> 
 							</div> <!-- END span9 -->
 							<div class="span3">
 								<a href="http://www.foliomag.com/2013/make-magazine-s-hardware-innovation-workshop" target="_blank"><img src="http://makezineblog.files.wordpress.com/2013/03/pastedgraphic-1.jpg" alt="2012 Event received FAME award for Best First Time Event"></a>
-							</div> <!-- END span3 -->		
+							</div> <!-- END span3 -->
+							</div> <!-- END tag-area-->		
 						</div> <!-- END row -->
-					</div> <!-- END header-bottom -->
+					</div> <!-- END header-wrap -->
 				</div> <!-- END container -->
 				<div class="clear"></div>
 		</div> <!-- END fix -->

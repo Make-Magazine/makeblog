@@ -2,7 +2,7 @@
 <html lang="en" xmlns:fb="http://ogp.me/ns/fb#">
 	<head>
 		<meta charset="utf-8">
-		<title><?php bloginfo('name'); ?> | <?php is_home() ? bloginfo('description') : wp_title(''); ?></title>
+		<title><?php bloginfo('name'); ?> | <?php is_home() || is_front_page() ? bloginfo('description') : wp_title(''); ?></title>
 		<meta name="description" content="<?php if ( is_single() ) {
 				echo wp_trim_words( strip_shortcodes( $post->post_content ), 20 );
 			} else {
