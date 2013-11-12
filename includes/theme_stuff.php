@@ -41,7 +41,8 @@ function make_action_after_setup_theme() {
 	add_image_size( 'p2', 290, 180, true );							// Used as the top right featured images on home page.
 	add_image_size( 'maker-week-home', 620, 400, true );			// Used on Maker Week take over page.
 	add_image_size( 'maker-week-thumb', 145, 110, true );			// Used on Maker Week take over page sidebar.
-	add_image_size( '2-col-thumb', 268, 167, true );				// Used on the custom feed for a 2-column layout.
+	add_image_size( 'weekly-takeover-main', 268, 248, true );		// Used on the Weekly Take-Over layout on the home page.
+	add_image_size( 'weekly-takeover-secondary', 268, 175, true );  // Used on the Weekly Take-Over layout on the home page.
 
 	/**
 	  * Depracated image sizes.

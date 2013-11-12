@@ -328,6 +328,64 @@ $cap = new CheezCap( array(
 				),
 			)
 		),
+		new CheezCapGroup( 'Weekly Take-Over', 'weekly-take-over',
+			array(
+				new CheezCapBooleanOption(
+					'Weekly Take-Over',
+					'Do you want to enable the Weekly Take-Over design on the home page?',
+					'weekly_takeover_enabled',
+					'1'
+				),
+				new CheezCapTextOption(
+					'Title (max 29 characters)',
+					'Add the title for the weekly take-over.',
+					'wto_title',
+					''
+				),
+				new CheezCapTextOption(
+					'Sub Title (max 32 characters)',
+					'Add the sub-title for the weekly take-over',
+					'wto_subtitle',
+					''
+				),
+				new CheezCapTextOption(
+					'Main Post Title',
+					'The title of the main post.',
+					'post1_title',
+					''
+				),
+				new CheezCapTextOption(
+					'Main Post ID',
+					'The ID of the main post. This is used to the image and link.',
+					'post1_id',
+					''
+				),
+				new CheezCapTextOption(
+					'Top Right Title',
+					'The title of the top right post.',
+					'post2_title',
+					''
+				),
+				new CheezCapTextOption(
+					'Top Right ID',
+					'The ID of the top right post. This is used to the image and link.',
+					'post2_id',
+					''
+				),
+				new CheezCapTextOption(
+					'Bottom Right Title',
+					'The title of the bottom right post.',
+					'post3_title',
+					''
+				),
+				new CheezCapTextOption(
+					'Bottom Right ID',
+					'The ID of the bottom right post. This is used to the image and link.',
+					'post3_id',
+					''
+				),
+			)
+		),
 		new CheezCapGroup( 'Maker Camp Takeover', 'campGroup',
 			array(
 				new CheezCapBooleanOption(
