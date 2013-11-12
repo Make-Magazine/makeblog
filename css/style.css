@@ -8556,6 +8556,10 @@ ul#tabs .current > a:hover {
   margin-top: 30px;
   margin-bottom: 30px;
 }
+.sub-banner {
+  margin-top: 8px;
+  margin-bottom: 20px;
+}
 .waist-takeover {
   background-image: url('../images/makercamp_background.jpg');
   background-position: center;
@@ -11726,4 +11730,49 @@ a.button.small-button {
   max-width: 100%;
   margin-top: 30px;
   padding: 10px;
+}
+.weekly-takeover {
+  background: none;
+}
+.weekly-takeover .big-main-box {
+  background: #003c5b;
+  margin: 15px 0;
+  font-family: "proxima-nova", sans-serif;
+  color: #fff;
+}
+.weekly-takeover .big-main-box .span4.paddme {
+  width: 290px;
+}
+.weekly-takeover .big-main-box .span4.paddme .span4.boxed {
+  width: 250px;
+}
+.weekly-takeover .big-main-box .paddme {
+  padding: 20px 0 20px 10px;
+}
+.weekly-takeover .weekly-title {
+  font-size: 42px;
+  line-height: 50px;
+}
+.weekly-takeover .weekly-sub-title {
+  font-size: 20px;
+  line-height: 50px;
+  margin-bottom: 18px;
+}
+.weekly-takeover .boxed {
+  border: 1px solid #002234;
+  padding: 10px;
+}
+.weekly-takeover .featured-post img,
+.weekly-takeover .featured-right img {
+  margin-bottom: 14px;
+}
+.weekly-takeover .featured-title {
+  font-weight: normal;
+  font-size: 18px;
+}
+.weekly-takeover .featured-title a {
+  color: #96dffa;
+}
+.weekly-takeover .second-post {
+  margin-bottom: 30px;
 }
