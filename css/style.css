@@ -6013,9 +6013,17 @@ footer {
   padding-top: 40px;
   padding-bottom: 20px;
 }
+.footer_copyright {
+  font-size: 12px  !important;
+  line-height: 20px  !important;
+  font-weight: normal !important;
+}
+.footer_copyright a {
+  border-bottom: none !important;
+}
 .p_footer {
   font-size: 14px !important;
-  line-height: 20px !important;
+  line-height: 24px !important;
 }
 .twtr-widget {
   border: 1px solid #D0D0CE !important;
@@ -10272,10 +10280,6 @@ body.makercamp #menu-maker-camp-nav .sub-menu > li > a {
   line-height: 20px;
   color: #333333;
   white-space: nowrap;
-}
-body.makercamp #footer.white-bg {
-  margin: 0;
-  padding: 30px 0 20px;
 }
 body.makercamp #footer h3 {
   display: inline-block;
