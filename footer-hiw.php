@@ -28,6 +28,7 @@
 						<li><a href="http://makezine.com/hardware-innovation-workshop/innovators-2012.html">2012 Showcase Innovators</a></li>
 				</ul>
 				-->	
+				<?php echo make_copyright_footer(); ?>	
 			</div><!-- END container -->
 		</div><!-- END hiw-footer -->
 
