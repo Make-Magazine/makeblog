@@ -256,6 +256,7 @@ if ( function_exists( 'vip_redirects' ) ) {
 		'/magazine/newsletter/subscribe/free-digital-magazine.html'			=> 'http://archive.makezine.com/magazine/newsletter/subscribe/free-digital-magazine.html',
 		'/unsubscribe/makershed.csp'			=> 'http://archive.makezine.com/unsubscribe/makershed.html',
 		'/unsubscribe/makershed.html'			=> 'http://archive.makezine.com/unsubscribe/makershed.html',
+		'/magazine/3D'              => '/volume/guide-to-3d-printing-2014/',
 
 	);
 	vip_redirects( $redirects );
