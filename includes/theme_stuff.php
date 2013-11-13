@@ -1247,7 +1247,7 @@ function make_featured_post() {
 	$output .= '</div>';
 	$output .= '<div class="blurb">';
 	$output .= '<h3><span class="trending">What\'s hot:</span> ' . $post->post_title . '</h3>';
-	$output .= '<p><small>By: <strong>' . coauthors( ', ', '', '', '', false ) . '</strong></small></p>';
+	$output .= '<p><small>By: <strong>' . coauthors( ', ', ' & ', '', '', false ) . '</strong></small></p>';
 	$output .= '<p>' . wp_trim_words(strip_shortcodes( $post->post_content ), 20) . '</p>';
 	$output .= '</a></div>';
 	return $output;
