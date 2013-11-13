@@ -3,8 +3,11 @@
 	$title = make_get_cap_option( 'wto_title' );
 	$subtitle = make_get_cap_option( 'wto_subtitle' );
 	$post1 = make_get_cap_option( 'post1_id' );
+	$post1_image = make_get_cap_option( 'post1_img' );
 	$post2 = make_get_cap_option( 'post2_id' );
+	$post2_image = make_get_cap_option( 'post2_img' );
 	$post3 = make_get_cap_option( 'post3_id' );
+	$post3_image = make_get_cap_option( 'post3_img' );
 ?>
 <div class="waist weekly-takeover">
 
@@ -22,9 +25,13 @@
 							<h1 class="weekly-title"><?php if ( ! empty( $title ) ) { echo esc_html( $title ); } ?></h1>
 							<h2 class="weekly-sub-title"><?php if ( ! empty( $subtitle ) ) { echo esc_html( $subtitle ); } ?></h2>
 							
-							<?php if ( isset( $post1 ) && ! empty( $post1 ) ) : ?>
+							<?php if ( ! empty( $post1 ) ) : ?>
 								<div class="featured-post boxed">
-									<?php get_the_image( array( 'post_id' => absint( $post1 ), 'meta_key' => '', 'image_scan' => true, 'size' => 'weekly-takeover-main' ) ); ?>
+									<?php if ( empty( $post1_image ) ) : ?>
+										<?php get_the_image( array( 'post_id' => absint( $post1 ), 'meta_key' => '', 'image_scan' => true, 'size' => 'weekly-takeover-main' ) ); ?>
+									<?php else : ?>
+										<img src="<?php echo esc_url( $post1_image ); ?>" width="268" height="248" />
+									<?php endif; ?>
 									<h3 class="featured-title"><a href="<?php echo get_permalink( absint( $post1 ) ); ?>"><?php echo esc_html( make_get_cap_option( 'post1_title' ) ); ?></a></h3>
 								</div>
 							<?php else : ?>
@@ -35,16 +42,24 @@
 						<div class="featured-right span4 paddme">
 							<div class="row">
 								
-								<?php if ( isset( $post2 ) && ! empty( $post2 ) ) : ?>
+								<?php if ( ! empty( $post2 ) ) : ?>
 									<div class="span4 second-post boxed">
-										<?php get_the_image( array( 'post_id' => absint( $post2 ), 'meta_key' => '', 'image_scan' => true, 'size' => 'weekly-takeover-secondary' ) ); ?>
+										<?php if ( empty( $post2_image ) ) : ?>
+											<?php get_the_image( array( 'post_id' => absint( $post2 ), 'meta_key' => '', 'image_scan' => true, 'size' => 'weekly-takeover-secondary' ) ); ?>
+										<?php else : ?>
+											<img src="<?php echo esc_url( $post2_image ); ?>" width="250" height="163" />
+										<?php endif; ?>
 										<h3 class="featured-title"><a href="<?php echo get_permalink( absint( $post2 ) ); ?>"><?php echo esc_html( make_get_cap_option( 'post2_title' ) ); ?></a></h3>
 									</div>
 								<?php endif; ?>
 
-								<?php if ( isset( $post3 ) && ! empty( $post3 ) ) : ?>
+								<?php if ( ! empty( $post3 ) ) : ?>
 									<div class="span4 boxed">
-										<?php get_the_image( array( 'post_id' => absint( $post3 ), 'meta_key' => '', 'image_scan' => true, 'size' => 'weekly-takeover-secondary' ) ); ?>
+										<?php if ( empty( $post3_image ) ) : ?>
+											<?php get_the_image( array( 'post_id' => absint( $post3 ), 'meta_key' => '', 'image_scan' => true, 'size' => 'weekly-takeover-secondary' ) ); ?>
+										<?php else : ?>
+											<img src="<?php echo esc_url( $post3_image ); ?>" width="250" height="163" />
+										<?php endif; ?>
 										<h3 class="featured-title"><a href="<?php echo get_permalink( absint( $post3 ) ); ?>"><?php echo esc_html( make_get_cap_option( 'post3_title' ) ); ?></a></h3>
 									</div>
 								<?php endif; ?>

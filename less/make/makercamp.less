@@ -98,26 +98,50 @@ body.makercamp {
 		}
 	}
 	&.admin-bar header { margin-top:40px; }
+
+	.mc-description { 
+		font-size:48px;
+		color:#f26522;
+		line-height:48px;
+		h2 { font-size:48px;
+			 color:#f26522;
+			 line-height:1em;
+		}
+		h4{ font-weight:normal;
+			font-size:25px;
+			line-height:32px;
+			color:#f26522;
+			position:relative;
+			top:10px; 
+		}
+	}
+
 	.waist {
 	  background-image:url(http://makezineblog.files.wordpress.com/2013/05/hills.png);
 	  background-repeat:no-repeat;
 	  background-position:bottom center;
-	  padding-bottom:120px;
+	  padding-bottom:30px;
 	  margin-top:40px;
-	  border:none;
+	  border:none;	  	
+	  	.cap {
+			color:#acd3fc;
+			font-weight:bold;
+			font-size:32px;
+			margin-top:0;
+			padding-top:0;
+		  	margin-right:5px;
+		  	font-family:inherit !important;
+			}
+	  	p { margin-top:30px;
+			line-height:24px;
+		}
 		h3 {
 			margin: 5px 0 20px 0 !important;
-			font-size: 17px;
-			line-height: 30px !important;
+			font-size:19px;
+			line-height:1.3em;			
 			color: #acd3fc;
-			font-weight: normal;
-			.cap {
-			  	text-transform: uppercase;
-			  	font-size: 27px !important;
-			  	margin-right:5px;
-			  	font-weight: bold !important;
-			  	font-family:inherit !important;
-			}
+			font-weight: normal;			
+				span{font-size:16px;}
 			&.last {
 				margin-bottom:0 !important;
 			}
@@ -129,6 +153,12 @@ body.makercamp {
 			h4 {
 				padding-bottom:12px;
 			}
+		}
+		.button { 
+			border-radius:5px;
+			font-weight:400;
+			background:#f26522;
+			width:87%;
 		}
 	}
 	.join {
@@ -143,13 +173,20 @@ body.makercamp {
 		background-color: #fff;
 		color: black;
 		h4 {
-			font-size: 28px;
+			margin-top: 10px;
+			font-size: 24px;
+			line-height: 30px;
+			a:link, a:visited {color:#005d8f}
 		}
 		h5 {
 		  font-size:20px;
 		  text-transform:uppercase;
 		  color:#6e6e6e;
 		  font-weight:normal;
+		  	a, a:visited {
+				color: #005d8f !important;
+				text-decoration: none;
+			}
 		}
 		h6 { 
 			font-size:18px;
@@ -158,6 +195,12 @@ body.makercamp {
 				text-decoration: none;
 			}
 			&:hover { text-decoration:underline; }
+		}
+		p { 
+			a, a:visited {
+				color: #005d8f !important;
+				text-decoration: none;
+			}
 		}
 		.logo {
 			h5{padding-top: 24px !important;}
@@ -183,6 +226,15 @@ body.makercamp {
 		    line-height: 12px !important;
 		    padding:12px 15px 8px !important;
 		    margin-right:10px;	
+		}
+		.weekly-projects {
+			h5 {
+				text-transform:capitalize;
+				font-size:19px;
+			}
+			h6 {color:#005d8f;
+				a:link, a:visited:color:#005d8f;
+			}
 		}
 	}
 
@@ -233,41 +285,53 @@ body.makercamp {
 	}
 
 	.feature-box {
-		padding-left:25px;
-		padding-right:25px;
-		padding-bottom:50px;
-		min-height: 330px;
+		min-height:380px;
+		padding-left:auto;
+		padding-right:auto;
 		text-align: center;
 		p {
-			font-size: 18px;
-		    line-height: 24px;
+			font-size: 16px;
+		    line-height: 21px;
+		    margin-top:0 !important;
+		    margin-bottom:0 !important;
 		}
 		h4 {
-			font-size:28px;
+			font-size:26px;
+			margin-top:0 !important;
+			margin-bottom:0 !important;
+				span {font-weight: normal;}
 		}
 		h5 {
 			font-size:24px;
 			line-height: 28px;
+			margin-bottom:0 !important;
+			margin-top:0 !important;
 			font-weight: normal;
 		}
 		.button.blue {
-			width:79.16666671%;
-			font-size:17px ;
+			width:80%;
+			font-size:20px ;
 			line-height:32px;
 			font-weight:600;
-			padding-left:25px;
-			padding-right:25px;
+			a:link,a:visited {color:#033978;width:100%;margin:0 auto;}
 		}
-		img.register { margin:70px 0; }
+		img.register {margin:70px 0; }
 	}
 
 	.features-box-content {
-		min-height:253px;
-		margin-bottom:20px;
+		min-height:310px;
+		margin:0 25px;
+			h4 {
+				font-weight:normal;
+				line-height:34px;
+			}
+
 	}
 
+	.btn-area {}	
+
 	.lower-gradation {
-		margin-top:-10px;
+		padding-top:30px;
 		background:#0F5B99 url('http://makezineblog.files.wordpress.com/2013/05/background-gradient-02.jpg') 0 0 repeat; 
 		padding:20px 0;
 	}
@@ -444,10 +508,10 @@ body.makercamp {
 		text-decoration: none;
 		background-color: #e01b23;
 		.border-radius( 5px );
-		.box-shadow( 0 5px 0 0 #8d1216 );
+		.box-shadow( 0 5px 0 0 #a0410d );
 		border-bottom:none;
 		&:hover {
-			background-color: #b3151b !important;
+			background-color: #f26522 !important;
 			color:#fff !important;
 			text-decoration: none;
 		}
@@ -459,8 +523,6 @@ body.makercamp {
 			font-size:24px ;
 			line-height:32px;
 			font-weight:600;
-			padding-left:20px;
-			padding-right:20px;
 			.box-shadow( 0 5px 0 0 #4d97c5 );
 			&:hover {
 				color:#033978 !important;
@@ -504,7 +566,7 @@ body.makercamp {
 			.button.big { top:14px !important; }
 		}
 		.feature-box {
-			.button.blue { font-size:22px !important; }
+			.button.blue { font-size:22px !important;width:80%;}
 		}
 		.search-query {
 			width:206px !important;
@@ -543,9 +605,21 @@ body.makercamp {
 		}
 
 		.feature-box {
-			h4 { line-height:1em; }
+			min-height:440px;
+			h4 { 
+				line-height:1em;
+				padding-bottom:15px;
+			 }
 			h5 { font-size:1.5em; }
 			img.register { margin:52px 0; }
+		}
+
+		.features-box-content {
+			min-height:380px;
+			h4 { 
+				font-size:1.6em;
+				line-height: 1.3em;
+			}
 		}
 
 		// Schedule Page
@@ -575,7 +649,7 @@ body.makercamp {
 		}
 		.navbar-fixed-top { margin-left:0; margin-right:0; }
 	
-		.top-header, .waist .container, .lower-gradation .container, .new-footer .container { width:90% !important; margin:0 auto !important; }
+		.top-header, .waist .container, .lower-gradation .container, .new-footer .container { width:90% !important; margin:0 auto 40px 0 !important; }
 		.button.blue { font-size:1.428571429em; }
 
 		// Navbar Styles
@@ -612,7 +686,7 @@ body.makercamp {
 		// Mobile Schedule
 		.mobile-schedule {
 			.container.row { margin:0; }
-			a { width:90% !important; }
+			a { width:90% !important;font-size:21px; }
 		}
 
 		// Schedule Page

@@ -361,6 +361,12 @@ $cap = new CheezCap( array(
 					''
 				),
 				new CheezCapTextOption(
+					'Main Post Custom Image (268x248)',
+					'Add a custom image. (optional. if empty, the featured image or the first image of the post will be used).',
+					'post1_img',
+					''
+				),
+				new CheezCapTextOption(
 					'Top Right Title',
 					'The title of the top right post.',
 					'post2_title',
@@ -373,6 +379,12 @@ $cap = new CheezCap( array(
 					''
 				),
 				new CheezCapTextOption(
+					'Top Right Custom Image (250x163)',
+					'Add a custom image. (optional. if empty, the featured image or the first image of the post will be used).',
+					'post2_img',
+					''
+				),
+				new CheezCapTextOption(
 					'Bottom Right Title',
 					'The title of the bottom right post.',
 					'post3_title',
@@ -382,6 +394,12 @@ $cap = new CheezCap( array(
 					'Bottom Right ID',
 					'The ID of the bottom right post. This is used to the image and link.',
 					'post3_id',
+					''
+				),
+				new CheezCapTextOption(
+					'Bottom Right Custom Image (250x163)',
+					'Add a custom image. (optional. if empty, the featured image or the first image of the post will be used).',
+					'post3_img',
 					''
 				),
 			)
