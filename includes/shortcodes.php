@@ -231,7 +231,7 @@ function make_printing_guide_blurb() {
 
 	$output .= '<div class="alert alert-info">
 
-			<img src="'.get_stylesheet_directory_uri().'/img/SIP4_Cover_RGB1.jpg" class="thumbnail pull-right" style="width:125px; height: auto;" />
+			<img src="' . get_stylesheet_directory_uri() . '/img/SIP4_Cover_RGB1.jpg" class="thumbnail pull-right" style="width:125px; height: auto;" />
 
 			<h4>2013 MAKE Ultimate Guide To 3D Printing</h4>
 
@@ -246,7 +246,7 @@ function make_printing_guide_blurb() {
 
 			<p><a class="btn btn-primary" href="http://www.makershed.com/Make_Ultimate_Guide_to_3D_Printing_p/1449357377.htm">Buy now!</a></p>
 
-			<h4>Just Released! <a href="http://makezine.com/volume/guide-to-3d-printing-2014/">2014 MAKE Ultimate Guide To 3D Printing</a></h4>
+			<h4>Just Released! <a href="' . get_permalink( 348718 ) . '">2014 MAKE Ultimate Guide To 3D Printing</a></h4>
 
 		</div>';
 
