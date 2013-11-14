@@ -1656,10 +1656,9 @@ function make_is_parent_page() {
 function make_copyright_footer() { ?>
 	<div class="row">
 		<div class="span12">
-			<p class="footer_copyright text-center"><a href="http://makezine.com/">Make:</a> and <a href="http://makerfaire.com/">Maker Faire</a> are registered trademarks of <a href="http://makermedia.com/">Maker Media, Inc.</a><br>
-			Copyright &copy; 2004-<?php echo date("Y") ?> Maker Media, Inc.  All rights reserved<br>
-			<?php if ( function_exists('vip_powered_wpcom') ) { echo vip_powered_wpcom(4); } ?>
-			</p>
+			<p class="footer_copyright text-center"><a href="http://makezine.com/">Make:</a> and <a href="http://makerfaire.com/">Maker Faire</a> are registered trademarks of <a href="http://makermedia.com/">Maker Media, Inc.</a></p>
+			<p class="footer_copyright text-center">Copyright &copy; 2004-<?php echo date("Y") ?> Maker Media, Inc.  All rights reserved</p>
+			<p class="footer_copyright text-center"><?php if ( function_exists('vip_powered_wpcom') ) { echo vip_powered_wpcom(4); } ?></p>
 		</div>
 	</div>
 <?php } 
