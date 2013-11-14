@@ -935,7 +935,7 @@ function make_3d_promo( $atts, $content = null ) {
 	}
 
 
-	$output = '<div class="sip-promo-area ' . esc_attr( $align ) . '"><a href="http://makezine.com/volume/guide-to-3d-printing-2014/"><img src="'.get_stylesheet_directory_uri().'/images/3DPrintingSIP_Widget_Final.jpg" class="" style="width:234px; height: auto;" /></a></div>';
+	$output = '<div class="sip-promo-area ' . esc_attr( $align ) . '"><a href="' . get_permalink( 348718 ) . '"><img src="'.get_stylesheet_directory_uri().'/images/3DPrintingSIP_Widget_Final.jpg" class="" style="width:234px; height: auto;" /></a></div>';
 	return $output;
 }
 
