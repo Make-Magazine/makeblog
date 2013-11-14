@@ -231,7 +231,7 @@ function make_printing_guide_blurb() {
 
 	$output .= '<div class="alert alert-info">
 
-			<img src="' . get_stylesheet_directory_uri() . '/img/SIP4_Cover_RGB1.jpg" class="thumbnail pull-right" style="width:125px; height: auto;" />
+			<img src="' . esc_url( get_stylesheet_directory_uri() ) . '/img/SIP4_Cover_RGB1.jpg" class="thumbnail pull-right" style="width:125px; height: auto;" />
 
 			<h4>2013 MAKE Ultimate Guide To 3D Printing</h4>
 
