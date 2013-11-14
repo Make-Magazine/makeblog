@@ -5983,15 +5983,15 @@ footer {
   padding-top: 40px;
   padding-bottom: 20px;
 }
-.footer_copyright {
+.footer_copyright p {
   font-size: 12px  !important;
   line-height: 10px  !important;
   font-weight: normal !important;
 }
-.footer_copyright a {
+.footer_copyright p a {
   border-bottom: none !important;
 }
-.footer_copyright a img {
+.footer_copyright p a img {
   margin-top: -7px !important;
 }
 .p_footer {
