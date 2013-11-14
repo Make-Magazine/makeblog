@@ -246,7 +246,7 @@ function make_printing_guide_blurb() {
 
 			<p><a class="btn btn-primary" href="http://www.makershed.com/Make_Ultimate_Guide_to_3D_Printing_p/1449357377.htm">Buy now!</a></p>
 
-			<h4>Just Released! <a href="' . get_permalink( 348718 ) . '">2014 MAKE Ultimate Guide To 3D Printing</a></h4>
+			<h4>Just Released! <a href="' . esc_url( get_permalink( 348718 ) ) . '">2014 MAKE Ultimate Guide To 3D Printing</a></h4>
 
 		</div>';
 
@@ -935,7 +935,7 @@ function make_3d_promo( $atts, $content = null ) {
 	}
 
 
-	$output = '<div class="sip-promo-area ' . esc_attr( $align ) . '"><a href="' . get_permalink( 348718 ) . '"><img src="'.get_stylesheet_directory_uri().'/images/3DPrintingSIP_Widget_Final.jpg" class="" style="width:234px; height: auto;" /></a></div>';
+	$output = '<div class="sip-promo-area ' . esc_attr( $align ) . '"><a href="' . esc_url( get_permalink( 348718 ) ) . '"><img src="' . esc_url( get_stylesheet_directory_uri() ) . '/images/3DPrintingSIP_Widget_Final.jpg" class="" style="width:234px; height: auto;" /></a></div>';
 	return $output;
 }
 
