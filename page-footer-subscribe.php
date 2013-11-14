@@ -111,6 +111,7 @@
 					</div>
 				<!-- END MAIN row (main) -->
 				</div>
+				<?php echo make_copyright_footer(); ?>
 			<!-- END container -->
 			</div>
 		<!-- END new-footer -->

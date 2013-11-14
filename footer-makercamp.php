@@ -118,6 +118,7 @@
 						</div>
 					<!-- END row -->
 					</div>
+					<?php echo make_copyright_footer(); ?>
 				<!-- END container -->
 				</div>
 			</section>	
