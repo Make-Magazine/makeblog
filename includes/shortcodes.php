@@ -233,7 +233,7 @@ function make_printing_guide_blurb() {
 
 			<img src="'.get_stylesheet_directory_uri().'/img/SIP4_Cover_RGB1.jpg" class="thumbnail pull-right" style="width:125px; height: auto;" />
 
-			<h4>Get a copy of the MAKE Ultimate Guide To 3D Printing today!</h4>
+			<h4>2013 MAKE Ultimate Guide To 3D Printing</h4>
 
 			<ul>
 				<li>3D Printers Buyer\'s Guide &mdash; 15 Reviewed</li>
@@ -245,6 +245,8 @@ function make_printing_guide_blurb() {
 			</ul>
 
 			<p><a class="btn btn-primary" href="http://www.makershed.com/Make_Ultimate_Guide_to_3D_Printing_p/1449357377.htm">Buy now!</a></p>
+
+			<h4>Just Released! <a href="http://makezine.com/volume/guide-to-3d-printing-2014/">2014 MAKE Ultimate Guide To 3D Printing</a></h4>
 
 		</div>';
 
@@ -912,3 +914,29 @@ function make_wizehive_shortcode() {
 }
 
 add_shortcode( 'ford_challenge', 'make_wizehive_shortcode' );
+
+/**
+ * 3D Printer SIP Promo 
+ * Example using left alignment: [3d_sip alignment="left"] 
+ */
+
+
+function make_3d_promo( $atts, $content = null ) {
+	extract( shortcode_atts( array(
+		'alignment' => 'left',
+	), $atts ) );
+
+
+	// Check what alignment we want. Always default to left if right is not given.
+	if ( $alignment == 'right' ) {
+		$align = 'alignright';
+	} else {
+		$align = 'alignleft';
+	}
+
+
+	$output = '<div class="sip-promo-area ' . esc_attr( $align ) . '"><a href="' . get_permalink( 348718 ) . '"><img src="'.get_stylesheet_directory_uri().'/images/3DPrintingSIP_Widget_Final.jpg" class="" style="width:234px; height: auto;" /></a></div>';
+	return $output;
+}
+
+add_shortcode( '3d_sip', 'make_3d_promo' );

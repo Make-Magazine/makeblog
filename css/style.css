@@ -5985,11 +5985,14 @@ footer {
 }
 .footer_copyright {
   font-size: 12px  !important;
-  line-height: 20px  !important;
+  line-height: 10px  !important;
   font-weight: normal !important;
 }
 .footer_copyright a {
   border-bottom: none !important;
+}
+.footer_copyright a img {
+  margin-top: -7px !important;
 }
 .p_footer {
   font-size: 14px !important;
