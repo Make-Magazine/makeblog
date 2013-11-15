@@ -9,8 +9,8 @@ function make_bitly_url( $url ) {
 	$args = array(
 		'version' 	=> '2.0.1',
 		'longUrl' 	=> $url,
-		'login'		=> 'jspurlock',
-		'apiKey'	=> 'R_0bd5a31ae74e16ceef7dd529bbf78fca',
+		'login'		=> 'makerm',
+		'apiKey'	=> 'R_959d3d6914fd1e9b1ddfb64791bc062c',
 		'format'	=> 'json'
 	);
 	
