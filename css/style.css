@@ -7718,7 +7718,6 @@ textarea.narrow,
   font-weight: normal;
 }
 #make_subcription_form .subscribe-button-area {
-  background-color: #f0f0f0;
   height: auto;
   padding: 10px;
   margin: 10px 0;
@@ -7865,7 +7864,6 @@ textarea.narrow,
   text-transform: uppercase;
 }
 #make_subcription_form .container .row .span12.subscribe-button-area {
-  background-color: #F0F0F0;
   height: 40px;
   padding-top: 10px;
   margin-bottom: 10px;
