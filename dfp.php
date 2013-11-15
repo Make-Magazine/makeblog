@@ -130,9 +130,6 @@ global $post;
 				elseif (is_single(array(122575))) {
 					echo "googletag.pubads().setTargeting('sponsor',['xobject']);";
 				}
-				elseif ( is_category( array( 'electronics', 'arduino', 'computers-mobile', 'raspberry-pi', 'robotics' ) ) || post_is_in_descendant_category( 'electronics' ) || has_category( 'electronics' ) ) {
-					echo "googletag.pubads().setTargeting('sponsor',['element14']);";
-				}
 				elseif (is_page( array( 289746,271575 ) ) ) {
 					echo "googletag.pubads().setTargeting('sponsor',['mcm']);";
 				}
