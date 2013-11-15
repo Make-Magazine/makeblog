@@ -331,3 +331,39 @@ add_action( 'init', function() {
         exit;
     }
 } );
+
+// Sets ElasticSearch facets
+add_action( 'after_setup_theme', function() {
+ 
+    if ( ! function_exists( 'WPCOM_elasticsearch' ) )
+        return;
+ 
+    WPCOM_elasticsearch()->set_facets( array(
+        'Content Type' => array(
+            'type'     => 'post_type',
+            'count'    => 10,
+        ),
+        'Categories' => array(
+            'type'     => 'taxonomy',
+            'taxonomy' => 'category',
+            'count'    => 10,
+        ),
+        'Tags' => array(
+            'type'     => 'taxonomy',
+            'taxonomy' => 'post_tag',
+            'count'    => 10,
+        ),
+        'Year' => array(
+            'type'     => 'date_histogram',
+            'field'    => 'post_date',
+            'interval' => 'year',
+            'count'    => 10,
+        ),
+        'Month' => array(
+            'type'     => 'date_histogram',
+            'field'    => 'post_date',
+            'interval' => 'month',
+            'count'    => 10,
+        ),
+    ) );
+});

@@ -569,7 +569,7 @@ function make_new_gallery_shortcode($attr) {
 		}
 		if ( isset( $attachment_caption ) && ! empty( $attachment_caption ) ) {
 			$output .= '<div class="carousel-caption">';
-			$output .= '<h4>' . Markdown( esc_html( $attachment_caption ) ) . '</h4>';
+			$output .= '<h4>' . Markdown( wp_kses_post( $attachment_caption ) ) . '</h4>';
 			$output .= '</div>';
 			
 		}
