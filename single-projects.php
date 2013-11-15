@@ -155,10 +155,12 @@ get_header(); ?>
 								</div>
 									
 							</div>
+
+						</article>
 							
 							<?php 
-								$stepscount = unserialize($steps[0]);
-								if (!empty($stepscount)) {
+								$stepscount = unserialize( $steps[0] );
+								if ( !empty( $stepscount ) ) {
 							?>
 							
 							<div class="row">
@@ -299,8 +301,6 @@ get_header(); ?>
 								</div>
 							
 							</div>
-								
-						</article>
 							
 					<?php } ?>
 
@@ -326,7 +326,7 @@ get_header(); ?>
 									
 								</div>
 								
-								<?php if (empty($stepscount)) { ?>
+								<?php if ( empty( $stepscount ) ) { ?>
 								
 									<div class="span4" style="margin-top:20px;">
 											
