@@ -5400,7 +5400,7 @@ a.badge:focus {
 }
 .carousel-control {
   position: absolute;
-  top: 40%;
+  top: 42px;
   left: 15px;
   width: 40px;
   height: 40px;
@@ -8632,7 +8632,7 @@ ul#tabs .current > a:hover {
   color: #5ebcf7;
 }
 .maker-week-takeover .slider .carousel-control {
-  top: 50%;
+  top: 42px;
   background: #00476b;
   border: 1px solid #00324b;
   font-size: 72px;
