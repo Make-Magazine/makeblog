@@ -919,8 +919,6 @@ add_shortcode( 'ford_challenge', 'make_wizehive_shortcode' );
  * 3D Printer SIP Promo 
  * Example using left alignment: [3d_sip alignment="left"] 
  */
-
-
 function make_3d_promo( $atts, $content = null ) {
 	extract( shortcode_atts( array(
 		'alignment' => 'left',
