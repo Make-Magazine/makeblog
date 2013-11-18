@@ -37,8 +37,6 @@ make_get_header(); ?>
 						echo '<div class="span12">';
 					}
 				?>
-					<?php if ( is_category( 'electronics' ) || cat_is_ancestor_of( wpcom_vip_get_category_by_slug( 'electronics' ), get_queried_object() ) ) { echo '<p class="pull-right"><a href="http://pubads.g.doubleclick.net/gampad/clk?id=62875378&amp;iu=/11548178/Makezine"><img src="' . get_stylesheet_directory_uri() . '/img/element14.png" /></a></p>'; } ?>
-
 					<h1 class="jumbo"><?php single_cat_title('', true); ?></h1>
 				
 					<?php echo Markdown( strip_tags( category_description() ) ); ?>
