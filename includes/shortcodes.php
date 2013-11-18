@@ -908,7 +908,7 @@ add_shortcode( 'shedpromo', 'makershed_weekly_deal' );
 function make_wizehive_shortcode() {
 	$output = '<iframe id="wizehiveportal" onload="parent.scrollTo(0,0);" height="2480px" width="940px" frameborder="0" scrolling="auto"></iframe>
 		<script type="text/javascript" src="http://review.wizehive.com/js/portaliframe.js"></script>
-		<script type="text/javascript">displayPortal('makervehicle2013');</script>
+		<script type="text/javascript">displayPortal(\'makervehicle2013\');</script>
 		<p><a href="http://www.wizehive.com/photo-contest-software" target="_blank">Photo Contest Software</a> provided by WizeHive</p>';
 	return $output;
 }
