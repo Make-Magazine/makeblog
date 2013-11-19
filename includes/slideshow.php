@@ -103,7 +103,7 @@ function make_slidehow_embed( $atts ) {
 	), $atts ) );
 
 	if (jetpack_is_mobile() || is_feed()) {
-		return $content. '<p><a href="'.esc_url( 'http://blog.makezine.com/slideshow/' . $slug .'/' ).'" taget="_blank" class="btn btn-primary">View Slideshow</a></p>';
+		return $content. '<p><a href="'.esc_url( 'http://makezine.com/slideshow/' . $slug . '/' ) . '" taget="_blank" class="btn btn-primary">View Slideshow</a></p>';
 	} else {
 		return '<a href="#myModal" role="button" class="btn btn-primary" data-toggle="modal">'.esc_html($link). '</a>
 			<div class="modal hide slideshow" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -112,7 +112,7 @@ function make_slidehow_embed( $atts ) {
 					<h3 id="myModalLabel">'.esc_html($title).'</h3>
 				</div>
 				<div class="modal-body">
-					<iframe width="940" height="600" frameborder=0 src="'.esc_url( 'http://blog.makezine.com/slideshow/' . $slug .'/' ).'"></iframe>
+					<iframe width="940" height="600" frameborder=0 src="' . esc_url( 'http://makezine.com/slideshow/' . $slug . '/' ) . '"></iframe>
 				</div>
 				<div class="modal-footer">
 					<button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
