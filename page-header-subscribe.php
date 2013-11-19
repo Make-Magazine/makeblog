@@ -17,15 +17,7 @@ Template name: Header
 			?>" />
 
 		<!-- Le fav and touch icons -->
-		<link rel="shortcut icon" href="http://1.gravatar.com/blavatar/dab43acfe30c0e28a023bb3b7a700440?s=14">
-		
-
-		<?php if ( is_page( array( 'home-page-include', 'home-page', 'home', 116357 ) ) ) : ?>
-
-			<link rel="canonical" href="http://makezine.com/" />
-			<link rel="alternate" type="application/rss+xml" title="RSS" href="http://feeds.feedburner.com/makezineonline" />
-
-		<?php endif; ?>
+		<link rel="shortcut icon" href="https://1.gravatar.com/blavatar/dab43acfe30c0e28a023bb3b7a700440?s=14">
 
 		<link rel="stylesheet" href="https://s0.wp.com/wp-content/themes/vip/makeblog/css/style.css">
 		
