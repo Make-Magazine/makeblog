@@ -808,9 +808,9 @@ add_shortcode( 'volume', 'make_volume_tease' );
  */
 function make_volume_tease( $atts, $content = null ) {
 	extract( shortcode_atts( array(
-		'volume'	=> '34',
+		'volume'	=> '36',
 		'subscribe'	=> 'https://readerservices.makezine.com/mk/subscribe.aspx?PC=MK',
-		'buy'		=> 'http://www.makershed.com/MAKE_Volume_34_p/9781449327668-p.htm'
+		'buy'		=> 'http://www.makershed.com/MAKE_Volume_36_p/9781449363765-p.htm'
 	), $atts ) );
 
 	$output = '<div class="tease">';
