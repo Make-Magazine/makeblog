@@ -38,7 +38,7 @@ jQuery(document).ready(function(){
 	});
 	jQuery('.aller').click(function() {
 		jQuery('#steppers').children().slideDown();
-		jQuery('#steppers .nexter').hide();
+		jQuery('#steppers .nexter, #steppers .disabled').hide();
 		googletag.pubads().refresh();
 		_gaq.push(['_trackPageview']);
 		console.log('Pushed a pageview, like a boss.');

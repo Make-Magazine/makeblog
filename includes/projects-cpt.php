@@ -471,7 +471,7 @@ function make_projects_steps_list( $steps ) {
 	$steps = unserialize($steps[0]);
 	if ( !empty( $steps ) ) {
 		echo '<div class="well" style="padding:8px 0px;"><ul class="nav nav-list" id="tabs">';
-		echo '<li class="nav-header">Project Steps <span class="badge aller">All</span></li>';
+		echo '<li class="nav-header">Project Steps <span class="badge aller">View All</span></li>';
 		echo '<li></li>';
 		foreach ($steps as $idx =>$step) {
 			echo '<li class="tabs steps" data-toggle="tab" id="step-'  . esc_attr( $step->number ) . '" data-target="#js-step-'  . esc_attr( $step->number ) . '">';
@@ -522,16 +522,40 @@ function make_projects_steps( $steps, $print = false ) {
 	$count = count($steps);
 	if ( !empty( $count ) ) {
 		foreach ( $steps as $idx => $step ) {
-			if ($idx == 0 or $print == true) {
+			if ( $idx == 0 or $print == true) {
 				echo '<div class="jstep active" id="js-step-' . esc_attr( $step->number ) . '">';
 			} else {
 				echo '<div class="jstep hide" id="js-step-' . esc_attr( $step->number ) . '">';
 			}
-			if( $idx < $count - 1 && $print == false ) {
-				echo '<span class="row"><span class="span7"><h4><span class="black">Step #' . esc_html( $step->number ) . ':</span> ' . esc_html( stripslashes( $step->title ) ) . '</h4></span><span class="span1"><a class="btn pull-right btn-danger nexter" id="step-'  . esc_attr( $step->number + 1 ) . '" data-target="#js-step-'  . esc_attr( $step->number + 1 ) . '">Next</a></span></span>';
-			} else {
-				echo '<span class="row"><span class="span8"><h4><span class="black">Step #' . esc_html( $step->number ) . ':</span> ' . esc_html( stripslashes( $step->title ) ) . '</h4></span></span>';
-			}
+
+			echo '<span class="row">';
+				// Output our previous button
+				if ( $idx != 0 && ! $print ) {
+					echo '<span class="span7"><a class="btn pull-right btn-danger nexter" id="step-'  . esc_attr( $step->number - 1 ) . '" data-target="#js-step-'  . esc_attr( $step->number - 1 ) . '">Prev</a></span>';
+				} elseif ( $idx == 0 && ! $print ) {
+					echo '<span class="span7"><a class="btn pull-right disabled" id="step-'  . esc_attr( $step->number - 1 ) . '" disabled="disabled">Prev</a></span>';
+				} elseif ( $print ) {
+					echo '';
+				}
+
+				// Output the next button
+				if ( $idx < $count - 1 && ! $print ) {
+					echo '<span class="span1"><a class="btn pull-right btn-danger nexter" id="step-'  . esc_attr( $step->number + 1 ) . '" data-target="#js-step-'  . esc_attr( $step->number + 1 ) . '">Next</a></span>';
+				} elseif ( $idx == $count - 1 && ! $print ) {
+					echo '<span class="span1"><a class="btn pull-right disabled" id="step-'  . esc_attr( $step->number + 1 ) . '" disabled="disabled">Next</a></span>';
+				} elseif ( $print ) {
+					echo '';
+				}
+			echo '</span>';
+
+				// Output the Step title
+				if ( ! $print ) {
+					echo '<span class="row"><span class="span8"><h4><span class="black">Step #' . esc_html( $step->number ) . ':</span> ' . esc_html( stripslashes( $step->title ) ) . '</h4></span></span>';
+				} else {
+					echo '<span class="row"><span class="span8"><h4><span class="black">Step #' . esc_html( $step->number ) . ':</span> ' . esc_html( stripslashes( $step->title ) ) . '</h4></span></span>';
+				}
+
+			echo '</span>';
 			
 			$images = $step->images;
 			if ( isset( $images[0]->text ) ) {

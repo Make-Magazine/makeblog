@@ -5056,6 +5056,9 @@ a.thumbnail:focus {
 .badge {
   padding-left: 9px;
   padding-right: 9px;
+  margin-right: 5px;
+  position: relative;
+  top: -5px;
   -webkit-border-radius: 9px;
   -moz-border-radius: 9px;
   border-radius: 9px;
@@ -8866,6 +8869,9 @@ body .single .tag-weekend-projects {
   background-color: #999999;
   padding-left: 9px;
   padding-right: 9px;
+  margin-right: 5px;
+  position: relative;
+  top: -5px;
   -webkit-border-radius: 9px;
   -moz-border-radius: 9px;
   border-radius: 9px;
