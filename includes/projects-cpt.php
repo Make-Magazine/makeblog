@@ -529,11 +529,19 @@ function make_projects_steps( $steps, $print = false ) {
 			}
 
 			echo '<span class="row">';
+
+				// Output the Step title
+				if ( ! $print ) {
+					echo '<span class="span6"><h4><span class="black">Step #' . esc_html( $step->number ) . ':</span> ' . esc_html( stripslashes( $step->title ) ) . '</h4></span>';
+				} else {
+					echo '<span class="span6"><h4><span class="black">Step #' . esc_html( $step->number ) . ':</span> ' . esc_html( stripslashes( $step->title ) ) . '</h4></span>';
+				}
+
 				// Output our previous button
 				if ( $idx != 0 && ! $print ) {
-					echo '<span class="span7"><a class="btn pull-right btn-danger nexter" id="step-'  . esc_attr( $step->number - 1 ) . '" data-target="#js-step-'  . esc_attr( $step->number - 1 ) . '">Prev</a></span>';
+					echo '<span class="span1"><a class="btn pull-right btn-danger nexter" id="step-'  . esc_attr( $step->number - 1 ) . '" data-target="#js-step-'  . esc_attr( $step->number - 1 ) . '">Prev</a></span>';
 				} elseif ( $idx == 0 && ! $print ) {
-					echo '<span class="span7"><a class="btn pull-right disabled" id="step-'  . esc_attr( $step->number - 1 ) . '" disabled="disabled">Prev</a></span>';
+					echo '<span class="span1"><a class="btn pull-right disabled" id="step-'  . esc_attr( $step->number - 1 ) . '" disabled="disabled">Prev</a></span>';
 				} elseif ( $print ) {
 					echo '';
 				}
@@ -546,15 +554,6 @@ function make_projects_steps( $steps, $print = false ) {
 				} elseif ( $print ) {
 					echo '';
 				}
-			echo '</span>';
-
-				// Output the Step title
-				if ( ! $print ) {
-					echo '<span class="row"><span class="span8"><h4><span class="black">Step #' . esc_html( $step->number ) . ':</span> ' . esc_html( stripslashes( $step->title ) ) . '</h4></span></span>';
-				} else {
-					echo '<span class="row"><span class="span8"><h4><span class="black">Step #' . esc_html( $step->number ) . ':</span> ' . esc_html( stripslashes( $step->title ) ) . '</h4></span></span>';
-				}
-
 			echo '</span>';
 			
 			$images = $step->images;
