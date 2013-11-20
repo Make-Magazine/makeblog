@@ -194,9 +194,11 @@ Template Name: Home Page
 
 					<div class="span12">
 
-						<a href="https://readerservices.makezine.com/mk/subscribe.aspx?PC=MK&amp;PK=M37BN02">
-							<img src="http://cdn.makezine.com/make/ads/Make_SIP-ProjectsGuide_SubOffer_940x39.gif" alt="Subscribe to MAKE magazine" />
-						</a>
+						<div id='div-gpt-ad-664089004995786621-6'>
+							<script type='text/javascript'>
+								googletag.cmd.push(function(){googletag.display('div-gpt-ad-664089004995786621-6')});
+							</script>
+						</div>
 
 					</div>
 

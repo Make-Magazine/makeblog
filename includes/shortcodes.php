@@ -35,9 +35,9 @@ add_shortcode('recent_arduino', 'make_recent_arduino');
 
 function make_ad_block_shortcode( $atts, $content = null ) {
 	return 	'<div style="width:125px;height:125px;float:right;margin-top:0px;padding:0 10px 5px;">
-		<div id=\'div-gpt-ad-664089004995786621-6\'>
+		<div id=\'div-gpt-ad-664089004995786621-7\'>
 			<script type=\'text/javascript\'>
-				googletag.cmd.push( function(){ googletag.display(\'div-gpt-ad-664089004995786621-6\') } );
+				googletag.cmd.push( function(){ googletag.display(\'div-gpt-ad-664089004995786621-7\') } );
 			</script>
 		</div>
 	</div>';
