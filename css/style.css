@@ -11779,6 +11779,11 @@ a.button.small-button {
   background-color: #e4f4f9;
   padding: 10px;
 }
+.search .results {
+  margin: 30px 0;
+  background-color: #e4f4f9;
+  border: 1px solid #e4f4f9;
+}
 .search .results h1 {
   font-size: 30px;
 }
