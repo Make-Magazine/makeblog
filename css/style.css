@@ -11769,6 +11769,16 @@ a.button.small-button {
 .weekly-takeover .second-post {
   margin-bottom: 30px;
 }
+.search .box {
+  border: 1px solid #e4f4f9;
+  border-radius: 3px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.search .box .heading {
+  background-color: #e4f4f9;
+  padding: 10px;
+}
 .search .results h1 {
   font-size: 30px;
 }

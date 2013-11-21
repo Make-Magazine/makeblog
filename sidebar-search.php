@@ -14,6 +14,18 @@
 
 						<?php dynamic_sidebar( 'search' ); ?>
 
+						<div class="box">
+
+							<div class="heading">
+
+								<h3>Refine Search</h3>
+
+							</div>
+
+							<?php make_search_facets( array() ); ?>
+
+						</div>
+
 						<div class="sidebar-ad">
 
 							<!-- Beginning Sync AdSlot 2 for Ad unit header ### size: [[300,250]]  -->

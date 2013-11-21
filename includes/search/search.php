@@ -7,8 +7,8 @@
 // require_once( __DIR__ . '/search-widget-facets.php' );
 
 
-function make_search_facets( $args, $instance ) {
-	if ( ! function_exists( 'WPCOM_elasticsearch' ) || ! is_search() )
+function make_search_facets( $args ) {
+	if ( ! function_exists( 'WPCOM_elasticsearch' ) )
 		return;
 
 	$facets = WPCOM_elasticsearch()->get_search_facet_data();
@@ -27,9 +27,6 @@ function make_search_facets( $args, $instance ) {
 	}
 	if ( ! $facets_found && ! $current_filters )
 		return;
-
-
-	$title = apply_filters( 'widget_title', ! empty( $instance['title'] ) ? $instance['title'] : 'Search Refinement', $instance, $this->id_base );
 
 	echo $args['before_widget'];
 
@@ -83,7 +80,7 @@ function make_search_count( $wp_query ) {
 
 function make_search_pagination( $wp_query ) {
 	$big = 999999999; // need an unlikely integer
-	
+
 	return paginate_links( array(
 		'base' => str_replace( $big, '%#%', esc_url( get_pagenum_link( $big ) ) ),
 		'format' => '?paged=%#%',
