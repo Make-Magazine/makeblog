@@ -150,4 +150,8 @@ include_once dirname(  __FILE__  ) . '/includes/stats/stats.php';
 // 41. Blog Dashboard
 include_once dirname( __FILE__ ) . '/includes/blog-dashboard/blog-dashboard.php';
 
+// 42. Search Facets
+include_once dirname( __FILE__ ) . '/includes/search/search.php';
+
+
 ?>
