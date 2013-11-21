@@ -6,9 +6,10 @@
  * @license    http://opensource.org/licenses/gpl-license.php  GNU Public License
  * 
  */
+global $wp_query;
 make_get_header() ?>
 		
-	<div class="single">
+	<div class="">
 	
 		<div class="container">
 
@@ -46,40 +47,34 @@ make_get_header() ?>
 
 						</div>
 
+						<div class="count">
+
+							<div class="pull-left">
+
+								<?php echo make_search_count( $wp_query ); ?>
+
+							</div>
+
+						</div>
+
 						<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 
 							<article <?php post_class('media'); ?>>
 
-								<a href="<?php get_permalink(); ?>" class="pull-left thumbnail">
-									<?php the_post_thumbnail( 'attachment-thumb' ); ?>
+								<a href="<?php get_permalink(); ?>" class="pull-left">
+									<?php the_post_thumbnail( 'search-thumb', array( 'class' => 'thumbnail' ) ); ?>
 								</a>
-					
-								<h1><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h1>
-								
-								<ul class="projects-meta">
-									<?php if ( make_get_author( $post->ID ) ) : ?>
-										<?php make_get_author( $post->ID ); ?>
-									<?php endif ?>
-									<li>Posted <span class="blue"><?php the_time('m/d/Y \@ g:i a'); ?></span></li>
-									<li>Category <?php the_category(', '); ?></li>
-									<li>Comments <a href="<?php the_permalink(); ?>#comments"><?php comments_number( '0', '1', '%' ); ?></a></li>
-								</ul>
-								
-								<div class="media">
+
+								<div class="media-body">
+
+									<h1><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h1>
 									
-									<a href="<?php the_permalink(); ?>" class="pull-left">
-										<?php the_post_thumbnail( 'archive-thumb', array( 'class' => 'media-object' ) ); ?>
-									</a>
-									
+									<div class="meta"><?php the_time('m/d/Y \@ g:i a'); ?> | <?php echo make_post_type_better_name( get_post_type() ); ?></div>
+
 									<div class="media-body">
-										<p><?php echo wp_trim_words(get_the_excerpt(), 50, '...'); ?> <a href="<?php the_permalink(); ?>">Read more &raquo;</a></p>
+										<p><?php echo wp_trim_words(get_the_excerpt(), 20, '...'); ?> <a href="<?php the_permalink(); ?>"></a></p>
 									</div>
-									
-									<div class="jetpack-sharing">
-										<?php if ( function_exists( 'sharing_display') ) echo sharing_display(); ?> 
-									</div>
-									
-									
+
 								</div>
 							
 							</article>
