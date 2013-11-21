@@ -77,10 +77,10 @@ make_get_header() ?>
 
 									<h1><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h1>
 									
-									<div class="meta"><?php the_time('m/d/Y \@ g:i a'); ?> | <?php echo make_post_type_better_name( get_post_type() ); ?></div>
+									<div class="meta"><?php the_time('m/d/Y \@ g:i a'); ?> | <?php echo ucfirst( make_post_type_better_name( get_post_type() ) ); ?></div>
 
 									<div class="media-body">
-										<p><?php echo wp_trim_words(get_the_excerpt(), 20, '...'); ?> <a href="<?php the_permalink(); ?>"></a></p>
+										<p><?php echo wp_trim_words(get_the_excerpt(), 16, '...'); ?> <a href="<?php the_permalink(); ?>"></a></p>
 									</div>
 
 								</div>

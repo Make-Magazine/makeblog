@@ -11800,8 +11800,12 @@ a.button.small-button {
 .search .search-results .count.bottom {
   clear: both;
 }
+.search .search-results .count .prev,
+.search .search-results .count .next {
+  font-size: 26px;
+}
 .search .search-results article {
-  padding: 10px 10px;
+  padding: 0px 10px;
 }
 .search .search-results article h1 {
   font-size: 22px;
