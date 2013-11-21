@@ -11769,3 +11769,65 @@ a.button.small-button {
 .weekly-takeover .second-post {
   margin-bottom: 30px;
 }
+.search .box {
+  border: 1px solid #e4f4f9;
+  border-radius: 3px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.search .box .heading {
+  background-color: #e4f4f9;
+  padding: 10px;
+}
+.search .results {
+  margin: 30px 0;
+  background-color: #e4f4f9;
+  border: 1px solid #e4f4f9;
+}
+.search .results h1 {
+  font-size: 30px;
+}
+.search .results form {
+  display: inline;
+}
+.search .results form .search-query {
+  height: 30px;
+}
+.search .search-results {
+  border: 1px solid #e4f4f9;
+  border-radius: 3px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.search .search-results .heading {
+  background-color: #e4f4f9;
+  padding: 10px;
+}
+.search .search-results .count {
+  padding: 10px;
+  font-size: 17px;
+  color: #898989;
+}
+.search .search-results .count .bold {
+  font-weight: bold;
+  color: #464646;
+}
+.search .search-results .count.bottom {
+  clear: both;
+}
+.search .search-results .count .prev,
+.search .search-results .count .next {
+  font-size: 26px;
+}
+.search .search-results article {
+  padding: 0px 10px;
+}
+.search .search-results article h1 {
+  font-size: 22px;
+  line-height: 120%;
+}
+.search .search-results article .meta,
+.search .search-results article .media-body {
+  font-size: 17px;
+  line-height: 140%;
+}

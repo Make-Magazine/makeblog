@@ -43,6 +43,7 @@ function make_action_after_setup_theme() {
 	add_image_size( 'maker-week-thumb', 145, 110, true );			// Used on Maker Week take over page sidebar.
 	add_image_size( 'weekly-takeover-main', 268, 248, true );		// Used on the Weekly Take-Over layout on the home page.
 	add_image_size( 'weekly-takeover-secondary', 268, 175, true );  // Used on the Weekly Take-Over layout on the home page.
+	add_image_size( 'search-thumb', 110, 85, true );  				// Used on the Search page
 
 	/**
 	  * Depracated image sizes.
@@ -1642,9 +1643,13 @@ function make_generate_description() {
  * Simple boolean function to test if we are on a category page, and if that page has a parent.
  */
 function make_is_parent_page() {
-	$obj = get_queried_object();
-	if ( $obj->parent == 0 && is_category() ) {
-		return true;
+	if ( is_category() ) {
+		$obj = get_queried_object();
+		if ( $obj->parent == 0 ) {
+			return true;
+		} else {
+			return false;
+		}
 	} else {
 		return false;
 	}
