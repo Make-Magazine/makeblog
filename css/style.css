@@ -11788,6 +11788,24 @@ a.button.small-button {
   background-color: #e4f4f9;
   padding: 10px;
 }
+.search .search-results .count {
+  padding: 10px;
+  font-size: 17px;
+  color: #898989;
+}
+.search .search-results .count .bold {
+  font-weight: bold;
+  color: #464646;
+}
 .search .search-results article {
   padding: 10px 10px;
+}
+.search .search-results article h1 {
+  font-size: 22px;
+  line-height: 120%;
+}
+.search .search-results article .meta,
+.search .search-results article .media-body {
+  font-size: 17px;
+  line-height: 140%;
 }
