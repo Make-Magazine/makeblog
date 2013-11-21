@@ -11797,6 +11797,9 @@ a.button.small-button {
   font-weight: bold;
   color: #464646;
 }
+.search .search-results .count.bottom {
+  clear: both;
+}
 .search .search-results article {
   padding: 10px 10px;
 }

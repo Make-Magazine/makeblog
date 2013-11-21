@@ -80,3 +80,16 @@ function make_search_count( $wp_query ) {
 
 	return $output;
 }
+
+function make_search_pagination( $wp_query ) {
+	$big = 999999999; // need an unlikely integer
+	
+	return paginate_links( array(
+		'base' => str_replace( $big, '%#%', esc_url( get_pagenum_link( $big ) ) ),
+		'format' => '?paged=%#%',
+		'current' => max( 1, $wp_query->query_vars['paged'] ),
+		'total' => $wp_query->max_num_pages,
+		'prev_text'    => __('<span class="prev">«</span>'),
+		'next_text'    => __('<span class="next">»</span>'),
+	) );
+}

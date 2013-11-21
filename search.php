@@ -55,6 +55,14 @@ make_get_header() ?>
 
 							</div>
 
+							<div class="pull-right">
+
+								<?php echo 'Page ' . make_search_pagination( $wp_query ); ?>
+
+							</div>
+
+							<div class="clearfix"></div>
+
 						</div>
 
 						<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
@@ -80,6 +88,24 @@ make_get_header() ?>
 							</article>
 
 						<?php endwhile; ?>
+
+						<div class="count bottom">
+
+							<div class="pull-left">
+
+								<?php echo make_search_count( $wp_query ); ?>
+
+							</div>
+
+							<div class="pull-right">
+
+								<?php echo 'Page ' . make_search_pagination( $wp_query ); ?>
+
+							</div>
+
+							<div class="clearfix"></div>
+
+						</div>
 
 					</div>
 					
