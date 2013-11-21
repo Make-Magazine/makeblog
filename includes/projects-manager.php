@@ -52,9 +52,9 @@
 	 * Due to a requirement on how Parts are saved, they are not accurately returned in the correct order on production.
 	 * We need to sort based on the order field saved with each part.
 	 * To do this, we'll use usort to pass a user defiend comparison chart to sort based on the order field.
-	 * THis function is built to be used by any multidimensional array
-	 * @param  array  REQUIED $array 	  The array of steps, parts or tools to sort by.
-	 * @param  string REQUIED $sort_field The field in the array you wish to sort by. TODO: Make this happen.
+	 * This function is built to be used by any multidimensional array
+	 * @param  array  REQUIRED $array 	  	The array of steps, parts or tools to sort by.
+	 * @param  string REQUIRED $sort_field 	The field in the array you wish to sort by. TODO: Make this happen.
 	 * @return array 
 	 *
 	 * @version  1.0
