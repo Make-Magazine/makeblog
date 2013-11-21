@@ -12,15 +12,7 @@
 					
 					<div class="span4 sidebar">
 
-						<?php 
-
-						$facets = WPCOM_elasticsearch()->get_search_facet_data();
-
-						$current_filters = WPCOM_elasticsearch()->get_current_filters();
-
-						var_dump( $current_filters );
-
-						?>
+						<?php dynamic_sidebar( 'search' ); ?>
 
 						<div class="sidebar-ad">
 
@@ -52,4 +44,4 @@
 
 						</div>
 
-				</div>
+					</div>
