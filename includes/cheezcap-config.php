@@ -257,14 +257,14 @@ $cap = new CheezCap( array(
 					''
 				),
 				new CheezCapTextOption(
-					'Featured Box Heading',
+					'Featured Video Heading',
 					'Something along the lines of "Maker Shed Exclusive"',
 					'feature_heading',
 					'Maker Shed Exclusive'
 				),
 				new CheezCapTextOption(
-					'Featured Box ID',
-					'Add the ID of the featured page so we can link the title.',
+					'Featured Video Link',
+					'Add the URL or ID of the page you wish to link to .',
 					'feature_url',
 					''
 				),

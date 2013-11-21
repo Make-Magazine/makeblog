@@ -273,8 +273,10 @@ Template Name: Home Page
 					<div class="span8">
 						<?php
 							$feature_url = make_get_cap_option( 'feature_url' );
-							if ( $feature_url && absint( $feature_url ) ) : ?>
+							if ( ! empty( $feature_url ) && absint( $feature_url ) ) : // Add a URL by post ID ?>
 								<h3><a href="<?php echo get_permalink( absint( $feature_url ) ); ?>" class="red"><?php echo esc_html( make_get_cap_option( 'feature_heading' ) ); ?></a></h3>
+							<?php elseif ( ! empty( $feature_url ) && filter_var( $feature_url, FILTER_VALIDATE_URL ) ) : // Add a URL to remote areas. Must be a valid URL ?>
+								<h3 class="red"><a href="<?php echo esc_url( $feature_url ); ?>" class="red"><?php echo esc_html( make_get_cap_option( 'feature_heading' ) ); ?></a></h3>
 							<?php else : ?>
 								<h3 class="red"><?php echo esc_html( make_get_cap_option( 'feature_heading' ) ); ?></h3>
 							<?php endif; ?>
