@@ -14,12 +14,30 @@ make_get_header() ?>
 
 			<div class="row">
 
+				<div class="span12">
+
+					<div class="results well">
+
+						<h1>
+							Search Results for
+							<form role="search" method="get" class="form-search" id="searchform" action="<?php echo home_url( '/' ); ?>">
+								<input type="text" class="input-medium search-query span3" value="" name="s" id="s" placeholder="<?php echo get_search_query(); ?>" />
+								<input type="submit" class="btn" id="searchsubmit" value="Search" />
+							</form>
+						</h1>
+
+					</div>
+
+				</div>
+
+			</div>
+
+			<div class="row">
+
+				<?php get_sidebar( 'search' ); ?>
+
 				<div class="span8">
 
-					<h1>Search Results: <?php echo get_search_query(); ?></h1>
-
-					<div><?php get_search_form(); ?></div>
-					
 					<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 
 					<article <?php post_class(); ?>>
@@ -63,21 +81,12 @@ make_get_header() ?>
 					
 					</ul>
 
-					<?php if (function_exists('make_featured_products')) { make_featured_products(); } ?>
-
-					<div class="comments">
-						<?php comments_template(); ?>
-					</div>
-					
 					<?php else: ?>
 					
 						<p><?php _e('Sorry, no posts matched your criteria.'); ?></p>
 					
 					<?php endif; ?>
 				</div>
-				
-				
-				<?php get_sidebar(); ?>
 					
 					
 			</div>
