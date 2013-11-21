@@ -11769,3 +11769,12 @@ a.button.small-button {
 .weekly-takeover .second-post {
   margin-bottom: 30px;
 }
+.search .results h1 {
+  font-size: 30px;
+}
+.search .results form {
+  display: inline;
+}
+.search .results form .search-query {
+  height: 30px;
+}
