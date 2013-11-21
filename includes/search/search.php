@@ -3,10 +3,10 @@
 * WordPress.com Faceted Search
 */
 
-// Bring in the search Widget
-// require_once( __DIR__ . '/search-widget-facets.php' );
-
-
+/**
+ * Search Facets
+ * Majority of this code is from the Elastic Search plugin. Using this as a starting point.
+ */
 function make_search_facets( $args ) {
 	if ( ! function_exists( 'WPCOM_elasticsearch' ) )
 		return;
@@ -35,7 +35,7 @@ function make_search_facets( $args ) {
 	if ( $current_filters ) {
 		echo '<h3>' . __( 'Current Filters', 'wpcom-elasticsearch' ) . '</h3>';
 
-		echo '<ul>';
+		echo '<ul class="unstyled">';
 
 		foreach ( $current_filters as $filter ) {
 			echo '<li><a href="' . esc_url( $filter['url'] ) . '">' . sprintf( __( '(X) %1$s: %2$s', 'wpcom-elasticsearch' ), esc_html( $filter['type'] ), esc_html( $filter['name'] ) ) . '</a></li>';
@@ -53,7 +53,7 @@ function make_search_facets( $args ) {
 
 		echo '<h3>' . $label . '</h3>';
 
-		echo '<ul>';
+		echo '<ul class="unstyled">';
 		foreach ( $facet['items'] as $item ) {
 			echo '<li><a href="' . esc_url( $item['url'] ) . '">' . esc_html( $item['name'] ) . '</a> (' . number_format_i18n( absint( $item['count'] ) ). ')</li>';
 		}
@@ -63,6 +63,10 @@ function make_search_facets( $args ) {
 	echo $args['after_widget'];
 }
 
+/**
+ * Getting the post count for a given loop.
+ * There is probably a WordPress function that does this for ya, but this works for now.
+ */
 function make_search_count( $wp_query ) {
 	$output = '<div class="results_count">';
 	if ( $wp_query->found_posts > 10 ) {
@@ -78,6 +82,9 @@ function make_search_count( $wp_query ) {
 	return $output;
 }
 
+/**
+ * Build the output pagination for the search page.
+ */
 function make_search_pagination( $wp_query ) {
 	$big = 999999999; // need an unlikely integer
 
