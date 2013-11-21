@@ -592,6 +592,9 @@ function make_projects_parts( $parts ) {
 	$output = '<h3 class="show-print">Parts</h3>';
 	$output .= '<ul class="lists">';
 
+	// We need to sort our parts. Let's do that :)
+	$parts = make_projects_sort( $parts );
+
 	foreach ( $parts as $part ) {
 		$notes = null;
 

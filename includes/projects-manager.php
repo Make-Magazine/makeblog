@@ -49,6 +49,51 @@
 
 
 	/**
+	 * Due to a requirement on how Parts are saved, they are not accurately returned in the correct order on production.
+	 * We need to sort based on the order field saved with each part.
+	 * To do this, we'll use usort to pass a user defiend comparison chart to sort based on the order field.
+	 * THis function is built to be used by any multidimensional array
+	 * @param  array  REQUIED $array 	  The array of steps, parts or tools to sort by.
+	 * @param  string REQUIED $sort_field The field in the array you wish to sort by. TODO: Make this happen.
+	 * @return array 
+	 *
+	 * @version  1.0
+	 * @since    GLaDOS
+	 */
+	function make_projects_sort( $array ) {
+
+		// This function is used for the usort() function.
+		function make_projects_array_sort( $a, $b ) {
+
+			// Let's make sure we have some data to sort.
+			if ( ! isset( $a['order'] ) || ! isset( $b['order'] ) )
+				return;
+
+			if ( $a['order'] == $b['order'] )
+				return 0;
+
+			return ( $a['order'] < $b['order'] ) ? -1 : 1;
+		}
+
+		// Unserialize our Parts here as each array is serialized while the parent isn't.
+		if ( is_array( $array ) ) {
+			foreach( $array as $item ) {
+				// Test if we are passing a serialized string.
+				if ( is_serialized( $item ) ) {
+					$sorted[] = unserialize( $item );
+				} else {
+					$sorted[] = $item;
+				}
+			}
+			usort( $sorted, 'make_projects_array_sort' );
+		}
+
+		// Return our results
+		return $sorted;
+	}
+
+
+	/**
 	 * Return all the data for our current project.
 	 * @param  String $key Accepts the name of another field saved in the post meta table.
 	 * @return Object
@@ -183,7 +228,7 @@
 	 * The main function that displays all the magic and unicorns one will need to manage their projects.
 	 * @return HTML
 	 *
-	 * @version 1.0
+	 * @version 2.0
 	 */
 	function make_magazine_parts_step_manager_mb() {
 		global $post;
@@ -228,9 +273,8 @@
 			</div><!--[END .parts-template]-->
 			<?php $parts_num = 1; ?>
 			<?php if( isset( $parts ) && is_array( $parts ) ) : ?>
-				<?php foreach( $parts as $part ) : 
-					// Unserialize our Parts here as each array is serialized while the parent isn't.
-					$part = unserialize( $part ); ?>
+				<?php $parts = make_projects_sort( $parts ); ?>
+				<?php foreach( $parts as $part ) : ?>
 					<div id="part-<?php echo $parts_num; ?>" class="parts-wrapper">
 						<input type="hidden" name="part-number-<?php echo $parts_num; ?>" value="<?php echo ( ! empty( $part['number'] ) ) ? $part['number'] : $parts_num; ?>">
 						<div class="part-title">
@@ -375,132 +419,131 @@
 		if ( ! current_user_can( 'edit_post', $post_id ) ) return;
 
 
-		// Check if any of our "Step" data exists and isn't empty. Then, loop through each step and create an object for each by looping through the number of total steps sent through the $_POST array.
-		if ( $_POST['total-steps'] != '0' ) {
-			for ( $i = 1; $i <= intval( $_POST['total-steps'] ); $i++ ) {
-				// Define a new $step array. Other wise, we'll end up getting duplicate content...
-				$step = array();
+		//////////////////////////
+		// STEPS
+		for ( $i = 1; $i <= intval( $_POST['total-steps'] ); $i++ ) {
+			// Define a new $step array. Other wise, we'll end up getting duplicate content...
+			$step = array();
 
-				// Add our title to the object
-				$step['title'] = wp_filter_post_kses( $_POST[ 'step-title-' . $i ] );
+			// Add our title to the object
+			$step['title'] = wp_filter_post_kses( $_POST[ 'step-title-' . $i ] );
 
-				// Create the lines array and contain each line as an object in the Steps object
-				$int = 0;
-			 	foreach( $_POST[ 'step-lines-' . $i ] as $line ) {
-					$step['lines'][] = (object) array(
-						'text'     => wp_filter_post_kses( $line ),
-						'text_raw' => wp_filter_post_kses( $line ),
-						'bullet'   => 'black',
-						'level'    => 0
-					);
-					$int++;
-			 	}
+			// Create the lines array and contain each line as an object in the Steps object
+			$int = 0;
+		 	foreach( $_POST[ 'step-lines-' . $i ] as $line ) {
+				$step['lines'][] = (object) array(
+					'text'     => wp_filter_post_kses( $line ),
+					'text_raw' => wp_filter_post_kses( $line ),
+					'bullet'   => 'black',
+					'level'    => 0
+				);
+				$int++;
+		 	}
 
-				// Set the object array. At this moment. It's empty.
-				$step['object'] = '';
+			// Set the object array. At this moment. It's empty.
+			$step['object'] = '';
 
-				// Set our images array and contain each image as an object in the Steps object
-				$int = 0;
-				
-				foreach( $_POST[ 'step-images-' . $i ] as $image ) {
-					
-					$image_url = ( ! empty( $image ) ) ? esc_url_raw( $image ) : '';
-					$step['images'][ $int ] = (object) array(
-						'imageid' => $post_id,
-						'orderby' => $int,
-						'text'    => $image_url
-					);
-					$int++; // Only increase the integer variable when we encounter a non-empty image value
-				}
-
-				// Count the number of Steps set in the step manager and save that number
-				$step['number'] = intval( $_POST[ 'step-number-' . $i ] );
-
-				// Contain the whole $steps array into an object
-				$step_object[] = (object) $step;
-
-			}
-
-			// Update our post meta for Steps.
-			update_post_meta( $post_id, 'Steps', $step_object );
-		}
-
-
-		// Check if any of our "Parts" data exists and isn't empty. Then, loop through each part and create an array for each by looping through the number of total parts sent through the $_POST array.
-		if ( $_POST['total-parts'] != '0' ) {
+			// Set our images array and contain each image as an object in the Steps object
+			$int = 0;
 			
-			// We need to check if post meta already exists.
-			$post_meta = get_post_meta( $post_id, 'parts' );
-
-			// If our data exists, delete it, otherwise, we'll get dupes.
-			if ( ! empty( $post_meta ) || is_array( $post_meta ) )
-				delete_post_meta( $post_id, 'parts' );
-
-			// Loop through all of our parts.
-			for ( $i = 1; $i <= intval( $_POST['total-parts'] ); $i++ ) {
-				// Define a new $parts array. Other wise, we'll end up getting duplicate content...
-				$parts = array();
-
-				// Check if old data exists and add it to the array
-				if ( isset( $_POST['part_id-' . $i ] ) )
-					$parts['part_id'] = intval( $_POST['part_id-' . $i ] );
-
-				// Add our Name to the array
-				$parts['text'] = wp_filter_post_kses( $_POST[ 'parts-name-' . $i ] );
-
-				// Add our Notes to the array
-				$parts['notes'] = wp_filter_post_kses( $_POST[ 'parts-notes-' . $i ] );
-
-				// Add our Type to the array
-				$parts['type'] = wp_filter_post_kses( $_POST[ 'parts-type-' . $i ] );
-
-				// Add our Quantity to the array
-				$parts['quantity'] = ( isset( $_POST[ 'parts-qty-' . $i ] ) ) ? intval( $_POST[ 'parts-qty-' . $i ] ) : '';
-
-				// Add our URL to the array
-				$parts['url'] = esc_url( $_POST[ 'parts-url-' . $i ] );
-
-				// Check if old data exists and add it to the array
-				if ( isset( $_POST['pid-' . $i ] ) )
-					$parts['pid'] = intval( $_POST['pid-' . $i ] );
-
-				// Check if old data exists and add it to the array
-				if ( isset( $_POST['post_ID-' . $i ] ) )
-					$parts['post_ID'] = intval( $_POST['post_ID-' . $i ] );
-
-				// Save each part as a new post meta with matching keys. Unlike Steps and Tools, we need a new key for every part...
-				add_post_meta( $post_id, 'parts', $parts );
+			foreach( $_POST[ 'step-images-' . $i ] as $image ) {
+				
+				$image_url = ( ! empty( $image ) ) ? esc_url_raw( $image ) : '';
+				$step['images'][ $int ] = (object) array(
+					'imageid' => $post_id,
+					'orderby' => $int,
+					'text'    => $image_url
+				);
+				$int++; // Only increase the integer variable when we encounter a non-empty image value
 			}
+
+			// Count the number of Steps set in the step manager and save that number
+			$step['number'] = intval( $_POST[ 'step-number-' . $i ] );
+
+			// Contain the whole $steps array into an object
+			$step_object[] = (object) $step;
+
+		}
+
+		// Update our post meta for Steps if any exist
+		if ( isset( $step_object ) )
+			update_post_meta( $post_id, 'Steps', $step_object );
+
+
+		///////////////////////
+		// PARTS
+		$post_meta = get_post_meta( $post_id, 'parts' );
+
+		// If our data exists, delete it, otherwise, we'll get dupes.
+		if ( ! empty( $post_meta ) || is_array( $post_meta ) )
+			delete_post_meta( $post_id, 'parts' );
+
+		// Loop through all of our parts.
+		for ( $i = 1; $i <= intval( $_POST['total-parts'] ); $i++ ) {
+			// Define a new $parts array. Other wise, we'll end up getting duplicate content...
+			$parts = array();
+
+			// Check if old data exists and add it to the array
+			if ( isset( $_POST['part_id-' . $i ] ) )
+				$parts['part_id'] = intval( $_POST['part_id-' . $i ] );
+
+			// Add the sort number. This is used to display the parts in the correct order.
+			$parts['order'] = absint( $_POST['part-number-' . $i ] );
+
+			// Add our Name to the array
+			$parts['text'] = wp_filter_post_kses( $_POST[ 'parts-name-' . $i ] );
+
+			// Add our Notes to the array
+			$parts['notes'] = wp_filter_post_kses( $_POST[ 'parts-notes-' . $i ] );
+
+			// Add our Type to the array
+			$parts['type'] = wp_filter_post_kses( $_POST[ 'parts-type-' . $i ] );
+
+			// Add our Quantity to the array
+			$parts['quantity'] = ( isset( $_POST[ 'parts-qty-' . $i ] ) ) ? intval( $_POST[ 'parts-qty-' . $i ] ) : '';
+
+			// Add our URL to the array
+			$parts['url'] = esc_url( $_POST[ 'parts-url-' . $i ] );
+
+			// Check if old data exists and add it to the array
+			if ( isset( $_POST['pid-' . $i ] ) )
+				$parts['pid'] = intval( $_POST['pid-' . $i ] );
+
+			// Check if old data exists and add it to the array
+			if ( isset( $_POST['post_ID-' . $i ] ) )
+				$parts['post_ID'] = intval( $_POST['post_ID-' . $i ] );
+
+			// Save each part as a new post meta with matching keys. Unlike Steps and Tools, we need a new key for every part...
+			add_post_meta( $post_id, 'parts', $parts );
 		}
 
 
-		// Check if any of our "Tools" data exists and isn't empty. Then, loop through each tool and create an array for each by looping through the number of total tools sent through the $_POST array.
-		if ( $_POST['total-tools'] != '0' )  {
+		////////////////////
+		// TOOLS
+		for ( $i = 1; $i <= intval( $_POST['total-tools'] ); $i++ ) {
+			// Define a new $tools array. Other wise, we'll end up getting duplicate content...
+			$tools = array();
 
-			// Loop through all of our tools.
-			for ( $i = 1; $i <= intval( $_POST['total-tools'] ); $i++ ) {
-				// Define a new $tools array. Other wise, we'll end up getting duplicate content...
-				$tools = array();
+			// Add our Name to the array
+			$tools['text'] = wp_filter_post_kses( $_POST[ 'tools-name-' . $i ] );
 
-				// Add our Name to the array
-				$tools['text'] = wp_filter_post_kses( $_POST[ 'tools-name-' . $i ] );
+			// Add our Notes to the array
+			$tools['notes'] = wp_filter_post_kses( $_POST[ 'tools-notes-' . $i ] );
 
-				// Add our Notes to the array
-				$tools['notes'] = wp_filter_post_kses( $_POST[ 'tools-notes-' . $i ] );
+			// Add our URL to the array
+			$tools['url'] = esc_url( $_POST[ 'tools-url-' . $i ] );
 
-				// Add our URL to the array
-				$tools['url'] = esc_url( $_POST[ 'tools-url-' . $i ] );
+			// Add our Thumbnail to the array
+			$tools['thumbnail'] = esc_url( $_POST[ 'tools-thumb-' . $i ] );
 
-				// Add our Thumbnail to the array
-				$tools['thumbnail'] = esc_url( $_POST[ 'tools-thumb-' . $i ] );
+			// Contain the whole $steps array into an object
+			$tools_object[] = (object) $tools;
+		}
 
-				// Contain the whole $steps array into an object
-				$tools_object[] = (object) $tools;
-			}
-
-			// Update our post meta for Steps. Unlike Parts and Tools, we want one meta key.
+		// Update our post meta for Steps. Unlike Parts and Tools, we want one meta key.
+		if ( isset( $tools_object ) )
 			update_post_meta( $post_id, 'Tools', $tools_object );
-		}
+
 	}
 	add_action('save_post', 'make_magazine_projects_save_step_manager');
 
