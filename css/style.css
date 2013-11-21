@@ -11778,3 +11778,16 @@ a.button.small-button {
 .search .results form .search-query {
   height: 30px;
 }
+.search .search-results {
+  border: 1px solid #e4f4f9;
+  border-radius: 3px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.search .search-results .heading {
+  background-color: #e4f4f9;
+  padding: 10px;
+}
+.search .search-results article {
+  padding: 10px 10px;
+}

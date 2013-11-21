@@ -8,7 +8,7 @@ class MAKE_Widget_Facets extends WP_Widget {
 
 		parent::__construct(
 			'wpcom-elasticsearch-facets',
-			__( 'WP.com VIP Search: Facets', 'wpcom-elasticsearch' ),
+			__( 'Make\'s WP.com VIP Search: Facets', 'wpcom-elasticsearch' ),
 			array(
 				'classname'   => 'wpcom-elasticsearch-facets',
 				'description' => __( 'Displays search result faceting when viewing a search result. Is hidden otherwise.', 'wpcom-elasticsearch' ),
@@ -92,3 +92,9 @@ class MAKE_Widget_Facets extends WP_Widget {
 <?php
 	}
 }
+
+function register_search_facets_widget() {
+	register_widget( 'MAKE_Widget_Facets' );
+}
+
+add_action( 'widgets_init', 'register_search_facets_widget' );
