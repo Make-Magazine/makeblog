@@ -71,7 +71,15 @@ make_get_header() ?>
 							<article <?php post_class('media'); ?>>
 
 								<a href="<?php get_permalink(); ?>" class="pull-left">
-									<?php get_the_image( array( 'image_scan' => true, 'size' => 'search-thumb', 'image_class' => 'thumbnail' ) ); ?>
+									<?php 
+										$args = array(
+											'image_scan' => true,
+											'size' => 'search-thumb',
+											'image_class' => 'thumbnail',
+											'link_to_post' => false,
+											);
+										get_the_image( $args ); 
+									?>
 								</a>
 
 								<div class="media-body">
