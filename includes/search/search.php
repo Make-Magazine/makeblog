@@ -38,7 +38,7 @@ function make_search_facets( $args ) {
 		echo '<ul class="unstyled">';
 
 		foreach ( $current_filters as $filter ) {
-			echo '<li><a href="' . esc_url( $filter['url'] ) . '">' . sprintf( __( '(X) %1$s: %2$s', 'wpcom-elasticsearch' ), esc_html( $filter['type'] ), esc_html( $filter['name'] ) ) . '</a></li>';
+			echo '<li><a href="' . esc_url( $filter['url'] ) . '">' . sprintf( __( '<i class="icon icon-remove"></i> %1$s: %2$s', 'wpcom-elasticsearch' ), esc_html( $filter['type'] ), esc_html( $filter['name'] ) ) . '</a></li>';
 		}
 
 		if ( count( $current_filters ) > 1 )
