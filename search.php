@@ -70,7 +70,7 @@ make_get_header() ?>
 
 							<article <?php post_class('media'); ?>>
 
-								<a href="<?php get_permalink(); ?>" class="pull-left">
+								<a href="<?php the_permalink(); ?>" class="pull-left">
 									<?php 
 										$args = array(
 											'image_scan' => true,
