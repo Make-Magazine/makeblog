@@ -26,7 +26,7 @@ wpcom_vip_load_plugin( 'get-the-image' );
 wpcom_vip_load_plugin( 'cheezcap' );
 wpcom_vip_load_plugin( 'add-meta-tags-mod' );
 wpcom_vip_load_plugin( 'wpcom-thumbnail-editor' );
-// wpcom_vip_load_plugin( 'wpcom-elasticsearch' );
+wpcom_vip_load_plugin( 'wpcom-elasticsearch' );
 
 // Needs to run on the contribute page, admin, and possibly page 2 pages.
 if ( is_page( 'contribute' ) || is_admin() ) {
