@@ -30,15 +30,15 @@ function make_search_facets( $args ) {
 
 	echo $args['before_widget'];
 
-	echo $args['before_title'] . $title . $args['after_title'];
+	echo $args['before_title'] . $args['title'] . $args['after_title'];
 
 	if ( $current_filters ) {
-		echo '<h3>' . __( 'Current Filters', 'wpcom-elasticsearch' ) . '</h3>';
+		echo '<h4>' . __( 'Current Filters', 'wpcom-elasticsearch' ) . '</h4>';
 
 		echo '<ul class="unstyled">';
 
 		foreach ( $current_filters as $filter ) {
-			echo '<li><a href="' . esc_url( $filter['url'] ) . '">' . sprintf( __( '(X) %1$s: %2$s', 'wpcom-elasticsearch' ), esc_html( $filter['type'] ), esc_html( $filter['name'] ) ) . '</a></li>';
+			echo '<li><a href="' . esc_url( $filter['url'] ) . '">' . sprintf( __( '<i class="icon icon-remove"></i> %1$s: %2$s', 'wpcom-elasticsearch' ), esc_html( $filter['type'] ), esc_html( $filter['name'] ) ) . '</a></li>';
 		}
 
 		if ( count( $current_filters ) > 1 )
@@ -51,7 +51,7 @@ function make_search_facets( $args ) {
 		if ( count( $facet['items'] ) < 2 )
 			continue;
 
-		echo '<h3>' . $label . '</h3>';
+		echo '<h4>' . $label . '</h4>';
 
 		echo '<ul class="unstyled">';
 		foreach ( $facet['items'] as $item ) {
