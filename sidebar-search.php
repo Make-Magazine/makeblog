@@ -16,20 +16,17 @@ e<?php
 
 						<div class="box">
 
-							<div class="inner">
-
 							<?php
 								$args = array(
-									'before_widget'		=> '',
+									'before_widget'		=> '<div class="inner">',
 									'before_title'		=> '<div class="heading">',
 									'title'				=> 'Refine Search',
 									'after_title'		=> '</div>',
-									'after_widget'		=> '',
+									'after_widget'		=> '</div>',
 									);
 
 								make_search_facets( $args );
 							?>
-							</div>
 
 						</div>
 
