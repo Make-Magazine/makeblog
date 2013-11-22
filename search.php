@@ -43,7 +43,8 @@ make_get_header() ?>
 
 						<div class="heading">
 
-							Sort By: Relevance | Newest | Oldest
+							<!-- Sort By: Relevance | Newest | Oldest -->
+							<h3>Search Results</h3>
 
 						</div>
 
