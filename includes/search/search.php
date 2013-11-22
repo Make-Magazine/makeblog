@@ -33,7 +33,7 @@ function make_search_facets( $args ) {
 	echo $args['before_title'] . $args['title'] . $args['after_title'];
 
 	if ( $current_filters ) {
-		echo '<h3>' . __( 'Current Filters', 'wpcom-elasticsearch' ) . '</h3>';
+		echo '<h4>' . __( 'Current Filters', 'wpcom-elasticsearch' ) . '</h4>';
 
 		echo '<ul class="unstyled">';
 
@@ -51,7 +51,7 @@ function make_search_facets( $args ) {
 		if ( count( $facet['items'] ) < 2 )
 			continue;
 
-		echo '<h3>' . $label . '</h3>';
+		echo '<h4>' . $label . '</h4>';
 
 		echo '<ul class="unstyled">';
 		foreach ( $facet['items'] as $item ) {
