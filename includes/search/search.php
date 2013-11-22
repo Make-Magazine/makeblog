@@ -30,7 +30,7 @@ function make_search_facets( $args ) {
 
 	echo $args['before_widget'];
 
-	echo $args['before_title'] . $title . $args['after_title'];
+	echo $args['before_title'] . $args['title'] . $args['after_title'];
 
 	if ( $current_filters ) {
 		echo '<h3>' . __( 'Current Filters', 'wpcom-elasticsearch' ) . '</h3>';

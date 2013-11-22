@@ -1,4 +1,4 @@
-<?php
+e<?php
 /**
  * The generic sidebar template
  *
@@ -16,13 +16,17 @@
 
 						<div class="box">
 
-							<div class="heading">
+							<?php
+								$args = array(
+									'before_widget'		=> '',
+									'before_title'		=> '<div class="heading">',
+									'title'				=> 'Refine Search',
+									'after_title'		=> '</div>',
+									'after_widget'		=> '',
+									);
 
-								<h3>Refine Search</h3>
-
-							</div>
-
-							<?php make_search_facets( array() ); ?>
+								make_search_facets( $args );
+							?>
 
 						</div>
 
