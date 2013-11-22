@@ -1,9 +1,7 @@
-e<?php
+<?php
 /**
- * The generic sidebar template
+ * The search sidebar template
  *
- * We use this template for just about everything. 
- * // TODO: Consolidate the other files into this one using some conditionals.
  * 
  * @package    makeblog
  * @license    http://opensource.org/licenses/gpl-license.php  GNU Public License
