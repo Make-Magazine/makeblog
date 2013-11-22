@@ -1,3 +1,5 @@
+/*styles for branding popup*/
+
 #ctx_modal.ctx_well blockquote {
     border-color: #ddd;
     border-color: rgba(0, 0, 0, 0.15);
@@ -147,7 +149,8 @@
         width: 210px;
         margin-left: 15px;
         font-size: 13px;
-        line-height: 13px
+        line-height: 13px;
+		margin-top: 5px
     }
     #ctx_modal.ctx_well #ctx_poptext {
         float: left;
@@ -160,16 +163,9 @@
         height: 161px;
         width: 165px;
         background: url(images/brandpopupimgs-mobile.png) no-repeat -27px -42px;
-        margin-top: 11px;
-        margin-left: 51px
+        margin-top: 34px;
+        margin-left: 43px
     }
-}
-
-.ctx_widget .ctx_pluginauthor {
-    float: right;
-    padding-top: 8px;
-    margin-right: 3px;
-    margin-bottom: 5px;
 }
 .ctx_widget .ctx_pluginauthor span {
     display: block;
@@ -185,14 +181,25 @@
     padding: 0px !important;
     text-transform: none !important;
     float: right;
+	font-weight: normal
 }
 .ctx_widget .ctx_pluginauthor span:hover {
     background: url(images/brandedlogo.png) no-repeat right 0px !important;
     color: #1babab !important;
 }
-#ctx_branding_open {
-    float: right;
+.ctx_widget .ctx_tabs_widget .ctx_branding {
+	margin-top: 10px
 }
-.ctx_subhead_title {
-    color: #333 !important;
+.ctx_branding #ctx_branding_open {
+	display: block;
+	float: right;
+	height: 12px;
+	width: auto !important;
+	text-decoration: none !important;
+	outline: none !important
+}
+.ctx_branding {
+	height: 12px;
+	padding-top: 2px !important;
+	padding-bottom: 10px !important
 }
