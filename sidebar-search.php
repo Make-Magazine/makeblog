@@ -16,6 +16,8 @@ e<?php
 
 						<div class="box">
 
+							<div class="inner">
+
 							<?php
 								$args = array(
 									'before_widget'		=> '',
@@ -27,6 +29,7 @@ e<?php
 
 								make_search_facets( $args );
 							?>
+							</div>
 
 						</div>
 

@@ -11779,6 +11779,9 @@ a.button.small-button {
   background-color: #e4f4f9;
   padding: 10px;
 }
+.search .box .inner {
+  padding: 10px;
+}
 .search .results {
   margin: 30px 0;
   background-color: #e4f4f9;
@@ -11801,6 +11804,9 @@ a.button.small-button {
 }
 .search .search-results .heading {
   background-color: #e4f4f9;
+  padding: 10px;
+}
+.search .search-results .inner {
   padding: 10px;
 }
 .search .search-results .count {
