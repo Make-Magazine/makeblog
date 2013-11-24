@@ -8,6 +8,13 @@
  * 
  */
 global $catslugs;
+$type = get_query_var( 'post_type' );
+
+if ($type == 'projects') {
+	include_once 'archive-projects-category.php';
+	return;
+}
+
 get_header(); ?>
 		
 	<div class="projects-home">
