@@ -8,7 +8,7 @@
  * 
  */
 global $catslugs;
-$type = $_GET['post_type'];
+$type = ( isset( $_GET['post_type'] ) ) ? sanitize_title( $_GET['post_type'] ) : '';
 
 if ($type == 'projects') {
 	include_once 'archive-projects-category.php';
