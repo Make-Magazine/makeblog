@@ -11,7 +11,7 @@ function go_init() {
 		'query_var'           => true,
 		'rewrite'             => true,
 		'menu_position' 	  => 45,
-		'publicly_queryable'  => false,
+		'publicly_queryable'  => true,
 		'exclude_from_search' => true,
 		'labels'              => array(
 			'name'                => __( 'Go Links', 'make' ),
