@@ -748,17 +748,20 @@ function make_huff_po_gallery_shortcode($attr) {
 	if ( empty($attachments) )
 		return '';
 
-	$output = '<div id="myCarousel-' . $rand . '" class="carousel slide" data-interval=""><div class="carousel-inner">';
+	// Start the modal, with the carousel inside of it.
+	$output  = '<a href="#myModal-' . $rand . '" role="button" class="btn" data-toggle="modal">Launch demo modal</a>';
+	$output .= '<div id="myModal-' . $rand . '" class="modal hide huff" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">';
+	$output .= '<div class="modal-header"><h3>This is the title of the modal</h3></div>';
+	$output .= '<div class="modal-body"><div id="myCarousel-' . $rand . '" class="carousel slide" data-interval=""><div class="carousel-inner">';
 
 	$i = 0;
 	foreach( $attachments as $id => $attachment ) {
 		$i++;
 		if ($i == 1) {
-			$output .= '<div class="item active">';	
+			$output .= '<div class="item active row">';	
 		} else {
-			$output .= '<div class="item">';
+			$output .= '<div class="item row">';
 		}
-		var_dump( wp_get_attachment_link( $attachment->ID, sanitize_title_for_query( $size ) ) );
 		$output .= wp_get_attachment_link( $attachment->ID, sanitize_title_for_query( $size ) );
 		if ( isset( $attachment->post_excerpt ) && ! empty( $attachment->post_excerpt ) ) {
 			$attachment_caption = $attachment->post_excerpt;
@@ -768,42 +771,29 @@ function make_huff_po_gallery_shortcode($attr) {
 			$attachment_caption = '';
 		}
 		if ( isset( $attachment_caption ) && ! empty( $attachment_caption ) ) {
-			$output .= '<div class="carousel-caption">';
+			$output .= '<div class="span4">';
 			$output .= '<h4>' . Markdown( wp_kses_post( $attachment_caption ) ) . '</h4>';
-			$output .= '</div>';
+			$output .= '</div><!-- .caption.span4-->';
 			
 		}
-		$output .= '</div>';
+		$output .= '</div><!--.item.row-->';
 		
 	} //foreach
-	$output .= '</div>
-		<a class="left carousel-control" href="#myCarousel-' . $rand . '" data-slide="prev">‹</a>
-		<a class="right carousel-control" href="#myCarousel-' . $rand . '" data-slide="next">›</a>
-	</div>';
-	$output .= '<p class="pull-right"><span class="label viewall" style="cursor:pointer">View All</span></p>';
-	$output .= '
-		<script>
-			jQuery(document).ready(function(){
-				jQuery(".viewall").click(function() {
-					jQuery(".carousel-inner").removeClass("carousel-inner");
-					jQuery(".carousel-control").hide();
-					googletag.pubads().refresh();
-					_gaq.push([\'_trackPageview\']);
-					urlref = location.href;
-					PARSELY.beacon.trackPageView({
-						url: urlref,
-						urlref: urlref,
-						js: 1,
-						action_name: "Next Slide"
-					});
-					jQuery(this).addClass(\'hide\');
-					return true;
-				})
-			});
-		</script>
-	';
+	$output .= '</div><!--.carousel-inner--></div><!--.carousel--></div><!--.modal-body-->
+	<div class="modal-footer">
+		<a class="left label label-primary" href="#myCarousel-' . $rand . '" data-slide="prev">‹</a>
+		<a class="right label label-primary" href="#myCarousel-' . $rand . '" data-slide="next">›</a>
+	</div><!--.modal-footer--></div><!--.modal-->';
 	$output .= '<div class="clearfix"></div>';
 	return $output;
 }
 
 add_shortcode( 'huff_gallery', 'make_huff_po_gallery_shortcode' );
+
+
+function make_add_class_attachment_link( $html ){
+    $postid = get_the_ID();
+    $html = str_replace('<a', '<a class="span8"', $html );
+    return $html;
+}
+add_filter( 'wp_get_attachment_link', 'make_add_class_attachment_link', 10, 1 );
