@@ -7022,10 +7022,14 @@ img#wpstats {
   border: none;
   padding: 0;
 }
-.wp-caption-text {
+.wp-caption {
+  background-color: #ddd;
+}
+.wp-caption .wp-caption-text {
   font-size: 16px;
   font-style: italic;
-  margin: 10px 0;
+  padding: 10px;
+  color: #666;
 }
 [class*="paged"] .next {
   left: 496px !important;
