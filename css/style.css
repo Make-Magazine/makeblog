@@ -5523,7 +5523,6 @@ a:hover {
 body {
   margin-top: 0;
   overflow-wrap: break-word;
-  padding-top: 0 !important;
 }
 body.single-slideshow {
   margin-top: 0px;
@@ -9147,6 +9146,12 @@ body .single .tag-weekend-projects {
 }
 .sidebar .badge.badge-info {
   display: inline;
+}
+body {
+  padding-top: 40px;
+}
+body.admin-bar .navbar {
+  top: 32px;
 }
 .top-navigation-wrapper .nav {
   margin-bottom: 0;

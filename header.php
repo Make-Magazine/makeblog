@@ -39,7 +39,22 @@
 
 	</head>
 
-	<body <?php body_class(); ?>>	
+	<body <?php body_class(); ?>>
+
+		<div class="navbar navbar-fixed-top navbar-blue">
+			<div class="navbar-inner">
+				<div class="container">
+					<a class="brand" href="<?php echo get_home_url(); ?>">MAKE</a>
+					<ul class="nav">
+						<li><a href="http://makezine.com/blog/">Blog</a></li>
+						<li><a href="http://makezine.com/magazine/">Magazine</a></li>
+						<li><a href="http://makerfaire.com">Maker Faire</a></li>
+						<li><a href="http://makezine.com/projects">Make: Projects</a></li>
+						<li><a href="http://makershed.com/">Maker Shed</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>	
 		<div class="container hidden-print">
 			<div class="row">
 				<div id="div-gpt-ad-664089004995786621-1" class="text-center">
