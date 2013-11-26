@@ -44,13 +44,13 @@
 		<div class="navbar navbar-fixed-top navbar-blue">
 			<div class="navbar-inner">
 				<div class="container">
-					<a class="brand" href="<?php echo get_home_url(); ?>">MAKE</a>
+					<a onClick="_gaq.push([\'_trackEvent\', \'Links\', \'Click\', \'Home\']);" class="brand" href="<?php echo get_home_url(); ?>">MAKE</a>
 					<ul class="nav">
-						<li><a href="http://makezine.com/blog/">Blog</a></li>
-						<li><a href="http://makezine.com/magazine/">Magazine</a></li>
-						<li><a href="http://makerfaire.com">Maker Faire</a></li>
-						<li><a href="http://makezine.com/projects">Make: Projects</a></li>
-						<li><a href="http://makershed.com/">Maker Shed</a></li>
+						<li><a onClick="_gaq.push([\'_trackEvent\', \'Links\', \'Click\', \'Blog\']);" href="http://makezine.com/blog/">Blog</a></li>
+						<li><a onClick="_gaq.push([\'_trackEvent\', \'Links\', \'Click\', \'Magazine\']);" href="http://makezine.com/magazine/">Magazine</a></li>
+						<li><a onClick="_gaq.push([\'_trackEvent\', \'Links\', \'Click\', \'Maker Faire\']);" href="http://makerfaire.com">Maker Faire</a></li>
+						<li><a onClick="_gaq.push([\'_trackEvent\', \'Links\', \'Click\', \'Make: Projects\']);" href="http://makezine.com/projects">Make: Projects</a></li>
+						<li><a onClick="_gaq.push([\'_trackEvent\', \'Links\', \'Click\', \'Maker Shed\']);" href="http://makershed.com/">Maker Shed</a></li>
 					</ul>
 				</div>
 			</div>

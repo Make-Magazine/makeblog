@@ -7,45 +7,59 @@
  * Build a featured products slider for Shed products
  */
 function make_featured_products_slider() {
+	// Let's get the data feed
 	$url = 'http://makershed.com/net/webservice.aspx?api_name=generic\featured_products';
 	$xml = wpcom_vip_file_get_contents( $url, 3, 60*60,  array( 'obey_cache_control_header' => true ) );
 
+	// If a bad response, bail.
 	if ( ! $xml )
 		return;
 
+	// If not XML, bail.
 	$simpleXmlElem = simplexml_load_string( $xml );
 	if ( ! $simpleXmlElem )
 		return;
 	
-	$xml_featured_products = $simpleXmlElem->asXML();
-	$featured_products = simplexml_load_string($xml_featured_products);
 
+	// Setup some variables
+	$xml_featured_products = $simpleXmlElem->asXML();
+	
+	$featured_products = simplexml_load_string( $xml_featured_products );
 	$products = $featured_products->Product;
 
+	// Randomize the counter so that we can get random products.
 	$counter = range( 0, ( count( $products ) - 1 ) );
-
 	shuffle( $counter );
 
-	$rand = mt_rand(0, 100);
-	$id = 'shed-' . $rand;
+	// Carousel ID
+	$id = 'shed-' . mt_rand(0, 100);
 
-	$output = '<div id="' . $id . '" class="carousel slide" data-interval="false"><div class="carousel-inner"><div class="row">';
+	// Build the main link, and the carousel wrapper
+	$output = '<h2 class="look_like_h3"><a onClick="_gaq.push([\'_trackEvent\', \'Links\', \'Click\', \'Maker Shed - Products\']);" href="http://makershed.com">Featued Products from the MakerShed</a></h2>';
+	$output .= '<div id="' . intval( $id ) . '" class="carousel slide" data-interval="false"><div class="carousel-inner"><div class="item active"><div class="row">';
 
-	foreach ( $counter as $key => $i ) {
+	// Start the product loop.
+	foreach ( $counter as $i => $product ) {
 		$output .= '<div class="span3 shed">';
-		$output .= '<a href="' . make_shed_url( $products[$i]->ProductCode ) . '"><img src="' . wpcom_vip_get_resized_remote_image_url( $products[$i]->PhotoURL, 218, 146 ) . '" alt="' . esc_attr( $products[$i]->Product_Name ) . '" /></a>';
+		// Add the same click tracker.
+		$output .= '<a onClick="_gaq.push([\'_trackEvent\', \'Links\', \'Click\', \'Maker Shed - ' . esc_js( $products[$product]->ProductName ) . '\']);" href="' . esc_url( make_shed_url( $products[$product]->ProductCode ) ) . '"><img src="' . wpcom_vip_get_resized_remote_image_url( $products[$product]->PhotoURL, 218, 146 ) . '" alt="' . esc_attr( $products[$product]->Product_Name ) . '" /></a>';
 		$output .= '<h4><a href="';
-		$output .= make_shed_url( esc_attr( $products[$i]->ProductCode ) );
+		// make_shed_url() has esc_url() on it already. But hey, let's add it again.
+		$output .= esc_url( make_shed_url( esc_attr( $products[$product]->ProductCode ) ) );
 		$output .= '">';
-		$output .= wp_kses_post( $products[$i]->ProductName );
+		$output .= wp_kses_post( $products[$product]->ProductName );
 		$output .= '</a></h4>';
-		$output .= MarkDown( wp_trim_words( wp_kses_post( $products[$i]->ProductDescriptionShort ), 15, '...' ) );
+		$output .= MarkDown( wp_trim_words( wp_kses_post( $products[$product]->ProductDescriptionShort ), 15, '...' ) );
 		$output .= '</div>';
-		if ( $key == 3 ) {
+		// Just show four posts, for now.
+		if ( $i == 3 ) {
 			break;
 		}
 	}
-	$output .= '</div></div></div>';
+	// Close out the markup.
+	$output .= '</div></div></div></div>';
+
+	// Return the content.
 	return $output;
 }
 /**
