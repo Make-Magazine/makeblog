@@ -740,23 +740,42 @@ function make_huff_po_gallery_shortcode($attr) {
 			$attachments[$val->ID] = $_attachments[$key];
 		}
 	} elseif ( !empty($exclude) ) {
-		$attachments = get_children( array('post_parent' => $id, 'exclude' => $exclude, 'post_status' => 'inherit', 'post_type' => 'attachment', 'post_mime_type' => 'image', 'order' => $order, 'orderby' => $orderby) );
+		$args = array(
+			'post_parent' 		=> $id, 
+			'exclude' 			=> $exclude, 
+			'post_status' 		=> 'inherit', 
+			'post_type' 		=> 'attachment', 
+			'post_mime_type' 	=> 'image', 
+			'order' 			=> $order, 
+			'orderby' 			=> $orderby,
+			'suppress_filters'	=> false,
+			);
+		$attachments = get_children( $args );
 	} else {
-		$attachments = get_children( array('post_parent' => $id, 'post_status' => 'inherit', 'post_type' => 'attachment', 'post_mime_type' => 'image', 'order' => $order, 'orderby' => $orderby) );
+		$args = array(
+			'post_parent' 		=> $id, 
+			'post_status' 		=> 'inherit', 
+			'post_type' 		=> 'attachment', 
+			'post_mime_type' 	=> 'image', 
+			'order' 			=> $order, 
+			'orderby' 			=> $orderby,
+			'suppress_filters'	=> false,
+			);
+		$attachments = get_children( $args );
 	}
 
 	if ( empty($attachments) )
 		return '';
 
 	// Start the modal, with the carousel inside of it.
-	$output  = '<a href="#myModal-' . $rand . '" role="button" class="btn btn-primary" data-toggle="modal">';
+	$output  = '<a href="#myModal-' . intval( $rand ) . '" role="button" class="btn btn-primary" data-toggle="modal">';
 	$output .= ( isset( $attr['launch'] ) ) ? wp_kses_post( $attr['launch'] ) : 'Launch Slideshow';
 	$output .= '</a>';
-	$output .= '<div id="myModal-' . $rand . '" class="modal hide huff" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">';
+	$output .= '<div id="myModal-' . intval( $rand ) . '" class="modal hide huff" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">';
 	$output .= '<div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h3>';
 	$output .= ( isset( $attr['title'] ) ) ? wp_kses_post( $attr['title'] ) : get_the_title();
 	$output .= '</h3></div>';
-	$output .= '<div class="modal-body"><div id="myCarousel-' . $rand . '" class="carousel slide" data-interval=""><div class="carousel-inner">';
+	$output .= '<div class="modal-body"><div id="myCarousel-' . intval( $rand ) . '" class="carousel slide" data-interval=""><div class="carousel-inner">';
 
 	$i = 0;
 	foreach( $attachments as $id => $attachment ) {
@@ -782,10 +801,10 @@ function make_huff_po_gallery_shortcode($attr) {
 	<div class="modal-footer">
 		<ul class="pager">
 			<li class="previous">
-				<a href="#myCarousel-' . $rand . '" data-slide="prev">&larr; Previous</a>
+				<a href="#myCarousel-' . intval( $rand ) . '" data-slide="prev">&larr; Previous</a>
 			</li>
 			<li class="next">
-				<a href="#myCarousel-' . $rand . '" data-slide="next">Next &rarr;</a>
+				<a href="#myCarousel-' . intval( $rand ) . '" data-slide="next">Next &rarr;</a>
 			</li>
 		</ul>
 	</div><!--.modal-footer--></div><!--.modal-->';
