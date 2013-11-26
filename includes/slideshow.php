@@ -683,3 +683,117 @@ function make_video_photo_gallery( $attr ) {
 }
 
 add_shortcode( 'video_gallery', 'make_video_photo_gallery' );
+
+
+/**
+ * The Huff-Po style slideshow
+ *
+ *
+ * @param array $attr Attributes of the shortcode.
+ * @return string HTML content to display gallery.
+ */
+function make_huff_po_gallery_shortcode($attr) {
+	$post = get_post();
+
+	static $instance = 0;
+	$instance++;
+
+	if ( ! empty( $attr['ids'] ) ) {
+		// 'ids' is explicitly ordered, unless you specify otherwise.
+		if ( empty( $attr['orderby'] ) )
+			$attr['orderby'] = 'post__in';
+		$attr['include'] = $attr['ids'];
+	}
+
+	// We're trusting author input, so let's at least make sure it looks like a valid orderby statement
+	if ( isset( $attr['orderby'] ) ) {
+		$attr['orderby'] = sanitize_sql_orderby( $attr['orderby'] );
+		if ( !$attr['orderby'] )
+			unset( $attr['orderby'] );
+	}
+
+	extract(shortcode_atts(array(
+		'order'      => 'ASC',
+		'orderby'    => 'menu_order ID',
+		'id'         => $post->ID,
+		'itemtag'    => 'dl',
+		'icontag'    => 'dt',
+		'captiontag' => 'dd',
+		'columns'    => 3,
+		'size'       => 'slideshow-thumb',
+		'include'    => '',
+		'exclude'    => ''
+	), $attr));
+
+	
+	$rand = mt_rand( 0, $id );
+
+	$id = intval($id);
+	if ( 'RAND' == $order )
+		$orderby = 'none';
+
+	if ( !empty($include) ) {
+		$_attachments = get_posts( array('include' => $include, 'post_status' => 'inherit', 'post_type' => 'attachment', 'post_mime_type' => 'image', 'order' => $order, 'orderby' => $orderby) );
+
+		$attachments = array();
+		foreach ( $_attachments as $key => $val ) {
+			$attachments[$val->ID] = $_attachments[$key];
+		}
+	} elseif ( !empty($exclude) ) {
+		$attachments = get_children( array('post_parent' => $id, 'exclude' => $exclude, 'post_status' => 'inherit', 'post_type' => 'attachment', 'post_mime_type' => 'image', 'order' => $order, 'orderby' => $orderby) );
+	} else {
+		$attachments = get_children( array('post_parent' => $id, 'post_status' => 'inherit', 'post_type' => 'attachment', 'post_mime_type' => 'image', 'order' => $order, 'orderby' => $orderby) );
+	}
+
+	if ( empty($attachments) )
+		return '';
+
+	// Start the modal, with the carousel inside of it.
+	$output  = '<a href="#myModal-' . $rand . '" role="button" class="btn" data-toggle="modal">Launch demo modal</a>';
+	$output .= '<div id="myModal-' . $rand . '" class="modal hide huff" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">';
+	$output .= '<div class="modal-header"><h3>This is the title of the modal</h3></div>';
+	$output .= '<div class="modal-body"><div id="myCarousel-' . $rand . '" class="carousel slide" data-interval=""><div class="carousel-inner">';
+
+	$i = 0;
+	foreach( $attachments as $id => $attachment ) {
+		$i++;
+		if ($i == 1) {
+			$output .= '<div class="item active row">';	
+		} else {
+			$output .= '<div class="item row">';
+		}
+		$output .= wp_get_attachment_link( $attachment->ID, sanitize_title_for_query( $size ) );
+		if ( isset( $attachment->post_excerpt ) && ! empty( $attachment->post_excerpt ) ) {
+			$attachment_caption = $attachment->post_excerpt;
+		} elseif ( isset( $attachment->post_title ) && ! empty( $attachment->post_title ) ) {
+			$attachment_caption = $attachment->post_title;
+		} else {
+			$attachment_caption = '';
+		}
+		if ( isset( $attachment_caption ) && ! empty( $attachment_caption ) ) {
+			$output .= '<div class="span4">';
+			$output .= '<h4>' . Markdown( wp_kses_post( $attachment_caption ) ) . '</h4>';
+			$output .= '</div><!-- .caption.span4-->';
+			
+		}
+		$output .= '</div><!--.item.row-->';
+		
+	} //foreach
+	$output .= '</div><!--.carousel-inner--></div><!--.carousel--></div><!--.modal-body-->
+	<div class="modal-footer">
+		<a class="left label label-primary" href="#myCarousel-' . $rand . '" data-slide="prev">‹</a>
+		<a class="right label label-primary" href="#myCarousel-' . $rand . '" data-slide="next">›</a>
+	</div><!--.modal-footer--></div><!--.modal-->';
+	$output .= '<div class="clearfix"></div>';
+	return $output;
+}
+
+add_shortcode( 'huff_gallery', 'make_huff_po_gallery_shortcode' );
+
+
+function make_add_class_attachment_link( $html ){
+    $postid = get_the_ID();
+    $html = str_replace('<a', '<a class="span8"', $html );
+    return $html;
+}
+add_filter( 'wp_get_attachment_link', 'make_add_class_attachment_link', 10, 1 );
