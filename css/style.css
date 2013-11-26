@@ -8806,6 +8806,10 @@ a.oembed {
 .huff .carousel-inner {
   height: 400px;
 }
+.huff .carousel-inner .scroller {
+  overflow: scroll;
+  height: 400px;
+}
 .huff .modal-footer {
   padding: 5px 15px 5px;
 }

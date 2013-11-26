@@ -770,19 +770,10 @@ function make_huff_po_gallery_shortcode($attr) {
 		$output .= '<div class="span8">';
 		$output .= wp_get_attachment_link( $attachment->ID, sanitize_title_for_query( $size ) );
 		$output .= '</div>';	
-		if ( isset( $attachment->post_excerpt ) && ! empty( $attachment->post_excerpt ) ) {
-			$attachment_caption = $attachment->post_excerpt;
-		} elseif ( isset( $attachment->post_title ) && ! empty( $attachment->post_title ) ) {
-			$attachment_caption = $attachment->post_title;
-		} else {
-			$attachment_caption = '';
-		}
-		if ( isset( $attachment_caption ) && ! empty( $attachment_caption ) ) {
-			$output .= '<div class="span4">';
-			$output .= '<h4>' . Markdown( wp_kses_post( $attachment_caption ) ) . '</h4>';
-			$output .= '</div><!-- .caption.span4-->';
-			
-		}
+		$output .= '<div class="span4"><div class="scroller">';
+		$output .= ( isset( $attachment->post_title ) && ! empty( $attachment->post_title ) ) ? '<h4>' . Markdown( wp_kses_post( $attachment->post_title ) ) . '</h4>' : '';
+		$output .= ( isset( $attachment->post_excerpt ) && ! empty( $attachment->post_excerpt ) ) ? Markdown( wp_kses_post( $attachment->post_excerpt ) ) : '';
+		$output .= '</div><!--.scroller--></div><!-- .caption.span4-->';
 		$output .= '</div><!--.row-->';
 		$output .= '</div><!--.item-->';
 		
