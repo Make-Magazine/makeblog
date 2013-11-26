@@ -763,7 +763,7 @@ function make_huff_po_gallery_shortcode($attr) {
 			$output .= '<div class="item">';
 		}
 		$output .= '<div class="row">';
-		$output .= '<div class=span8">';
+		$output .= '<div class="span8">';
 		$output .= wp_get_attachment_link( $attachment->ID, sanitize_title_for_query( $size ) );
 		$output .= '</div>';	
 		if ( isset( $attachment->post_excerpt ) && ! empty( $attachment->post_excerpt ) ) {
