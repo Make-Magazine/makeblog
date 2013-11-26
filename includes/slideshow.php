@@ -758,11 +758,14 @@ function make_huff_po_gallery_shortcode($attr) {
 	foreach( $attachments as $id => $attachment ) {
 		$i++;
 		if ($i == 1) {
-			$output .= '<div class="item active row">';	
+			$output .= '<div class="item active">';	
 		} else {
-			$output .= '<div class="item row">';
+			$output .= '<div class="item">';
 		}
+		$output .= '<div class="row">';
+		$output .= '<div class=span8">';
 		$output .= wp_get_attachment_link( $attachment->ID, sanitize_title_for_query( $size ) );
+		$output .= '</div>';	
 		if ( isset( $attachment->post_excerpt ) && ! empty( $attachment->post_excerpt ) ) {
 			$attachment_caption = $attachment->post_excerpt;
 		} elseif ( isset( $attachment->post_title ) && ! empty( $attachment->post_title ) ) {
@@ -776,7 +779,8 @@ function make_huff_po_gallery_shortcode($attr) {
 			$output .= '</div><!-- .caption.span4-->';
 			
 		}
-		$output .= '</div><!--.item.row-->';
+		$output .= '</div><!--.row-->';
+		$output .= '</div><!--.item-->';
 		
 	} //foreach
 	$output .= '</div><!--.carousel-inner--></div><!--.carousel--></div><!--.modal-body-->
@@ -789,11 +793,3 @@ function make_huff_po_gallery_shortcode($attr) {
 }
 
 add_shortcode( 'huff_gallery', 'make_huff_po_gallery_shortcode' );
-
-
-function make_add_class_attachment_link( $html ){
-    $postid = get_the_ID();
-    $html = str_replace('<a', '<a class="span8"', $html );
-    return $html;
-}
-add_filter( 'wp_get_attachment_link', 'make_add_class_attachment_link', 10, 1 );
