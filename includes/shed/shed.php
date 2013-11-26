@@ -16,20 +16,15 @@ function make_featured_products_slider() {
 	$simpleXmlElem = simplexml_load_string( $xml );
 	if ( ! $simpleXmlElem )
 		return;
+	
 	$xml_featured_products = $simpleXmlElem->asXML();
 	$featured_products = simplexml_load_string($xml_featured_products);
 
 	$products = $featured_products->Product;
-	$products_count = count( $products );
 
-	var_dump( $products_count );
-
-	if ( $products_count > 8 ) {
-		$input = range(1, $products_count);
-		$arr = array_rand($input, 4);
-	} else {
-		$input = range(1, 8);
-		$arr = array_rand($input, 4);
+	$i = 0;
+	while ( $i <= 3 ) {
+		var_dump( $products[$i] );
+		$i++;
 	}
-
 }
