@@ -8807,6 +8807,15 @@ a.oembed {
 .huff .carousel-inner {
   height: 400px;
 }
+.huff .modal-footer {
+  padding: 5px 15px 5px;
+}
+.huff .modal-footer .pager {
+  margin: 0px;
+}
+.huff .modal-footer .pager li a {
+  font-size: 14px;
+}
 body .single {
   font-family: "proxima-nova", sans-serif;
   border-bottom: 3px solid #DBDBDB;

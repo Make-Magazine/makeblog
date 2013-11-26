@@ -749,9 +749,13 @@ function make_huff_po_gallery_shortcode($attr) {
 		return '';
 
 	// Start the modal, with the carousel inside of it.
-	$output  = '<a href="#myModal-' . $rand . '" role="button" class="btn" data-toggle="modal">Launch demo modal</a>';
+	$output  = '<a href="#myModal-' . $rand . '" role="button" class="btn btn-primary" data-toggle="modal">';
+	$output .= ( isset( $attr['launch'] ) ) ? wp_kses_post( $attr['launch'] ) : 'Launch Slideshow';
+	$output .= '</a>';
 	$output .= '<div id="myModal-' . $rand . '" class="modal hide huff" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">';
-	$output .= '<div class="modal-header"><h3>This is the title of the modal</h3></div>';
+	$output .= '<div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h3>';
+	$output .= ( isset( $attr['title'] ) ) ? wp_kses_post( $attr['title'] ) : get_the_title();
+	$output .= '</h3></div>';
 	$output .= '<div class="modal-body"><div id="myCarousel-' . $rand . '" class="carousel slide" data-interval=""><div class="carousel-inner">';
 
 	$i = 0;
@@ -785,8 +789,14 @@ function make_huff_po_gallery_shortcode($attr) {
 	} //foreach
 	$output .= '</div><!--.carousel-inner--></div><!--.carousel--></div><!--.modal-body-->
 	<div class="modal-footer">
-		<a class="left label label-primary" href="#myCarousel-' . $rand . '" data-slide="prev">‹</a>
-		<a class="right label label-primary" href="#myCarousel-' . $rand . '" data-slide="next">›</a>
+		<ul class="pager">
+			<li class="previous">
+				<a href="#myCarousel-' . $rand . '" data-slide="prev">&larr; Previous</a>
+			</li>
+			<li class="next">
+				<a href="#myCarousel-' . $rand . '" data-slide="next">Next &rarr;</a>
+			</li>
+		</ul>
 	</div><!--.modal-footer--></div><!--.modal-->';
 	$output .= '<div class="clearfix"></div>';
 	return $output;
