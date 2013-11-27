@@ -787,11 +787,10 @@ function make_huff_po_gallery_shortcode($attr) {
 
 	$i = 0;
 	foreach( $attachments as $id => $attachment ) {
-		$i++;
-		if ($i == 1) {
-			$output .= '<div class="item active">';	
+		if ($i == 0) {
+			$output .= '<div class="item active" data-index="' . intval( $i ) . '">';	
 		} else {
-			$output .= '<div class="item">';
+			$output .= '<div class="item" data-index="' . intval( $i ) . '">';
 		}
 		$output .= '<div class="row">';
 		$output .= '<div class="span8">';
@@ -803,7 +802,7 @@ function make_huff_po_gallery_shortcode($attr) {
 		$output .= '</div><!--.scroller--></div><!-- .caption.span4-->';
 		$output .= '</div><!--.row-->';
 		$output .= '</div><!--.item-->';
-		
+		$i++;
 	} //foreach
 	$output .= '</div><!--.carousel-inner--></div><!--.carousel--></div><!--.modal-body-->';
 	
