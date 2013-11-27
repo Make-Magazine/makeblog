@@ -811,7 +811,7 @@ function make_huff_po_gallery_shortcode($attr) {
 	$i = 0;
 	foreach( $attachments as $id => $attachment ) {
 		$output .= '<div class="span1">';
-		$output .= '<a href="#myCarousel-' . intval( $rand ) . '" data-slide-to="' . esc_attr( $i ) . '">';
+		$output .= ( $i == 0 ) ? '<a href="#myCarousel-' . intval( $rand ) . '" data-slide-to="' . esc_attr( $i ) . '" class="active">' : '<a href="#myCarousel-' . intval( $rand ) . '" data-slide-to="' . esc_attr( $i ) . '">';
 		$image = wp_get_attachment_image_src( $attachment->ID, sanitize_title_for_query( 'slideshow-small-thumb' ) );
 		$output .= '<img src="' . esc_url( $image[0] ) . '">';
 		$output .= '</a>';

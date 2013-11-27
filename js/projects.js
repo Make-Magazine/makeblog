@@ -57,6 +57,10 @@ jQuery(document).ready(function(){
 			var url = jQuery(this).attr('data-src');
 			jQuery(this).delay(1000).attr('src', url);
 		});
+		// Find the active slide, and then add an active class to the thumb.
+		var index = jQuery(this).find('.active').data('index');
+		jQuery('.inner-thumbs .active').removeClass('active');
+		jQuery('*[data-slide-to="' + index + '"]').addClass('active');
 		if ( ! jQuery( this ).hasClass('huffington')) {
 			googletag.pubads().refresh();
 		}

@@ -8821,7 +8821,7 @@ a.oembed {
   position: relative;
   left: 40%;
   width: 1000px;
-  height: 617px;
+  height: 621px;
   margin-bottom: 40px;
 }
 .huff .modal-body {
@@ -8830,6 +8830,10 @@ a.oembed {
 .huff .inner-thumbs {
   display: block;
   margin-bottom: 10px;
+}
+.huff .inner-thumbs .active img {
+  border-bottom: 1px solid #005d8f;
+  padding-bottom: 3px;
 }
 .huff .carousel-inner {
   height: 400px;
