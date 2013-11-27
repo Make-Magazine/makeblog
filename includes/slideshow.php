@@ -783,7 +783,7 @@ function make_huff_po_gallery_shortcode($attr) {
 	$output .= '<div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h3>';
 	$output .= ( isset( $attr['title'] ) ) ? wp_kses_post( $attr['title'] ) : get_the_title();
 	$output .= '</h3></div>';
-	$output .= '<div class="modal-body"><div id="myCarousel-' . intval( $rand ) . '" class="carousel slide" data-interval=""><div class="carousel-inner">';
+	$output .= '<div class="modal-body"><div id="myCarousel-' . intval( $rand ) . '" class="carousel slide container huffington" data-interval=""><div class="carousel-inner">';
 
 	$i = 0;
 	foreach( $attachments as $id => $attachment ) {
@@ -805,8 +805,23 @@ function make_huff_po_gallery_shortcode($attr) {
 		$output .= '</div><!--.item-->';
 		
 	} //foreach
-	$output .= '</div><!--.carousel-inner--></div><!--.carousel--></div><!--.modal-body-->
-	<div class="modal-footer">
+	$output .= '</div><!--.carousel-inner--></div><!--.carousel--></div><!--.modal-body-->';
+	
+	// Let's build the thumbnails.
+	$output .= '<div class="inner-thumbs container"><div class="row">';
+	$i = 0;
+	foreach( $attachments as $id => $attachment ) {
+		$output .= '<div class="span1">';
+		$output .= '<a href="#myCarousel-' . intval( $rand ) . '" data-slide-to="' . esc_attr( $i ) . '">';
+		$image = wp_get_attachment_image_src( $attachment->ID, sanitize_title_for_query( 'slideshow-small-thumb' ) );
+		$output .= '<img src="' . esc_url( $image[0] ) . '">';
+		$output .= '</a>';
+		$output .= '</div>';
+		$i++;
+	}
+	$output .= '<div class="clearfix"></div></div></div>';
+
+	$output .= '<div class="modal-footer">
 		<ul class="pager">
 			<li class="previous">
 				<a href="#myCarousel-' . intval( $rand ) . '" class="nexus" data-slide="prev">&larr; Previous</a>

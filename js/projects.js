@@ -57,8 +57,10 @@ jQuery(document).ready(function(){
 			var url = jQuery(this).attr('data-src');
 			jQuery(this).delay(1000).attr('src', url);
 		});
-		// googletag.pubads().refresh();
-		_gaq.push(['_trackPageview']);
+		if ( ! jQuery( this ).hasClass('huffington')) {
+			googletag.pubads().refresh();
+		}
+		_gaq.push(['_trackPageview']);	
 		var urlref = location.href;
 		PARSELY.beacon.trackPageView({
 			url: urlref,

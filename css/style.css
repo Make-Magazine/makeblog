@@ -8800,13 +8800,17 @@ a.oembed {
 }
 .huff {
   position: relative;
-  left: 42%;
-  width: 970px;
-  height: 550px;
+  left: 40%;
+  width: 1000px;
+  height: 617px;
   margin-bottom: 40px;
 }
 .huff .modal-body {
   max-height: 500px;
+}
+.huff .inner-thumbs {
+  display: block;
+  margin-bottom: 10px;
 }
 .huff .carousel-inner {
   height: 400px;
@@ -8828,6 +8832,15 @@ a.oembed {
   width: 620px;
   height: 540px;
   left: 45%;
+}
+.huff.small .container {
+  width: 100%;
+}
+.huff.small .container .span8 {
+  margin-left: 0px;
+}
+.huff.small .inner-thumbs {
+  display: none;
 }
 .huff.small .nexus {
   display: none;
