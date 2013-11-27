@@ -5987,18 +5987,20 @@ footer {
 }
 .footer_copyright p {
   font-size: 12px  !important;
-  line-height: 10px  !important;
+  line-height: 16px  !important;
   font-weight: normal !important;
+  margin-bottom: 0px !important;
 }
 .footer_copyright p a {
   border-bottom: none !important;
 }
 .footer_copyright p a img {
-  margin-top: -7px !important;
+  margin-top: -4px !important;
 }
 .p_footer {
   font-size: 14px !important;
-  line-height: 21px !important;
+  line-height: 20px !important;
+  margin-bottom: 5px;
 }
 .twtr-widget {
   border: 1px solid #D0D0CE !important;
@@ -7349,6 +7351,10 @@ body#shop {
   border-top: 3px solid #DBDBDB;
   background-image: url('../img/header_bg.jpg');
 }
+.new-footer .footer-cart-image {
+  padding-top: 29px;
+  padding-left: 13px;
+}
 .new-footer label {
   display: block;
   margin-bottom: 0;
@@ -7362,10 +7368,22 @@ body#shop {
   float: left;
   margin-left: 0;
 }
+.new-footer .about-column-01 ul {
+  margin-top: 6px;
+}
+.new-footer .about-column-01 ul li {
+  line-height: 20px;
+}
 .new-footer .about-column-02 {
   float: left;
   width: 130px;
   margin-left: 0;
+}
+.new-footer .about-column-02 ul {
+  margin-top: 5px;
+}
+.new-footer .about-column-02 ul li {
+  line-height: 20px;
 }
 .new-footer .email-area #appendedInputButton {
   border-radius: 0;
@@ -7455,7 +7473,7 @@ body#shop {
 }
 .new-footer .container .row .subscribe h5 {
   color: #F60B29;
-  margin-top: -5px;
+  margin-top: -8px;
 }
 .new-footer .container .row .subscribe p {
   font-weight: bold;
@@ -7468,6 +7486,7 @@ body#shop {
   color: #F60B29;
   height: 7px;
   width: 85px;
+  margin-top: 0px;
 }
 .new-footer .controls  > .radio:first-child,
 .controls  > .checkbox:first-child {

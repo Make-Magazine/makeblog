@@ -574,12 +574,13 @@ footer {
 
 .footer_copyright p {
 	font-size: 12px  !important;
-	line-height: 10px  !important;
+	line-height: 16px  !important;
 	font-weight: normal !important;
+	margin-bottom: 0px !important;
 	a {
 		border-bottom: none !important;
 		img {
-			margin-top: -7px !important;
+			margin-top: -4px !important;
 		}
 	}
 }
@@ -587,7 +588,8 @@ footer {
 //This class is to keep some pages from inheriting the wrong giant font in the footer.
 .p_footer {
 	font-size: 14px !important;
-	line-height: 21px !important;
+	line-height: 20px !important;
+	margin-bottom: 5px;
 }
 
 .twtr-widget {
@@ -2148,6 +2150,10 @@ body#shop {
     text-align:center;
     border-top: 3px solid #DBDBDB;
     background-image: url('../img/header_bg.jpg');
+    .footer-cart-image {
+    	padding-top: 29px;
+		padding-left: 13px;
+    }
     label {
         display: block;
         margin-bottom: 0;
@@ -2160,11 +2166,23 @@ body#shop {
         width: 90px;
         float:left;
         margin-left:0;
+        ul {
+        	margin-top:6px;
+        	li {
+        		line-height: 20px;
+        	}
+        }
     }
     .about-column-02 {
         float:left;
         width:130px;
         margin-left:0;
+        ul {
+        	margin-top:5px;
+        	li {
+        		line-height: 20px;
+        	}
+        }
     }
     .email-area {
         #appendedInputButton {
@@ -2261,7 +2279,7 @@ body#shop {
             .subscribe {
                 h5 {
                     color: #F60B29;
-                    margin-top:-5px;
+                    margin-top:-8px;
                 }
                 p {
                     font-weight: bold;
@@ -2274,6 +2292,7 @@ body#shop {
                     color: #F60B29;
                     height: 7px;
                     width:85px;
+                    margin-top: 0px;
                 }
             }
         }
