@@ -32,9 +32,11 @@
 			<div class="container">
 				<div class="row">
 					<div class="span12 logo" >
-						<img src="<?php bloginfo('stylesheet_directory'); ?>/img/make-160-footer.png" alt="MAKE">	
-						<img src="http://makezineblog.files.wordpress.com/2013/07/digital-book-foot.png" alt="MAKE"> 
+						<img src="<?php bloginfo('stylesheet_directory'); ?>/img/make-160-footer.png" alt="MAKE Logo">	
+						<a href="http://make-digital.com/" target="_blank"><img src="http://makezineblog.files.wordpress.com/2013/07/digital-book-foot.png" alt="Make Digital Book"></a> 
 						<h5><a href="http://make-digital.com/" target="_blank">Read Digital Edition</a></h5>
+						<a href="http://www.makershed.com/" target="_blank"><img class="footer-cart-image" src="http://makezineblog.files.wordpress.com/2013/11/makershed_footer1.png" alt="Maker Shed Shopping Cart"></a> 
+						<h5><a href="http://www.makershed.com/" target="_blank">Shop Maker Shed</a></h5>
 					</div>
 					<div class="clear"></div>
 				<!-- END row -->
