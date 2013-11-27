@@ -733,8 +733,16 @@ function make_huff_po_gallery_shortcode($attr) {
 		$orderby = 'none';
 
 	if ( !empty($include) ) {
-		$_attachments = get_posts( array('include' => $include, 'post_status' => 'inherit', 'post_type' => 'attachment', 'post_mime_type' => 'image', 'order' => $order, 'orderby' => $orderby) );
-
+		$args = array(
+			'include' 			=> $include,
+			'post_status'		=> 'inherit',
+			'post_type'			=> 'attachment',
+			'post_mime_type'	=> 'image',
+			'order' 			=> $order,
+			'orderby' 			=> $orderby,
+			'suppress_filters'	=> false,
+			);
+		$_attachments = get_posts( $args );
 		$attachments = array();
 		foreach ( $_attachments as $key => $val ) {
 			$attachments[$val->ID] = $_attachments[$key];
