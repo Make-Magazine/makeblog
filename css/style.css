@@ -8803,6 +8803,7 @@ a.oembed {
   left: 42%;
   width: 970px;
   height: 550px;
+  margin-bottom: 40px;
 }
 .huff .modal-body {
   max-height: 500px;
@@ -8822,6 +8823,14 @@ a.oembed {
 }
 .huff .modal-footer .pager li a {
   font-size: 14px;
+}
+.huff.small {
+  width: 620px;
+  height: 540px;
+  left: 45%;
+}
+.huff.small .nexus {
+  display: none;
 }
 body .single {
   font-family: "proxima-nova", sans-serif;

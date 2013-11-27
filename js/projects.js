@@ -57,7 +57,7 @@ jQuery(document).ready(function(){
 			var url = jQuery(this).attr('data-src');
 			jQuery(this).delay(1000).attr('src', url);
 		});
-		googletag.pubads().refresh();
+		// googletag.pubads().refresh();
 		_gaq.push(['_trackPageview']);
 		var urlref = location.href;
 		PARSELY.beacon.trackPageView({
@@ -106,5 +106,14 @@ jQuery(document).ready(function(){
 		// Empty the src attribute so we can stop the video when it closes. Then we'll put it back right after.
 		video.attr('src', '');
 		video.attr('src', url);
+	});
+	jQuery('.huff .starter').click(function() {
+		jQuery( '.huff' ).removeClass('small');
+		jQuery( this ).hide();
+		jQuery( '.nexus' ).show();
+	});
+	jQuery( ".huff .close" ).click(function() {
+		jQuery('.huff').addClass('small');
+		jQuery('.huff .starter').show();
 	});
 });
