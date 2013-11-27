@@ -101,6 +101,17 @@ make_get_header(); ?>
 					?>
 					
 				</div>
+			
+			</div>
+
+			<div class="row">
+
+				<div class="span12">
+
+					<?php echo make_featured_products_slider(); ?>
+
+				</div>
+
 			</div>
 			
 		</div>

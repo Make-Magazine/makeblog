@@ -153,5 +153,8 @@ include_once dirname( __FILE__ ) . '/includes/blog-dashboard/blog-dashboard.php'
 // 42. Search Facets
 include_once dirname( __FILE__ ) . '/includes/search/search.php';
 
+// 43. Maker Shed Functions
+include_once dirname( __FILE__ ) . '/includes/shed/shed.php';
+
 
 ?>
