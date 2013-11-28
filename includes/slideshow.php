@@ -829,7 +829,7 @@ function make_huff_po_gallery_shortcode($attr) {
 				<a href="#myCarousel-' . intval( $rand ) . '" class="nexus" data-slide="next">Next &rarr;</a>
 			</li>
 		</ul>
-		<a href="#" class="starter btn btn-priamry">Start Slideshow</a>
+		<span href="#myCarousel-' . intval( $rand ) . '" class="starter btn btn-primary">Start Slideshow</span>
 	</div><!--.modal-footer--></div><!--.modal-->';
 	$output .= '<div class="clearfix"></div>';
 	return $output;
