@@ -87,8 +87,8 @@
 
 
 						<div class="additional-content hidden-print">						
-							<form action="<?php echo home_url(); ?>/" class="search-make open">
-								<input type="text" class="search-field" name="s" placeholder="Search" />
+							<form action="<?php echo home_url(); ?>/search/" class="search-make open">
+								<input type="text" class="search-field" name="q" placeholder="Search" />
 								<input type="image" src="<?php echo get_stylesheet_directory_uri(); ?>/images/search-btn.png" alt="Search" class="open" value="Search" />
 							</form>
 							<div class="clearfix"></div>
