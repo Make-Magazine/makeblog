@@ -57,7 +57,7 @@ a.oembed {
 	position: relative;
 	left: 40%;
 	width: 1000px;
-	height: 621px;
+	height: inherit;
 	margin-bottom: 40px;
 	.modal-body {
 		max-height: 500px;
@@ -65,12 +65,19 @@ a.oembed {
 	.inner-thumbs {
 		display: block;
 		margin-bottom: 10px;
-		.active {
+		.row {
+			margin-bottom: 10px;
 			img {
-				border-bottom: 1px solid @blue;
+				border-bottom: 1px solid transparent;
 				padding-bottom: 3px;
 			}
+			.active {
+				img {
+					border-bottom: 1px solid @blue;
+				}
+			}
 		}
+
 	}
 	.carousel-inner {
 		height: 400px;

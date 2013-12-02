@@ -8821,7 +8821,7 @@ a.oembed {
   position: relative;
   left: 40%;
   width: 1000px;
-  height: 621px;
+  height: inherit;
   margin-bottom: 40px;
 }
 .huff .modal-body {
@@ -8831,9 +8831,15 @@ a.oembed {
   display: block;
   margin-bottom: 10px;
 }
-.huff .inner-thumbs .active img {
-  border-bottom: 1px solid #005d8f;
+.huff .inner-thumbs .row {
+  margin-bottom: 10px;
+}
+.huff .inner-thumbs .row img {
+  border-bottom: 1px solid transparent;
   padding-bottom: 3px;
+}
+.huff .inner-thumbs .row .active img {
+  border-bottom: 1px solid #005d8f;
 }
 .huff .carousel-inner {
   height: 400px;

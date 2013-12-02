@@ -807,18 +807,29 @@ function make_huff_po_gallery_shortcode($attr) {
 	$output .= '</div><!--.carousel-inner--></div><!--.carousel--></div><!--.modal-body-->';
 	
 	// Let's build the thumbnails.
-	$output .= '<div class="inner-thumbs container"><div class="row">';
+	$output .= '<div class="inner-thumbs container">';
 	$i = 0;
-	foreach( $attachments as $id => $attachment ) {
-		$output .= '<div class="span1">';
-		$output .= ( $i == 0 ) ? '<a href="#myCarousel-' . intval( $rand ) . '" data-slide-to="' . esc_attr( $i ) . '" class="active">' : '<a href="#myCarousel-' . intval( $rand ) . '" data-slide-to="' . esc_attr( $i ) . '">';
-		$image = wp_get_attachment_image_src( $attachment->ID, sanitize_title_for_query( 'slideshow-small-thumb' ) );
-		$output .= '<img src="' . esc_url( $image[0] ) . '">';
-		$output .= '</a>';
+
+	$rows = array_chunk( $attachments, 12 );	
+
+	foreach ( $rows as $row ) {
+		
+		$output .= '<div class="row">';
+
+		foreach( $row as $id => $attachment ) {
+			$output .= '<div class="span1">';
+			$output .= ( $i == 0 ) ? '<a href="#myCarousel-' . intval( $rand ) . '" data-slide-to="' . esc_attr( $i ) . '" class="active">' : '<a href="#myCarousel-' . intval( $rand ) . '" data-slide-to="' . esc_attr( $i ) . '">';
+			$image = wp_get_attachment_image_src( $attachment->ID, sanitize_title_for_query( 'slideshow-small-thumb' ) );
+			$output .= '<img src="' . esc_url( $image[0] ) . '">';
+			$output .= '</a>';
+			$output .= '</div>';
+			$i++;
+		}
+
 		$output .= '</div>';
-		$i++;
 	}
-	$output .= '<div class="clearfix"></div></div></div>';
+
+	$output .= '<div class="clearfix"></div></div>';
 
 	$output .= '<div class="modal-footer">
 		<ul class="pager">
