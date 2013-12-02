@@ -938,3 +938,70 @@ function make_3d_promo( $atts, $content = null ) {
 }
 
 add_shortcode( '3d_sip', 'make_3d_promo' );
+
+
+function make_mf_video_highlights( $atts, $content = null ) {
+	extract( shortcode_atts( array(
+		'align' => 'left',
+	), $atts ) );
+
+	// Set a random ID for the modal
+	$stage1 = mt_rand();
+	$stage3 = mt_rand();
+
+	// Check if we set the alignment to right. Or else we'll just dfault to left.
+	if ( $align == 'right' ) {
+		$align = 'alignright';
+	} else {
+		$align = 'alignleft';
+	}
+
+	$output = '<div class="mf-video-highlights ' . esc_attr( $align ) . '">
+		<h3 class="mf-video-title">World Maker Faire NY Video Highlights</h3>
+
+		<div class="stage-1">
+			<h3 class="stage-name">MAKE: Live Stage</h3>
+			<p class="presentation-name"><a data-toggle="modal" href="#modal-' . absint( $stage1 ) . '">Live Robot Bugs! Biomimicry in Research and Development</a></p>
+			<div id="modal-' . absint( $stage1 ) . '" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+					<h3>Maker Faire NY: Live Robot Bugs! Biomimicry in Research and Development</h3>
+				</div>
+				<div class="modal-body">';
+					$output .= wpcom_vip_wp_oembed_get( 'http://www.youtube.com/watch?v=tO1YO0TOgdE', array( 'width' => 530 ) );
+				$output .= '</div>
+				<div class="modal-footer">
+					<button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+				</div>
+			</div>
+			<p class="see-all"><a href="http://makerfaire.com/new-york-2013/live-stage/" target="_blank">See All Videos</a></p>
+		</div>
+
+		<div class="stage-2">
+			<h3 class="stage-name">Innovation Stage</h3>
+			<p class="presentation-name"><a href="http://fora.tv/2013/09/21/David_Pogue_Return_of_the_Non-Scientist" target="_blank">David Pogue: The Return of the Non-Scientist</a></p>
+			<p class="see-all"><a href="http://makerfaire.com/new-york-2013/innovation-stage/" target="_blank">See All Videos</a></p>
+		</div>
+
+		<div class="stage-3">
+			<h3 class="stage-name">Maker Interviews</h3>
+			<p class="presentation-name"><a data-toggle="modal" href="#modal-' . absint( $stage3 ) . '">NASA Chief Technologist Mason Peck</a></p>
+			<div id="modal-' . absint( $stage3 ) . '" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+					<h3>Maker Faire NY: NASA Chief Technologist Mason Peck</h3>
+				</div>
+				<div class="modal-body">';
+					$output .= wpcom_vip_wp_oembed_get( 'http://www.youtube.com/watch?v=dC84Dm45Hr4', array( 'width' => 530 ) );
+				$output .= '</div>
+				<div class="modal-footer">
+					<button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+				</div>
+			</div>
+			<p class="see-all"><a href="http://makerfaire.com/new-york-2013/roaming-camera/" target="_blank">See All Videos</a></p>
+		</div>
+	</div>';
+
+	return $output;
+}
+add_shortcode( 'mf_video_highlights', 'make_mf_video_highlights' );
