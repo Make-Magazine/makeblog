@@ -11873,3 +11873,38 @@ a.button.small-button {
   font-size: 17px;
   line-height: 140%;
 }
+.mf-video-highlights {
+  border: 3px solid #e01b23;
+  border-radius: 5px;
+  padding: 9px;
+  width: 232px;
+}
+.mf-video-highlights .stage-1,
+.mf-video-highlights .stage-2 {
+  border-bottom: 1px solid #898989;
+}
+.mf-video-highlights .mf-video-title {
+  font-size: 18.68px;
+  line-height: 19.46px;
+  text-transform: inherit;
+}
+.mf-video-highlights .stage-name {
+  color: #005d8f;
+  font-size: 17.13px;
+  line-height: 19.46px;
+  margin: 11px 0;
+}
+.mf-video-highlights .presentation-name {
+  font-size: 16px;
+  line-height: 18px;
+}
+.mf-video-highlights .see-all {
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 19.46px;
+}
+.mf-video-highlights .presentation-name a,
+.mf-video-highlights .see-all a {
+  text-decoration: none;
+  border: none;
+}
