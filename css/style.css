@@ -8835,11 +8835,11 @@ a.oembed {
   margin-bottom: 10px;
 }
 .huff .inner-thumbs .row img {
-  border-bottom: 1px solid transparent;
-  padding-bottom: 3px;
+  border-bottom: 3px solid transparent;
+  padding-bottom: 1px;
 }
 .huff .inner-thumbs .row .active img {
-  border-bottom: 1px solid #005d8f;
+  border-color: #005d8f;
 }
 .huff .carousel-inner {
   height: 400px;

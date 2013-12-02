@@ -20,7 +20,7 @@ wpcom_vip_load_plugin( 'wp-help' );
 wpcom_vip_load_plugin( 'easy-custom-fields' );
 wpcom_vip_load_plugin( 'edit-flow' );
 // wpcom_vip_load_plugin( 'wp-page-numbers' );
-wpcom_vip_load_plugin( 'lazy-load' );
+// wpcom_vip_load_plugin( 'lazy-load' );
 wpcom_vip_load_plugin( 'get-the-image' );
 // wpcom_vip_load_plugin( 'storify' );
 wpcom_vip_load_plugin( 'cheezcap' );
