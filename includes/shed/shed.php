@@ -35,7 +35,7 @@ function make_featured_products_slider() {
 	$id = 'shed-' . mt_rand(0, 100);
 
 	// Build the main link, and the carousel wrapper
-	$output = '<h2 class="look_like_h3"><a onClick="_gaq.push([\'_trackEvent\', \'Links\', \'Click\', \'Maker Shed - Products\']);" href="http://makershed.com">Featued Products from the MakerShed</a></h2>';
+	$output = '<h2 class="look_like_h3"><a onClick="_gaq.push([\'_trackEvent\', \'Links\', \'Click\', \'Maker Shed - Products\']);" href="http://makershed.com">Featured Products from the MakerShed</a></h2>';
 	$output .= '<div id="' . intval( $id ) . '" class="carousel slide" data-interval="false"><div class="carousel-inner"><div class="item active"><div class="row">';
 
 	// Start the product loop.
