@@ -243,8 +243,7 @@ function make_enqueue_jquery() {
 	wp_enqueue_script( 'make-common', get_stylesheet_directory_uri() . '/js/common.js', array( 'make-typekit' ) );
 
 	// Load optimizely A/B testing script
-	if ( is_front_page() || is_home() || is_post_type_archive( 'projects' ) )
-		wp_enqueue_script( 'make-optimizely', '//cdn.optimizely.com/js/299391107.js', array( 'jquery' ) );
+	wp_enqueue_script( 'make-optimizely', '//cdn.optimizely.com/js/299391107.js', array( 'jquery' ) );
 
 	wp_enqueue_script( 'jquery' );
 	wp_enqueue_script( 'make-bootstrap', get_stylesheet_directory_uri() . '/js/bootstrap.min.js', array( 'jquery' ), false, true );
