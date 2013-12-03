@@ -108,7 +108,7 @@ make_get_header() ?>
 
 							<div class="pull-right">
 
-								<?php echo 'Page ' . make_search_pagination( $wp_query ); ?>
+								<?php echo make_search_pagination( $wp_query ); ?>
 
 							</div>
 
