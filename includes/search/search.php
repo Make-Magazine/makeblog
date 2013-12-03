@@ -72,7 +72,7 @@ function make_search_count( $wp_query ) {
 	if ( $wp_query->found_posts > 10 ) {
 		$paged = ( $wp_query->query_vars['paged'] === 0 ) ? 1 : $wp_query->query_vars['paged'];
 		$post_count = ( ( $paged * $wp_query->query_vars['posts_per_page'] ) - $wp_query->query_vars['posts_per_page'] + 1 );
-		$output .= '<span class="bold">Page ' . $post_count . '</span>';
+		$output .= '<span class="bold">' . absint( $post_count . '</span>';
 		$output .= ' - ';
 		$output .= '<span class="bold">' . ( $post_count + $wp_query->post_count - 1 ) . '</span>';
 		$output .= ' of <span class="bold">' . $wp_query->found_posts . '</span> results';
@@ -93,7 +93,7 @@ function make_search_pagination( $wp_query ) {
 		'format' => '?paged=%#%',
 		'current' => max( 1, $wp_query->query_vars['paged'] ),
 		'total' => $wp_query->max_num_pages,
-		'prev_text'    => __('<span class="prev">«</span>'),
+		'prev_text'    => __('Page <span class="prev">«</span>'),
 		'next_text'    => __('<span class="next">»</span>'),
 	) );
 }
