@@ -39,7 +39,7 @@ function make_sitemap_post_types() {
 	return $types;
 }
 
-apply_filters( 'msm_sitemap_entry_post_type', 'make_sitemap_post_types' );
+add_filter( 'msm_sitemap_entry_post_type', 'make_sitemap_post_types' );
 
 if ( ! jetpack_is_mobile() ) {
 	wpcom_vip_load_plugin( 'facebook' );
