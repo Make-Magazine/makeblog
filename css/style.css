@@ -10230,9 +10230,10 @@ body.camp a.button.green {
   color: #ffffff;
 }
 body.makercamp {
-  background: #094a89 url(http://makezineblog.files.wordpress.com/2013/05/star-bg-long.jpg) 0 20px repeat;
+  background: url(http://makezineblog.files.wordpress.com/2013/05/star-bg-long.jpg) 0 20px repeat;
   text-rendering: optimizeLegibility;
   padding-bottom: 0 !important;
+  padding-top: 0px !important;
   margin: 0;
   font-family: "Droid Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 14px;
@@ -10386,19 +10387,16 @@ body.makercamp.admin-bar header {
 }
 body.makercamp .mc-description {
   font-size: 48px;
-  color: #f26522;
   line-height: 48px;
 }
 body.makercamp .mc-description h2 {
   font-size: 48px;
-  color: #f26522;
   line-height: 1em;
 }
 body.makercamp .mc-description h4 {
   font-weight: normal;
   font-size: 25px;
   line-height: 32px;
-  color: #f26522;
   position: relative;
   top: 10px;
 }
@@ -10447,7 +10445,6 @@ body.makercamp .waist .blue h4 {
 body.makercamp .waist .button {
   border-radius: 5px;
   font-weight: 400;
-  background: #f26522;
   width: 87%;
 }
 body.makercamp .join {
@@ -10623,7 +10620,6 @@ body.makercamp .features-box-content h4 {
 }
 body.makercamp .lower-gradation {
   padding-top: 30px;
-  background: #0f5b99 url('http://makezineblog.files.wordpress.com/2013/05/background-gradient-02.jpg') 0 0 repeat;
   padding: 20px 0;
 }
 body.makercamp .new-footer .trending,
@@ -10820,9 +10816,8 @@ body.makercamp a.button {
 }
 body.makercamp .button:hover,
 body.makercamp a.button:hover {
-  background-color: #f26522 !important;
   color: #fff !important;
-  text-decoration: none;
+  text-decoration: none !important;
 }
 body.makercamp .button.blue,
 body.makercamp a.button.blue {
