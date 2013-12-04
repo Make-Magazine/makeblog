@@ -93,7 +93,7 @@ function make_search_pagination( $wp_query ) {
 		'format' => '?paged=%#%',
 		'current' => max( 1, $wp_query->query_vars['paged'] ),
 		'total' => $wp_query->max_num_pages,
-		'prev_text'    => __('Page <span class="prev">«</span>'),
+		'prev_text'    => __('<span class="prev">«</span>'),
 		'next_text'    => __('<span class="next">»</span>'),
 	) );
 }
