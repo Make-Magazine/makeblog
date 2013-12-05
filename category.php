@@ -43,11 +43,11 @@ make_get_header(); ?>
 					
 					<?php make_child_category_list(); ?>
 					
-				</div>
+			</div>	
 				
-			</div>
-		
 		</div>
+		
+	</div>
 
 	</div>
 	
@@ -109,6 +109,20 @@ make_get_header(); ?>
 				<div class="span12">
 
 					<?php echo make_featured_products_slider(); ?>
+
+				</div>
+
+			</div>
+
+			<div class="row sub-banner">
+
+				<div class="span12">
+
+					<div id='div-gpt-ad-664089004995786621-6'>
+						<script type='text/javascript'>
+							googletag.cmd.push(function(){googletag.display('div-gpt-ad-664089004995786621-6')});
+						</script>
+					</div>
 
 				</div>
 
