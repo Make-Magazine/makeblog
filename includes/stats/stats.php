@@ -62,15 +62,58 @@ function make_get_plusone_count( $url ) {
 	}
 }
 
+function make_get_postview_count( $post_id, $days = 30, $end, $table ) {
+	$args = array( 
+		'api_key'	=> '2954c2c6e490',
+		'blog_uri'	=> 'makezine.com',
+		'format'	=> 'json',
+		'table' 	=> $table,
+		'post_id'	=> $post_id,
+		'days'		=> $days,
+		'end'		=> $end,
+		);
+	var_dump( $args );
+	$url = add_query_arg( $args, 'http://stats.wordpress.com/csv.php' );
+
+	var_dump( $url );
+
+	$json_string = wpcom_vip_file_get_contents( $url );
+
+	$json = json_decode( $json_string, true );
+	
+	$count = null;
+
+	foreach ( $json as $date ) {
+		$count = $count + $date['views'];
+	}
+
+	return $count;
+}
+
 function make_social_stats() {
-	if ( $_POST ) {
-		$url 		= ( isset( $_POST['url'] ) ) ? esc_url( $_POST['url'] ) : '' ;
-		$post_ID 	= ( isset( $_POST['post_ID'] ) ) ? intval( $_POST['post_ID'] ) : '' ;
-		$num_days 	= ( isset( $_POST['num_days'] ) ) ? intval( $_POST['num_days'] ) : '' ;
-		$end_date 	= ( isset( $_POST['num_days'] ) ) ? sanitize_title( $_POST['end_date'] ) : '' ;
+	if ( !empty( $_POST ) ) {
+		var_dump( $_POST );
+		$url 		= ( isset( $_POST['url'] ) ) 		? esc_url( $_POST['url'] ) : 			'' ;
+		$post_id 	= ( isset( $_POST['post_id'] ) ) 	? intval( $_POST['post_id'] ) : 		'' ;
+		$num_days 	= ( isset( $_POST['num_days'] ) ) 	? intval( $_POST['num_days'] ) : 		'' ;
+		$end 		= ( isset( $_POST['num_days'] ) ) 	? sanitize_title( $_POST['end'] ) : 	'' ;
+		$table 		= ( isset( $_POST['table'] ) ) 		? sanitize_title( $_POST['table'] ) : 	'' ;
 	}
 	?>
 	<div class="wrap">
+
+		<style>
+
+			.control-group {
+				clear: both;
+				margin-bottom: 15px;
+			}
+
+			.control-label {
+				width: 120px;
+				float: left;
+			}
+		</style>
 	
 		<h1>The Social Counter!</h1>
 		
@@ -82,7 +125,7 @@ function make_social_stats() {
 					<form action="" method="post" class="">
 						<input type="text" class="span3" placeholder="url&hellip;" name="url">
 						<?php wp_nonce_field( 'make_stats_nonce', 'make_stats_nonce' ); ?>
-						<button type="submit" class="btn btn info">Submit</button>
+						<button type="submit" class="button btn btn info">Submit</button>
 					</form>
 					
 					<br class="clear">
@@ -110,16 +153,40 @@ function make_social_stats() {
 		<div class="postbox metabox-holder">
 
 			<h3 class="hndle"><span>WordPress.com Stats Counter</span></h3>
-			
+
 			<div class="inside">
 				<div class="table table_content">
 					<p class="sub">Add a Post ID to combined stats for the page.</p>
 					<form action="" method="post" class="">
-						<input type="text" class="span3" placeholder="Post ID" name="post_ID">
-						<input type="text" class="span3" placeholder="Number of Days" name="num_days">
-						<input type="date" class="span3" placeholder="End Date" name="end_date">
+						<div class="control-group">
+							<label class="control-label" for="post_id">Post ID</label>
+							<div class="controls">
+								<input type="text" class="span3" placeholder="Post ID" name="post_id">
+							</div>
+						</div>
+						<div class="control-group">
+							<label class="control-label" for="num_days">Number of Days</label>
+							<div class="controls">
+								<input type="text" class="span3" placeholder="Number of Days" name="num_days">
+							</div>
+						</div>
+						<div class="control-group">
+							<label class="control-label" for="end">End Date</label>
+							<div class="controls">
+								<input type="date" class="span3" placeholder="End Date" name="end">
+							</div>
+						</div>
+						<div class="control-group">
+							<label class="control-label" for="table">Table</label>
+							<div class="controls">
+								<select name="table">
+									<option value="postviews">Post Views (Includes RSS)</option>
+									<option value="views">Page Views</option>
+								</select>
+							</div>
+						</div>
 						<?php wp_nonce_field( 'make_wpcom_stats_nonce', 'make_wpcom_stats_nonce' ); ?>
-						<button type="submit" class="btn btn info">Submit</button>
+						<button type="submit" class="button btn btn info">Submit</button>
 					</form>
 					
 					<br class="clear">
@@ -130,7 +197,7 @@ function make_social_stats() {
 
 							echo '<table class="table table-striped table-bordered"><thead><tr><th>Site</th><th>Count</th></tr></thead><tbody>';
 							echo '<tr><td>Page Views</td>';
-							echo '<td>' . wpcom_vip_get_post_pageviews( $post_ID, $num_days, $end_date ) . '</td></tr>';
+							echo '<td>' . make_get_postview_count( $post_id, $num_days, $end, $table ) . '</td></tr>';
 							echo '</tbody></table>';
 						}
 					?>
