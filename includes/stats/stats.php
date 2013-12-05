@@ -72,10 +72,8 @@ function make_get_postview_count( $post_id, $days = 30, $end, $table ) {
 		'days'		=> $days,
 		'end'		=> $end,
 		);
-	var_dump( $args );
-	$url = add_query_arg( $args, 'http://stats.wordpress.com/csv.php' );
 
-	var_dump( $url );
+	$url = add_query_arg( $args, 'http://stats.wordpress.com/csv.php' );
 
 	$json_string = wpcom_vip_file_get_contents( $url );
 
