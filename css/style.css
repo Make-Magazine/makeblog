@@ -10619,8 +10619,7 @@ body.makercamp .features-box-content h4 {
   line-height: 34px;
 }
 body.makercamp .lower-gradation {
-  padding-top: 30px;
-  padding: 20px 0;
+  padding: 0 0 20px 0;
 }
 body.makercamp .new-footer .trending,
 body.makercamp .new-footer .newsletter,
@@ -10631,7 +10630,7 @@ body.makercamp .new-footer .subscribe {
 body.makercamp .new-footer .subscribe p {
   line-height: 24px;
   width: 130px;
-  margin-top: -15px;
+  margin-bottom: 11px;
 }
 body.makercamp .new-footer .subscribe h5 {
   color: #F60B29;
