@@ -67,6 +67,7 @@ function make_get_postview_count( $post_id, $days = 30, $end, $table ) {
 		'api_key'	=> '2954c2c6e490',
 		'blog_uri'	=> 'makezine.com',
 		'format'	=> 'json',
+		'period'	=> 'days',
 		'table' 	=> $table,
 		'post_id'	=> $post_id,
 		'days'		=> $days,
@@ -78,7 +79,7 @@ function make_get_postview_count( $post_id, $days = 30, $end, $table ) {
 	$json_string = wpcom_vip_file_get_contents( $url );
 
 	$json = json_decode( $json_string, true );
-	
+
 	$count = null;
 
 	foreach ( $json as $date ) {
@@ -90,12 +91,11 @@ function make_get_postview_count( $post_id, $days = 30, $end, $table ) {
 
 function make_social_stats() {
 	if ( !empty( $_POST ) ) {
-		var_dump( $_POST );
-		$url 		= ( isset( $_POST['url'] ) ) 		? esc_url( $_POST['url'] ) : 			'' ;
-		$post_id 	= ( isset( $_POST['post_id'] ) ) 	? intval( $_POST['post_id'] ) : 		'' ;
-		$num_days 	= ( isset( $_POST['num_days'] ) ) 	? intval( $_POST['num_days'] ) : 		'' ;
-		$end 		= ( isset( $_POST['num_days'] ) ) 	? sanitize_title( $_POST['end'] ) : 	'' ;
-		$table 		= ( isset( $_POST['table'] ) ) 		? sanitize_title( $_POST['table'] ) : 	'' ;
+		$url 		= ( isset( $_POST['url'] ) )		? esc_url( $_POST['url'] ) : 			'' ;
+		$post_id 	= ( isset( $_POST['post_id'] ) )	? intval( $_POST['post_id'] ) : 		'' ;
+		$days		= ( isset( $_POST['days'] ) )		? intval( $_POST['days'] ) :			'' ;
+		$end 		= ( isset( $_POST['end'] ) )		? sanitize_title( $_POST['end'] ) : 	'' ;
+		$table 		= ( isset( $_POST['table'] ) )		? sanitize_title( $_POST['table'] ) : 	'' ;
 	}
 	?>
 	<div class="wrap">
@@ -163,9 +163,9 @@ function make_social_stats() {
 							</div>
 						</div>
 						<div class="control-group">
-							<label class="control-label" for="num_days">Number of Days</label>
+							<label class="control-label" for="days">Number of Days</label>
 							<div class="controls">
-								<input type="text" class="span3" placeholder="Number of Days" name="num_days">
+								<input type="text" class="span3" placeholder="Number of Days" name="days">
 							</div>
 						</div>
 						<div class="control-group">
@@ -195,7 +195,7 @@ function make_social_stats() {
 
 							echo '<table class="table table-striped table-bordered"><thead><tr><th>Site</th><th>Count</th></tr></thead><tbody>';
 							echo '<tr><td>Page Views</td>';
-							echo '<td>' . make_get_postview_count( $post_id, $num_days, $end, $table ) . '</td></tr>';
+							echo '<td>' . make_get_postview_count( $post_id, $days, $end, $table ) . '</td></tr>';
 							echo '</tbody></table>';
 						}
 					?>
