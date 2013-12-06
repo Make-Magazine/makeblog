@@ -136,6 +136,9 @@ jQuery(document).ready(function(){
 				case 27:
 					jQuery( '.huff' ).addClass( 'small' );
 					jQuery( '.huff .starter' ).show();
+
+					// Disable our event listener
+					jQuery( document ).off( 'keydown' );
 					break;
 			}
 		});
@@ -144,6 +147,9 @@ jQuery(document).ready(function(){
 	jQuery( ".huff .close" ).click(function() {
 		jQuery('.huff').addClass('small');
 		jQuery('.huff .starter').show();
+
+		// Disable our event listener
+		jQuery( document ).off( 'keydown' );
 	});
 
 });
