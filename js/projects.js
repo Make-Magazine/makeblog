@@ -122,4 +122,18 @@ jQuery(document).ready(function(){
 		jQuery('.huff').addClass('small');
 		jQuery('.huff .starter').show();
 	});
+
+	jQuery(document).bind('keydown', 'left', function() {
+		jQuery('.carousel').carousel('prev');
+		jQuery('.carousel').on('slid', function () {
+			jQuery('.carousel').carousel('pause');
+		});
+	});
+	jQuery(document).bind('keydown', 'right', function() {
+		jQuery('.carousel').carousel('next');
+		jQuery('.carousel').on('slid', function () {
+			jQuery('.carousel').carousel('pause');
+		});
+	});
+
 });
