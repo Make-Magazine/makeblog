@@ -64,7 +64,7 @@ jQuery(document).ready(function(){
 		if ( ! jQuery( this ).hasClass('huffington')) {
 			googletag.pubads().refresh();
 		}
-		_gaq.push(['_trackPageview']);	
+		_gaq.push(['_trackPageview']);
 		var urlref = location.href;
 		PARSELY.beacon.trackPageView({
 			url: urlref,
@@ -78,13 +78,13 @@ jQuery(document).ready(function(){
 		jQuery('.slide').find('iframe').each( function(){
 			var url = jQuery(this).attr('src');
 			jQuery(this).attr('data-src', url);
-		});	
+		});
 	} else {
 		jQuery('.slide').find('iframe').each( function(){
 			var url = jQuery(this).attr('src');
 			jQuery(this).attr('data-src', url);
-		});	
-	};
+		});
+	}
 
 	jQuery('.thumbs').click(function () {
 		var mydata = jQuery(this).data();
@@ -117,23 +117,33 @@ jQuery(document).ready(function(){
 		jQuery( '.huff' ).removeClass('small');
 		jQuery( this ).hide();
 		jQuery( '.nexus' ).show();
+
+		// Listen for a keydown event and run the proper action.
+		jQuery( document ).keydown( function( event ) {
+			switch ( event.which ) {
+				case 37:
+					jQuery( '.carousel' ).carousel( 'prev' );
+					jQuery( '.carousel' ).on( 'slid', function() {
+						jQuery( this ).carousel( 'pause' );
+					});
+					break;
+				case 39:
+					jQuery( '.carousel' ).carousel( 'next' );
+					jQuery( '.carousel' ).on( 'slid', function() {
+						jQuery( this ).carousel( 'pause' );
+					});
+					break;
+				case 27:
+					jQuery( '.huff' ).addClass( 'small' );
+					jQuery( '.huff .starter' ).show();
+					break;
+			}
+		});
+
 	});
 	jQuery( ".huff .close" ).click(function() {
 		jQuery('.huff').addClass('small');
 		jQuery('.huff .starter').show();
-	});
-
-	jQuery(document).bind('keydown', 'left', function() {
-		jQuery('.carousel').carousel('prev');
-		jQuery('.carousel').on('slid', function () {
-			jQuery('.carousel').carousel('pause');
-		});
-	});
-	jQuery(document).bind('keydown', 'right', function() {
-		jQuery('.carousel').carousel('next');
-		jQuery('.carousel').on('slid', function () {
-			jQuery('.carousel').carousel('pause');
-		});
 	});
 
 });
