@@ -9234,6 +9234,9 @@ body {
 body.admin-bar .navbar {
   top: 32px;
 }
+.navbar-fixed-top {
+  z-index: 9999;
+}
 .top-navigation-wrapper .nav {
   margin-bottom: 0;
 }
