@@ -116,4 +116,13 @@
 					</div>
 				</div>
 			</div>
+			<div class="makershed-banner">
+				<div class="container">
+					<div class="row">
+						<div class="span12">
+							<a href="http://www.makershed.com/?Click=160268"><img src="http://makezineblog.files.wordpress.com/2013/12/maker-shed-banner-red.png" /></a>
+						</div>
+					</div>
+				</div>
+			</div>
 		</header>

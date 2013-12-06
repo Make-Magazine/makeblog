@@ -9329,6 +9329,9 @@ body.admin-bar .navbar {
   padding: 3px 0 3px 8px;
   margin-bottom: 0;
 }
+.makershed-banner {
+  background: #de231a;
+}
 .page-template-page-craft-php .main-header .logo {
   margin-top: 60px;
 }
