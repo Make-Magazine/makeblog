@@ -804,6 +804,36 @@ function make_huff_po_gallery_shortcode($attr) {
 		$output .= '</div><!--.item-->';
 		$i++;
 	} //foreach
+	// Add another slide at the end for other slideshows.
+	$output .= '<div class="item" data-index="' . intval( $i++ ) . '"><div class="row"><div class="span12">';
+
+	$args = array(
+		'types'				=> 'slideshow',
+		'posts_per_page'	=> 6,
+		'post__not_in'		=> array( $post->ID ),
+		);
+
+	$query = new WP_Query( $args );
+
+	$results = array_chunk( $query->posts, 3 );
+
+	foreach ( $results as $row ) {
+		$output .= '<div class="row">';
+
+		foreach ( $row as $post_object ) {
+			$output .= '<div class="span4"><a target="_blank" href="';
+			$output .= get_permalink( $post_object->ID );
+			$output .= '">';
+			$output .= get_the_post_thumbnail( $post_object->ID, 'side-thumb' );
+			$output .= '<h4>' . get_the_title( $post_object ) . '</h4>';
+			$output .= Markdown( wp_trim_words( strip_shortcodes( ( $post_object->post_excerpt ) ? $post_object->post_excerpt : $post_object->post_content  ), 10, '...' ) );
+			$output .= '</a></div>';
+		}
+
+		$output .= '</div>';
+	}
+
+	$output .= '</div><!--.span12--></div><!--.row--></div><!--.item-->';
 	$output .= '</div><!--.carousel-inner--></div><!--.carousel--></div><!--.modal-body-->';
 	
 	// Let's build the thumbnails.
