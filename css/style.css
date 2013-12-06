@@ -7026,6 +7026,7 @@ img#wpstats {
 }
 .wp-caption {
   background-color: #ddd;
+  width: auto!important;
 }
 .wp-caption .wp-caption-text {
   font-size: 16px;
