@@ -118,6 +118,18 @@ jQuery(document).ready(function(){
 		jQuery( this ).hide();
 		jQuery( '.nexus' ).show();
 
+		// Open external links inside gallery into new window
+		jQuery( '.scroller a' ).each( function() {
+			var link = new RegExp( '/' + window.location.host + '/' );
+			if ( ! link.test( this.href ) ) {
+				jQuery( this ).click( function( e ) {
+					e.preventDefault();
+					e.stopPropagation();
+					window.open( this.href, '_blank' );
+				});
+			}
+		});
+
 		// Listen for a keydown event and run the proper action.
 		jQuery( document ).keydown( function( event ) {
 			switch ( event.which ) {
