@@ -1,7 +1,7 @@
 <?php
 /**
  * @package MakeZine
- * Template Name: FtMS - Maker Shed Homepage Widget
+ * Template Name: Maker Shed Homepage Widget
  */
 ?>
 <?php 
@@ -23,7 +23,14 @@ $wp_query = new WP_Query($args);
 
 var newcontent = document.createElement('p');
 newcontent.id = 'js-shed-homepage';
-newcontent.appendChild(document.write('<div id="dotd"><?php if (class_exists('MultiPostThumbnails')) : MultiPostThumbnails::the_post_thumbnail('from-the-maker-shed', 'product-thumbnail', NULL, 'shed-thumb'); endif; ?><p><?php the_title(); ?></p></div>'));
+newcontent.appendChild(document.write('
+	<div id="dotd">
+		<a href="<?php the_permalink(); ?>">
+			<?php if (class_exists('MultiPostThumbnails')) : MultiPostThumbnails::the_post_thumbnail('from-the-maker-shed', 'product-thumbnail', NULL, 'shed-thumb'); endif; ?>
+		</a>
+		<p><?php the_title(); ?></p>
+		<p><a href="<?php the_permalink(); ?>" class="cta">Learn more</a></p>
+	</div>'));
 var scr = document.getElementById('maker-shed-grabber');
 scr.parentNode.insertBefore(newcontent, scr);
 
