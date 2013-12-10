@@ -20,7 +20,7 @@ make_get_header() ?>
 			
 					<div class="projects-masthead">
 						
-						<img style="width:940px;margin:-40px 0 30px 0;" src="http://makezineblog.files.wordpress.com/2013/11/makegiftguide620x80.png" alt="Holiday Gift Guide 2013">
+						<img style="width:940px;margin:10px 0 30px 0;" src="http://makezineblog.files.wordpress.com/2013/11/makegiftguide620x80.png" alt="Holiday Gift Guide 2013">
 						
 					</div>
 		
