@@ -4,8 +4,7 @@
  * Template Name: Maker Shed Homepage Widget
  */
 
-header("Content-type: text/javascript");
-header('Content-Type: text/html; charset=utf-8');
+header('Content-Type: text/javascript; charset=utf-8');
 
 $args = array(
   'post_type' => 'from-the-maker-shed',
