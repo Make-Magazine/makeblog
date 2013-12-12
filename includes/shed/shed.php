@@ -20,12 +20,7 @@ function make_featured_products_slider() {
 	if ( ! $simpleXmlElem )
 		return;
 	
-
-	// Setup some variables
-	$xml_featured_products = $simpleXmlElem->asXML();
-	
-	$featured_products = simplexml_load_string( $xml_featured_products );
-	$products = $featured_products->Product;
+	$products = $simpleXmlElem->Product;
 
 	// Randomize the counter so that we can get random products.
 	$counter = range( 0, ( count( $products ) - 1 ) );

@@ -337,9 +337,8 @@ function make_featured_products() {
 	$simpleXmlElem = simplexml_load_string( $xml );
 	if ( ! $simpleXmlElem )
 		return;
-	$xml_featured_products = $simpleXmlElem->asXML();
-	$featured_products = simplexml_load_string($xml_featured_products);
-	$products = $featured_products->Product;
+
+	$products = $simpleXmlElem->Product;
 	$products_count = count($products);
 	if ($products_count > 8) {
 		$input = range(1,$products_count);
