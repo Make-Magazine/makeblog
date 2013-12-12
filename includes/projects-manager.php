@@ -57,23 +57,10 @@
 	 * @param  string REQUIRED $sort_field 	The field in the array you wish to sort by. TODO: Make this happen.
 	 * @return array 
 	 *
-	 * @version  1.0
+	 * @version  1.1
 	 * @since    GLaDOS
 	 */
 	function make_projects_sort( $array ) {
-
-		// This function is used for the usort() function.
-		function make_projects_array_sort( $a, $b ) {
-
-			// Let's make sure we have some data to sort.
-			if ( ! isset( $a['order'] ) || ! isset( $b['order'] ) )
-				return;
-
-			if ( $a['order'] == $b['order'] )
-				return 0;
-
-			return ( $a['order'] < $b['order'] ) ? -1 : 1;
-		}
 
 		// Unserialize our Parts here as each array is serialized while the parent isn't.
 		if ( is_array( $array ) ) {
@@ -90,6 +77,26 @@
 
 		// Return our results
 		return $sorted;
+	}
+
+
+	/**
+	 * The function that is used in usort() found in make_projects_sort()
+	 * @return array
+	 *
+	 * @version 1.1
+	 * @since  GLaDOS
+	 */
+	function make_projects_array_sort( $a, $b ) {
+
+		// Let's make sure we have some data to sort.
+		if ( ! isset( $a['order'] ) || ! isset( $b['order'] ) )
+			return;
+
+		if ( $a['order'] == $b['order'] )
+			return 0;
+
+		return ( $a['order'] < $b['order'] ) ? -1 : 1;
 	}
 
 
@@ -503,7 +510,7 @@
 			$parts['quantity'] = ( isset( $_POST[ 'parts-qty-' . $i ] ) ) ? intval( $_POST[ 'parts-qty-' . $i ] ) : '';
 
 			// Add our URL to the array
-			$parts['url'] = esc_url( $_POST[ 'parts-url-' . $i ] );
+			$parts['url'] = esc_url_raw( $_POST[ 'parts-url-' . $i ] );
 
 			// Check if old data exists and add it to the array
 			if ( isset( $_POST['pid-' . $i ] ) )
@@ -534,7 +541,7 @@
 			$tools['url'] = esc_url( $_POST[ 'tools-url-' . $i ] );
 
 			// Add our Thumbnail to the array
-			$tools['thumbnail'] = esc_url( $_POST[ 'tools-thumb-' . $i ] );
+			$tools['thumbnail'] = esc_url_raw( $_POST[ 'tools-thumb-' . $i ] );
 
 			// Contain the whole $steps array into an object
 			$tools_object[] = (object) $tools;

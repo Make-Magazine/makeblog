@@ -683,3 +683,197 @@ function make_video_photo_gallery( $attr ) {
 }
 
 add_shortcode( 'video_gallery', 'make_video_photo_gallery' );
+
+
+/**
+ * The Huff-Po style slideshow
+ *
+ *
+ * @param array $attr Attributes of the shortcode.
+ * @return string HTML content to display gallery.
+ */
+function make_huff_po_gallery_shortcode($attr) {
+	$post = get_post();
+
+	static $instance = 0;
+	$instance++;
+
+	if ( ! empty( $attr['ids'] ) ) {
+		// 'ids' is explicitly ordered, unless you specify otherwise.
+		if ( empty( $attr['orderby'] ) )
+			$attr['orderby'] = 'post__in';
+		$attr['include'] = $attr['ids'];
+	}
+
+	// We're trusting author input, so let's at least make sure it looks like a valid orderby statement
+	if ( isset( $attr['orderby'] ) ) {
+		$attr['orderby'] = sanitize_sql_orderby( $attr['orderby'] );
+		if ( !$attr['orderby'] )
+			unset( $attr['orderby'] );
+	}
+
+	extract(shortcode_atts(array(
+		'order'      => 'ASC',
+		'orderby'    => 'menu_order ID',
+		'id'         => $post->ID,
+		'itemtag'    => 'dl',
+		'icontag'    => 'dt',
+		'captiontag' => 'dd',
+		'columns'    => 3,
+		'size'       => 'slideshow-thumb',
+		'include'    => '',
+		'exclude'    => ''
+	), $attr));
+
+	
+	$rand = mt_rand( 0, $id );
+
+	$id = intval($id);
+	if ( 'RAND' == $order )
+		$orderby = 'none';
+
+	if ( !empty($include) ) {
+		$args = array(
+			'include' 			=> $include,
+			'post_status'		=> 'inherit',
+			'post_type'			=> 'attachment',
+			'post_mime_type'	=> 'image',
+			'order' 			=> $order,
+			'orderby' 			=> $orderby,
+			'suppress_filters'	=> false,
+			);
+		$_attachments = get_posts( $args );
+		$attachments = array();
+		foreach ( $_attachments as $key => $val ) {
+			$attachments[$val->ID] = $_attachments[$key];
+		}
+	} elseif ( !empty($exclude) ) {
+		$args = array(
+			'post_parent' 		=> $id, 
+			'exclude' 			=> $exclude, 
+			'post_status' 		=> 'inherit', 
+			'post_type' 		=> 'attachment', 
+			'post_mime_type' 	=> 'image', 
+			'order' 			=> $order, 
+			'orderby' 			=> $orderby,
+			'suppress_filters'	=> false,
+			);
+		$attachments = get_children( $args );
+	} else {
+		$args = array(
+			'post_parent' 		=> $id, 
+			'post_status' 		=> 'inherit', 
+			'post_type' 		=> 'attachment', 
+			'post_mime_type' 	=> 'image', 
+			'order' 			=> $order, 
+			'orderby' 			=> $orderby,
+			'suppress_filters'	=> false,
+			);
+		$attachments = get_children( $args );
+	}
+
+	if ( empty($attachments) )
+		return '';
+
+
+	$output = '';
+
+	// Start the modal, with the carousel inside of it.
+	$output .= '<div id="myModal-' . intval( $rand ) . '" class="modal small huff" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">';
+	$output .= '<div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h3>';
+	$output .= ( isset( $attr['title'] ) ) ? wp_kses_post( $attr['title'] ) : get_the_title();
+	$output .= '</h3></div>';
+	$output .= '<div class="modal-body"><div id="myCarousel-' . intval( $rand ) . '" class="carousel slide container huffington" data-interval=""><div class="carousel-inner">';
+
+	$i = 0;
+	foreach( $attachments as $id => $attachment ) {
+		if ($i == 0) {
+			$output .= '<div class="item active" data-index="' . intval( $i ) . '">';	
+		} else {
+			$output .= '<div class="item" data-index="' . intval( $i ) . '">';
+		}
+		$output .= '<div class="row">';
+		$output .= '<div class="span8">';
+		$output .= wp_get_attachment_link( $attachment->ID, sanitize_title_for_query( $size ) );
+		$output .= '</div>';	
+		$output .= '<div class="span4"><div class="scroller">';
+		$output .= ( isset( $attachment->post_title ) && ! empty( $attachment->post_title ) ) ? '<h4>' . Markdown( wp_kses_post( $attachment->post_title ) ) . '</h4>' : '';
+		$output .= ( isset( $attachment->post_excerpt ) && ! empty( $attachment->post_excerpt ) ) ? Markdown( wp_kses_post( $attachment->post_excerpt ) ) : '';
+		$output .= '</div><!--.scroller--></div><!-- .caption.span4-->';
+		$output .= '</div><!--.row-->';
+		$output .= '</div><!--.item-->';
+		$i++;
+	} //foreach
+	// Add another slide at the end for other slideshows.
+	$output .= '<div class="item" data-index="' . intval( $i++ ) . '"><div class="row"><div class="span12">';
+
+	$args = array(
+		'types'				=> 'slideshow',
+		'posts_per_page'	=> 6,
+		'post__not_in'		=> array( $post->ID ),
+		);
+
+	$query = new WP_Query( $args );
+
+	$results = array_chunk( $query->posts, 3 );
+
+	foreach ( $results as $row ) {
+		$output .= '<div class="row">';
+
+		foreach ( $row as $post_object ) {
+			$output .= '<div class="span4"><a target="_blank" href="';
+			$output .= get_permalink( $post_object->ID );
+			$output .= '">';
+			$output .= get_the_post_thumbnail( $post_object->ID, 'side-thumb' );
+			$output .= '<h4>' . get_the_title( $post_object ) . '</h4>';
+			$output .= Markdown( wp_trim_words( strip_shortcodes( ( $post_object->post_excerpt ) ? $post_object->post_excerpt : $post_object->post_content  ), 10, '...' ) );
+			$output .= '</a></div>';
+		}
+
+		$output .= '</div>';
+	}
+
+	$output .= '</div><!--.span12--></div><!--.row--></div><!--.item-->';
+	$output .= '</div><!--.carousel-inner--></div><!--.carousel--></div><!--.modal-body-->';
+	
+	// Let's build the thumbnails.
+	$output .= '<div class="inner-thumbs container">';
+	$i = 0;
+
+	$rows = array_chunk( $attachments, 12 );	
+
+	foreach ( $rows as $row ) {
+		
+		$output .= '<div class="row">';
+
+		foreach( $row as $id => $attachment ) {
+			$output .= '<div class="span1">';
+			$output .= ( $i == 0 ) ? '<a href="#myCarousel-' . intval( $rand ) . '" data-slide-to="' . esc_attr( $i ) . '" class="active">' : '<a href="#myCarousel-' . intval( $rand ) . '" data-slide-to="' . esc_attr( $i ) . '">';
+			$image = wp_get_attachment_image_src( $attachment->ID, sanitize_title_for_query( 'slideshow-small-thumb' ) );
+			$output .= '<img src="' . esc_url( $image[0] ) . '">';
+			$output .= '</a>';
+			$output .= '</div>';
+			$i++;
+		}
+
+		$output .= '</div>';
+	}
+
+	$output .= '<div class="clearfix"></div></div>';
+
+	$output .= '<div class="modal-footer">
+		<ul class="pager">
+			<li class="previous">
+				<a href="#myCarousel-' . intval( $rand ) . '" class="nexus" data-slide="prev">&larr; Previous</a>
+			</li>
+			<li class="next">
+				<a href="#myCarousel-' . intval( $rand ) . '" class="nexus" data-slide="next">Next &rarr;</a>
+			</li>
+		</ul>
+		<span href="#myCarousel-' . intval( $rand ) . '" class="starter btn btn-primary">Start Slideshow</span>
+	</div><!--.modal-footer--></div><!--.modal-->';
+	$output .= '<div class="clearfix"></div>';
+	return $output;
+}
+
+add_shortcode( 'huff_gallery', 'make_huff_po_gallery_shortcode' );

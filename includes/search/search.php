@@ -72,7 +72,7 @@ function make_search_count( $wp_query ) {
 	if ( $wp_query->found_posts > 10 ) {
 		$paged = ( $wp_query->query_vars['paged'] === 0 ) ? 1 : $wp_query->query_vars['paged'];
 		$post_count = ( ( $paged * $wp_query->query_vars['posts_per_page'] ) - $wp_query->query_vars['posts_per_page'] + 1 );
-		$output .= '<span class="bold">' . $post_count . '</span>';
+		$output .= '<span class="bold">' . absint( $post_count ) . '</span>';
 		$output .= ' - ';
 		$output .= '<span class="bold">' . ( $post_count + $wp_query->post_count - 1 ) . '</span>';
 		$output .= ' of <span class="bold">' . $wp_query->found_posts . '</span> results';

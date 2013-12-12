@@ -52,3 +52,71 @@ a.oembed {
 	top: 200px;
 	border: 0px;
 }
+
+.huff {
+	position: relative;
+	left: 40%;
+	width: 1000px;
+	height: inherit;
+	margin-bottom: 40px;
+	.modal-body {
+		max-height: 500px;
+	}
+	.inner-thumbs {
+		display: block;
+		margin-bottom: 10px;
+		.row {
+			margin-bottom: 10px;
+			img {
+				border-bottom: 3px solid transparent;
+				padding-bottom: 1px;
+			}
+			.active {
+				img {
+					border-color: @blue;
+				}
+			}
+		}
+
+	}
+	.carousel-inner {
+		height: 400px;
+		.scroller {
+			overflow: scroll;
+			height: 400px;
+		}
+	}
+	.modal-footer {
+		padding: 5px 15px 5px;
+		.pager {
+			margin: 0px;
+			li {
+				a {
+					font-size: 14px;
+				}
+			}
+		}
+	}
+	.attachment-side-thumb {
+		.thumbnail;
+		margin-bottom: 10px;
+
+	}
+	&.small {
+		width: 620px;
+		height: 540px;
+		left: 45%;
+		.container {
+			width: 100%;
+			.span8 {
+				margin-left: 0px;
+			}
+		}
+		.inner-thumbs {
+			display: none;
+		}
+		.nexus {
+			display: none;
+		}
+	}
+}

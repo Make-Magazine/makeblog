@@ -44,6 +44,8 @@ function make_action_after_setup_theme() {
 	add_image_size( 'weekly-takeover-main', 268, 248, true );		// Used on the Weekly Take-Over layout on the home page.
 	add_image_size( 'weekly-takeover-secondary', 268, 175, true );  // Used on the Weekly Take-Over layout on the home page.
 	add_image_size( 'search-thumb', 110, 85, true );  				// Used on the Search page
+	add_image_size( 'slideshow-thumb', 620, 400 );  				// Used on the Huff-Po style slideshow
+	add_image_size( 'slideshow-small-thumb', 60, 60, true );  			// Used on the Huff-Po style thumbs
 
 	/**
 	  * Depracated image sizes.
@@ -241,8 +243,7 @@ function make_enqueue_jquery() {
 	wp_enqueue_script( 'make-common', get_stylesheet_directory_uri() . '/js/common.js', array( 'make-typekit' ) );
 
 	// Load optimizely A/B testing script
-	if ( is_front_page() || is_home() || is_post_type_archive( 'projects' ) )
-		wp_enqueue_script( 'make-optimizely', '//cdn.optimizely.com/js/299391107.js', array( 'jquery' ) );
+	wp_enqueue_script( 'make-optimizely', '//cdn.optimizely.com/js/299391107.js', array( 'jquery' ) );
 
 	wp_enqueue_script( 'jquery' );
 	wp_enqueue_script( 'make-bootstrap', get_stylesheet_directory_uri() . '/js/bootstrap.min.js', array( 'jquery' ), false, true );
@@ -336,9 +337,8 @@ function make_featured_products() {
 	$simpleXmlElem = simplexml_load_string( $xml );
 	if ( ! $simpleXmlElem )
 		return;
-	$xml_featured_products = $simpleXmlElem->asXML();
-	$featured_products = simplexml_load_string($xml_featured_products);
-	$products = $featured_products->Product;
+
+	$products = $simpleXmlElem->Product;
 	$products_count = count($products);
 	if ($products_count > 8) {
 		$input = range(1,$products_count);

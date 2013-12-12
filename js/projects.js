@@ -57,7 +57,13 @@ jQuery(document).ready(function(){
 			var url = jQuery(this).attr('data-src');
 			jQuery(this).delay(1000).attr('src', url);
 		});
-		googletag.pubads().refresh();
+		// Find the active slide, and then add an active class to the thumb.
+		var index = jQuery(this).find('.active').data('index');
+		jQuery('.inner-thumbs .active').removeClass('active');
+		jQuery('*[data-slide-to="' + index + '"]').addClass('active');
+		if ( ! jQuery( this ).hasClass('huffington')) {
+			googletag.pubads().refresh();
+		}
 		_gaq.push(['_trackPageview']);
 		var urlref = location.href;
 		PARSELY.beacon.trackPageView({
@@ -72,13 +78,13 @@ jQuery(document).ready(function(){
 		jQuery('.slide').find('iframe').each( function(){
 			var url = jQuery(this).attr('src');
 			jQuery(this).attr('data-src', url);
-		});	
+		});
 	} else {
 		jQuery('.slide').find('iframe').each( function(){
 			var url = jQuery(this).attr('src');
 			jQuery(this).attr('data-src', url);
-		});	
-	};
+		});
+	}
 
 	jQuery('.thumbs').click(function () {
 		var mydata = jQuery(this).data();
@@ -107,4 +113,55 @@ jQuery(document).ready(function(){
 		video.attr('src', '');
 		video.attr('src', url);
 	});
+	jQuery('.huff .starter').click(function() {
+		jQuery( '.huff' ).removeClass('small');
+		jQuery( this ).hide();
+		jQuery( '.nexus' ).show();
+
+		// Open external links inside gallery into new window
+		jQuery( '.scroller a' ).each( function() {
+			var link = new RegExp( '/' + window.location.host + '/' );
+			if ( ! link.test( this.href ) ) {
+				jQuery( this ).click( function( e ) {
+					e.preventDefault();
+					e.stopPropagation();
+					window.open( this.href, '_blank' );
+				});
+			}
+		});
+
+		// Listen for a keydown event and run the proper action.
+		jQuery( document ).keydown( function( event ) {
+			switch ( event.which ) {
+				case 37:
+					jQuery( '.carousel' ).carousel( 'prev' );
+					jQuery( '.carousel' ).on( 'slid', function() {
+						jQuery( this ).carousel( 'pause' );
+					});
+					break;
+				case 39:
+					jQuery( '.carousel' ).carousel( 'next' );
+					jQuery( '.carousel' ).on( 'slid', function() {
+						jQuery( this ).carousel( 'pause' );
+					});
+					break;
+				case 27:
+					jQuery( '.huff' ).addClass( 'small' );
+					jQuery( '.huff .starter' ).show();
+
+					// Disable our event listener
+					jQuery( document ).off( 'keydown' );
+					break;
+			}
+		});
+
+	});
+	jQuery( ".huff .close" ).click(function() {
+		jQuery('.huff').addClass('small');
+		jQuery('.huff .starter').show();
+
+		// Disable our event listener
+		jQuery( document ).off( 'keydown' );
+	});
+
 });

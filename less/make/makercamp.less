@@ -2,9 +2,10 @@ body.makercamp {
 	// apply a natural box layout model to all elements. sadly this breaks everything when it should fix...
 	//* { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
 
-	background: #094a89 url(http://makezineblog.files.wordpress.com/2013/05/star-bg-long.jpg) 0 20px repeat;
+	background:url(http://makezineblog.files.wordpress.com/2013/05/star-bg-long.jpg) 0 20px repeat;
 	text-rendering: optimizeLegibility;
 	padding-bottom: 0 !important;
+	padding-top: 0px !important;
 	margin: 0;
 	font-family: "Droid Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
 	font-size: 14px;
@@ -100,16 +101,13 @@ body.makercamp {
 
 	.mc-description { 
 		font-size:48px;
-		color:#f26522;
 		line-height:48px;
 		h2 { font-size:48px;
-			 color:#f26522;
 			 line-height:1em;
 		}
 		h4{ font-weight:normal;
 			font-size:25px;
 			line-height:32px;
-			color:#f26522;
 			position:relative;
 			top:10px; 
 		}
@@ -156,7 +154,6 @@ body.makercamp {
 		.button { 
 			border-radius:5px;
 			font-weight:400;
-			background:#f26522;
 			width:87%;
 		}
 	}
@@ -330,9 +327,7 @@ body.makercamp {
 	.btn-area {}	
 
 	.lower-gradation {
-		padding-top:30px;
-		background:#0F5B99 url('http://makezineblog.files.wordpress.com/2013/05/background-gradient-02.jpg') 0 0 repeat; 
-		padding:20px 0;
+		padding:0 0 20px 0;
 	}
 	.new-footer {
 		.trending, .newsletter, .about-us, .subscribe {
@@ -342,8 +337,8 @@ body.makercamp {
 			p {
 				line-height: 24px;
 				width: 130px;
-				margin-top: -15px;
-				}
+				margin-bottom: 11px;
+			}
 			h5 {
 				color:#F60B29;
 				margin-top:-15px !important;
@@ -520,9 +515,8 @@ body.makercamp {
 		.box-shadow( 0 5px 0 0 #a0410d );
 		border-bottom:none;
 		&:hover {
-			background-color: #f26522 !important;
 			color:#fff !important;
-			text-decoration: none;
+			text-decoration: none !important;
 		}
 		&.blue {
 			background-color: #8ed5f6;

@@ -30,9 +30,7 @@ make_get_header(); ?>
 				<div class="span8">
 				
 					<article <?php post_class(); ?>>
-
-						<?php make_search_header(); ?>
-
+						
 						<form class="well search" method="get">
 							<input type="text" value="<?php echo esc_attr( $_GET['q'] ); ?>" id="q" name="q" class="input-medium search-query">
 							<button type="submit" class="btn primary">Search</button>

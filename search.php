@@ -43,7 +43,8 @@ make_get_header() ?>
 
 						<div class="heading">
 
-							Sort By: Relevance | Newest | Oldest
+							<!-- Sort By: Relevance | Newest | Oldest -->
+							<h3>Search Results</h3>
 
 						</div>
 
@@ -57,7 +58,7 @@ make_get_header() ?>
 
 							<div class="pull-right">
 
-								<?php echo 'Page ' . make_search_pagination( $wp_query ); ?>
+								<?php echo make_search_pagination( $wp_query ); ?>
 
 							</div>
 
@@ -69,8 +70,16 @@ make_get_header() ?>
 
 							<article <?php post_class('media'); ?>>
 
-								<a href="<?php get_permalink(); ?>" class="pull-left">
-									<?php the_post_thumbnail( 'search-thumb', array( 'class' => 'thumbnail' ) ); ?>
+								<a href="<?php the_permalink(); ?>" class="pull-left">
+									<?php 
+										$args = array(
+											'image_scan' => true,
+											'size' => 'search-thumb',
+											'image_class' => 'thumbnail',
+											'link_to_post' => false,
+											);
+										get_the_image( $args ); 
+									?>
 								</a>
 
 								<div class="media-body">
@@ -99,7 +108,7 @@ make_get_header() ?>
 
 							<div class="pull-right">
 
-								<?php echo 'Page ' . make_search_pagination( $wp_query ); ?>
+								<?php echo make_search_pagination( $wp_query ); ?>
 
 							</div>
 

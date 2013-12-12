@@ -18,7 +18,7 @@
 								$args = array(
 									'before_widget'		=> '<div class="inner">',
 									'before_title'		=> '<div class="heading">',
-									'title'				=> 'Refine Search',
+									'title'				=> '<h3>Refine Search</h3>',
 									'after_title'		=> '</div>',
 									'after_widget'		=> '</div>',
 									);

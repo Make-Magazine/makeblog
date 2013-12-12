@@ -534,7 +534,7 @@ a:focus {
   clear: both;
 }
 p {
-  margin: 0 0 10px;
+  margin: 0 0 20px;
 }
 .lead {
   margin-bottom: 20px;
@@ -5523,7 +5523,6 @@ a:hover {
 body {
   margin-top: 0;
   overflow-wrap: break-word;
-  padding-top: 0 !important;
 }
 body.single-slideshow {
   margin-top: 0px;
@@ -5988,18 +5987,20 @@ footer {
 }
 .footer_copyright p {
   font-size: 12px  !important;
-  line-height: 10px  !important;
+  line-height: 16px  !important;
   font-weight: normal !important;
+  margin-bottom: 0px !important;
 }
 .footer_copyright p a {
   border-bottom: none !important;
 }
 .footer_copyright p a img {
-  margin-top: -7px !important;
+  margin-top: -4px !important;
 }
 .p_footer {
   font-size: 14px !important;
-  line-height: 21px !important;
+  line-height: 20px !important;
+  margin-bottom: 5px;
 }
 .twtr-widget {
   border: 1px solid #D0D0CE !important;
@@ -7023,10 +7024,13 @@ img#wpstats {
   border: none;
   padding: 0;
 }
-.wp-caption-text {
+.wp-caption .wp-caption-text {
+  background-color: #ddd;
   font-size: 16px;
   font-style: italic;
-  margin: 10px 0;
+  padding: 10px;
+  margin-right: 10px;
+  color: #666;
 }
 [class*="paged"] .next {
   left: 496px !important;
@@ -7346,6 +7350,10 @@ body#shop {
   border-top: 3px solid #DBDBDB;
   background-image: url('../img/header_bg.jpg');
 }
+.new-footer .footer-cart-image {
+  padding-top: 29px;
+  padding-left: 13px;
+}
 .new-footer label {
   display: block;
   margin-bottom: 0;
@@ -7359,10 +7367,22 @@ body#shop {
   float: left;
   margin-left: 0;
 }
+.new-footer .about-column-01 ul {
+  margin-top: 6px;
+}
+.new-footer .about-column-01 ul li {
+  line-height: 20px;
+}
 .new-footer .about-column-02 {
   float: left;
   width: 130px;
   margin-left: 0;
+}
+.new-footer .about-column-02 ul {
+  margin-top: 5px;
+}
+.new-footer .about-column-02 ul li {
+  line-height: 20px;
 }
 .new-footer .email-area #appendedInputButton {
   border-radius: 0;
@@ -7452,7 +7472,7 @@ body#shop {
 }
 .new-footer .container .row .subscribe h5 {
   color: #F60B29;
-  margin-top: -5px;
+  margin-top: -8px;
 }
 .new-footer .container .row .subscribe p {
   font-weight: bold;
@@ -7465,6 +7485,7 @@ body#shop {
   color: #F60B29;
   height: 7px;
   width: 85px;
+  margin-top: 0px;
 }
 .new-footer .controls  > .radio:first-child,
 .controls  > .checkbox:first-child {
@@ -8795,6 +8816,85 @@ a.oembed {
   top: 200px;
   border: 0px;
 }
+.huff {
+  position: relative;
+  left: 40%;
+  width: 1000px;
+  height: inherit;
+  margin-bottom: 40px;
+}
+.huff .modal-body {
+  max-height: 500px;
+}
+.huff .inner-thumbs {
+  display: block;
+  margin-bottom: 10px;
+}
+.huff .inner-thumbs .row {
+  margin-bottom: 10px;
+}
+.huff .inner-thumbs .row img {
+  border-bottom: 3px solid transparent;
+  padding-bottom: 1px;
+}
+.huff .inner-thumbs .row .active img {
+  border-color: #005d8f;
+}
+.huff .carousel-inner {
+  height: 400px;
+}
+.huff .carousel-inner .scroller {
+  overflow: scroll;
+  height: 400px;
+}
+.huff .modal-footer {
+  padding: 5px 15px 5px;
+}
+.huff .modal-footer .pager {
+  margin: 0px;
+}
+.huff .modal-footer .pager li a {
+  font-size: 14px;
+}
+.huff .attachment-side-thumb {
+  display: block;
+  padding: 4px;
+  line-height: 20px;
+  border: 1px solid #ddd;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.055);
+  -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.055);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.055);
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  -webkit-transition: all 0.2s ease-in-out 1s linear;
+  -moz-transition: all 0.2s ease-in-out 1s linear;
+  -o-transition: all 0.2s ease-in-out 1s linear;
+  -ms-transition: all 0.2s ease-in-out 1s linear;
+  transition: all 0.2s ease-in-out 1s linear;
+  margin-bottom: 10px;
+}
+.huff.small {
+  width: 620px;
+  height: 540px;
+  left: 45%;
+}
+.huff.small .container {
+  width: 100%;
+}
+.huff.small .container .span8 {
+  margin-left: 0px;
+}
+.huff.small .inner-thumbs {
+  display: none;
+}
+.huff.small .nexus {
+  display: none;
+}
 body .single {
   font-family: "proxima-nova", sans-serif;
   border-bottom: 3px solid #DBDBDB;
@@ -9127,6 +9227,15 @@ body .single .tag-weekend-projects {
 .sidebar .badge.badge-info {
   display: inline;
 }
+body {
+  padding-top: 40px;
+}
+body.admin-bar .navbar {
+  top: 32px;
+}
+.navbar-fixed-top {
+  z-index: 9999;
+}
 .top-navigation-wrapper .nav {
   margin-bottom: 0;
 }
@@ -9218,6 +9327,9 @@ body .single .tag-weekend-projects {
 .main-header .additional-content .search-make.open input[type="text"] {
   padding: 3px 0 3px 8px;
   margin-bottom: 0;
+}
+.makershed-banner {
+  background: #de231a;
 }
 .page-template-page-craft-php .main-header .logo {
   margin-top: 60px;
@@ -10145,9 +10257,10 @@ body.camp a.button.green {
   color: #ffffff;
 }
 body.makercamp {
-  background: #094a89 url(http://makezineblog.files.wordpress.com/2013/05/star-bg-long.jpg) 0 20px repeat;
+  background: url(http://makezineblog.files.wordpress.com/2013/05/star-bg-long.jpg) 0 20px repeat;
   text-rendering: optimizeLegibility;
   padding-bottom: 0 !important;
+  padding-top: 0px !important;
   margin: 0;
   font-family: "Droid Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 14px;
@@ -10301,19 +10414,16 @@ body.makercamp.admin-bar header {
 }
 body.makercamp .mc-description {
   font-size: 48px;
-  color: #f26522;
   line-height: 48px;
 }
 body.makercamp .mc-description h2 {
   font-size: 48px;
-  color: #f26522;
   line-height: 1em;
 }
 body.makercamp .mc-description h4 {
   font-weight: normal;
   font-size: 25px;
   line-height: 32px;
-  color: #f26522;
   position: relative;
   top: 10px;
 }
@@ -10362,7 +10472,6 @@ body.makercamp .waist .blue h4 {
 body.makercamp .waist .button {
   border-radius: 5px;
   font-weight: 400;
-  background: #f26522;
   width: 87%;
 }
 body.makercamp .join {
@@ -10537,9 +10646,7 @@ body.makercamp .features-box-content h4 {
   line-height: 34px;
 }
 body.makercamp .lower-gradation {
-  padding-top: 30px;
-  background: #0f5b99 url('http://makezineblog.files.wordpress.com/2013/05/background-gradient-02.jpg') 0 0 repeat;
-  padding: 20px 0;
+  padding: 0 0 20px 0;
 }
 body.makercamp .new-footer .trending,
 body.makercamp .new-footer .newsletter,
@@ -10550,7 +10657,7 @@ body.makercamp .new-footer .subscribe {
 body.makercamp .new-footer .subscribe p {
   line-height: 24px;
   width: 130px;
-  margin-top: -15px;
+  margin-bottom: 11px;
 }
 body.makercamp .new-footer .subscribe h5 {
   color: #F60B29;
@@ -10735,9 +10842,8 @@ body.makercamp a.button {
 }
 body.makercamp .button:hover,
 body.makercamp a.button:hover {
-  background-color: #f26522 !important;
   color: #fff !important;
-  text-decoration: none;
+  text-decoration: none !important;
 }
 body.makercamp .button.blue,
 body.makercamp a.button.blue {
@@ -11842,4 +11948,39 @@ a.button.small-button {
 .search .search-results article .media-body {
   font-size: 17px;
   line-height: 140%;
+}
+.mf-video-highlights {
+  border: 3px solid #e01b23;
+  border-radius: 5px;
+  padding: 9px;
+  width: 232px;
+}
+.mf-video-highlights .stage-1,
+.mf-video-highlights .stage-2 {
+  border-bottom: 1px solid #898989;
+}
+.mf-video-highlights .mf-video-title {
+  font-size: 18.68px;
+  line-height: 19.46px;
+  text-transform: inherit;
+}
+.mf-video-highlights .stage-name {
+  color: #005d8f;
+  font-size: 17.13px;
+  line-height: 19.46px;
+  margin: 11px 0;
+}
+.mf-video-highlights .presentation-name {
+  font-size: 16px;
+  line-height: 18px;
+}
+.mf-video-highlights .see-all {
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 19.46px;
+}
+.mf-video-highlights .presentation-name a,
+.mf-video-highlights .see-all a {
+  text-decoration: none;
+  border: none;
 }

@@ -14,7 +14,10 @@
 						<div class="span12 logo">	
 							<img src="<?php bloginfo('stylesheet_directory'); ?>/img/make-160-footer.png" alt="MAKE">	
 							<img src="http://makezineblog.files.wordpress.com/2013/07/digital-book-foot.png" alt="MAKE"> 
-							<h5><a href="http://make-digital.com/" target="_blank">Read Digital Edition</a></h5>						<!-- END span12 -->
+							<h5><a href="http://make-digital.com/" target="_blank">Read Digital Edition</a></h5>
+							<a href="http://www.makershed.com/" target="_blank"><img class="footer-cart-image" src="http://makezineblog.files.wordpress.com/2013/11/makershed_footer1.png" alt="Maker Shed Shopping Cart"></a> 
+							<h5><a href="http://www.makershed.com/" target="_blank">Shop Maker Shed</a></h5>						
+						<!-- END span12 -->
 						</div>
 						<div class="clear"></div>
 					<!-- END row -->
@@ -79,7 +82,7 @@
 								<!-- END span about-column-01 --></div>
 								<div class="about-column-02">
 									<ul>
-										<li><a href="http://makermedia.com/about-us/management-team/" target="_blank">About Us</a></li>
+										<li><a href="http://makermedia.com" target="_blank">About Us</a></li>
 										<!-- <li><a href="http://makezine.com/faq/index.html" target="_blank">FAQ</a></li> -->
 										<li><a href="http://makezine.com/community/index.html" target="_blank">Forums</a></li>
 										<li><a href="http://makezine.com/contribute/" target="_blank">Write for MAKE</a></li>

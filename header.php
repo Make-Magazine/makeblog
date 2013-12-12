@@ -39,7 +39,22 @@
 
 	</head>
 
-	<body <?php body_class(); ?>>	
+	<body <?php body_class(); ?>>
+
+		<div class="navbar navbar-fixed-top navbar-blue">
+			<div class="navbar-inner">
+				<div class="container">
+					<a onClick="_gaq.push([\'_trackEvent\', \'Links\', \'Click\', \'Home\']);" class="brand" href="<?php echo get_home_url(); ?>">MAKE</a>
+					<ul class="nav">
+						<li><a onClick="_gaq.push([\'_trackEvent\', \'Links\', \'Click\', \'Blog\']);" href="http://makezine.com/blog/">Blog</a></li>
+						<li><a onClick="_gaq.push([\'_trackEvent\', \'Links\', \'Click\', \'Magazine\']);" href="http://makezine.com/magazine/">Magazine</a></li>
+						<li><a onClick="_gaq.push([\'_trackEvent\', \'Links\', \'Click\', \'Maker Faire\']);" href="http://makerfaire.com">Maker Faire</a></li>
+						<li><a onClick="_gaq.push([\'_trackEvent\', \'Links\', \'Click\', \'Make: Projects\']);" href="http://makezine.com/projects">Make: Projects</a></li>
+						<li><a onClick="_gaq.push([\'_trackEvent\', \'Links\', \'Click\', \'Maker Shed\']);" href="http://makershed.com/">Maker Shed</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>	
 		<div class="container hidden-print">
 			<div class="row">
 				<div id="div-gpt-ad-664089004995786621-1" class="text-center">
@@ -72,8 +87,8 @@
 
 
 						<div class="additional-content hidden-print">						
-							<form action="<?php echo home_url(); ?>/search/" class="search-make open">
-								<input type="text" class="search-field" name="q" placeholder="Search" />
+							<form action="<?php echo home_url(); ?>" class="search-make open">
+								<input type="text" class="search-field" name="s" placeholder="Search" />
 								<input type="image" src="<?php echo get_stylesheet_directory_uri(); ?>/images/search-btn.png" alt="Search" class="open" value="Search" />
 							</form>
 							<div class="clearfix"></div>
@@ -98,6 +113,15 @@
 								) );
 							?>
 						</nav>
+					</div>
+				</div>
+			</div>
+			<div class="makershed-banner">
+				<div class="container">
+					<div class="row">
+						<div class="span12">
+							<a href="http://www.makershed.com/?Click=160268" title="Find all your DIY electronics in the MakerShed. 3D Printing, Kits, Arduino, Raspberry Pi, Books &amp; more!"><img src="http://makezineblog.files.wordpress.com/2013/12/maker-shed-banner-red.png" alt="Find all your DIY electronics in the MakerShed. 3D Printing, Kits, Arduino, Raspberry Pi, Books &amp; more!" /></a>
+						</div>
 					</div>
 				</div>
 			</div>

@@ -32,9 +32,11 @@
 			<div class="container">
 				<div class="row">
 					<div class="span12 logo" >
-						<img src="<?php bloginfo('stylesheet_directory'); ?>/img/make-160-footer.png" alt="MAKE">	
-						<img src="http://makezineblog.files.wordpress.com/2013/07/digital-book-foot.png" alt="MAKE"> 
+						<img src="<?php bloginfo('stylesheet_directory'); ?>/img/make-160-footer.png" alt="MAKE Logo">	
+						<a href="http://make-digital.com/" target="_blank"><img src="http://makezineblog.files.wordpress.com/2013/07/digital-book-foot.png" alt="Make Digital Book"></a> 
 						<h5><a href="http://make-digital.com/" target="_blank">Read Digital Edition</a></h5>
+						<a href="http://www.makershed.com/" target="_blank"><img class="footer-cart-image" src="http://makezineblog.files.wordpress.com/2013/11/makershed_footer1.png" alt="Maker Shed Shopping Cart"></a> 
+						<h5><a href="http://www.makershed.com/" target="_blank">Shop Maker Shed</a></h5>
 					</div>
 					<div class="clear"></div>
 				<!-- END row -->
@@ -90,7 +92,7 @@
 						<!-- END span about-column-01 --></div>
 						<div class="about-column-02">
 							<ul>
-								<li><a href="http://makermedia.com/about-us/management-team/" target="_blank">About Us</a></li>
+								<li><a href="http://makermedia.com" target="_blank">About Us</a></li>
 								<li><a href="http://makezine.com/faq/index.html">FAQ</a></li>
 								<li><a href="http://makezine.com/forums/">Forums</a></li>
 								<li><a href="http://makezine.com/contribute/">Write for MAKE</a></li>

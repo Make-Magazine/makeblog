@@ -23,7 +23,7 @@ make_get_header() ?>
 							<div class="span4"><a href="http://makerfaire.com" target="_blank"><img src="http://makezineblog.files.wordpress.com/2013/09/maker-faire-logo.png" ></a></div>
 							<div class="span8 top-header">
 								<div class="pull-right"><img src="http://s2.wp.com/wp-content/themes/vip/makerfaire/images/mr-makey.png" style="height:69px;"></div>
-								<h3>A family-friendly festival of invention,<br />crativity, resourcefulness, and the maker movement</h3>
+								<h3>A family-friendly festival of invention,<br />creativity, resourcefulness, and the maker movement</h3>
 							</div>
 						</div>
 						<div class="row-fluid">
