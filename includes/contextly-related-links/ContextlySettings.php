@@ -145,7 +145,7 @@ class ContextlySettings {
         ?>
         <script>
             function open_contextly_settings() {
-                var base_url = "<?php echo $this->getContextlyBaseUrl() ?>";
+                var base_url = "<?php echo esc_url( $this->getContextlyBaseUrl() ) ?>";
 				var button_id = '#contextly-settings-btn';
 	            var auth_token_attr = 'contextly_access_token';
 	            var token_attr = jQuery( button_id ).attr( auth_token_attr );
@@ -153,7 +153,7 @@ class ContextlySettings {
 	            if ( typeof token_attr !== 'undefined' && token_attr !== false ) {
 		            base_url += "&" + auth_token_attr + "=" + encodeURIComponent( token_attr );
 	            } else {
-		            base_url = "<?php echo $this->getContextlyRegistrationUrl() ?>";
+		            base_url = "<?php echo esc_url( $this->getContextlyRegistrationUrl() ) ?>";
 	            }
 
                 window.open( base_url );
@@ -244,7 +244,7 @@ class ContextlySettings {
     }
 
     public function apiLayoutSection() {
-        echo "<p>In order to communicate securely, we use a shared secret key. You can find your secret API key on <a target='_blank' href='".$this->getContextlyRegistrationUrl('tour')."'>this page</a>. Copy and paste it below.</p>";
+        echo "<p>In order to communicate securely, we use a shared secret key. You can find your secret API key on <a target='_blank' href='" . esc_url( $this->getContextlyRegistrationUrl('tour') ) . "'>this page</a>. Copy and paste it below.</p>";
     }
 
     public function apiKeyInput() {
