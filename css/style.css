@@ -5997,6 +5997,11 @@ footer {
 .footer_copyright p a img {
   margin-top: -4px !important;
 }
+.footer_logo {
+  margin-right: 5px;
+  margin-top: 8px;
+  max-width: 140px!important;
+}
 .p_footer {
   font-size: 14px !important;
   line-height: 20px !important;
@@ -7430,7 +7435,7 @@ body#shop {
 }
 .new-footer .logo h5 {
   float: left;
-  padding-top: 32px;
+  padding-top: 35px;
 }
 .new-footer .logo img {
   float: left;
@@ -10524,7 +10529,7 @@ body.makercamp .white-bg p a:visited {
   text-decoration: none;
 }
 body.makercamp .white-bg .logo h5 {
-  padding-top: 24px !important;
+  padding-top: 25px !important;
 }
 body.makercamp .white-bg .featured {
   padding: 30px 0 0;
