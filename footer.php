@@ -108,7 +108,7 @@
 								<span class="soci"><a href="http://www.flickr.com/groups/make/" target="_blank"><img src="http://s2.wp.com/wp-content/themes/vip/makeblog/img/flickr.png?m=1347432875g" alt="Make on Flickr"></a></span>
 								<span class="soci"><a href="http://facebook.com/makemagazine" target="_blank"><img src="http://s2.wp.com/wp-content/themes/vip/makeblog/img/facebook.png?m=1347432875g" alt="Make on Facebook"></a></span>
 								<span class="soci"><a href="http://www.stumbleupon.com/to/stumble/stumblethru:makezine.com?utm_source=Makezine&amp;utm_medium=StumbleThru&amp;utm_campaign=StumbleThruButton" target="_blank"><img src="http://s2.wp.com/wp-content/themes/vip/makeblog/img/stumbleupon.png?m=1351191030g" alt="Stumble Make Magazine"></a></span>
-								<span class="soci"><a href="http://instagram.com/makemagazine" target="_blank"><img src="http://makezineblog.files.wordpress.com/2012/12/instagram.png" alt="MAKE on Instagram"></a></span>
+								<span class="soci"><a href="https://www.instagram.com/makemagazine" target="_blank"><img src="http://makezineblog.files.wordpress.com/2012/12/instagram.png" alt="MAKE on Instagram"></a></span>
 								<span class="soci"><a href="https://google.com/+MAKE/" target="_blank"><img src="http://s2.wp.com/wp-content/themes/vip/makeblog/img/google-plus.png?m=1347432875g" alt="MAKE on Google+"></a></span>
 							</p>
 						<!-- END socialArea -->
