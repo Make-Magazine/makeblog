@@ -18,11 +18,11 @@
 
 						<?php endwhile; ?>
 
-						<?php if (function_exists('make_featured_products')) { make_featured_products(); } ?>
-							
 						<div class="comments">
 							<?php comments_template(); ?>
 						</div>
+
+						<?php if (function_exists('make_featured_products')) { make_featured_products(); } ?>
 						
 						<?php else: ?>
 						
