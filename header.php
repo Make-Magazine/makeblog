@@ -41,21 +41,21 @@
 
 	<body <?php body_class(); ?>>
 
-		<div class="navbar navbar-fixed-top navbar-blue">
-			<div class="navbar-inner">
-				<div class="container">
-					<a onClick="_gaq.push([\'_trackEvent\', \'Links\', \'Click\', \'Home\']);" class="brand" href="<?php echo get_home_url(); ?>">MAKE</a>
-					<ul class="nav">
-						<li><a onClick="_gaq.push([\'_trackEvent\', \'Links\', \'Click\', \'Blog\']);" href="http://makezine.com/blog/">Blog</a></li>
-						<li><a onClick="_gaq.push([\'_trackEvent\', \'Links\', \'Click\', \'Magazine\']);" href="http://makezine.com/magazine/">Magazine</a></li>
-						<li><a onClick="_gaq.push([\'_trackEvent\', \'Links\', \'Click\', \'Maker Faire\']);" href="http://makerfaire.com">Maker Faire</a></li>
-						<li><a onClick="_gaq.push([\'_trackEvent\', \'Links\', \'Click\', \'Make: Projects\']);" href="http://makezine.com/projects">Make: Projects</a></li>
-						<li><a onClick="_gaq.push([\'_trackEvent\', \'Links\', \'Click\', \'Maker Shed\']);" href="http://makershed.com/">Maker Shed</a></li>
-					</ul>
+		<nav class="navbar navbar-fixed-top navbar-blue hidden-xs" role="navigation">
+			<div class="container">
+				<div class="navbar-header">
+					<a onClick="_gaq.push([\'_trackEvent\', \'Links\', \'Click\', \'Home\']);" class="navbar-brand" href="<?php echo esc_url( home_url() ); ?>">MAKE</a>
 				</div>
+				<ul class="nav navbar-nav">
+					<li><a onClick="_gaq.push([\'_trackEvent\', \'Links\', \'Click\', \'Blog\']);" href="<?php echo esc_url( home_url( '/blog/' ) ); ?>">Blog</a></li>
+					<li><a onClick="_gaq.push([\'_trackEvent\', \'Links\', \'Click\', \'Magazine\']);" href="<?php echo esc_url( home_url( '/magazine/' ) ); ?>">Magazine</a></li>
+					<li><a onClick="_gaq.push([\'_trackEvent\', \'Links\', \'Click\', \'Maker Faire\']);" href="http://makerfaire.com">Maker Faire</a></li>
+					<li><a onClick="_gaq.push([\'_trackEvent\', \'Links\', \'Click\', \'Make: Projects\']);" href="<?php echo esc_url( home_url( '/projects/' ) ); ?>">Make: Projects</a></li>
+					<li><a onClick="_gaq.push([\'_trackEvent\', \'Links\', \'Click\', \'Maker Shed\']);" href="http://makershed.com/">Maker Shed</a></li>
+				</ul>
 			</div>
-		</div>	
-		<div class="container hidden-print">
+		</nav>	
+		<div class="container hidden-xs hidden-print">
 			<div class="row">
 				<div id="div-gpt-ad-664089004995786621-1" class="text-center">
 					<script type='text/javascript'>
@@ -68,23 +68,33 @@
 			<div class="main-header">
 				<div class="container">
 					<div class="row">
-						<div class="logo span2">
+						<div class="logo">
     						<?php if ( is_front_page() || is_home() ) : ?>
-								<h1 title="Make Magazine - <?php echo bloginfo( 'description' ); ?>"><a href="<?php echo home_url(); ?>"><img src="<?php echo get_stylesheet_directory_uri(); ?>/img/make-logo.png"  alt="Tech-savvy DIY Enthusiasts Innovative Projects and Ideas" /></a></h1>
+								<h1 title="Make Magazine - <?php echo bloginfo( 'description' ); ?>"><a href="<?php echo esc_url( home_url() ); ?>"><img src="<?php echo get_stylesheet_directory_uri(); ?>/img/make-logo.png"  alt="Tech-savvy DIY Enthusiasts Innovative Projects and Ideas" /></a></h1>
 							<?php else : ?>
-								<h2 title="Make Magazine - <?php echo bloginfo( 'description' ); ?>"><a href="<?php echo home_url(); ?>"><img src="<?php echo get_stylesheet_directory_uri(); ?>/img/make-logo.png"  alt="Tech-savvy DIY Enthusiasts Innovative Projects and Ideas" /></a></h2>
+								<h2 title="Make Magazine - <?php echo bloginfo( 'description' ); ?>"><a href="<?php echo esc_url( home_url() ); ?>"><img src="<?php echo get_stylesheet_directory_uri(); ?>/img/make-logo.png"  alt="Tech-savvy DIY Enthusiasts Innovative Projects and Ideas" /></a></h2>
 							<?php endif; ?>
 						</div>
-						<nav role="navigation" class="span7 site-navigation primary-navigation hidden-print">
-							<?php
-								wp_nav_menu( array(
-									'theme_location'  => 'make-primary', 
-									'container'       => false, 
-									'menu_class'      => 'nav menu-primary-nav ga-nav clearfix',
-								) );
-							?>
+						<nav class="navbar site-navigation primary-navigation hidden-print" role="navigation">
+							<div class="navbar-header">
+								<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#make-primary-collapse">
+									<span class="sr-only">Toggle Navigation</span>
+									<span class="icon-bar"></span>
+									<span class="icon-bar"></span>
+									<span class="icon-bar"></span>
+								</button>
+							</div>
+							<div id="make-primary-collapse" class="collapse navbar-collapse">
+								<?php
+									wp_nav_menu( array(
+										'theme_location'  => 'make-primary',
+										'container'       => false, 
+										'menu_class'      => 'nav navbar-nav menu-primary-nav ga-nav clearfix',
+										'walker'          => new Bootstrap_Walker_Nav_Menu(),
+									) );
+								?>
+							</div>
 						</nav>
-
 
 						<div class="additional-content hidden-print">						
 							<form action="<?php echo home_url(); ?>" class="search-make open">
@@ -119,7 +129,7 @@
 			<div class="makershed-banner">
 				<div class="container">
 					<div class="row">
-						<div class="span12">
+						<div class="col-lg-12">
 							<a href="http://www.makershed.com/?Click=160268" title="Find all your DIY electronics in the MakerShed. 3D Printing, Kits, Arduino, Raspberry Pi, Books &amp; more!"><img src="http://makezineblog.files.wordpress.com/2013/12/maker-shed-banner-red.png" alt="Find all your DIY electronics in the MakerShed. 3D Printing, Kits, Arduino, Raspberry Pi, Books &amp; more!" /></a>
 						</div>
 					</div>
