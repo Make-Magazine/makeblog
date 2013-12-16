@@ -8891,6 +8891,9 @@ a.oembed {
   height: 540px;
   left: 45%;
 }
+.huff.small .carousel {
+  margin-bottom: 0px;
+}
 .huff.small .container {
   width: 100%;
 }
