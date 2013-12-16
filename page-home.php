@@ -224,7 +224,7 @@ Template Name: Home Page
 
 					<div class="span4 posts">
 
-						<h2 class="look_like_h3_blue"><a href="<?php echo home_url( '/blog/' ); ?>">Blog Feed</a></h2>	
+						<h2 class="look_like_h3_blue"><a href="<?php echo esc_url( home_url( '/blog/' ) ); ?>">Blog Feed</a></h2>	
 
 						<?php 
 							$args = array(
@@ -265,7 +265,7 @@ Template Name: Home Page
 
 						<?php endwhile; wp_reset_postdata(); ?>
 
-						<p><a href="<?php echo home_url( '/blog/' ); ?>"><span class="pull-right aqua seeall right">See All Posts</span></a></p>
+						<p><a href="<?php echo escl_url( home_url( '/blog/' ) ); ?>"><span class="pull-right aqua seeall right">See All Posts</span></a></p>
 						
 					</div>
 					<!--<div class="shadow"></div>-->
@@ -307,7 +307,7 @@ Template Name: Home Page
 
 							<div class="span4">
 
-								<h2 class="look_like_h3"><a class="red" href="<?php echo home_url( '/projects/' ); ?>">New Projects</a></h2>
+								<h2 class="look_like_h3"><a class="red" href="<?php echo esc_url( home_url( '/projects/' ) ); ?>">New Projects</a></h2>
 
 								<div class="grid-box boxy">
 
@@ -357,7 +357,7 @@ Template Name: Home Page
 
 							<div class="span4">
 
-								<h2 class="look_like_h3"><a href="<?php echo home_url( '/tag/makers/' ); ?>" class="red">Meet the Makers</a></h2>
+								<h2 class="look_like_h3"><a href="<?php echo esc_url( home_url( '/tag/makers/' ) ); ?>" class="red">Meet the Makers</a></h2>
 
 								<div class="grid-box boxy">
 
@@ -433,7 +433,7 @@ Template Name: Home Page
 
 							<div class="span4">
 
-								<h2 class="look_like_h3"><a href="<?php echo home_url( '/tag/component-of-the-month/' ); ?>" class="red">Skill Builder</a></h2>
+								<h2 class="look_like_h3"><a href="<?php echo esc_url( home_url( '/tag/component-of-the-month/' ) ); ?>" class="red">Skill Builder</a></h2>
 
 								<div class="grid-box boxy">
 
@@ -469,7 +469,7 @@ Template Name: Home Page
 							<div class="span4">
 
 
-								<h2 class="look_like_h3"><a href="<?php echo home_url( '/tag/maker-faire/' ); ?>" class="red">Maker Faire News</a></h2>
+								<h2 class="look_like_h3"><a href="<?php echo esc_url( home_url( '/tag/maker-faire/' ) ); ?>" class="red">Maker Faire News</a></h2>
 
 								<div class="grid-box boxy">
 
