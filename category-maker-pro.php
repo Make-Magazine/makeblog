@@ -16,36 +16,24 @@ get_header(); ?>
 
 				<div class="row">
 
-					<div class="span8">
+					<div class="span8 add30">
 
-						<div class="content">
-
-							<div class="category-title">
+							<div class="content-type h1">
 
 								<?php 
 
 									print apply_filters( 'taxonomy-images-queried-term-image', '', array( 'after' => '</div>', 'before' => '<div id="taxonomy-image">', 'image_size' => 'full') );
 								?>
 
-								<p class="uppercase">Topic:</p>
+										<h1><?php single_cat_title('', true); ?></h1>
 
-									<div class="span4 title-area pro-title-area">
-										<h1 class="cat-title jumbo"><?php single_cat_title('', true); ?></h1>
-									</div>
+										<p>
+										<strong>"If you come, we will build it."</strong>
 
-									<div class="span4 pro-newsletter">
-										<p>Are you in the business of making?
-										Stay up to date with Maker Pro Newsletter. Sign up here.</p>
-										<form action="http://makermedia.createsend.com/t/r/s/jrsydu/" method="post" id="subForm">
-											<fieldset>
-												<div class="input-append control-group email-area">
-													<input class="span2" id="appendedInputButton" name="cm-jrsydu-jrsydu" id="jrsydu-jrsydu" type="text" placeholder="Enter your email">
-													<button class="btn btn-primary" type="submit" value="Subscribe">JOIN</button>
-												</div>
-											<fielset>
-										</form>
-									<!--END span4 title-area-->
-									</div>
+										<em>Maker Pro is about the impact of makers on business and technology. Our coverage includes hardware startups, new products, incubators, innovators, along with technology and market trends. Please send items to us at <a href="mailto:makerpro@makermedia.com">makerpro@makermedia.com</a></em>. 
+										<br/>
+										<strong><a href="http://makezine.com/maker-pro-newsletter/">Click here to subscribe to the Maker Pro newsletter!</a></strong>
+										</p>
 
 								<div class="clear"></div>
 
@@ -85,12 +73,18 @@ get_header(); ?>
 
 							<?php endwhile; ?>
 
-							<ul class="pager">
+							<div class="clear"></div>
+
+						<div>
+
+								<ul class="pager">
 							
-								<li class="previous"><?php previous_posts_link('&larr; Previous Page'); ?></li>
-								<li class="next"><?php next_posts_link('Next Page &rarr;'); ?></li>
+									<li class="previous"><?php previous_posts_link('&larr; Previous Page'); ?></li>
+									<li class="next"><?php next_posts_link('Next Page &rarr;'); ?></li>
 							
-							</ul>
+								</ul>
+
+						</div>
 
 							<?php if (function_exists('make_featured_products')) { make_featured_products(); } ?>
 						
@@ -99,8 +93,6 @@ get_header(); ?>
 								<p><?php _e('Sorry, no posts matched your criteria.'); ?></p>
 							
 							<?php endif; ?>
-
-						</div>
 
 					</div>
 
