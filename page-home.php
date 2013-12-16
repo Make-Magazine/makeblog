@@ -520,17 +520,17 @@ Template Name: Home Page
 							<div class="carousel-inner">
 								<div class="item active">
 									<a href="http://www.makershed.com/Make_Ultimate_Guide_to_3D_Printing_2_0_p/9781457183027-p.htm?Click=163251">
-										<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/Make_SIP6-3D_1213_v1-B_620x174.jpg" alt="23 3D Printers Reviewed, Get Your Copy Today">
+										<img src="<?php echo esc_url( get_stylesheet_directory_uri() ); ?>/img/Make_SIP6-3D_1213_v1-B_620x174.jpg" alt="23 3D Printers Reviewed, Get Your Copy Today">
 									</a>
 								</div>
 								<div class="item">
 									<a href="https://plus.google.com/communities/105413589856236995389">
-										<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/Make_Forum_join_banner.jpg" alt="Join the +MAKE Forum">
+										<img src="<?php echo esc_url( get_stylesheet_directory_uri() ); ?>/img/Make_Forum_join_banner.jpg" alt="Join the +MAKE Forum">
 									</a>
 								</div>
 								<div class="item">
 									<a href="<?php bloginfo( 'url' ); ?>/contribute/">
-										<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/Contribute-Page2_620x174.jpg" alt="Contribute to MAKE">
+										<img src="<?php echo esc_url( get_stylesheet_directory_uri() ); ?>/img/Contribute-Page2_620x174.jpg" alt="Contribute to MAKE">
 									</a>
 								</div>
 							</div>
