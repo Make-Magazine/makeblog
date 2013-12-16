@@ -265,7 +265,7 @@ Template Name: Home Page
 
 						<?php endwhile; wp_reset_postdata(); ?>
 
-						<p><a href="<?php echo escl_url( home_url( '/blog/' ) ); ?>"><span class="pull-right aqua seeall right">See All Posts</span></a></p>
+						<p><a href="<?php echo esc_url( home_url( '/blog/' ) ); ?>"><span class="pull-right aqua seeall right">See All Posts</span></a></p>
 						
 					</div>
 					<!--<div class="shadow"></div>-->
