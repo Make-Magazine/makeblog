@@ -163,5 +163,7 @@ jQuery(document).ready(function(){
 		// Disable our event listener
 		jQuery( document ).off( 'keydown' );
 	});
-
+	jQuery('.print-page').on('click', function() {
+		window.print();
+	});
 });

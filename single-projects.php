@@ -83,6 +83,7 @@ get_header(); ?>
 											echo '<img src="' . wpcom_vip_get_resized_remote_image_url( make_projects_to_s3( $image[0] ), 620, 465 ) . '" alt="' . esc_attr( the_title('', '', false ) ) . '" />';
 										}
 									?>
+
 									<?php the_content(); ?>
 									
 								</div>
@@ -98,6 +99,12 @@ get_header(); ?>
 											</script>
 										</div>
 										<!-- End AdSlot 2 -->
+
+									<div class="clearfix"></div>
+
+									<a class="project-print-btn btn btn-large btn-danger pull-left print-page">Print This Project</a>
+									
+									<div class="clearfix"></div>
 
 									</div>
 								
@@ -148,10 +155,10 @@ get_header(); ?>
 												?>
 											</div>
 										</div>
-									</div>
-									
+									</div>									
+
 									<?php } ?>
-								
+
 								</div>
 									
 							</div>
@@ -184,8 +191,7 @@ get_header(); ?>
 											<div class="span4">
 											
 												<?php make_projects_steps_list( $steps ); ?>
-												
-												
+																
 												<!-- Beginning Sync AdSlot 3 for Ad unit header ### size: [[300,250]]  -->
 												<div id='div-gpt-ad-664089004995786621-3'>
 													<script type='text/javascript'>
