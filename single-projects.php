@@ -100,12 +100,6 @@ get_header(); ?>
 										</div>
 										<!-- End AdSlot 2 -->
 
-									<div class="clearfix"></div>
-
-									<a class="project-print-btn btn btn-large btn-danger pull-left print-page">Print This Project</a>
-									
-									<div class="clearfix"></div>
-
 									</div>
 								
 									<?php 
@@ -154,10 +148,14 @@ get_header(); ?>
 												}
 												?>
 											</div>
+										
 										</div>
-									</div>									
+									
+									</div>
 
 									<?php } ?>
+
+									<a class="project-print-btn btn btn-mini btn-danger pull-left print-page"><i class="icon-print icon icon-white"></i> Print Project</a>
 
 								</div>
 									
