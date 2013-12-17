@@ -167,7 +167,6 @@ jQuery(document).ready(function(){
 		$( document.body ).on( 'post-load', function () {
 			googletag.pubads().refresh();
 			_gaq.push(['_trackPageview']);
-			console.log('Pushed a pageview, like a boss.');		
 			} );
 	} )( jQuery );
 
