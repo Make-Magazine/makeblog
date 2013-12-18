@@ -15,7 +15,7 @@ make_get_header() ?>
 
 			<div class="row">
 
-				<div class="span8 add30">
+				<div class="span8 add30" id="content">
 					
 					<?php // create a new custom query so we can return posts, 
 						$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;

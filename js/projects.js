@@ -164,4 +164,14 @@ jQuery(document).ready(function(){
 		jQuery( document ).off( 'keydown' );
 	});
 
+	( function( $ ) {
+		$( document.body ).on( 'post-load', function () {
+			googletag.pubads().refresh();
+			_gaq.push(['_trackPageview']);
+			} );
+	} )( jQuery );
+	
+	jQuery('.print-page').on('click', function() {
+		window.print();
+	});
 });

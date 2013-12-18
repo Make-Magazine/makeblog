@@ -15,7 +15,7 @@ make_get_header() ?>
 
 			<div class="row">
 
-				<div class="span8">
+				<div class="span8" id="content">
 					
 					<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 

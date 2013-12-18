@@ -5546,7 +5546,7 @@ h3 {
   line-height: 24px;
 }
 body ul li {
-  font-size: 16px;
+  font-size: 18px;
   line-height: 140%;
 }
 .row.volume {
@@ -5999,6 +5999,11 @@ footer {
 }
 .footer_copyright p a img {
   margin-top: -4px !important;
+}
+.footer_logo {
+  margin-right: 5px;
+  margin-top: 8px;
+  max-width: 140px!important;
 }
 .p_footer {
   font-size: 14px !important;
@@ -7433,7 +7438,7 @@ body#shop {
 }
 .new-footer .logo h5 {
   float: left;
-  padding-top: 32px;
+  padding-top: 35px;
 }
 .new-footer .logo img {
   float: left;
@@ -7595,50 +7600,6 @@ body#shop {
 }
 #make-money .container .row .span5 {
   padding-top: 10px;
-}
-.pro-title-area {
-  margin-left: 0;
-}
-.pro-newsletter {
-  margin-left: 0;
-  padding-left: 0;
-  width: 285px;
-  margin-top: -28px;
-  float: right;
-}
-.pro-newsletter p {
-  line-height: 1.2em;
-  margin-bottom: 8px;
-}
-.pro-newsletter form {
-  margin: 0;
-}
-.pro-newsletter label {
-  display: block;
-  margin-bottom: 0;
-  margin-top: 0;
-}
-.pro-newsletter input.span2,
-.pro-newsletter textarea.span2,
-.pro-newsletter .uneditable-input.span2 {
-  width: 185px;
-}
-.pro-newsletter .email-area .btn {
-  font-weight: 400;
-  font-size: 18px;
-  border-radius: 0;
-  height: 26px;
-  padding-top: 2px;
-  border: 1px solid #ccc;
-  box-shadow: none;
-}
-.pro-newsletter .email-area #appendedInputButton {
-  border-radius: 0;
-  height: 16px;
-}
-.pro-newsletter .email-area #appendedInputButton {
-  border-radius: 0 0 0 0;
-  height: 16px;
 }
 .footer-ad {
   padding: 30px 0;
@@ -8305,6 +8266,9 @@ a {
   height: 80px;
   width: 140px;
 }
+.project-print-btn {
+  margin: 20px 0 0 0;
+}
 .bottom-steps {
   font-size: 16px;
 }
@@ -8885,6 +8849,9 @@ a.oembed {
   width: 620px;
   height: 540px;
   left: 45%;
+}
+.huff.small .carousel {
+  margin-bottom: 0px;
 }
 .huff.small .container {
   width: 100%;
@@ -10527,7 +10494,7 @@ body.makercamp .white-bg p a:visited {
   text-decoration: none;
 }
 body.makercamp .white-bg .logo h5 {
-  padding-top: 24px !important;
+  padding-top: 25px !important;
 }
 body.makercamp .white-bg .featured {
   padding: 30px 0 0;
