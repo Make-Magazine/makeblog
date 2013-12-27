@@ -6,7 +6,7 @@ Template Name: Home Page
 
 <?php get_header(); ?>
 
-		<?php if ( ! make_get_cap_option( 'make_camp_takeover' ) && ! make_get_cap_option( 'maker_week' ) && ! make_get_cap_option( 'weekly_takeover_enabled' ) ) : ?>
+		<?php if ( ! make_get_cap_option( 'make_camp_takeover' ) && ! make_get_cap_option( 'maker_week' ) && ! make_get_cap_option( 'weekly_takeover_enabled' ) && get_theme_mod( 'make_enable_takeover' ) === 'off' ) : ?>
 
 		<div class="waist">
 
@@ -174,7 +174,7 @@ Template Name: Home Page
 
 		<?php elseif ( make_get_cap_option( 'make_camp_takeover' ) ) : ?>
 
-			<?php get_template_part( 'home-takover' ); ?>
+			<?php get_template_part( 'maker-camp-takover' ); ?>
 
 		<?php elseif ( make_get_cap_option( 'maker_week' ) ) : ?>
 
@@ -183,6 +183,10 @@ Template Name: Home Page
 		<?php elseif ( make_get_cap_option( 'weekly_takeover_enabled' ) ) : ?>
 
 			<?php get_template_part( 'weekly-take-over' ); ?>
+		
+		<?php elseif ( get_theme_mod( 'make_enable_takeover' ) === 'on' ) : ?>
+
+			<?php get_template_part( 'home-takeover' ); ?>
 
 		<?php endif; ?>
 

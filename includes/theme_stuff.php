@@ -235,10 +235,14 @@ add_filter( 'wp_feed_cache_transient_lifetime', create_function( '$a', 'return 9
  *
  * @version  1.1
  */
-function make_enqueue_jquery() {
+function make_load_resources() {
 	// To ensure CSS files are downloaded in parallel, always include CSS before JavaScript.
 	wp_enqueue_style( 'make-css', get_stylesheet_directory_uri() . '/css/style.css' );
 	wp_enqueue_style( 'make-print', get_stylesheet_directory_uri() . '/css/print.css', array(), false, 'print' );
+
+	// Load our takeover default styles when it is enabled
+	if ( get_theme_mod( 'make_enable_takeover' ) === 'on' )
+		wp_enqueue_style( 'make-takeover', get_stylesheet_directory_uri() . '/css/takeover.css' );
 
 	// Load our common scripts first. These should not require jQuery
 	wp_enqueue_script( 'make-typekit', 'http://use.typekit.com/fzm8sgx.js', array() );
@@ -257,7 +261,7 @@ function make_enqueue_jquery() {
 	if ( is_page( 315793 ) )
 		wp_enqueue_script( 'make-sort-table', get_stylesheet_directory_uri() . '/js/jquery.tablesorter.min.js', array( 'jquery' ), false, true );
 }
-add_action( 'wp_enqueue_scripts', 'make_enqueue_jquery' );
+add_action( 'wp_enqueue_scripts', 'make_load_resources' );
 
 
 /**
