@@ -266,7 +266,7 @@ function make_get_takeover_mod( $mod_name, $echo = true ) {
 			$result = get_permalink( absint( get_theme_mod( sanitize_text_field( $mod_name ) ) ) );
 			break;
 
-		// Handle the featured post image
+		// Handle the post images
 		case 'make_featured_post_image' :
 		case 'make_topright_post_image' :
 		case 'make_bottomright_post_image' :
@@ -292,7 +292,7 @@ function make_get_takeover_mod( $mod_name, $echo = true ) {
 			}
 			break;
 
-		// Handle the featured post title
+		// Handle the post titles
 		case 'make_featured_post_title' :
 		case 'make_topright_post_title' :
 		case 'make_bottomright_post_title' :
@@ -301,15 +301,21 @@ function make_get_takeover_mod( $mod_name, $echo = true ) {
 			if ( ! empty( $featured_title ) ) {
 				$result = $featured_title;
 			} else {
-				$result = get_the_title( absint( get_theme_mod( 'make_featured_post_url' ) ) );
+				if ( $mod_name == 'make_featured_post_title' ) {
+					$mod_post_id_field = 'make_featured_post_url';
+				} elseif ( $mod_name == 'make_topright_post_title' ) {
+					$mod_post_id_field = 'make_topright_post_url';
+				} elseif ( $mod_name == 'make_bottomright_post_title' ) {
+					$mod_post_id_field = 'make_bottomright_post_url';
+				}
+
+				$result = get_the_title( absint( get_theme_mod( $mod_post_id_field ) ) );
 			}
 			break;
 
 		// Handle the featured post excerpt
 		case 'make_featured_post_excerpt' :
-		case 'make_topright_post_excerpt' :
-		case 'make_bottomright_post_excerpt' :
-			$featured_excerpt = get_theme_mod( sanitize_text_field( $mod_name ) );
+			$featured_excerpt = get_theme_mod( 'make_featured_post_excerpt' );
 			
 			if ( ! empty( $featured_excerpt ) ) {
 				$result = $featured_excerpt;
