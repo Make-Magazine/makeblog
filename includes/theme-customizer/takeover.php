@@ -37,12 +37,13 @@ function make_theme_customizer_home_takeover( $wp_customize ) {
 
 	$wp_customize->add_control( 'make_enable_takeover', array(
 		'section' => 'make_takeover',
-		'label'   => 'Enable',
+		'label'   => 'Enable Takeover',
 		'type' 	  => 'select',
 		'choices' => array(
 			'on'  => 'Enabled',
 			'off' => 'Disabled',
 		),
+		'priority' => 10,
 	) );
 
 
@@ -57,6 +58,7 @@ function make_theme_customizer_home_takeover( $wp_customize ) {
 			'settings' => 'make_banner_takeover',
 			'section' => 'make_takeover',
 			'label' => 'Top Banner',
+			'priority' => 15,
 		) )
 	);
 
@@ -64,29 +66,42 @@ function make_theme_customizer_home_takeover( $wp_customize ) {
 	// Register the banner image URL
 	$wp_customize->add_setting( 'make_banner_url_takeover', array(
 		'default' => '',
-		'transport' => 'postMessage',
+		'sanitize_callback' => 'make_theme_customizer_sanitize_text',
 	) );
 
-	$wp_customize->add_control(
-		new WP_Customize_Image_Control( $wp_customize, 'make_banner_url_takeover', array(
-			'settings' => 'make_banner_url_takeover',
-			'section' => 'make_takeover',
-			'label' => 'Top Banner Link',
-		) )
-	);
+	$wp_customize->add_control( 'make_banner_url_takeover', array(
+		'section' => 'make_takeover',
+		'label' => 'Top Banner Link',
+		'type' => 'text',
+		'priority' => 16,
+	) );
+
+
+	// Register the featured post ID
+	$wp_customize->add_setting( 'make_featured_post_url', array(
+		'default' => '',
+		'sanitize_callback' => 'make_theme_customizer_sanitize_text',
+	) );
+
+	$wp_customize->add_control( 'make_featured_post_url', array(
+		'section' => 'make_takeover',
+		'label' => 'Featured Post ID',
+		'type' => 'text',
+		'priority' => 20,
+	) );
 
 
 	// Register the featured post image
 	$wp_customize->add_setting( 'make_featured_post_image', array(
 		'default' => '',
-		'transport' => 'postMessage',
 	) );
 
 	$wp_customize->add_control(
 		new WP_Customize_Image_Control( $wp_customize, 'make_featured_post_image', array(
 			'settings' => 'make_featured_post_image',
 			'section' => 'make_takeover',
-			'label' => 'Featured Post Image',
+			'label' => 'Featured Post Image (303x288)',
+			'priority' => 21,
 		) )
 	);
 
@@ -102,6 +117,7 @@ function make_theme_customizer_home_takeover( $wp_customize ) {
 		'section' => 'make_takeover',
 		'label' => 'Featured Post Title',
 		'type' => 'text',
+		'priority' => 22,
 	) );
 
 
@@ -116,21 +132,97 @@ function make_theme_customizer_home_takeover( $wp_customize ) {
 		'section' => 'make_takeover',
 		'label' => 'Featured Post Excerpt',
 		'type' => 'text',
+		'priority' => 23,
 	) );
 
 
-	// Register the featured post ID
-	$wp_customize->add_setting( 'make_featured_post_id', array(
+	// Register the top right post ID
+	$wp_customize->add_setting( 'make_topright_post_url', array(
+		'default' => '',
+		'sanitize_callback' => 'make_theme_customizer_sanitize_text',
+	) );
+
+	$wp_customize->add_control( 'make_topright_post_url', array(
+		'section' => 'make_takeover',
+		'label' => 'Top Right Post ID',
+		'type' => 'text',
+		'priority' => 30,
+	) );
+
+
+	// Register the top right post image
+	$wp_customize->add_setting( 'make_topright_post_image', array(
+		'default' => '',
+	) );
+
+	$wp_customize->add_control(
+		new WP_Customize_Image_Control( $wp_customize, 'make_topright_post_image', array(
+			'settings' => 'make_topright_post_image',
+			'section' => 'make_takeover',
+			'label' => 'Top Right Post Image (283x218)',
+			'priority' => 31,
+		) )
+	);
+
+
+	// Register the top right post title
+	$wp_customize->add_setting( 'make_topright_post_title', array(
 		'default' => '',
 		'sanitize_callback' => 'make_theme_customizer_sanitize_text',
 		'transport' => 'postMessage',
 	) );
 
-	$wp_customize->add_control( 'make_featured_post_id', array(
+	$wp_customize->add_control( 'make_topright_post_title', array(
 		'section' => 'make_takeover',
-		'label' => 'Featured Post ID',
+		'label' => 'Top Right Post Title',
 		'type' => 'text',
+		'priority' => 32,
 	) );
+
+
+	// Register the bottom right post ID
+	$wp_customize->add_setting( 'make_bottomright_post_url', array(
+		'default' => '',
+		'sanitize_callback' => 'make_theme_customizer_sanitize_text',
+	) );
+
+	$wp_customize->add_control( 'make_bottomright_post_url', array(
+		'section' => 'make_takeover',
+		'label' => 'Bottom Right Post ID',
+		'type' => 'text',
+		'priority' => 40,
+	) );
+
+
+	// Register the bottom right post image
+	$wp_customize->add_setting( 'make_bottomright_post_image', array(
+		'default' => '',
+	) );
+
+	$wp_customize->add_control(
+		new WP_Customize_Image_Control( $wp_customize, 'make_bottomright_post_image', array(
+			'settings' => 'make_bottomright_post_image',
+			'section' => 'make_takeover',
+			'label' => 'Bottom Right Post Image (283x218)',
+			'priority' => 41,
+		) )
+	);
+
+
+	// Register the bottom right post title
+	$wp_customize->add_setting( 'make_bottomright_post_title', array(
+		'default' => '',
+		'sanitize_callback' => 'make_theme_customizer_sanitize_text',
+		'transport' => 'postMessage',
+	) );
+
+	$wp_customize->add_control( 'make_bottomright_post_title', array(
+		'section' => 'make_takeover',
+		'label' => 'Bottom Right Post Title',
+		'type' => 'text',
+		'priority' => 42,
+	) );
+
 }
 add_action( 'customize_register', 'make_theme_customizer_home_takeover' );
 
@@ -147,70 +239,101 @@ function make_theme_customizer_sanitize_text( $input ) {
 }
 
 
-function make_tc_takeover( $mod_name ) {
+function make_get_takeover_mod( $mod_name, $echo = true ) {
 
 	switch( $mod_name ) {
 
 		// Handle the banner image
-		case 'banner' :
-			return get_theme_mod( 'make_banner_takeover' );
+		case 'make_banner_takeover' :
+			$result = get_theme_mod( 'make_banner_takeover' );
 			break;
 
 		// Handle the banner image url (this can be a post ID or a full URL.)
-		case 'banner-url' :
+		case 'make_banner_url_takeover' :
 			$val = get_theme_mod( 'make_banner_url_takeover' );
 
-			if ( is_int( $val ) ) {
-				return get_permalink( absint( $val ) );
+			if ( absint( $val ) ) {
+				$result = get_permalink( absint( $val ) );
 			} else {
-				return $val;
+				$result = $val;
 			}
 			break;
 
-		// Handle the feauted post ID
-		case 'featured-id' :
-			return get_theme_mod( 'make_featured_post_id' );
+		// Handle the post URLs
+		case 'make_featured_post_url' :
+		case 'make_topright_post_url' :
+		case 'make_bottomright_post_url' :
+			$result = get_permalink( absint( get_theme_mod( sanitize_text_field( $mod_name ) ) ) );
 			break;
 
 		// Handle the featured post image
-		case 'featured-image' :
-			$featured_image = get_theme_mod( 'make_featured_post_image' );
+		case 'make_featured_post_image' :
+		case 'make_topright_post_image' :
+		case 'make_bottomright_post_image' :
+			$featured_image = get_theme_mod( sanitize_text_field( $mod_name ) );
+			if ( $mod_name == 'make_featured_post_image' ) {
+				$size = 'takeover-featured';
+			} else {
+				$size = 'takeover-thumb';
+			}
 
 			if ( ! empty( $featured_image ) ) {
-				return $featured_image;
+				$result = $featured_image;
 			} else {
-				return get_the_image( array(
-					'post_id' => absint( get_theme_mod( 'make_featured_post_id' ) ),
-					'image_scan' => true 
+				$image = get_the_image( array(
+					'post_id' => absint( get_theme_mod( 'make_featured_post_url' ) ),
+					'image_scan' => true,
+					'size' => $size,
+					'format' => 'array',
+					'echo' => false,
 				) );
+
+				$result = $image['src'];
 			}
 			break;
 
 		// Handle the featured post title
-		case 'featured-title' :
-			$featured_title = get_theme_mod( 'make_featured_post_title' );
+		case 'make_featured_post_title' :
+		case 'make_topright_post_title' :
+		case 'make_bottomright_post_title' :
+			$featured_title = get_theme_mod( sanitize_text_field( $mod_name ) );
 
 			if ( ! empty( $featured_title ) ) {
-				return $featured_title;
+				$result = $featured_title;
 			} else {
-				return get_the_title( absint( get_theme_mod( 'make_featured_post_id' ) ) );
+				$result = get_the_title( absint( get_theme_mod( 'make_featured_post_url' ) ) );
 			}
 			break;
 
 		// Handle the featured post excerpt
-		case 'featured-excerpt' :
-			$featured_excerpt = get_theme_mod( 'make_featured_post_excerpt' );
+		case 'make_featured_post_excerpt' :
+		case 'make_topright_post_excerpt' :
+		case 'make_bottomright_post_excerpt' :
+			$featured_excerpt = get_theme_mod( sanitize_text_field( $mod_name ) );
+			
 			if ( ! empty( $featured_excerpt ) ) {
-				return $featured_excerpt;
+				$result = $featured_excerpt;
 			} else {
-				$the_post = get_post( absint( get_theme_mod( 'make_featured_post_id' ) ) );
-
-				return $the_post->post_excerpt;
+				$the_post = get_post( absint( get_theme_mod( 'make_featured_post_url' ) ) );
+				$result = $the_post->post_excerpt;
 			}
 
-		// If all else fails, let's return nothing.
-		default:
-			return;
-			break;
+	}
+
+	if ( $echo ) {
+		echo $result;
+	} else {
+		return $result;
+	}
+}
+
+
+function make_has_takeover_mod( $mod_name ) {
+	$val = get_theme_mod( sanitize_text_field( $mod_name ) );
+
+	if ( isset( $val ) && ! empty( $val ) ) {
+		return true;
+	} else {
+		return false;
 	}
 }

@@ -2,17 +2,17 @@
 	<div class="container">
 		<div class="row">
 			<div class="span8">
-
-				<?php if ( ! empty( make_tc_takeover( 'banner' ) ) ) : ?>
+	
+				<?php if ( make_has_takeover_mod( 'make_banner_takeover' ) ) : ?>
 					<div class="row-fluid">
 						<div class="span12 banner">
-							<?php if ( ! empty( make_tc_takeover( 'banner-url' ) ) ) : ?>
-								<a href="<?php echo esc_url( make_tc_takeover( 'banner-url' ) ); ?>">
+							<?php if ( make_has_takeover_mod( 'make_banner_url_takeover' ) ) : ?>
+								<a href="<?php esc_url( make_get_takeover_mod( 'make_banner_url_takeover' ) ); ?>">
 							<?php endif; ?>
 
-								<img src="<?php echo esc_url( make_tc_takeover( 'make_banner_takeover' ) ); ?>" alt=""></a>
+								<img src="<?php esc_url( make_get_takeover_mod( 'make_banner_takeover' ) ); ?>" alt=""></a>
 
-							<?php if ( ! empty( make_tc_takeover( 'banner-url' ) ) ) : ?>
+							<?php if ( make_has_takeover_mod( 'make_banner_url_takeover' ) ) : ?>
 								</a>
 							<?php endif; ?>
 						</div>
@@ -21,33 +21,40 @@
 
 				<div class="row-fluid">
 					<div class="span6">
-						<div class="post-wrapper primary-post">
-							<a href="">
-								<img src="<?php echo esc_url( make_tc_takeover( 'featured-image' ) ); ?>" class="featured-image" alt="">
-								<div class="content-wrapper">
-									<h2><?php echo sanitize_title( make_tc_takeover( 'featured-title' ) ); ?></h2>
-									<p><?php echo wp_filter_post_kses( make_tc_takeover( 'featured-excerpt' ) ); ?></p>
-								</div>
-							</a>
-						</div>
+						<?php if ( make_has_takeover_mod( 'make_featured_post_url' ) || make_has_takeover_mod( 'make_featured_post_image' ) ) : ?>
+							<div class="post-wrapper primary-post">
+								<a href="<?php esc_url( make_get_takeover_mod( 'make_featured_post_url' ) ); ?>">
+									<img src="<?php esc_url( make_get_takeover_mod( 'make_featured_post_image' ) ); ?>" width="303" height="288" class="featured-image" alt="<?php esc_attr( make_get_takeover_mod( 'make_featured_post_title' ) ); ?>">
+									<div class="content-wrapper">
+										<h2><?php sanitize_title( make_get_takeover_mod( 'make_featured_post_title' ) ); ?></h2>
+										<p><?php wp_filter_post_kses( make_get_takeover_mod( 'make_featured_post_excerpt' ) ); ?></p>
+									</div>
+								</a>
+							</div>
+						<?php endif; ?>
 					</div>
 					<div class="span6">
-						<div class="post-wrapper second-post small">
-							<a href="#">
-								<img src="http://baconmockup.com/283/144" class="featured-image" alt="">
-								<div class="content-wrapper">
-									<h2>This is the Title of the Really Cool Video Blog Post</h2>
-								</div>
-							</a>
-						</div>
-						<div class="post-wrapper third-post small">
-							<a href="#">
-								<img src="http://baconmockup.com/283/144" class="featured-image" alt="">
-								<div class="content-wrapper">
-									<h2>This is the Title of the Really Cool Video Blog Post</h2>
-								</div>
-							</a>
-						</div>
+						<?php if ( make_has_takeover_mod( 'make_topright_post_url' ) || make_has_takeover_mod( 'make_topright_post_image' ) ) : ?>
+							<div class="post-wrapper second-post small">
+								<a href="<?php esc_url( make_get_takeover_mod( 'make_topright_post_url' ) ); ?>">
+									<img src="<?php esc_url( make_get_takeover_mod( 'make_topright_post_image' ) ); ?>" width="283" height="144" class="featured-image" alt="<?php esc_attr( make_get_takeover_mod( 'make_topright_post_title' ) ); ?>">
+									<div class="content-wrapper">
+										<h2><?php sanitize_title( make_get_takeover_mod( 'make_topright_post_title' ) ); ?></h2>
+									</div>
+								</a>
+							</div>
+						<?php endif; ?>
+
+						<?php if ( make_has_takeover_mod( 'make_bottomright_post_url' ) || make_has_takeover_mod( 'make_bottomright_post_image' ) ) : ?>
+							<div class="post-wrapper third-post small">
+								<a href="<?php esc_url( make_get_takeover_mod( 'make_bottomright_post_url' ) ); ?>">
+									<img src="<?php esc_url( make_get_takeover_mod( 'make_bottomright_post_image' ) ); ?>" width="283" height="144" class="featured-image" alt="<?php esc_attr( make_get_takeover_mod( 'make_bottomright_post_title' ) ); ?>">
+									<div class="content-wrapper">
+										<h2><?php sanitize_title( make_get_takeover_mod( 'make_bottomright_post_title' ) ); ?></h2>
+									</div>
+								</a>
+							</div>
+						<?php endif; ?>
 					</div>
 				</div>
 			</div>
