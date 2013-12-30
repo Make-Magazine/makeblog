@@ -1,7 +1,7 @@
 <div class="waist takeover">
 	<div class="container">
 		<div class="row">
-			<div class="span8">
+			<div class="span8 takeover-wrapper">
 	
 				<?php if ( make_has_takeover_mod( 'make_banner_takeover' ) ) : ?>
 					<div class="row-fluid">

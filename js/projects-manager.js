@@ -16,7 +16,6 @@ jQuery(document).ready(function($) {
 	// If internet is lost, WordPress adds a warning to the top of the page. However, our editors miss it.
 	// Let's add a little warning that displays that internet is lost that is seen no matter where you are.
 	$(document).on('heartbeat-connection-lost.autosave', function( e, error, status ) {
-		console.log('HEARTBEAT');
 		// Autosave errored out, or the status reported is returning a 503
 		if ( 'timeout' === error || 503 == status ) {
 			$('body').append('<div id="connection-lost" style="position:fixed;bottom:0;width:100%;padding:10px;background:#f2dede;color:#b94a48;border-color:#eed3d7;z-index:999;text-align:center"><span class="spinner"></span> <strong>Connection lost.</strong> Saving has been disabled until you’re reconnected.	We’re backing up this post in your browser, just in case.</div>').fadeIn('fast');

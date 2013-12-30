@@ -4,18 +4,32 @@
 .waist.takeover .row {
   margin-top: 5px;
 }
+.waist.takeover .takeover-wrapper {
+  margin: 15px 0;
+}
 .waist.takeover .banner {
-  margin: 15px 10px 23px 0;
+  margin: 0 10px 23px 0;
 }
 .waist.takeover .post-wrapper {
   min-height: 463px;
 }
+.waist.takeover .post-wrapper img {
+  width: 303px;
+  height: 288px;
+}
 .waist.takeover .post-wrapper.small {
-  min-height: 244px;
+  min-height: 218px;
   padding: 0 10px;
+}
+.waist.takeover .post-wrapper.small img {
+  width: 283px;
+  height: 144px;
 }
 .waist.takeover .post-wrapper.small .content-wrapper {
   min-height: 48px;
+}
+.waist.takeover .post-wrapper.second-post {
+  margin-bottom: 27px;
 }
 .waist.takeover .post-wrapper .content-wrapper {
   background: #002a40;
