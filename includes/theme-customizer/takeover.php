@@ -271,17 +271,26 @@ function make_get_takeover_mod( $mod_name, $echo = true ) {
 		case 'make_topright_post_image' :
 		case 'make_bottomright_post_image' :
 			$featured_image = get_theme_mod( sanitize_text_field( $mod_name ) );
+
 			if ( $mod_name == 'make_featured_post_image' ) {
 				$size = 'takeover-featured';
 			} else {
 				$size = 'takeover-thumb';
 			}
 
+			if ( $mod_name == 'make_featured_post_image' ) {
+				$id = 'make_featured_post_url';
+			} elseif ( $mod_name == 'make_topright_post_image' ) {
+				$id = 'make_topright_post_url';
+			} elseif ( $mod_name == 'make_bottomright_post_image' ) {
+				$id = 'make_bottomright_post_url';
+			}
+
 			if ( ! empty( $featured_image ) ) {
 				$result = $featured_image;
 			} else {
 				$image = get_the_image( array(
-					'post_id' => absint( get_theme_mod( 'make_featured_post_url' ) ),
+					'post_id' => absint( get_theme_mod( sanitize_text_field( $id ) ) ),
 					'image_scan' => true,
 					'size' => $size,
 					'format' => 'array',
