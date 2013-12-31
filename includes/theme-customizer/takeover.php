@@ -5,7 +5,7 @@
  * Register and load our JavaScript that lets us preview our changes automatically in the preview window
  * @return void
  *
- * @since  SPRINT_NAME
+ * @since  HAL 9000
  */
 function make_register_theme_customizer() {
 	wp_enqueue_script( 'make-theme-customizer', get_stylesheet_directory_uri() . '/js/theme-customizer.js', array( 'jquery', 'customize-preview' ), '0.1', true );
@@ -19,7 +19,7 @@ add_action( 'customize_preview_init', 'make_register_theme_customizer' );
  * @param  object $wp_customize An instance of the WP_Customize_Manager class
  * @return void
  *
- * @since  SPRINT_NAME
+ * @since  HAL 9000
  */
 function make_theme_customizer_home_takeover( $wp_customize ) {
 
@@ -232,7 +232,7 @@ add_action( 'customize_register', 'make_theme_customizer_home_takeover' );
  * @param  string $input The data to be sanitized
  * @return string
  *
- * @since  SPRINT_NAME
+ * @since  HAL 9000
  */
 function make_theme_customizer_sanitize_text( $input ) {
 	return strip_tags( stripslashes( $input ) );
