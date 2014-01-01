@@ -37,62 +37,32 @@ body {
 		}
 	}
 	.hdr-sub-ad-01 {
-		margin-top:10px;
+		margin-top:14px;
 	}
 	.additional-content {
 		position:absolute;
 		right:0;
-		.subscribe {
-			> a {
-				margin-right:6px;
-				font-size:16px;
-				text-transform:uppercase;
-				background:@red;
-				color:#fff !important;
-				padding:5px 10px;
-				position:relative;
-				top:4px;
-				.border-bottom-right-radius(5px);
-				.border-bottom-left-radius(5px);
-			}
-			.dropdown-menu {
-				background:#fff;
-				border:1px solid @red;
-				margin-top:4px;
-				min-width:101px;
-				.border-radius(0px);
-				a {
-					color:#0c668d;
-					font-size:16px;
-					font-weight:bold;
-					padding:3px 9px;
-					&:hover {
-						background:transparent;
-						color:@red;
-					}
-				}
-			}
-		}
 		.search-make {
-			float:right;
+			// float:right;
 			margin:0;
+			border:@the-border solid @red;
+			border-top:none;
+			.border-bottom-right-radius(5px);
+			.border-bottom-left-radius(5px);
+			.clearfix();
 			input[type="text"] {
-				width:165px;
-				border: none;
-				padding:5px 0 4px 8px;
-				color:#777;
+				width:82%;
+				float:left;
+				border:none;
+				outline:none;
+				padding:5px 0 5px 8px;
+				color:#777; 
+				background:transparent;
 				.box-shadow(0 0 0 transparent);
 			}
-			input[type="image"] { margin:4px 8px 5px; }
-			&.open {
-				border:@the-border solid @red;
-				border-top:none;
-				.border-bottom-right-radius(5px);
-				.border-bottom-left-radius(5px);
-				input[type="text"] { 
-					padding:3px 0 3px 8px;
-					margin-bottom:0;
-				}
+			input[type="image"] {
+				float:right;
+				margin:6px 8px;
 			}
 		}
 	}
@@ -150,7 +120,7 @@ body {
 	font-weight:bold;
 	position:relative;
 	margin-bottom:0 !important;
-	top:105px;
+	top:107px;
 	.make-xs-column(12);
 	.make-sm-column(9);
 	.make-md-column(7);
@@ -158,7 +128,8 @@ body {
 	.navbar-collapse {
 		padding:0;
 	}
-	ul {
+	.navbar-default {
+		background:transparent;
 		> li {
 			margin:0 14px 0 0;
 			padding:0;
@@ -168,10 +139,11 @@ body {
 			}
 		}
 	}
-	// .dropdown-menu {
-	// 	margin-top:0px;
-	// 	font-size:17px !important;
-	// }
+	.dropdown-menu {
+		margin-top:0px;
+		font-size:17px;
+		background:#fff;
+	}
 }
 
 // Secondary Navigation
@@ -205,8 +177,8 @@ body {
 		}
 	}
 	.primary-navigation {
-		top:111px;
-		ul {
+		top:112px;
+		.navbar-default {
 			> li {
 				margin:0 7px 0 0;
 				> a {
@@ -233,11 +205,14 @@ body {
 		.logo {
 			margin-top:61px;
 		}
+		.hdr-sub-ad-01 {
+			margin-top:16px;
+		}
 	}
 	.primary-navigation {
 		top:0;
 		padding:0 7px;
-		ul {
+		.navbar-default {
 			> li {
 				margin:0 8px 0 0;
 				> a {
@@ -259,7 +234,7 @@ body {
 }
 
 // max width none
-@media (min-width: @screen-xs-min) and (max-width: @screen-xs-max) {
+@media (max-width: @screen-xs-max) {
 	body {
 		padding-top:0;
 	}
@@ -268,9 +243,64 @@ body {
 		border:none;
 		.logo {
 			margin-top:15px;
+			text-align:center;
+			.make-xs-column(12);
+		}
+		.additional-content {
+			position:relative;
+			text-align:center;
+			.make-xs-column(12);
+		}
+	}
+	.search-make-mobile {
+		float:left;
+		width:50%;
+		position:relative;
+		input[type="text"] {
+			border:none;
+			padding:11px 30px 11px 10px;
+			font-size:20px;
+			width:100%;
+			border-right:1px solid #e7e7e7;
+			outline:none;
+		}
+		input[type="image"] {
+			position:absolute;
+			top:50%;
+			margin-top:-9.5px;
+			right:7px;
+		}
+	}
+	.navbar-toggle {
+		float:right;
+		outline:none;
+	}
+	.navbar {
+		min-height:inherit;
+		margin:0;
+	}
+	.mobile-navigation {
+		.navbar-nav {
+			margin-top:0;
+			> li > a, > li.open > a {
+				color:@blue;
+			}
+		}
+		.menu-primary-nav {
+			background:#fff;
+			> li > a {
+				font-weight:bold;
+			}
+		}
+		.menu-secondary-nav {
+			background:@secondary-color;
+			.box-shadow( inset 0 10px 18px -10px #a4a4a4 );
 		}
 	}
 }
+
+
+
 
 // For now, only run our media queries on the Maker Camp pages as it trys to run on non-responsive pages...
 @media (max-width: 1200px) {

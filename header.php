@@ -75,33 +75,22 @@
 								<h2 title="Make Magazine - <?php echo bloginfo( 'description' ); ?>"><a href="<?php echo esc_url( home_url() ); ?>"><img src="<?php echo get_stylesheet_directory_uri(); ?>/img/make-logo.png"  alt="Tech-savvy DIY Enthusiasts Innovative Projects and Ideas" /></a></h2>
 							<?php endif; ?>
 						</div>
-						<nav class="navbar site-navigation primary-navigation hidden-print" role="navigation">
-							<div class="navbar-header">
-								<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#make-primary-collapse">
-									<span class="sr-only">Toggle Navigation</span>
-									<span class="icon-bar"></span>
-									<span class="icon-bar"></span>
-									<span class="icon-bar"></span>
-								</button>
-							</div>
-							<div id="make-primary-collapse" class="collapse navbar-collapse">
-								<?php
-									wp_nav_menu( array(
-										'theme_location'  => 'make-primary',
-										'container'       => false, 
-										'menu_class'      => 'nav navbar-nav menu-primary-nav ga-nav clearfix',
-										'walker'          => new Bootstrap_Walker_Nav_Menu(),
-									) );
-								?>
-							</div>
+						<nav class="navbar site-navigation primary-navigation hidden-print hidden-xs" role="navigation">
+							<?php
+								wp_nav_menu( array(
+									'theme_location'  => 'make-primary',
+									'container'       => false, 
+									'menu_class'      => 'nav navbar-default navbar-nav menu-primary-nav ga-nav clearfix',
+									'walker'          => new Bootstrap_Walker_Nav_Menu(),
+								) );
+							?>
 						</nav>
 
 						<div class="additional-content hidden-print">						
-							<form action="<?php echo home_url(); ?>" class="search-make open">
+							<form action="<?php echo home_url(); ?>" class="search-make hidden-xs">
 								<input type="text" class="search-field" name="s" placeholder="Search" />
-								<input type="image" src="<?php echo get_stylesheet_directory_uri(); ?>/images/search-btn.png" alt="Search" class="open" value="Search" />
+								<input type="image" src="<?php echo get_stylesheet_directory_uri(); ?>/images/search-btn.png" alt="Search" value="Search" />
 							</form>
-							<div class="clearfix"></div>
 							<div id="div-gpt-ad-664089004995786621-5" class="hdr-sub-ad-01" >
 								<script type='text/javascript'>
 									googletag.cmd.push(function(){googletag.display('div-gpt-ad-664089004995786621-5')});
@@ -114,7 +103,7 @@
 			<div class="secondary-header hidden-print">
 				<div class="container">
 					<div class="row">
-						<nav class="span12 site-navigation secondary-navigation">
+						<nav class="span12 site-navigation secondary-navigation hidden-xs">
 							<?php
 								wp_nav_menu( array(
 									'theme_location' => 'make-secondary',
@@ -123,10 +112,44 @@
 								) );
 							?>
 						</nav>
+						
+						<!-- Mobile Navigation -->
+						<nav class="navbar navbar-default mobile-navigation hidden-print visible-xs" role="navigation">
+							<div class="navbar-header">
+								<form action="<?php echo home_url(); ?>" class="search-make-mobile">
+									<input type="text" class="search-field" name="s" placeholder="Search" />
+									<input type="image" src="<?php echo get_stylesheet_directory_uri(); ?>/images/search-btn.png" alt="Search" value="Search" />
+								</form>
+								<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#make-mobile-collapse">
+									<span class="sr-only">Toggle Navigation</span>
+									<span class="icon-bar"></span>
+									<span class="icon-bar"></span>
+									<span class="icon-bar"></span>
+								</button>
+							</div>
+							<div id="make-mobile-collapse" class="navbar-collapse collapse">
+								<?php
+									wp_nav_menu( array(
+										'theme_location'  => 'make-primary',
+										'container'       => false, 
+										'menu_class'      => 'nav navbar-nav menu-primary-nav ga-nav clearfix',
+										'walker'          => new Bootstrap_Walker_Nav_Menu(),
+									) );
+								?>
+								<?php
+									wp_nav_menu( array(
+										'theme_location' => 'make-secondary',
+										'container'		 => false,
+										'menu_class' 	 => 'nav navbar-nav menu-secondary-nav ga-nav clearfix',
+										'walker'          => new Bootstrap_Walker_Nav_Menu(),
+									) );
+								?>
+							</div>
+						</nav>
 					</div>
 				</div>
 			</div>
-			<div class="makershed-banner">
+			<div class="makershed-banner hidden-xs">
 				<div class="container">
 					<div class="row">
 						<div class="col-lg-12">
