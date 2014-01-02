@@ -26,8 +26,8 @@
 								<a href="<?php esc_url( make_get_takeover_mod( 'make_featured_post_url' ) ); ?>">
 									<img src="<?php esc_url( make_get_takeover_mod( 'make_featured_post_image' ) ); ?>" width="303" height="288" class="featured-image" alt="<?php esc_attr( make_get_takeover_mod( 'make_featured_post_title' ) ); ?>">
 									<div class="content-wrapper">
-										<h2><?php sanitize_title( make_get_takeover_mod( 'make_featured_post_title' ) ); ?></h2>
-										<p><?php wp_filter_post_kses( make_get_takeover_mod( 'make_featured_post_excerpt' ) ); ?></p>
+										<h2><?php esc_html( make_get_takeover_mod( 'make_featured_post_title' ) ); ?></h2>
+										<p><?php wp_kses_post( make_get_takeover_mod( 'make_featured_post_excerpt' ) ); ?></p>
 									</div>
 								</a>
 							</div>
@@ -39,7 +39,7 @@
 								<a href="<?php esc_url( make_get_takeover_mod( 'make_topright_post_url' ) ); ?>">
 									<img src="<?php esc_url( make_get_takeover_mod( 'make_topright_post_image' ) ); ?>" width="283" height="144" class="featured-image" alt="<?php esc_attr( make_get_takeover_mod( 'make_topright_post_title' ) ); ?>">
 									<div class="content-wrapper">
-										<h2><?php sanitize_title( make_get_takeover_mod( 'make_topright_post_title' ) ); ?></h2>
+										<h2><?php esc_html( make_get_takeover_mod( 'make_topright_post_title' ) ); ?></h2>
 									</div>
 								</a>
 							</div>
@@ -50,7 +50,7 @@
 								<a href="<?php esc_url( make_get_takeover_mod( 'make_bottomright_post_url' ) ); ?>">
 									<img src="<?php esc_url( make_get_takeover_mod( 'make_bottomright_post_image' ) ); ?>" width="283" height="144" class="featured-image" alt="<?php esc_attr( make_get_takeover_mod( 'make_bottomright_post_title' ) ); ?>">
 									<div class="content-wrapper">
-										<h2><?php sanitize_title( make_get_takeover_mod( 'make_bottomright_post_title' ) ); ?></h2>
+										<h2><?php esc_html( make_get_takeover_mod( 'make_bottomright_post_title' ) ); ?></h2>
 									</div>
 								</a>
 							</div>

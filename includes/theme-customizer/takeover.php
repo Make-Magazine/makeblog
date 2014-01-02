@@ -66,7 +66,7 @@ function make_theme_customizer_home_takeover( $wp_customize ) {
 	// Register the banner image URL
 	$wp_customize->add_setting( 'make_banner_url_takeover', array(
 		'default' => '',
-		'sanitize_callback' => 'make_theme_customizer_sanitize_text',
+		'sanitize_callback' => 'make_theme_customizer_sanitize_text_url',
 	) );
 
 	$wp_customize->add_control( 'make_banner_url_takeover', array(
@@ -94,6 +94,7 @@ function make_theme_customizer_home_takeover( $wp_customize ) {
 	// Register the featured post image
 	$wp_customize->add_setting( 'make_featured_post_image', array(
 		'default' => '',
+		'sanitize_callback' => 'make_theme_customizer_sanitize_text',
 	) );
 
 	$wp_customize->add_control(
@@ -153,6 +154,7 @@ function make_theme_customizer_home_takeover( $wp_customize ) {
 	// Register the top right post image
 	$wp_customize->add_setting( 'make_topright_post_image', array(
 		'default' => '',
+		'sanitize_callback' => 'make_theme_customizer_sanitize_text',
 	) );
 
 	$wp_customize->add_control(
@@ -197,6 +199,7 @@ function make_theme_customizer_home_takeover( $wp_customize ) {
 	// Register the bottom right post image
 	$wp_customize->add_setting( 'make_bottomright_post_image', array(
 		'default' => '',
+		'sanitize_callback' => 'make_theme_customizer_sanitize_text',
 	) );
 
 	$wp_customize->add_control(
@@ -239,6 +242,26 @@ function make_theme_customizer_sanitize_text( $input ) {
 }
 
 
+/**
+ * Sanitize urls like a boss
+ * @param  string $input The data to be sanitized
+ * @return string
+ *
+ * @since  HAL 9000
+ */
+function make_theme_customizer_sanitize_text_url( $input ) {
+	return esc_url( $input );
+}
+
+
+/**
+ * Helper function to fetch and process our theme customizer data
+ * @param  string  $mod_name The name of the modification to return
+ * @param  boolean $echo     Choose to return or echo the data
+ * @return string
+ *
+ * @since  HAL 9000
+ */
 function make_get_takeover_mod( $mod_name, $echo = true ) {
 
 	switch( $mod_name ) {
@@ -343,6 +366,13 @@ function make_get_takeover_mod( $mod_name, $echo = true ) {
 }
 
 
+/**
+ * Helper function to ensure a theme modification exists
+ * @param  string $mod_name The name of the theme modification to check
+ * @return boolean
+ *
+ * @since  HAL 9000
+ */
 function make_has_takeover_mod( $mod_name ) {
 	$val = get_theme_mod( sanitize_text_field( $mod_name ) );
 
