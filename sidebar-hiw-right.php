@@ -57,11 +57,16 @@
 							</a>
 						</li>
 					</ul>
-						<h4>Media Partner</h4>
+					<h4>Media Partner</h4>
 					<ul class="unstyled" id="media-partner">
 						<li>
 							<a style="margin-bottom:10px;" href="http://www.engadget.com/expand/about/" target="_blank">
 								<img class="thumbnail" src="http://makezineblog.files.wordpress.com/2013/04/engadget-logo.jpg?w=130" alt="ShopBot" width="130">
+							</a>
+						</li>
+						<li>
+							<a style="margin-bottom:10px;" href="http://www.marketwired.com/" target="_blank">
+								<img class="thumbnail" src="http://makezineblog.files.wordpress.com/2014/01/marketwired_logo.jpg?w=130" alt="Market Wired" width="130">
 							</a>
 						</li>
 					</ul>
