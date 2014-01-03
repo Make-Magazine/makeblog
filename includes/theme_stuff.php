@@ -575,7 +575,7 @@ function make_get_category_name_strip_slash() {
  * @return string Main category name.
  */
 function make_add_custom_types( $query ) {
-	if ( ! is_admin() && $query->is_main_query() && ( $query->is_tag() || $query->is_author() || $query-> is_tax() ) && empty( $query->query_vars['suppress_filters'] ) ) {
+	if ( ! is_admin() && $query->is_main_query() && ( $query->is_tag() || $query->is_author() || $query->is_tax() || $query->is_home() ) && empty( $query->query_vars['suppress_filters'] ) ) {
 		$query->set( 'post_type', array( 'post', 'craft', 'projects', 'video', 'review', 'magazine' ));
 		return $query;
 	}
