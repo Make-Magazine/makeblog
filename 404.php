@@ -29,9 +29,9 @@ make_get_header() ?>
 								
 								<p>Let's see if we can make it up to you. First off, let's try searching for the content. You can do that in the search form below.</p>
 								
-								<form action="<?php echo home_url(); ?>" class="search-make open">
+								<form action="<?php echo home_url( '/search/' ); ?>" class="search-make open">
 									<div class="input-append">
-										<input type="text" class="search-field" name="s">
+										<input type="text" class="search-field" name="q">
 										<button type="submit" class="btn btn-primary" value="Search"><i class="icon icon-search icon-white"></i> Search</button>
 									</div>
 								</form>
