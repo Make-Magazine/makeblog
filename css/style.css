@@ -6233,6 +6233,8 @@ footer .pills a {
 }
 .commentlist .children li.comment .comment-meta {
   line-height: 1.625em;
+}
+.commentlist .children li.comment .comment-meta .comment-author {
   margin-left: 50px;
 }
 .commentlist .children li.comment .comment-content {
