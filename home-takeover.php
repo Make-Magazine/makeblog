@@ -1,6 +1,6 @@
 <div class="waist takeover">
 	<div class="container">
-		<div class="row">
+		<div class="row-fluid">
 			<div class="span8 takeover-wrapper">
 	
 				<?php if ( make_has_takeover_mod( 'make_banner_takeover' ) ) : ?>
@@ -10,7 +10,7 @@
 								<a href="<?php esc_url( make_get_takeover_mod( 'make_banner_url_takeover' ) ); ?>">
 							<?php endif; ?>
 
-								<img src="<?php esc_url( make_get_takeover_mod( 'make_banner_takeover' ) ); ?>" alt=""></a>
+								<img src="<?php esc_url( make_get_takeover_mod( 'make_banner_takeover' ) ); ?>" alt="Makezine CES Consumer Electronics Show banner"></a>
 
 							<?php if ( make_has_takeover_mod( 'make_banner_url_takeover' ) ) : ?>
 								</a>
