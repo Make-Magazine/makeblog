@@ -7882,6 +7882,21 @@ textarea.narrow,
   margin-top: 0;
   margin-bottom: 3px;
 }
+.ctx_widget .ctx_around_site {
+  border-radius: 4px !important;
+  border: 1px solid #e3e3e3;
+}
+.ctx_widget .ctx_blocks_widget2 .ctx_subhead {
+  background-color: transparent !important;
+}
+.ctx_widget .ctx_blocks_widget2 .ctx_subhead_title {
+  padding: 1% 0 !important;
+  color: #ed1c24 !important;
+  text-transform: uppercase !important;
+  font-family: proxima-nova, sans-serif !important;
+  font-weight: bold !important;
+  font-size: 16px !important;
+}
 .custom-feed.simple {
   border: 1px solid #dadada;
   border-radius: 5px;
