@@ -7889,6 +7889,15 @@ textarea.narrow,
 .ctx_widget .ctx_blocks_widget2 .ctx_subhead {
   background-color: transparent !important;
 }
+.ctx_widget .ctx_blocks_widget2 .ctx_link {
+  font-size: 13px !important;
+  line-height: 16px !important;
+}
+.ctx_widget .ctx_blocks_widget2 .ctx_link span {
+  color: #005d8f !important;
+  font-weight: bold !important;
+  font-family: proxima-nova, sans-serif !important;
+}
 .ctx_widget .ctx_blocks_widget2 .ctx_subhead_title {
   padding: 1% 0 !important;
   color: #ed1c24 !important;
