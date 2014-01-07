@@ -32,8 +32,6 @@
 			<div class="container">
 				<div class="row">
 					<div class="span12 logo" >
-						<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/craft-logo1.png" alt="MAKE">
-						<a href="http://make-digital.com/" target="_blank"><img src="http://makezineblog.files.wordpress.com/2013/07/digital-book-foot.png" alt="Make Digital Book"></a> 
 						<img src="<?php bloginfo('stylesheet_directory'); ?>/img/craft-logo1.png" alt="MAKE">
 						<a href="http://make-digital.com/" target="_blank"><div class="sprite-digital-book-foot"></div></a>
 						<h5><a href="http://make-digital.com/" target="_blank">Read Digital Edition</a></h5>
