@@ -21,4 +21,25 @@ jQuery(document).ready(function($) {
 	}).on('heartbeat-connection-restored.autosave', function() {
 		$('#connection-lost').fadeOut('fast').remove();
 	});
+
+
+	/**
+	 * Handles auto saving of the post meta for projects
+	 */
+	// setInterval( function() {
+	// 	var post = $( '#post ').serialize();
+		
+	// 	$.ajax({
+	// 		type: 'POST',
+	// 		dataType: 'json',
+	// 		url: ajaxurl,
+	// 		data: {
+	// 			'action' : 'projects_save_step_manager',
+	// 			'post'   : post
+	// 		},
+	// 		success: function(result) {
+	// 			console.log('DONE');
+	// 		}
+	// 	});
+	// }, 15000);
 });
