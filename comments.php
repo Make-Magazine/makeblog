@@ -7,16 +7,18 @@
 
 <!-- don't display comments on protected posts -->
 <div id="comments" class="">
-
 	<?php if ( post_password_required() ) : ?>
 		<p class="nopassword"><?php _e( 'This post is password protected. Enter the password to view and post comments.' , 'makezine' ); ?></p>
 	</div>
 	<?php
 		return;
 	endif; ?>
+	
+	<h3 id="comments-title"><?php printf( _n( 'One Response to %2$s', '%1$s Responses to %2$s', get_comments_number(), 'makezine' ), number_format_i18n( get_comments_number() ), '<em>' . get_the_title() . '</em>' ); ?></h3>
+	
+	<?php comment_form(); ?>
 
 	<?php if ( have_comments() ) : ?>
-		<h3 id="comments-title"><?php printf( _n( 'One Response to %2$s', '%1$s Responses to %2$s', get_comments_number(), 'makezine' ), number_format_i18n( get_comments_number() ), '<em>' . get_the_title() . '</em>' ); ?></h3>
 
 		<?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) : ?>
 			<div class="navigation">
@@ -24,8 +26,6 @@
 				<div class="nav-next"><?php next_comments_link( __( 'Newer Comments <span class="meta-nav">&rarr;</span>', 'makezine' ) ); ?></div>
 			</div> <!-- .navigation -->
 		<?php endif; ?>
-	
-		<?php comment_form(); ?>
 		
 		<ol class="commentlist">
 			<?php
