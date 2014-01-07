@@ -218,6 +218,8 @@ function make_post_loop( $args ) {
 
 }
 
+add_shortcode( 'make_toc', 'make_magazine_toc' );
+
 function make_magazine_toc( $args ) {
 	global $post;
 
