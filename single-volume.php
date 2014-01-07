@@ -128,9 +128,9 @@ get_header(); ?>
 									<ul class="nav nav-tabs">
 										<li class=""><a href="#errata" data-toggle="tab">Before You Start</a></li>
 										<li class="active"><a href="#projects" data-toggle="tab">Projects</a></li>
-										<li class=""><a href="#errata" data-toggle="tab">Reviews</a></li>
-										<li class=""><a href="#errata" data-toggle="tab">Articles</a></li>
-										<li class=""><a href="#errata" data-toggle="tab">Web Extras</a></li>
+										<li class=""><a href="#reviews" data-toggle="tab">Reviews</a></li>
+										<li class=""><a href="#articles" data-toggle="tab">Articles</a></li>
+										<li class=""><a href="#extras" data-toggle="tab">Web Extras</a></li>
 									</ul>
 									<div class="tab-content">
 										<div class="tab-pane active" id="projects">
@@ -169,7 +169,7 @@ get_header(); ?>
 												);
 											echo make_magazine_toc( $args ); ?>
 										</div>
-										<div class="tab-pane" id="articles">
+										<div class="tab-pane" id="extras">
 											<?php echo make_magazine_errata('Web Extras'); ?>
 										</div>
 									</div>
