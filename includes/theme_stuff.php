@@ -1585,29 +1585,6 @@ function make_remove_metaboxes_for_authors() {
 		// Remove Parts Taxonomy
 		remove_meta_box( 'tagsdiv-parts', 'projects', 'side' );
 
-		// Remove Disscussion
-		remove_meta_box( 'commentstatusdiv', 'post', 'normal' );
-		remove_meta_box( 'commentstatusdiv', 'projects', 'normal' );
-		remove_meta_box( 'commentstatusdiv', 'magazine', 'normal' );
-		remove_meta_box( 'commentstatusdiv', 'review', 'normal' );
-		remove_meta_box( 'commentstatusdiv', 'craft', 'normal' );
-		remove_meta_box( 'commentstatusdiv', 'video', 'normal' );
-
-		// Remove Send Trackbacks
-		remove_meta_box( 'trackbacksdiv', 'post', 'normal' );
-		remove_meta_box( 'trackbacksdiv', 'projects', 'normal' );
-		remove_meta_box( 'trackbacksdiv', 'magazine', 'normal' );
-		remove_meta_box( 'trackbacksdiv', 'review', 'normal' );
-		remove_meta_box( 'trackbacksdiv', 'craft', 'normal' );
-		remove_meta_box( 'trackbacksdiv', 'video', 'normal' );
-
-		// Remove Likes and Shares
-		remove_meta_box( 'likes_meta', 'post', 'advanced' );
-		remove_meta_box( 'likes_meta', 'projects', 'advanced' );
-		remove_meta_box( 'likes_meta', 'magazine', 'advanced' );
-		remove_meta_box( 'likes_meta', 'review', 'advanced' );
-		remove_meta_box( 'likes_meta', 'craft', 'advanced' );
-		remove_meta_box( 'likes_meta', 'video', 'advanced' );
 	}
 }
 add_action( 'do_meta_boxes', 'make_remove_metaboxes_for_authors' );
