@@ -32,7 +32,7 @@
 			<div class="container">
 				<div class="row">
 					<div class="span12 logo" >
-						<img src="<?php bloginfo('stylesheet_directory'); ?>/img/craft-logo1.png" alt="MAKE">
+						<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/craft-logo1.png" alt="MAKE">
 						<a href="http://make-digital.com/" target="_blank"><img src="http://makezineblog.files.wordpress.com/2013/07/digital-book-foot.png" alt="Make Digital Book"></a> 
 						<h5><a href="http://make-digital.com/" target="_blank">Read Digital Edition</a></h5>
 						<a href="http://www.makershed.com/" target="_blank"><img class="footer-cart-image" src="http://makezineblog.files.wordpress.com/2013/11/makershed_footer1.png" alt="Maker Shed Shopping Cart"></a> 
@@ -82,7 +82,7 @@
 						<h5>About <a href="http://makermedia.com">Maker Media</a></h5>
 						<div class="about-column-01">
 							<ul>
-								<li><a href="http://makezine.com/help/index.html">Help</a></li>
+								<li><a href="http://makezine.com//how-to-get-help/">Help</a></li>
 								<li><a href="http://makermedia.com/contact-us/">Contact</a></li>
 								<li><a href="http://www.makezine.com/go/subscribe2make">Subscribe</a></li>
 								<li><a href="http://makermedia.com/work-with-us/advertising/">Advertise</a></li> 
