@@ -41,12 +41,6 @@ function make_sitemap_post_types() {
 
 add_filter( 'msm_sitemap_entry_post_type', 'make_sitemap_post_types' );
 
-// Moving liveblog code higher in the_content as we already have a post author block displaying above it along with a few other things
-// Through testing we verified this worked and discussed with Mo, but it's obvious a better solution is needed.
-// Ref ticket #25019
-remove_filter( 'plugins_loaded', array( 'WPCOM_Liveblog', 'add_liveblog_to_content' ) );
-add_filter( 'the_content', array( 'WPCOM_Liveblog', 'add_liveblog_to_content' ), 4 );
-
 if ( ! jetpack_is_mobile() ) {
 	wpcom_vip_load_plugin( 'facebook' );
 }
