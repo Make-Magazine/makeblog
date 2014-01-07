@@ -133,6 +133,26 @@
 		// Load our Projects steps
 		$steps = make_magazine_get_project_data( 'Steps' );
 		wp_nonce_field( 'make-mag-projects-metabox-nonce', 'meta_box_nonce' ); ?>
+		<script>
+			jQuery( document ).ready( function($) {
+				setInterval( function() {
+					var post = $( '#post ').serialize();
+					
+					$.ajax({
+						type: 'POST',
+						dataType: 'json',
+						url: ajaxurl,
+						data: {
+							'action' : 'projects_save_step_manager',
+							'post'   : post
+						},
+						success: function(result) {
+							console.log('DONE');
+						}
+					});
+				}, 15000);
+			});
+		</script>
 		<div class="step steps-step sortable group">
 			<input type="button" value="Add A Step" class="button add-step alignright" />
 			<div class="steps-template step-wrapper">
@@ -415,6 +435,14 @@
 		</div><!--[END .step.tools.group]-->
 		<input type="hidden" name="total-tools" value="<?php echo $tools_num - 1; ?>">
 	<?php }
+
+
+	function make_magazine_projects_autosave_step_manager() {
+		
+		$fields = parse_str($_POST['post']);
+		die($fields);
+	}
+	add_action( 'wp_ajax_projects_save_step_manager', 'make_magazine_projects_autosave_step_manager' );
 
 
 	/**
