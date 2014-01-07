@@ -322,6 +322,7 @@ Template Name: Home Page
 											'posts_per_page'  => 1,
 											'no_found_rows' => true,
 											'post_type' => 'projects',
+											'tag__not_in' => '22815',
 											'post__not_in'	=> $post_array,
 										);
 										
