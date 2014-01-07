@@ -1647,7 +1647,7 @@ function make_generate_description() {
 	global $post;
 	if ( is_single() ) {
 		if ( empty ($post->post_content) ) {
-			$fallback_content = get_post_meta ( $post->ID , 'Description' , true );
+			$fallback_content = get_post_meta ( absint( $post->ID ) , 'Description' , true );
 			return esc_attr( wp_trim_words( htmlspecialchars( wp_kses( strip_shortcodes( $fallback_content ), array() ) ), 20 ) );
 		}
 		return esc_attr( wp_trim_words( htmlspecialchars( wp_kses( strip_shortcodes( $post->post_content ), array() ) ), 20 ) );
