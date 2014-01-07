@@ -82,7 +82,7 @@
 						<h5>About <a href="http://makermedia.com">Maker Media</a></h5>
 						<div class="about-column-01">
 							<ul>
-								<li><a href="http://makezine.com//how-to-get-help/">Help</a></li>
+								<li><a href="http://makezine.com/how-to-get-help/">Help</a></li>
 								<li><a href="http://makermedia.com/contact-us/">Contact</a></li>
 								<li><a href="http://www.makezine.com/go/subscribe2make">Subscribe</a></li>
 								<li><a href="http://makermedia.com/work-with-us/advertising/">Advertise</a></li> 
