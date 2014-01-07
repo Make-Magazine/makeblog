@@ -6010,7 +6010,7 @@ footer {
 }
 .p_footer {
   font-size: 14px !important;
-  line-height: 20px !important;
+  line-height: 22px !important;
   margin-bottom: 5px;
 }
 .twtr-widget {
@@ -7363,10 +7363,6 @@ body#shop {
   border-top: 3px solid #DBDBDB;
   background-image: url('../img/header_bg.jpg');
 }
-.new-footer .footer-cart-image {
-  padding-top: 29px;
-  padding-left: 13px;
-}
 .new-footer label {
   display: block;
   margin-bottom: 0;
@@ -7461,13 +7457,6 @@ body#shop {
 }
 .new-footer .text a {
   color: #000;
-}
-.new-footer .subscribe img#mag-arrow {
-  width: 95px;
-  border: 1px solid #ccc;
-  margin-top: -40px;
-  margin-left: -20px;
-  border: none;
 }
 .new-footer .subscribe img#mag-cover {
   width: 128px;
@@ -7905,6 +7894,89 @@ textarea.narrow,
   font-family: proxima-nova, sans-serif !important;
   font-weight: bold !important;
   font-size: 16px !important;
+}
+.soc_icons {
+  margin: 0px !important;
+}
+.soc_icons a {
+  margin: 5px 3px 0 0;
+  width: 24px;
+  height: 24px;
+  display: block;
+  float: left;
+}
+.sprite-arrow-footer {
+  background-image: url(http://makezineblog.files.wordpress.com/2014/01/makezine_sprites.png);
+  background-position: 0 0;
+  width: 95px;
+  height: 46px;
+  margin: -40px 0 5px -16px;
+  border: none !important;
+}
+.sprite-digital-book-foot {
+  background-image: url(http://makezineblog.files.wordpress.com/2014/01/makezine_sprites.png);
+  background-position: 0 -51px;
+  width: 29px;
+  height: 22px;
+  float: left;
+  padding-right: 5px;
+  margin-top: 29px;
+}
+.sprite-facebook {
+  background-image: url(http://makezineblog.files.wordpress.com/2014/01/makezine_sprites.png);
+  background-position: 0 -78px;
+  width: 24px;
+  height: 24px;
+}
+.sprite-flickr {
+  background-image: url(http://makezineblog.files.wordpress.com/2014/01/makezine_sprites.png);
+  background-position: 0 -107px;
+  width: 24px;
+  height: 24px;
+}
+.sprite-google-plus {
+  background-image: url(http://makezineblog.files.wordpress.com/2014/01/makezine_sprites.png);
+  background-position: 0 -136px;
+  width: 24px;
+  height: 24px;
+}
+.sprite-instagram {
+  background-image: url(http://makezineblog.files.wordpress.com/2014/01/makezine_sprites.png);
+  background-position: 0 -165px;
+  width: 24px;
+  height: 24px;
+}
+.sprite-makershed_footer1 {
+  background-image: url(http://makezineblog.files.wordpress.com/2014/01/makezine_sprites.png);
+  background-position: 0 -194px;
+  width: 29px;
+  height: 22px;
+  float: left;
+  margin: 30px 5px 0 13px;
+}
+.sprite-pinterest {
+  background-image: url(http://makezineblog.files.wordpress.com/2014/01/makezine_sprites.png);
+  background-position: 0 -221px;
+  width: 24px;
+  height: 24px;
+}
+.sprite-stumbleupon {
+  background-image: url(http://makezineblog.files.wordpress.com/2014/01/makezine_sprites.png);
+  background-position: 0 -274px;
+  width: 24px;
+  height: 24px;
+}
+.sprite-twitter {
+  background-image: url(http://makezineblog.files.wordpress.com/2014/01/makezine_sprites.png);
+  background-position: 0 -303px;
+  width: 24px;
+  height: 24px;
+}
+.sprite-youtube {
+  background-image: url(http://makezineblog.files.wordpress.com/2014/01/makezine_sprites.png);
+  background-position: 0 -332px;
+  width: 24px;
+  height: 24px;
 }
 .custom-feed.simple {
   border: 1px solid #dadada;
@@ -10669,8 +10741,11 @@ body.makercamp .new-footer .subscribe hr {
   height: 7px;
   margin-right: 5px;
 }
-body.makercamp .new-footer .subscribe img#mag-arrow {
-  margin-top: -20px;
+body.makercamp .new-footer .subscribe #mag-cover {
+  margin-top: -45px;
+}
+body.makercamp .new-footer .subscribe .sprite-arrow-footer {
+  margin: -20px 0 10px -10px !important;
 }
 body.makercamp .new-footer a,
 body.makercamp .new-footer .new-footer a:visited {

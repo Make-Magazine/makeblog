@@ -13,10 +13,10 @@
 					<div class="row">
 						<div class="span12 logo">	
 							<img class="footer_logo" src="<?php bloginfo('stylesheet_directory'); ?>/img/make-logo.png" alt="MAKE">	
-							<img src="http://makezineblog.files.wordpress.com/2013/07/digital-book-foot.png" alt="MAKE"> 
+							<a href="http://make-digital.com/" target="_blank"><div class="sprite-digital-book-foot"></div></a>
 							<h5><a href="http://make-digital.com/" target="_blank">Read Digital Edition</a></h5>
-							<a href="http://www.makershed.com/" target="_blank"><img class="footer-cart-image" src="http://makezineblog.files.wordpress.com/2013/11/makershed_footer1.png" alt="Maker Shed Shopping Cart"></a> 
-							<h5><a href="http://www.makershed.com/" target="_blank">Shop Maker Shed</a></h5>						
+							<a href="http://www.makershed.com/" target="_blank"><div class="sprite-makershed_footer1"></div></a> 
+							<h5><a href="http://www.makershed.com/" target="_blank">Shop Maker Shed</a></h5>					
 						<!-- END span12 -->
 						</div>
 						<div class="clear"></div>
@@ -94,23 +94,21 @@
 							<!-- END row -->
 							</div>
 							<div class="clearfix"></div>
-							<div class="socialArea">
-								<p class="links">
-									<span class="soci"><a href="http://twitter.com/make" target="_blank"><img src="http://s2.wp.com/wp-content/themes/vip/makeblog/img/twitter.png?m=1351191030g" alt="Make on Twitter"></a></span>
-									<span class="soci"><a href="http://youtube.com/make" target="_blank"><img src="http://s2.wp.com/wp-content/themes/vip/makeblog/img/youtube.png?m=1347432875g" alt="Make on YouTube"></a></span>
-									<span class="soci"><a href="http://pinterest.com/makemagazine/" target="_blank"><img src="http://s2.wp.com/wp-content/themes/vip/makeblog/img/pinterest.png?m=1351191030g" alt="Make on Pintrest"></a></span>
-									<span class="soci"><a href="http://www.flickr.com/groups/make/" target="_blank"><img src="http://s2.wp.com/wp-content/themes/vip/makeblog/img/flickr.png?m=1347432875g" alt="Make on Flickr"></a></span>
-									<span class="soci"><a href="http://facebook.com/makemagazine" target="_blank"><img src="http://s2.wp.com/wp-content/themes/vip/makeblog/img/facebook.png?m=1347432875g" alt="Make on Facebook"></a></span>
-									<span class="soci"><a href="http://www.stumbleupon.com/to/stumble/stumblethru:makezine.com?utm_source=Makezine&amp;utm_medium=StumbleThru&amp;utm_campaign=StumbleThruButton" target="_blank"><img src="http://s2.wp.com/wp-content/themes/vip/makeblog/img/stumbleupon.png?m=1351191030g" alt="Stumble Make Magazine"></a></span>
-									<span class="soci"><a href="http://www.instagram.com/makemagazine" target="_blank"><img src="http://makezineblog.files.wordpress.com/2012/12/instagram.png" alt="MAKE on Instagram"></a></span>
-									<span class="soci"><a href="https://google.com/+MAKE/" target="_blank"><img src="http://s2.wp.com/wp-content/themes/vip/makeblog/img/google-plus.png?m=1347432875g" alt="MAKE on Google+"></a></span>
-								</p>
+							<div class="soc_icons">
+								<a class="sprite-twitter"  href="http://twitter.com/make" title="Twitter" target="_blank"></a>
+								<a class="sprite-youtube" href="http://youtube.com/make" title="Youtube" target="_blank"></a>
+								<a class="sprite-pinterest" href="http://pinterest.com/makemagazine/" title="Pinterest" target="_blank"></a>
+								<a class="sprite-flickr" href="http://www.flickr.com/groups/make/" title="Flickr" target="_blank"></a>
+								<a class="sprite-facebook" href="http://facebook.com/makemagazine" title="Facebook" target="_blank"></a>
+								<a class="sprite-stumbleupon" href="http://www.stumbleupon.com/to/stumble/stumblethru:makezine.com?utm_source=Makezine&amp;utm_medium=StumbleThru&amp;utm_campaign=StumbleThruButton" title="Stumbleupon" target="_blank"></a>
+								<a class="sprite-instagram" href="http://www.instagram.com/makemagazine" title="Instagram" target="_blank"></a>
+								<a class="sprite-google-plus" href="https://google.com/+MAKE/" title="Google+" target="_blank"></a>
 							<!-- END socialArea -->
 							</div> 
 						<!-- END span3 about-us -->
 						</div>
 						<div class="span3 subscribe hidden-phone">
-							<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/arrow-footer.png" width="95" height="46" id="mag-arrow">
+							<div class="sprite-arrow-footer"></div>
 							<a href="https://readerservices.makezine.com/mk/subscribe.aspx?PC=MK&amp;PK=M**NEWB" target="_blank">
 								<img class="pull-right" src="<?php bloginfo('stylesheet_directory'); ?>/img/footer-make-cover.gif" alt="MAKE Magazine Cover" width="128" height="181" id="mag-cover">
 							</a>
