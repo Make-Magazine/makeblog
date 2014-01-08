@@ -13,9 +13,9 @@
 					<div class="row">
 						<div class="span12 logo">	
 							<img class="footer_logo" src="<?php bloginfo('stylesheet_directory'); ?>/img/make-logo.png" alt="MAKE">	
-							<a href="http://make-digital.com/" target="_blank"><div class="sprite-digital-book-foot"></div></a>
+							<a href="http://make-digital.com/" target="_blank"><div class="sprite sprite-digital-book-foot"></div></a>
 							<h5><a href="http://make-digital.com/" target="_blank">Read Digital Edition</a></h5>
-							<a href="http://www.makershed.com/" target="_blank"><div class="sprite-makershed_footer1"></div></a> 
+							<a href="http://www.makershed.com/" target="_blank"><div class="sprite sprite-makershed_footer1"></div></a> 
 							<h5><a href="http://www.makershed.com/" target="_blank">Shop Maker Shed</a></h5>					
 						<!-- END span12 -->
 						</div>
@@ -95,20 +95,20 @@
 							</div>
 							<div class="clearfix"></div>
 							<div class="soc_icons">
-								<a class="sprite-twitter"  href="http://twitter.com/make" title="Twitter" target="_blank"></a>
-								<a class="sprite-youtube" href="http://youtube.com/make" title="Youtube" target="_blank"></a>
-								<a class="sprite-pinterest" href="http://pinterest.com/makemagazine/" title="Pinterest" target="_blank"></a>
-								<a class="sprite-flickr" href="http://www.flickr.com/groups/make/" title="Flickr" target="_blank"></a>
-								<a class="sprite-facebook" href="http://facebook.com/makemagazine" title="Facebook" target="_blank"></a>
-								<a class="sprite-stumbleupon" href="http://www.stumbleupon.com/to/stumble/stumblethru:makezine.com?utm_source=Makezine&amp;utm_medium=StumbleThru&amp;utm_campaign=StumbleThruButton" title="Stumbleupon" target="_blank"></a>
-								<a class="sprite-instagram" href="http://www.instagram.com/makemagazine" title="Instagram" target="_blank"></a>
-								<a class="sprite-google-plus" href="https://google.com/+MAKE/" title="Google+" target="_blank"></a>
+								<a class="sprite sprite-twitter"  href="http://twitter.com/make" title="Twitter" target="_blank"></a>
+								<a class="sprite sprite-youtube" href="http://youtube.com/make" title="Youtube" target="_blank"></a>
+								<a class="sprite sprite-pinterest" href="http://pinterest.com/makemagazine/" title="Pinterest" target="_blank"></a>
+								<a class="sprite sprite-flickr" href="http://www.flickr.com/groups/make/" title="Flickr" target="_blank"></a>
+								<a class="sprite sprite-facebook" href="http://facebook.com/makemagazine" title="Facebook" target="_blank"></a>
+								<a class="sprite sprite-stumbleupon" href="http://www.stumbleupon.com/to/stumble/stumblethru:makezine.com?utm_source=Makezine&amp;utm_medium=StumbleThru&amp;utm_campaign=StumbleThruButton" title="Stumbleupon" target="_blank"></a>
+								<a class="sprite sprite-instagram" href="http://www.instagram.com/makemagazine" title="Instagram" target="_blank"></a>
+								<a class="sprite sprite-google-plus" href="https://google.com/+MAKE/" title="Google+" target="_blank"></a>
 							<!-- END socialArea -->
 							</div> 
 						<!-- END span3 about-us -->
 						</div>
 						<div class="span3 subscribe hidden-phone">
-							<div class="sprite-arrow-footer"></div>
+							<div class="sprite sprite-arrow-footer"></div>
 							<a href="https://readerservices.makezine.com/mk/subscribe.aspx?PC=MK&amp;PK=M**NEWB" target="_blank">
 								<img class="pull-right" src="<?php bloginfo('stylesheet_directory'); ?>/img/footer-make-cover.gif" alt="MAKE Magazine Cover" width="128" height="181" id="mag-cover">
 							</a>
