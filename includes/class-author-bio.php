@@ -266,8 +266,14 @@
 
 	function hook_bio_into_content( $content ) {
 		global $post;
-		if( is_single() && is_main_query() && !in_array( get_post_type(),  array( 'page_2', 'projects' ) ) && $post->post_parent == 0  ) {
-			$content .= make_author_bio();
+		if ( class_exists( 'WPCOM_Liveblog' ) ) {
+			if( ! WPCOM_Liveblog::is_liveblog_post() && is_single() && is_main_query() && !in_array( get_post_type(),  array( 'page_2', 'projects' ) ) && $post->post_parent == 0  ) {
+				$content .= make_author_bio();
+			}
+		} else {
+			if( is_single() && is_main_query() && !in_array( get_post_type(),  array( 'page_2', 'projects' ) ) && $post->post_parent == 0  ) {
+				$content .= make_author_bio();
+			}
 		}
 		return $content;
 	}
