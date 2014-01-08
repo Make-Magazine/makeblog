@@ -597,7 +597,7 @@
 	function make_magazine_projects_save_step_manager( $post_id ) {
 		if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) return;
 		if ( ! isset( $_POST['meta_box_nonce'] ) || ! wp_verify_nonce( $_POST['meta_box_nonce'], 'make-mag-projects-metabox-nonce' ) ) return;
-		if ( ! current_user_can( 'edit_post', $post_id ) ) return;
+		if ( ! current_user_can( 'edit_post', absint( $post_id ) ) ) return;
 
 
 		//////////////////////////
@@ -605,18 +605,15 @@
 		$step_object = make_magazine_projects_build_step_data( $_POST );
 
 		// Update our post meta for Steps if any exist
-		if ( ! empty( $step_object ) )
-			update_post_meta( $post_id, 'Steps', $step_object );
+		update_post_meta( absint( $post_id ), 'Steps', $step_object );
 
 
 		///////////////////////
 		// PARTS
 		$parts = make_magazine_projects_build_parts_data( $_POST );
 		
-		if ( ! empty( $parts ) ) {
-			foreach ( $parts as $part ) {
-				add_post_meta( absint( $post_id ), 'parts', $part );
-			}
+		foreach ( $parts as $part ) {
+			add_post_meta( absint( $post_id ), 'parts', $part );
 		}
 
 		////////////////////
@@ -624,11 +621,10 @@
 		$tools_object = make_magazine_projects_build_tools_data( $_POST );
 
 		// Update our post meta for Steps. Unlike Parts and Tools, we want one meta key.
-		if ( ! empty( $tools_object ) )
-			update_post_meta( $post_id, 'Tools', $tools_object );
+		update_post_meta( absint( $post_id ), 'Tools', $tools_object );
 
 	}
-	add_action('save_post', 'make_magazine_projects_save_step_manager');
+	add_action( 'save_post', 'make_magazine_projects_save_step_manager' );
 
 
 	/**
@@ -670,6 +666,6 @@
 		// Update our post meta for Steps. Unlike Parts and Tools, we want one meta key.
 		update_post_meta( absint( $_POST['post_ID'] ), 'Tools', $tools_object );
 
-		die();
+		die( json_encode( 'Setps, Parts and Tools Autosaved.' ) );
 	}
 	add_action( 'wp_ajax_projects_save_step_manager', 'make_magazine_projects_autosave_step_manager' );

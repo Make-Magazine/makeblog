@@ -84,5 +84,5 @@ jQuery(document).ready(function($) {
 				}
 			});
 		}
-	}, 60000 ); // Autosave every 1 minutes.
+	}, 60000 ); // Autosave every minute.
 });
