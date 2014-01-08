@@ -7896,7 +7896,7 @@ textarea.narrow,
   font-size: 16px !important;
 }
 .soc_icons {
-  margin: 0px !important;
+  margin: 0px;
 }
 .soc_icons a {
   margin: 5px 3px 0 0;
@@ -7905,8 +7905,10 @@ textarea.narrow,
   display: block;
   float: left;
 }
+.sprite {
+  background-image: url('../images/makezine_sprites.png');
+}
 .sprite-arrow-footer {
-  background-image: url(../images/makezine_sprites.png);
   background-position: 0 0;
   width: 95px;
   height: 46px;
@@ -7914,7 +7916,6 @@ textarea.narrow,
   border: none !important;
 }
 .sprite-digital-book-foot {
-  background-image: url(../images/makezine_sprites.png);
   background-position: 0 -51px;
   width: 29px;
   height: 22px;
@@ -7923,31 +7924,26 @@ textarea.narrow,
   margin-top: 29px;
 }
 .sprite-facebook {
-  background-image: url(../images/makezine_sprites.png);
   background-position: 0 -78px;
   width: 24px;
   height: 24px;
 }
 .sprite-flickr {
-  background-image: url(../images/makezine_sprites.png);
   background-position: 0 -107px;
   width: 24px;
   height: 24px;
 }
 .sprite-google-plus {
-  background-image: url(../images/makezine_sprites.png);
   background-position: 0 -136px;
   width: 24px;
   height: 24px;
 }
 .sprite-instagram {
-  background-image: url(../images/makezine_sprites.png);
   background-position: 0 -165px;
   width: 24px;
   height: 24px;
 }
 .sprite-makershed_footer1 {
-  background-image: url(../images/makezine_sprites.png);
   background-position: 0 -194px;
   width: 29px;
   height: 22px;
@@ -7955,25 +7951,21 @@ textarea.narrow,
   margin: 30px 5px 0 13px;
 }
 .sprite-pinterest {
-  background-image: url(../images/makezine_sprites.png);
   background-position: 0 -221px;
   width: 24px;
   height: 24px;
 }
 .sprite-stumbleupon {
-  background-image: url(../images/makezine_sprites.png);
   background-position: 0 -274px;
   width: 24px;
   height: 24px;
 }
 .sprite-twitter {
-  background-image: url(../images/makezine_sprites.png);
   background-position: 0 -303px;
   width: 24px;
   height: 24px;
 }
 .sprite-youtube {
-  background-image: url(../images/makezine_sprites.png);
   background-position: 0 -332px;
   width: 24px;
   height: 24px;
