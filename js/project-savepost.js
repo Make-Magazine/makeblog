@@ -23,23 +23,66 @@ jQuery(document).ready(function($) {
 	});
 
 
-	/**
-	 * Handles auto saving of the post meta for projects
-	 */
-	// setInterval( function() {
-	// 	var post = $( '#post ').serialize();
-		
-	// 	$.ajax({
-	// 		type: 'POST',
-	// 		dataType: 'json',
-	// 		url: ajaxurl,
-	// 		data: {
-	// 			'action' : 'projects_save_step_manager',
-	// 			'post'   : post
-	// 		},
-	// 		success: function(result) {
-	// 			console.log('DONE');
-	// 		}
-	// 	});
-	// }, 15000);
+	// We need a way to allow autosaving of post meta, but only when the user actually needs it.
+	// Let's setup a timeout feature that will stop autosaving of post meta when the user is idle for 5 minutes or more.
+	idle_timer = null;
+	idle_state = false;
+	idle_wait = 300000; // Set to 5 minutes in milliseconds
+
+	$( 'body' ).bind( 'mousemove keydown scroll', function () {
+		clearTimeout( idle_timer );
+
+		if ( idle_state === true ) {
+			$( '#connection-lost' ).css({
+				'background' : '#dff0d8',
+				'color' : '#3c763d',
+				'border-color' : '#d6e9c6'
+			}).html( 'Welcome Back. Autosave has been resumed.' ).delay( 3000 ).fadeOut( 'fast', function() {
+				$(this).remove();
+			});
+		}
+
+		idle_state = false;
+
+		idle_timer = setTimeout( function() {
+			$( 'body' ).append( '<div id="connection-lost" style="position:fixed;bottom:0;width:100%;padding:10px;background:#f2dede;color:#b94a48;border-color:#eed3d7;z-index:999;text-align:center;font-weight:bold;">This page has been idle longer than 5 minutes. Autosave has been paused.</div>' ).fadeIn( 'slow' );
+			idle_state = true;
+		}, idle_wait );
+	});
+	$( 'body' ).trigger( 'mousemove' );
+
+
+	// Handles auto saving of the post meta for projects
+	setInterval( function() {
+		if ( idle_state === false ) {
+			var post = $( '#post ').serialize();
+			
+			$.ajax({
+				type: 'POST',
+				dataType: 'json',
+				url: ajaxurl,
+				data: {
+					'action' : 'projects_save_step_manager',
+					'post'   : post
+				},
+				success: function() {
+					console.log('success!');
+					if ( $( '#connection-lost').length >= 1 ) {
+						$( '#connection-lost' ).css({
+							'background' : '#dff0d8',
+							'color' : '#3c763d',
+							'border-color' : '#d6e9c6'
+						}).html( 'Autosave successful. We can breath again :)' ).delay( 3000 ).fadeOut( 'fast', function() {
+							$(this).remove();
+						});
+					}
+				},
+				error: function() {
+					if ( $( '#connection-lost' ).length === 0 ) {
+						$( 'body' ).append( '<div id="connection-lost" style="position:fixed;bottom:0;width:100%;padding:10px;background:#f2dede;color:#b94a48;border-color:#eed3d7;z-index:999;text-align:center;font-weight:bold;">An error happened when auto saving. Trying again in 1 minute. If this message persists, please check your internet connection.</div>' ).fadeIn( 'slow' );
+					}
+				}
+			});
+		}
+	}, 60000 ); // Autosave every 1 minutes.
 });

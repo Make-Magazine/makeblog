@@ -472,8 +472,12 @@
 
 			// Contain the whole $steps array into an object
 			$step_object[] = (object) $step;
+		}
 
+		if ( isset( $step_object ) ) {
 			return $step_object;
+		} else {
+			return null;
 		}
 	}
 
@@ -573,8 +577,12 @@
 
 			// Contain the whole $steps array into an object
 			$tools_object[] = (object) $tools;
+		}
 
+		if ( isset( $tools_object ) ) {
 			return $tools_object;
+		} else {
+			return null;
 		}
 	}
 
@@ -596,9 +604,8 @@
 		// STEPS
 		$step_object = make_magazine_projects_build_step_data( $_POST );
 
-		var_dump( $_POST );
 		// Update our post meta for Steps if any exist
-		if ( $step_object != false )
+		if ( ! empty( $step_object ) )
 			update_post_meta( $post_id, 'Steps', $step_object );
 
 
@@ -606,7 +613,7 @@
 		// PARTS
 		$parts = make_magazine_projects_build_parts_data( $_POST );
 		
-		if ( $parts != false ) {
+		if ( ! empty( $parts ) ) {
 			foreach ( $parts as $part ) {
 				add_post_meta( absint( $post_id ), 'parts', $part );
 			}
@@ -617,7 +624,7 @@
 		$tools_object = make_magazine_projects_build_tools_data( $_POST );
 
 		// Update our post meta for Steps. Unlike Parts and Tools, we want one meta key.
-		if ( $tools_object != false )
+		if ( ! empty( $tools_object ) )
 			update_post_meta( $post_id, 'Tools', $tools_object );
 
 	}
@@ -636,27 +643,24 @@
 		// The post content is returned as a query string, let's convert that to an array
 		parse_str( $_POST['post'], $_POST );
 
-		if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) return;
+		if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE );
 		if ( ! isset( $_POST['meta_box_nonce'] ) || ! wp_verify_nonce( $_POST['meta_box_nonce'], 'make-mag-projects-metabox-nonce' ) ) return;
 		if ( ! current_user_can( 'edit_post', absint( $_POST['post_ID'] ) ) ) return;
 
 		//////////////////////////
 		// STEPS
 		$step_object = make_magazine_projects_build_step_data( $_POST );
-
+		
 		// Update our post meta for Steps if any exist
-		if ( $step_object != false )
-			update_post_meta( absint( $_POST['post_ID'] ), 'Steps', $step_object );
+		update_post_meta( absint( $_POST['post_ID'] ), 'Steps', $step_object );
 
 
 		///////////////////////
 		// PARTS
 		$parts = make_magazine_projects_build_parts_data( $_POST );
-
-		if ( $parts != false ) {
-			foreach ( $parts as $part ) {
-				add_post_meta( absint( $data['post_ID'] ), 'parts', $part );
-			}
+		
+		foreach ( $parts as $part ) {
+			add_post_meta( absint( absint( $_POST['post_ID'] ) ), 'parts', $part );
 		}
 
 		////////////////////
@@ -664,8 +668,7 @@
 		$tools_object = make_magazine_projects_build_tools_data( $_POST );
 
 		// Update our post meta for Steps. Unlike Parts and Tools, we want one meta key.
-		if ( isset( $tools_object ) )
-			update_post_meta( absint( $_POST['post_ID'] ), 'Tools', $tools_object );
+		update_post_meta( absint( $_POST['post_ID'] ), 'Tools', $tools_object );
 
 		die();
 	}
