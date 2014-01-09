@@ -639,7 +639,7 @@
 		// The post content is returned as a query string, let's convert that to an array
 		parse_str( $_POST['post'], $_POST );
 
-		if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE );
+		if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) return;
 		if ( ! isset( $_POST['meta_box_nonce'] ) || ! wp_verify_nonce( $_POST['meta_box_nonce'], 'make-mag-projects-metabox-nonce' ) ) return;
 		if ( ! current_user_can( 'edit_post', absint( $_POST['post_ID'] ) ) ) return;
 
