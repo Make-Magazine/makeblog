@@ -48,6 +48,12 @@ if ( ! jetpack_is_mobile() ) {
 /**
  * Redirects to handle legacy URL structure from old site
  */
+if ( function_exists( 'vip_redirects' ) ) {
+
+	// Setup this redirect before we get to the regex ones...
+	vip_redirects( array( '/projects/37' => 'http://makezine.com/make-37-drones-projects/' ) );
+}
+
 if ( function_exists( 'vip_regex_redirects' ) ) {
 	$redirects = array(
 		'|^/archive/([0-9]{4})/([0-9]{2})/([^/]+)\.html|'  => '|/$1/$2/$3/|', // MT articles
@@ -246,7 +252,6 @@ if ( function_exists( 'vip_redirects' ) ) {
 		'/31'						=> 'http://archive.makezine.com/31/',
 		'/32'						=> 'http://archive.makezine.com/32/',
 		'/the-weekend-projects'		=> 'http://makezine.com/weekendprojects',
-		'/projects/37'				=> 'http://makezine.com/make-37-drones-projects/',
 		'/faq/index.html'			=> 'http://makezine.com/faq/',
 		'/community/index.html'		=> 'http://archive.makezine.com/community/index.html',
 		'/help/index.html'			=> 'http://archive.makezine.com/help/index.html',
