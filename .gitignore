@@ -2,3 +2,4 @@
 includes/gigya/
 .DS_Store*
 .svn*
+node_modules

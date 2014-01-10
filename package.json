@@ -1,0 +1,12 @@
+{
+  "name": "Makeblog",
+  "description": "WordPress Theme for Makezine.com. Package.json is for Grunt JS",
+  "verison": "2.0",
+  "devDependencies": {
+    "grunt": "~0.4.2",
+    "grunt-contrib-less": "~0.8.3",
+    "grunt-contrib-watch": "~0.5.3",
+    "grunt-notify": "~0.2.16",
+    "matchdep": "~0.3.0"
+  }
+}
