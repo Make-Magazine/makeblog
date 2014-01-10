@@ -149,7 +149,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="makershed-banner hidden-xs">
+			<div class="makershed-banner hidden-sm hidden-xs">
 				<div class="container">
 					<div class="row">
 						<div class="col-lg-12">

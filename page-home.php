@@ -5,176 +5,10 @@ Template Name: Home Page
 ?>
 
 <?php get_header(); ?>
+		
+		<?php if ( make_get_cap_option( 'make_camp_takeover' ) ) : ?>
 
-		<?php if ( ! make_get_cap_option( 'make_camp_takeover' ) && ! make_get_cap_option( 'maker_week' ) && ! make_get_cap_option( 'weekly_takeover_enabled' ) ) : ?>
-
-		<div class="waist">
-
-			<div class="container">
-
-				<div class="row">
-
-					<div class="span8">
-
-						<div class="checkers">
-
-							<div class="row">
-
-								<div class="span4">
-
-									<div class="paddme">
-										
-										<?php if ( make_get_cap_option( 'ribbon_title_display' ) ) : 
-											$ribbon_class = 'attachment-p1'; ?>
-											<div class="ribbon"><?php echo esc_html( make_get_cap_option( 'ribbon_title' ) ); ?></div>
-										<?php else : $ribbon_class = ''; endif; ?>
-
-										<a href="<?php echo esc_html( make_get_cap_option( 'main_link' ) ); ?>">
-										
-											<?php
-												if ( make_get_cap_option( 'main_id' ) ) {
-													echo wp_get_attachment_image( absint( make_get_cap_option( 'main_id' ) ), 'p1', 0, array( 'class' => $ribbon_class ) );
-												} else {
-													echo '<img src="' . esc_url( make_get_cap_option( 'main_url' ) ) . '"'; 
-													if ( make_get_cap_option( 'ribbon_title_display' ) )
-														echo 'id="top-left" ';
-													echo '/>';
-												} 
-											?>
-
-										</a>
-
-										<div class="caption">
-
-											<h3><a href="<?php echo esc_html( make_get_cap_option( 'main_link' ) ); ?>"><?php echo esc_html( make_get_cap_option( 'main_title' ) ); ?></a></h3>
-											<p><a href="<?php echo esc_html( make_get_cap_option( 'main_link' ) ); ?>"><?php echo esc_html( make_get_cap_option( 'main_subtitle' ) ); ?></a></p>
-
-										</div>
-
-									</div>
-
-								</div>
-
-								<div class="span4">
-
-									<div class="row">
-
-										<div class="span4">
-
-											<div class="paddme small">
-
-												<a href="<?php echo esc_url( make_get_cap_option( 'top_link' ) ); ?>">
-												
-													<?php
-														if ( make_get_cap_option( 'top_url_id' ) ) {
-															echo wp_get_attachment_image( absint( make_get_cap_option( 'top_url_id' ) ), 'p2' );
-														} else {
-															echo '<img class="home-biggest" src="' . esc_url( make_get_cap_option( 'top_url' ) ) . '" />';
-														} 
-													?>
-													
-												</a>
-
-												<div class="caption">
-
-													<h3><a href="<?php echo esc_url( make_get_cap_option( 'top_link' ) ); ?>"><?php echo esc_html( make_get_cap_option( 'top_title' ) ); ?></a></h3>
-													<p><a href="<?php echo esc_url( make_get_cap_option( 'top_link' ) ); ?>"><?php echo esc_html( make_get_cap_option( 'top_subtitle' ) ); ?></a></p>
-
-												</div>
-
-											</div>
-
-										</div>
-
-										<div class="span4">
-
-											<div class="paddme small">
-
-												<a href="<?php echo esc_url( make_get_cap_option( 'bottom_link' ) ); ?>">
-													
-													<?php
-														if ( make_get_cap_option( 'bottom_url_id' ) ) {
-															echo wp_get_attachment_image( absint( make_get_cap_option( 'bottom_url_id' ) ), 'p2' );
-														} else {
-															echo '<img class="home-biggest" src="' . esc_url( make_get_cap_option( 'bottom_url' ) ) . '" />';
-														} 
-													?>
-													
-												</a>
-
-												<div class="caption">
-
-													<h3><a href="<?php echo esc_url( make_get_cap_option( 'bottom_link' ) ); ?>"><?php echo esc_html( make_get_cap_option( 'bottom_title' ) ); ?></a></h3>
-													<p><a href="<?php echo esc_url( make_get_cap_option( 'bottom_link' ) ); ?>"><?php echo esc_html( make_get_cap_option( 'bottom_subtitle' ) ); ?></a></p>
-
-												</div>
-
-
-											</div>
-
-										</div>
-
-									</div>
-
-								</div>
-								
-								<div class="row-fluid">
-									
-									<div class="span12">
-									
-										<div class="featured">
-											
-											<?php echo make_featured_post(); ?>	
-											
-										</div>
-										
-									</div>
-									
-								</div>
-
-							</div>
-
-						</div>
-						
-					</div>
-
-					<div class="span4">
-
-						<div class="home-ads">
-
-							<!-- Beginning Sync AdSlot 2 for Ad unit header ### size: [[300,250]]  -->
-							<div id='div-gpt-ad-664089004995786621-2'>
-								<script type='text/javascript'>
-									googletag.cmd.push(function(){googletag.display('div-gpt-ad-664089004995786621-2')});
-								</script>
-							</div>
-							<!-- End AdSlot 2 -->
-
-						</div>
-
-						<div class="home-ads bottom">
-
-							<!-- Beginning Sync AdSlot 2 for Ad unit header ### size: [[300,250]]  -->
-							<div id='div-gpt-ad-664089004995786621-3'>
-								<script type='text/javascript'>
-									googletag.cmd.push(function(){googletag.display('div-gpt-ad-664089004995786621-3')});
-								</script>
-							</div>
-							<!-- End AdSlot 2 -->
-
-						</div>
-
-					</div>
-
-				</div>
-
-			</div>
-
-		</div>
-
-		<?php elseif ( make_get_cap_option( 'make_camp_takeover' ) ) : ?>
-
-			<?php get_template_part( 'home-takover' ); ?>
+			<?php get_template_part( 'maker-camp-takover' ); ?>
 
 		<?php elseif ( make_get_cap_option( 'maker_week' ) ) : ?>
 
@@ -183,6 +17,176 @@ Template Name: Home Page
 		<?php elseif ( make_get_cap_option( 'weekly_takeover_enabled' ) ) : ?>
 
 			<?php get_template_part( 'weekly-take-over' ); ?>
+		
+		<?php elseif ( get_theme_mod( 'make_enable_takeover' ) === 'on' ) : ?>
+
+			<?php get_template_part( 'home-takeover' ); ?>
+
+		<?php else : ?>
+
+			<div class="waist">
+
+				<div class="container">
+
+					<div class="row">
+
+						<div class="span8">
+
+							<div class="checkers">
+
+								<div class="row">
+
+									<div class="span4">
+
+										<div class="paddme">
+											
+											<?php if ( make_get_cap_option( 'ribbon_title_display' ) ) : 
+												$ribbon_class = 'attachment-p1'; ?>
+												<div class="ribbon"><?php echo esc_html( make_get_cap_option( 'ribbon_title' ) ); ?></div>
+											<?php else : $ribbon_class = ''; endif; ?>
+
+											<a href="<?php echo esc_html( make_get_cap_option( 'main_link' ) ); ?>">
+											
+												<?php
+													if ( make_get_cap_option( 'main_id' ) ) {
+														echo wp_get_attachment_image( absint( make_get_cap_option( 'main_id' ) ), 'p1', 0, array( 'class' => $ribbon_class ) );
+													} else {
+														echo '<img src="' . esc_url( make_get_cap_option( 'main_url' ) ) . '"'; 
+														if ( make_get_cap_option( 'ribbon_title_display' ) )
+															echo 'id="top-left" ';
+														echo '/>';
+													} 
+												?>
+
+											</a>
+
+											<div class="caption">
+
+												<h3><a href="<?php echo esc_html( make_get_cap_option( 'main_link' ) ); ?>"><?php echo esc_html( make_get_cap_option( 'main_title' ) ); ?></a></h3>
+												<p><a href="<?php echo esc_html( make_get_cap_option( 'main_link' ) ); ?>"><?php echo esc_html( make_get_cap_option( 'main_subtitle' ) ); ?></a></p>
+
+											</div>
+
+										</div>
+
+									</div>
+
+									<div class="span4">
+
+										<div class="row">
+
+											<div class="span4">
+
+												<div class="paddme small">
+
+													<a href="<?php echo esc_url( make_get_cap_option( 'top_link' ) ); ?>">
+													
+														<?php
+															if ( make_get_cap_option( 'top_url_id' ) ) {
+																echo wp_get_attachment_image( absint( make_get_cap_option( 'top_url_id' ) ), 'p2' );
+															} else {
+																echo '<img class="home-biggest" src="' . esc_url( make_get_cap_option( 'top_url' ) ) . '" />';
+															} 
+														?>
+														
+													</a>
+
+													<div class="caption">
+
+														<h3><a href="<?php echo esc_url( make_get_cap_option( 'top_link' ) ); ?>"><?php echo esc_html( make_get_cap_option( 'top_title' ) ); ?></a></h3>
+														<p><a href="<?php echo esc_url( make_get_cap_option( 'top_link' ) ); ?>"><?php echo esc_html( make_get_cap_option( 'top_subtitle' ) ); ?></a></p>
+
+													</div>
+
+												</div>
+
+											</div>
+
+											<div class="span4">
+
+												<div class="paddme small">
+
+													<a href="<?php echo esc_url( make_get_cap_option( 'bottom_link' ) ); ?>">
+														
+														<?php
+															if ( make_get_cap_option( 'bottom_url_id' ) ) {
+																echo wp_get_attachment_image( absint( make_get_cap_option( 'bottom_url_id' ) ), 'p2' );
+															} else {
+																echo '<img class="home-biggest" src="' . esc_url( make_get_cap_option( 'bottom_url' ) ) . '" />';
+															} 
+														?>
+														
+													</a>
+
+													<div class="caption">
+
+														<h3><a href="<?php echo esc_url( make_get_cap_option( 'bottom_link' ) ); ?>"><?php echo esc_html( make_get_cap_option( 'bottom_title' ) ); ?></a></h3>
+														<p><a href="<?php echo esc_url( make_get_cap_option( 'bottom_link' ) ); ?>"><?php echo esc_html( make_get_cap_option( 'bottom_subtitle' ) ); ?></a></p>
+
+													</div>
+
+
+												</div>
+
+											</div>
+
+										</div>
+
+									</div>
+									
+									<div class="row-fluid">
+										
+										<div class="span12">
+										
+											<div class="featured">
+												
+												<?php echo make_featured_post(); ?>	
+												
+											</div>
+											
+										</div>
+										
+									</div>
+
+								</div>
+
+							</div>
+							
+						</div>
+
+						<div class="span4">
+
+							<div class="home-ads">
+
+								<!-- Beginning Sync AdSlot 2 for Ad unit header ### size: [[300,250]]  -->
+								<div id='div-gpt-ad-664089004995786621-2'>
+									<script type='text/javascript'>
+										googletag.cmd.push(function(){googletag.display('div-gpt-ad-664089004995786621-2')});
+									</script>
+								</div>
+								<!-- End AdSlot 2 -->
+
+							</div>
+
+							<div class="home-ads bottom">
+
+								<!-- Beginning Sync AdSlot 2 for Ad unit header ### size: [[300,250]]  -->
+								<div id='div-gpt-ad-664089004995786621-3'>
+									<script type='text/javascript'>
+										googletag.cmd.push(function(){googletag.display('div-gpt-ad-664089004995786621-3')});
+									</script>
+								</div>
+								<!-- End AdSlot 2 -->
+
+							</div>
+
+						</div>
+
+					</div>
+
+				</div>
+
+			</div>
 
 		<?php endif; ?>
 
@@ -224,7 +228,7 @@ Template Name: Home Page
 
 					<div class="span4 posts">
 
-						<h2 class="look_like_h3_blue"><a href="<?php echo home_url( '/blog/' ); ?>">Blog Feed</a></h2>	
+						<h2 class="look_like_h3_blue"><a href="<?php echo esc_url( home_url( '/blog/' ) ); ?>">Blog Feed</a></h2>	
 
 						<?php 
 							$args = array(
@@ -265,7 +269,7 @@ Template Name: Home Page
 
 						<?php endwhile; wp_reset_postdata(); ?>
 
-						<p><a href="<?php echo home_url( '/blog/' ); ?>"><span class="pull-right aqua seeall right">See All Posts</span></a></p>
+						<p><a href="<?php echo esc_url( home_url( '/blog/' ) ); ?>"><span class="pull-right aqua seeall right">See All Posts</span></a></p>
 						
 					</div>
 					<!--<div class="shadow"></div>-->
@@ -307,7 +311,7 @@ Template Name: Home Page
 
 							<div class="span4">
 
-								<h2 class="look_like_h3"><a class="red" href="<?php echo home_url( '/projects/' ); ?>">New Projects</a></h2>
+								<h2 class="look_like_h3"><a class="red" href="<?php echo esc_url( home_url( '/projects/' ) ); ?>">New Projects</a></h2>
 
 								<div class="grid-box boxy">
 
@@ -318,6 +322,7 @@ Template Name: Home Page
 											'posts_per_page'  => 1,
 											'no_found_rows' => true,
 											'post_type' => 'projects',
+											'tag__not_in' => '22815',
 											'post__not_in'	=> $post_array,
 										);
 										
@@ -357,7 +362,7 @@ Template Name: Home Page
 
 							<div class="span4">
 
-								<h2 class="look_like_h3"><a href="<?php echo home_url( '/category/makers/' ); ?>" class="red">Meet the Makers</a></h2>
+								<h2 class="look_like_h3"><a href="<?php echo esc_url( home_url( '/tag/makers/' ) ); ?>" class="red">Meet the Makers</a></h2>
 
 								<div class="grid-box boxy">
 
@@ -395,17 +400,16 @@ Template Name: Home Page
 
 							<div class="span4">
 
-								<h2 class="look_like_h3"><a href="<?php echo home_url( '/tag/maker-faire/' ); ?>" class="red">Maker Faire News</a></h2>
+								<h2 class="look_like_h3"><a href="http://makezine.com/2013-holiday-gift-guide/" class="red">2013 Holiday Gift Guide</a></h2>
 
 								<div class="grid-box boxy">
 
 									<?php
 										
 										$args = array(
-											'tag_id' => 785128,
+											'tag' => 'holiday-gift-guide-2013',
 											'posts_per_page'  => 1,
 											'no_found_rows' => true,
-											'tag__not_in' => 22815,
 											'post__not_in'	=> $post_array,
 										);
 										
@@ -434,7 +438,7 @@ Template Name: Home Page
 
 							<div class="span4">
 
-								<h2 class="look_like_h3"><a href="<?php echo home_url( '/tag/component-of-the-month/' ); ?>" class="red">Skill Builder</a></h2>
+								<h2 class="look_like_h3"><a href="<?php echo esc_url( home_url( '/tag/component-of-the-month/' ) ); ?>" class="red">Skill Builder</a></h2>
 
 								<div class="grid-box boxy">
 
@@ -470,17 +474,20 @@ Template Name: Home Page
 							<div class="span4">
 
 
-								<h2 class="look_like_h3"><a href="<?php echo home_url( '/page-2/' ); ?>" class="red">Make: Page 2</a></h2>
+								<h2 class="look_like_h3"><a href="<?php echo esc_url( home_url( '/tag/maker-faire/' ) ); ?>" class="red">Maker Faire News</a></h2>
 
 								<div class="grid-box boxy">
 
 									<?php
-										$args = array(
-											'post_type' 		=> 'page_2',
-											'posts_per_page'	=> 1,
-											'post__not_in'	=> $post_array,
-											);
 										
+										$args = array(
+											'tag_id' => 785128,
+ 											'posts_per_page'  => 1,
+ 											'no_found_rows' => true,
+ 											'post__not_in'	=> $post_array,
+ 										);
+										
+
 										$the_query = new WP_Query( $args );
 
 										while ( $the_query->have_posts() ) : $the_query->the_post();
@@ -513,16 +520,22 @@ Template Name: Home Page
 							<ol class="carousel-indicators">
 								<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
 								<li data-target="#myCarousel" data-slide-to="1"></li>
+								<li data-target="#myCarousel" data-slide-to="2"></li>
 							</ol>
 							<div class="carousel-inner">
 								<div class="item active">
+									<a href="http://www.makershed.com/Make_Ultimate_Guide_to_3D_Printing_2_0_p/9781457183027-p.htm?Click=163251">
+										<img src="<?php echo esc_url( get_stylesheet_directory_uri() ); ?>/img/Make_SIP6-3D_1213_v1-B_620x174.jpg" alt="23 3D Printers Reviewed, Get Your Copy Today">
+									</a>
+								</div>
+								<div class="item">
 									<a href="https://plus.google.com/communities/105413589856236995389">
-										<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/Make_Forum_join_banner.jpg" alt="Join the +MAKE Forum">
+										<img src="<?php echo esc_url( get_stylesheet_directory_uri() ); ?>/img/Make_Forum_join_banner.jpg" alt="Join the +MAKE Forum">
 									</a>
 								</div>
 								<div class="item">
 									<a href="<?php bloginfo( 'url' ); ?>/contribute/">
-										<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/Contribute-Page2_620x174.jpg" alt="Contribute to MAKE">
+										<img src="<?php echo esc_url( get_stylesheet_directory_uri() ); ?>/img/Contribute-Page2_620x174.jpg" alt="Contribute to MAKE">
 									</a>
 								</div>
 							</div>
