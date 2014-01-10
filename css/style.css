@@ -6068,10 +6068,6 @@ ul.inline.urban-sensor-nav li a:hover {
   background: #E4F4F9;
   color: #ed1c24 !important;
 }
-.waist {
-  background-image: url('../img/blue_bg1.jpg');
-  border-bottom: 2px solid #DBDBDB;
-}
 .caption {
   margin-top: -66px;
   height: 65px;
@@ -7789,12 +7785,6 @@ body#shop {
 .badge a {
   color: inherit;
 }
-.home-ads {
-  margin-top: 15px;
-}
-.home-ads.bottom {
-  margin-bottom: 15px;
-}
 .hangout {
   margin-top: 15px;
 }
@@ -8399,9 +8389,6 @@ embed {
 }
 .navbar-blue .nav-collapse {
   background: transparent;
-}
-body {
-  padding-top: 40px;
 }
 body.admin-bar .navbar-blue {
   top: 32px;
@@ -9774,191 +9761,97 @@ ul#tabs .current > a:hover {
 .jstep ul {
   margin: 20px 0px 20px 20px;
 }
-.themes {
-  margin-left: 30px;
-  margin-top: 9px;
+.home-top {
+  background: #0c8cc0 url('../images/takeover-bg.png') 0 0 repeat-x;
+  padding: 15px 0;
 }
-.themes li {
-  list-style-type: none;
+.home-top .main-wrap {
+  width: 71.7%;
+  float: left;
+  position: relative;
+  min-height: 1px;
+  padding-left: 15px;
+  padding-right: 15px;
 }
-.themes a {
-  color: #005d8f;
+.home-top .right-rail-wrap {
+  width: 28.3%;
+  float: left;
+  position: relative;
+  min-height: 1px;
+  padding-left: 15px;
+  padding-right: 15px;
 }
-.themes a strong {
-  color: #ed1c24;
-  width: 160px;
-  display: inline-block;
-  text-align: right;
+.home-top .left-post-wrap,
+.home-top .right-post-wrap {
+  float: left;
+  width: 50%;
+  position: relative;
+  min-height: 1px;
+  padding-left: 15px;
+  padding-right: 15px;
 }
-.featured {
-  height: 115px;
-  margin-left: 30px;
+@media (min-width: 768px) {
+  .home-top .left-post-wrap,
+  .home-top .right-post-wrap {
+    float: left;
+    width: 50%;
+  }
 }
-.featured .img {
-  float: left !important;
-  width: 125px;
+@media (min-width: 992px) {
+  .home-top .left-post-wrap,
+  .home-top .right-post-wrap {
+    float: left;
+    width: 50%;
+  }
 }
-.featured .blurb {
-  float: right !important;
-  width: 485px;
-  margin: 0px;
+@media (min-width: 1200px) {
+  .home-top .left-post-wrap,
+  .home-top .right-post-wrap {
+    float: left;
+    width: 50%;
+  }
 }
-.featured .blurb h3 {
-  padding: 0px;
+.home-top .post-wrapper {
+  background: #fff;
 }
-.featured .blurb p {
-  padding: 0px;
+.home-top .post-wrapper.large {
+  min-height: 463px;
 }
-.featured .blurb p small {
-  margin-top: 5px;
+.home-top .post-wrapper.large img {
+  width: 404px;
+  height: 276px;
+}
+.home-top .post-wrapper.small {
+  min-height: 218px;
+}
+.home-top .post-wrapper.small img {
+  width: 404px;
+  height: 144px;
+}
+.home-top .post-wrapper.second-post {
+  margin-bottom: 27px;
+}
+.home-top .post-wrapper .content-wrapper {
+  background: #002a40;
+  padding: 13px 15px;
+  color: #fff;
+}
+.home-top .post-wrapper .content-wrapper a {
   display: block;
 }
-.featured .blurb .trending {
-  color: #005d8f;
-  text-transform: uppercase;
-}
-.home-sponsor-ad {
-  margin-top: 30px;
-  margin-bottom: 30px;
-}
-.sub-banner {
-  margin-top: 8px;
-  margin-bottom: 20px;
-}
-.waist-takeover {
-  background-image: url('../images/makercamp_background.jpg');
-  background-position: center;
-  height: 548px;
-}
-.waist-takeover .container {
-  padding: 20px 0;
-}
-.waist-takeover .container .span8 .thumb div {
-  padding: 5px 0;
-}
-.waist-takeover .container .thumb {
-  background-color: #fff;
-  margin-bottom: 5px;
-}
-.waist-takeover .container .thumb .thumbnail {
-  border: 0px;
-  padding: 0px;
-}
-.waist-takeover .container .thumb div {
-  padding: 9px;
-}
-.waist-takeover .container .thumb div p {
-  margin-bottom: 0px;
-}
-.maker-week-takeover {
-  border-top: 1px solid #005B85;
-  font-family: "proxima-nova", sans-serif;
-  background-image: -webkit-linear-gradient(top, #003752 0%, #00acec 100%) !important;
-  background-image: linear-gradient(to bottom, #003752 0%, #00acec 100%) !important;
-  background-repeat: repeat-x !important;
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff003752', endColorstr='#ff00acec', GradientType=0) !important;
-}
-.maker-week-takeover .flags {
-  background-image: url('../images/flags.png') !important;
-  background-position: center top;
-  background-repeat: repeat-x;
-}
-.maker-week-takeover .maker-week {
-  width: 408px;
-  margin: 10px 0px 25px 100px;
-}
-.maker-week-takeover .tix {
-  color: #fff;
-  margin-top: 40px;
-  text-align: right;
-}
-.maker-week-takeover .tix h3 {
-  text-align: right;
-  font-size: 18px;
-  line-height: 120%;
-  margin-bottom: 10px;
-  font-weight: normal;
-}
-.maker-week-takeover .slider {
-  background-color: #003752;
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
-  border-radius: 3px;
-}
-.maker-week-takeover .slider .makey {
-  float: left !important;
-  margin-top: -60px;
-}
-.maker-week-takeover .slider h3 {
-  float: left !important;
-  color: #96dffa;
-  font-family: "proxima-nova", sans-serif;
-  font-size: 22px;
-  font-weight: 400;
-  margin-top: 6px;
-  margin-left: 13px;
-}
-.maker-week-takeover .slider h3 span {
-  font-size: 28px;
-}
-.maker-week-takeover .slider h4 {
-  font-family: "proxima-nova", sans-serif;
-  font-weight: 400;
+.home-top .post-wrapper .post-title {
   font-size: 20px;
-  margin: 10px 5px;
+  line-height: 1.2em;
+  color: #fff;
+  font-weight: bold;
+  letter-spacing: 0.03em;
 }
-.maker-week-takeover .slider h4 a {
-  color: #96dffa;
-}
-.maker-week-takeover .slider .caption {
-  color: #5ebcf7;
-}
-.maker-week-takeover .slider .carousel-control {
-  top: 42px;
-  background: #00476b;
-  border: 1px solid #00324b;
-  font-size: 72px;
-  width: 30px;
-  height: 39px;
-  transition: opacity .3s;
-  border-radius: 0;
-  border-top-left-radius: 5px;
-  border-bottom-left-radius: 5px;
-}
-.maker-week-takeover .slider .carousel-control span {
-  line-height: 1.4em;
-  width: auto;
-  height: auto;
-  background-image: none;
-}
-.maker-week-takeover .slider .carousel-control.left {
-  left: 0px;
-  border-radius: 0px;
-  border-top-right-radius: 5px;
-  border-bottom-right-radius: 5px;
-}
-.maker-week-takeover .slider .carousel-control.right {
-  right: 0px;
-}
-.maker-week-takeover .slider.thumb {
-  padding: 4px;
-  margin-bottom: 32px;
-  color: #5ebcf7;
+.home-top .post-wrapper .post-content {
   font-size: 16px;
-  line-height: 120%;
+  margin: 5px 0 0;
 }
-.maker-week-takeover .slider.thumb img {
-  margin-right: 10px;
-  width: 145px;
-}
-.maker-week-takeover .slider.thumb > div p {
-  margin-bottom: 0;
-  font-size: 16px;
-  color: #5ebcf7;
-}
-.maker-week-takeover .slider.thumb h4 {
-  margin: 0px;
-  font-size: 18px;
+.home-top .home-ads.bottom {
+  margin-top: 15px;
 }
 .avatar-298 {
   margin-bottom: 20px;

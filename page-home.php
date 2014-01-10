@@ -17,175 +17,89 @@ Template Name: Home Page
 		<?php elseif ( make_get_cap_option( 'weekly_takeover_enabled' ) ) : ?>
 
 			<?php get_template_part( 'weekly-take-over' ); ?>
-		
-		<?php elseif ( get_theme_mod( 'make_enable_takeover' ) === 'on' ) : ?>
-
-			<?php get_template_part( 'home-takeover' ); ?>
 
 		<?php else : ?>
 
-			<div class="waist">
-
+			<div class="home-top">
 				<div class="container">
-
 					<div class="row">
+						<div class="main-wrap">
 
-						<div class="span8">
-
-							<div class="checkers">
-
-								<div class="row">
-
-									<div class="span4">
-
-										<div class="paddme">
-											
-											<?php if ( make_get_cap_option( 'ribbon_title_display' ) ) : 
-												$ribbon_class = 'attachment-p1'; ?>
-												<div class="ribbon"><?php echo esc_html( make_get_cap_option( 'ribbon_title' ) ); ?></div>
-											<?php else : $ribbon_class = ''; endif; ?>
-
-											<a href="<?php echo esc_html( make_get_cap_option( 'main_link' ) ); ?>">
-											
-												<?php
-													if ( make_get_cap_option( 'main_id' ) ) {
-														echo wp_get_attachment_image( absint( make_get_cap_option( 'main_id' ) ), 'p1', 0, array( 'class' => $ribbon_class ) );
-													} else {
-														echo '<img src="' . esc_url( make_get_cap_option( 'main_url' ) ) . '"'; 
-														if ( make_get_cap_option( 'ribbon_title_display' ) )
-															echo 'id="top-left" ';
-														echo '/>';
-													} 
-												?>
-
+							<div class="row">
+								<div class="left-post-wrap">
+									<?php if ( make_has_takeover_mod( 'make_featured_post_url' ) || make_has_takeover_mod( 'make_featured_post_image' ) ) : ?>
+										<div class="post-wrapper primary-post large">
+											<a href="<?php esc_url( make_get_takeover_mod( 'make_featured_post_url' ) ); ?>">
+												<img src="<?php esc_url( make_get_takeover_mod( 'make_featured_post_image' ) ); ?>" width="303" height="288" class="featured-image" alt="<?php esc_attr( make_get_takeover_mod( 'make_featured_post_title' ) ); ?>">
+												<div class="content-wrapper">
+													<h2 class="post-title"><?php esc_html( make_get_takeover_mod( 'make_featured_post_title' ) ); ?></h2>
+													<p class="post-content"><?php wp_kses_post( make_get_takeover_mod( 'make_featured_post_excerpt' ) ); ?></p>
+												</div>
 											</a>
-
-											<div class="caption">
-
-												<h3><a href="<?php echo esc_html( make_get_cap_option( 'main_link' ) ); ?>"><?php echo esc_html( make_get_cap_option( 'main_title' ) ); ?></a></h3>
-												<p><a href="<?php echo esc_html( make_get_cap_option( 'main_link' ) ); ?>"><?php echo esc_html( make_get_cap_option( 'main_subtitle' ) ); ?></a></p>
-
-											</div>
-
 										</div>
-
-									</div>
-
-									<div class="span4">
-
-										<div class="row">
-
-											<div class="span4">
-
-												<div class="paddme small">
-
-													<a href="<?php echo esc_url( make_get_cap_option( 'top_link' ) ); ?>">
-													
-														<?php
-															if ( make_get_cap_option( 'top_url_id' ) ) {
-																echo wp_get_attachment_image( absint( make_get_cap_option( 'top_url_id' ) ), 'p2' );
-															} else {
-																echo '<img class="home-biggest" src="' . esc_url( make_get_cap_option( 'top_url' ) ) . '" />';
-															} 
-														?>
-														
-													</a>
-
-													<div class="caption">
-
-														<h3><a href="<?php echo esc_url( make_get_cap_option( 'top_link' ) ); ?>"><?php echo esc_html( make_get_cap_option( 'top_title' ) ); ?></a></h3>
-														<p><a href="<?php echo esc_url( make_get_cap_option( 'top_link' ) ); ?>"><?php echo esc_html( make_get_cap_option( 'top_subtitle' ) ); ?></a></p>
-
-													</div>
-
-												</div>
-
-											</div>
-
-											<div class="span4">
-
-												<div class="paddme small">
-
-													<a href="<?php echo esc_url( make_get_cap_option( 'bottom_link' ) ); ?>">
-														
-														<?php
-															if ( make_get_cap_option( 'bottom_url_id' ) ) {
-																echo wp_get_attachment_image( absint( make_get_cap_option( 'bottom_url_id' ) ), 'p2' );
-															} else {
-																echo '<img class="home-biggest" src="' . esc_url( make_get_cap_option( 'bottom_url' ) ) . '" />';
-															} 
-														?>
-														
-													</a>
-
-													<div class="caption">
-
-														<h3><a href="<?php echo esc_url( make_get_cap_option( 'bottom_link' ) ); ?>"><?php echo esc_html( make_get_cap_option( 'bottom_title' ) ); ?></a></h3>
-														<p><a href="<?php echo esc_url( make_get_cap_option( 'bottom_link' ) ); ?>"><?php echo esc_html( make_get_cap_option( 'bottom_subtitle' ) ); ?></a></p>
-
-													</div>
-
-
-												</div>
-
-											</div>
-
-										</div>
-
-									</div>
-									
-									<div class="row-fluid">
-										
-										<div class="span12">
-										
-											<div class="featured">
-												
-												<?php echo make_featured_post(); ?>	
-												
-											</div>
-											
-										</div>
-										
-									</div>
-
+									<?php endif; ?>
 								</div>
+								<div class="right-post-wrap">
+									<?php if ( make_has_takeover_mod( 'make_topright_post_url' ) || make_has_takeover_mod( 'make_topright_post_image' ) ) : ?>
+										<div class="post-wrapper second-post small">
+											<a href="<?php esc_url( make_get_takeover_mod( 'make_topright_post_url' ) ); ?>">
+												<img src="<?php esc_url( make_get_takeover_mod( 'make_topright_post_image' ) ); ?>" width="283" height="144" class="featured-image" alt="<?php esc_attr( make_get_takeover_mod( 'make_topright_post_title' ) ); ?>">
+												<div class="content-wrapper">
+													<h2 class="post-title"><?php esc_html( make_get_takeover_mod( 'make_topright_post_title' ) ); ?></h2>
+												</div>
+											</a>
+										</div>
+									<?php endif; ?>
 
+									<?php if ( make_has_takeover_mod( 'make_bottomright_post_url' ) || make_has_takeover_mod( 'make_bottomright_post_image' ) ) : ?>
+										<div class="post-wrapper third-post small">
+											<a href="<?php esc_url( make_get_takeover_mod( 'make_bottomright_post_url' ) ); ?>">
+												<img src="<?php esc_url( make_get_takeover_mod( 'make_bottomright_post_image' ) ); ?>" width="283" height="144" class="featured-image" alt="<?php esc_attr( make_get_takeover_mod( 'make_bottomright_post_title' ) ); ?>">
+												<div class="content-wrapper">
+													<h2 class="post-title"><?php esc_html( make_get_takeover_mod( 'make_bottomright_post_title' ) ); ?></h2>
+												</div>
+											</a>
+										</div>
+									<?php endif; ?>
+								</div>
 							</div>
-							
+
+							<?php if ( make_has_takeover_mod( 'make_banner_takeover' ) ) : ?>
+								<div class="row">
+									<div class="banner">
+										<?php if ( make_has_takeover_mod( 'make_banner_url_takeover' ) ) : ?>
+											<a href="<?php esc_url( make_get_takeover_mod( 'make_banner_url_takeover' ) ); ?>">
+										<?php endif; ?>
+
+											<img src="<?php esc_url( make_get_takeover_mod( 'make_banner_takeover' ) ); ?>" alt="Makezine CES Consumer Electronics Show banner"></a>
+
+										<?php if ( make_has_takeover_mod( 'make_banner_url_takeover' ) ) : ?>
+											</a>
+										<?php endif; ?>
+									</div>
+								</div>
+							<?php endif; ?>
+
 						</div>
 
-						<div class="span4">
-
+						<div class="right-rail-wrap">
 							<div class="home-ads">
-
-								<!-- Beginning Sync AdSlot 2 for Ad unit header ### size: [[300,250]]  -->
 								<div id='div-gpt-ad-664089004995786621-2'>
 									<script type='text/javascript'>
 										googletag.cmd.push(function(){googletag.display('div-gpt-ad-664089004995786621-2')});
 									</script>
 								</div>
-								<!-- End AdSlot 2 -->
-
 							</div>
-
 							<div class="home-ads bottom">
-
-								<!-- Beginning Sync AdSlot 2 for Ad unit header ### size: [[300,250]]  -->
 								<div id='div-gpt-ad-664089004995786621-3'>
 									<script type='text/javascript'>
 										googletag.cmd.push(function(){googletag.display('div-gpt-ad-664089004995786621-3')});
 									</script>
 								</div>
-								<!-- End AdSlot 2 -->
-
 							</div>
-
 						</div>
-
 					</div>
-
 				</div>
-
 			</div>
 
 		<?php endif; ?>

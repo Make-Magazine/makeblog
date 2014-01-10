@@ -34,7 +34,7 @@
 
 	<body <?php body_class(); ?>>
 
-		<nav class="navbar navbar-fixed-top navbar-blue hidden-xs" role="navigation">
+		<!-- <nav class="navbar navbar-fixed-top navbar-blue hidden-xs" role="navigation">
 			<div class="container">
 				<div class="navbar-header">
 					<a onClick="_gaq.push([\'_trackEvent\', \'Links\', \'Click\', \'Home\']);" class="navbar-brand" href="<?php echo esc_url( home_url() ); ?>">MAKE</a>
@@ -47,7 +47,7 @@
 					<li><a onClick="_gaq.push([\'_trackEvent\', \'Links\', \'Click\', \'Maker Shed\']);" href="http://makershed.com/">Maker Shed</a></li>
 				</ul>
 			</div>
-		</nav>	
+		</nav>	 -->
 		<div class="container hidden-xs hidden-print">
 			<div class="row">
 				<div id="div-gpt-ad-664089004995786621-1" class="text-center">
