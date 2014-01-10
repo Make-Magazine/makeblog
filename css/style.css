@@ -9055,6 +9055,68 @@ body.admin-bar .navbar-blue {
   line-height: 16px;
   margin-bottom: 0;
 }
+@media (min-width: 992px) and (max-width: 1199px) {
+  #footer .newsletter .email-area #appendedInputButton {
+    width: 71%;
+  }
+  #footer .soci li {
+    margin-bottom: 10px;
+    margin-right: 34px !important;
+  }
+  #footer .soci li:nth-child( 4n ) {
+    margin-right: 0 !important;
+  }
+}
+@media (min-width: 768px) and (max-width: 991px) {
+  #footer {
+    text-align: center;
+  }
+  #footer ul {
+    list-style: none !important;
+  }
+  #footer ul:first-child {
+    margin-bottom: 0;
+  }
+  #footer .newsletter,
+  #footer .about-us {
+    padding-bottom: 10px;
+  }
+  #footer .subscribe .header,
+  #footer .subscribe #mag-cover {
+    margin-top: 0;
+  }
+}
+@media (max-width: 767px) {
+  #footer {
+    text-align: center;
+  }
+  #footer .top-links {
+    text-align: center;
+  }
+  #footer .top-links .logo,
+  #footer .top-links .sub-link {
+    float: none;
+    display: block;
+    min-height: inherit;
+  }
+  #footer ul {
+    list-style: none !important;
+  }
+  #footer ul:first-child {
+    margin-bottom: 0;
+  }
+  #footer .newsletter,
+  #footer .about-us {
+    padding-bottom: 10px;
+  }
+  #footer .newsletter label {
+    display: block;
+  }
+  #footer .subscribe .header,
+  #footer .subscribe #mag-cover {
+    margin-top: 0;
+  }
+}
 .category-top {
   font-family: "proxima-nova", sans-serif;
   border-bottom: 3px solid #DBDBDB;

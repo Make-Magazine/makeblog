@@ -149,3 +149,80 @@
 		}
 	}
 }
+
+// Large screens
+@media (min-width: @screen-md-min) and (max-width: @screen-md-max) {
+	#footer {
+		.newsletter {
+			.email-area {
+		        #appendedInputButton {
+					width:71%;
+		        }
+		    }
+		}
+		.soci {
+			li {
+				margin-bottom:10px;
+				margin-right:34px !important;
+				&:nth-child( 4n ) {
+					margin-right: 0 !important;
+				}
+			}
+		}
+	}
+}
+
+// Small screens
+@media (min-width: @screen-sm-min) and (max-width: @screen-sm-max) {
+	#footer {
+		text-align:center;
+		ul {
+			list-style:none !important;
+			&:first-child {
+				margin-bottom:0;
+			}
+		}
+		.newsletter, .about-us {
+			padding-bottom:10px;
+		}
+		.subscribe {
+			.header, #mag-cover {
+				margin-top:0;
+			}
+		}
+	}
+}
+
+// Extra Small screens
+@media (max-width: @screen-xs-max) {
+	#footer {
+		text-align:center;
+		.top-links {
+			text-align:center;
+			.logo, .sub-link {
+				float:none;
+				display:block;
+				min-height:inherit;
+			}
+		}
+		ul {
+			list-style:none !important;
+			&:first-child {
+				margin-bottom:0;
+			}
+		}
+		.newsletter, .about-us {
+			padding-bottom:10px;
+		}
+		.newsletter {
+			label {
+				display:block;
+			}
+		}
+		.subscribe {
+			.header, #mag-cover {
+				margin-top:0;
+			}
+		}
+	}
+}

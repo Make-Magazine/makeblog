@@ -127,7 +127,7 @@
 									<span class="icon-bar"></span>
 								</button>
 							</div>
-							<div id="make-mobile-collapse" class="navbar-collapse collapse">
+							<div id="make-mobile-collapse" class="collapse navbar-collapse">
 								<?php
 									wp_nav_menu( array(
 										'theme_location'  => 'make-primary',

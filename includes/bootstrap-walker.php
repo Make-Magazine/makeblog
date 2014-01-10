@@ -19,7 +19,7 @@
 			$classes 		= empty( $item->classes ) ? array() : (array) $item->classes;
 			$classes[] 		= ( isset( $args->has_children ) && $args->has_children ) ? 'dropdown' : '';
 			$classes[] 		= ( $item->current || $item->current_item_ancestor ) ? 'active' : '';
-			$classes[] 		= 'menu-item-' . $item->ID;
+			$classes[] 		= 'menu-item-' . absint( $item->ID );
 
 			$class_names 	= join( ' ', apply_filters( 'nav_menu_css_class', array_filter( $classes ), $item, $args ) );
 			$class_names 	= ' class="' . esc_attr( $class_names ) . '"';

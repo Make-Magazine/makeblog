@@ -120,10 +120,10 @@
 					<div class="span3 subscribe">
 						<div class="top-border row-fluid">
 							<div class="footer-content">
-								<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/arrow-footer.png" width="80" height="48" id="mag-arrow">
-								<h5 class="header">Subscribe<br /> to MAKE!</h5>
+								<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/arrow-footer.png" width="80" height="48" id="mag-arrow" class="hidden-sm hidden-xs">
+								<h5 class="header">Subscribe to MAKE!</h5>
 								<p>Get the print and digital versions when you subscribe</p>
-								<hr />
+								<hr class="hidden-sm hidden-xs" />
 							</div>
 							<div class="footer-image">
 								<a href="https://www.pubservice.com/MK/subscribe.aspx?PC=MK&amp;PK=M3AMZB" target="_blank" title="Subscribe to MAKE for the latest copy of the magazine!"><img src="<?php echo get_stylesheet_directory_uri(); ?>/img/footer-make-cover.gif" alt="MAKE Magazine Cover" width="115" height="163" id="mag-cover"></a>
