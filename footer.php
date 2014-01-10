@@ -28,18 +28,26 @@
 			</div></div></div>
 			<!-- These extra closing divs are to close all the divs opened by the functions that pull in cat posts -->
 
-		<section id="footer" class="new-footer">
+		<section id="footer">
 			<div class="container">
 				<div class="row">
-					<div class="span12 logo" >
-						<img class="footer_logo" src="<?php echo get_stylesheet_directory_uri(); ?>/img/make-logo.png" alt="MAKE Logo">	
-						<a href="http://make-digital.com/" target="_blank"><div class="sprite sprite-digital-book-foot"></div></a>
-						<h5><a href="http://make-digital.com/" target="_blank">Read Digital Edition</a></h5>
-						<a href="http://www.makershed.com/" target="_blank"><div class="sprite sprite-makershed_footer1"></div></a> 
-						<h5><a href="http://www.makershed.com/" target="_blank">Shop Maker Shed</a></h5>
+					<div class="top-links">
+						<div class="logo">
+							<img class="footer_logo" src="<?php echo get_stylesheet_directory_uri(); ?>/img/make-logo.png" alt="MAKE Logo">
+						</div>
+						<div class="sub-link">
+							<a href="http://make-digital.com/" target="_blank">
+								<span class="footer-sprite ico-digital-book-foot"></span>
+								<h5>Read Digital Editior</h5>
+							</a>
+						</div>
+						<div class="sub-link">
+							<a href="http://www.makershed.com/" target="_blank">
+								<span class="footer-sprite ico-makershed_footer1"></span> 
+								<h5>Shop Maker Shed</h5>
+							</a>
+						</div>
 					</div>
-					<div class="clear"></div>
-				<!-- END row -->
 				</div>
 				<div class="row">
 					<div class="trending">
@@ -77,7 +85,7 @@
 						</form>
 					<!-- END span newsletter -->
 					</div>
-					<div class="span3 about-us">
+					<div class="about-us">
 						<h5 class="header top-border">About <a href="http://makermedia.com">Maker Media</a></h5>
 						<div class="row-fluid">
 							<div class="about-column-01">
@@ -100,36 +108,36 @@
 						</div>
 						<div class="clearfix"></div>
 						<div class="soc_icons">
-							<a class="sprite sprite-twitter"  href="http://twitter.com/make" title="Twitter" target="_blank"></a>
-							<a class="sprite sprite-youtube" href="http://youtube.com/make" title="Youtube" target="_blank"></a>
-							<a class="sprite sprite-pinterest" href="http://pinterest.com/makemagazine/" title="Pinterest" target="_blank"></a>
-							<a class="sprite sprite-flickr" href="http://www.flickr.com/groups/make/" title="Flickr" target="_blank"></a>
-							<a class="sprite sprite-facebook" href="http://facebook.com/makemagazine" title="Facebook" target="_blank"></a>
-							<a class="sprite sprite-stumbleupon" href="http://www.stumbleupon.com/to/stumble/stumblethru:makezine.com?utm_source=Makezine&amp;utm_medium=StumbleThru&amp;utm_campaign=StumbleThruButton" title="Stumbleupon" target="_blank"></a>
-							<a class="sprite sprite-instagram" href="http://www.instagram.com/makemagazine" title="Instagram" target="_blank"></a>
-							<a class="sprite sprite-google-plus" href="https://google.com/+MAKE/" title="Google+" target="_blank"></a>
+							<a class="footer-sprite ico-twitter"  href="http://twitter.com/make" title="Twitter" target="_blank"></a>
+							<a class="footer-sprite ico-youtube" href="http://youtube.com/make" title="Youtube" target="_blank"></a>
+							<a class="footer-sprite ico-pinterest" href="http://pinterest.com/makemagazine/" title="Pinterest" target="_blank"></a>
+							<a class="footer-sprite ico-flickr" href="http://www.flickr.com/groups/make/" title="Flickr" target="_blank"></a>
+							<a class="footer-sprite ico-facebook" href="http://facebook.com/makemagazine" title="Facebook" target="_blank"></a>
+							<a class="footer-sprite ico-stumbleupon" href="http://www.stumbleupon.com/to/stumble/stumblethru:makezine.com?utm_source=Makezine&amp;utm_medium=StumbleThru&amp;utm_campaign=StumbleThruButton" title="Stumbleupon" target="_blank"></a>
+							<a class="footer-sprite ico-instagram" href="http://www.instagram.com/makemagazine" title="Instagram" target="_blank"></a>
+							<a class="footer-sprite ico-google-plus" href="https://google.com/+MAKE/" title="Google+" target="_blank"></a>
 						<!-- END socialArea -->
 						</div> 
 					<!-- END span3 about-us -->
 					</div>
-					<div class="span3 subscribe">
-						<a href="https://www.pubservice.com/MK/subscribe.aspx?PC=MK&amp;PK=M3AMZB" target="_blank">
-							<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/footer-make-cover.gif" alt="MAKE Magazine Cover" width="115" height="163" id="mag-cover">
-						</a>
-						<div class="sprite sprite-arrow-footer"></div>
-						<h5>Subscribe to MAKE!</h5>
-						<p class="p_footer">Get the print and digital versions when you subscribe</p>
-						<hr class="hidden-sm hidden-xs" />
-					<!-- END span subscribe -->
+					<div class="subscribe">
+						<div class="top-border row-fluid">
+							<div class="footer-content">
+								<div class="footer-sprite ico-arrow-footer hidden-sm hidden-xs"></div>
+								<h5 class="header">Subscribe to MAKE!</h5>
+								<p class="p_footer">Get the print and digital versions when you subscribe</p>
+								<hr class="hidden-sm hidden-xs" />
+							</div>
+							<div class="footer-image">
+								<a href="https://www.pubservice.com/MK/subscribe.aspx?PC=MK&amp;PK=M3AMZB" target="_blank"><img src="<?php echo get_stylesheet_directory_uri(); ?>/img/footer-make-cover.gif" alt="MAKE Magazine Cover" width="115" height="163" id="mag-cover">
+								</a>
+							</div>
+						</div>
 					</div>
-				<!-- END MAIN row (main) -->
 				</div>
 				<?php echo make_copyright_footer(); ?>
-			<!-- END container -->
 			</div>
-		<!-- END new-footer -->
 		</section>
-	
 	</div> <!-- /container -->
 
 		<!-- Le javascript

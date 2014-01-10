@@ -10,31 +10,29 @@
 		.make-lg-column(12);
 		.logo {
 			margin:2px 13px 0 0;
-			.pull-left;
+			float:left;
 			a {
 				display:block;
 			}
 		}
 		.sub-link {
 			min-height:57px;
-			.pull-left;
+			float:left;
 			a {
 				font-weight:bold;
-				display:block;
+				display:inline-block;
 				vertical-align:bottom;
 			}
-			img {
-				padding-right:5px;
-			}
-			&.shed-link {
-				margin-left:13px;
-				img {
-					margin-top:29px;
-				}
+			h5 {
+				color:#005d8f;
+				font-weight:bold;
+				padding-top:34px;
+				display:inline-block;
 			}
 		}
 	}
 	.trending, .newsletter, .about-us, .subscribe {
+		padding-top:0px;
 		.make-md-column(3);
 		.make-lg-column(3);
 		.header {
@@ -113,18 +111,20 @@
 			.make-md-column(7);
 			.make-lg-column(7);
 		}
-		#mag-arrow {
-			width:100%;
-			height:auto;
-            margin-top:-40px;
-            margin-left:-20px;
-        }
         .header {
         	color:#ED1C24;
         	margin-top:-15px;
         }
         p {
         	margin-bottom:5px;
+        	line-height:24px;
+        	width:130px;
+        	margin-bottom:11px;
+        }
+        h5 {
+        	color:#f60b29;
+        	font-weight:bold;
+        	margin-top:-15px;
         }
         #mag-cover {
             border:1px solid #ccc;
@@ -133,9 +133,11 @@
         hr {
             border:none;
             background:#ED1C24;
+            color:#f60b29;
             height:7px;
             width:93%;
             margin-top: 0px;
+            margin-right:5px;
         }
 	}
 	.footer_copyright {
@@ -147,6 +149,85 @@
 			line-height:16px;
 			margin-bottom:0;
 		}
+	}
+}
+
+// SOCIAL MEDIA SPRITES
+.soc_icons {
+	margin: 0px auto;
+	display:table;
+	.clearfix;
+	a {
+		margin: 5px 3px 0 0;
+		width:24px;
+		height:24px;
+	    display: block;
+		float: left;
+	}
+}
+.footer-sprite {
+	background-image:url('../images/makezine_sprites.png');
+	&.ico-arrow-footer { 
+		background-position: 0 0; 
+		width: 95px; 
+		height: 46px; 
+		margin: -40px 0 5px -16px;
+		border: none;
+	} 
+	&.ico-digital-book-foot { 
+		background-position: 0 -51px; 
+		width: 29px; 
+		height: 22px; 
+		float: left;
+		margin-right: 5px;
+		margin-top: 29px;
+	} 
+	&.ico-facebook { 
+		background-position: 0 -78px; 
+		width: 24px; 
+		height: 24px; 
+	} 
+	&.ico-flickr { 
+		background-position: 0 -107px; 
+		width: 24px; 
+		height: 24px; 
+	} 
+	&.ico-google-plus { 
+		background-position: 0 -136px; 
+		width: 24px; 
+		height: 24px; 
+	} 
+	&.ico-instagram { 
+		background-position: 0 -165px; 
+		width: 24px; 
+		height: 24px; 
+	} 
+	&.ico-makershed_footer1 { 
+		background-position: 0 -194px; 
+		width: 29px; 
+		height: 22px; 
+		float: left;
+		margin: 30px 5px 0 13px;
+	} 
+	&.ico-pinterest { 
+		background-position: 0 -221px; 
+		width: 24px; 
+		height: 24px; 
+	} 
+	&.ico-stumbleupon {  
+		background-position: 0 -274px; 
+		width: 24px; 
+		height: 24px; 
+	} 
+	&.ico-twitter { 
+		background-position: 0 -303px; 
+		width: 24px; 
+		height: 24px; 
+	} 
+	&.ico-youtube { 
+		background-position: 0 -332px; 
+		width: 24px; 
+		height: 24px; 
 	}
 }
 
@@ -189,6 +270,9 @@
 			.header, #mag-cover {
 				margin-top:0;
 			}
+			p {
+				width:auto;
+			}
 		}
 	}
 }
@@ -203,6 +287,9 @@
 				float:none;
 				display:block;
 				min-height:inherit;
+			}
+			.sub-link h5 {
+				padding-top:18px;
 			}
 		}
 		ul {
@@ -223,6 +310,17 @@
 			.header, #mag-cover {
 				margin-top:0;
 			}
+			p {
+				width:auto;
+			}
+		}
+	}
+	.footer-sprite {
+		&.ico-digital-book-foot, &.ico-makershed_footer1 {
+			margin-top:15px;
+		}
+		&.ico-makershed_footer1 {
+			margin-left:0;
 		}
 	}
 }

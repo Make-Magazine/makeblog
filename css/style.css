@@ -8196,81 +8196,6 @@ textarea.narrow,
   font-weight: bold !important;
   font-size: 16px !important;
 }
-.soc_icons {
-  margin: 0px;
-}
-.soc_icons a {
-  margin: 5px 3px 0 0;
-  width: 24px;
-  height: 24px;
-  display: block;
-  float: left;
-}
-.sprite {
-  background-image: url('../images/makezine_sprites.png');
-}
-.sprite-arrow-footer {
-  background-position: 0 0;
-  width: 95px;
-  height: 46px;
-  margin: -40px 0 5px -16px;
-  border: none !important;
-}
-.sprite-digital-book-foot {
-  background-position: 0 -51px;
-  width: 29px;
-  height: 22px;
-  float: left;
-  padding-right: 5px;
-  margin-top: 29px;
-}
-.sprite-facebook {
-  background-position: 0 -78px;
-  width: 24px;
-  height: 24px;
-}
-.sprite-flickr {
-  background-position: 0 -107px;
-  width: 24px;
-  height: 24px;
-}
-.sprite-google-plus {
-  background-position: 0 -136px;
-  width: 24px;
-  height: 24px;
-}
-.sprite-instagram {
-  background-position: 0 -165px;
-  width: 24px;
-  height: 24px;
-}
-.sprite-makershed_footer1 {
-  background-position: 0 -194px;
-  width: 29px;
-  height: 22px;
-  float: left;
-  margin: 30px 5px 0 13px;
-}
-.sprite-pinterest {
-  background-position: 0 -221px;
-  width: 24px;
-  height: 24px;
-}
-.sprite-stumbleupon {
-  background-position: 0 -274px;
-  width: 24px;
-  height: 24px;
-}
-.sprite-twitter {
-  background-position: 0 -303px;
-  width: 24px;
-  height: 24px;
-}
-.sprite-youtube {
-  background-position: 0 -332px;
-  width: 24px;
-  height: 24px;
-}
 .custom-feed.simple {
   border: 1px solid #dadada;
   border-radius: 5px;
@@ -8906,33 +8831,31 @@ body.admin-bar .navbar-blue {
 }
 #footer .top-links .logo {
   margin: 2px 13px 0 0;
-  float: left !important;
+  float: left;
 }
 #footer .top-links .logo a {
   display: block;
 }
 #footer .top-links .sub-link {
   min-height: 57px;
-  float: left !important;
+  float: left;
 }
 #footer .top-links .sub-link a {
   font-weight: bold;
-  display: block;
+  display: inline-block;
   vertical-align: bottom;
 }
-#footer .top-links .sub-link img {
-  padding-right: 5px;
-}
-#footer .top-links .sub-link.shed-link {
-  margin-left: 13px;
-}
-#footer .top-links .sub-link.shed-link img {
-  margin-top: 29px;
+#footer .top-links .sub-link h5 {
+  color: #005d8f;
+  font-weight: bold;
+  padding-top: 34px;
+  display: inline-block;
 }
 #footer .trending,
 #footer .newsletter,
 #footer .about-us,
 #footer .subscribe {
+  padding-top: 0px;
   position: relative;
   min-height: 1px;
   padding-left: 15px;
@@ -9075,18 +8998,20 @@ body.admin-bar .navbar-blue {
     width: 58.333333333333336%;
   }
 }
-#footer .subscribe #mag-arrow {
-  width: 100%;
-  height: auto;
-  margin-top: -40px;
-  margin-left: -20px;
-}
 #footer .subscribe .header {
   color: #ED1C24;
   margin-top: -15px;
 }
 #footer .subscribe p {
   margin-bottom: 5px;
+  line-height: 24px;
+  width: 130px;
+  margin-bottom: 11px;
+}
+#footer .subscribe h5 {
+  color: #f60b29;
+  font-weight: bold;
+  margin-top: -15px;
 }
 #footer .subscribe #mag-cover {
   border: 1px solid #ccc;
@@ -9095,9 +9020,11 @@ body.admin-bar .navbar-blue {
 #footer .subscribe hr {
   border: none;
   background: #ED1C24;
+  color: #f60b29;
   height: 7px;
   width: 93%;
   margin-top: 0px;
+  margin-right: 5px;
 }
 #footer .footer_copyright {
   margin: 20px 0;
@@ -9122,6 +9049,98 @@ body.admin-bar .navbar-blue {
   font-size: 12px;
   line-height: 16px;
   margin-bottom: 0;
+}
+.soc_icons {
+  margin: 0px auto;
+  display: table;
+}
+.soc_icons:before,
+.soc_icons:after {
+  content: " ";
+  display: table;
+}
+.soc_icons:after {
+  clear: both;
+}
+.soc_icons:before,
+.soc_icons:after {
+  content: " ";
+  display: table;
+}
+.soc_icons:after {
+  clear: both;
+}
+.soc_icons a {
+  margin: 5px 3px 0 0;
+  width: 24px;
+  height: 24px;
+  display: block;
+  float: left;
+}
+.footer-sprite {
+  background-image: url('../images/makezine_sprites.png');
+}
+.footer-sprite.ico-arrow-footer {
+  background-position: 0 0;
+  width: 95px;
+  height: 46px;
+  margin: -40px 0 5px -16px;
+  border: none;
+}
+.footer-sprite.ico-digital-book-foot {
+  background-position: 0 -51px;
+  width: 29px;
+  height: 22px;
+  float: left;
+  margin-right: 5px;
+  margin-top: 29px;
+}
+.footer-sprite.ico-facebook {
+  background-position: 0 -78px;
+  width: 24px;
+  height: 24px;
+}
+.footer-sprite.ico-flickr {
+  background-position: 0 -107px;
+  width: 24px;
+  height: 24px;
+}
+.footer-sprite.ico-google-plus {
+  background-position: 0 -136px;
+  width: 24px;
+  height: 24px;
+}
+.footer-sprite.ico-instagram {
+  background-position: 0 -165px;
+  width: 24px;
+  height: 24px;
+}
+.footer-sprite.ico-makershed_footer1 {
+  background-position: 0 -194px;
+  width: 29px;
+  height: 22px;
+  float: left;
+  margin: 30px 5px 0 13px;
+}
+.footer-sprite.ico-pinterest {
+  background-position: 0 -221px;
+  width: 24px;
+  height: 24px;
+}
+.footer-sprite.ico-stumbleupon {
+  background-position: 0 -274px;
+  width: 24px;
+  height: 24px;
+}
+.footer-sprite.ico-twitter {
+  background-position: 0 -303px;
+  width: 24px;
+  height: 24px;
+}
+.footer-sprite.ico-youtube {
+  background-position: 0 -332px;
+  width: 24px;
+  height: 24px;
 }
 @media (min-width: 992px) and (max-width: 1199px) {
   #footer .newsletter .email-area #appendedInputButton {
@@ -9153,6 +9172,9 @@ body.admin-bar .navbar-blue {
   #footer .subscribe #mag-cover {
     margin-top: 0;
   }
+  #footer .subscribe p {
+    width: auto;
+  }
 }
 @media (max-width: 767px) {
   #footer {
@@ -9166,6 +9188,9 @@ body.admin-bar .navbar-blue {
     float: none;
     display: block;
     min-height: inherit;
+  }
+  #footer .top-links .sub-link h5 {
+    padding-top: 18px;
   }
   #footer ul {
     list-style: none !important;
@@ -9183,6 +9208,16 @@ body.admin-bar .navbar-blue {
   #footer .subscribe .header,
   #footer .subscribe #mag-cover {
     margin-top: 0;
+  }
+  #footer .subscribe p {
+    width: auto;
+  }
+  .footer-sprite.ico-digital-book-foot,
+  .footer-sprite.ico-makershed_footer1 {
+    margin-top: 15px;
+  }
+  .footer-sprite.ico-makershed_footer1 {
+    margin-left: 0;
   }
 }
 .category-top {
@@ -11498,59 +11533,6 @@ body.makercamp .features-box-content h4 {
 }
 body.makercamp .lower-gradation {
   padding: 0 0 20px 0;
-}
-body.makercamp .new-footer .trending,
-body.makercamp .new-footer .newsletter,
-body.makercamp .new-footer .about-us,
-body.makercamp .new-footer .subscribe {
-  padding-top: 0px;
-}
-body.makercamp .new-footer .subscribe p {
-  line-height: 24px;
-  width: 130px;
-  margin-bottom: 11px;
-}
-body.makercamp .new-footer .subscribe h5 {
-  color: #F60B29;
-  margin-top: -15px !important;
-}
-body.makercamp .new-footer .subscribe hr {
-  border: none;
-  background-color: #F60B29;
-  color: #F60B29;
-  height: 7px;
-  margin-right: 5px;
-}
-body.makercamp .new-footer .subscribe #mag-cover {
-  margin-top: -45px;
-}
-body.makercamp .new-footer .subscribe .sprite-arrow-footer {
-  margin: -20px 0 10px -10px !important;
-}
-body.makercamp .new-footer a,
-body.makercamp .new-footer .new-footer a:visited {
-  color: #005D8F !important;
-}
-body.makercamp .new-footer p {
-  color: #333;
-  font-weight: bold;
-  padding-right: 3px;
-}
-body.makercamp .new-footer h5 {
-  font-size: 16px;
-  font-weight: bold;
-  text-transform: none;
-  color: #333;
-  margin-bottom: 0 !important;
-}
-body.makercamp .new-footer .about-column-01 {
-  width: 90px;
-  float: left;
-}
-body.makercamp .new-footer .about-column-02 {
-  width: 130px;
-  float: left;
-  margin-left: 0;
 }
 body.makercamp .schedule-content {
   background: #fff;
