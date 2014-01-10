@@ -4333,109 +4333,6 @@ input[type="submit"].btn.btn-mini {
 .navbar-blue .nav-collapse {
   background: transparent;
 }
-.black-bar {
-  background-color: #002641;
-  padding: 5px 0;
-}
-.black-bar .nav {
-  margin: 0px;
-}
-.black-bar .nav-inline {
-  margin: 6px 0;
-}
-.black-bar .nav-inline li {
-  display: block;
-  float: left;
-  margin-right: 20px;
-  font-size: 18px;
-}
-.black-bar .nav-inline li a {
-  color: #fff;
-}
-.black-bar p {
-  color: #999999;
-  font-size: 18px;
-  margin-top: 6px;
-  margin-bottom: 0px;
-}
-.black-bar a {
-  color: #acd3fc !important;
-  font-size: 18px;
-  margin: 0;
-}
-.black-bar a:hover {
-  background-color: transparent !important;
-  text-decoration: underline !important;
-}
-.black-bar .navbar-inner {
-  background-color: #253b58;
-  background-image: -moz-linear-gradient(top, #2e435e, #172e50);
-  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#2e435e), to(#172e50));
-  background-image: -webkit-linear-gradient(top, #2e435e, #172e50);
-  background-image: -o-linear-gradient(top, #2e435e, #172e50);
-  background-image: linear-gradient(to bottom, #2e435e, #172e50);
-  background-repeat: repeat-x;
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff2e435e', endColorstr='#ff172e50', GradientType=0);
-  border-color: #275392;
-  -webkit-border-radius: 0px;
-  -moz-border-radius: 0px;
-  border-radius: 0px;
-  border: none;
-}
-.black-bar .brand {
-  text-shadow: 0 0 0 transparent;
-  color: #ed1c24 !important;
-}
-.black-bar .brand:hover {
-  text-decoration: none !important;
-}
-.black-bar .nav-collapse {
-  background: transparent;
-}
-.black-bar .nav-collapse .nav > li > a,
-.black-bar .nav-collapse .dropdown-menu a {
-  text-shadow: 0 0 0 transparent;
-  color: #fff !important;
-}
-.black-bar .nav-collapse .nav > li > a:hover,
-.black-bar .nav-collapse .dropdown-menu a:hover {
-  text-decoration: none !important;
-}
-.black-bar .btn-navbar {
-  color: #ffffff;
-  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
-  background-color: #1d2f46;
-  background-image: -moz-linear-gradient(top, #26374d, #11233c);
-  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#26374d), to(#11233c));
-  background-image: -webkit-linear-gradient(top, #26374d, #11233c);
-  background-image: -o-linear-gradient(top, #26374d, #11233c);
-  background-image: linear-gradient(to bottom, #26374d, #11233c);
-  background-repeat: repeat-x;
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff26374d', endColorstr='#ff11233c', GradientType=0);
-  border-color: #11233c #11233c #000001;
-  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
-  *background-color: #11233c;
-  /* Darken IE7 buttons by default so they stand out more given they won't have borders */
-  filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
-}
-.black-bar .btn-navbar:hover,
-.black-bar .btn-navbar:focus,
-.black-bar .btn-navbar:active,
-.black-bar .btn-navbar.active,
-.black-bar .btn-navbar.disabled,
-.black-bar .btn-navbar[disabled] {
-  color: #ffffff;
-  background-color: #11233c;
-  *background-color: #0c1728;
-}
-.black-bar .btn-navbar:active,
-.black-bar .btn-navbar.active {
-  background-color: #060c15 \9;
-}
-.navbar.black-bar {
-  background: transparent;
-  padding: 0;
-}
 .breadcrumb {
   padding: 8px 15px;
   margin: 0 0 20px;
@@ -10357,18 +10254,113 @@ body.makercamp .main-content a:active {
   text-decoration: underline !important;
 }
 body.makercamp .black-bar {
-  background-color: #00315d;
+  background-color: #002641;
   padding: 5px 0 !important;
   margin-top: 40px;
 }
+body.makercamp .black-bar .nav {
+  margin: 0px;
+}
+body.makercamp .black-bar .nav-inline {
+  margin: 6px 0;
+}
 body.makercamp .black-bar .nav-inline li {
-  margin-right: 30px !important;
+  display: block;
+  float: left;
+  margin-right: 30px;
+  font-size: 18px;
   font-weight: bold;
   text-transform: uppercase;
 }
+body.makercamp .black-bar .nav-inline li a {
+  color: #fff;
+}
+body.makercamp .black-bar p {
+  color: #999999;
+  font-size: 18px;
+  margin-top: 6px;
+  margin-bottom: 0px;
+}
+body.makercamp .black-bar a {
+  font-size: 18px;
+  margin: 0;
+}
+body.makercamp .black-bar a:hover {
+  background-color: transparent !important;
+  text-decoration: underline !important;
+}
+body.makercamp .black-bar .navbar-inner {
+  background-color: #253b58;
+  background-image: -moz-linear-gradient(top, #2e435e, #172e50);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#2e435e), to(#172e50));
+  background-image: -webkit-linear-gradient(top, #2e435e, #172e50);
+  background-image: -o-linear-gradient(top, #2e435e, #172e50);
+  background-image: linear-gradient(to bottom, #2e435e, #172e50);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff2e435e', endColorstr='#ff172e50', GradientType=0);
+  border-color: #275392;
+  -webkit-border-radius: 0px;
+  -moz-border-radius: 0px;
+  border-radius: 0px;
+  border: none;
+}
+body.makercamp .black-bar .brand {
+  text-shadow: 0 0 0 transparent;
+  color: #ed1c24 !important;
+}
+body.makercamp .black-bar .brand:hover {
+  text-decoration: none !important;
+}
+body.makercamp .black-bar .nav-collapse {
+  background: transparent;
+}
+body.makercamp .black-bar .nav-collapse .nav > li > a,
+body.makercamp .black-bar .nav-collapse .dropdown-menu a {
+  text-shadow: 0 0 0 transparent;
+  color: #fff !important;
+}
+body.makercamp .black-bar .nav-collapse .nav > li > a:hover,
+body.makercamp .black-bar .nav-collapse .dropdown-menu a:hover {
+  text-decoration: none !important;
+}
+body.makercamp .black-bar .btn-navbar {
+  color: #ffffff;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+  background-color: #1d2f46;
+  background-image: -moz-linear-gradient(top, #26374d, #11233c);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#26374d), to(#11233c));
+  background-image: -webkit-linear-gradient(top, #26374d, #11233c);
+  background-image: -o-linear-gradient(top, #26374d, #11233c);
+  background-image: linear-gradient(to bottom, #26374d, #11233c);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff26374d', endColorstr='#ff11233c', GradientType=0);
+  border-color: #11233c #11233c #000001;
+  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+  *background-color: #11233c;
+  /* Darken IE7 buttons by default so they stand out more given they won't have borders */
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+}
+body.makercamp .black-bar .btn-navbar:hover,
+body.makercamp .black-bar .btn-navbar:focus,
+body.makercamp .black-bar .btn-navbar:active,
+body.makercamp .black-bar .btn-navbar.active,
+body.makercamp .black-bar .btn-navbar.disabled,
+body.makercamp .black-bar .btn-navbar[disabled] {
+  color: #ffffff;
+  background-color: #11233c;
+  *background-color: #0c1728;
+}
+body.makercamp .black-bar .btn-navbar:active,
+body.makercamp .black-bar .btn-navbar.active {
+  background-color: #060c15 \9;
+}
+body.makercamp .navbar.black-bar {
+  background: transparent;
+  padding: 0;
+}
 body.makercamp #menu-maker-camp-nav {
   display: table;
-  margin: 0 auto;
+  margin: 5px 5px 5px 0;
 }
 body.makercamp #menu-maker-camp-nav #menu-item-315883 {
   position: relative;
@@ -10377,14 +10369,13 @@ body.makercamp #menu-maker-camp-nav #menu-item-315883:hover .sub-menu {
   -webkit-border-radius: 0px;
   -moz-border-radius: 0px;
   border-radius: 0px;
-  border: 0px;
   box-shadow: 0px;
   left: -20px;
-  background-color: #00315d;
+  background-color: #002641;
   display: block;
 }
-body.makercamp #menu-maker-camp-nav #menu-item-315883:hover .sub-menu li a {
-  color: #acd3fc !important;
+body.makercamp #menu-maker-camp-nav #menu-item-315883:hover .sub-menu > li > a {
+  color: #fff;
 }
 body.makercamp #menu-maker-camp-nav .sub-menu {
   position: absolute;
@@ -11604,7 +11595,9 @@ body.hiw #header-area h1 {
   padding-top: 20px;
 }
 body.hiw .navbar .navbar-inner .container {
-  background-color: #2E435E;
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#2e435e), to(#172e50));
+  background-image: -webkit-linear-gradient(top, #2e435e, #172e50);
+  background-image: linear-gradient(to bottom, #2e435e, #172e50);
 }
 body.hiw .container {
   background-color: #fff;
