@@ -36,6 +36,13 @@ get_header(); ?>
 									<h1>Make: Projects</h1>
 									
 									<p>Explore our growing cookbook of DIY projects for the workshop, <a href="<?php echo home_url(); ?>/category/home/food-beverage/?post_type=projects">kitchen</a>, garage, and backyard. Learn new skills, find <a href="<?php echo home_url(); ?>/category/home/kids-family/?post_type=projects">family fun</a>, build a <a href="<?php echo home_url(); ?>/category/electronics/robotics/?post_type=projects">robot</a> or a <a href="<?php echo home_url(); ?>/category/home/fun-games/?post_type=projects&amp;tag=rockets">rocket</a>. <a href="<?php echo home_url(); ?>/category/electronics/?post_type=projects&amp;difficulty=easy">Get started in electronics</a> and use new platforms like <a href="<?php echo home_url(); ?>/category/electronics/raspberry-pi/?post_type=projects">Raspberry Pi</a> and <a href="<?php echo home_url(); ?>/category/electronics/arduino/?post_type=projects">Arduino</a> to power your inventions. Get inspired and start making something today.</p>
+
+									<form class="form-search" action="<?php echo home_url(); ?>">
+										<label for="s">Search for Projects</label>
+										<input type="text" id="s" class="input-medium search-query" name="s">
+										<input type="hidden" name="post_type" value="projects">
+										<button type="submit" class="btn">Search</button>
+									</form>
 									
 									<h3>Find Projects by Category:</h3>
 									
