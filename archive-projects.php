@@ -80,7 +80,7 @@ get_header(); ?>
 							'projects_landing'	=> true,
 							'all'				=> true
 						);
-						make_carousel( $args ); ?>
+						echo make_carousel( $args ); ?>
 					
 				</div>
 				
@@ -115,7 +115,7 @@ get_header(); ?>
 							'all'				=> true,
 						);
 						
-						make_carousel($args);
+						echo make_carousel($args);
 					?>
 					
 				</div>
@@ -143,7 +143,7 @@ get_header(); ?>
 							'posts_per_page'	=> 36
 						);
 
-						make_carousel($args);
+						echo make_carousel($args);
 					?>
 					
 				</div>
@@ -169,7 +169,7 @@ get_header(); ?>
 					'all'				=> true
 
 				);
-				make_carousel( $args );
+				echo make_carousel( $args );
 				echo '</div></div></div>';
 			} 
 		} 

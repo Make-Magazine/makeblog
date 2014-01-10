@@ -76,7 +76,7 @@ get_header(); ?>
 							'all'				=> true,
 							'category__in'		=> $cat->cat_ID
 						);
-						make_carousel( $args ); ?>
+						echo make_carousel( $args ); ?>
 					
 				</div>
 				
@@ -112,7 +112,7 @@ get_header(); ?>
 							'category__in'		=> $cat->cat_ID
 						);
 						
-						make_carousel($args);
+						echo make_carousel($args);
 					?>
 					
 				</div>
@@ -139,7 +139,7 @@ get_header(); ?>
 					'all'				=> true,
 					'category__in'		=> $cat->cat_ID
 				);
-				make_carousel( $args );
+				echo make_carousel( $args );
 				echo '</div></div></div>';
 			} 
 		} 

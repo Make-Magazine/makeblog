@@ -141,7 +141,7 @@ get_header(); ?>
 							'limit'				=> 4,
 							'posts_per_page'	=> 4,
 						);
-						make_carousel($args);
+						echo make_carousel($args);
 					?>
 					
 				</div>
@@ -165,7 +165,7 @@ get_header(); ?>
 							'offset'			=> 4,
 							'posts_per_page'	=> 4,
 						);
-						make_carousel($args);
+						echo make_carousel($args);
 					?>
 					
 				</div>
@@ -188,7 +188,7 @@ get_header(); ?>
 							'offset'			=> 8,
 							'posts_per_page'	=> 4,
 						);
-						make_carousel($args);
+						echo make_carousel($args);
 					?>
 					
 				</div>
@@ -211,7 +211,7 @@ get_header(); ?>
 							'offset'			=> 12,
 							'posts_per_page'	=> 4,
 						);
-						make_carousel($args);
+						echo make_carousel($args);
 					?>
 					
 				</div>
