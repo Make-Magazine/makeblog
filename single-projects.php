@@ -83,6 +83,7 @@ get_header(); ?>
 											echo '<img src="' . wpcom_vip_get_resized_remote_image_url( make_projects_to_s3( $image[0] ), 620, 465 ) . '" alt="' . esc_attr( the_title('', '', false ) ) . '" />';
 										}
 									?>
+
 									<?php the_content(); ?>
 									
 								</div>
@@ -147,11 +148,15 @@ get_header(); ?>
 												}
 												?>
 											</div>
+										
 										</div>
-									</div>
 									
+									</div>
+
 									<?php } ?>
-								
+
+									<a class="project-print-btn btn btn-mini btn-danger pull-left print-page"><i class="icon-print icon icon-white"></i> Print Project</a>
+
 								</div>
 									
 							</div>
@@ -184,8 +189,7 @@ get_header(); ?>
 											<div class="span4">
 											
 												<?php make_projects_steps_list( $steps ); ?>
-												
-												
+																
 												<!-- Beginning Sync AdSlot 3 for Ad unit header ### size: [[300,250]]  -->
 												<div id='div-gpt-ad-664089004995786621-3'>
 													<script type='text/javascript'>
@@ -311,12 +315,12 @@ get_header(); ?>
 								<div class="span8">
 
 									<?php echo make_author_bio(); ?>
-										
-									<?php if (function_exists('make_featured_products')) { make_featured_products(); } ?>
-
+									
 									<div class="comments">
 										<?php comments_template(); ?>
 									</div>
+									
+									<?php if (function_exists('make_featured_products')) { make_featured_products(); } ?>
 									
 									<?php else: ?>
 									

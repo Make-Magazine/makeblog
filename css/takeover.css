@@ -1,0 +1,53 @@
+.waist.takeover {
+  background: #0c8cc0 url('../images/takeover-bg.png') 0 0 repeat-x;
+}
+.waist.takeover .row {
+  margin-top: 5px;
+}
+.waist.takeover .takeover-wrapper {
+  margin: 15px 0;
+}
+.waist.takeover .banner {
+  margin: 0 10px 23px 0;
+}
+.waist.takeover .post-wrapper {
+  min-height: 463px;
+}
+.waist.takeover .post-wrapper img {
+  width: 303px;
+  height: 288px;
+}
+.waist.takeover .post-wrapper.small {
+  min-height: 218px;
+  padding: 0 10px;
+}
+.waist.takeover .post-wrapper.small img {
+  width: 283px;
+  height: 144px;
+}
+.waist.takeover .post-wrapper.small .content-wrapper {
+  min-height: 48px;
+}
+.waist.takeover .post-wrapper.second-post {
+  margin-bottom: 27px;
+}
+.waist.takeover .post-wrapper .content-wrapper {
+  background: #002a40;
+  padding: 13px 15px;
+  color: #fff;
+  min-height: 149px;
+}
+.waist.takeover .post-wrapper a {
+  display: block;
+}
+.waist.takeover .post-wrapper h2 {
+  font-size: 20px;
+  line-height: 1.2em;
+}
+.waist.takeover .post-wrapper p {
+  font-size: 16px;
+  margin: 5px 0 0;
+}
+.waist.takeover .home-ads.bottom {
+  margin: 49px 0 0;
+}

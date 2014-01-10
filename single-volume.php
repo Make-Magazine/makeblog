@@ -121,42 +121,60 @@ get_header(); ?>
 									}
 
 									$parent = $post->ID;
-									
-									$args = array(
-										'post_type'			=> 'errata',
-										'title'				=> 'Before You Start',
-										'post_parent'		=> $parent,
-										'order'				=> 'asc',
-									);
-									echo make_magazine_toc( $args );
-									
-									$args = array(
-										'post_type' 		=> 'review',
-										'title'			 	=> 'Reviews',
-										'post_parent'		=> $parent,
-										'order' 			=> 'asc',
-										);
-									echo make_magazine_toc($args);
 
-									$args = array(
-										'post_type' 		=> 'magazine',
-										'title'			 	=> 'Articles',
-										'post_parent'		=> $parent,
-										'order' 			=> 'asc',
-										);
-									echo make_magazine_toc($args);
-
-									$args = array(
-										'post_type'			=> 'projects',
-										'title'				=> 'Projects',
-										'post_parent'		=> $parent,
-										'order'				=> 'asc',
-										);
-									echo make_magazine_toc($args);
 								?>
-								
-								<?php echo make_magazine_errata('Web Extras'); ?>
 
+								<div class="tabbable">
+									<ul class="nav nav-tabs">
+										<li class=""><a href="#errata" data-toggle="tab">Before You Start</a></li>
+										<li class="active"><a href="#projects" data-toggle="tab">Projects</a></li>
+										<li class=""><a href="#reviews" data-toggle="tab">Reviews</a></li>
+										<li class=""><a href="#articles" data-toggle="tab">Articles</a></li>
+										<li class=""><a href="#extras" data-toggle="tab">Web Extras</a></li>
+									</ul>
+									<div class="tab-content">
+										<div class="tab-pane active" id="projects">
+											<?php $args = array(
+												'post_type'			=> 'projects',
+												'title'				=> 'Projects',
+												'post_parent'		=> $parent,
+												'order'				=> 'asc',
+												);
+											echo make_magazine_toc($args); ?>
+										</div>
+										<div class="tab-pane" id="errata">
+											<?php $args = array(
+												'post_type'			=> 'errata',
+												'title'				=> 'Before You Start',
+												'post_parent'		=> $parent,
+												'order'				=> 'asc',
+											);
+											echo make_magazine_toc( $args ); ?>
+										</div>
+										<div class="tab-pane" id="reviews">
+											<?php $args = array(
+												'post_type' 		=> 'review',
+												'title'			 	=> 'Reviews',
+												'post_parent'		=> $parent,
+												'order' 			=> 'asc',
+												);
+											echo make_magazine_toc( $args ); ?>
+										</div>
+										<div class="tab-pane" id="articles">
+											<?php $args = array(
+												'post_type' 		=> 'magazine',
+												'title'			 	=> 'Articles',
+												'post_parent'		=> $parent,
+												'order' 			=> 'asc',
+												);
+											echo make_magazine_toc( $args ); ?>
+										</div>
+										<div class="tab-pane" id="extras">
+											<?php echo make_magazine_errata('Web Extras'); ?>
+										</div>
+									</div>
+								</div>
+								
 								<div class="clear"></div>
 							
 							</article>

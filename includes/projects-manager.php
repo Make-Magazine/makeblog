@@ -34,7 +34,7 @@
 	 *
 	 * @version 1.0
 	 */
-	function make_magazine_projects_add_scripts() {
+	function make_magazine_projects_add_scripts( $hook ) {
 		if(is_admin() && ('projects' == get_post_type())) {
 			wp_enqueue_media();
 			wp_enqueue_script( 'make-projects-custom-js', get_stylesheet_directory_uri() . '/js/projects-manager.js', array('jquery' ), '1.0' );
@@ -43,9 +43,13 @@
 			wp_localize_script( 'make-projects-custom-js', 'make_projects_js', array(
 				'stylesheet_uri' => get_stylesheet_directory_uri(),
 			) );
+
+			if ( $hook == 'post.php' ) {
+				wp_enqueue_script( 'make-project-savepost', get_stylesheet_directory_uri() . '/js/project-savepost.js', array( 'jquery' ), '1.0' );
+			}
 		}
 	}
-	add_action('admin_print_scripts', 'make_magazine_projects_add_scripts');
+	add_action('admin_enqueue_scripts', 'make_magazine_projects_add_scripts');
 
 
 	/**
@@ -414,30 +418,29 @@
 
 
 	/**
-	 * Save our metaboxes into the databse. First we need to format the data to match the returned data in make_magazine_get_project_data()
-	 * @param  Int $post_id Returns the $post->ID
-	 * @return void
+	 * The function to process the steps data submitted from the projects post type
+	 * @param  array $_POST The data passed from the edit window
+	 * @return array
 	 *
-	 * @version 1.0
+	 * @since  Iron Giant
 	 */
-	function make_magazine_projects_save_step_manager( $post_id ) {
-		if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) return;
-		if ( ! isset( $_POST['meta_box_nonce'] ) || ! wp_verify_nonce( $_POST['meta_box_nonce'], 'make-mag-projects-metabox-nonce' ) ) return;
-		if ( ! current_user_can( 'edit_post', $post_id ) ) return;
+	function make_magazine_projects_build_step_data( $data ) {
 
+		// Make sure we are actually passing an array or else things break.
+		if ( ! is_array( $data ) )
+			return false;
 
-		//////////////////////////
-		// STEPS
-		for ( $i = 1; $i <= intval( $_POST['total-steps'] ); $i++ ) {
+		// Process the data into the right data format for saving.
+		for ( $i = 1; $i <= intval( $data['total-steps'] ); $i++ ) {
 			// Define a new $step array. Other wise, we'll end up getting duplicate content...
 			$step = array();
 
 			// Add our title to the object
-			$step['title'] = wp_filter_post_kses( $_POST[ 'step-title-' . $i ] );
+			$step['title'] = wp_filter_post_kses( $data[ 'step-title-' . $i ] );
 
 			// Create the lines array and contain each line as an object in the Steps object
 			$int = 0;
-		 	foreach( $_POST[ 'step-lines-' . $i ] as $line ) {
+		 	foreach( $data[ 'step-lines-' . $i ] as $line ) {
 				$step['lines'][] = (object) array(
 					'text'     => wp_filter_post_kses( $line ),
 					'text_raw' => wp_filter_post_kses( $line ),
@@ -453,11 +456,11 @@
 			// Set our images array and contain each image as an object in the Steps object
 			$int = 0;
 			
-			foreach( $_POST[ 'step-images-' . $i ] as $image ) {
+			foreach( $data[ 'step-images-' . $i ] as $image ) {
 				
 				$image_url = ( ! empty( $image ) ) ? esc_url_raw( $image ) : '';
 				$step['images'][ $int ] = (object) array(
-					'imageid' => $post_id,
+					'imageid' => absint( $data['post_ID'] ),
 					'orderby' => $int,
 					'text'    => $image_url
 				);
@@ -465,92 +468,204 @@
 			}
 
 			// Count the number of Steps set in the step manager and save that number
-			$step['number'] = intval( $_POST[ 'step-number-' . $i ] );
+			$step['number'] = intval( $data[ 'step-number-' . $i ] );
 
 			// Contain the whole $steps array into an object
 			$step_object[] = (object) $step;
-
 		}
 
-		// Update our post meta for Steps if any exist
-		if ( isset( $step_object ) )
-			update_post_meta( $post_id, 'Steps', $step_object );
+		if ( isset( $step_object ) ) {
+			return $step_object;
+		} else {
+			return null;
+		}
+	}
 
 
-		///////////////////////
-		// PARTS
-		$post_meta = get_post_meta( $post_id, 'parts' );
+	/**
+	 * The function to process the parts data submitted from the projects post type
+	 * @param  array $_POST The data passed from the edit window
+	 * @return array
+	 *
+	 * @since  Iron Giant
+	 */
+	function make_magazine_projects_build_parts_data( $data ) {
+
+		if ( ! is_array( $data ) )
+			return false;
+
+		// Start by fetching the post meta first.
+		$post_meta = get_post_meta( absint( $data['post_ID'] ), 'parts' );
 
 		// If our data exists, delete it, otherwise, we'll get dupes.
 		if ( ! empty( $post_meta ) || is_array( $post_meta ) )
-			delete_post_meta( $post_id, 'parts' );
+			delete_post_meta( absint( $data['post_ID'] ), 'parts' );
+
+		// Yo dawg, I heard you like arrays so we put your parts array inside a parts array so you can parts array while you parts array!
+		$parts_array = array();
 
 		// Loop through all of our parts.
-		for ( $i = 1; $i <= intval( $_POST['total-parts'] ); $i++ ) {
+		for ( $i = 1; $i <= intval( $data['total-parts'] ); $i++ ) {
 			// Define a new $parts array. Other wise, we'll end up getting duplicate content...
 			$parts = array();
 
 			// Check if old data exists and add it to the array
-			if ( isset( $_POST['part_id-' . $i ] ) )
-				$parts['part_id'] = intval( $_POST['part_id-' . $i ] );
+			if ( isset( $data['part_id-' . $i ] ) )
+				$parts['part_id'] = intval( $data['part_id-' . $i ] );
 
 			// Add the sort number. This is used to display the parts in the correct order.
-			$parts['order'] = absint( $_POST['part-number-' . $i ] );
+			$parts['order'] = absint( $data['part-number-' . $i ] );
 
 			// Add our Name to the array
-			$parts['text'] = wp_filter_post_kses( $_POST[ 'parts-name-' . $i ] );
+			$parts['text'] = wp_filter_post_kses( $data[ 'parts-name-' . $i ] );
 
 			// Add our Notes to the array
-			$parts['notes'] = wp_filter_post_kses( $_POST[ 'parts-notes-' . $i ] );
+			$parts['notes'] = wp_filter_post_kses( $data[ 'parts-notes-' . $i ] );
 
 			// Add our Type to the array
-			$parts['type'] = wp_filter_post_kses( $_POST[ 'parts-type-' . $i ] );
+			$parts['type'] = wp_filter_post_kses( $data[ 'parts-type-' . $i ] );
 
 			// Add our Quantity to the array
-			$parts['quantity'] = ( isset( $_POST[ 'parts-qty-' . $i ] ) ) ? intval( $_POST[ 'parts-qty-' . $i ] ) : '';
+			$parts['quantity'] = ( isset( $data[ 'parts-qty-' . $i ] ) ) ? intval( $data[ 'parts-qty-' . $i ] ) : '';
 
 			// Add our URL to the array
-			$parts['url'] = esc_url_raw( $_POST[ 'parts-url-' . $i ] );
+			$parts['url'] = esc_url_raw( $data[ 'parts-url-' . $i ] );
 
 			// Check if old data exists and add it to the array
-			if ( isset( $_POST['pid-' . $i ] ) )
-				$parts['pid'] = intval( $_POST['pid-' . $i ] );
+			if ( isset( $data['pid-' . $i ] ) )
+				$parts['pid'] = intval( $data['pid-' . $i ] );
 
 			// Check if old data exists and add it to the array
-			if ( isset( $_POST['post_ID-' . $i ] ) )
-				$parts['post_ID'] = intval( $_POST['post_ID-' . $i ] );
+			if ( isset( $data['post_ID-' . $i ] ) )
+				$parts['post_ID'] = intval( $data['post_ID-' . $i ] );
 
 			// Save each part as a new post meta with matching keys. Unlike Steps and Tools, we need a new key for every part...
-			add_post_meta( $post_id, 'parts', $parts );
+			array_push( $parts_array, $parts );
 		}
 
+		return $parts_array;
+	}
 
-		////////////////////
-		// TOOLS
-		for ( $i = 1; $i <= intval( $_POST['total-tools'] ); $i++ ) {
+
+	/**
+	 * The function to process the tools data submitted from the projects post type
+	 * @param  array $_POST The data passed from the edit window
+	 * @return array
+	 *
+	 * @since  Iron Giant
+	 */
+	function make_magazine_projects_build_tools_data( $data ) {
+
+		if ( ! is_array( $data ) )
+			return false;
+
+		for ( $i = 1; $i <= intval( $data['total-tools'] ); $i++ ) {
 			// Define a new $tools array. Other wise, we'll end up getting duplicate content...
 			$tools = array();
 
 			// Add our Name to the array
-			$tools['text'] = wp_filter_post_kses( $_POST[ 'tools-name-' . $i ] );
+			$tools['text'] = wp_filter_post_kses( $data[ 'tools-name-' . $i ] );
 
 			// Add our Notes to the array
-			$tools['notes'] = wp_filter_post_kses( $_POST[ 'tools-notes-' . $i ] );
+			$tools['notes'] = wp_filter_post_kses( $data[ 'tools-notes-' . $i ] );
 
 			// Add our URL to the array
-			$tools['url'] = esc_url( $_POST[ 'tools-url-' . $i ] );
+			$tools['url'] = esc_url( $data[ 'tools-url-' . $i ] );
 
 			// Add our Thumbnail to the array
-			$tools['thumbnail'] = esc_url_raw( $_POST[ 'tools-thumb-' . $i ] );
+			$tools['thumbnail'] = esc_url_raw( $data[ 'tools-thumb-' . $i ] );
 
 			// Contain the whole $steps array into an object
 			$tools_object[] = (object) $tools;
 		}
 
+		if ( isset( $tools_object ) ) {
+			return $tools_object;
+		} else {
+			return null;
+		}
+	}
+
+
+	/**
+	 * Save our metaboxes into the databse. First we need to format the data to match the returned data in make_magazine_get_project_data()
+	 * @param  Int $post_id Returns the $post->ID
+	 * @return void
+	 *
+	 * @version 1.1
+	 */
+	function make_magazine_projects_save_step_manager( $post_id ) {
+		if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) return;
+		if ( ! isset( $_POST['meta_box_nonce'] ) || ! wp_verify_nonce( $_POST['meta_box_nonce'], 'make-mag-projects-metabox-nonce' ) ) return;
+		if ( ! current_user_can( 'edit_post', absint( $post_id ) ) ) return;
+
+
+		//////////////////////////
+		// STEPS
+		$step_object = make_magazine_projects_build_step_data( $_POST );
+
+		// Update our post meta for Steps if any exist
+		update_post_meta( absint( $post_id ), 'Steps', $step_object );
+
+
+		///////////////////////
+		// PARTS
+		$parts = make_magazine_projects_build_parts_data( $_POST );
+		
+		foreach ( $parts as $part ) {
+			add_post_meta( absint( $post_id ), 'parts', $part );
+		}
+
+		////////////////////
+		// TOOLS
+		$tools_object = make_magazine_projects_build_tools_data( $_POST );
+
 		// Update our post meta for Steps. Unlike Parts and Tools, we want one meta key.
-		if ( isset( $tools_object ) )
-			update_post_meta( $post_id, 'Tools', $tools_object );
+		update_post_meta( absint( $post_id ), 'Tools', $tools_object );
 
 	}
-	add_action('save_post', 'make_magazine_projects_save_step_manager');
+	add_action( 'save_post', 'make_magazine_projects_save_step_manager' );
 
+
+	/**
+	 * Autosave our post meta.
+	 * Since the core of our projects 
+	 * @return void
+	 *
+	 * @since  Iron Giant
+	 */
+	function make_magazine_projects_autosave_step_manager() {
+
+		// The post content is returned as a query string, let's convert that to an array
+		parse_str( $_POST['post'], $_POST );
+
+		if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) return;
+		if ( ! isset( $_POST['meta_box_nonce'] ) || ! wp_verify_nonce( $_POST['meta_box_nonce'], 'make-mag-projects-metabox-nonce' ) ) return;
+		if ( ! current_user_can( 'edit_post', absint( $_POST['post_ID'] ) ) ) return;
+
+		//////////////////////////
+		// STEPS
+		$step_object = make_magazine_projects_build_step_data( $_POST );
+		
+		// Update our post meta for Steps if any exist
+		update_post_meta( absint( $_POST['post_ID'] ), 'Steps', $step_object );
+
+
+		///////////////////////
+		// PARTS
+		$parts = make_magazine_projects_build_parts_data( $_POST );
+		
+		foreach ( $parts as $part ) {
+			add_post_meta( absint( absint( $_POST['post_ID'] ) ), 'parts', $part );
+		}
+
+		////////////////////
+		// TOOLS
+		$tools_object = make_magazine_projects_build_tools_data( $_POST );
+
+		// Update our post meta for Steps. Unlike Parts and Tools, we want one meta key.
+		update_post_meta( absint( $_POST['post_ID'] ), 'Tools', $tools_object );
+
+		die( json_encode( 'Setps, Parts and Tools Autosaved.' ) );
+	}
+	add_action( 'wp_ajax_projects_save_step_manager', 'make_magazine_projects_autosave_step_manager' );

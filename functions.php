@@ -156,7 +156,10 @@ include_once dirname( __FILE__ ) . '/includes/search/search.php';
 // 43. Maker Shed Functions
 include_once dirname( __FILE__ ) . '/includes/shed/shed.php';
 
-// 44. Bootstrap Navbar Walker
+// 44. Home Take Over - Theme Customizer API
+include_once dirname( __FILE__ ) . '/includes/theme-customizer/takeover.php';
+
+// 45. Bootstrap Navbar Walker
 include_once dirname( __FILE__ ) . '/includes/bootstrap-walker.php';
 
 

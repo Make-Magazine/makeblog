@@ -15,17 +15,11 @@ make_get_header() ?>
 
 			<div class="row">
 
-				<div class="span8 add30">
+				<div class="span8 add30" id="content">
 					
 					<?php // create a new custom query so we can return posts, 
-						$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
-						$query = new WP_Query( array(
-							'post_type' => array( 'post', 'projects', 'review', 'video', 'magazine' ),
-							'paged' => $paged,
-							'tag__not_in' => array( 5183, 22815, 9947 ),
-						) );
 
-						if ( $query->have_posts() ) : while ( $query->have_posts() ) : $query->the_post(); ?>
+						if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 				
 					<div class="projects-masthead">
 						<h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
@@ -62,22 +56,7 @@ make_get_header() ?>
 					
 					</article>
 
-					<?php endwhile; ?>
-					
-					<ul class="pager">
-							
-						<li class="previous"><?php previous_posts_link('&larr; Previous Page'); ?></li>
-						<li class="next"><?php next_posts_link('Next Page &rarr;'); ?></li>
-					
-					</ul>
-
-					<?php if (function_exists('make_featured_products')) { make_featured_products(); } ?>
-
-					<div class="comments">
-						<?php comments_template(); ?>
-					</div>
-					
-					<?php else: ?>
+					<?php endwhile; else: ?>
 					
 						<p><?php _e('Sorry, no posts matched your criteria.'); ?></p>
 					

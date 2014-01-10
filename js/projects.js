@@ -163,5 +163,21 @@ jQuery(document).ready(function(){
 		// Disable our event listener
 		jQuery( document ).off( 'keydown' );
 	});
+	( function( $ ) {
+		$( document.body ).on( 'post-load', function () {
+			googletag.pubads().refresh();
+			_gaq.push(['_trackPageview']);
+			} );
+	} )( jQuery );
 
+	( function( $ ) {
+		$( document.body ).on( 'post-load', function () {
+			googletag.pubads().refresh();
+			_gaq.push(['_trackPageview']);
+			} );
+	} )( jQuery );
+	
+	jQuery('.print-page').on('click', function() {
+		window.print();
+	});
 });

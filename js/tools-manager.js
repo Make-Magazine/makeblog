@@ -23,6 +23,12 @@ jQuery(document).ready(function($) {
 		// Append our cloned template item into the bottom of our current ul#sub-lists.
 		clone.appendTo($(this).parent()).slideDown().find('.tool-title h3').html('Tool ' + num);
 
+		// Update our tool number field
+		$('#tool-' + num + ' > input[type="hidden"]').attr({
+			name: 'tool-number-' + num,
+			value: num
+		});
+
 		// Update the the number in the name field
 		$('#tool-' + num + ' input[name="tools-name-0"]').attr('name', 'tools-name-' + num);
 

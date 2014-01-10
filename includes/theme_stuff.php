@@ -41,11 +41,11 @@ function make_action_after_setup_theme() {
 	add_image_size( 'p2', 290, 180, true );							// Used as the top right featured images on home page.
 	add_image_size( 'maker-week-home', 620, 400, true );			// Used on Maker Week take over page.
 	add_image_size( 'maker-week-thumb', 145, 110, true );			// Used on Maker Week take over page sidebar.
-	add_image_size( 'weekly-takeover-main', 268, 248, true );		// Used on the Weekly Take-Over layout on the home page.
-	add_image_size( 'weekly-takeover-secondary', 268, 175, true );  // Used on the Weekly Take-Over layout on the home page.
 	add_image_size( 'search-thumb', 110, 85, true );  				// Used on the Search page
 	add_image_size( 'slideshow-thumb', 620, 400 );  				// Used on the Huff-Po style slideshow
-	add_image_size( 'slideshow-small-thumb', 60, 60, true );  			// Used on the Huff-Po style thumbs
+	add_image_size( 'slideshow-small-thumb', 60, 60, true );  		// Used on the Huff-Po style thumbs
+	add_image_size( 'takeover-featured', 303, 288, true );			// Used on the Takeover design in the Theme Customizer
+	add_image_size( 'takeover-thumb', 283, 144, true );				// Used on the Takeover design in the Theme Customizer
 
 	/**
 	  * Depracated image sizes.
@@ -65,7 +65,9 @@ function make_action_after_setup_theme() {
 	// Custom Backgrounds
 	add_theme_support( 'custom-background' );
 	//Infinite Scroll!
-	//add_theme_support( 'infinite-scroll', 'content' );
+	add_theme_support( 'infinite-scroll', array(
+		'container' => 'content',
+	) );
 	add_theme_support( 'automatic-feed-links' );
 
 	if ( array('volume', 'project' ) == get_post_type() ) {
@@ -233,10 +235,14 @@ add_filter( 'wp_feed_cache_transient_lifetime', create_function( '$a', 'return 9
  *
  * @version  1.1
  */
-function make_enqueue_jquery() {
+function make_load_resources() {
 	// To ensure CSS files are downloaded in parallel, always include CSS before JavaScript.
 	wp_enqueue_style( 'make-css', get_stylesheet_directory_uri() . '/css/style.css' );
 	wp_enqueue_style( 'make-print', get_stylesheet_directory_uri() . '/css/print.css', array(), false, 'print' );
+
+	// Load our takeover default styles when it is enabled
+	if ( get_theme_mod( 'make_enable_takeover' ) === 'on' )
+		wp_enqueue_style( 'make-takeover', get_stylesheet_directory_uri() . '/css/takeover.css' );
 
 	// Load our common scripts first. These should not require jQuery
 	wp_enqueue_script( 'make-typekit', 'http://use.typekit.com/fzm8sgx.js', array() );
@@ -255,7 +261,7 @@ function make_enqueue_jquery() {
 	if ( is_page( 315793 ) )
 		wp_enqueue_script( 'make-sort-table', get_stylesheet_directory_uri() . '/js/jquery.tablesorter.min.js', array( 'jquery' ), false, true );
 }
-add_action( 'wp_enqueue_scripts', 'make_enqueue_jquery' );
+add_action( 'wp_enqueue_scripts', 'make_load_resources' );
 
 
 /**
@@ -569,8 +575,15 @@ function make_get_category_name_strip_slash() {
  * @return string Main category name.
  */
 function make_add_custom_types( $query ) {
-	if ( ! is_admin() && $query->is_main_query() && ( $query->is_tag() || $query->is_author() || $query-> is_tax() ) && empty( $query->query_vars['suppress_filters'] ) ) {
-		$query->set( 'post_type', array( 'post', 'craft', 'projects', 'video', 'review', 'magazine' ));
+	if ( ! is_admin() && $query->is_main_query() && ( $query->is_tag() || $query->is_author() || $query->is_tax() || $query->is_home() ) && empty( $query->query_vars['suppress_filters'] ) ) {
+
+		// don't load craft posts on the home.php
+		if ( is_home() ) {
+			$query->set( 'post_type', array( 'post', 'projects', 'video', 'review', 'magazine' ) );
+		} else {
+			$query->set( 'post_type', array( 'post', 'craft', 'projects', 'video', 'review', 'magazine' ) );
+		}
+		
 		return $query;
 	}
 }
@@ -1572,29 +1585,6 @@ function make_remove_metaboxes_for_authors() {
 		// Remove Parts Taxonomy
 		remove_meta_box( 'tagsdiv-parts', 'projects', 'side' );
 
-		// Remove Disscussion
-		remove_meta_box( 'commentstatusdiv', 'post', 'normal' );
-		remove_meta_box( 'commentstatusdiv', 'projects', 'normal' );
-		remove_meta_box( 'commentstatusdiv', 'magazine', 'normal' );
-		remove_meta_box( 'commentstatusdiv', 'review', 'normal' );
-		remove_meta_box( 'commentstatusdiv', 'craft', 'normal' );
-		remove_meta_box( 'commentstatusdiv', 'video', 'normal' );
-
-		// Remove Send Trackbacks
-		remove_meta_box( 'trackbacksdiv', 'post', 'normal' );
-		remove_meta_box( 'trackbacksdiv', 'projects', 'normal' );
-		remove_meta_box( 'trackbacksdiv', 'magazine', 'normal' );
-		remove_meta_box( 'trackbacksdiv', 'review', 'normal' );
-		remove_meta_box( 'trackbacksdiv', 'craft', 'normal' );
-		remove_meta_box( 'trackbacksdiv', 'video', 'normal' );
-
-		// Remove Likes and Shares
-		remove_meta_box( 'likes_meta', 'post', 'advanced' );
-		remove_meta_box( 'likes_meta', 'projects', 'advanced' );
-		remove_meta_box( 'likes_meta', 'magazine', 'advanced' );
-		remove_meta_box( 'likes_meta', 'review', 'advanced' );
-		remove_meta_box( 'likes_meta', 'craft', 'advanced' );
-		remove_meta_box( 'likes_meta', 'video', 'advanced' );
 	}
 }
 add_action( 'do_meta_boxes', 'make_remove_metaboxes_for_authors' );
@@ -1633,6 +1623,10 @@ function make_generate_title_tag() {
 function make_generate_description() {
 	global $post;
 	if ( is_single() ) {
+		if ( empty ($post->post_content) ) {
+			$fallback_content = get_post_meta ( absint( $post->ID ), 'Description' , true );
+			return esc_attr( wp_trim_words( htmlspecialchars( wp_kses( strip_shortcodes( $fallback_content ), array() ) ), 20 ) );
+		}
 		return esc_attr( wp_trim_words( htmlspecialchars( wp_kses( strip_shortcodes( $post->post_content ), array() ) ), 20 ) );
 	} else {
 		return esc_attr( get_bloginfo('name') . " - " . get_bloginfo('description') );

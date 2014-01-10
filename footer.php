@@ -31,16 +31,12 @@
 		<section id="footer" class="new-footer">
 			<div class="container">
 				<div class="row">
-					<div class="top-links">
-						<div class="logo">
-							<a href="<?php echo esc_url( home_url() ); ?>" title="MAKE Magazine"><img src="<?php echo get_stylesheet_directory_uri(); ?>/img/make-160-footer.png" alt="MAKE Logo"></a>
-						</div>
-						<div class="digital-link sub-link">
-							<h5><a href="http://make-digital.com/" target="_blank" title="Read the Digital Editon of Make Magazine"><img src="http://makezineblog.files.wordpress.com/2013/07/digital-book-foot.png" alt="Make Digital Book"> Read Digital Edition</a></h5>
-						</div>
-						<div class="shed-link sub-link">
-							<h5><a href="http://www.makershed.com/" target="_blank" title="Shop Maker Shed"><img class="footer-cart-image" src="http://makezineblog.files.wordpress.com/2013/11/makershed_footer1.png" alt="Shop Maker Shed"> Shop Maker Shed</a></h5>
-						</div>
+					<div class="span12 logo" >
+						<img class="footer_logo" src="<?php echo get_stylesheet_directory_uri(); ?>/img/make-logo.png" alt="MAKE Logo">	
+						<a href="http://make-digital.com/" target="_blank"><div class="sprite sprite-digital-book-foot"></div></a>
+						<h5><a href="http://make-digital.com/" target="_blank">Read Digital Edition</a></h5>
+						<a href="http://www.makershed.com/" target="_blank"><div class="sprite sprite-makershed_footer1"></div></a> 
+						<h5><a href="http://www.makershed.com/" target="_blank">Shop Maker Shed</a></h5>
 					</div>
 					<div class="clear"></div>
 				<!-- END row -->
@@ -102,33 +98,28 @@
 								</ul>
 							</div>
 						</div>
-						<div class="socialArea">
-							<ul class="soci">
-								<li><a href="http://twitter.com/make" target="_blank" title="Follow MAKE on Twitter"><img src="http://s2.wp.com/wp-content/themes/vip/makeblog/img/twitter.png?m=1351191030g" alt="Make on Twitter"></a></li>
-								<li><a href="http://youtube.com/make" target="_blank" title="Subscribe to MAKE on YouTube"><img src="http://s2.wp.com/wp-content/themes/vip/makeblog/img/youtube.png?m=1347432875g" alt="Make on YouTube"></a></li>
-								<li><a href="http://pinterest.com/makemagazine/" target="_blank" title="Pin MAKE on Pintrest"><img src="http://s2.wp.com/wp-content/themes/vip/makeblog/img/pinterest.png?m=1351191030g" alt="Make on Pintrest"></a></li>
-								<li><a href="http://www.flickr.com/groups/make/" target="_blank" title="View MAKE Flickr"><img src="http://s2.wp.com/wp-content/themes/vip/makeblog/img/flickr.png?m=1347432875g" alt="Make on Flickr"></a></li>
-								<li><a href="http://facebook.com/makemagazine" target="_blank" title="Like MAKE on Facebook"><img src="http://s2.wp.com/wp-content/themes/vip/makeblog/img/facebook.png?m=1347432875g" alt="Make on Facebook"></a></li>
-								<li><a href="http://www.stumbleupon.com/to/stumble/stumblethru:makezine.com?utm_source=Makezine&amp;utm_medium=StumbleThru&amp;utm_campaign=StumbleThruButton" target="_blank" title="Stumble MAKE on StumbleUpon"><img src="http://s2.wp.com/wp-content/themes/vip/makeblog/img/stumbleupon.png?m=1351191030g" alt="Stumble Make Magazine"></a></li>
-								<li><a href="http://instagram.com/makemagazine" target="_blank" title="View MAKE on Instagram"><img src="http://makezineblog.files.wordpress.com/2012/12/instagram.png" alt="MAKE on Instagram"></a></li>
-								<li><a href="https://google.com/+MAKE/" target="_blank" title="Connect with MAKE on Google+"><img src="http://s2.wp.com/wp-content/themes/vip/makeblog/img/google-plus.png?m=1347432875g" alt="MAKE on Google+"></a></li>
-							</ul>
+						<div class="clearfix"></div>
+						<div class="soc_icons">
+							<a class="sprite sprite-twitter"  href="http://twitter.com/make" title="Twitter" target="_blank"></a>
+							<a class="sprite sprite-youtube" href="http://youtube.com/make" title="Youtube" target="_blank"></a>
+							<a class="sprite sprite-pinterest" href="http://pinterest.com/makemagazine/" title="Pinterest" target="_blank"></a>
+							<a class="sprite sprite-flickr" href="http://www.flickr.com/groups/make/" title="Flickr" target="_blank"></a>
+							<a class="sprite sprite-facebook" href="http://facebook.com/makemagazine" title="Facebook" target="_blank"></a>
+							<a class="sprite sprite-stumbleupon" href="http://www.stumbleupon.com/to/stumble/stumblethru:makezine.com?utm_source=Makezine&amp;utm_medium=StumbleThru&amp;utm_campaign=StumbleThruButton" title="Stumbleupon" target="_blank"></a>
+							<a class="sprite sprite-instagram" href="http://www.instagram.com/makemagazine" title="Instagram" target="_blank"></a>
+							<a class="sprite sprite-google-plus" href="https://google.com/+MAKE/" title="Google+" target="_blank"></a>
 						<!-- END socialArea -->
 						</div> 
 					<!-- END span3 about-us -->
 					</div>
 					<div class="span3 subscribe">
-						<div class="top-border row-fluid">
-							<div class="footer-content">
-								<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/arrow-footer.png" width="80" height="48" id="mag-arrow" class="hidden-sm hidden-xs">
-								<h5 class="header">Subscribe to MAKE!</h5>
-								<p>Get the print and digital versions when you subscribe</p>
-								<hr class="hidden-sm hidden-xs" />
-							</div>
-							<div class="footer-image">
-								<a href="https://www.pubservice.com/MK/subscribe.aspx?PC=MK&amp;PK=M3AMZB" target="_blank" title="Subscribe to MAKE for the latest copy of the magazine!"><img src="<?php echo get_stylesheet_directory_uri(); ?>/img/footer-make-cover.gif" alt="MAKE Magazine Cover" width="115" height="163" id="mag-cover"></a>
-							</div>
-						</div>
+						<a href="https://www.pubservice.com/MK/subscribe.aspx?PC=MK&amp;PK=M3AMZB" target="_blank">
+							<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/footer-make-cover.gif" alt="MAKE Magazine Cover" width="115" height="163" id="mag-cover">
+						</a>
+						<div class="sprite sprite-arrow-footer"></div>
+						<h5>Subscribe to MAKE!</h5>
+						<p class="p_footer">Get the print and digital versions when you subscribe</p>
+						<hr class="hidden-sm hidden-xs" />
 					<!-- END span subscribe -->
 					</div>
 				<!-- END MAIN row (main) -->

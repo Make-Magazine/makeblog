@@ -35,8 +35,16 @@ h3 {
 }
 
 body ul li{
-	font-size:16px;
+	font-size: 16px;
     line-height: 140%;
+}
+
+article ul li {
+	font-size: 18px;
+}
+
+.row.volume {
+	margin-bottom:30px;
 }
 
 // Top ad div
@@ -573,10 +581,16 @@ footer {
 	}
 
 
+.footer_logo {
+	margin-right: 5px;
+    margin-top: 8px;
+    max-width: 140px!important;
+} 
+
 //This class is to keep some pages from inheriting the wrong giant font in the footer.
 .p_footer {
 	font-size: 14px !important;
-	line-height: 20px !important;
+	line-height: 22px !important;
 	margin-bottom: 5px;
 }
 
@@ -853,7 +867,9 @@ footer .pills a {
 }
 .commentlist .children li.comment .comment-meta {
 	line-height: 1.625em;
-	margin-left: 50px;
+	.comment-author {
+		margin-left:50px;
+	}
 }
 .commentlist .children li.comment .comment-content {
 	margin: 1.625em 0 0;
@@ -2123,7 +2139,6 @@ body#shop {
 	text-shadow:0px 0px 0px #fff !important;
 }
 
-
 // HEADER MAIN BLOG LINK
 
 .hoa {
@@ -2213,47 +2228,6 @@ color:green;
 #make-money .container .row:first-child {padding-bottom:10px;}
 
 #make-money .container .row .span5 {padding-top:10px;}
-
-
-// Pro Page Category Subscritpion
-.pro-title-area {margin-left:0;}
-
-.pro-newsletter {margin-left:0;padding-left:0;width:285px;margin-top:-28px;float:right;}
-
-.pro-newsletter p{line-height: 1.2em;margin-bottom:8px;}
-
-.pro-newsletter form {margin:0;}
-
-.pro-newsletter label {
-    display: block;
-    margin-bottom: 0;
-    margin-top:0;
-}
-
-.pro-newsletter input.span2, .pro-newsletter textarea.span2, .pro-newsletter .uneditable-input.span2 {
-    width: 185px;
-}
-
-
-.pro-newsletter .email-area .btn {
-	font-weight:400;
-	font-size:18px;
-	border-radius: 0;
-	height:26px;
-	padding-top:2px;
-	border: 1px solid #ccc;  
-	box-shadow: none;
-}
-
-.pro-newsletter .email-area #appendedInputButton{
-	border-radius: 0;
-	height:16px;
-}
-
-.pro-newsletter .email-area #appendedInputButton {
-    border-radius: 0 0 0 0;
-    height: 16px;
-}
 
 .footer-ad {
 	padding:30px 0;
@@ -2565,4 +2539,111 @@ color:green;
 			margin-top: 0;
 			margin-bottom: 3px;
 		}
+}
+
+// CONTEXTLY STYLE FIXES
+.ctx_widget {
+	.ctx_around_site {
+		border-radius: 4px !important;
+		border: 1px solid #e3e3e3;
+	}
+	.ctx_blocks_widget2 {
+		.ctx_subhead {
+			background-color: transparent !important;
+		}	
+		.ctx_link {
+			font-size: 13px !important;
+			line-height: 16px !important;
+			span {
+				color: rgb(0, 93, 143) !important;
+				font-weight: bold !important;
+				font-family: proxima-nova, sans-serif !important;
+			}
+		}
+		.ctx_subhead_title {
+			padding: 1% 0 !important;
+			color: #ed1c24 !important;
+			text-transform:uppercase !important;
+			font-family: proxima-nova, sans-serif !important;
+			font-weight: bold !important;
+			font-size: 16px !important;
+		}
+	}
+}
+
+// SOCIAL MEDIA SPRITES
+.soc_icons {
+		margin: 0px;
+		a {
+			margin: 5px 3px 0 0;
+			width:24px;
+			height:24px;
+		    display: block;
+			float: left;
+			}
+}
+.sprite {
+		background-image:url('../images/makezine_sprites.png');
+}
+.sprite-arrow-footer { 
+	background-position: 0 0; 
+	width: 95px; 
+	height: 46px; 
+	margin: -40px 0 5px -16px;
+	border: none !important;
+} 
+.sprite-digital-book-foot { 
+	background-position: 0 -51px; 
+	width: 29px; 
+	height: 22px; 
+	float: left;
+	padding-right: 5px;
+	margin-top: 29px;
+} 
+.sprite-facebook { 
+	background-position: 0 -78px; 
+	width: 24px; 
+	height: 24px; 
+} 
+.sprite-flickr { 
+	background-position: 0 -107px; 
+	width: 24px; 
+	height: 24px; 
+} 
+.sprite-google-plus { 
+	background-position: 0 -136px; 
+	width: 24px; 
+	height: 24px; 
+} 
+.sprite-instagram { 
+	background-position: 0 -165px; 
+	width: 24px; 
+	height: 24px; 
+} 
+.sprite-makershed_footer1 { 
+	background-position: 0 -194px; 
+	width: 29px; 
+	height: 22px; 
+	float: left;
+	margin: 30px 5px 0 13px;
+} 
+.sprite-pinterest { 
+	background-position: 0 -221px; 
+	width: 24px; 
+	height: 24px; 
+} 
+.sprite-stumbleupon {  
+	background-position: 0 -274px; 
+	width: 24px; 
+	height: 24px; 
+} 
+.sprite-twitter { 
+	background-position: 0 -303px; 
+	width: 24px; 
+	height: 24px; 
+} 
+.sprite-youtube { 
+	background-position: 0 -332px; 
+	width: 24px; 
+	height: 24px; 
 }

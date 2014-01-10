@@ -1,6 +1,5 @@
 jQuery(document).ready(function($) {
 
-
 	// Add our icon class to the meta box title
 	$('#make_magazine_projects_step_manager h3.hndle').prepend('<span class="steps-ico"></span>');
 
