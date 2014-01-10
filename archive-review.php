@@ -69,7 +69,7 @@ get_header(); ?>
 							'projects_landing'	=> false,
 							'all'				=> false
 						);
-						make_carousel( $args ); ?>
+						echo make_carousel( $args ); ?>
 					
 				</div>
 				
@@ -104,7 +104,7 @@ get_header(); ?>
 							'all'				=> false,
 						);
 						
-						make_carousel($args);
+						echo make_carousel($args);
 					?>
 					
 				</div>
@@ -130,7 +130,7 @@ get_header(); ?>
 					'all'				=> false
 
 				);
-				make_carousel( $args );
+				echo make_carousel( $args );
 				echo '</div></div></div>';
 			} 
 		} 

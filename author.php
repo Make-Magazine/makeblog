@@ -136,7 +136,7 @@ make_get_header() ?>
 									),
 								);
 
-								make_carousel( $args );
+								echo make_carousel( $args );
 							?>
 							
 						</div>

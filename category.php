@@ -60,7 +60,7 @@ make_get_header(); ?>
 				<div class="span8">
 					
 					<?php
-						make_carousel( array(
+						echo make_carousel( array(
 							'category__in' => get_queried_object_id(), // Likely the queried object ID
 							'title'        => 'Featured in ' . get_queried_object()->name,
 							'limit'        => 2,
@@ -93,7 +93,7 @@ make_get_header(); ?>
 				<div class="span12">
 				
 					<?php 
-						make_carousel( array(
+						echo make_carousel( array(
 							'category__in'   => get_queried_object_id(), // Likely the queried object ID
 							'title'          => 'New in ' . get_queried_object()->name,
 							'posts_per_page' => 32,
@@ -214,7 +214,7 @@ make_get_header(); ?>
 				<div class="span12">
 				
 					<?php 
-						make_carousel( array(
+						echo make_carousel( array(
 							'category__in' => $category->term_id,
 							'title'        => null
 						) );
@@ -245,7 +245,7 @@ make_get_header(); ?>
 				<div class="span12">
 				
 					<?php
-						make_carousel( array(
+						echo make_carousel( array(
 							'cat'       => $qo_id,
 							'title'     => $qo_name . ' Videos',
 							'post_type' => 'video'
@@ -262,7 +262,7 @@ make_get_header(); ?>
 				<div class="span12">
 				
 					<?php 
-						make_carousel( array(
+						echo make_carousel( array(
 							'cat'       => $qo_id,
 							'title'     => $qo_name . ' Projects',
 							'post_type' => 'projects'
@@ -278,7 +278,7 @@ make_get_header(); ?>
 				<div class="span12">
 				
 					<?php
-						make_carousel( array(
+						echo make_carousel( array(
 							'cat'       => $qo_id,
 							'title'     => $qo_name . ' On the Blog',
 							'post_type' => 'post'
@@ -294,7 +294,7 @@ make_get_header(); ?>
 				<div class="span12">
 				
 					<?php
-						make_carousel( array(
+						echo make_carousel( array(
 							'cat'       => $qo_id,
 							'title'     => $qo_name . ' Articles',
 							'post_type' => 'magazine'
@@ -313,7 +313,7 @@ make_get_header(); ?>
 						<div class="span12">
 						
 							<?php 
-								make_carousel( array(
+								echo make_carousel( array(
 									'cat'       => $qo_id,
 									'title'     => $qo_name . ' Reviews',
 									'post_type' => 'review'
