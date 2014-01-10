@@ -21,11 +21,23 @@
 
 	</head>
 	<body <?php body_class('hiw'); ?>>
-
 		<header>
-			<?php make_popdown_menu(); ?>
+			<div class="navbar navbar-fixed-top navbar-blue">
+				<div class="navbar-inner">
+					<div class="container">
+						<a onClick="_gaq.push([\'_trackEvent\', \'Links\', \'Click\', \'Home\']);" class="brand" href="<?php echo get_home_url(); ?>">MAKE</a>
+						<ul class="nav">
+							<li><a onClick="_gaq.push([\'_trackEvent\', \'Links\', \'Click\', \'Blog\']);" href="<?php echo home_url(); ?>/blog/">Blog</a></li>
+							<li><a onClick="_gaq.push([\'_trackEvent\', \'Links\', \'Click\', \'Magazine\']);" href="<?php echo home_url(); ?>/magazine/">Magazine</a></li>
+							<li><a onClick="_gaq.push([\'_trackEvent\', \'Links\', \'Click\', \'Maker Faire\']);" href="http://makerfaire.com">Maker Faire</a></li>
+							<li><a onClick="_gaq.push([\'_trackEvent\', \'Links\', \'Click\', \'Make: Projects\']);" href="<?php echo home_url(); ?>/projects">Make: Projects</a></li>
+							<li><a onClick="_gaq.push([\'_trackEvent\', \'Links\', \'Click\', \'Maker Shed\']);" href="http://makershed.com/">Maker Shed</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>	
 		</header>
-
+		<div class="clear"></div>
 		<div class="fix">
 			<div id="header-area">      
 				<div class="container">	
