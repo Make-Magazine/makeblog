@@ -367,3 +367,34 @@ add_action( 'after_setup_theme', function() {
         ),
     ) );
 });
+
+/**
+ * Add Charbeat functions to the header
+ */
+function make_add_chartbeat_to_header() {
+	echo '<script type="text/javascript">var _sf_startpt=(new Date()).getTime()</script>';
+}
+add_filter( 'wp_head', 'make_add_chartbeat_to_header');
+
+/**
+ * Add Chartbeat to the footer
+ */
+function make_add_chartbeat_to_footer() {
+	echo "<script type=\"text/javascript\">
+		  var _sf_async_config = { uid: 53627, domain: 'makezine.com', useCanonical: true };
+			(function() {
+				function loadChartbeat() {
+				window._sf_endpt = (new Date()).getTime();
+				var e = document.createElement('script');
+				e.setAttribute('language', 'javascript');
+				e.setAttribute('type', 'text/javascript');
+				e.setAttribute('src','//static.chartbeat.com/js/chartbeat.js');
+				document.body.appendChild(e);
+		    };
+		    var oldonload = window.onload;
+		    window.onload = (typeof window.onload != 'function') ?
+				loadChartbeat : function() { oldonload(); loadChartbeat(); };
+		  })();
+		</script>";
+}
+add_filter( 'wp_footer', 'make_add_chartbeat_to_footer');
