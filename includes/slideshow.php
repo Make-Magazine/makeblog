@@ -369,7 +369,7 @@ function make_carousel( $args, $title_link = true ) {
 										update_post_meta( $post->ID, 'Image', $img );
 										$output .= '<a href="'. get_permalink( $post->ID ) . '"><img src="' . wpcom_vip_get_resized_remote_image_url( get_post_meta( $post->ID, 'Image', true ), 218, 146 ) . '" alt="' . the_title_attribute( array('echo' => false ) ) . '" /></a>';
 									} elseif ( has_post_thumbnail() ) {
-										$image = the_post_thumbnail( 'category-thumb-small' );
+										$image = get_the_post_thumbnail( 'category-thumb-small' );
 										$output .= '<a href="' . get_permalink( $post->ID ) . '">' . $image . '</a>';
 									}
 								} else {
