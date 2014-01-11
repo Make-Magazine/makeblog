@@ -16,9 +16,16 @@ module.exports = function( grunt ) {
 			}
 		},
 		watch: {
-			css: {
+			default: {
 				files: ['less/**/*.less'],
-				tasks: ['less']
+				tasks: ['less'],
+			},
+			reload: {
+				files: ['less/**/*.less'],
+				tasks: ['less'],
+				options: {
+					livereload: true
+				}
 			}
 		}
 	});
@@ -28,6 +35,7 @@ module.exports = function( grunt ) {
 
 	// Tell Grunt to run these tasks by default.
 	// We can create new tasks with different names for specific tasks
-	grunt.registerTask( 'default', ['less', 'watch'] );
+	grunt.registerTask( 'default', ['less', 'watch:default'] );
+	grunt.registerTask( 'reload', ['less', 'watch:reload'] );
 
 };
