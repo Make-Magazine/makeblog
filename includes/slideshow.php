@@ -258,7 +258,7 @@ function make_carousel( $args, $title_link = true ) {
 	$args = wp_parse_args( $args, $defaults );
 
 	$rand = mt_rand(0, 100);
-	$id = 'newcarousel' . $rand;
+	$id = 'make-carousel-' . $rand;
 
 	$the_query = new WP_Query( $args );
 
@@ -331,7 +331,7 @@ function make_carousel( $args, $title_link = true ) {
 
 		$output .= '</div></div>';
 
-		$output .= '<div id="' . intval( $id ) . '" class="carousel slide" data-interval="false"><div class="carousel-inner">';
+		$output .= '<div id="' . esc_attr( $id ) . '" class="carousel slide" data-interval="false"><div class="carousel-inner">';
 		
 			$arrays = array_chunk( $the_query->posts, $args['limit'], true );
 
@@ -447,10 +447,10 @@ function make_carousel( $args, $title_link = true ) {
 				wp_reset_postdata();
 		
 		$output .= '</div>';
-		
+
 	if ( $the_query->post_count > 4 ) {
-		$output .= '<a class="left cat-carousel-control" href="#' . intval( $id ) . '" data-slide="prev"><img src="' . get_stylesheet_directory_uri() . '/img/larr.png" alt="Left"></a>';
-		$output .= '<a class="right cat-carousel-control" href="#' . intval( $id ) . '" data-slide="next"><img src="' . get_stylesheet_directory_uri() . '/img/rarr.png" alt="Left"></a>';
+		$output .= '<a class="left cat-carousel-control" href="#' . esc_attr( $id ) . '" data-slide="prev"><img src="' . get_stylesheet_directory_uri() . '/img/larr.png" alt="Left"></a>';
+		$output .= '<a class="right cat-carousel-control" href="#' . esc_attr( $id ) . '" data-slide="next"><img src="' . get_stylesheet_directory_uri() . '/img/rarr.png" alt="Left"></a>';
 	}
 
 	$output .= '</div>';
@@ -856,4 +856,4 @@ function make_huff_po_gallery_shortcode($attr) {
 	return $output;
 }
 
-add_shortcode( 'huff_gallery', 'make_huff_po_gallery_shortcode' );
+add_shortcode( 'huff_gallery', 'make_huff_po_gallery_shortcode' );	
