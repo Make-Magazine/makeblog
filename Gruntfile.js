@@ -16,7 +16,7 @@ module.exports = function( grunt ) {
 			}
 		},
 		watch: {
-			default: {
+			css: {
 				files: ['less/**/*.less'],
 				tasks: ['less']
 			},
@@ -35,7 +35,7 @@ module.exports = function( grunt ) {
 
 	// Register the tasks with Grunt
 	// To only watch for less changes and process without browser reload type in "grunt"
-	grunt.registerTask( 'default', ['less', 'watch:default'] );
+	grunt.registerTask( 'default', ['less', 'watch:css'] );
 
 	// To watch for less changes and process them with livereload type in "grunt reload"
 	grunt.registerTask( 'reload', ['less', 'watch:reload'] );
