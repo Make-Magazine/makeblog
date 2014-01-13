@@ -5599,6 +5599,7 @@ ul.inline.urban-sensor-nav li a:hover {
   font-size: 16px;
   line-height: 16px;
   padding: 0 5px;
+  margin: 0px;
 }
 .checkers p a {
   color: #333;
