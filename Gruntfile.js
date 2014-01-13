@@ -16,9 +16,16 @@ module.exports = function( grunt ) {
 			}
 		},
 		watch: {
-			css: {
+			default: {
 				files: ['less/**/*.less'],
-				tasks: ['less']
+				tasks: ['less'],
+			},
+			reload: {
+				files: ['less/**/*.less'],
+				tasks: ['less'],
+				options: {
+					livereload: true
+				}
 			}
 		}
 	});
@@ -26,8 +33,11 @@ module.exports = function( grunt ) {
 	// Simplify the repetivite work of listing each plugin in grunt.loadNomTasks(), just get the list from package.json and load them...
 	require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
 
-	// Tell Grunt to run these tasks by default.
-	// We can create new tasks with different names for specific tasks
-	grunt.registerTask( 'default', ['less', 'watch'] );
+	// Register the tasks with Grunt
+	// To only watch for less changes and process without browser reload type in "grunt"
+	grunt.registerTask( 'default', ['less', 'watch:default'] );
+
+	// To watch for less changes and process them with livereload type in "grunt reload"
+	grunt.registerTask( 'reload', ['less', 'watch:reload'] );
 
 };

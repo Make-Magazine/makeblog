@@ -508,13 +508,6 @@ Template Name: Home Page
 							</div>
 
 						</div>
-
-						<div class="row">
-							<div class="span8 home-sponsor-ad">
-								<a href="http://pubads.g.doubleclick.net/gampad/clk?id=40516618&amp;iu=/11548178/Makezine">
-								<img src="http://makezineblog.files.wordpress.com/2013/06/rswp_homepage_nav_button.png" alt=""></a>
-							</div>
-						</div>
 						
 						<div id="myCarousel" class="carousel slide">
 							<ol class="carousel-indicators">
