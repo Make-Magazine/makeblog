@@ -100,7 +100,7 @@ get_header(); ?>
 							'order'				=> 'dsc'
 						);
 
-						make_carousel($args, false);
+						echo make_carousel($args, false);
 					?>
 				</div>
 			
@@ -124,7 +124,7 @@ get_header(); ?>
 							'debug'				=> false
 						);
 
-						make_carousel($args, false);
+						echo make_carousel($args, false);
 					?>
 					
 				</div>
@@ -182,7 +182,7 @@ get_header(); ?>
 					),
 
 				);
-				make_carousel( $args, false );
+				echo make_carousel( $args, false );
 				echo '</div></div></div>';
 			}
 		?>
