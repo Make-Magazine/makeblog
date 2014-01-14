@@ -232,7 +232,7 @@ Template Name: Home Page
 
 						<?php 
 							$args = array(
-								'posts_per_page'  => 7,
+								'posts_per_page'  => 6,
 								'no_found_rows' => true,
 								'post_type' => array( 'post', 'projects', 'review', 'video', 'magazine' ),
 								'tag__not_in' => array( 5183, 22815, 9947 ),
