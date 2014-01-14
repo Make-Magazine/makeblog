@@ -110,7 +110,7 @@
 						<div class="span3 subscribe hidden-phone">
 							<div class="sprite sprite-arrow-footer"></div>
 							<a href="https://readerservices.makezine.com/mk/subscribe.aspx?PC=MK&amp;PK=M**NEWB" target="_blank">
-								<img class="pull-right" src="<?php bloginfo('stylesheet_directory'); ?>/img/footer-make-cover.gif" alt="MAKE Magazine Cover" width="128" height="181" id="mag-cover">
+								<img src="<?php echo wpcom_vip_get_resized_remote_image_url( make_get_cover_image(), '128', '181' ); ?>" alt="MAKE Magazine Drones" width="128" height="181" id="mag-cover" class="pull-right">
 							</a>
 							<h5>Subscribe<br> to MAKE!</h5>
 							<p>Get the print and digital versions when you subscribe</p>
