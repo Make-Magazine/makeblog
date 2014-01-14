@@ -29,6 +29,9 @@ if ( defined( 'WP_CLI' ) && WP_CLI )
 // 2. WordPress.com VIP Hosting Stuff
 include_once dirname( __FILE__ ) . '/includes/vip.php';
 
+// 2a Load Gigya!
+include_once dirname( __FILE__ ) . '/includes/gigya/gigya.php';
+
 // 3. NUMBERED PAGE NAVIGATION
 include_once dirname( __FILE__ ) . '/includes/pagenavi.php';
 

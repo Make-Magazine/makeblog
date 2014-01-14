@@ -20,7 +20,7 @@
  * Set up some Constants
  */
 // The main URL to the plugin directory
-define( 'MAKE_GIGYA_URL', get_template_directory_uri() . '/plugins/gigya' );
+define( 'MAKE_GIGYA_URL', get_template_directory_uri() . '/includes/gigya' );
 
 // Plugin version
 define( 'MAKE_GIGYA_VERSION', '0.1' );
