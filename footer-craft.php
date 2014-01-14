@@ -114,7 +114,7 @@
 					</div>
 					<div class="span3 subscribe">
 						<a href="https://readerservices.makezine.com/mk/subscribe.aspx?PC=MK&amp;PK=M**NEWB">
-							<img src="<?php get_stylesheet_directory_uri(); ?>/img/footer-make-cover.jpg" alt="MAKE Magazine Cover" width="115" height="163" id="mag-cover">
+							<img src="<?php echo make_get_cover_image( 37 ); ?>" alt="MAKE Magazine Cover" width="130" height="170" id="mag-cover">
 						</a>
 						<div class="sprite sprite-arrow-footer"></div>
 						<h5>Subscribe<br /> to MAKE!</h5>

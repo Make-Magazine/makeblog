@@ -101,7 +101,7 @@
 					</div>
 					<div class="span3 subscribe">
 						<a href="https://readerservices.makezine.com/mk/subscribe.aspx?PC=MK&amp;PK=M**NEWB">
-							<img src="https://s2.wp.com/wp-content/themes/vip/makeblog/img/footer-make-cover.jpg" alt="MAKE Magazine Cover" width="115" height="163" id="mag-cover">
+							<img src="<?php echo make_get_cover_image( 37 ); ?>" alt="MAKE Magazine Cover" width="130" height="170" id="mag-cover">
 						</a>
 						<img src="https://s2.wp.com/wp-content/themes/vip/makeblog/img/arrow-footer.png" width="80" height="48" id="mag-arrow">
 						<h5>Subscribe<br /> to MAKE!</h5>
