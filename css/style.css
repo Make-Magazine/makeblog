@@ -5671,6 +5671,7 @@ div.superpage {
   color: #023a48;
 }
 .entry-content img {
+  display: block;
   border: 0px;
   padding: 2px;
 }
