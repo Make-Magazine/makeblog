@@ -23,11 +23,7 @@ wpcom_vip_load_plugin( 'add-meta-tags-mod' );
 wpcom_vip_load_plugin( 'wpcom-thumbnail-editor' );
 wpcom_vip_load_plugin( 'wpcom-elasticsearch' );
 wpcom_vip_load_plugin( 'msm-sitemap' );
-
-// Needs to run on the contribute page, admin, and possibly page 2 pages.
-if ( is_page( 'contribute' ) || is_admin() ) {
-	wpcom_vip_load_plugin( 'wp-frontend-uploader' );
-}
+wpcom_vip_load_plugin( 'wp-frontend-uploader' );
 wpcom_vip_load_plugin( 'multiple-post-thumbnails' );
 wpcom_vip_load_plugin( 'taxonomy-images' );
 wpcom_vip_load_plugin( 'simply-show-ids' );

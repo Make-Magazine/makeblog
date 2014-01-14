@@ -763,7 +763,7 @@
 
 						<?php 
 
-							$shortcode = '[fu-upload-form class="your-class" title="Upload your media"][input type="file" name="photo" id="ug_photo" class="required" description="Featured Photo"][input type="file" name="photo1" id="ug_photo1" description="Additional Photo"][textarea name="caption" class="textarea" id="ug_caption" description="Description (optional)"][input type="submit" class="btn" value="Submit"][/fu-upload-form]';
+							$shortcode = '[fu-upload-form class="your-class" title="Upload your media"][input type="file" name="photo" id="ug_photo" class="required" description="Featured Photo"][input type="file" name="photo1" id="ug_photo1" description="Additional Photo"][textarea name="caption" class="textarea" id="ug_caption" description="Description (optional)"][/fu-upload-form]';
 
 							echo do_shortcode($shortcode); 
 
