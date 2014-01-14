@@ -67,9 +67,9 @@
 						<h5>About <a href="http://makermedia.com">Maker Media</a></h5>
 						<div class="about-column-01">
 							<ul>
-								<li><a href="http://makezine.com/help/index.html" target="_blank">Help</a></li>
+								<li><a href="<?php echo esc_url( home_url( '/how-to-get-help/' ) ); ?>">Help</a></li>
 								<li><a href="http://makermedia.com/contact-us/" target="_blank">Contact</a></li>
-								<li><a href="http://www.makezine.com/go/subscribe2make" target="_blank">Subscribe</a></li>
+								<li><a href="https://www.pubservice.com/MK/subscribe.aspx?PC=MK&amp;PK=M3AMZF">Subscribe</a></li>
 								<li><a href="http://makermedia.com/work-with-us/advertising/" target="_blank">Advertise</a></li> 
 								<li><a href="http://makermedia.com/privacy/" target="_blank">Privacy</a></li>
 							</ul>
@@ -77,9 +77,9 @@
 						<div class="about-column-02">
 							<ul>
 								<li><a href="http://makermedia.com/about-us/management-team/" target="_blank">About Us</a></li>
-								<li><a href="http://makezine.com/faq/index.html" target="_blank">FAQ</a></li>
-								<li><a href="http://makezine.com/community/index.html" target="_blank">Forums</a></li>
-								<li><a href="http://makezine.com/contribute/" target="_blank">Write for MAKE</a></li>
+								<li><a href="<?php echo esc_url( home_url( '/faq/' ) ); ?>">FAQ</a></li>
+								<li><a href="<?php echo esc_url( home_url( '/forums/' ) ); ?>">Forums</a></li>
+								<li><a href="<?php echo esc_url( home_url( '/contribute/' ) ); ?>">Contribute to MAKE</a></li>
 							</ul>
 						<!-- END span about-column-02 -->
 						</div>
@@ -101,7 +101,7 @@
 					</div>
 					<div class="span3 subscribe">
 						<a href="https://readerservices.makezine.com/mk/subscribe.aspx?PC=MK&amp;PK=M**NEWB">
-							<img src="<?php echo make_get_cover_image( 37 ); ?>" alt="MAKE Magazine Cover" width="130" height="170" id="mag-cover">
+							<img src="<?php echo wpcom_vip_get_resized_remote_image_url( make_get_cover_image(), '130', '170' ); ?>" alt="MAKE Magazine Drones" width="130" height="170" id="mag-cover">
 						</a>
 						<img src="https://s2.wp.com/wp-content/themes/vip/makeblog/img/arrow-footer.png" width="80" height="48" id="mag-arrow">
 						<h5>Subscribe<br /> to MAKE!</h5>

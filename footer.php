@@ -32,7 +32,7 @@
 			<div class="container">
 				<div class="row">
 					<div class="span12 logo" >
-						<img class="footer_logo" src="<?php bloginfo('stylesheet_directory'); ?>/img/make-logo.png" alt="MAKE Logo">	
+						<img class="footer_logo" src="<?php echo get_stylesheet_directory_uri(); ?>/img/make-logo.png" alt="MAKE Logo">	
 						<a href="http://make-digital.com/" target="_blank"><div class="sprite sprite-digital-book-foot"></div></a>
 						<h5><a href="http://make-digital.com/" target="_blank">Read Digital Edition</a></h5>
 						<a href="http://www.makershed.com/" target="_blank"><div class="sprite sprite-makershed_footer1"></div></a> 
@@ -83,7 +83,7 @@
 						<h5>About <a href="http://makermedia.com">Maker Media</a></h5>
 						<div class="about-column-01">
 							<ul>
-								<li><a href="http://makezine.com/help/index.html">Help</a></li>
+								<li><a href="<?php echo esc_url( home_url( '/how-to-get-help/' ) ); ?>">Help</a></li>
 								<li><a href="http://makermedia.com/contact-us/" target="_blank">Contact</a></li>
 								<li><a href="https://www.pubservice.com/MK/subscribe.aspx?PC=MK&amp;PK=M3AMZF">Subscribe</a></li>
 								<li><a href="http://makermedia.com/work-with-us/advertising/" target="_blank">Advertise</a></li> 
@@ -93,9 +93,9 @@
 						<div class="about-column-02">
 							<ul>
 								<li><a href="http://makermedia.com" target="_blank">About Us</a></li>
-								<li><a href="http://makezine.com/faq/index.html">FAQ</a></li>
-								<li><a href="http://makezine.com/forums/">Forums</a></li>
-								<li><a href="http://makezine.com/contribute/">Contribute to MAKE</a></li>
+								<li><a href="<?php echo esc_url( home_url( '/faq/' ) ); ?>">FAQ</a></li>
+								<li><a href="<?php echo esc_url( home_url( '/forums/' ) ); ?>">Forums</a></li>
+								<li><a href="<?php echo esc_url( home_url( '/contribute/' ) ); ?>">Contribute to MAKE</a></li>
 							</ul>
 						<!-- END span about-column-02 -->
 						</div>

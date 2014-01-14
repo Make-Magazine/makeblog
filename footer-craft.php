@@ -82,9 +82,9 @@
 						<h5>About <a href="http://makermedia.com">Maker Media</a></h5>
 						<div class="about-column-01">
 							<ul>
-								<li><a href="http://makezine.com/how-to-get-help/">Help</a></li>
+								<li><a href="<?php echo esc_url( home_url( '/how-to-get-help/' ) ); ?>">Help</a></li>
 								<li><a href="http://makermedia.com/contact-us/">Contact</a></li>
-								<li><a href="http://www.makezine.com/go/subscribe2make">Subscribe</a></li>
+								<li><a href="https://www.pubservice.com/MK/subscribe.aspx?PC=MK&amp;PK=M3AMZF">Subscribe</a></li>
 								<li><a href="http://makermedia.com/work-with-us/advertising/">Advertise</a></li> 
 								<li><a href="http://makermedia.com/privacy/">Privacy</a></li>
 							</ul>
@@ -92,9 +92,9 @@
 						<div class="about-column-02">
 							<ul>
 								<li><a href="http://makermedia.com" target="_blank">About Us</a></li>
-								<li><a href="http://makezine.com/faq/index.html">FAQ</a></li>
-								<li><a href="http://makezine.com/forums/">Forums</a></li>
-								<li><a href="http://makezine.com/contribute/">Write for MAKE</a></li>
+								<li><a href="<?php echo esc_url( home_url( '/faq/' ) ); ?>">FAQ</a></li>
+								<li><a href="<?php echo esc_url( home_url( '/forums/' ) ); ?>">Forums</a></li>
+								<li><a href="<?php echo esc_url( home_url( '/contribute/' ) ); ?>">Contribute to MAKE</a></li>
 							</ul>
 						<!-- END span about-column-02 -->
 						</div>

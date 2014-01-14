@@ -73,9 +73,9 @@
 								<div class="span">
 								<div class="about-column-01">
 									<ul>
-										<li><a href="http://makezine.com/help/index.html" target="_blank">Help</a></li>
+										<li><a href="<?php echo esc_url( home_url( '/how-to-get-help/' ) ); ?>">Help</a></li>
 										<li><a href="http://makermedia.com/contact-us/" target="_blank">Contact</a></li>
-										<li><a href="http://www.makezine.com/go/subscribe2make" target="_blank">Subscribe</a></li>
+										<li><a href="https://www.pubservice.com/MK/subscribe.aspx?PC=MK&amp;PK=M3AMZF">Subscribe</a></li>
 										<li><a href="http://makermedia.com/work-with-us/advertising/" target="_blank">Advertise</a></li> 
 										<li><a href="http://makermedia.com/privacy/" target="_blank">Privacy</a></li>
 									</ul>
@@ -83,9 +83,9 @@
 								<div class="about-column-02">
 									<ul>
 										<li><a href="http://makermedia.com" target="_blank">About Us</a></li>
-										<!-- <li><a href="http://makezine.com/faq/index.html" target="_blank">FAQ</a></li> -->
-										<li><a href="http://makezine.com/community/index.html" target="_blank">Forums</a></li>
-										<li><a href="http://makezine.com/contribute/" target="_blank">Write for MAKE</a></li>
+										<li><a href="<?php echo esc_url( home_url( '/faq/' ) ); ?>">FAQ</a></li>
+										<li><a href="<?php echo esc_url( home_url( '/forums/' ) ); ?>">Forums</a></li>
+										<li><a href="<?php echo esc_url( home_url( '/contribute/' ) ); ?>">Contribute to MAKE</a></li>
 									</ul>
 								<!-- END about-column-02 -->
 								</div>
