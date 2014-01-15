@@ -957,7 +957,7 @@ function make_37_promo( $atts, $content = null ) {
 	}
 
 
-	$output = '<div class="sip-promo-area ' . esc_attr( $align ) . '"><a href="' . esc_url( get_permalink( 365208 ) ) . '"><img src="' . esc_url( get_stylesheet_directory_uri() ) . '/images/Vol_37_Widget_Final.jpg" class="" style="width:234px; height: auto;" /></a></div>';
+	$output = '<div class="sip-promo-area ' . esc_attr( $align ) . '"><a href="' . esc_url( get_permalink( 322811 ) ) . '"><img src="' . esc_url( get_stylesheet_directory_uri() ) . '/images/Vol_37_Widget_Final.jpg" class="" style="width:234px; height: auto;" /></a></div>';
 	return $output;
 }
 
