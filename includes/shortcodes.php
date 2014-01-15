@@ -939,6 +939,30 @@ function make_3d_promo( $atts, $content = null ) {
 
 add_shortcode( '3d_sip', 'make_3d_promo' );
 
+/**
+ * Volume 37 Promo 
+ * Example using left alignment: [promo_37 alignment="left"] 
+ */
+function make_37_promo( $atts, $content = null ) {
+	extract( shortcode_atts( array(
+		'alignment' => 'left',
+	), $atts ) );
+
+
+	// Check what alignment we want. Always default to left if right is not given.
+	if ( $alignment == 'right' ) {
+		$align = 'alignright';
+	} else {
+		$align = 'alignleft';
+	}
+
+
+	$output = '<div class="sip-promo-area ' . esc_attr( $align ) . '"><a href="' . esc_url( get_permalink( 365208 ) ) . '"><img src="' . esc_url( get_stylesheet_directory_uri() ) . '/images/Vol_37_Widget_Final.jpg" class="" style="width:234px; height: auto;" /></a></div>';
+	return $output;
+}
+
+add_shortcode( 'promo_37', 'make_37_promo' );
+
 
 function make_mf_video_highlights( $atts, $content = null ) {
 	extract( shortcode_atts( array(
