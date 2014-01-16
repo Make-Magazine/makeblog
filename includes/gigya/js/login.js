@@ -3,7 +3,7 @@
  * To hit our deadline for Maker Faire Bay Area, we need to rely on the JavaScript SDK from Gigya.
  * A server-side SDK is preferred, but a new spec and time is needed to be done to do so.
  *
- * @since  HAL 9000
+ * @since  SPRINT_NAME
  */
 
 // Set debugging mode.
@@ -15,7 +15,7 @@ jQuery( document ).ready(function() {
 	gigya.accounts.getAccountInfo({ callback: make_is_logged_in });
 
 	// Listen for a click event to open the login screen
-	jQuery( document ).on( 'click', '.user-creds.login', function( e ) {
+	jQuery( document ).on( 'click', '.user-creds.signin', function( e ) {
 		e.preventDefault();
 
 		gigya.accounts.showScreenSet({
@@ -25,7 +25,7 @@ jQuery( document ).ready(function() {
 	});
 
 	// Listen for a click event to open the register screen
-	jQuery( document ).on( 'click', '.user-creds.register', function( e ) {
+	jQuery( document ).on( 'click', '.user-creds.join', function( e ) {
 		e.preventDefault();
 
 		gigya.accounts.showScreenSet({
@@ -36,7 +36,7 @@ jQuery( document ).ready(function() {
 	});
 
 	// Listen for a click event to logout
-	jQuery( document ).on( 'click', '.user-creds.logout', function( e ) {
+	jQuery( document ).on( 'click', '.user-creds.signout', function( e ) {
 		e.preventDefault();
 
 		if ( gigya_debug )
@@ -54,7 +54,7 @@ jQuery( document ).ready(function() {
  * This method allows setting event handlers for each of the supported global events.
  * @url http://developers.gigya.com/020_Client_API/020_Accounts/accounts.addEventHandlers
  *
- * @since  HAL 9000
+ * @since  SPRINT_NAME
  */
 gigya.accounts.addEventHandlers({ // 
 	onLogin: make_on_login,
@@ -69,7 +69,7 @@ gigya.accounts.addEventHandlers({ //
  * NOTE: It is important to use the REST API for logging in or registering users http://developers.gigya.com/037_API_reference/010_Socialize
  * 
  * @param  object eventObj The event object?
- * @since  HAL 9000
+ * @since  SPRINT_NAME
  */
 function make_on_login( eventObj ) {
 	if ( gigya_debug )
@@ -95,7 +95,7 @@ function make_on_login( eventObj ) {
 
 			// Check that everything went well
 			if ( results.loggedin === true ) {
-				document.location = make_gigya.root_path + 'profile';
+				// document.location = make_gigya.root_path + 'profile';
 			} else {
 				// We may have logged into Gigya, but something happened on our end. Let's correct Gigya.
 				gigya.accounts.logout();
@@ -123,7 +123,7 @@ function make_on_login( eventObj ) {
  * onLogout Event handler
  * After we have successfully logged out, we'll redirect to the homepage.
  * 
- * @since HAL 9000
+ * @since SPRINT_NAME
  */
 function make_on_logout() {
 	if ( gigya_debug )
@@ -139,7 +139,7 @@ function make_on_logout() {
  * @param  object maker The object returned by gigya.accounts.getAccountInfo()
  * @return mixed
  *
- * @since  HAL 9000
+ * @since  SPRINT_NAME
  */
 function make_is_logged_in( maker ) {
 	if ( gigya_debug )
@@ -149,7 +149,7 @@ function make_is_logged_in( maker ) {
 		if ( gigya_debug )
 			console.log( 'User Logged In.' );
 
-		jQuery( '.main-header' ).find( '.row' ).append( '<div class="login-wrapper"><a href="#logout" class="user-creds logout">Logout</a> | <a href="' + make_gigya.root_path + 'profile" class="user-creds profile">Your Account</a></div>' );
+		jQuery( '.main-header' ).find( '.row' ).append( '<div class="login-wrapper"><a href="#signout" class="user-creds signout">Sign Out</a> / <a href="' + make_gigya.root_path + 'profile" class="user-creds profile">Your Account</a></div>' );
 
 		// Initialize our maker profile code
 		makerfaire_profile( maker );
@@ -158,7 +158,7 @@ function make_is_logged_in( maker ) {
 			console.log( 'User Not Logged In.' );
 
 		// Add our login/register links
-		jQuery( '.main-header' ).find( '.row' ).append( '<div class="login-wrapper"><a href="#login" class="user-creds login">Login</a> | <a href="#register" class="user-creds register">Register</a></div>' );
+		jQuery( '.main-header' ).find( '.row' ).append( '<div class="login-wrapper"><a href="#signin" class="user-creds signin">Sign In</a> / <a href="#join" class="user-creds join">Join</a></div>' );
 
 		if ( path.indexOf( 'exhibit' ) >= 0 || path.indexOf( 'presenter' ) >= 0 || path.indexOf( 'performer' ) >= 0 || path.indexOf( 'makerprofile' ) >= 0 )
 			jQuery( '.content' ).html( '<h2>You must be logged in to access this area.<br />Please <a href="#login" class="user-creds login">Login</a> or <a href="#register" class="user-creds register">Register</a>.</h2>' );

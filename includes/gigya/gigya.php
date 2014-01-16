@@ -139,10 +139,13 @@ class Make_Gigya {
 			if ( $this->verify_user( $_POST['object']['UID'], $_POST['object']['signatureTimestamp'], $_POST['object']['UIDSignature'] ) ) {
 
 				// Search for a maker and return them or else false.
-				$users = $this->search_for_maker( $_POST['object']['UID'] );
+				$users = $this->search_for_maker( $_POST['object']['UID'], $_POST['object']['profile']['email'] );
 
 				// Check if a user already exists, if not we'll create one.
 				if ( $users ) {
+
+					var_dump($users);
+					die();
 					update_post_meta( absint( $users[0]->ID ), 'last_login', date( 'm/d/Y g:i:s a', time() ) );
 
 					$results = array(
@@ -200,25 +203,35 @@ class Make_Gigya {
 	 *
 	 * @since  SPRINT_NAME
 	 */
-	private function search_for_maker( $uid ) {
+	private function search_for_maker( $uid, $email ) {
 		// Stick a hashed version of our usr ID for wp cache
 		$user_hash = md5( sanitize_text_field( $uid ) );
-		
-		// Check if our users are already cached
-		$users = wp_cache_get( 'mf_user_' . $user_hash );
 
-		// If there is no cache set, we'll run the query again and cache it.
+		// Check if our makers are already cached.
+		$users = false; //wp_cache_get( 'mf_user_' . $user_hash );
+
 		if ( $users == false ) {
-			// Query our makers list and see if a maker exists
-			$query_params = array(
-				'post_type' => 'maker',
-				'meta_key' => 'guid',
+			$maker_guid_query = array(
+				'post_type'  => 'guest-author',
+				'meta_key'   => 'cap-guid',
 				'meta_value' => sanitize_text_field( $uid ),
 			);
-			$users = new WP_Query( $query_params );
+			$users = new WP_Query( $maker_guid_query );
+
+			// If a user was not found with a Gigya ID, let's check for an email
+			if ( empty ( $users->posts ) ) {
+				$maker_email_query = array(
+					'post_type'  => 'guest-author',
+					'meta_key'   => 'cap-user_email',
+					'meta_value' => sanitize_email( $email ),
+				);
+				$users = new WP_Query( $maker_email_query );
+			}
 
 			// Save the results to the cache
-			wp_cache_set( 'mf_user_' . $user_hash, $users, '', 86400 ); // Since we are caching each user, might as well hold onto it for 24 hours.
+			// wp_cache_set( 'mf_user_' . $user_hash, $users, '', 86400 ); // Since we are caching each user, might as well hold onto it for 24 hours.
+			
+			$users->posts['add_guid'] = true;
 		}
 
 		return $users->posts;
@@ -231,6 +244,9 @@ class Make_Gigya {
 	 * @return integer
 	 */
 	private function create_maker( $user, $uid ) {
+
+		var_dump($user);
+		die();
 		// Handle our user name
 		if ( ! empty( $user['firstName'] ) && ! empty( $user['lastName'] ) ) {
 			$user_name = $user['firstName'] . ' ' . $user['lastName'];
@@ -245,7 +261,6 @@ class Make_Gigya {
 		// Our user doesn't exist, that means we need to sync them up, create a maker account and log them in.
 		$maker = array(
 			'post_title' => sanitize_text_field( $user_name ),
-			'post_content' => ( ! empty( $user['bio'] ) ) ? wp_filter_post_kses( $user['bio'] ) : '',
 			'post_status' => 'publish',
 			'post_type' => 'guest-author',
 		);
@@ -257,16 +272,32 @@ class Make_Gigya {
 
 		// We'll want to add some custom fields. Let's do that.
 		// ****************************************************
-		// Add the maker email
-		$user_email = ( isset( $user['email'] ) && ! empty( $user['email'] ) ) ? $user['email'] : '';
-		update_post_meta( absint( $maker_id ), 'cap-user_email', sanitize_email( $user_email ) );
+		// Add the maker Display Name
+		$display_name = ( isset( $user_name ) && ! empty( $user_name ) ) ? $user_name : '';
+		update_post_meta( absint( $maker_id ), 'cap-display_name', sanitize_text_field( $display_name ) );
+
+		// Add the makers unique slug
+		$slug = preg_replace( '/[^A-Za-z0-9-]+/', '-', sanitize_text_field( $display_name ) );
+		update_post_meta( absint( $maker_id ), 'cap-user_login', sanitize_title_with_dashes( $slug ) );
+
+		// Add the makers first name
+		$first_name = ( isset( $user['firstName'] ) && ! empty( $user['firstName'] ) ) ? $user['firstName'] : '';
+		update_post_meta( absint( $maker_id ), 'cap-first_name', sanitize_text_field( $first_name ) );
+
+		// Add the makers last name
+		$last_name = ( isset( $user['lastName'] ) && ! empty( $user['lastName'] ) ) ? $user['lastName'] : '';
+		update_post_meta( absint( $maker_id ), 'cap-last_name', sanitize_text_field( $user['lastName'] ) );
+
+		// Add the makers email
+		$email = ( isset( $user['email'] ) && ! empty( $user['email'] ) ) ? $user['email'] : '';
+		update_post_meta( absint( $maker_id ), 'cap-user_email', sanitize_email( $email ) );
 
 		// Add the maker photo
 		$user_photo = ( isset( $user['photoURL'] ) && ! empty( $user['photoURL'] ) ) ? $user['photoURL'] : '';
-		update_post_meta( absint( $maker_id ), 'photo_url', esc_url( $user_photo ) );
+		update_post_meta( absint( $maker_id ), 'cap-photo_url', esc_url( $user_photo ) );
 
 		// Add the Maker Gigya ID
-		update_post_meta( absint( $maker_id ), 'guid', sanitize_text_field( $uid ) );
+		update_post_meta( absint( $maker_id ), 'cap-guid', sanitize_text_field( $uid ) );
 
 		return $maker_id;
 	}

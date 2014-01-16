@@ -9203,6 +9203,20 @@ body.admin-bar .navbar {
 .top-navigation-wrapper .nav {
   margin-bottom: 0;
 }
+.login-wrapper {
+  position: absolute;
+  left: 245px;
+  top: -8px;
+  color: #005d8f;
+  font-size: 18px;
+  font-weight: bold;
+}
+.login-wrapper a {
+  display: inline-block;
+}
+.login-wrapper a:hover {
+  text-decoration: underline !important;
+}
 .main-header {
   margin-top: 20px;
   padding: 15px 0 10px;
@@ -9213,7 +9227,7 @@ body.admin-bar .navbar {
   position: relative;
 }
 .main-header .logo {
-  margin-top: 67px;
+  margin-top: 38px;
 }
 .main-header .hdr-sub-ad-01 {
   margin-top: 10px;
@@ -9263,7 +9277,8 @@ body.admin-bar .navbar {
   color: #ed1c24;
 }
 .main-header .additional-content .search-make {
-  float: right;
+  position: absolute;
+  left: -695px;
   margin: 0;
 }
 .main-header .additional-content .search-make input[type="text"] {
@@ -9342,7 +9357,7 @@ body.admin-bar .navbar {
   font-size: 20px !important;
   font-weight: bold;
   position: relative;
-  top: 92px;
+  top: 65px;
 }
 .primary-navigation ul > li {
   margin-right: 19px;
