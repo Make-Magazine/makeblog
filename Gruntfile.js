@@ -11,7 +11,8 @@ module.exports = function( grunt ) {
 			development: {
 				files: {
 					'css/style.css': 'less/style.less',
-					'css/print.css': 'less/make/print.less'
+					'css/print.css': 'less/make/print.less',
+					'css/takeover.css': 'less/make/takeover.less'
 				}
 			}
 		},

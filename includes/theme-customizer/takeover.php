@@ -382,3 +382,94 @@ function make_has_takeover_mod( $mod_name ) {
 		return false;
 	}
 }
+
+add_action( 'customize_register', 'make_textarea_customize_register' );
+/**
+ * Add a textarea to the customize menu.
+ */
+function make_textarea_customize_register($wp_customize) {
+	/**
+	 * Class to add a textarea to the customizer.
+	 * Class example from: http://ottopress.com/2012/making-a-custom-control-for-the-theme-customizer/
+	 */
+	class Make_Customize_Textarea_Control extends WP_Customize_Control {
+		
+		public $type = 'textarea';
+
+		function render() {
+			$id    = 'customize-control-' . str_replace( '[', '-', str_replace( ']', '', $this->id ) );
+			$class = 'customize-control customize-control-' . $this->type;
+
+			?><li id="<?php echo esc_attr( $id ); ?>" class="<?php echo esc_attr( $class ); ?>">
+				<label>
+				<span class="customize-control-title"><?php echo esc_html( $this->label ); ?></span>
+					<textarea rows="5" style="width:100%;" <?php $this->link(); ?>><?php echo esc_textarea( $this->value() ); ?></textarea>
+				</label>
+			</li><?php
+		}
+	}
+}
+
+/**
+ * 
+ * Sets up the interface in the theme customizer for the takeover options
+ * @param  object $wp_customize An instance of the WP_Customize_Manager class
+ * @return void
+ *
+ * @since  Iron Giant
+ */
+function make_theme_canvas_home_takeover( $wp_customize ) {
+
+	// Register our section
+	$wp_customize->add_section( 'make_canvas', array(
+		'title' => 'Canvas Takeover',
+		'priority' => 1
+	) );
+
+
+	// Register the enable field
+	$wp_customize->add_setting( 'make_enable_canvas', array(
+		'default' => 'off',
+	) );
+
+	$wp_customize->add_control( 'make_enable_canvas', array(
+		'section' => 'make_canvas',
+		'label'   => 'Enable Canvas Takeover',
+		'type' 	  => 'select',
+		'choices' => array(
+			'on'  => 'Enabled',
+			'off' => 'Disabled',
+		),
+		'priority' => 10,
+	) );
+
+	// Register the banner image
+	$wp_customize->add_setting( 'make_canvas_takeover', array(
+		'default' => '',
+		'transport' => 'postMessage',
+	) );
+
+	$wp_customize->add_control( 
+		new WP_Customize_Image_Control( $wp_customize, 'make_canvas_takeover', array(
+			'settings' => 'make_canvas_takeover',
+			'section' => 'make_canvas',
+			'label' => 'Background Image',
+			'priority' => 15,
+		) )
+	);
+
+	// Register the html for the page.
+	$wp_customize->add_setting( 'make_canvas_html_box', array(
+		'default' => '',
+		'sanitize_callback' => 'wp_kses_post',
+	) );
+
+	$wp_customize->add_control( 'make_canvas_html_box', array(
+		'section' => 'make_canvas',
+		'label' => 'HTML for canvas box',
+		'type' => 'text',
+		'priority' => 20,
+	) );
+
+}
+add_action( 'customize_register', 'make_theme_canvas_home_takeover' );

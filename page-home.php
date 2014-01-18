@@ -22,6 +22,10 @@ Template Name: Home Page
 
 			<?php get_template_part( 'home-takeover' ); ?>
 
+		<?php elseif ( get_theme_mod( 'make_enable_canvas' ) === 'on' ) : ?>
+
+			<?php get_template_part( 'home-canvas' ); ?>
+
 		<?php else : ?>
 
 			<div class="waist">
