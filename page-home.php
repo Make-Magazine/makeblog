@@ -404,18 +404,18 @@ Template Name: Home Page
 
 							<div class="span4">
 
-								<h2 class="look_like_h3"><a href="http://makezine.com/2013-holiday-gift-guide/" class="red">2013 Holiday Gift Guide</a></h2>
+								<h2 class="look_like_h3"><a href="<?php echo esc_url( home_url( '/tag/maker-faire/' ) ); ?>" class="red">Maker Faire News</a></h2>
 
 								<div class="grid-box boxy">
 
 									<?php
 										
 										$args = array(
-											'tag' => 'holiday-gift-guide-2013',
-											'posts_per_page'  => 1,
-											'no_found_rows' => true,
-											'post__not_in'	=> $post_array,
-										);
+											'tag_id' => 785128,
+ 											'posts_per_page'  => 1,
+ 											'no_found_rows' => true,
+ 											'post__not_in'	=> $post_array,
+ 										);
 										
 										$the_query = new WP_Query( $args );
 
@@ -478,16 +478,15 @@ Template Name: Home Page
 							<div class="span4">
 
 
-								<h2 class="look_like_h3"><a href="<?php echo esc_url( home_url( '/tag/maker-faire/' ) ); ?>" class="red">Maker Faire News</a></h2>
+								<h2 class="look_like_h3"><a href="<?php echo esc_url( home_url( '/page-2/' ) ); ?>" class="red">Make: Page 2</a></h2>
 
 								<div class="grid-box boxy">
 
 									<?php
 										
 										$args = array(
-											'tag_id' => 785128,
+											'post_type' => 'page_2',
  											'posts_per_page'  => 1,
- 											'no_found_rows' => true,
  											'post__not_in'	=> $post_array,
  										);
 										
