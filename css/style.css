@@ -11856,6 +11856,9 @@ a.button.small-button {
   font-size: 22px;
   line-height: 120%;
 }
+.search .search-results article .search-thumbnail {
+  max-width: 110px;
+}
 .search .search-results article .meta,
 .search .search-results article .media-body {
   font-size: 17px;
