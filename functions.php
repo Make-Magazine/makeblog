@@ -32,6 +32,9 @@ include_once dirname( __FILE__ ) . '/includes/vip.php';
 // 2a Load Gigya!
 include_once dirname( __FILE__ ) . '/includes/gigya/gigya.php';
 
+// 2b Load the scripts for our Maker accounts
+include_once dirname( __FILE__ ) . '/includes/maker-profile/maker-profile.php';
+
 // 3. NUMBERED PAGE NAVIGATION
 include_once dirname( __FILE__ ) . '/includes/pagenavi.php';
 

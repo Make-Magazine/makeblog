@@ -47,6 +47,8 @@ if ( ! class_exists( 'GSRequest' ) )
  */
 include_once( 'includes/settings.php' );
 
+// Set a default timezone
+date_default_timezone_set( 'America/Los_Angeles' );
 
 /**
  * The guts.
@@ -131,22 +133,28 @@ class Make_Gigya {
 		
 		// Check our nonce and make sure it's correct
 		check_ajax_referer( 'ajax-nonce', 'nonce' );
+
+		$uid = $_POST['object']['UID'];
 		
 		// Make sure some required fields are being passed first for security reasons
 		if ( isset( $_POST['request'] ) && $_POST['request'] == 'login' && wp_verify_nonce( $_POST['nonce'], 'ajax-nonce' ) ) {
 
 			// Before we continue we must verify this request is even a valid request from Gigya
-			if ( $this->verify_user( $_POST['object']['UID'], $_POST['object']['signatureTimestamp'], $_POST['object']['UIDSignature'] ) ) {
+			if ( $this->verify_user( $uid, $_POST['object']['signatureTimestamp'], $_POST['object']['UIDSignature'] ) ) {
 
 				// Search for a maker and return them or else false.
-				$users = $this->search_for_maker( $_POST['object']['UID'], $_POST['object']['profile']['email'] );
+				$users = $this->search_for_maker( $uid, $_POST['object']['profile']['email'] );
 
 				// Check if a user already exists, if not we'll create one.
 				if ( $users ) {
 
-					var_dump($users);
-					die();
-					update_post_meta( absint( $users[0]->ID ), 'last_login', date( 'm/d/Y g:i:s a', time() ) );
+					// Check if the user existed and needs to have a Gigya ID added to the post meta
+					if ( isset( $users['add_guid'] ) && $users['add_guid'] ) {
+						update_post_meta( absint( $users[0]->ID ), 'cap-guid', sanitize_text_field( $uid ) );
+					}
+
+					// mark when the user logged in
+					update_post_meta( absint( $users[0]->ID ), 'cap-last_login', date( 'm/d/Y g:i:s a', time() ) );
 
 					$results = array(
 						'loggedin' => true,
@@ -156,12 +164,11 @@ class Make_Gigya {
 
 				// User didn't exist, let's make one.
 				} else {
-
 					// Pass our User Info sent from Gigya
 					$user = ( is_array( $_POST['object']['profile'] ) ) ? $_POST['object']['profile'] : '';
 
 					// Create the maker and return their ID
-					$maker_id = $this->create_maker( $user, $_POST['object']['UID'] );
+					$maker_id = $this->create_maker( $user, $uid );
 
 					// Report our status to pass back to the modal window
 					if ( is_wp_error( $maker_id ) ) {
@@ -226,12 +233,16 @@ class Make_Gigya {
 					'meta_value' => sanitize_email( $email ),
 				);
 				$users = new WP_Query( $maker_email_query );
+
+				if ( ! empty( $users->posts ) )
+					$found_with_email = true;
 			}
 
 			// Save the results to the cache
 			// wp_cache_set( 'mf_user_' . $user_hash, $users, '', 86400 ); // Since we are caching each user, might as well hold onto it for 24 hours.
 			
-			$users->posts['add_guid'] = true;
+			if ( isset( $found_with_email ) && $found_with_email )
+				$users->posts['add_guid'] = true;
 		}
 
 		return $users->posts;
@@ -245,8 +256,6 @@ class Make_Gigya {
 	 */
 	private function create_maker( $user, $uid ) {
 
-		var_dump($user);
-		die();
 		// Handle our user name
 		if ( ! empty( $user['firstName'] ) && ! empty( $user['lastName'] ) ) {
 			$user_name = $user['firstName'] . ' ' . $user['lastName'];
@@ -272,6 +281,10 @@ class Make_Gigya {
 
 		// We'll want to add some custom fields. Let's do that.
 		// ****************************************************
+		// Date Created && last logged in
+		update_post_meta( absint( $maker_id ), 'cap-created', date( 'm/d/Y g:i:s a', time() ) );
+		update_post_meta( absint( $maker_id ), 'cap-last_login', date( 'm/d/Y g:i:s a', time() ) );
+
 		// Add the maker Display Name
 		$display_name = ( isset( $user_name ) && ! empty( $user_name ) ) ? $user_name : '';
 		update_post_meta( absint( $maker_id ), 'cap-display_name', sanitize_text_field( $display_name ) );
