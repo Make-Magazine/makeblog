@@ -7102,7 +7102,7 @@ body#shop {
 }
 .new-footer {
   background-color: transparent;
-  padding-top: 20px;
+  padding-top: 10px;
   width: 100%;
   text-align: center;
   border-top: 3px solid #DBDBDB;
@@ -9130,13 +9130,6 @@ body .single .tag-weekend-projects {
 }
 .makershed-banner {
   background: #de231a;
-}
-.page-template-page-craft-php .main-header .logo {
-  margin-top: 60px;
-}
-.single-craft .main-header .hdr-sub-ad-01,
-.post-type-archive-craft .main-header .hdr-sub-ad-01 {
-  margin-top: 17px;
 }
 .secondary-header {
   background: #ebebeb;

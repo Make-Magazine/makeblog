@@ -7,7 +7,7 @@
  * @deprecated Autobot - October 2013
  *
  */
-make_get_header() ?>
+get_header(); ?>
 		
 	<div class="single">
 	

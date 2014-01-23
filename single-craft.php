@@ -8,7 +8,7 @@
  * @author     Jake Spurlock <jspurlock@makermedia.com>
  * 
  */
-make_get_header() ?>
+get_header(); ?>
 		
 	<div class="single craft">
 	
@@ -85,4 +85,4 @@ make_get_header() ?>
 
 	</div>
 
-<?php get_footer('craft'); ?>
+<?php get_footer(); ?>
