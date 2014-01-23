@@ -5452,9 +5452,6 @@ article ul li {
 .row.volume {
   margin-bottom: 30px;
 }
-#div-gpt-ad-664089004995786621-1 {
-  margin-top: 20px;
-}
 .add30 {
   width: 590px;
   margin-right: 30px;
@@ -7769,7 +7766,6 @@ textarea.narrow,
 .category-top {
   font-family: "proxima-nova", sans-serif;
   border-bottom: 3px solid #DBDBDB;
-  padding-top: 20px;
 }
 .category-top h1 {
   font-size: 38px;
@@ -8710,7 +8706,6 @@ a.oembed {
 body .single {
   font-family: "proxima-nova", sans-serif;
   border-bottom: 3px solid #DBDBDB;
-  padding-top: 20px;
   border-bottom: 0px;
 }
 body .single h1 {
@@ -9039,20 +9034,13 @@ body .single .tag-weekend-projects {
 .sidebar .badge.badge-info {
   display: inline;
 }
-body {
-  padding-top: 40px;
-}
-body.admin-bar .navbar {
-  top: 32px;
-}
-.navbar-fixed-top {
-  z-index: 9999;
+#div-gpt-ad-664089004995786621-1 {
+  margin: 5px auto;
 }
 .top-navigation-wrapper .nav {
   margin-bottom: 0;
 }
 .main-header {
-  margin-top: 20px;
   padding: 15px 0 10px;
   border-top: 1px solid #ed1c24;
   border-bottom: 1px solid #a4a4a4;
@@ -11065,7 +11053,6 @@ body.makercamp a.button.small-button {
 .archive {
   font-family: "proxima-nova", sans-serif;
   border-bottom: 3px solid #DBDBDB;
-  padding-top: 20px;
   border-bottom: 0px;
 }
 .archive h1 {
