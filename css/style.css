@@ -7766,7 +7766,6 @@ textarea.narrow,
 .category-top {
   font-family: "proxima-nova", sans-serif;
   border-bottom: 3px solid #DBDBDB;
-  padding-top: 20px;
 }
 .category-top h1 {
   font-size: 38px;
@@ -8707,7 +8706,6 @@ a.oembed {
 body .single {
   font-family: "proxima-nova", sans-serif;
   border-bottom: 3px solid #DBDBDB;
-  padding-top: 20px;
   border-bottom: 0px;
 }
 body .single h1 {
@@ -11055,7 +11053,6 @@ body.makercamp a.button.small-button {
 .archive {
   font-family: "proxima-nova", sans-serif;
   border-bottom: 3px solid #DBDBDB;
-  padding-top: 20px;
   border-bottom: 0px;
 }
 .archive h1 {
