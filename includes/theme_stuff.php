@@ -1635,7 +1635,7 @@ function make_generate_description() {
 			return esc_attr( wp_trim_words( htmlspecialchars( wp_kses( strip_shortcodes( $fallback_content ), array() ) ), 20 ) );
 		}
 		return esc_attr( wp_trim_words( htmlspecialchars( wp_kses( strip_shortcodes( $post->post_content ), array() ) ), 20 ) );
-	} elseif( is_page( 235220 ) || is_archive() && is_category( 'craft' ) ) {
+	} elseif( is_page( 235220 ) || is_post_type_archive( 'craft' ) ) {
 		return 'The craft movement encourages people to make things themselves rather than buy what thousands of others already own';
 	} else {
 		return esc_attr( get_bloginfo('name') . " - " . get_bloginfo('description') );
