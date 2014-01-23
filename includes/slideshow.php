@@ -612,17 +612,18 @@ function make_video_photo_gallery( $attr ) {
 	$i = 0;
 
 	foreach( $posts as $post ) {
+		$vine = false;
+		$youtube = false;
+		$vimeo = false;
 		if ( strpos( $post, 'youtu' ) ) {
 			$youtube = true;
-			$vine = false;
+		} elseif ( strpos( $post, 'vimeo' ) ) {
+			$vimeo = true;
 		} elseif ( strpos( $post, 'vine' ) ) {
-			$youtube = false;
 			$vine = true;
 		} else {
 			$post = get_post( $post );
 			setup_postdata( $post );
-			$youtube = false;
-			$vine = false;
 		}
 
 		$i++;
@@ -634,6 +635,8 @@ function make_video_photo_gallery( $attr ) {
 		}
 		if ( $youtube == true ) {
 			$output .= do_shortcode('[youtube='. esc_url( $post ) .'&amp;w=620]');
+		} elseif ( $vimeo == true ) {
+			$output .= do_shortcode( '[vimeo '. esc_url( $post ) . ' w=620]');
 		} elseif ( $vine == true ) {
 			$output .= do_shortcode( '[vine url="' . esc_url( $post ) . '" type="simple" width="620"]' );
 		} else {
