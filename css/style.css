@@ -11904,3 +11904,6 @@ a.button.small-button {
   border-left: 1px solid #ccc;
   padding-left: 20px;
 }
+aside.single {
+  max-width: 200px;
+}
