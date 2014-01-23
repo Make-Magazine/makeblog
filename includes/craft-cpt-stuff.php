@@ -68,7 +68,8 @@ $easy_cf = new Easy_CF($field_data);
 
 
 /**
-  * Crab the craft header if we are on a craft page.
+  * Grab the craft header if we are on a craft page.
+  * @deprecated Function deprecated in Jet Jaguar
  */
 function make_get_header() {
 	if (is_single()) {

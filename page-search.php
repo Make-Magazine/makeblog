@@ -3,7 +3,7 @@
  * @package MakeZine
  * Template Name: MAKE Search
  */
-make_get_header(); ?>
+get_header(); ?>
 		
 	<div class="single">
 	

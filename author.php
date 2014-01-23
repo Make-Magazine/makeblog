@@ -29,7 +29,7 @@ if ( ! empty( $author->linked_account ) ) {
 	// Set linked account email as the gravatar email
 	$avatar_email = $linked_author->user_email;
 }
-make_get_header() ?>
+get_header(); ?>
 	
 	<div class="category-top">
 

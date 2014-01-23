@@ -4,7 +4,7 @@ Template Name: Craft Home Page
 */
 ?>
 
-<?php get_header('craft'); ?>
+<?php get_header(); ?>
 
 		<div class="waist">
 
@@ -409,4 +409,4 @@ Template Name: Craft Home Page
 
 		<div class="clear"></div>
 
-		<?php get_footer('craft'); ?>
+		<?php get_footer(); ?>

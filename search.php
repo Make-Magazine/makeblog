@@ -7,7 +7,7 @@
  * 
  */
 global $wp_query;
-make_get_header() ?>
+get_header(); ?>
 		
 	<div class="">
 	

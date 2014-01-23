@@ -7,7 +7,7 @@
  * @author     Jake Spurlock <jspurlock@makermedia.com>
  */
 
-get_header('craft'); ?>
+get_header(); ?>
 		
 	<div class="single">
 	
