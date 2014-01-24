@@ -53,14 +53,13 @@
 								<h2 title="Make Magazine - <?php echo bloginfo( 'description' ); ?>"><a href="<?php echo home_url(); ?>"><img src="<?php echo get_stylesheet_directory_uri(); ?>/img/make-logo.png"  alt="Tech-savvy DIY Enthusiasts Innovative Projects and Ideas" /></a></h2>
 							<?php endif; ?>
 						</div>
-						<nav role="navigation" class="span7 site-navigation primary-navigation hidden-print">
-							<?php
-								wp_nav_menu( array(
-									'theme_location'  => 'make-primary', 
-									'container'       => false, 
-									'menu_class'      => 'nav menu-primary-nav ga-nav clearfix',
-								) );
-							?>
+						<nav class="span7 site-navigation primary-navigation hidden-print" role="navigation">
+			                <?php wp_nav_menu( array(
+			                    'theme_location' => 'make-primary',
+			                    'container'		 => '',
+			                    'menu_class'	 => 'nav menu-primary-nav ga-nav clearfix',
+			                    'walker'		 => new Bootstrap_Walker_Nav_Menu(),
+			                ) ); ?>
 						</nav>
 
 
@@ -76,21 +75,6 @@
 								</script>
 							</div>
 						</div>
-					</div>
-				</div>
-			</div>
-			<div class="secondary-header hidden-print">
-				<div class="container">
-					<div class="row">
-						<nav class="span12 site-navigation secondary-navigation">
-							<?php
-								wp_nav_menu( array(
-									'theme_location' => 'make-secondary',
-									'container'		 => false,
-									'menu_class' 	 => 'nav menu-secondary-nav ga-nav clearfix',
-								) );
-							?>
-						</nav>
 					</div>
 				</div>
 			</div>
