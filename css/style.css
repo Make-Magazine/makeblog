@@ -10062,6 +10062,9 @@ body.makercamp {
   line-height: 20px;
   color: #fff;
 }
+body.makercamp.admin-bar .navbar-fixed-top {
+  top: 29px;
+}
 body.makercamp h1,
 body.makercamp h2,
 body.makercamp h3,
