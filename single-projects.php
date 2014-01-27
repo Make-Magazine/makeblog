@@ -69,8 +69,8 @@ get_header(); ?>
 									}
 								?>
 								<li>
-							Comments <a href="<?php the_permalink(); ?>#comments"><?php comments_number( '0', '1', '%' ); ?></a>
-						</li>
+									<a href="<?php the_permalink(); ?>#comments"><?php comments_number( '0', '1', '%' ); ?></a>
+								</li>
 							</ul>
 									
 							<div class="row">
