@@ -16,7 +16,11 @@ function make_get_related_content( $atts, $content = null ) {
 
 	$count = count( $ids );
 
-	$output = '<aside class="pull-quote ' . esc_attr( $class ) . ' pull-quote-' . esc_attr( $count ) . '"><h3><span>Related</span></h3><div class="row-fluid">';
+	var_dump( $atts );
+
+	$output = '<aside class="pull-quote ' . esc_attr( $class ) . ' pull-quote-' . esc_attr( $count ) . '">';
+	$output .= ( isset( $atts['title'] ) ) ? '<h3><span>' . wp_kses_post( $atts['title'] ) . '</span></h3>' : '<h3><span>Related</span></h3>';
+	$output .= '<div class="row-fluid">';
 		if ( $count == 2 ) {
 			foreach ( $ids as $id ) {
 				$output .= '<div class="span6">';
@@ -24,7 +28,9 @@ function make_get_related_content( $atts, $content = null ) {
 				$output .= '<a href="' . get_permalink( $id ) . '" class="' . esc_attr( $class ) . '">';
 				$output .= get_the_post_thumbnail( $blurb->ID, 'comment-thumb', array( 'class' => 'pull-left' ) );
 				$output .= '</a>';
+				$output .= '<a href="' . get_permalink( $id ) . '">';
 				$output .= '<h4>' . apply_filters( 'the_title', $blurb->post_title ) . '</h4>';
+				$output .= '</a>';
 				$output .= Markdown( wp_trim_words( strip_shortcodes( $blurb->post_content ), 10, '...' ) );
 				wp_reset_postdata();
 				$output .= '</div>';
@@ -35,8 +41,10 @@ function make_get_related_content( $atts, $content = null ) {
 				$output .= '<a href="' . get_permalink( $ids[0] ) . '" class="' . esc_attr( $class ) . '">';
 				$output .= get_the_post_thumbnail( $blurb->ID, 'comment-thumb', array( 'class' => 'pull-left' ) );
 				$output .= '</a>';
+				$output .= '<a href="' . get_permalink( $ids[0] ) . '">';
 				$output .= '<h4>' . apply_filters( 'the_title', $blurb->post_title ) . '</h4>';
-				$output .= Markdown( wp_trim_words( strip_shortcodes( $blurb->post_content ), 10, '...' ) );
+				$output .= '</a>';
+				$output .= Markdown( wp_trim_words( strip_shortcodes( $blurb->post_content ), 9, '...' ) );
 				wp_reset_postdata();
 				$output .= '</div>';
 		}

@@ -11919,6 +11919,9 @@ aside.pull-quote h3 span {
   background-color: #fff;
   padding-right: 10px;
 }
+aside.pull-quote h3 span a {
+  color: inherit;
+}
 aside.pull-quote p {
   margin-bottom: 0px;
 }
