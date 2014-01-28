@@ -7,7 +7,7 @@
  * @author     Jake Spurlock <jspurlock@makermedia.com>
  * 
  */
-make_get_header() ?>
+get_header(); ?>
 		
 	<div class="single">
 	
@@ -41,7 +41,7 @@ make_get_header() ?>
 							Category <?php the_category(', '); ?>
 						</li>
 						<li>
-							Comments <a href="<?php the_permalink(); ?>#comments"><?php comments_number( '0', '1', '%' ); ?></a>
+							<a href="<?php the_permalink(); ?>#comments"><?php comments_number( '0', '1', '%' ); ?></a>
 						</li>
 					</ul>
 		

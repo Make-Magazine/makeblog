@@ -7102,7 +7102,7 @@ body#shop {
 }
 .new-footer {
   background-color: transparent;
-  padding-top: 20px;
+  padding-top: 10px;
   width: 100%;
   text-align: center;
   border-top: 3px solid #DBDBDB;
@@ -7766,6 +7766,7 @@ textarea.narrow,
 .category-top {
   font-family: "proxima-nova", sans-serif;
   border-bottom: 3px solid #DBDBDB;
+  padding-top: 20px;
 }
 .category-top h1 {
   font-size: 38px;
@@ -8706,6 +8707,7 @@ a.oembed {
 body .single {
   font-family: "proxima-nova", sans-serif;
   border-bottom: 3px solid #DBDBDB;
+  padding-top: 20px;
   border-bottom: 0px;
 }
 body .single h1 {
@@ -9130,13 +9132,6 @@ body .single .tag-weekend-projects {
 }
 .makershed-banner {
   background: #de231a;
-}
-.page-template-page-craft-php .main-header .logo {
-  margin-top: 60px;
-}
-.single-craft .main-header .hdr-sub-ad-01,
-.post-type-archive-craft .main-header .hdr-sub-ad-01 {
-  margin-top: 17px;
 }
 .secondary-header {
   background: #ebebeb;
@@ -10066,6 +10061,9 @@ body.makercamp {
   font-size: 14px;
   line-height: 20px;
   color: #fff;
+}
+body.makercamp.admin-bar .navbar-fixed-top {
+  top: 29px;
 }
 body.makercamp h1,
 body.makercamp h2,
@@ -11053,6 +11051,7 @@ body.makercamp a.button.small-button {
 .archive {
   font-family: "proxima-nova", sans-serif;
   border-bottom: 3px solid #DBDBDB;
+  padding-top: 20px;
   border-bottom: 0px;
 }
 .archive h1 {
@@ -11103,6 +11102,9 @@ body.makercamp a.button.small-button {
 }
 .archive .projects-masthead h2 {
   line-height: 100%;
+}
+body.archive {
+  padding-top: 0;
 }
 .home .single .article {
   margin-bottom: 25px;

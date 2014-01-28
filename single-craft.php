@@ -8,7 +8,7 @@
  * @author     Jake Spurlock <jspurlock@makermedia.com>
  * 
  */
-make_get_header() ?>
+get_header(); ?>
 		
 	<div class="single craft">
 	
@@ -42,7 +42,7 @@ make_get_header() ?>
 							Category <?php the_category(', '); ?>
 						</li>
 						<li>
-							Comments <a href="<?php the_permalink(); ?>#comments"><?php comments_number( '0', '1', '%' ); ?></a>
+							<a href="<?php the_permalink(); ?>#comments"><?php comments_number( '0', '1', '%' ); ?></a>
 						</li>
 					</ul>
 		
@@ -85,4 +85,4 @@ make_get_header() ?>
 
 	</div>
 
-<?php get_footer('craft'); ?>
+<?php get_footer(); ?>

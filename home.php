@@ -7,7 +7,7 @@
  * @author     Jake Spurlock <jspurlock@makermedia.com>
  * 
  */
-make_get_header() ?>
+get_header(); ?>
 		
 	<div class="single">
 	
@@ -32,7 +32,7 @@ make_get_header() ?>
 						<?php endif ?>
 						<li>Posted <span class="blue"><?php the_time('m/d/Y \@ g:i a'); ?></span></li>
 						<li>Category <?php the_category(', '); ?></li>
-						<li>Comments <a href="<?php the_permalink(); ?>#comments"><?php comments_number( '0', '1', '%' ); ?></a></li>
+						<li><a href="<?php the_permalink(); ?>#comments"><?php comments_number( '0', '1', '%' ); ?></a></li>
 					</ul>
 				
 					<article <?php post_class(); ?>>
