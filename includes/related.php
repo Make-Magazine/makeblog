@@ -23,10 +23,10 @@ function make_get_related_content( $atts, $content = null ) {
 			foreach ( $ids as $id ) {
 				$output .= '<div class="span6">';
 				$blurb = get_post( $id );
-				$output .= '<a href="' . get_permalink( $id ) . '" class="' . esc_attr( $class ) . '">';
+				$output .= '<a href="' . esc_url( get_permalink( $id ) ) . '" class="' . esc_attr( $class ) . '">';
 				$output .= get_the_post_thumbnail( $blurb->ID, 'comment-thumb', array( 'class' => 'pull-left' ) );
 				$output .= '</a>';
-				$output .= '<a href="' . get_permalink( $id ) . '">';
+				$output .= '<a href="' . esc_url( get_permalink( $id ) ) . '">';
 				$output .= '<h4>' . apply_filters( 'the_title', $blurb->post_title ) . '</h4>';
 				$output .= '</a>';
 				$output .= Markdown( wp_trim_words( strip_shortcodes( $blurb->post_content ), 10, '...' ) );
@@ -36,10 +36,10 @@ function make_get_related_content( $atts, $content = null ) {
 		} elseif ( $count == 1 ) {
 			$output .= '<div class="span12">';
 				$blurb = get_post( $ids[0] );
-				$output .= '<a href="' . get_permalink( $ids[0] ) . '" class="' . esc_attr( $class ) . '">';
+				$output .= '<a href="' . esc_url( get_permalink( $ids[0] ) ) . '" class="' . esc_attr( $class ) . '">';
 				$output .= get_the_post_thumbnail( $blurb->ID, 'comment-thumb', array( 'class' => 'pull-left' ) );
 				$output .= '</a>';
-				$output .= '<a href="' . get_permalink( $ids[0] ) . '">';
+				$output .= '<a href="' . esc_url( get_permalink( $ids[0] ) ) . '">';
 				$output .= '<h4>' . apply_filters( 'the_title', $blurb->post_title ) . '</h4>';
 				$output .= '</a>';
 				$output .= Markdown( wp_trim_words( strip_shortcodes( $blurb->post_content ), 9, '...' ) );
