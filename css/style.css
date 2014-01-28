@@ -11926,3 +11926,10 @@ aside.pull-quote.pull-quote-1 {
   width: 200px;
   margin-left: 20px;
 }
+aside.pull-quote.pull-quote-1.pull-left {
+  margin-left: 0px;
+  margin-right: 20px;
+}
+aside.pull-quote.pull-quote-1.pull-left img {
+  margin-right: 10px;
+}
