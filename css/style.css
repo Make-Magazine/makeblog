@@ -11906,3 +11906,30 @@ a.button.small-button {
   border-left: 1px solid #ccc;
   padding-left: 20px;
 }
+aside.pull-quote {
+  border-top: 1px solid #ededed;
+  border-bottom: 1px solid #ededed;
+  padding: 5px 0;
+  margin-bottom: 10px;
+}
+aside.pull-quote h3 {
+  margin-top: -18px;
+}
+aside.pull-quote h3 span {
+  background-color: #fff;
+  padding-right: 10px;
+}
+aside.pull-quote p {
+  margin-bottom: 0px;
+}
+aside.pull-quote.pull-quote-1 {
+  width: 200px;
+  margin-left: 20px;
+}
+aside.pull-quote.pull-quote-1.pull-left {
+  margin-left: 0px;
+  margin-right: 20px;
+}
+aside.pull-quote.pull-quote-1.pull-left img {
+  margin-right: 10px;
+}

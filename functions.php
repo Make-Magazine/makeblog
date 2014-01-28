@@ -159,5 +159,8 @@ include_once dirname( __FILE__ ) . '/includes/shed/shed.php';
 // 44. Home Take Over - Theme Customizer API
 include_once dirname( __FILE__ ) . '/includes/theme-customizer/takeover.php';
 
+// 45. Related Content Blocks
+include_once dirname( __FILE__ ) . '/includes/related.php';
+
 
 ?>
