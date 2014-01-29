@@ -584,6 +584,79 @@ function make_projects_steps( $steps, $print = false ) {
 	}
 }
 
+
+/**
+ * Full content of the steps.
+ * 
+ */
+function make_projects_steps_accordian( $steps, $print = false ) {
+	$steps = unserialize($steps[0]);
+	$count = count($steps);
+	if ( !empty( $count ) ) {
+		foreach ( $steps as $idx => $step ) {
+			if ( $idx == 0 or $print == true) {
+				echo '<div class="jstep active" id="js-step-' . esc_attr( $step->number ) . '">';
+			} else {
+				echo '<div class="jstep hide" id="js-step-' . esc_attr( $step->number ) . '">';
+			}
+
+			echo '<span class="row">';
+
+				// Output the Step title
+				if ( ! $print ) {
+					echo '<span class="span6"><h4><span class="black">Step #' . esc_html( $step->number ) . ':</span> ' . esc_html( stripslashes( $step->title ) ) . '</h4></span>';
+				} else {
+					echo '<span class="span6"><h4><span class="black">Step #' . esc_html( $step->number ) . ':</span> ' . esc_html( stripslashes( $step->title ) ) . '</h4></span>';
+				}
+
+				// Output our previous button
+				if ( $idx != 0 && ! $print ) {
+					echo '<span class="span1"><a class="btn pull-right btn-danger nexter" id="step-'  . esc_attr( $step->number - 1 ) . '" data-target="#js-step-'  . esc_attr( $step->number - 1 ) . '">Prev</a></span>';
+				} elseif ( $idx == 0 && ! $print ) {
+					echo '<span class="span1"><a class="btn pull-right disabled" id="step-'  . esc_attr( $step->number - 1 ) . '" disabled="disabled">Prev</a></span>';
+				} elseif ( $print ) {
+					echo '';
+				}
+
+				// Output the next button
+				if ( $idx < $count - 1 && ! $print ) {
+					echo '<span class="span1"><a class="btn pull-right btn-danger nexter" id="step-'  . esc_attr( $step->number + 1 ) . '" data-target="#js-step-'  . esc_attr( $step->number + 1 ) . '">Next</a></span>';
+				} elseif ( $idx == $count - 1 && ! $print ) {
+					echo '<span class="span1"><a class="btn pull-right disabled" id="step-'  . esc_attr( $step->number + 1 ) . '" disabled="disabled">Next</a></span>';
+				} elseif ( $print ) {
+					echo '';
+				}
+			echo '</span>';
+			
+			$images = $step->images;
+			if ( isset( $images[0]->text ) ) {
+				if ( function_exists( 'wpcom_vip_get_resized_remote_image_url' ) ) {
+					echo '<img src="' . wpcom_vip_get_resized_remote_image_url( make_projects_to_s3( $images[0]->text ), 620, 465 ) . '" data-src="' . make_projects_to_s3( $images[0]->text ) . '" alt="' . esc_attr( the_title('', '', false ) ) . '" class="main ' . esc_attr( $images[0]->imageid ) . ' ' . esc_attr( $images[0]->orderby ) .'" />';
+				} else {
+					echo '<img src="' . esc_url( make_projects_to_s3( $images[0]->text ) ) . '" data-loc="js-step-' . esc_attr( $step->number ) . ' alt="' . esc_attr( the_title('', '', false ) ) . '" class="' . esc_attr( $images[0]->imageid ) . ' ' . esc_attr( $images[0]->orderby ) .'" />';
+				}
+			}
+			if ( !empty( $images[1]->text ) ) {
+				echo '<span class="row smalls" style="display:block">';
+				foreach ($images as $image) {
+					echo '<span class="span2">';
+					echo ( !empty($image->text ) ) ? '<img src="' . wpcom_vip_get_resized_remote_image_url( make_projects_to_s3( $image->text ), 140, 110 ) . '" data-loc="js-step-' . esc_attr( $step->number ) . '" data-src="' . wpcom_vip_get_resized_remote_image_url( make_projects_to_s3( $image->text ), 620, 465 )  . '" alt="' . esc_attr( the_title('', '', false ) ) . '" class="thumbs ' . esc_attr( $image->imageid ) . ' ' . esc_attr( $image->orderby ) .'" />' : null ;
+					echo '</span>';
+				}
+				echo '</span><!--.row-->';
+			}
+			$lines = $step->lines;
+			echo '<ul>';
+			foreach ($lines as $line) {
+				echo '<li>' . wp_kses_post( stripslashes( $line->text ) ) . '</li>';
+			}
+			echo '</ul>';
+			echo '</div><!--.right_column-->';
+		}
+	}
+}
+
+
 /**
  * Get all of the post meta that has parts as the ID, and then output an unordered list
  *
