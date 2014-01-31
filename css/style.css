@@ -9035,7 +9035,7 @@ body .single .tag-weekend-projects {
   display: inline;
 }
 #div-gpt-ad-664089004995786621-1 {
-  margin: 5px auto;
+  margin: 5px auto 5px -45npx;
 }
 .top-navigation-wrapper .nav {
   margin-bottom: 0;
@@ -9136,7 +9136,7 @@ body .single .tag-weekend-projects {
   margin: 4px 8px 5px;
 }
 .main-header .additional-content .search-make.open {
-  margin: 6px 0px 0px;
+  margin: 7px 0px 0px;
   line-height: 18px;
   border: 1px solid #999999;
   -webkit-border-top-right-radius: 5px;
@@ -9153,7 +9153,7 @@ body .single .tag-weekend-projects {
   border-bottom-left-radius: 5px;
 }
 .main-header .additional-content .search-make.open input[type="text"] {
-  padding: 3px 0 3px 8px;
+  padding: 5px 0 5px 8px;
   margin-bottom: 0;
 }
 .makershed-banner {
@@ -9161,7 +9161,10 @@ body .single .tag-weekend-projects {
 }
 .primary-nav-wrap {
   background: #005d8f;
-  margin-top: 15px;
+  margin: 15px auto 0;
+}
+.site-navigation ul li {
+  padding: 10px auto !important;
 }
 .site-navigation li {
   float: left;
@@ -9211,6 +9214,22 @@ body .single .tag-weekend-projects {
   -webkit-border-radius: 2px;
   -moz-border-radius: 2px;
   border-radius: 2px;
+}
+.site-navigation .sub-description {
+  color: #fff;
+  font-size: 14px;
+}
+.site-navigation .sub-description :hover {
+  color: red;
+}
+.site-navigation ul#menu-make-primary-nav li {
+  padding: 5px 12px;
+  line-height: 110%;
+  text-align: left;
+}
+.site-navigation ul#menu-make-primary-nav li:hover {
+  background: #8ed5f6 !important;
+  color: #005d8f !important;
 }
 .primary-navigation {
   font-weight: 500;

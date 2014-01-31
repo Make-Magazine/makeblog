@@ -1,6 +1,6 @@
 // Top Banner Ad
 #div-gpt-ad-664089004995786621-1 { 
-	margin:5px auto; 
+	margin:5px auto 5px -45npx; 
 }
 // Set some variables that is only used in the main nav
 @secondary-color: #005d8f;
@@ -91,7 +91,7 @@
 			}
 			input[type="image"] { margin:4px 8px 5px; }
 			&.open {
-				margin:6px 0px 0px;
+				margin:7px 0px 0px;
 				line-height: 18px;
 				border:@the-border solid #999;
 				.border-top-right-radius(5px);
@@ -99,7 +99,7 @@
 				.border-bottom-right-radius(5px);
 				.border-bottom-left-radius(5px);
 				input[type="text"] { 
-					padding:3px 0 3px 8px;
+					padding:5px 0 5px 8px;
 					margin-bottom:0;
 				}
 			}
@@ -110,16 +110,15 @@
 	background:#de231a;
 }
 
-
-
 // Wrapper containing the secondary navigation
 .primary-nav-wrap {
 	background:@secondary-color;
-	margin-top:15px;
+	margin:15px auto 0;
 }
 
 // Global Navigation styles
 .site-navigation {
+	ul li{padding:10px auto !important;}
 	li { .pull-left;
 	border-right:1px solid #999; 
 	}
@@ -134,9 +133,10 @@
 			display:block; // Allows us to use hover on the dropdowns rather than click.
 		}
 	}
+
 	a {
 		color:@blue;
-		background:none; 
+		background:none;
 		&:hover {
 			color:@secondary-color !important;
 			text-decoration:none !important;
@@ -161,6 +161,18 @@
 		display:none; // Add this so our subnav doesn't display before the Bootstrap classes are added.
 		border-top:none;
 		.border-radius(2px);
+	}
+	.sub-description {color:#fff;
+											:hover {color:red;}
+	font-size:14px;
+					  }
+	 ul#menu-make-primary-nav li{
+		 	padding:5px 12px;
+		 	line-height:110%;
+		 	text-align:left;
+		 	&:hover {background:@blue !important;
+		 			color:@secondary-color !important;
+	 		 }
 	}
 }
 
