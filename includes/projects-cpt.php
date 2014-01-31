@@ -693,3 +693,104 @@ $field_data = array (
 );
 
 $easy_cf = new Easy_CF($field_data);
+
+
+
+/**
+ * Global custom WP_Query retriever specifically for projects.
+ * This is built to be used in any location of the site.
+ * @param  array   $options The array of options
+ * @return Object
+ *
+ * @since SPRINT_NAME
+ */
+function make_get_projects( $options = array(), $json = false ) {
+	// Create a default list of parameters that will determine our query for projects
+	$defaults = array(
+		'subject' => 'latest',
+		'order' => 'desc',
+		'limit' => 0,
+	);
+
+	// Merge the custom options and our defaults then create some variables
+	$options = wp_parse_args( $options, $defaults );
+	$posts_per_page = ( $options['limit'] != 0 ) ? absint( $options['limit'] ) : 18;
+	$order = ( $options['order'] == 'desc' ) ? 'DESC' : 'ASC';
+
+	// Check what type of projects we want to return
+	switch ( $options['subject'] ) {
+		case 'latest':
+			$query = array(
+				'post_type' => 'projects',
+				'order' => $order,
+				'posts_per_page' => $posts_per_page,
+			);
+			break;
+
+		case 'easy':
+			$query = array(
+				'post_type' => 'projects',
+				'order' => $order,
+				'posts_per_page' => $posts_per_page,
+				'tax_query' => array(
+					array(
+						'taxonomy' => 'difficulty',
+						'field' => 'slug',
+						'terms' => 'easy',
+					)
+				)
+			);
+			break;
+
+		case 'moderate':
+			$query = array(
+				'post_type' => 'projects',
+				'order' => $order,
+				'posts_per_page' => $posts_per_page,
+				'tax_query' => array(
+					array(
+						'taxonomy' => 'difficulty',
+						'field' => 'slug',
+						'terms' => 'moderate',
+					)
+				)
+			);
+			break;
+
+		case 'difficult':
+			$query = array(
+				'post_type' => 'projects',
+				'order' => $order,
+				'posts_per_page' => $posts_per_page,
+				'tax_query' => array(
+					array(
+						'taxonomy' => 'difficulty',
+						'field' => 'slug',
+						'terms' => 'difficult',
+					)
+				)
+			);
+			break;
+
+		default: // If no subject is passed, exit as this script requires it.
+			return;
+			break;
+	}
+
+	// Create this variable after switch which will determin if the approved subjects are passed
+	$cache_key = sanitize_title_with_dashes( $options['subject'] );
+	$projects = wp_cache_get( $cache_key, 'projects' );
+
+	// Check if we found a cached copy of our query, if not, create a new one
+	if ( ! $projects ) {
+		$projects = new WP_Query( $query );
+
+		wp_cache_set( $cache_key, $projects, 'projects', 180 ); // Cache the results for 3 minutes
+	}
+
+	if ( $json ) {
+		return json_encode( $projects->posts );
+	} else {
+		return $projects->posts;
+	}
+}

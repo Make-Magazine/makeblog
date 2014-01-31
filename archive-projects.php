@@ -4,7 +4,7 @@
  *
  * @package    makeblog
  * @license    http://opensource.org/licenses/gpl-license.php  GNU Public License
- * @author     Jake Spurlock <jspurlock@makermedia.com>
+ * @since      SPRINT_NAME
  * 
  */
 global $catslugs;
@@ -17,169 +17,89 @@ if ($type == 'projects') {
 
 get_header(); ?>
 		
-	<div class="projects-home">
-	
-		<div class="art">
-		
-			<div class="container">
+<div class="container projects-home">
+	<div class="row">
+		<div class="span8">
+			<h1 class="main-title">Projects</h1>
+			
 
-				<div class="row">
-
-					<div class="span12">
-					
-						<div class="projects-top">
-						
-							<div class="row">
-								
-								<div class="span9">
-									
-									<h1>Make: Projects</h1>
-									
-									<p>Explore our growing cookbook of DIY projects for the workshop, <a href="<?php echo home_url(); ?>/category/home/food-beverage/?post_type=projects">kitchen</a>, garage, and backyard. Learn new skills, find <a href="<?php echo home_url(); ?>/category/home/kids-family/?post_type=projects">family fun</a>, build a <a href="<?php echo home_url(); ?>/category/electronics/robotics/?post_type=projects">robot</a> or a <a href="<?php echo home_url(); ?>/category/home/fun-games/?post_type=projects&amp;tag=rockets">rocket</a>. <a href="<?php echo home_url(); ?>/category/electronics/?post_type=projects&amp;difficulty=easy">Get started in electronics</a> and use new platforms like <a href="<?php echo home_url(); ?>/category/electronics/raspberry-pi/?post_type=projects">Raspberry Pi</a> and <a href="<?php echo home_url(); ?>/category/electronics/arduino/?post_type=projects">Arduino</a> to power your inventions. Get inspired and start making something today.</p>
-
-									<form class="form-search" action="<?php echo home_url(); ?>">
-										<label for="s">Search for Projects</label>
-										<input type="text" id="s" class="input-medium search-query" name="s">
-										<input type="hidden" name="post_type" value="projects">
-										<button type="submit" class="btn">Search</button>
-									</form>
-									
-									<h3>Find Projects by Category:</h3>
-									
-									<ul class="subs">
-										
-										<?php echo make_category_li( 'projects' ); ?>		
-										
-									</ul>
-									
-								</div>
-								
-								<div class="span3"></div>
-								
-							</div>
-						
-						</div>
-						
+			<article class="top-featured-project" itemscope itemtype="http://schema.org/TechArticle">
+				<figure class="featured-img">
+					<img src="http://cl.ly/image/1U3L1v3s3w22/u66_normal.jpg" alt="" itemprop="thumbnailUrl">
+				</figure>
+				
+				<div class="project-content">
+					<header>
+						<h2 class="project-section" itemprop="alternativeHeadline">Get Started</h2>
+						<h3 class="project-title" itemprop="headline"><a href="#" itemprop="url">Learn the Basics of Arduino</a></h3>
+					</header>
+					<div itemprop="articleBody">
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud. Lorem ipsum dolor sit amet.</p>
 					</div>
-					
+					<footer>
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud. Lorem ipsum dolor sit amet.</p>
+						<p><a href="#" itemprop="url">Learn more about Arduino</a></p>
+					</footer>
 				</div>
+			</article>
+
+
+			<article class="bottom-featured-project" itemscope itemtype="http://schema.org/TechArticle">
+				<figure class="featured-img">
+					<a href="#" itemprop="url"><img src="http://cl.ly/image/0I3B3J0S181O/u72_normal.jpg" alt="" itemprop="thumbnailUrl"></a>
+				</figure>
 				
-			</div>
-		
-		</div>
-
-	</div>
-					
-	<div class="grey content">
-
-		<div class="container">
-		
-			<div class="row">
-			
-				<div class="span8">
-					
-					<?php
-						$args = array(
-							'post_type'			=> 'projects',
-							'title'				=> 'Featured Projects',
-							'limit'				=> 2,
-							'tag'				=> 'Featured',
-							'projects_landing'	=> true,
-							'all'				=> true
-						);
-						echo make_carousel( $args ); ?>
-					
-				</div>
-				
-				<div class="span4">
-					
-					<div class="sidebar-ad">
-
-						<!-- Beginning Sync AdSlot 2 for Ad unit header ### size: [[300,250]]  -->
-						<div id='div-gpt-ad-664089004995786621-2'>
-							<script type='text/javascript'>
-								googletag.cmd.push(function(){googletag.display('div-gpt-ad-664089004995786621-2')});
-							</script>
-						</div>
-						<!-- End AdSlot 2 -->
-
+				<div class="project-content">
+					<header>
+						<h2 class="project-section" itemprop="alternativeHeadline">Get Started</h2>
+						<h3 class="project-title" itemprop="headline"><a href="#" itemprop="url">Learn the Basics of Arduino</a></h3>
+					</header>
+					<div itemprop="articleBody">
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud. Lorem ipsum dolor sit amet.</p>
 					</div>
-					
+					<footer>
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud. Lorem ipsum dolor sit amet.</p>
+						<p><a href="#" itemprop="url">Learn more about Arduino</a></p>
+					</footer>
 				</div>
-				
-			</div>
-								
-			<div class="row">
-			
-				<div class="span12">
-				
-					<?php 
+			</article>
 
-						$args = array(
-							'post_type'			=> 'projects',
-							'title'				=> 'New Projects',
-							'projects_landing'	=> true,
-							'all'				=> true,
-						);
-						
-						echo make_carousel($args);
-					?>
-					
+			<section class="list-content">
+				<ul class="nav nav-tabs sort-by">
+					<li class="sort-title">Sort By:</li>
+					<li class="active"><a href="#latest" data-toggle="tab">Latest</a></li>
+					<li><a href="#easy" data-toggle="tab">Easy</a></li>
+					<li><a href="#moderate" data-toggle="tab">Moderate</a></li>
+					<li><a href="#difficult" data-toggle="tab">Difficult</a></li>
+				</ul>
+				
+				<div class="tab-content project-wrapper">
+					<div id="latest" class="tab-pane grid active"></div>
+					<div id="easy" class="tab-pane"></div>
+					<div id="moderate" class="tab-pane"></div>
+					<div id="difficult" class="tab-pane"></div>
 				</div>
-			
-			</div>
-			
-			<div class="row">
-			
-				<div class="span12">
-				
-					<?php 
 
-						$args = array(
-							'post_type'			=> 'projects',
-							'title'				=> '<a href="' . home_url() . '/weekendprojects/">Weekend Projects</a>',
-							'tax_query' => array(
-								array(
-									'taxonomy' => 'flags',
-									'field' => 'slug',
-									'terms' => 'weekend-project'
-								)
-							),
-							'projects_landing'	=> true,
-							'all'				=> true,
-							'posts_per_page'	=> 36
-						);
-
-						echo make_carousel($args);
-					?>
-					
-				</div>
-			
-			</div>
-			
+				<script type="text/template" id="projectTemp">
+					<article class="project" itemscope itemtype="http://schema.org/TechArticle">
+						<figure class="project_img">
+							<a href="<%= project_url %>" itemprop="url" title="<%= project_title %>"><img src="<%= project_img %>" alt="<%= project_title %>" itemprop="thumbnailUrl"></a>
+						</figure>
+						<header>
+							<h2 class="project_title" itemprop="headline"><a href="<%= project_url %>" itemprop="url" title="<%= project_title %>"><%= project_title %></a></h2>
+						</header>
+					</article>
+				</script>
+			</section>
 		</div>
-		
+		<div class="span4">
+			<!-- Beginning Sync AdSlot 2 for Ad unit header ### size: [[300,250]]  -->
+			<div id='div-gpt-ad-664089004995786621-2'>
+				<script type='text/javascript'>googletag.cmd.push(function(){googletag.display('div-gpt-ad-664089004995786621-2')});</script>
+			</div>
+			<!-- End AdSlot 2 -->
+		</div>
 	</div>
-				
-	<?php
+</div>
 
-		if ($catslugs) {
-			echo '<div class="grey topper"><div class="container"><div class="row"><div class="span12"><h2>Projects by Category</h2></div></div></div></div>';
-			foreach ($catslugs as $category) {
-				$category = wpcom_vip_get_term_by('name', $category, 'category');
-				echo '<div class="grey"><div class="container"><div class="row"><div class="span12">';							
-				$args = array(
-					'post_type'			=> 'projects',
-					'category__in'		=> $category->term_id,
-					'title'				=> $category->name,
-					'projects_landing'	=> true,
-					'all'				=> true
-
-				);
-				echo make_carousel( $args );
-				echo '</div></div></div>';
-			} 
-		} 
-	?>
-
-	<?php get_footer(); ?>
+<?php get_footer(); ?>
