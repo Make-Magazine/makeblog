@@ -53,17 +53,21 @@
 								<h2 title="Make Magazine - <?php echo bloginfo( 'description' ); ?>"><a href="<?php echo home_url(); ?>"><img src="<?php echo get_stylesheet_directory_uri(); ?>/img/make-logo.png"  alt="Tech-savvy DIY Enthusiasts Innovative Projects and Ideas" /></a></h2>
 							<?php endif; ?>
 						</div>
-						<nav class="span7 site-navigation primary-navigation hidden-print" role="navigation">
-			                <?php wp_nav_menu( array(
-			                    'theme_location' => 'make-primary',
-			                    'container'		 => '',
-			                    'menu_class'	 => 'nav menu-primary-nav ga-nav clearfix',
-			                    'walker'		 => new Bootstrap_Walker_Nav_Menu(),
-			                ) ); ?>
-						</nav>
+						<div class="span6">
+			                <p>Learn, Create, Share</p>
+						</div>
+						<div class="span2">
+							<p><span><a href="">Sign In</a> / <a href="">Join</a></span></p>
+						</div>	
+						<div class="span2">
+							<p><span><a class="btn btn-small btn-danger">Subscribe</a></span></p>
+						</div>
+					</div>	
+				</div>	
+				<div class="primary-nav-wrap">
+				<div class="container">
 
-
-						<div class="additional-content hidden-print">						
+						<!-- <div class="additional-content hidden-print">						
 							<form action="<?php echo home_url(); ?>" class="search-make open">
 								<input type="text" class="search-field" name="s" placeholder="Search" />
 								<input type="image" src="<?php echo get_stylesheet_directory_uri(); ?>/images/search-btn.png" alt="Search" class="open" value="Search" />
@@ -74,11 +78,25 @@
 									googletag.cmd.push(function(){googletag.display('div-gpt-ad-664089004995786621-5')});
 								</script>
 							</div>
-						</div>
+						</div> -->
+					<div class="row">
+						<nav class="span9 site-navigation primary-navigation hidden-print" role="navigation">
+			                <?php wp_nav_menu( array(
+			                    'theme_location' => 'make-primary',
+			                    'container'		 => '',
+			                    'menu_class'	 => 'nav menu-primary-nav ga-nav clearfix',
+			                    'walker'		 => new Bootstrap_Walker_Nav_Menu(),
+			                ) ); ?>
+						</nav>
+						<div class="span3 search-make additional-content hidden-print">	
+							<form action="<?php echo home_url(); ?>" class="search-make open">
+								<input type="text" class="search-field" name="s" placeholder="Search" />
+								<input type="image" src="<?php echo get_stylesheet_directory_uri(); ?>/images/search-btn.png" alt="Search" class="open" value="Search" />
+							</form>
+						</div>				
 					</div>
 				</div>
-			</div>
-			<div class="makershed-banner">
+			<!-- <div class="makershed-banner">
 				<div class="container">
 					<div class="row">
 						<div class="span12">
@@ -86,5 +104,5 @@
 						</div>
 					</div>
 				</div>
-			</div>
+			</div> -->
 		</header>

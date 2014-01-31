@@ -3,7 +3,8 @@
 	margin:5px auto; 
 }
 // Set some variables that is only used in the main nav
-@secondary-color: #ebebeb;
+@secondary-color: #005d8f;
+@blue: #8ed5f6;
 
 // Wrapper that contains both the main and secondary navigations
 .top-navigation-wrapper { 
@@ -13,18 +14,39 @@
 // Wrapper containing the main navigaiton
 .main-header {
 	padding:15px 0 10px;
-	border-top:@the-border solid @red;
-	border-bottom:@the-border solid #a4a4a4;
 	.row { position:relative; }
-	.logo {margin-top:67px;}
+	.logo {margin-top:0px;}
+	h1 {margin:0;
+		padding:0;
+	}
+	p {font-family: 'benton-sans', 'proxima-nova',sans-serif;
+		height:42px;
+		line-height:60px;
+		font-size:36px;
+		font-weight:lighter;
+		margin-bottom:0;
+		color:#898989;
+		} 
+	p span {
+		font-family:'proxima-nova',sans-serif;
+		text-align: right;
+		font-weight:bold;
+		height:42px;
+		font-size:18px;
+		line-height:74px;
+		color:@secondary-color;
+		a.btn {
+			font-size:16px !important;
+			text-transform: uppercase;
+			margin-bottom:3px;
+			padding:5px 10px;
+			}
+		}
 	.hdr-sub-ad-01 {
 		margin-top:10px;
 	}
 	.additional-content {
-		position:absolute;
-		top:-15px;
-		right:0;
-		.subscribe, .search-make, { .pull-left; }
+		.subscribe, .search-make { .pull-left; }
 		.subscribe {
 			> a {
 				margin-right:6px;
@@ -58,7 +80,7 @@
 		}
 		.search-make {
 			float:right;
-			margin:0;
+			background-color: #fff !important;
 			input[type="text"] {
 				width:165px;
 				border: none;
@@ -69,8 +91,11 @@
 			}
 			input[type="image"] { margin:4px 8px 5px; }
 			&.open {
-				border:@the-border solid @red;
-				border-top:none;
+				margin:6px 0px 0px;
+				line-height: 18px;
+				border:@the-border solid #999;
+				.border-top-right-radius(5px);
+				.border-top-left-radius(5px);
 				.border-bottom-right-radius(5px);
 				.border-bottom-left-radius(5px);
 				input[type="text"] { 
@@ -85,33 +110,52 @@
 	background:#de231a;
 }
 
+
+
 // Wrapper containing the secondary navigation
-.secondary-header {
+.primary-nav-wrap {
 	background:@secondary-color;
-	.box-shadow( inset 0 10px 18px -10px #a4a4a4 );
+	margin-top:15px;
 }
 
 // Global Navigation styles
 .site-navigation {
-	li { .pull-left; }
-	li.dropdown:hover {
+	li { .pull-left;
+	border-right:1px solid #999; 
+	}
+	li:first-child{border-left: 1px solid #999; 
+	}
+	li.dropdown:hover, li:hover a {
+				color:@secondary-color !important;
+				background:@blue !important;
 		> ul.dropdown-menu {
+			color:@secondary-color !important;
+			background:@blue !important;
 			display:block; // Allows us to use hover on the dropdowns rather than click.
 		}
 	}
-	a, .dropdown-menu a {
+	a {
 		color:@blue;
 		background:none; 
 		&:hover {
+			color:@secondary-color !important;
+			text-decoration:none !important;
+			background:@blue !important;
+		}
+	}
+	.dropdown-menu a {
+		color:@secondary-color;
+		background:@blue; 
+		&:hover {
 			color:@blue !important;
-			text-decoration:underline !important;
-			background:none !important;
+			text-decoration:none !important;
+			background:@secondary-color !important;
 		}
 	}
 	.open > a {
 		color:@blue !important;
-		text-decoration:underline !important;
-		background:none !important;
+		text-decoration:none !important;
+		background:@secondary-color !important;
 	}
 	.sub-menu, .dropdown-menu {
 		display:none; // Add this so our subnav doesn't display before the Bootstrap classes are added.
@@ -120,32 +164,12 @@
 	}
 }
 
-// Main Navigation styles
+// Primary Navigation
 .primary-navigation {
-	font-size:20px !important;
-	font-weight:bold;
-	position:relative;
-	top:92px;
-	ul {
-		> li { 
-			margin-right: 18px;
-			font-size:17px;
-			> a {
-				padding-bottom:3px;
-			}
-		}	
-	}
-	.dropdown-menu {
-		margin-top:0px;
-		font-size:17px !important;
-	}
-}
-
-// Secondary Navigation
-.secondary-navigation {
-	font-size:16px;
-	border-bottom:1px solid lighter(@secondary-color);
-	a { padding:10px; }
+	font-weight:500;
+	a { padding:10px;
+		font-size:18px !important;
+	   }
 	.first > a { padding-left:0; }
 	.dropdown-menu {
 		background:@secondary-color;
