@@ -82,25 +82,25 @@ function make_marketron_newsletter( $atts, $content = null ) {
 	return '
 		<form class="form-stacked" action="http://makermedia.createsend.com/t/r/s/jrsydu/" method="post" id="subForm">
 			<fieldset>
-				<legend>Sign up for the Maker Pro Newsletter</legend>
-				<div class="clearfix">
+				<legend><p><em>From the editors of MAKE magazine, the Maker Pro Newsletter is about the impact of makers on business and technology. Our coverage includes hardware startups, new products, incubators, innovators, along with technology and market trends. Please send items to us at <a href="mailto:makerpro@makermedia.com">makerpro@makermedia.com</a>.</em></p></legend>
+				<div>
 					<label for="name">Name:</label>
 					<div class="input">
 						<input class="xlarge" id="name" name="cm-name" size="30" type="text">
 					</div>
 				</div>
-				<!-- /clearfix -->
-				<div class="clearfix">
+				<div>
 					<label for="jrsydu-jrsydu">Email:</label>
 					<div class="input">
 						<input class="xlarge" id="jrsydu-jrsydu" name="cm-jrsydu-jrsydu" size="30" type="text">
 					</div>
 				</div>
-				<!-- /clearfix -->
 			</fieldset>
 			<div class="actions">
 				<button type="submit" class="btn primary">Subscribe</button>
 			</div>
+			<p></p>
+            <legend></legend>
 		</form>';
 }
 add_shortcode( 'makerpro', 'make_marketron_newsletter' );
