@@ -1,0 +1,28 @@
+.primary-navigation {
+	li {
+		&:hover .dropdown-wrapper {
+			left:0px
+		}
+	}
+	.dropdown-wrapper {
+		position:absolute;
+		left:-999em;
+		background:#fff;
+		z-index:999999;
+		.column {
+			padding:0 5px;
+		}
+		.col-title {
+			font-size:20px;
+			margin:0;
+		}
+		.project-list-item.media {
+			margin-top:0;
+		}
+		.list {
+			list-style:none;
+			margin:0;
+			padding:0;
+		}
+	}
+}

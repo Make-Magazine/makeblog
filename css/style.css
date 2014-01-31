@@ -9215,7 +9215,7 @@ body .single .tag-weekend-projects {
 .primary-navigation {
   font-weight: 500;
 }
-.primary-navigation a {
+.primary-navigation > ul > li > a {
   padding: 10px;
   font-size: 18px !important;
 }
@@ -9398,6 +9398,30 @@ body .single .tag-weekend-projects {
     margin: 0;
     padding: 0;
   }
+}
+.primary-navigation li:hover .dropdown-wrapper {
+  left: 0px;
+}
+.primary-navigation .dropdown-wrapper {
+  position: absolute;
+  left: -999em;
+  background: #fff;
+  z-index: 999999;
+}
+.primary-navigation .dropdown-wrapper .column {
+  padding: 0 5px;
+}
+.primary-navigation .dropdown-wrapper .col-title {
+  font-size: 20px;
+  margin: 0;
+}
+.primary-navigation .dropdown-wrapper .project-list-item.media {
+  margin-top: 0;
+}
+.primary-navigation .dropdown-wrapper .list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 .page-template-page-weekend-projects-two-col-php .grey {
   padding: 30px 0;

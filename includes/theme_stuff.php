@@ -1677,11 +1677,18 @@ function make_copyright_footer() { ?>
  */
 class Bootstrap_Walker_Nav_Menu extends Walker_Nav_Menu {
 
+	// Used for children (IE. dropdowns)
 	function start_lvl( &$output, $depth = 0, $args = array() ) {
 		$indent = str_repeat( "\t", $depth );
-		$output .= "\n$indent<ul class=\"dropdown-menu\">\n";
+		$output .= "\n$indent<div class=\"dropdown-wrapper container\"><div class=\"row-fluid\">\n";
 	}
 
+	function end_lvl( &$output, $depth = 0, $args = array() ) {
+		$indent = str_repeat( "\t", $depth );
+		$output .= "\n$indent</div></div>\n";
+	}
+
+	// Layouts the individual elements and it's code.
 	function start_el( &$output, $item, $depth = 0, $args = array(), $id = 0 ) {
 
 		if ( empty( $args ) )
@@ -1720,6 +1727,7 @@ class Bootstrap_Walker_Nav_Menu extends Walker_Nav_Menu {
 		$output 	    .= apply_filters( 'walker_nav_menu_start_el', $item_output, $item, $depth, $args );
 	}
 
+	// Loops through the data in the menu and displays the data
 	function display_element( $element, &$children_elements, $max_depth, $depth = 0, $args, &$output ) {
 
 		if ( ! $element )
@@ -1751,10 +1759,18 @@ class Bootstrap_Walker_Nav_Menu extends Walker_Nav_Menu {
 					// Start the child delimiter
 					$cb_args = array_merge( array( &$output, $depth ), $args );
 
+					// Append the relationship to our mega dropdowns. To simplify things, we'll repurpose the XFN feature
+					// in menus and use that to create a relationship between a navigational item and a mega dropdown
+					$cb_args[2]->parent = strtolower( sanitize_title_with_dashes( $element->xfn ) );
+
 					call_user_func_array( array( &$this, 'start_lvl'), $cb_args );
+
+					// Get the appropriate mega dropdown
+					// We'll repurpose the XFN option in menus to create a relationship between a nav item and mega dropdown
+					$this->fetch_mega_dropdown( $element->xfn, $output );
 				}
 
-				$this->display_element( $child, $children_elements, $max_depth, $depth + 1, $args, $output );
+				// $this->display_element( $child, $children_elements, $max_depth, $depth + 1, $args, $output );
 			}
 			unset( $children_elements[ $id ] );
 		}
@@ -1770,5 +1786,112 @@ class Bootstrap_Walker_Nav_Menu extends Walker_Nav_Menu {
 		$cb_args = array_merge( array( &$output, $element, $depth ), $args );
 
 		call_user_func_array( array( &$this, 'end_el' ), $cb_args );
+	}
+
+
+	function fetch_mega_dropdown( $parent, &$output ) {
+		if ( $parent == 'build' ) {
+			$output .= $this->mdd_build();
+		}
+	}
+
+	private function mdd_build() {
+		$output = '<div class="featured-projects column span3">
+			<h2 class="col-title">Featured Projects</h2>
+			<article class="project-list-item media">
+				<a href="#" class="pull-left"><img src="http://placekitten.com/100/100" class="media-object"></a>
+				<div class="media-body">
+					<h4 class="media-heading">Raygun Vector Weapon</h4>
+				</div>
+			</article>
+			<article class="project-list-item media">
+				<a href="#" class="pull-left"><img src="http://placekitten.com/100/100" class="media-object"></a>
+				<div class="media-body">
+					<h4 class="media-heading">Look Inside the CloudFridge</h4>
+				</div>
+			</article>
+			<article class="project-list-item media">
+				<a href="#" class="pull-left"><img src="http://placekitten.com/100/100" class="media-object"></a>
+				<div class="media-body">
+					<h4 class="media-heading">Finding Your Way with GPS</h4>
+				</div>
+			</article>
+			<article class="project-list-item media">
+				<a href="#" class="pull-left"><img src="http://placekitten.com/100/100" class="media-object"></a>
+				<div class="media-body">
+					<h4 class="media-heading">Calling Out Around the World: Low-cost Global Satellite Signaling with Iridium</h4>
+				</div>
+			</article>
+			<a href="#" class="btn btn-primary">View All</a>
+		</div>
+		<div class="weekend-projects column span3">
+			<h2 class="col-title">Weekend Projects</h2>
+			<article class="project-list-item media">
+				<a href="#" class="pull-left"><img src="http://placekitten.com/100/100" class="media-object"></a>
+				<div class="media-body">
+					<h4 class="media-heading">SunBEAM Seeker Bot</h4>
+				</div>
+			</article>
+			<article class="project-list-item media">
+				<a href="#" class="pull-left"><img src="http://placekitten.com/100/100" class="media-object"></a>
+				<div class="media-body">
+					<h4 class="media-heading">Data Dial Dashboard</h4>
+				</div>
+			</article>
+			<article class="project-list-item media">
+				<a href="#" class="pull-left"><img src="http://placekitten.com/100/100" class="media-object"></a>
+				<div class="media-body">
+					<h4 class="media-heading">Super Simple FM Transmitter</h4>
+				</div>
+			</article>
+			<article class="project-list-item media">
+				<a href="#" class="pull-left"><img src="http://placekitten.com/100/100" class="media-object"></a>
+				<div class="media-body">
+					<h4 class="media-heading">Potted Plant Protector</h4>
+				</div>
+			</article>
+			<a href="#" class="btn btn-primary">View All</a>
+		</div>
+		<div class="getting-started column span3">
+			<h2 class="col-title">Getting Started</h2>
+			<article class="project-list-item media">
+				<a href="#" class="pull-left"><img src="http://placekitten.com/100/100" class="media-object"></a>
+				<div class="media-body">
+					<h4 class="media-heading">Get Started with BeagleBone</h4>
+				</div>
+			</article>
+			<article class="project-list-item media">
+				<a href="#" class="pull-left"><img src="http://placekitten.com/100/100" class="media-object"></a>
+				<div class="media-body">
+					<h4 class="media-heading">Getting Started With Slic3r</h4>
+				</div>
+			</article>
+			<article class="project-list-item media">
+				<a href="#" class="pull-left"><img src="http://placekitten.com/100/100" class="media-object"></a>
+				<div class="media-body">
+					<h4 class="media-heading">Getting Started in Aerial Video</h4>
+				</div>
+			</article>
+			<article class="project-list-item media">
+				<a href="#" class="pull-left"><img src="http://placekitten.com/100/100" class="media-object"></a>
+				<div class="media-body">
+					<h4 class="media-heading">Getting Started in Woodworking</h4>
+				</div>
+			</article>
+			<a href="#" class="btn btn-primary">View All</a>
+		</div>
+		<div class="categories column span3">
+			<h2 class="col-title">Categories</h2>
+			<ul class="nav nav-pills nav-stacked">
+				<li><a href="#">Electronics</a></li>
+				<li><a href="#">Workshop</a></li>
+				<li><a href="#">Craft</a></li>
+				<li><a href="#">Science</a></li>
+				<li><a href="#">Home</a></li>
+				<li><a href="#">Art &amp; Design</a></li>
+			</ul>
+		</div>';
+
+		return $output;
 	}
 }
