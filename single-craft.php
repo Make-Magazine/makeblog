@@ -23,6 +23,13 @@ get_header(); ?>
 					<div class="projects-masthead">
 						
 						<h1><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h1>
+
+						<?php 
+							$desc = get_post_custom_values('Description');
+							if (isset($desc[0])) {
+								echo Markdown( wp_kses_post( $desc[0] ) );
+							}
+						?>
 						
 					</div>
 					
