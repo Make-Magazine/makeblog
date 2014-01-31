@@ -473,3 +473,120 @@ function make_theme_canvas_home_takeover( $wp_customize ) {
 
 }
 add_action( 'customize_register', 'make_theme_canvas_home_takeover' );
+
+/**
+ * 
+ * Sets up the interface in the theme customizer for the banner takeover options
+ * @param  object $wp_customize An instance of the WP_Customize_Manager class
+ * @return void
+ *
+ * @since  Mechani-Kong
+ */
+function make_theme_banner_home_takeover( $wp_customize ) {
+
+	// Register our section
+	$wp_customize->add_section( 'make_banner', array(
+		'title' => 'Banner Takeover',
+		'priority' => 1
+	) );
+
+
+	// Register the enable field
+	$wp_customize->add_setting( 'make_enable_banner', array(
+		'default' => 'off',
+	) );
+
+	$wp_customize->add_control( 'make_enable_banner', array(
+		'section' => 'make_banner',
+		'label'   => 'Enable banner Takeover',
+		'type' 	  => 'select',
+		'choices' => array(
+			'on'  => 'Enabled',
+			'off' => 'Disabled',
+		),
+		'priority' => 10,
+	) );
+
+	// Register the banner image
+	$wp_customize->add_setting( 'make_banner_takeover', array(
+		'default' => '',
+		'transport' => 'postMessage',
+	) );
+
+	$wp_customize->add_control( 
+		new WP_Customize_Image_Control( $wp_customize, 'make_banner_takeover', array(
+			'settings' => 'make_banner_takeover',
+			'section' => 'make_banner',
+			'label' => 'Background Image',
+			'priority' => 15,
+		) )
+	);
+
+	// Register the banner image
+	$wp_customize->add_setting( 'make_banner_top_image', array(
+		'default' => '',
+		'transport' => 'postMessage',
+	) );
+
+	$wp_customize->add_control( 
+		new WP_Customize_Image_Control( $wp_customize, 'make_banner_top_image', array(
+			'settings' => 'make_banner_top_image',
+			'section' => 'make_banner',
+			'label' => 'Top Image',
+			'priority' => 15,
+		) )
+	);
+
+	// Register the html for the page.
+	$wp_customize->add_setting( 'make_banner_feat_post_id', array(
+		'default' => '',
+		'sanitize_callback' => 'wp_kses_post',
+	) );
+
+	$wp_customize->add_control( 'make_banner_feat_post_id', array(
+		'section' => 'make_banner',
+		'label' => 'Post ID of the featured post',
+		'type' => 'text',
+		'priority' => 20,
+	) );
+
+	// Register the html for the page.
+	$wp_customize->add_setting( 'make_banner_feat_post_title', array(
+		'default' => '',
+		'sanitize_callback' => 'wp_kses_post',
+	) );
+
+	$wp_customize->add_control( 'make_banner_feat_post_title', array(
+		'section' => 'make_banner',
+		'label' => 'Override for the title of the featured post',
+		'type' => 'text',
+		'priority' => 20,
+	) );
+
+	$wp_customize->add_setting( 'make_banner_feat_post_blurb', array(
+		'default' => '',
+		'sanitize_callback' => 'wp_kses_post',
+	) );
+
+	$wp_customize->add_control( 'make_banner_feat_post_blurb', array(
+		'section' => 'make_banner',
+		'label' => 'Override for the blurb of the featured post',
+		'type' => 'text',
+		'priority' => 20,
+	) );
+
+	// $wp_customize->add_setting( 'make_banner_tag_slug', array(
+	// 	'default' => '',
+	// 	'sanitize_callback' => '',
+	// ) );
+
+	// $wp_customize->add_control( 'make_banner_tag_slug', array(
+	// 	'section' => 'make_banner',
+	// 	'label' => 'Slug of the tag that you want to be the link for all of the archived content.',
+	// 	'type' => 'text',
+	// 	'priority' => 20,
+	// ) );
+
+
+}
+add_action( 'customize_register', 'make_theme_banner_home_takeover' );

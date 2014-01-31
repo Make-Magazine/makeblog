@@ -92,3 +92,22 @@
 .canvas .blur h3 {
   font-size: 18px;
 }
+.banner {
+  min-height: 547px;
+  background-position: center top;
+  cursor: pointer;
+}
+.banner .pull-up {
+  margin-top: -547px;
+}
+.banner .pull-up .top-image {
+  margin: 20px 0;
+}
+.banner .pull-up .feat-post {
+  border-top: 1px solid #70cddc;
+  border-bottom: 1px solid #70cddc;
+  padding: 10px 0;
+}
+.banner .pull-up .feat-post img {
+  margin-right: 10px;
+}

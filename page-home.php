@@ -26,6 +26,10 @@ Template Name: Home Page
 
 			<?php get_template_part( 'home-canvas' ); ?>
 
+		<?php elseif ( get_theme_mod( 'make_enable_banner' ) === 'on' ) : ?>
+
+			<?php get_template_part( 'home-banner' ); ?>
+
 		<?php else : ?>
 
 			<div class="waist">
