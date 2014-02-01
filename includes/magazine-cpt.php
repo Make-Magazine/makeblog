@@ -379,13 +379,14 @@ $field_data = array (
 			'VideoURL'			=> array(),
 			'PostsBlurb'		=> array(),
 			'Categories'		=> array(),
+			'Description'		=> array(),
 			'MarketingCaption'	=> array(
 				'type'	=> 'textarea'
 				),
 		),
 		'title'		=> 'Magazine Volume Setup',
 		'context'	=> 'side',
-		'pages'		=> array( 'volume' ),
+		'pages'		=> array( 'volume', 'magazine' ),
 	),
 );
 
