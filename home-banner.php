@@ -1,7 +1,7 @@
 <?php if ( make_has_takeover_mod( 'make_banner_takeover' ) ) : ?>
-	<div class="banner" style="background-image: url( <?php echo esc_url( get_theme_mod( 'make_banner_takeover' ) ); ?> ); background-position: center top;" onclick="location.href='http://google.com'">
+	<div class="banner" style="/* background-image: url( <?php echo esc_url( get_theme_mod( 'make_banner_takeover' ) ); ?> ); background-position: center top; */" >
 <?php else : ?>
-	<div class="banner" style="background-image: url( 'https://cdn.makezine.com/make/banner/Connected-Home-Package3-BG.jpg' );">
+	<div class="banner">
 <?php endif; ?>
 
 	<div id="div-gpt-ad-664089004995786621-7" class="banner-canvas">
@@ -25,18 +25,29 @@
 				</div>
 
 				<div class="feat-post">
-					<?php if ( make_has_takeover_mod( 'make_banner_feat_post_id' ) ) : ?>
-						<?php
+					<?php 
+						if ( make_has_takeover_mod( 'make_banner_feat_post_id' ) ) {
 							$post_id = absint( get_theme_mod( 'make_banner_feat_post_id' ) );
 							$the_post = get_post( $post_id );
 							echo get_the_post_thumbnail( $post_id, 'archive-thumb', array('class' => 'pull-left' ) );
 							$title = get_theme_mod( 'make_banner_feat_post_title', get_the_title( $the_post ) );
 							echo '<h3>' . wp_kses_post( $title ) . '</h3>';
 							echo Markdown( wp_trim_words( strip_shortcodes( get_theme_mod( 'make_banner_feat_post_blurb',  $the_post->post_content ) ), 14, '...' ) . ' <a href="' . get_permalink( $post_id ) . '">MORE</a>');
+						}
 
-						?>
-					<?php endif; ?>
+						if ( make_has_takeover_mod( 'make_banner_feat_post_slug' ) ) {
+							$link = make_get_category_url( get_theme_mod( 'make_banner_feat_post_slug'  ) );
+							echo '<h4><a class="red" href="' . esc_url( $link ) . '">View all articles</a></h4>';
+						}
+					?>
+
 					<div class="clearfix"></div>				
+
+				</div>
+
+				<div class="call-out">
+
+
 
 				</div>
 

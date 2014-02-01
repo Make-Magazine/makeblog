@@ -575,17 +575,17 @@ function make_theme_banner_home_takeover( $wp_customize ) {
 		'priority' => 20,
 	) );
 
-	// $wp_customize->add_setting( 'make_banner_tag_slug', array(
-	// 	'default' => '',
-	// 	'sanitize_callback' => '',
-	// ) );
+	$wp_customize->add_setting( 'make_banner_feat_post_slug', array(
+		'default' => '',
+		'sanitize_callback' => 'wp_kses_post',
+	) );
 
-	// $wp_customize->add_control( 'make_banner_tag_slug', array(
-	// 	'section' => 'make_banner',
-	// 	'label' => 'Slug of the tag that you want to be the link for all of the archived content.',
-	// 	'type' => 'text',
-	// 	'priority' => 20,
-	// ) );
+	$wp_customize->add_control( 'make_banner_feat_post_slug', array(
+		'section' => 'make_banner',
+		'label' => 'Slug of the tags for the view all articles.',
+		'type' => 'text',
+		'priority' => 20,
+	) );
 
 
 }
