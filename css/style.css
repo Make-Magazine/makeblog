@@ -8011,6 +8011,10 @@ textarea.narrow,
 .projects-masthead h1 a {
   color: #005d8f;
 }
+.projects-masthead p {
+  font-size: 20px;
+  font-weight: bold;
+}
 .projects-meta {
   margin: 10px 0;
   padding: 5px 0;
@@ -8764,6 +8768,10 @@ body .single article ol li {
 }
 body .single .tag-weekend-projects {
   margin-top: 10px;
+}
+body .single .projects-masthead p {
+  font-size: 20px;
+  font-weight: bold;
 }
 .gsc-cursor-page {
   display: inline-block;
