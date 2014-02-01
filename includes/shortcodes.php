@@ -145,6 +145,54 @@ add_shortcode( 'meetup', 'meetup_newsletter' );
 add_shortcode( 'newsletter', 'make_newsletter' );
 
 /**
+ * Signup form for Galileo Book
+ * http://makezine.com/books/getting-started-with-intel-galileo/
+ */
+function galileo_list( $atts, $content = null ) {
+	return '
+		<form class="form-stacked" action="http://newsletter.makezine.com/t/r/s/ttdutih/" method="post" id="subForm">
+			<fieldset>
+				<legend>Enter for a chance to win one of five Ultimate Arduino Microcontroller Packs! All entries will receive a free PDF of MAKE volume 35: Danger! </legend>
+				<div class="clearfix">
+					<label for="name">Name:</label>
+					<div class="input">
+						<input class="xlarge" id="name" name="cm-name" size="30" type="text">
+					</div>
+				</div>
+				<!-- /clearfix -->			
+				<div class="clearfix">
+					<label for="ttdutih-ttdutih">Email:</label>
+					<div class="input">
+						<input class="xlarge" id="ttdutih-ttdutih" name="cm-ttdutih-ttdutih" size="30" type="text">
+					</div>
+				</div>
+				<!-- /clearfix -->
+				<div class="clearfix">
+				<label for="juiuilk-juiuilk">Educational Institution:</label>
+					<div class="input">
+						<input class="xlarge" id="fieldjtvkhd-fieldjtvkhd" name="cm-f-jtvkhd" size="30" type="text">
+					</div>
+				</div>
+				<!-- /clearfix -->
+				<div class="clearfix">
+				<label for="juiuilk-juiuilk">Role:</label>
+					<div class="input">
+					 <select id="fieldjtvkhh" name="cm-fo-jtvkhh">
+			            <option value="4420691">Student</option>
+			            <option value="4420692">Professor</option>
+			        </select>
+					</div>
+				</div>
+				<!-- /clearfix -->				
+			</fieldset>
+			<div class="actions">
+				<button type="submit" class="btn primary">Subscribe</button>
+			</div>
+		</form>';
+}
+add_shortcode( 'gal', 'galileo_list' );
+
+/**
  * Adds check boxes for newsletter signup.
  * This can be deleted after the sweepstakes are over. Dec. 2013 
  * http://makezine.com/meetup/3dprinter/
