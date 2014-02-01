@@ -1719,9 +1719,9 @@ class Bootstrap_Walker_Nav_Menu extends Walker_Nav_Menu {
 
 		$item_output 	= ( isset( $args->before ) ) ? $args->before : '';
 		$item_output 	.= '<a' . $attributes . '>';
-		$item_output 	.= $args->link_before . apply_filters( 'the_title', $item->title, $item->ID ) . $args->link_after;
-		$item_output	.= '</a>';
+		$item_output 	.= $args->link_before . apply_filters( 'the_title', $item->title, $item->ID ) . $args->link_after;		
 		$item_output    .= '<span class="sub-description">' . esc_html( $item->description ) . '</span>';
+		$item_output	.= '</a>';
 		$item_output 	.= ( isset( $args->after ) ) ? $args->after : '';
 
 		$output 	    .= apply_filters( 'walker_nav_menu_start_el', $item_output, $item, $depth, $args );
@@ -1748,31 +1748,23 @@ class Bootstrap_Walker_Nav_Menu extends Walker_Nav_Menu {
 
 		$id = $element->$id_field;
 
-		// Descend only when the depth is right and there are childrens for this element
-		if ( ( $max_depth == 0 || $max_depth > $depth + 1 ) && isset( $children_elements[ $id ] ) ) {
+		// Display our mega dropdown only when the XFN field is filled in
+		if ( ! empty( $element->xfn ) ) {
 
-			foreach ( $children_elements[ $id ] as $child ) {
+			$newlevel = true;
 
-				if ( ! isset( $newlevel ) ) {
-					$newlevel = true;
+			// Start the child delimiter
+			$cb_args = array_merge( array( &$output, $depth ), $args );
 
-					// Start the child delimiter
-					$cb_args = array_merge( array( &$output, $depth ), $args );
+			// Append the relationship to our mega dropdowns. To simplify things, we'll repurpose the XFN feature
+			// in menus and use that to create a relationship between a navigational item and a mega dropdown
+			$cb_args[2]->parent = strtolower( sanitize_title_with_dashes( $element->xfn ) );
 
-					// Append the relationship to our mega dropdowns. To simplify things, we'll repurpose the XFN feature
-					// in menus and use that to create a relationship between a navigational item and a mega dropdown
-					$cb_args[2]->parent = strtolower( sanitize_title_with_dashes( $element->xfn ) );
+			call_user_func_array( array( &$this, 'start_lvl'), $cb_args );
 
-					call_user_func_array( array( &$this, 'start_lvl'), $cb_args );
-
-					// Get the appropriate mega dropdown
-					// We'll repurpose the XFN option in menus to create a relationship between a nav item and mega dropdown
-					$this->fetch_mega_dropdown( $element->xfn, $output );
-				}
-
-				// $this->display_element( $child, $children_elements, $max_depth, $depth + 1, $args, $output );
-			}
-			unset( $children_elements[ $id ] );
+			// Get the appropriate mega dropdown
+			// We'll repurpose the XFN option in menus to create a relationship between a nav item and mega dropdown
+			$this->fetch_mega_dropdown( $element->xfn, $output );
 		}
 
 		if ( isset( $newlevel ) && $newlevel ) {
@@ -1796,7 +1788,7 @@ class Bootstrap_Walker_Nav_Menu extends Walker_Nav_Menu {
 	}
 
 	private function mdd_build() {
-		$output = '<div class="featured-projects column span3">
+		$output = '<div class="featured-projects column span4">
 			<h2 class="col-title">Featured Projects</h2>
 			<article class="project-list-item media">
 				<a href="#" class="pull-left"><img src="http://placekitten.com/100/100" class="media-object"></a>
@@ -1824,7 +1816,7 @@ class Bootstrap_Walker_Nav_Menu extends Walker_Nav_Menu {
 			</article>
 			<a href="#" class="btn btn-primary">View All</a>
 		</div>
-		<div class="weekend-projects column span3">
+		<div class="weekend-projects column span4">
 			<h2 class="col-title">Weekend Projects</h2>
 			<article class="project-list-item media">
 				<a href="#" class="pull-left"><img src="http://placekitten.com/100/100" class="media-object"></a>
@@ -1852,35 +1844,7 @@ class Bootstrap_Walker_Nav_Menu extends Walker_Nav_Menu {
 			</article>
 			<a href="#" class="btn btn-primary">View All</a>
 		</div>
-		<div class="getting-started column span3">
-			<h2 class="col-title">Getting Started</h2>
-			<article class="project-list-item media">
-				<a href="#" class="pull-left"><img src="http://placekitten.com/100/100" class="media-object"></a>
-				<div class="media-body">
-					<h4 class="media-heading">Get Started with BeagleBone</h4>
-				</div>
-			</article>
-			<article class="project-list-item media">
-				<a href="#" class="pull-left"><img src="http://placekitten.com/100/100" class="media-object"></a>
-				<div class="media-body">
-					<h4 class="media-heading">Getting Started With Slic3r</h4>
-				</div>
-			</article>
-			<article class="project-list-item media">
-				<a href="#" class="pull-left"><img src="http://placekitten.com/100/100" class="media-object"></a>
-				<div class="media-body">
-					<h4 class="media-heading">Getting Started in Aerial Video</h4>
-				</div>
-			</article>
-			<article class="project-list-item media">
-				<a href="#" class="pull-left"><img src="http://placekitten.com/100/100" class="media-object"></a>
-				<div class="media-body">
-					<h4 class="media-heading">Getting Started in Woodworking</h4>
-				</div>
-			</article>
-			<a href="#" class="btn btn-primary">View All</a>
-		</div>
-		<div class="categories column span3">
+		<div class="categories column span4">
 			<h2 class="col-title">Categories</h2>
 			<ul class="nav nav-pills nav-stacked">
 				<li><a href="#">Electronics</a></li>

@@ -1,14 +1,100 @@
-.primary-navigation {
+// Set some variables that is only used in the main nav
+@secondary-color: #005d8f;
+@nav_blue: #8ed5f6;
+
+// Wrapper that contains both the main and secondary navigations
+.top-navigation-wrapper { 
+	.nav { margin-bottom:0; }
+}
+
+// Wrapper containing the primary navigation
+.primary-nav-wrap {
+	background:@secondary-color;
+	margin:15px auto 0;
+}
+
+// Global Navigation styles
+.site-navigation {
 	li {
-		&:hover .dropdown-wrapper {
-			left:0px
+		padding:10px auto !important; 
+		border-right:1px solid #999;
+		&:first-child {
+			border-left: 1px solid #999; 
 		}
+		&.dropdown:hover, &:hover a {
+			color:@secondary-color !important;
+			background:@nav_blue !important;
+			> ul.dropdown-menu {
+				color:@secondary-color !important;
+				background:@nav_blue !important;
+				display:block; // Allows us to use hover on the dropdowns rather than click.
+			}
+		}
+		a {
+			color:@nav_blue;
+			background:none;
+			&:hover {
+				color:@secondary-color !important;
+				text-decoration:none !important;
+				background:@nav_blue !important;
+			}
+		}
+		.dropdown-menu a {
+			color:@secondary-color;
+			background:@nav_blue; 
+			&:hover {
+				color:@nav_blue !important;
+				text-decoration:none !important;
+				background:@secondary-color !important;
+			}
+		}
+		.open > a {
+			color:@nav_blue !important;
+			text-decoration:none !important;
+			background:@secondary-color !important;
+		}
+		.sub-menu, .dropdown-menu {
+			display:none; // Add this so our subnav doesn't display before the Bootstrap classes are added.
+			border-top:none;
+			.border-radius(2px);
+		}
+		.sub-description {
+			display:block;
+			color:#fff;
+			font-size:14px;
+		}
+	}
+}
+
+.primary-navigation {
+	font-weight:500;
+	> ul > li {
+		.pull-left;
+		> a {
+			display:block;
+			font-size:18px !important;
+		}
+	}
+	li {
+		cursor:pointer;
+		padding:5px 12px;
+	 	line-height:110%;
+	 	text-align:left;
+	 	&:hover {
+	 		background:@nav_blue !important;
+	 		color:@secondary-color !important;
+	 		.dropdown-wrapper {
+				left:20px;
+				top:44px;
+			}
+ 		}
 	}
 	.dropdown-wrapper {
 		position:absolute;
 		left:-999em;
 		background:#fff;
 		z-index:999999;
+		padding-bottom:10px;
 		.column {
 			padding:0 5px;
 		}
@@ -24,5 +110,8 @@
 			margin:0;
 			padding:0;
 		}
+	}
+	.first > a {
+		padding-left:0;
 	}
 }
