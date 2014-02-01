@@ -587,6 +587,30 @@ function make_theme_banner_home_takeover( $wp_customize ) {
 		'priority' => 20,
 	) );
 
+	$wp_customize->add_setting( 'make_banner_call_out_link', array(
+		'default' => '',
+		'sanitize_callback' => 'wp_kses_post',
+	) );
+
+	$wp_customize->add_control( 'make_banner_call_out_link', array(
+		'section' => 'make_banner',
+		'label' => 'URL of the call page.',
+		'type' => 'text',
+		'priority' => 25,
+	) );
+
+	$wp_customize->add_setting( 'make_banner_call_out_title', array(
+		'default' => '',
+		'sanitize_callback' => 'wp_kses_post',
+	) );
+
+	$wp_customize->add_control( 'make_banner_call_out_title', array(
+		'section' => 'make_banner',
+		'label' => 'Title of all of the call out link.',
+		'type' => 'text',
+		'priority' => 25,
+	) );
+
 
 }
 add_action( 'customize_register', 'make_theme_banner_home_takeover' );

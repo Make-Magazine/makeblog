@@ -115,13 +115,30 @@
   margin-top: -547px;
 }
 .banner .pull-up .top-image {
-  margin: 20px 0;
+  margin: 16px 0;
 }
 .banner .pull-up .feat-post {
   border-top: 1px solid #70cddc;
   border-bottom: 1px solid #70cddc;
   padding: 10px 0;
+  color: #043350;
+}
+.banner .pull-up .feat-post h3 {
+  marging-bottom: 15px;
+}
+.banner .pull-up .feat-post p {
+  font-size: 20px;
 }
 .banner .pull-up .feat-post img {
   margin-right: 10px;
+}
+.banner .pull-up .red {
+  text-transform: uppercase;
+}
+.banner .pull-up ul li {
+  line-height: 100%;
+}
+.banner .pull-up h2 {
+  font-size: 24px;
+  line-height: 28px;
 }

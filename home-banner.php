@@ -29,14 +29,16 @@
 						if ( make_has_takeover_mod( 'make_banner_feat_post_id' ) ) {
 							$post_id = absint( get_theme_mod( 'make_banner_feat_post_id' ) );
 							$the_post = get_post( $post_id );
+							echo '<a href="' . get_permalink( $post_id ) . '">';
 							echo get_the_post_thumbnail( $post_id, 'archive-thumb', array('class' => 'pull-left' ) );
+							echo '</a>';
 							$title = get_theme_mod( 'make_banner_feat_post_title', get_the_title( $the_post ) );
-							echo '<h3>' . wp_kses_post( $title ) . '</h3>';
+							echo '<h3><a href="' . get_permalink( $post_id ) . '">' . wp_kses_post( $title ) . '</a></h3>';
 							echo Markdown( wp_trim_words( strip_shortcodes( get_theme_mod( 'make_banner_feat_post_blurb',  $the_post->post_content ) ), 14, '...' ) . ' <a href="' . get_permalink( $post_id ) . '">MORE</a>');
 						}
 
 						if ( make_has_takeover_mod( 'make_banner_feat_post_slug' ) ) {
-							$link = make_get_category_url( get_theme_mod( 'make_banner_feat_post_slug'  ) );
+							$link = make_get_category_url( get_theme_mod( 'make_banner_feat_post_slug'  ), 'post_tag', 'slug' );
 							echo '<h4><a class="red" href="' . esc_url( $link ) . '">View all articles</a></h4>';
 						}
 					?>
@@ -47,7 +49,35 @@
 
 				<div class="call-out">
 
+					<?php 
+						$link = get_theme_mod( 'make_banner_call_out_link' );
+						$title = get_theme_mod( 'make_banner_call_out_title' );
+						if ( !empty( $title ) && !empty( $title ) ) {
+							echo '<h2><a href="' . esc_url( $link ) . '">' . wp_kses_post( $title ) . '</a></h2>';
+						}
+					?>
 
+					<?php
+						if ( make_has_takeover_mod( 'make_banner_feat_post_slug' ) ) {
+							echo '<ul>';
+							$args = array(
+								'posts_per_page'  	=> 5,
+								'no_found_rows' 	=> true,
+								'post_type' 		=> array( 'post', 'projects', 'video', 'craft', 'magazine' ),
+							);
+							
+							$blurbs = new WP_Query( $args );
+
+							while ( $blurbs->have_posts() ) : $blurbs->the_post();
+								echo '<li><h4><a href="'.get_permalink().'">';
+								echo wp_trim_words( ( get_the_title() ), 8 );
+								echo '</a></h4></li>';
+							endwhile;
+
+							// Reset Post Data
+							wp_reset_postdata();
+						}
+					?>
 
 				</div>
 
