@@ -93,12 +93,25 @@
   font-size: 18px;
 }
 .banner {
+  position: relative;
+  top: 0px;
+  left: 50%;
+  margin-left: -1080px;
   width: 2160px;
   min-height: 547px;
   background-position: center top;
   cursor: pointer;
 }
+.banner .banner-canvas {
+  width: 2160px;
+  height: 547px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
 .banner .pull-up {
+  position: relative;
+  z-index: 2;
   margin-top: -547px;
 }
 .banner .pull-up .top-image {
