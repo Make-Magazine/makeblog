@@ -90,7 +90,7 @@ $field_data = array (
 	'magazine_meta' => array (
 		'fields' => array(
 			'Hed'				=> array(),
-			'Dek'				=> array(),
+			'Description'		=> array(),
 			'PullQuotes'		=> array(),
 			'PageNumber'		=> array(),
 			'ProjectsTeaser'	=> array(),
@@ -107,7 +107,7 @@ $field_data = array (
 	),
 	'title'		=> 'Magazine Meta',
 	'context'	=> 'side',
-	'pages'		=> array( 'magazine', 'review', 'projects' ),
+	'pages'		=> array( 'magazine', 'review', 'post', 'craft' ),
 	),
 );
 
