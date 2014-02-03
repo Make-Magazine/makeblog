@@ -533,7 +533,7 @@ function make_theme_banner_home_takeover( $wp_customize ) {
 			'settings' => 'make_banner_top_image',
 			'section' => 'make_banner',
 			'label' => 'Top Image',
-			'priority' => 15,
+			'priority' => 16,
 		) )
 	);
 
@@ -560,7 +560,7 @@ function make_theme_banner_home_takeover( $wp_customize ) {
 		'section' => 'make_banner',
 		'label' => 'Override for the title of the featured post',
 		'type' => 'text',
-		'priority' => 20,
+		'priority' => 21,
 	) );
 
 	$wp_customize->add_setting( 'make_banner_feat_post_blurb', array(
@@ -572,7 +572,7 @@ function make_theme_banner_home_takeover( $wp_customize ) {
 		'section' => 'make_banner',
 		'label' => 'Override for the blurb of the featured post',
 		'type' => 'text',
-		'priority' => 20,
+		'priority' => 22,
 	) );
 
 	$wp_customize->add_setting( 'make_banner_feat_post_slug', array(
@@ -584,7 +584,20 @@ function make_theme_banner_home_takeover( $wp_customize ) {
 		'section' => 'make_banner',
 		'label' => 'Slug of the tags for the view all articles.',
 		'type' => 'text',
-		'priority' => 20,
+		'priority' => 27,
+	) );
+
+	$wp_customize->add_setting( 'make_banner_feat_post_number', array(
+		'default' => '',
+		'sanitize_callback' => 'absint',
+	) );
+
+	$wp_customize->add_control( 'make_banner_feat_post_number', array(
+		'section' => 'make_banner',
+		'label' => 'How many articles to show from the related posts.',
+		'type' => 'select',
+		'choices' => array( 1 => 1, 2 => 2, 3 => 3, 4 => 4, 5 => 5 ), 
+		'priority' => 28,
 	) );
 
 	$wp_customize->add_setting( 'make_banner_call_out_link', array(
@@ -608,7 +621,7 @@ function make_theme_banner_home_takeover( $wp_customize ) {
 		'section' => 'make_banner',
 		'label' => 'Title of all of the call out link.',
 		'type' => 'text',
-		'priority' => 25,
+		'priority' => 26,
 	) );
 
 

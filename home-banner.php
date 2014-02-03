@@ -58,10 +58,12 @@
 					?>
 
 					<?php
+
 						if ( make_has_takeover_mod( 'make_banner_feat_post_slug' ) ) {
 							echo '<ul>';
 							$args = array(
-								'posts_per_page'  	=> 5,
+								'tag'				=> sanitize_title( get_theme_mod( 'make_banner_feat_post_slug' ) ),
+								'posts_per_page'  	=> absint( get_theme_mod( 'make_banner_feat_post_number', 4 ) ),
 								'no_found_rows' 	=> true,
 								'post_type' 		=> array( 'post', 'projects', 'video', 'craft', 'magazine' ),
 							);
