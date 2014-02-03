@@ -152,7 +152,6 @@ function galileo_list( $atts, $content = null ) {
 	return '
 		<form class="form-stacked" action="http://newsletter.makezine.com/t/r/s/ttdutih/" method="post" id="subForm">
 			<fieldset>
-				<legend>Enter for a chance to win one of five Ultimate Arduino Microcontroller Packs! All entries will receive a free PDF of MAKE volume 35: Danger! </legend>
 				<div class="clearfix">
 					<label for="name">Name:</label>
 					<div class="input">
