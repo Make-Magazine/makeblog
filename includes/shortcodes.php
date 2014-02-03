@@ -152,40 +152,28 @@ function galileo_list( $atts, $content = null ) {
 	return '
 		<form class="form-stacked" action="http://newsletter.makezine.com/t/r/s/ttdutih/" method="post" id="subForm">
 			<fieldset>
-				<div class="clearfix">
-					<label for="name">Name:</label>
-					<div class="input">
-						<input class="xlarge" id="name" name="cm-name" size="30" type="text">
-					</div>
+				<label for="name">Name:</label>
+				<div class="input">
+					<input class="xlarge" id="name" name="cm-name" size="30" type="text">
+				</div>		
+				<label for="ttdutih-ttdutih">Email:</label>
+				<div class="input">
+					<input class="xlarge" id="ttdutih-ttdutih" name="cm-ttdutih-ttdutih" size="30" type="text">
 				</div>
-				<!-- /clearfix -->			
-				<div class="clearfix">
-					<label for="ttdutih-ttdutih">Email:</label>
-					<div class="input">
-						<input class="xlarge" id="ttdutih-ttdutih" name="cm-ttdutih-ttdutih" size="30" type="text">
-					</div>
+			<label for="juiuilk-juiuilk">Educational Institution:</label>
+				<div class="input">
+					<input class="xlarge" id="fieldjtvkhd-fieldjtvkhd" name="cm-f-jtvkhd" size="30" type="text">
 				</div>
-				<!-- /clearfix -->
-				<div class="clearfix">
-				<label for="juiuilk-juiuilk">Educational Institution:</label>
-					<div class="input">
-						<input class="xlarge" id="fieldjtvkhd-fieldjtvkhd" name="cm-f-jtvkhd" size="30" type="text">
-					</div>
-				</div>
-				<!-- /clearfix -->
-				<div class="clearfix">
-				<label for="juiuilk-juiuilk">Role:</label>
-					<div class="input">
-					 <select id="fieldjtvkhh" name="cm-fo-jtvkhh">
-			            <option value="4420691">Student</option>
-			            <option value="4420692">Professor</option>
-			        </select>
-					</div>
-				</div>
-				<!-- /clearfix -->				
+			<label for="juiuilk-juiuilk">Role:</label>
+				<div class="input">
+				 <select id="fieldjtvkhh" name="cm-fo-jtvkhh">
+		            <option value="4420691">Student</option>
+		            <option value="4420692">Professor</option>
+		        </select>
+				</div>			
 			</fieldset>
 			<div class="actions">
-				<button type="submit" class="btn primary">Subscribe</button>
+				<button type="submit" class="btn primary">Submit</button>
 			</div>
 		</form>';
 }
@@ -200,15 +188,23 @@ add_shortcode( 'gal', 'galileo_list' );
 function printrbot_sweepstakes_newsletter( $atts, $content = null ) {
 	return '
 		<form action="http://newsletter.makezine.com/t/r/s/tyilklk/" method="post">
+    		<p>
         		<label for="fieldName">Name</label>
         		<input id="fieldName" class="input-large" name="cm-name" type="text" />
+    		</p>
+    		<p>
         		<label for="fieldEmail">Email</label>
         		<input id="fieldEmail" class="input-large" name="cm-tyilklk-tyilklk" type="email" required />
+    		</p>
+    		<p>
         		<label>Opt into another list</label>
         		<input id="listjjuylk" name="cm-ol-jjuylk" type="checkbox" /> <label style="display:inline;" for="listjjuylk">MAKE Newsletter</label><br>
         		<input id="listjrsydu" name="cm-ol-jrsydu" type="checkbox" /> <label style="display:inline;" for="listjrsydu">Maker Pro Newsletter</label><br>
         		<input id="listttihir" name="cm-ol-ttihir" type="checkbox" /> <label style="display:inline;" for="listttihir">Maker Shed Newsletter</label><br>
+    		</p>
+    		<p>
         		<button class="btn blue btn-large" type="submit">Submit</button>
+    		</p>
 		</form>';
 }
 add_shortcode( 'printrbot', 'printrbot_sweepstakes_newsletter' );
