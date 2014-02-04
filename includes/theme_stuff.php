@@ -257,7 +257,6 @@ function make_load_resources() {
 	wp_enqueue_script( 'jquery' );
 	wp_enqueue_script( 'make-bootstrap', get_stylesheet_directory_uri() . '/js/bootstrap.min.js', array( 'jquery' ), false, true );
 	wp_enqueue_script( 'make-projects', get_stylesheet_directory_uri() . '/js/projects.js', array( 'jquery' ), false, true );
-	wp_enqueue_script( 'make-header', get_stylesheet_directory_uri() . '/js/header.js', array( 'jquery' ), false, true );
 	wp_enqueue_script( 'make-oembed', get_stylesheet_directory_uri() . '/js/jquery.oembed.js', array( 'jquery' ) );
 	
 	// display our map sort plugin for Maker Camp
@@ -1718,7 +1717,7 @@ class Bootstrap_Walker_Nav_Menu extends Walker_Nav_Menu {
 		$attributes 	.= ( isset( $args->has_children ) && $args->has_children ) 	   ? ' class="dropdown-toggle"' : '';
 
 		$item_output 	= ( isset( $args->before ) ) ? $args->before : '';
-		$item_output 	.= '<a' . $attributes . '>';
+		$item_output 	.= '<a href="#" class="main-link-title">';
 		$item_output 	.= $args->link_before . apply_filters( 'the_title', $item->title, $item->ID ) . $args->link_after;		
 		$item_output    .= '<span class="sub-description">' . esc_html( $item->description ) . '</span>';
 		$item_output	.= '</a>';
@@ -1781,70 +1780,113 @@ class Bootstrap_Walker_Nav_Menu extends Walker_Nav_Menu {
 	}
 
 
+	/**
+	 * Fetches the code for a specific mega dropdown.
+	 * For now, we will be hardcoding this, but we'll need to automate this for managability
+	 * @param  String $parent The name of the parent dropdown we need to fetch
+	 * @param  String $output The HTML output of our mega dropdown. No need to return, this is handled by the walker
+	 * @return String
+	 *
+	 * @since L-Ron
+	 */
 	function fetch_mega_dropdown( $parent, &$output ) {
-		if ( $parent == 'build' ) {
-			$output .= $this->mdd_build();
+		switch ( $parent ) {
+			case 'build':
+				$output .= $this->mdd_build();
+				break;
+			case 'explore':
+				$output .= $this->mdd_explore();
+				break;
+			case 'connect':
+				$output .= $this->mdd_connect();
+				break;
+			case 'shop':
+				$output .= $this->mdd_shop();
+				break;
 		}
 	}
 
+
+	/**
+	 * The HTML output of the build mega dropdown
+	 * @return string
+	 *
+	 * @since L-Ron
+	 */
 	private function mdd_build() {
 		$output = '<div class="featured-projects column span4">
 			<h2 class="col-title">Featured Projects</h2>
-			<article class="project-list-item media">
-				<a href="#" class="pull-left"><img src="http://placekitten.com/100/100" class="media-object"></a>
+			<article class="list-item-nav media">
+				<a href="#" class="pull-left"><img src="http://placehold.it/80x80/0eafff/ffffff.png" class="media-object"></a>
 				<div class="media-body">
-					<h4 class="media-heading">Raygun Vector Weapon</h4>
+					<h4 class="media-heading"><a href="#">Raygun Vector Weapon</a></h4>
 				</div>
 			</article>
-			<article class="project-list-item media">
-				<a href="#" class="pull-left"><img src="http://placekitten.com/100/100" class="media-object"></a>
+			<article class="list-item-nav media">
+				<a href="#" class="pull-left"><img src="http://placehold.it/80x80/0eafff/ffffff.png" class="media-object"></a>
 				<div class="media-body">
-					<h4 class="media-heading">Look Inside the CloudFridge</h4>
+					<h4 class="media-heading"><a href="#">Look Inside the CloudFridge</h4>
 				</div>
 			</article>
-			<article class="project-list-item media">
-				<a href="#" class="pull-left"><img src="http://placekitten.com/100/100" class="media-object"></a>
+			<article class="list-item-nav media">
+				<a href="#" class="pull-left"><img src="http://placehold.it/80x80/0eafff/ffffff.png" class="media-object"></a>
 				<div class="media-body">
-					<h4 class="media-heading">Finding Your Way with GPS</h4>
+					<h4 class="media-heading"><a href="#">Finding Your Way with GPS</a></h4>
 				</div>
 			</article>
-			<article class="project-list-item media">
-				<a href="#" class="pull-left"><img src="http://placekitten.com/100/100" class="media-object"></a>
+			<article class="list-item-nav media">
+				<a href="#" class="pull-left"><img src="http://placehold.it/80x80/0eafff/ffffff.png" class="media-object"></a>
 				<div class="media-body">
-					<h4 class="media-heading">Calling Out Around the World: Low-cost Global Satellite Signaling with Iridium</h4>
+					<h4 class="media-heading"><a href="#">Calling Out Around the World: Low-cost Global Satellite Signaling with Iridium</h4>
 				</div>
 			</article>
-			<a href="#" class="btn btn-primary">View All</a>
+			<a href="#" class="view-all-btn">View All &raquo;</a>
 		</div>
 		<div class="weekend-projects column span4">
 			<h2 class="col-title">Weekend Projects</h2>
-			<article class="project-list-item media">
-				<a href="#" class="pull-left"><img src="http://placekitten.com/100/100" class="media-object"></a>
+			<article class="list-item-nav media">
+				<a href="#" class="pull-left"><img src="http://placehold.it/80x80/0eafff/ffffff.png" class="media-object"></a>
 				<div class="media-body">
-					<h4 class="media-heading">SunBEAM Seeker Bot</h4>
+					<h4 class="media-heading"><a href="#">SunBEAM Seeker Bot</a></h4>
 				</div>
 			</article>
-			<article class="project-list-item media">
-				<a href="#" class="pull-left"><img src="http://placekitten.com/100/100" class="media-object"></a>
+			<article class="list-item-nav media">
+				<a href="#" class="pull-left"><img src="http://placehold.it/80x80/0eafff/ffffff.png" class="media-object"></a>
 				<div class="media-body">
-					<h4 class="media-heading">Data Dial Dashboard</h4>
+					<h4 class="media-heading"><a href="#">Data Dial Dashboard</a></h4>
 				</div>
 			</article>
-			<article class="project-list-item media">
-				<a href="#" class="pull-left"><img src="http://placekitten.com/100/100" class="media-object"></a>
+			<article class="list-item-nav media">
+				<a href="#" class="pull-left"><img src="http://placehold.it/80x80/0eafff/ffffff.png" class="media-object"></a>
 				<div class="media-body">
-					<h4 class="media-heading">Super Simple FM Transmitter</h4>
+					<h4 class="media-heading"><a href="#">Super Simple FM Transmitter</a></h4>
 				</div>
 			</article>
-			<article class="project-list-item media">
-				<a href="#" class="pull-left"><img src="http://placekitten.com/100/100" class="media-object"></a>
+			<article class="list-item-nav media">
+				<a href="#" class="pull-left"><img src="http://placehold.it/80x80/0eafff/ffffff.png" class="media-object"></a>
 				<div class="media-body">
-					<h4 class="media-heading">Potted Plant Protector</h4>
+					<h4 class="media-heading"><a href="#">Potted Plant Protector</a></h4>
 				</div>
 			</article>
-			<a href="#" class="btn btn-primary">View All</a>
+			<a href="#" class="view-all-btn">View All &raquo;</a>
 		</div>
-		<div class="categories column span4">
+		<div class="categories-getting-started column span4">
+			<h2 class="col-title">Getting Started</h2>
+			<article class="list-item-nav media">
+				<a href="#" class="pull-left"><img src="http://placehold.it/80x80/0eafff/ffffff.png" class="media-object"></a>
+				<div class="media-body">
+					<h4 class="media-heading"><a href="#">Super Simple FM Transmitter</a></h4>
+				</div>
+			</article>
+			<article class="list-item-nav media">
+				<a href="#" class="pull-left"><img src="http://placehold.it/80x80/0eafff/ffffff.png" class="media-object"></a>
+				<div class="media-body">
+					<h4 class="media-heading"><a href="#">Potted Plant Protector</a></h4>
+				</div>
+			</article>
+			
+			<hr class="bottom-divider" />
+
 			<h2 class="col-title">Categories</h2>
 			<ul class="nav nav-pills nav-stacked">
 				<li><a href="#">Electronics</a></li>
@@ -1854,6 +1896,302 @@ class Bootstrap_Walker_Nav_Menu extends Walker_Nav_Menu {
 				<li><a href="#">Home</a></li>
 				<li><a href="#">Art &amp; Design</a></li>
 			</ul>
+		</div>';
+
+		return $output;
+	}
+
+
+	/**
+	 * The HTML output of the explore mega dropdown
+	 * @return string
+	 *
+	 * @since L-Ron
+	 */
+	private function mdd_explore() {
+		$output = '<div class="featured-projects column span4">
+			<h2 class="col-title">Trending on the Blog</h2>
+			<article class="list-item-nav media">
+				<a href="#" class="pull-left"><img src="http://placehold.it/80x80/0eafff/ffffff.png" class="media-object"></a>
+				<div class="media-body">
+					<h4 class="media-heading"><a href="#">47 Raspberry Pi Projects to Inspire Your Next Build</a></h4>
+				</div>
+			</article>
+			<article class="list-item-nav media">
+				<a href="#" class="pull-left"><img src="http://placehold.it/80x80/0eafff/ffffff.png" class="media-object"></a>
+				<div class="media-body">
+					<h4 class="media-heading"><a href="#">Seventeen Sneaky Secret Hides</a></h4>
+				</div>
+			</article>
+			<article class="list-item-nav media">
+				<a href="#" class="pull-left"><img src="http://placehold.it/80x80/0eafff/ffffff.png" class="media-object"></a>
+				<div class="media-body">
+					<h4 class="media-heading"><a href="#">$150, 12″ Swing, Metal Lathe/Mill/Drill</a></h4>
+				</div>
+			</article>
+			<article class="list-item-nav media">
+				<a href="#" class="pull-left"><img src="http://placehold.it/80x80/0eafff/ffffff.png" class="media-object"></a>
+				<div class="media-body">
+					<h4 class="media-heading"><a href="#">How I Built a Raspberry Pi Tablet</a></h4>
+				</div>
+			</article>
+			<a href="#" class="view-all-btn">View All &raquo;</a>	
+		</div>
+		<div class="weekend-projects column span4">
+			<h2 class="col-title">Articles</h2>
+			<article class="list-item-nav media">
+				<a href="#" class="pull-left"><img src="http://placehold.it/80x80/0eafff/ffffff.png" class="media-object"></a>
+				<div class="media-body">
+					<h4 class="media-heading"><a href="#">Professor Strobel’s Superb Bowls</a></h4>
+				</div>
+			</article>
+			<article class="list-item-nav media">
+				<a href="#" class="pull-left"><img src="http://placehold.it/80x80/0eafff/ffffff.png" class="media-object"></a>
+				<div class="media-body">
+					<h4 class="media-heading"><a href="#">Life-Sized Pirate Ship from Cardboard</a></h4>
+				</div>
+			</article>
+			<article class="list-item-nav media">
+				<a href="#" class="pull-left"><img src="http://placehold.it/80x80/0eafff/ffffff.png" class="media-object"></a>
+				<div class="media-body">
+					<h4 class="media-heading"><a href="#">Afinia Responds to Stratasys II: You Failed To Disclose Old Patents, Printers</a></h4>
+				</div>
+			</article>
+			<article class="list-item-nav media">
+				<a href="#" class="pull-left"><img src="http://placehold.it/80x80/0eafff/ffffff.png" class="media-object"></a>
+				<div class="media-body">
+					<h4 class="media-heading"><a href="#">All This Week: The Connected Home, the Internet of Things, and a Contest!</a></h4>
+				</div>
+			</article>
+			<a href="#" class="view-all-btn">View All &raquo;</a>
+		</div>
+		<div class="categories column span4">
+			<h2 class="col-title">Video</h2>
+			<article class="list-item-nav">
+				<div class="media-body">
+					<h4 class="media-heading"><a href="#">Diresta: Bandsaw Letters</h4>
+					<img src="http://placehold.it/300x200/0eafff/ffffff.png" class="media-object">
+				</div>
+			</article>
+
+			<hr class="bottom-divider" />
+
+			<h2 class="col-title">Categories</h2>
+			<ul class="nav nav-pills nav-stacked">
+				<li><a href="#">Electronics</a></li>
+				<li><a href="#">Workshop</a></li>
+				<li><a href="#">Craft</a></li>
+				<li><a href="#">Science</a></li>
+				<li><a href="#">Home</a></li>
+				<li><a href="#">Art &amp; Design</a></li>
+			</ul>
+		</div>';
+
+		return $output;
+	}
+
+
+	/**
+	 * The HTML output of the connect mega dropdown
+	 * @return string
+	 *
+	 * @since L-Ron
+	 */
+	private function mdd_connect() {
+		$output = '<div class="maker-faire column span4">
+			<h2 class="col-title">Maker Faire</h2>
+			<ul class="list-item-nav">
+				<li><a href="#">Find A Faire</a></li>
+				<li><a href="#">Media</a></li>
+				<li><a href="#">Learn More</a></li>
+			</ul>
+			
+			<hr class="bottom-divider" />
+
+			<h2 class="col-title">Latest Posts</h2>
+			<article class="list-item-nav media">
+				<a href="#" class="pull-left"><img src="http://placehold.it/80x80/0eafff/ffffff.png" class="media-object"></a>
+				<div class="media-body">
+					<h4 class="media-heading"><a href="#">Raygun Vector Weapon</a></h4>
+				</div>
+			</article>
+			<article class="list-item-nav media">
+				<a href="#" class="pull-left"><img src="http://placehold.it/80x80/0eafff/ffffff.png" class="media-object"></a>
+				<div class="media-body">
+					<h4 class="media-heading"><a href="#">Look Inside the CloudFridge</a></h4>
+				</div>
+			</article>
+			<article class="list-item-nav media">
+				<a href="#" class="pull-left"><img src="http://placehold.it/80x80/0eafff/ffffff.png" class="media-object"></a>
+				<div class="media-body">
+					<h4 class="media-heading"><a href="#">Finding Your Way with GPS</a></h4>
+				</div>
+			</article>
+			<a href="#" class="view-all-btn">View All &raquo;</a>
+		</div>
+		<div class="maker-camp column span4">
+			<h2 class="col-title">Maker Camp</h2>
+			<ul class="list-item-nav">
+				<li><a href="#">Past Events</a></li>
+				<li><a href="#">Participate</a></li>
+				<li><a href="#">Learn More</a></li>
+			</ul>
+
+			<hr class="bottom-divider" />
+			
+			<h2 class="col-title">Highlights</h2>
+			<article class="list-item-nav media">
+				<a href="#" class="pull-left"><img src="http://placehold.it/80x80/0eafff/ffffff.png" class="media-object"></a>
+				<div class="media-body">
+					<h4 class="media-heading"><a href="#">Casting Your Imagination & Making Believe with littleBits</a></h4>
+				</div>
+			</article>
+			<article class="list-item-nav media">
+				<a href="#" class="pull-left"><img src="http://placehold.it/80x80/0eafff/ffffff.png" class="media-object"></a>
+				<div class="media-body">
+					<h4 class="media-heading"><a href="#">Cyborg Yourself</a></h4>
+				</div>
+			</article>
+			<article class="list-item-nav media">
+				<a href="#" class="pull-left"><img src="http://placehold.it/80x80/0eafff/ffffff.png" class="media-object"></a>
+				<div class="media-body">
+					<h4 class="media-heading"><a href="#">Making Magic with Pixar</a></h4>
+				</div>
+			</article>
+			<a href="#" class="view-all-btn">View All &raquo;</a>
+		</div>
+		<div class="categories column span4">
+			<h2 class="col-title">Other Events/Community</h2>
+			<ul class="nav nav-pills nav-stacked">
+				<li><a href="#">MakerCon</a></li>
+				<li><a href="#">Google+</a></li>
+				<li><a href="#">Facebook</a></li>
+				<li><a href="#">Twitter</a></li>
+				<li><a href="#">MakerSpace</a></li>
+			</ul>
+		</div>';
+
+		return $output;
+	}
+
+
+	/**
+	 * The HTML output of the shop mega dropdown
+	 * @return string
+	 *
+	 * @since L-Ron
+	 */
+	private function mdd_shop() {
+		$output = '<div class="on-sale-products column span4">
+			<h2 class="col-title">On Sale</h2>
+			<article class="list-item-nav media">
+				<a href="#" class="pull-left"><img src="http://placehold.it/80x80/0eafff/ffffff.png" class="media-object"></a>
+				<div class="media-body">
+					<h4 class="media-heading"><a href="#">Make: Electronics Book</a></h4>
+					<p class="price"><span class="original-price">$34.99</span> $15.99</p>
+					<a href="#" class="btn btn-primary add-to-cart">Add To Cart</a>
+				</div>
+			</article>
+			<article class="list-item-nav media">
+				<a href="#" class="pull-left"><img src="http://placehold.it/80x80/0eafff/ffffff.png" class="media-object"></a>
+				<div class="media-body">
+					<h4 class="media-heading"><a href="#">Make: Arduino Bots and Gadgets</a></h4>
+					<p class="price"><span class="original-price">$34.99</span> $18.99</p>
+					<a href="#" class="btn btn-primary add-to-cart">Add To Cart</a>
+				</div>
+			</article>
+			<article class="list-item-nav media">
+				<a href="#" class="pull-left"><img src="http://placehold.it/80x80/0eafff/ffffff.png" class="media-object"></a>
+				<div class="media-body">
+					<h4 class="media-heading"><a href="#">BrushBots</h4>
+					<p class="price"><span class="original-price">$19.99</span> $14.99</a></p>
+					<a href="#" class="btn btn-primary add-to-cart">Add To Cart</a>
+				</div>
+			</article>
+			<article class="list-item-nav media">
+				<a href="#" class="pull-left"><img src="http://placehold.it/80x80/0eafff/ffffff.png" class="media-object"></a>
+				<div class="media-body">
+					<h4 class="media-heading"><a href="#">Getting Started with Arduino, 2nd Edition</h4>
+					<p class="price"><span class="original-price">$14.99</span> $7.99</a></p>
+					<a href="#" class="btn btn-primary add-to-cart">Add To Cart</a>
+				</div>
+			</article>
+			<a href="#" class="view-all-btn">View All &raquo;</a>
+		</div>
+		<div class="featured-products column span4">
+			<h2 class="col-title">Featured Products</h2>
+			<article class="list-item-nav media">
+				<a href="#" class="pull-left"><img src="http://placehold.it/80x80/0eafff/ffffff.png" class="media-object"></a>
+				<div class="media-body">
+					<h4 class="media-heading"><a href="#">Getting Started with Arduino, 2nd Edition</h4>
+					<p class="price"><span class="original-price">$14.99</span> $7.99</a></p>
+					<a href="#" class="btn btn-primary add-to-cart">Add To Cart</a>
+				</div>
+			</article>
+			<article class="list-item-nav media">
+				<a href="#" class="pull-left"><img src="http://placehold.it/80x80/0eafff/ffffff.png" class="media-object"></a>
+				<div class="media-body">
+					<h4 class="media-heading"><a href="#">Getting Started with Arduino, 2nd Edition</h4>
+					<p class="price"><span class="original-price">$14.99</span> $7.99</a></p>
+					<a href="#" class="btn btn-primary add-to-cart">Add To Cart</a>
+				</div>
+			</article>
+			<article class="list-item-nav media">
+				<a href="#" class="pull-left"><img src="http://placehold.it/80x80/0eafff/ffffff.png" class="media-object"></a>
+				<div class="media-body">
+					<h4 class="media-heading"><a href="#">Getting Started with Arduino, 2nd Edition</h4>
+					<p class="price"><span class="original-price">$14.99</span> $7.99</a></p>
+					<a href="#" class="btn btn-primary add-to-cart">Add To Cart</a>
+				</div>
+			</article>
+			<article class="list-item-nav media">
+				<a href="#" class="pull-left"><img src="http://placehold.it/80x80/0eafff/ffffff.png" class="media-object"></a>
+				<div class="media-body">
+					<h4 class="media-heading"><a href="#">Getting Started with Arduino, 2nd Edition</h4>
+					<p class="price"><span class="original-price">$14.99</span> $7.99</a></p>
+					<a href="#" class="btn btn-primary add-to-cart">Add To Cart</a>
+				</div>
+			</article>
+			<a href="#" class="view-all-btn">View All &raquo;</a>
+		</div>
+		<div class="new-products column span4">
+			<h2 class="col-title">New Products</h2>
+			<article class="list-item-nav media">
+				<a href="#" class="pull-left"><img src="http://placehold.it/80x80/0eafff/ffffff.png" class="media-object"></a>
+				<div class="media-body">
+					<h4 class="media-heading"><a href="#">MAKE "Tool Wallpaper" T-Shirt</a></h4>
+					<p class="price"><span class="original-price">$15.99</span> $12.99</p>
+					<a href="#" class="btn btn-primary add-to-cart">Add To Cart</a>
+				</div>
+			</article>
+			<article class="list-item-nav media">
+				<a href="#" class="pull-left"><img src="http://placehold.it/80x80/0eafff/ffffff.png" class="media-object"></a>
+				<div class="media-body">
+					<h4 class="media-heading"><a href="#">BITalino Physological Sensor Platform</a></h4>
+					<p class="price">$205.99</p>
+					<a href="#" class="btn btn-primary add-to-cart">Add To Cart</a>
+				</div>
+			</article>
+			<article class="list-item-nav media">
+				<a href="#" class="pull-left"><img src="http://placehold.it/80x80/0eafff/ffffff.png" class="media-object"></a>
+				<div class="media-body">
+					<h4 class="media-heading"><a href="#">Grove - Base Shield V1.3</a></h4>
+					<p class="price">$8.99</p>
+					<a href="#" class="btn btn-primary add-to-cart">Add To Cart</a>
+				</div>
+			</article>
+			<article class="list-item-nav media">
+				<a href="#" class="pull-left"><img src="http://placehold.it/80x80/0eafff/ffffff.png" class="media-object"></a>
+				<div class="media-body">
+					<h4 class="media-heading"><a href="#">Grove - Starter Kit Plus</a></h4>
+					<p class="price">$49.99</p>
+					<a href="#" class="btn btn-primary add-to-cart">Add To Cart</a>
+				</div>
+			</article>
+			<a href="#" class="view-all-btn">View All &raquo;</a>
+		</div>
+		<div class="email-signup span12">
+			<p class="email-signup-body">Sign up for the Maker Shed newsletter to receive exclusive deals and discounts <input type="text" placeholder="me@mydomain.com" class="signup-form" /> <input type="submit" value="Sign Up" class="signup-btn btn btn-primary" /></p>
 		</div>';
 
 		return $output;

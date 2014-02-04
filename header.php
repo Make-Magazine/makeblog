@@ -51,56 +51,32 @@
 		</div>
 		<header class="top-navigation-wrapper">
 			<div class="main-header">
-				<div class="container">
-					<div class="row">
-						<div class="logo span2">
-    						<?php if ( is_front_page() || is_home() ) : ?>
-								<h1 title="Make Magazine - <?php echo bloginfo( 'description' ); ?>"><a href="<?php echo home_url(); ?>"><img src="<?php echo get_stylesheet_directory_uri(); ?>/img/make-logo.png"  alt="Tech-savvy DIY Enthusiasts Innovative Projects and Ideas" /></a></h1>
-							<?php else : ?>
-								<h2 title="Make Magazine - <?php echo bloginfo( 'description' ); ?>"><a href="<?php echo home_url(); ?>"><img src="<?php echo get_stylesheet_directory_uri(); ?>/img/make-logo.png"  alt="Tech-savvy DIY Enthusiasts Innovative Projects and Ideas" /></a></h2>
-							<?php endif; ?>
-						</div>
-						<div class="span10">
-			                <p>Learn, Create, Share</p>
-						</div>
-					</div>	
-				</div>	
 				<div class="primary-nav-wrap">
-				<div class="container">
-
-						<!-- <div class="additional-content hidden-print">						
-
-							<div class="clearfix"></div>
-							<div id="div-gpt-ad-664089004995786621-5" class="hdr-sub-ad-01" >
-								<script type='text/javascript'>
-									googletag.cmd.push(function(){googletag.display('div-gpt-ad-664089004995786621-5')});
-								</script>
+					<div class="container">
+						<div class="row">
+							<div class="logo span2">
+	    						<?php if ( is_front_page() || is_home() ) : ?>
+									<h1 title="Make Magazine - <?php echo bloginfo( 'description' ); ?>"><a href="<?php echo home_url(); ?>"><img src="<?php echo get_stylesheet_directory_uri(); ?>/img/make-logo.png"  alt="Tech-savvy DIY Enthusiasts Innovative Projects and Ideas" /></a></h1>
+								<?php else : ?>
+									<h2 title="Make Magazine - <?php echo bloginfo( 'description' ); ?>"><a href="<?php echo home_url(); ?>"><img src="<?php echo get_stylesheet_directory_uri(); ?>/img/make-logo.png"  alt="Tech-savvy DIY Enthusiasts Innovative Projects and Ideas" /></a></h2>
+								<?php endif; ?>
 							</div>
-						</div> -->
-					<div class="row">
-						<nav class="span9 site-navigation primary-navigation hidden-print" role="navigation">
-			                <?php wp_nav_menu( array(
-			                    'theme_location' => 'make-primary',
-			                    'container'		 => '',
-			                    'menu_class'	 => 'nav menu-primary-nav ga-nav clearfix',
-			                    'walker'		 => new Bootstrap_Walker_Nav_Menu(),
-			                ) ); ?>
-						</nav>
-						<div class="span3 search-make additional-content hidden-print">	
-							<form action="<?php echo home_url(); ?>" class="search-make open">
-								<input type="text" class="search-field" name="s" placeholder="Search" />
-								<input type="image" src="<?php echo get_stylesheet_directory_uri(); ?>/images/search-btn.png" alt="Search" class="open" value="Search" />
-							</form>
-						</div>				
-					</div>
-				</div>
-			<!-- <div class="makershed-banner">
-				<div class="container">
-					<div class="row">
-						<div class="span12">
-							<a href="http://www.makershed.com/?Click=160268" title="Find all your DIY electronics in the MakerShed. 3D Printing, Kits, Arduino, Raspberry Pi, Books &amp; more!"><img src="http://makezineblog.files.wordpress.com/2013/12/maker-shed-banner-red.png" alt="Find all your DIY electronics in the MakerShed. 3D Printing, Kits, Arduino, Raspberry Pi, Books &amp; more!" /></a>
+							<nav class="span7 site-navigation primary-navigation hidden-print" role="navigation">
+				                <?php wp_nav_menu( array(
+				                    'theme_location' => 'make-primary',
+				                    'container'		 => '',
+				                    'menu_class'	 => 'nav menu-primary-nav ga-nav clearfix',
+				                    'walker'		 => new Bootstrap_Walker_Nav_Menu(),
+				                ) ); ?>
+							</nav>
+							<div class="span3 search-make additional-content hidden-print">	
+								<form action="<?php echo home_url(); ?>" class="search-make open">
+									<input type="text" class="search-field" name="s" placeholder="Find a project, article or video" />
+									<input type="image" src="<?php echo get_stylesheet_directory_uri(); ?>/images/search-btn.png" alt="Search" class="open" value="Search" />
+								</form>
+							</div>				
 						</div>
 					</div>
 				</div>
-			</div> -->
+			</div>
 		</header>

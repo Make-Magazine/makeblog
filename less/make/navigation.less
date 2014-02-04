@@ -4,59 +4,81 @@
 
 // Wrapper that contains both the main and secondary navigations
 .top-navigation-wrapper { 
-	.nav { margin-bottom:0; }
+	.nav {
+		margin-bottom:0;
+	}
 }
 
 // Wrapper containing the primary navigation
 .primary-nav-wrap {
-	background:@secondary-color;
-	margin:15px auto 0;
+	#gradient > .vertical( lighten( #012a40, 12% ), lighten( #012a40, 5% ) );
+	margin:5px auto 0;
+	border-bottom:1px solid darken( #fff, 25% );
+	.row {
+		position:relative;
+	}
+	&.sticky {
+		position:fixed;
+		top:0px;
+		z-index:999999;
+		margin:0 auto;
+		width:100%;
+	}
+}
+.admin-bar .primary-nav-wrap.sticky {
+	top:32px;
 }
 
 // Global Navigation styles
-.site-navigation {
-	li {
-		padding:10px auto !important; 
-		border-right:1px solid #999;
+.primary-navigation {
+	font-weight:500;
+	.menu-item {
+		padding:10px auto; 
+		border-right:1px solid darken( #fff, 25% );
+		line-height:110%;
+	 	text-align:left;
+	 	.pull-left;
 		&:first-child {
-			border-left: 1px solid #999; 
+			border-left: 1px solid darken( #fff, 25% ); 
 		}
-		&.dropdown:hover, &:hover a {
-			color:@secondary-color !important;
-			background:@nav_blue !important;
-			> ul.dropdown-menu {
-				color:@secondary-color !important;
-				background:@nav_blue !important;
-				display:block; // Allows us to use hover on the dropdowns rather than click.
+		&:hover {
+			background:#fff;
+	 		color:#000;
+	 		.dropdown-wrapper {
+				left:20px;
+				top:58px;
+			}
+			.main-link-title {
+				color:@red;
+				text-decoration:none;
+				background:#fff;
+				text-shadow:0 0 0 transparent;
+				padding-top:5px;
+				border-top:1px solid @secondary-color;
+				.sub-description {
+					color:#000;
+				}
 			}
 		}
-		a {
+		.main-link-title {
 			color:@nav_blue;
 			background:none;
+			text-shadow:1px 1px 1px rgba(0,0,0,.5);
+			display:block;
+			font-size:25px;
+			line-height:.97em;
+			padding:6px 12px 4px;
 			&:hover {
-				color:@secondary-color !important;
-				text-decoration:none !important;
-				background:@nav_blue !important;
+				color:@red;
+				text-decoration:none;
+				background:#fff;
+				text-shadow:0 0 0 transparent;
+				padding-top:5px;
+				border-top:1px solid @secondary-color;
+				.sub-description {
+					color:#000;
+				}
 			}
-		}
-		.dropdown-menu a {
-			color:@secondary-color;
-			background:@nav_blue; 
-			&:hover {
-				color:@nav_blue !important;
-				text-decoration:none !important;
-				background:@secondary-color !important;
-			}
-		}
-		.open > a {
-			color:@nav_blue !important;
-			text-decoration:none !important;
-			background:@secondary-color !important;
-		}
-		.sub-menu, .dropdown-menu {
-			display:none; // Add this so our subnav doesn't display before the Bootstrap classes are added.
-			border-top:none;
-			.border-radius(2px);
 		}
 		.sub-description {
 			display:block;
@@ -64,43 +86,27 @@
 			font-size:14px;
 		}
 	}
-}
-
-.primary-navigation {
-	font-weight:500;
-	> ul > li {
-		.pull-left;
-		> a {
-			display:block;
-			font-size:18px !important;
-		}
-	}
-	li {
-		cursor:pointer;
-		padding:5px 12px;
-	 	line-height:110%;
-	 	text-align:left;
-	 	&:hover {
-	 		background:@nav_blue !important;
-	 		color:@secondary-color !important;
-	 		.dropdown-wrapper {
-				left:20px;
-				top:44px;
-			}
- 		}
-	}
 	.dropdown-wrapper {
 		position:absolute;
 		left:-999em;
 		background:#fff;
 		z-index:999999;
-		padding-bottom:10px;
+		border:1px solid #ccc;
+		border-top:none;
+		box-shadow:0 5px 3px 0px rgba(0,0,0,.3);
 		.column {
-			padding:0 5px;
+			padding:0 10px 10px;
+			margin:0;
+			width:33.33444%;
+			&:not(:last-child) {
+				border-right:1px solid #ccc;
+			}
 		}
 		.col-title {
 			font-size:20px;
-			margin:0;
+			margin:10px 0 0;
+			line-height:1.3em;
+			color:@red;
 		}
 		.project-list-item.media {
 			margin-top:0;
@@ -110,8 +116,47 @@
 			margin:0;
 			padding:0;
 		}
-	}
-	.first > a {
-		padding-left:0;
+		.media-heading {
+			font-size:18px;
+			font-weight:normal;
+		}
+		.bottom-divider {
+			border:none;
+			border-bottom:1px solid #ccc;
+		}
+		.nav-pills > li > a {
+			padding-top:5px;
+			padding-bottom:5px;
+		}
+		.price {
+			line-height:18px;
+			font-size:18px;
+			float:left;
+			width:50%;
+			color:#000;
+			.original-price {
+				font-size:14px;
+				text-decoration:line-through;
+				color:#898989;
+				display:block;
+			}
+		}
+		.email-signup {
+			border-top:1px solid #ccc;
+			background:lighten(#ccc, 5%);
+			margin:0;
+			.email-signup-body {
+				font-size:16px;
+				padding:10px;
+				margin:0;
+			}
+			.signup-form {
+				margin:0 0 0 5px;
+				width:28%;
+			}
+		}
+		.view-all-btn {
+			float:right;
+		}
 	}
 }
