@@ -66,7 +66,7 @@
 								'posts_per_page'  	=> absint( get_theme_mod( 'make_banner_feat_post_number', 4 ) ),
 								'no_found_rows' 	=> true,
 								'post_type' 		=> array( 'post', 'projects', 'video', 'craft', 'magazine' ),
-								'order'				=> 'DESC',
+								'order'				=> 'ASC',
 							);
 							
 							$blurbs = new WP_Query( $args );
