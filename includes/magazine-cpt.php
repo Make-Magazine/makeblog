@@ -107,11 +107,26 @@ $field_data = array (
 	),
 	'title'		=> 'Magazine Meta',
 	'context'	=> 'side',
-	'pages'		=> array( 'magazine', 'review', 'post', 'craft' ),
+	'pages'		=> array( 'magazine' ),
 	),
 );
 
 $easy_cf = new Easy_CF($field_data);
+
+// Add a description (aka Dek) field for posts - We are going to stick this here because 
+// no other spot makes sense
+$field_data = array (
+	'magazine_meta' => array (
+		'fields' => array(
+			'Description'		=> array(),
+		),
+		'title'		=> 'Post Meta',
+		'context'	=> 'side',
+		'pages'		=> array( 'post', 'craft' ),
+	),
+);
+$easy_cf = new Easy_CF($field_data);
+
 
 $field_data = array (
 	'magazine_author' => array (
@@ -379,10 +394,9 @@ $field_data = array (
 			'VideoURL'			=> array(),
 			'PostsBlurb'		=> array(),
 			'Categories'		=> array(),
-			'Description'		=> array(),
 			'MarketingCaption'	=> array(
 				'type'	=> 'textarea'
-				),
+			),
 		),
 		'title'		=> 'Magazine Volume Setup',
 		'context'	=> 'side',
