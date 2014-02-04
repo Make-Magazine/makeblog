@@ -82,11 +82,11 @@ function make_register_taxonomy_playlist() {
 $field_data = array (
 	'advanced_testgroup' => array (
 		'fields' => array(
+			'Description'				=> array(),
 			'EmbedLink'					=> array(),
 			'Link'						=> array(),
 			'MakeProjectsGuideNumber'	=> array(),
 			'Image'						=> array(),
-			'Description'				=> array(),
 	),
 	'title'		=> 'Video Meta',
 	'context'	=> 'side',

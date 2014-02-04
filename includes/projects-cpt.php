@@ -60,12 +60,12 @@ function register_cpt_project() {
 $field_data = array (
 	'advanced_testgroup' => array (
 		'fields' => array(
+			'Description'				=> array(),
 			'Link'						=> array(),
 			'MakeProjectsGuideNumber'	=> array(),
 			'Type'						=> array(),
 			'Difficulty'				=> array(),
 			'Image'						=> array(),
-			'Description'				=> array(),
 			'TimeRequired'				=> array(),
 			'PageNumber'				=> array(),
 
