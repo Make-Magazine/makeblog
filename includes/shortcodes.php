@@ -47,7 +47,7 @@ add_shortcode( 'ad_block', 'make_ad_block_shortcode' );
 
 
 function make_projects_newsletter( $atts, $content = null ) {
-	return '<form class="form-stacked" action="http://makermedia.createsend.com/t/r/s/qhiiyu/" method="post" id="subForm"><fieldset>		<legend>Sign Up for the "Weekend Projects" Newsletter</legend><div class="clearfix"><label for="name">Name:</label><div class="input">				<input class="xlarge" id="name" name="cm-name" size="30" type="text"></div></div><!-- /clearfix --><div class="clearfix"><label for="qhiiyu-qhiiyu">Email:</label><div class="input"><input class="xlarge" id="qhiiyu-qhiiyu" name="cm-qhiiyu-qhiiyu" size="30" type="text"></div></div><!-- /clearfix --></fieldset><div class="actions"><button type="submit" class="btn primary">Subscribe</button>	</div></form>';
+	return '<form class="form-stacked" action="http://makermedia.createsend.com/t/r/s/qhiiyu/" method="post" id="subForm"><fieldset>		<legend>Sign Up for the "Weekend Projects" Newsletter</legend><div class="clearfix"><label for="name">Name:</label><div class="input">				<input class="xlarge" id="name" name="cm-name" size="30" type="text"></div></div><!-- /clearfix --><div class="clearfix"><label for="qhiiyu-qhiiyu">Email:</label><div class="input"><input class="xlarge" id="qhiiyu-qhiiyu" name="cm-qhiiyu-qhiiyu" size="30" type="text"></div></div><!-- /clearfix --></fieldset><div class="actions"><button type="submit" class="btn btn-primary">Subscribe</button>	</div></form>';
 }
 add_shortcode( 'weekend_projects', 'make_projects_newsletter' );
 
@@ -72,7 +72,7 @@ function make_newsletter( $atts, $content = null ) {
 				<!-- /clearfix -->
 			</fieldset>
 			<div class="actions">
-				<button type="submit" class="btn primary">Subscribe</button>
+				<button type="submit" class="btn btn-primary">Subscribe</button>
 			</div>
 		</form>';
 }
@@ -97,7 +97,7 @@ function make_marketron_newsletter( $atts, $content = null ) {
 				</div>
 			</fieldset>
 			<div class="actions">
-				<button type="submit" class="btn primary">Subscribe</button>
+				<button type="submit" class="btn btn-large btn-primary">Subscribe</button>
 			</div>
 			<p></p>
             <legend></legend>
@@ -136,7 +136,7 @@ function meetup_newsletter( $atts, $content = null ) {
 				<!-- /clearfix -->
 			</fieldset>
 			<div class="actions">
-				<button type="submit" class="btn primary">Subscribe</button>
+				<button type="submit" class="btn btn-primary">Subscribe</button>
 			</div>
 		</form>';
 }
@@ -150,32 +150,34 @@ add_shortcode( 'newsletter', 'make_newsletter' );
  */
 function galileo_list( $atts, $content = null ) {
 	return '
-		<form class="form-stacked" action="http://newsletter.makezine.com/t/r/s/ttdutih/" method="post" id="subForm">
-			<fieldset>
-				<label for="name">Name:</label>
-				<div class="input">
-					<input class="xlarge" id="name" name="cm-name" size="30" type="text">
-				</div>		
-				<label for="ttdutih-ttdutih">Email:</label>
-				<div class="input">
-					<input class="xlarge" id="ttdutih-ttdutih" name="cm-ttdutih-ttdutih" size="30" type="text">
+		<div id="galileo_form">
+			<form class="form-stacked" action="http://newsletter.makezine.com/t/r/s/ttdutih/" method="post" id="subForm">
+				<fieldset>
+					<label for="name">Name:</label>
+					<div class="input">
+						<input class="xlarge" id="name" name="cm-name" size="30" type="text">
+					</div>		
+					<label for="ttdutih-ttdutih">Email:</label>
+					<div class="input">
+						<input class="xlarge" id="ttdutih-ttdutih" name="cm-ttdutih-ttdutih" size="30" type="text">
+					</div>
+				<label for="juiuilk-juiuilk">Educational Institution:</label>
+					<div class="input">
+						<input class="xlarge" id="fieldjtvkhd-fieldjtvkhd" name="cm-f-jtvkhd" size="30" type="text">
+					</div>
+				<label for="juiuilk-juiuilk">Role:</label>
+					<div class="input">
+					 <select id="fieldjtvkhh" name="cm-fo-jtvkhh">
+			            <option value="4420691">Student</option>
+			            <option value="4420692">Professor</option>
+			        </select>
+					</div>			
+				</fieldset>
+				<div class="actions">
+					<button type="submit" class="btn btn-primary btn-large">Submit</button>
 				</div>
-			<label for="juiuilk-juiuilk">Educational Institution:</label>
-				<div class="input">
-					<input class="xlarge" id="fieldjtvkhd-fieldjtvkhd" name="cm-f-jtvkhd" size="30" type="text">
-				</div>
-			<label for="juiuilk-juiuilk">Role:</label>
-				<div class="input">
-				 <select id="fieldjtvkhh" name="cm-fo-jtvkhh">
-		            <option value="4420691">Student</option>
-		            <option value="4420692">Professor</option>
-		        </select>
-				</div>			
-			</fieldset>
-			<div class="actions">
-				<button type="submit" class="btn primary">Submit</button>
-			</div>
-		</form>';
+			</form>
+		</div>';
 }
 add_shortcode( 'gal', 'galileo_list' );
 
@@ -230,7 +232,7 @@ function maker_camp_list( $atts, $content = null ) {
 				<!-- /clearfix -->
 			</fieldset>
 			<div class="actions">
-				<button type="submit" class="btn primary">Join</button>
+				<button type="submit" class="btn btn-primary">Join</button>
 			</div>
 		</form>';
 }
