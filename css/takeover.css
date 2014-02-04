@@ -136,6 +136,9 @@
 .banner .pull-up .red {
   text-transform: uppercase;
 }
+.banner .pull-up ul {
+  margin-bottom: -15px;
+}
 .banner .pull-up ul li {
   line-height: 100%;
 }
