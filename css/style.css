@@ -8231,7 +8231,7 @@ a {
   padding-bottom: 20px;
   margin: -20px auto 0px;
   background: url('../img/project_placeholder_smaller.png') no-repeat;
-  background-position: 100% 0px;
+  background-position: 100% 50%;
 }
 .projects-home h1 {
   font-size: 58px;
@@ -9031,6 +9031,9 @@ body .single .projects-masthead p {
 }
 .tab-content h3 {
   margin-bottom: 10px;
+}
+.sidebar {
+  margin-top: 20px;
 }
 .sidebar .media {
   margin: 5px 5px  0 0;
