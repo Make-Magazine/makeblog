@@ -71,15 +71,6 @@
 							
 							$blurbs = new WP_Query( $args );
 
-							$post_array = get_option( 'home_page_post_ids', array() );
-
-							if ( empty( $post_array ) ) {
-								foreach ( $blurbs->posts as $post ) {
-									$post_array[] = $post->ID;
-								}
-								update_option( 'home_page_post_ids', $post_array );
-							}
-
 							while ( $blurbs->have_posts() ) : $blurbs->the_post();
 								echo '<li><h4><a href="'.get_permalink().'">';
 								echo wp_trim_words( ( get_the_title() ), 8 );

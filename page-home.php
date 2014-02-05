@@ -239,9 +239,7 @@ Template Name: Home Page
 						<h2 class="look_like_h3_blue"><a href="<?php echo esc_url( home_url( '/blog/' ) ); ?>">Blog Feed</a></h2>	
 
 						<?php 
-							$posts = get_option( 'home_page_post_ids', array() );
 							$args = array(
-								'post__not_in'	=> is_array( $posts ) ? $posts : array(),
 								'posts_per_page'  => 6,
 								'no_found_rows' => true,
 								'post_type' => array( 'post', 'projects', 'review', 'video', 'magazine' ),
