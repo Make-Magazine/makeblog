@@ -7,7 +7,7 @@
 .waist.takeover .takeover-wrapper {
   margin: 15px 0;
 }
-.waist.takeover .banner {
+.waist.takeover .home-banner {
   margin: 0 10px 23px 0;
 }
 .waist.takeover .post-wrapper {
@@ -92,7 +92,7 @@
 .canvas .blur h3 {
   font-size: 18px;
 }
-.banner {
+.home-banner {
   position: relative;
   top: 0px;
   left: 50%;
@@ -102,47 +102,47 @@
   background-position: center top;
   cursor: pointer;
 }
-.banner .banner-canvas {
+.home-banner .banner-canvas {
   width: 2160px;
   height: 547px;
   margin: 0 auto;
   position: relative;
   z-index: 1;
 }
-.banner .pull-up {
+.home-banner .pull-up {
   position: relative;
   z-index: 2;
   margin-top: -547px;
 }
-.banner .pull-up .top-image {
+.home-banner .pull-up .top-image {
   margin: 10px 0;
 }
-.banner .pull-up .feat-post {
+.home-banner .pull-up .feat-post {
   border-top: 1px solid #70cddc;
   border-bottom: 1px solid #70cddc;
   padding: 10px 0;
   color: #043350;
 }
-.banner .pull-up .feat-post h3 {
+.home-banner .pull-up .feat-post h3 {
   marging-bottom: 15px;
 }
-.banner .pull-up .feat-post p {
+.home-banner .pull-up .feat-post p {
   font-size: 20px;
   margin-bottom: 10px;
 }
-.banner .pull-up .feat-post img {
+.home-banner .pull-up .feat-post img {
   margin-right: 10px;
 }
-.banner .pull-up .red {
+.home-banner .pull-up .red {
   text-transform: uppercase;
 }
-.banner .pull-up ul {
+.home-banner .pull-up ul {
   margin-bottom: -15px;
 }
-.banner .pull-up ul li {
+.home-banner .pull-up ul li {
   line-height: 100%;
 }
-.banner .pull-up h2 {
+.home-banner .pull-up h2 {
   font-size: 22px;
   line-height: 28px;
 }

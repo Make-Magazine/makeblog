@@ -7712,6 +7712,32 @@ textarea.narrow,
   width: 24px;
   height: 24px;
 }
+.sprite-images {
+  background-image: url('../images/sprite_images.jpg');
+}
+.sprite-mag {
+  background-position: 0 0;
+  width: 130px;
+  height: 170px;
+  float: right;
+  border: 1px solid #ccc;
+  margin-top: -20px;
+}
+.sprite-forum {
+  background-position: -132px 0;
+  width: 620px;
+  height: 174px;
+}
+.sprite-page2 {
+  background-position: -754px 0;
+  width: 620px;
+  height: 174px;
+}
+.sprite-sip {
+  background-position: -1376px 0;
+  width: 620px;
+  height: 174px;
+}
 .custom-feed.simple {
   border: 1px solid #dadada;
   border-radius: 5px;
@@ -8231,7 +8257,7 @@ a {
   padding-bottom: 20px;
   margin: -20px auto 0px;
   background: url('../img/project_placeholder_smaller.png') no-repeat;
-  background-position: 100% 0px;
+  background-position: 100% 50%;
 }
 .projects-home h1 {
   font-size: 58px;
@@ -9031,6 +9057,9 @@ body .single .projects-masthead p {
 }
 .tab-content h3 {
   margin-bottom: 10px;
+}
+.sidebar {
+  margin-top: 20px;
 }
 .sidebar .media {
   margin: 5px 5px  0 0;
@@ -11892,6 +11921,19 @@ a.button.small-button {
 .mf-video-highlights .see-all a {
   text-decoration: none;
   border: none;
+}
+/**
+ * Signup form for Galileo Book Shortcode (function: galileo_list)
+ * http://makezine.com/books/getting-started-with-intel-galileo/
+ */
+#galileo_form form fieldset p {
+  margin: 0;
+}
+#galileo_form form label {
+  font-size: 18px;
+}
+#galileo_form form button {
+  margin-top: 25px;
 }
 .comment-list,
 .comment-list ol {
