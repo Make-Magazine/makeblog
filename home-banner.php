@@ -69,8 +69,6 @@
 								'order'				=> sanitize_sql_orderby( get_theme_mod( 'make_banner_post_order', 'DESC' ) ),
 							);
 							
-							var_dump( $args );
-
 							$blurbs = new WP_Query( $args );
 
 							while ( $blurbs->have_posts() ) : $blurbs->the_post();
