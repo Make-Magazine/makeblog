@@ -115,7 +115,7 @@
 					</div>
 					<div class="span3 subscribe">
 						<a href="https://www.pubservice.com/MK/subscribe.aspx?PC=MK&amp;PK=M3AMZB" target="_blank">
-							<img src="<?php echo wpcom_vip_get_resized_remote_image_url( make_get_cover_image(), '130', '170' ); ?>" alt="MAKE Magazine Drones" width="130" height="170" id="mag-cover">
+							<div class="sprite-images sprite-mag"></div>
 						</a>
 						<div class="sprite sprite-arrow-footer"></div>
 						<h5>Subscribe<br /> to MAKE!</h5>
