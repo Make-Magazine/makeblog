@@ -1,7 +1,7 @@
 <?php if ( make_has_takeover_mod( 'make_banner_takeover' ) ) : ?>
-	<div class="banner" style="/* background-image: url( <?php echo esc_url( get_theme_mod( 'make_banner_takeover' ) ); ?> ); background-position: center top; */" >
+	<div class="home-banner" style="/* background-image: url( <?php echo esc_url( get_theme_mod( 'make_banner_takeover' ) ); ?> ); background-position: center top; */" >
 <?php else : ?>
-	<div class="banner">
+	<div class="home-banner">
 <?php endif; ?>
 
 	<div id="div-gpt-ad-664089004995786621-7" class="banner-canvas">
