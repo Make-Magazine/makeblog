@@ -624,6 +624,19 @@ function make_theme_banner_home_takeover( $wp_customize ) {
 		'priority' => 26,
 	) );
 
+	$wp_customize->add_setting( 'make_banner_post_order', array(
+		'default' => '',
+		'sanitize_callback' => 'sanitize_sql_orderby',
+	) );
+
+	$wp_customize->add_control( 'make_banner_post_order', array(
+		'section' => 'make_banner',
+		'label' => 'How should we sort the posts?',
+		'type' => 'select',
+		'choices' => array( 'ASC' => 'Ascending', 'DESC' => 'Descending' ), 
+		'priority' => 29,
+	) );
+
 
 }
 add_action( 'customize_register', 'make_theme_banner_home_takeover' );
