@@ -1,7 +1,7 @@
 <?php if ( make_has_takeover_mod( 'make_banner_takeover' ) ) : ?>
-	<div class="banner" style="/* background-image: url( <?php echo esc_url( get_theme_mod( 'make_banner_takeover' ) ); ?> ); background-position: center top; */" >
+	<div class="home-banner" style="/* background-image: url( <?php echo esc_url( get_theme_mod( 'make_banner_takeover' ) ); ?> ); background-position: center top; */" >
 <?php else : ?>
-	<div class="banner">
+	<div class="home-banner">
 <?php endif; ?>
 
 	<div id="div-gpt-ad-664089004995786621-7" class="banner-canvas">
@@ -66,9 +66,11 @@
 								'posts_per_page'  	=> absint( get_theme_mod( 'make_banner_feat_post_number', 4 ) ),
 								'no_found_rows' 	=> true,
 								'post_type' 		=> array( 'post', 'projects', 'video', 'craft', 'magazine' ),
-								'order'				=> 'ASC',
+								'order'				=> sanitize_sql_orderby( get_theme_mod( 'make_banner_post_order', 'DESC' ) ),
 							);
 							
+							var_dump( $args );
+
 							$blurbs = new WP_Query( $args );
 
 							while ( $blurbs->have_posts() ) : $blurbs->the_post();
