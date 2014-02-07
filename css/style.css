@@ -4924,6 +4924,7 @@ a.thumbnail:focus {
 }
 .media > .pull-left {
   margin-right: 10px;
+  margin-bottom: 20px;
 }
 .media > .pull-right {
   margin-left: 10px;
@@ -8541,6 +8542,9 @@ ul#tabs .current > a:hover {
 .maker-week-takeover .slider.thumb h4 {
   margin: 0px;
   font-size: 18px;
+}
+.Thumbnail {
+  display: block;
 }
 .avatar-298 {
   margin-bottom: 20px;
