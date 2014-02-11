@@ -7794,6 +7794,10 @@ textarea.narrow,
 .show-print {
   display: none;
 }
+p:empty {
+  height: 0px;
+  margin: 0px;
+}
 .category-top {
   font-family: "proxima-nova", sans-serif;
   border-bottom: 3px solid #DBDBDB;
