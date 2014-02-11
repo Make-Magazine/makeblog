@@ -4924,6 +4924,7 @@ a.thumbnail:focus {
 }
 .media > .pull-left {
   margin-right: 10px;
+  margin-bottom: 20px;
 }
 .media > .pull-right {
   margin-left: 10px;
@@ -7715,26 +7716,33 @@ textarea.narrow,
 .sprite-images {
   background-image: url('../images/sprite_images.jpg');
 }
-.sprite-mag {
-  background-position: 0 0;
-  width: 130px;
-  height: 170px;
-  float: right;
-  border: 1px solid #ccc;
-  margin-top: -20px;
-}
 .sprite-forum {
-  background-position: -132px 0;
+  background-position: 0 0;
   width: 620px;
   height: 174px;
 }
 .sprite-page2 {
-  background-position: -754px 0;
+  background-position: 0 -176px;
   width: 620px;
   height: 174px;
 }
 .sprite-sip {
-  background-position: -1376px 0;
+  background-position: 0 -352px;
+  width: 620px;
+  height: 174px;
+}
+.sprite-forum {
+  background-position: 0 0;
+  width: 620px;
+  height: 174px;
+}
+.sprite-page2 {
+  background-position: 0 -176px;
+  width: 620px;
+  height: 174px;
+}
+.sprite-sip {
+  background-position: 0 -352px;
   width: 620px;
   height: 174px;
 }
@@ -7785,6 +7793,10 @@ textarea.narrow,
 }
 .show-print {
   display: none;
+}
+p:empty {
+  height: 0px;
+  margin: 0px;
 }
 .category-top {
   font-family: "proxima-nova", sans-serif;
@@ -8534,6 +8546,9 @@ ul#tabs .current > a:hover {
 .maker-week-takeover .slider.thumb h4 {
   margin: 0px;
   font-size: 18px;
+}
+.Thumbnail {
+  display: block;
 }
 .avatar-298 {
   margin-bottom: 20px;
