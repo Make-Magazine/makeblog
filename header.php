@@ -94,7 +94,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="makershed-banner">
+			<div class="makershed-banner hidden-tablet hidden-phone">
 				<div class="container">
 					<div class="row">
 						<div class="span12">
