@@ -15,12 +15,14 @@
 		<!-- Le fav and touch icons -->
 		<link rel="shortcut icon" href="http://1.gravatar.com/blavatar/dab43acfe30c0e28a023bb3b7a700440?s=14">
 
-		<?php if ( is_page( 313086 ) ) 
-			echo '<meta property="og:image" content="http://makezineblog.files.wordpress.com/2013/06/makercamp_300x250.jpg" />'; ?>
+		<?php 
+			if ( is_page( 313086 ) ) 
+				echo '<meta property="og:image" content="http://makezineblog.files.wordpress.com/2013/06/makercamp_300x250.jpg" />';
+		?>
 
 		<?php wp_head(); ?>
 
-		<?php get_template_part('dfp'); ?>
+		<?php get_template_part( 'dfp' ); ?>
 
 		<?php if ( is_404() ) : // Load this last. ?>
 			<script>
@@ -35,7 +37,7 @@
 	<body <?php body_class(); ?>>
 		<div class="container hidden-print">
 			<div class="row">
-				<div id="div-gpt-ad-664089004995786621-1" class="text-center">
+				<div id="div-gpt-ad-664089004995786621-1" class="text-center hidden-phone">
 					<script type='text/javascript'>
 						googletag.cmd.push(function(){googletag.display('div-gpt-ad-664089004995786621-1')});
 					</script>
@@ -53,18 +55,18 @@
 								<h2 title="Make Magazine - <?php echo bloginfo( 'description' ); ?>"><a href="<?php echo home_url(); ?>"><img src="<?php echo get_stylesheet_directory_uri(); ?>/img/make-logo.png"  alt="Tech-savvy DIY Enthusiasts Innovative Projects and Ideas" /></a></h2>
 							<?php endif; ?>
 						</div>
-						<nav role="navigation" class="span7 site-navigation primary-navigation hidden-print">
+						<nav role="navigation" class="span7 site-navigation primary-navigation hidden-print hidden-phone">
 							<?php
 								wp_nav_menu( array(
 									'theme_location'  => 'make-primary', 
 									'container'       => false, 
 									'menu_class'      => 'nav menu-primary-nav ga-nav clearfix',
+									'walker'          => new Bootstrap_Walker_Nav_Menu(),
 								) );
 							?>
 						</nav>
 
-
-						<div class="additional-content hidden-print">						
+						<div class="additional-content hidden-print hidden-phone">						
 							<form action="<?php echo home_url(); ?>" class="search-make open">
 								<input type="text" class="search-field" name="s" placeholder="Search" />
 								<input type="image" src="<?php echo get_stylesheet_directory_uri(); ?>/images/search-btn.png" alt="Search" class="open" value="Search" />
@@ -82,14 +84,50 @@
 			<div class="secondary-header hidden-print">
 				<div class="container">
 					<div class="row">
-						<nav class="span12 site-navigation secondary-navigation">
+						<nav class="span12 site-navigation secondary-navigation hidden-phone">
 							<?php
 								wp_nav_menu( array(
 									'theme_location' => 'make-secondary',
 									'container'		 => false,
 									'menu_class' 	 => 'nav menu-secondary-nav ga-nav clearfix',
+									'walker'         => new Bootstrap_Walker_Nav_Menu(),
 								) );
 							?>
+						</nav>
+
+						<!-- Mobile Navigation -->
+						<nav class="navbar mobile-navigation visible-phone" role="navigation">
+							<div class="navbar-inner">
+								<div class="container">
+									<form action="<?php echo esc_url( home_url() ); ?>" class="search-make-mobile">
+										<input type="text" class="search-field" name="s" placeholder="Search" />
+										<input type="image" src="<?php echo esc_url( get_stylesheet_directory_uri() ); ?>/images/search-btn.png" alt="Search" value="Search" />
+									</form>
+									<a class="btn btn-navbar" data-toggle="collapse" data-target="#make-mobile-collapse">
+										<span class="icon-bar"></span>
+										<span class="icon-bar"></span>
+										<span class="icon-bar"></span>
+									</a>
+									<div id="make-mobile-collapse" class="nav-collapse collapse">
+										<?php
+											wp_nav_menu( array(
+												'theme_location'  => 'make-primary',
+												'container'       => false, 
+												'menu_class'      => 'nav navbar-nav menu-primary-nav ga-nav clearfix',
+												'walker'          => new Bootstrap_Walker_Nav_Menu(),
+											) );
+										?>
+										<?php
+											wp_nav_menu( array(
+												'theme_location' => 'make-secondary',
+												'container'		 => false,
+												'menu_class' 	 => 'nav navbar-nav menu-secondary-nav ga-nav clearfix',
+												'walker'         => new Bootstrap_Walker_Nav_Menu(),
+											) );
+										?>
+									</div>
+								</div>
+							</div>
 						</nav>
 					</div>
 				</div>

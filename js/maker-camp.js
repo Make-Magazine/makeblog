@@ -8,7 +8,6 @@
 */
 
 jQuery(document).ready(function($) {
-	$('.collapse').collapse();
 
 	// Load our Bootstrap Tab JS on the schedule page
 	if ( $('.schedule-content').length >= 1 ) {

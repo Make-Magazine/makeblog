@@ -41,6 +41,9 @@ include_once dirname( __FILE__ ) . '/includes/shortcodes.php';
 // 6. Theme Stuff
 include_once dirname( __FILE__ ) . '/includes/theme_stuff.php';
 
+// Load the Bootstrap Walker file
+include_once dirname( __FILE__ ) . '/includes/bootstrap-walker.php';
+
 // 7. Custom Taxonomies
 include_once dirname( __FILE__ ) . '/includes/taxonomies.php';
 

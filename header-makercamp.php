@@ -27,8 +27,6 @@
 		
 		<?php wp_head( 'makercamp' ); ?>
 
-		<link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri(); ?>/css/responsive.css">
-
 	</head>
 	<body <?php body_class( 'makercamp' ); ?>>
 		<header>

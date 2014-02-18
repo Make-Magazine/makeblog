@@ -9,7 +9,7 @@
  */
 ?>
 				
-				<div class="footer-ad <?php echo ( make_is_parent_page() && ! is_category( 'maker-pro' ) ) ? 'grey' : '' ; ?>" style="clear:both;">
+				<div class="footer-ad hidden-phone <?php echo ( make_is_parent_page() && ! is_category( 'maker-pro' ) ) ? 'grey' : '' ; ?>" style="clear:both;">
 				
 					<div style="width:728px; margin:0 auto;">
  
@@ -28,11 +28,11 @@
 			</div></div></div>
 			<!-- These extra closing divs are to close all the divs opened by the functions that pull in cat posts -->
 
-		<section id="footer" class="new-footer">
+		<section id="footer">
 			<div class="container">
 				<div class="row">
 					<div class="span12 logo" >
-						<img class="footer_logo" src="<?php echo get_stylesheet_directory_uri(); ?>/img/make-logo.png" alt="MAKE Logo">	
+						<img class="footer_logo" src="<?php echo esc_url( get_stylesheet_directory_uri() ); ?>/img/make-logo.png" alt="MAKE Logo">	
 						<a href="http://make-digital.com/" target="_blank"><div class="sprite sprite-digital-book-foot"></div></a>
 						<h5><a href="http://make-digital.com/" target="_blank">Read Digital Edition</a></h5>
 						<a href="http://www.makershed.com/" target="_blank"><div class="sprite sprite-makershed_footer1"></div></a> 
@@ -44,10 +44,9 @@
 				<div class="row">
 					<div class="span3 trending">
 						<h5>Trending Topics</h5>
-						<?php echo wp_kses_post( stripslashes( make_get_cap_option( 'hot_topics' ) ) ); ?>
-					<!-- END span trending -->
+						<?php echo wp_kses_post( make_get_cap_option( 'hot_topics' ) ); ?>
 					</div>
-					<div class="span newsletter">
+					<div class="span3 newsletter">
 						<h5>Get our Newsletters</h5>  
 						<form action="http://makermedia.createsend.com/t/r/s/jrsydu/" method="post" id="subForm">
 							<fieldset>
