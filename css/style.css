@@ -9102,6 +9102,9 @@ body .single .projects-masthead p {
 .main-header .logo {
   margin-top: 67px;
 }
+.main-header .craft_logo {
+  margin-top: 60px;
+}
 .main-header .hdr-sub-ad-01 {
   margin-top: 10px;
 }
