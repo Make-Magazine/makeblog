@@ -45,7 +45,7 @@
 			<div class="main-header">
 				<div class="container">
 					<div class="row">
-						<div class="logo span2">
+						<div class="logo span2 craft_logo">
 							<a href="<?php echo esc_url( home_url( '/craftzine' ) ); ?>"><img src="<?php bloginfo('stylesheet_directory'); ?>/img/craft-logo.png" alt="MAKE" title="MAKE" /></a>
 						</div>
 						<nav role="navigation" class="span7 site-navigation primary-navigation">
