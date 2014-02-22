@@ -662,6 +662,7 @@ function make_theme_banner_video_home_takeover( $wp_customize ) {
 	// Register the enable field
 	$wp_customize->add_setting( 'make_enable_video_banner', array(
 		'default' => 'off',
+		'sanitize_callback'	=> 'wp_kses_post',
 	) );
 
 	$wp_customize->add_control( 'make_enable_video_banner', array(
@@ -679,6 +680,7 @@ function make_theme_banner_video_home_takeover( $wp_customize ) {
 	$wp_customize->add_setting( 'make_banner_video_takeover', array(
 		'default' => '',
 		'transport' => 'postMessage',
+		'sanitize_callback'	=> 'esc_url',
 	) );
 
 	$wp_customize->add_control( 
@@ -694,6 +696,7 @@ function make_theme_banner_video_home_takeover( $wp_customize ) {
 	$wp_customize->add_setting( 'make_banner_video_left_image', array(
 		'default' => '',
 		'transport' => 'postMessage',
+		'sanitize_callback' => 'esc_url',
 	) );
 
 	$wp_customize->add_control( 
@@ -710,6 +713,7 @@ function make_theme_banner_video_home_takeover( $wp_customize ) {
 	$wp_customize->add_setting( 'make_banner_video_top_image', array(
 		'default' => '',
 		'transport' => 'postMessage',
+		'sanitize_callback' => 'esc_url',
 	) );
 
 	$wp_customize->add_control( 
@@ -726,6 +730,7 @@ function make_theme_banner_video_home_takeover( $wp_customize ) {
 	$wp_customize->add_setting( 'make_banner_video_top_gradient_color', array(
 		'default' => '',
 		'transport' => 'postMessage',
+		'sanitize_callback'	=> 'sanitize_hex_color_no_hash',
 	) );
 
 	$wp_customize->add_control( 
@@ -733,7 +738,7 @@ function make_theme_banner_video_home_takeover( $wp_customize ) {
 			'settings'	=> 'make_banner_video_top_gradient_color',
 			'label'		=> 'Top Gradient Color',
 			'section'	=> 'make_banner_video',
-			'priority'	=> 17
+			'priority'	=> 17,
 		) ) 
 	);
 
@@ -741,6 +746,7 @@ function make_theme_banner_video_home_takeover( $wp_customize ) {
 	$wp_customize->add_setting( 'make_banner_video_bottom_gradient_color', array(
 		'default' => '',
 		'transport' => 'postMessage',
+		'sanitize_callback'	=> 'sanitize_hex_color_no_hash',
 	) );
 
 	$wp_customize->add_control( 
@@ -748,7 +754,8 @@ function make_theme_banner_video_home_takeover( $wp_customize ) {
 			'settings'	=> 'make_banner_video_bottom_gradient_color',
 			'label'		=> 'Bottom Gradient Color',
 			'section'	=> 'make_banner_video',
-			'priority'	=> 18
+			'priority'	=> 18,
+			'sanitize_callback'	=> 'sanitize_hex_color_no_hash',
 		) ) 
 	);
 
@@ -795,6 +802,7 @@ function make_theme_banner_video_home_takeover( $wp_customize ) {
 	$wp_customize->add_setting( 'make_banner_video_contest_image', array(
 		'default' => '',
 		'transport' => 'postMessage',
+		'sanitize_callback' => 'esc_url',
 	) );
 
 	$wp_customize->add_control( 
