@@ -13,14 +13,14 @@
 	<style type="text/css" media="screen">
 		/* Wouldn't LESS be nice... */
 		.pull-up {
-			background: linear-gradient( <?php echo get_theme_mod( 'make_banner_video_top_gradient_color', '#bfe6fa' ); ?>, <?php echo get_theme_mod( 'make_banner_video_bottom_gradient_color', '#fff' ); ?> );
-			background-image: -moz-linear-gradient(top,  <?php echo get_theme_mod( 'make_banner_video_top_gradient_color', '#bfe6fa' ); ?>, <?php echo get_theme_mod( 'make_banner_video_bottom_gradient_color', '#fff' ); ?>); // FF 3.6+
-			background-image: -webkit-gradient(linear, 0 0, 0 100%, from( <?php echo get_theme_mod( 'make_banner_video_top_gradient_color', '#bfe6fa' ); ?>), <?php echo get_theme_mod( 'make_banner_video_bottom_gradient_color', '#fff' ); ?> ) ); // Safari 4+, Chrome 2+
-			background-image: -webkit-linear-gradient(top,  <?php echo get_theme_mod( 'make_banner_video_top_gradient_color', '#bfe6fa' ); ?>, <?php echo get_theme_mod( 'make_banner_video_bottom_gradient_color', '#fff' ); ?>); // Safari 5.1+, Chrome 10+
-			background-image: -o-linear-gradient(top,  <?php echo get_theme_mod( 'make_banner_video_top_gradient_color', '#bfe6fa' ); ?>, <?php echo get_theme_mod( 'make_banner_video_bottom_gradient_color', '#fff' ); ?>); // Opera 11.10
-			background-image: linear-gradient(to bottom,  <?php echo get_theme_mod( 'make_banner_video_top_gradient_color', '#bfe6fa' ); ?>, <?php echo get_theme_mod( 'make_banner_video_bottom_gradient_color', '#fff' ); ?>); // Standard, IE10
+			background: linear-gradient( <?php echo wp_kses_post( get_theme_mod( 'make_banner_video_top_gradient_color', '#bfe6fa' ) ); ?>, <?php echo wp_kses_post( get_theme_mod( 'make_banner_video_bottom_gradient_color', '#fff' ) ); ?> );
+			background-image: -moz-linear-gradient(top,  <?php echo wp_kses_post( get_theme_mod( 'make_banner_video_top_gradient_color', '#bfe6fa' ) ); ?>, <?php echo wp_kses_post( get_theme_mod( 'make_banner_video_bottom_gradient_color', '#fff' ) ); ?>); // FF 3.6+
+			background-image: -webkit-gradient(linear, 0 0, 0 100%, from( <?php echo wp_kses_post( get_theme_mod( 'make_banner_video_top_gradient_color', '#bfe6fa' ) ); ?>), <?php echo wp_kses_post( get_theme_mod( 'make_banner_video_bottom_gradient_color', '#fff' ) ); ?> ) ); // Safari 4+, Chrome 2+
+			background-image: -webkit-linear-gradient(top,  <?php echo wp_kses_post( get_theme_mod( 'make_banner_video_top_gradient_color', '#bfe6fa' ) ); ?>, <?php echo wp_kses_post( get_theme_mod( 'make_banner_video_bottom_gradient_color', '#fff' ) ); ?>); // Safari 5.1+, Chrome 10+
+			background-image: -o-linear-gradient(top,  <?php echo wp_kses_post( get_theme_mod( 'make_banner_video_top_gradient_color', '#bfe6fa' ) ); ?>, <?php echo wp_kses_post( get_theme_mod( 'make_banner_video_bottom_gradient_color', '#fff' ) ); ?>); // Opera 11.10
+			background-image: linear-gradient(to bottom,  <?php echo wp_kses_post( get_theme_mod( 'make_banner_video_top_gradient_color', '#bfe6fa' ) ); ?>, <?php echo wp_kses_post( get_theme_mod( 'make_banner_video_bottom_gradient_color', '#fff' ) ); ?>); // Standard, IE10
 			background-repeat: repeat-x;
-			filter: e(%("progid:DXImageTransform.Microsoft.gradient(startColorstr='%d', endColorstr='%d', GradientType=0)",argb( <?php echo get_theme_mod( 'make_banner_video_top_gradient_color', '#bfe6fa' ); ?>), <?php echo get_theme_mod( 'make_banner_video_bottom_gradient_color', '#fff' ); ?> ) )); // IE9 and down
+			filter: e(%("progid:DXImageTransform.Microsoft.gradient(startColorstr='%d', endColorstr='%d', GradientType=0)",argb( <?php echo wp_kses_post( get_theme_mod( 'make_banner_video_top_gradient_color', '#bfe6fa' ) ); ?>), <?php echo wp_kses_post( get_theme_mod( 'make_banner_video_bottom_gradient_color', '#fff' ) ); ?> ) )); // IE9 and down
 		}
 	</style>
 
@@ -32,19 +32,19 @@
 
 				<div class="pi pull-left">
 
-					<img src="<?php echo get_theme_mod( 'make_banner_video_left_image' ); ?>" alt="Image">
+					<img src="<?php echo esc_url( get_theme_mod( 'make_banner_video_left_image' ) ); ?>" alt="Image">
 
 				</div>
 
 				<div class="feat-post pull-left">
 					
-					<img src="<?php echo get_theme_mod( 'make_banner_video_top_image' ); ?>" alt="Image">
+					<img src="<?php echo esc_url( get_theme_mod( 'make_banner_video_top_image' ) ); ?>" alt="Image">
 
 					<div class="da-post">
 
 						<div class="title pull-left">
 
-							<h3><?php echo make_post_type_better_name( get_post_type( get_theme_mod( 'make_banner_video_feat_post_id' ) ) ); ?>:</h3>
+							<h3><?php echo wp_kses_post( make_post_type_better_name( get_post_type( get_theme_mod( 'make_banner_video_feat_post_id' ) ) ) ); ?>:</h3>
 
 							<?php 
 								$post_id = absint( get_theme_mod( 'make_banner_video_feat_post_id' ) );
@@ -68,7 +68,7 @@
 					<div class="contest">
 
 						<a href="<?php echo esc_url( get_theme_mod( 'make_banner_video_contest_image_link', 'http://www.makershed.com/SearchResults.asp?Cat=227&Click=174124' ) ); ?>">
-							<img src="<?php echo get_theme_mod( 'make_banner_video_contest_image' ); ?>" alt="Enter Contest">
+							<img src="<?php echo esc_url( get_theme_mod( 'make_banner_video_contest_image' ) ); ?>" alt="Enter Contest">
 						</a>
 
 					</div>
