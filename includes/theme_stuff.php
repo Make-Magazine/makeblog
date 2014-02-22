@@ -250,6 +250,9 @@ function make_load_resources() {
 	if ( get_theme_mod( 'make_enable_banner' ) === 'on' )
 		wp_enqueue_style( 'make-takeover', get_stylesheet_directory_uri() . '/css/takeover.css' );
 
+	if ( get_theme_mod( 'make_enable_video_banner' ) === 'on' )
+		wp_enqueue_style( 'make-takeover', get_stylesheet_directory_uri() . '/css/takeover.css' );
+
 
 	// Load our common scripts first. These should not require jQuery
 	wp_enqueue_script( 'make-typekit', 'http://use.typekit.com/fzm8sgx.js', array() );

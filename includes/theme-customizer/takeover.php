@@ -640,3 +640,184 @@ function make_theme_banner_home_takeover( $wp_customize ) {
 
 }
 add_action( 'customize_register', 'make_theme_banner_home_takeover' );
+
+
+/**
+ * 
+ * Sets up the interface in the theme customizer for the banner takeover options
+ * @param  object $wp_customize An instance of the WP_Customize_Manager class
+ * @return void
+ *
+ * @since  Number Six
+ */
+function make_theme_banner_video_home_takeover( $wp_customize ) {
+
+	// Register our section
+	$wp_customize->add_section( 'make_banner_video', array(
+		'title' => 'Video Banner Takeover',
+		'priority' => 4
+	) );
+
+
+	// Register the enable field
+	$wp_customize->add_setting( 'make_enable_video_banner', array(
+		'default' => 'off',
+	) );
+
+	$wp_customize->add_control( 'make_enable_video_banner', array(
+		'section' => 'make_banner_video',
+		'label'   => 'Enable Video Banner Takeover',
+		'type' 	  => 'select',
+		'choices' => array(
+			'on'  => 'Enabled',
+			'off' => 'Disabled',
+		),
+		'priority' => 10,
+	) );
+
+	// Register the banner image
+	$wp_customize->add_setting( 'make_banner_video_takeover', array(
+		'default' => '',
+		'transport' => 'postMessage',
+	) );
+
+	$wp_customize->add_control( 
+		new WP_Customize_Image_Control( $wp_customize, 'make_banner_video_takeover', array(
+			'settings' => 'make_banner_video_takeover',
+			'section' => 'make_banner_video',
+			'label' => 'Background Image',
+			'priority' => 15,
+		) )
+	);
+
+	// Register the banner image
+	$wp_customize->add_setting( 'make_banner_video_left_image', array(
+		'default' => '',
+		'transport' => 'postMessage',
+	) );
+
+	$wp_customize->add_control( 
+		new WP_Customize_Image_Control( $wp_customize, 'make_banner_video_left_image', array(
+			'settings' => 'make_banner_video_left_image',
+			'section' => 'make_banner_video',
+			'label' => 'Left Image',
+			'priority' => 16,
+			'default' => get_stylesheet_directory_uri() . 'img/raspberry-pi.jpg',
+		) )
+	);
+
+	// Register the top image
+	$wp_customize->add_setting( 'make_banner_video_top_image', array(
+		'default' => '',
+		'transport' => 'postMessage',
+	) );
+
+	$wp_customize->add_control( 
+		new WP_Customize_Image_Control( $wp_customize, 'make_banner_video_top_image', array(
+			'settings' => 'make_banner_video_top_image',
+			'section' => 'make_banner_video',
+			'label' => 'Top Image',
+			'priority' => 19,
+			'default' => get_stylesheet_directory_uri() . 'img/raspberry-pi.jpg',
+		) )
+	);
+
+	// Register the banner image
+	$wp_customize->add_setting( 'make_banner_video_top_gradient_color', array(
+		'default' => '',
+		'transport' => 'postMessage',
+	) );
+
+	$wp_customize->add_control( 
+		new WP_Customize_Color_Control( $wp_customize, 'make_banner_video_top_gradient_color', array(
+			'settings'	=> 'make_banner_video_top_gradient_color',
+			'label'		=> 'Top Gradient Color',
+			'section'	=> 'make_banner_video',
+			'priority'	=> 17
+		) ) 
+	);
+
+	// Register the banner image
+	$wp_customize->add_setting( 'make_banner_video_bottom_gradient_color', array(
+		'default' => '',
+		'transport' => 'postMessage',
+	) );
+
+	$wp_customize->add_control( 
+		new WP_Customize_Color_Control( $wp_customize, 'make_banner_video_bottom_gradient_color', array(
+			'settings'	=> 'make_banner_video_bottom_gradient_color',
+			'label'		=> 'Bottom Gradient Color',
+			'section'	=> 'make_banner_video',
+			'priority'	=> 18
+		) ) 
+	);
+
+	// Register the html for the page.
+	$wp_customize->add_setting( 'make_banner_video_youtube_url', array(
+		'default' => '',
+		'sanitize_callback' => 'esc_url',
+	) );
+
+	$wp_customize->add_control( 'make_banner_video_youtube_url', array(
+		'section' => 'make_banner_video',
+		'label' => 'YouTube Video URL to feature',
+		'type' => 'text',
+		'priority' => 19,
+	) );
+
+	// Register the html for the page.
+	$wp_customize->add_setting( 'make_banner_video_feat_post_id', array(
+		'default' => '',
+		'sanitize_callback' => 'wp_kses_post',
+	) );
+
+	$wp_customize->add_control( 'make_banner_video_feat_post_id', array(
+		'section' => 'make_banner_video',
+		'label' => 'Post ID of the featured post',
+		'type' => 'text',
+		'priority' => 20,
+	) );
+
+	// Register the html for the page.
+	$wp_customize->add_setting( 'make_banner_video_feat_post_title', array(
+		'default' => '',
+		'sanitize_callback' => 'wp_kses_post',
+	) );
+
+	$wp_customize->add_control( 'make_banner_video_feat_post_title', array(
+		'section' => 'make_banner_video',
+		'label' => 'Override for the title of the featured post',
+		'type' => 'text',
+		'priority' => 21,
+	) );
+
+	// Register the top image
+	$wp_customize->add_setting( 'make_banner_video_contest_image', array(
+		'default' => '',
+		'transport' => 'postMessage',
+	) );
+
+	$wp_customize->add_control( 
+		new WP_Customize_Image_Control( $wp_customize, 'make_banner_video_contest_image', array(
+			'settings' => 'make_banner_video_contest_image',
+			'section' => 'make_banner_video',
+			'label' => 'Contest Image',
+			'priority' => 22,
+			'default' => get_stylesheet_directory_uri() . 'img/raspberry-pi.jpg',
+		) )
+	);
+
+	$wp_customize->add_setting( 'make_banner_video_contest_image_link', array(
+		'default' => '',
+		'sanitize_callback' => 'esc_url',
+	) );
+
+	$wp_customize->add_control( 'make_banner_video_contest_image_link', array(
+		'section' => 'make_banner_video',
+		'label' => 'Link to the contest page.',
+		'type' => 'text',
+		'priority' => 23,
+	) );
+
+}
+add_action( 'customize_register', 'make_theme_banner_video_home_takeover' );

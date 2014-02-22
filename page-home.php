@@ -30,6 +30,10 @@ Template Name: Home Page
 
 			<?php get_template_part( 'home-banner' ); ?>
 
+		<?php elseif ( get_theme_mod( 'make_enable_video_banner' ) === 'on' ) : ?>
+
+			<?php get_template_part( 'home-banner-video' ); ?>
+
 		<?php else : ?>
 
 			<div class="waist">
