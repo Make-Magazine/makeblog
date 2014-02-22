@@ -52,7 +52,7 @@
 					<?php 
 						$link = get_theme_mod( 'make_banner_call_out_link' );
 						$title = get_theme_mod( 'make_banner_call_out_title' );
-						if ( !empty( $title ) && !empty( $title ) ) {
+						if ( !empty( $link ) && !empty( $title ) ) {
 							echo '<h2><a href="' . esc_url( $link ) . '">' . wp_kses_post( $title ) . '</a></h2>';
 						}
 					?>
