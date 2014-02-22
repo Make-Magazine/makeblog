@@ -32,13 +32,13 @@
 
 				<div class="pi pull-left">
 
-					<img src="<?php echo get_theme_mod( 'make_banner_video_left_image' ); ?>" alt="">
+					<img src="<?php echo get_theme_mod( 'make_banner_video_left_image' ); ?>" alt="Image">
 
 				</div>
 
 				<div class="feat-post pull-left">
 					
-					<img src="<?php echo get_theme_mod( 'make_banner_video_top_image' ); ?>" alt="">
+					<img src="<?php echo get_theme_mod( 'make_banner_video_top_image' ); ?>" alt="Image">
 
 					<div class="da-post">
 
@@ -68,7 +68,7 @@
 					<div class="contest">
 
 						<a href="<?php echo esc_url( get_theme_mod( 'make_banner_video_contest_image_link', 'http://www.makershed.com/SearchResults.asp?Cat=227&Click=174124' ) ); ?>">
-							<img src="<?php echo get_theme_mod( 'make_banner_video_contest_image' ); ?>" alt="">
+							<img src="<?php echo get_theme_mod( 'make_banner_video_contest_image' ); ?>" alt="Enter Contest">
 						</a>
 
 					</div>
