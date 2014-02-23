@@ -68,6 +68,10 @@ $field_data = array (
 			'Image'						=> array(),
 			'TimeRequired'				=> array(),
 			'PageNumber'				=> array(),
+			'Conclusion'		=> array( 
+									'type' 	=> 'textarea',
+									'label'	=> 'Projects Conclusion',
+									),
 
 	),
 	'title'		=> 'Projects Meta',
