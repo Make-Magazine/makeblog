@@ -104,3 +104,15 @@
 				</div>
 			</div>
 		</header>
+
+		<?php if ( ! is_front_page() ) : ?>
+
+		<div class="canvas-ad">
+			<div id="div-gpt-ad-664089004995786621-7" class="banner-canvas">
+				<script type='text/javascript'>
+					googletag.cmd.push(function(){googletag.display('div-gpt-ad-664089004995786621-7')});
+				</script>
+			</div>
+		</div>
+
+		<?php endif; ?>
