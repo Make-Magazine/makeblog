@@ -7802,6 +7802,8 @@ p:empty {
   font-family: "proxima-nova", sans-serif;
   border-bottom: 3px solid #DBDBDB;
   padding-top: 20px;
+  position: relative;
+  z-index: 1;
 }
 .category-top h1 {
   font-size: 38px;
@@ -8751,6 +8753,8 @@ body .single {
   border-bottom: 3px solid #DBDBDB;
   padding-top: 20px;
   border-bottom: 0px;
+  position: relative;
+  z-index: 1;
 }
 body .single h1 {
   font-size: 38px;
@@ -9424,6 +9428,15 @@ body .single .projects-masthead p {
     margin: 0;
     padding: 0;
   }
+}
+.canvas-ad {
+  height: 547px;
+  margin-bottom: -547px;
+  top: 0px;
+  left: 50%;
+  margin-left: -1080px;
+  position: relative;
+  z-index: 1;
 }
 .page-template-page-weekend-projects-two-col-php .grey {
   padding: 30px 0;
@@ -11104,6 +11117,8 @@ body.makercamp a.button.small-button {
   font-family: "proxima-nova", sans-serif;
   border-bottom: 3px solid #DBDBDB;
   padding-top: 20px;
+  position: relative;
+  z-index: 1;
   border-bottom: 0px;
 }
 .archive h1 {
