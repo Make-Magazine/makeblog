@@ -827,5 +827,17 @@ function make_theme_banner_video_home_takeover( $wp_customize ) {
 		'priority' => 23,
 	) );
 
+	$wp_customize->add_setting( 'make_banner_video_post_type', array(
+		'default' => '',
+		'sanitize_callback' => 'wp_kses_post',
+	) );
+
+	$wp_customize->add_control( 'make_banner_video_post_type', array(
+		'section' => 'make_banner_video',
+		'label' => 'Text of the heading above the post title.',
+		'type' => 'text',
+		'priority' => 23,
+	) );
+
 }
 add_action( 'customize_register', 'make_theme_banner_video_home_takeover' );

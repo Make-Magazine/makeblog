@@ -31,20 +31,22 @@
 			<div class="span12">
 
 				<div class="pi pull-left">
-
-					<img src="<?php echo esc_url( get_theme_mod( 'make_banner_video_left_image' ) ); ?>" alt="Image">
-
+					<a href="<?php echo esc_url( get_theme_mod( 'make_banner_video_contest_image_link', 'http://www.makershed.com/SearchResults.asp?Cat=227&Click=174124' ) ); ?>">
+						<img src="<?php echo esc_url( get_theme_mod( 'make_banner_video_left_image' ) ); ?>" alt="Image">
+					</a>
 				</div>
 
 				<div class="feat-post pull-left">
 					
-					<img src="<?php echo esc_url( get_theme_mod( 'make_banner_video_top_image' ) ); ?>" alt="Image">
+					<a href="<?php echo esc_url( get_theme_mod( 'make_banner_video_contest_image_link', 'http://www.makershed.com/SearchResults.asp?Cat=227&Click=174124' ) ); ?>">
+						<img src="<?php echo esc_url( get_theme_mod( 'make_banner_video_top_image' ) ); ?>" alt="Image">
+					</a>
 
 					<div class="da-post">
 
 						<div class="title pull-left">
 
-							<h3>Project:</h3>
+							<h3><?php echo wp_kses_post( get_theme_mod( 'make_banner_video_post_type', 'Project:' ) ); ?></h3>
 
 							<?php 
 								$post_id = absint( get_theme_mod( 'make_banner_video_feat_post_id' ) );
