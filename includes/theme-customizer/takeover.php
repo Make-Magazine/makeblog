@@ -730,7 +730,7 @@ function make_theme_banner_video_home_takeover( $wp_customize ) {
 	$wp_customize->add_setting( 'make_banner_video_top_gradient_color', array(
 		'default' => '',
 		'transport' => 'postMessage',
-		'sanitize_callback'	=> 'sanitize_hex_color_no_hash',
+		'sanitize_callback'	=> 'esc_html',
 	) );
 
 	$wp_customize->add_control( 
@@ -746,7 +746,7 @@ function make_theme_banner_video_home_takeover( $wp_customize ) {
 	$wp_customize->add_setting( 'make_banner_video_bottom_gradient_color', array(
 		'default' => '',
 		'transport' => 'postMessage',
-		'sanitize_callback'	=> 'sanitize_hex_color_no_hash',
+		'sanitize_callback'	=> 'esc_html',
 	) );
 
 	$wp_customize->add_control( 
@@ -755,7 +755,7 @@ function make_theme_banner_video_home_takeover( $wp_customize ) {
 			'label'		=> 'Bottom Gradient Color',
 			'section'	=> 'make_banner_video',
 			'priority'	=> 18,
-			'sanitize_callback'	=> 'sanitize_hex_color_no_hash',
+			'sanitize_callback'	=> 'esc_html',
 		) ) 
 	);
 
