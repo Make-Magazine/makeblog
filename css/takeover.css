@@ -199,6 +199,9 @@
   text-transform: uppercase;
   font-size: 16px;
 }
+.home-banner-video .pull-up .feat-post .da-post .title h3.pink a {
+  color: #CA2853;
+}
 .home-banner-video .pull-up .feat-post .contest {
   margin: 20px 0 0 60px;
 }

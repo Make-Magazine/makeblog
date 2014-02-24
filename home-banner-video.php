@@ -13,14 +13,14 @@
 	<style type="text/css" media="screen">
 		/* Wouldn't LESS be nice... */
 		.pull-up {
-			background: linear-gradient( <?php echo sanitize_hex_color_no_hash( get_theme_mod( 'make_banner_video_top_gradient_color', '#bfe6fa' ) ); ?>, <?php echo sanitize_hex_color_no_hash( get_theme_mod( 'make_banner_video_bottom_gradient_color', '#fff' ) ); ?> );
-			background-image: -moz-linear-gradient(top,  <?php echo sanitize_hex_color_no_hash( get_theme_mod( 'make_banner_video_top_gradient_color', '#bfe6fa' ) ); ?>, <?php echo sanitize_hex_color_no_hash( get_theme_mod( 'make_banner_video_bottom_gradient_color', '#fff' ) ); ?>); // FF 3.6+
-			background-image: -webkit-gradient(linear, 0 0, 0 100%, from( <?php echo sanitize_hex_color_no_hash( get_theme_mod( 'make_banner_video_top_gradient_color', '#bfe6fa' ) ); ?>), <?php echo sanitize_hex_color_no_hash( get_theme_mod( 'make_banner_video_bottom_gradient_color', '#fff' ) ); ?> ) ); // Safari 4+, Chrome 2+
-			background-image: -webkit-linear-gradient(top,  <?php echo sanitize_hex_color_no_hash( get_theme_mod( 'make_banner_video_top_gradient_color', '#bfe6fa' ) ); ?>, <?php echo sanitize_hex_color_no_hash( get_theme_mod( 'make_banner_video_bottom_gradient_color', '#fff' ) ); ?>); // Safari 5.1+, Chrome 10+
-			background-image: -o-linear-gradient(top,  <?php echo sanitize_hex_color_no_hash( get_theme_mod( 'make_banner_video_top_gradient_color', '#bfe6fa' ) ); ?>, <?php echo sanitize_hex_color_no_hash( get_theme_mod( 'make_banner_video_bottom_gradient_color', '#fff' ) ); ?>); // Opera 11.10
-			background-image: linear-gradient(to bottom,  <?php echo sanitize_hex_color_no_hash( get_theme_mod( 'make_banner_video_top_gradient_color', '#bfe6fa' ) ); ?>, <?php echo sanitize_hex_color_no_hash( get_theme_mod( 'make_banner_video_bottom_gradient_color', '#fff' ) ); ?>); // Standard, IE10
+			background: linear-gradient( <?php echo esc_html( get_theme_mod( 'make_banner_video_top_gradient_color', '#bfe6fa' ) ); ?>, <?php echo esc_html( get_theme_mod( 'make_banner_video_bottom_gradient_color', '#fff' ) ); ?> );
+			background-image: -moz-linear-gradient(top,  <?php echo esc_html( get_theme_mod( 'make_banner_video_top_gradient_color', '#bfe6fa' ) ); ?>, <?php echo esc_html( get_theme_mod( 'make_banner_video_bottom_gradient_color', '#fff' ) ); ?>); // FF 3.6+
+			background-image: -webkit-gradient(linear, 0 0, 0 100%, from( <?php echo esc_html( get_theme_mod( 'make_banner_video_top_gradient_color', '#bfe6fa' ) ); ?>), <?php echo esc_html( get_theme_mod( 'make_banner_video_bottom_gradient_color', '#fff' ) ); ?> ) ); // Safari 4+, Chrome 2+
+			background-image: -webkit-linear-gradient(top,  <?php echo esc_html( get_theme_mod( 'make_banner_video_top_gradient_color', '#bfe6fa' ) ); ?>, <?php echo esc_html( get_theme_mod( 'make_banner_video_bottom_gradient_color', '#fff' ) ); ?>); // Safari 5.1+, Chrome 10+
+			background-image: -o-linear-gradient(top,  <?php echo esc_html( get_theme_mod( 'make_banner_video_top_gradient_color', '#bfe6fa' ) ); ?>, <?php echo esc_html( get_theme_mod( 'make_banner_video_bottom_gradient_color', '#fff' ) ); ?>); // Opera 11.10
+			background-image: linear-gradient(to bottom,  <?php echo esc_html( get_theme_mod( 'make_banner_video_top_gradient_color', '#bfe6fa' ) ); ?>, <?php echo esc_html( get_theme_mod( 'make_banner_video_bottom_gradient_color', '#fff' ) ); ?>); // Standard, IE10
 			background-repeat: repeat-x;
-			filter: e(%("progid:DXImageTransform.Microsoft.gradient(startColorstr='%d', endColorstr='%d', GradientType=0)",argb( <?php echo sanitize_hex_color_no_hash( get_theme_mod( 'make_banner_video_top_gradient_color', '#bfe6fa' ) ); ?>), <?php echo sanitize_hex_color_no_hash( get_theme_mod( 'make_banner_video_bottom_gradient_color', '#fff' ) ); ?> ) )); // IE9 and down
+			filter: e(%("progid:DXImageTransform.Microsoft.gradient(startColorstr='%d', endColorstr='%d', GradientType=0)",argb( <?php echo esc_html( get_theme_mod( 'make_banner_video_top_gradient_color', '#bfe6fa' ) ); ?>), <?php echo esc_html( get_theme_mod( 'make_banner_video_bottom_gradient_color', '#fff' ) ); ?> ) )); // IE9 and down
 		}
 	</style>
 
@@ -44,7 +44,7 @@
 
 						<div class="title pull-left">
 
-							<h3><?php echo wp_kses_post( make_post_type_better_name( get_post_type( get_theme_mod( 'make_banner_video_feat_post_id' ) ) ) ); ?>:</h3>
+							<h3>Project:</h3>
 
 							<?php 
 								$post_id = absint( get_theme_mod( 'make_banner_video_feat_post_id' ) );
@@ -52,6 +52,9 @@
 								echo '<h1><a href="' . get_permalink( $post_id ) . '">' . wp_kses_post( get_theme_mod( 'make_banner_video_feat_post_title', $the_post->post_title ) ) . '</a></h1>';
 
 							?>
+
+							<h3 class="pink"><a href="<?php echo esc_url( get_theme_mod( 'make_banner_video_contest_image_link', 'http://www.makershed.com/SearchResults.asp?Cat=227&Click=174124' ) ); ?>">View all articles</a></h3>
+							
 
 						</div>
 
