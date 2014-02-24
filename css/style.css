@@ -7804,6 +7804,8 @@ p:empty {
   padding-top: 20px;
   position: relative;
   z-index: 1;
+  margin: 0 auto;
+  width: 940px;
 }
 .category-top h1 {
   font-size: 38px;
@@ -8755,6 +8757,8 @@ body .single {
   border-bottom: 0px;
   position: relative;
   z-index: 1;
+  width: 940px;
+  margin: 0 auto;
 }
 body .single h1 {
   font-size: 38px;
@@ -11119,6 +11123,8 @@ body.makercamp a.button.small-button {
   padding-top: 20px;
   position: relative;
   z-index: 1;
+  margin: 0 auto;
+  width: 940px;
   border-bottom: 0px;
 }
 .archive h1 {
