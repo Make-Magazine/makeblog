@@ -11126,6 +11126,9 @@ body.makercamp a.button.small-button {
   margin: 0 auto;
   width: 940px;
   border-bottom: 0px;
+  position: static;
+  width: inherit;
+  margin: inherit;
 }
 .archive h1 {
   font-size: 38px;

@@ -105,8 +105,9 @@
 			</div>
 		</header>
 
-		<?php if ( ! is_front_page() ) : ?>
-
+		<?php if ( ! is_page_template( 'page-home.php' ) ) :
+			if ( ! is_post_type_archive() ) : ?>
+				
 		<div class="canvas-ad">
 			<div id="div-gpt-ad-664089004995786621-7" class="banner-canvas">
 				<script type='text/javascript'>
@@ -115,4 +116,4 @@
 			</div>
 		</div>
 
-		<?php endif; ?>
+		<?php endif; endif; ?>
