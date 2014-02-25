@@ -8732,7 +8732,6 @@ a.oembed {
 }
 .huff.small {
   width: 620px;
-  height: 540px;
   left: 45%;
 }
 .huff.small .carousel {
@@ -8749,6 +8748,9 @@ a.oembed {
 }
 .huff.small .nexus {
   display: none;
+}
+.huff.small .modal-footer p {
+  margin: 5px 0 !important;
 }
 body .single {
   font-family: "proxima-nova", sans-serif;
