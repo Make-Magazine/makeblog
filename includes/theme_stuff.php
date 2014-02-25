@@ -263,6 +263,11 @@ function make_load_resources() {
 	// display our map sort plugin for Maker Camp
 	if ( is_page( 315793 ) )
 		wp_enqueue_script( 'make-sort-table', get_stylesheet_directory_uri() . '/js/jquery.tablesorter.min.js', array( 'jquery' ), false, true );
+
+	// Load our Backbone JS Applications
+	if ( is_post_type_archive( 'projects' ) ) {
+		wp_enqueue_script( 'make-projects-backbone', get_stylesheet_directory_uri() . '/js/backbone/projects.backbone.js', array( 'backbone' ), false, true );
+	}
 }
 add_action( 'wp_enqueue_scripts', 'make_load_resources' );
 
