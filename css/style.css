@@ -7115,7 +7115,7 @@ body#shop {
   font-weight: bold;
 }
 .new-footer .about-column-01 {
-  width: 90px;
+  width: 86px;
   float: left;
   margin-left: 0;
 }
@@ -7125,9 +7125,12 @@ body#shop {
 .new-footer .about-column-01 ul li {
   line-height: 20px;
 }
+.new-footer .about-column-01 ul li a {
+  margin-left: -2px;
+}
 .new-footer .about-column-02 {
   float: left;
-  width: 130px;
+  width: 134px;
   margin-left: 0;
 }
 .new-footer .about-column-02 ul {
@@ -7135,6 +7138,9 @@ body#shop {
 }
 .new-footer .about-column-02 ul li {
   line-height: 20px;
+}
+.new-footer .about-column-02 ul li a {
+  margin-left: -2px;
 }
 .new-footer .email-area #appendedInputButton {
   border-radius: 0;
@@ -8642,6 +8648,10 @@ ul#tabs .current > a:hover {
 }
 .author-bio .author-photo {
   margin-left: 0;
+}
+/* Fix for bootstrap span issue with author Dan Spangler */
+.author-365883 {
+  float: none !important;
 }
 .video.carousel .carousel-inner {
   background-color: #000;
