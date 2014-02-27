@@ -1019,16 +1019,17 @@ add_filter('the_excerpt_rss', 'make_rss_post_thumbnail');
 add_filter('the_content_feed', 'make_rss_post_thumbnail');
 
 
-//add_filter( 'the_content', 'make_add_sharing_to_content_top' ); 
+add_filter( 'the_content', 'make_add_sharing_to_content_top' ); 
 
 /**
  * Adds the WordPress.com sharing bar to the top of posts.
  */
 function make_add_sharing_to_content_top( $content ) {
 
-	if ( ('post' == get_post_type()) && function_exists( 'sharing_display') )
+	if ( function_exists( 'sharing_display') )
 		$content = sharing_display() . $content;
-		return $content; 
+		
+	return $content; 
 }
 
 /**
