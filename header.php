@@ -15,7 +15,7 @@
 		<!-- Le fav and touch icons -->
 		<link rel="shortcut icon" href="http://1.gravatar.com/blavatar/dab43acfe30c0e28a023bb3b7a700440?s=14">
 
-		<?php if ( is_page( 313086 ) ) 
+		<?php if ( is_page( 313086 ) )
 			echo '<meta property="og:image" content="http://makezineblog.files.wordpress.com/2013/06/makercamp_300x250.jpg" />'; ?>
 
 		<?php wp_head(); ?>
@@ -45,7 +45,7 @@
 		'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 		})(window,document,'script','dataLayer','GTM-WR8NLB');</script>
 		<!-- End Google Tag Manager -->
-		
+
 		<div class="container hidden-print">
 			<div class="row">
 				<div id="div-gpt-ad-664089004995786621-1" class="text-center">
@@ -69,15 +69,15 @@
 						<nav role="navigation" class="span7 site-navigation primary-navigation hidden-print">
 							<?php
 								wp_nav_menu( array(
-									'theme_location'  => 'make-primary', 
-									'container'       => false, 
+									'theme_location'  => 'make-primary',
+									'container'       => false,
 									'menu_class'      => 'nav menu-primary-nav ga-nav clearfix',
 								) );
 							?>
 						</nav>
 
 
-						<div class="additional-content hidden-print">						
+						<div class="additional-content hidden-print">
 							<form action="<?php echo home_url(); ?>" class="search-make open">
 								<input type="text" class="search-field" name="s" placeholder="Search" />
 								<input type="image" src="<?php echo get_stylesheet_directory_uri(); ?>/images/search-btn.png" alt="Search" class="open" value="Search" />
@@ -120,9 +120,11 @@
 
 		<?php if ( ! is_page_template( 'page-home.php' ) ) :
 			if ( ! is_post_type_archive() ) :
-				if ( ! is_author() ) : 
-					if ( ! is_page( 'weekendprojects' ) ) : ?>
-				
+				if ( ! is_author() ) :
+					if ( ! is_page( 'weekendprojects' ) ) :
+						if ( ! is_single( 376981 ) ) :
+		?>
+
 		<div class="canvas-ad">
 			<div id="div-gpt-ad-664089004995786621-7" class="banner-canvas">
 				<script type='text/javascript'>
@@ -131,4 +133,4 @@
 			</div>
 		</div>
 
-		<?php endif; endif; endif; endif; ?>
+	<?php endif; endif; endif; endif; endif; ?>
