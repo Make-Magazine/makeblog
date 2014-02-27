@@ -5563,7 +5563,7 @@ ul.inline.urban-sensor-nav li a:hover {
 }
 .look_like_h3 {
   font-size: 16px;
-  font-weight: normal;
+  font-weight: bold;
   height: auto;
   text-transform: uppercase;
   line-height: 24px;
@@ -5573,7 +5573,7 @@ ul.inline.urban-sensor-nav li a:hover {
 .look_like_h3_heading a {
   font-size: 22px;
   font-style: normal;
-  font-weight: 900;
+  font-weight: bold;
   height: auto;
   line-height: 24px;
   text-decoration: none;
