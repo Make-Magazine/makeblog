@@ -343,7 +343,8 @@ Template Name: Home Page
 										while ( $proj_query->have_posts() ) : $proj_query->the_post();
 											echo '<a href="'.get_permalink().'">';
 											the_post_thumbnail('small-home-feature-boxes');
-											echo '<h4>' . wp_trim_words((get_the_title()),8) . '</h4>';
+											$title = get_post_meta( get_the_ID(), 'title_override', true );
+											echo ( ! empty( $title ) ) ? '<h4>' . make_trim_characters( esc_html( $title ), 72 ) . '</h4>' : '<h4>' . make_trim_characters( get_the_title(), 72 ) . '</h4>';
 											echo '<p>'.wp_trim_words( strip_shortcodes( get_the_excerpt() ), 12 ).'</p>';
 											echo '</a>';
 										endwhile;
@@ -395,7 +396,8 @@ Template Name: Home Page
 										while ( $the_query->have_posts() ) : $the_query->the_post();
 											echo '<a href="'.get_permalink().'">';
 											the_post_thumbnail('small-home-feature-boxes');
-											echo '<h4>' . wp_trim_words((get_the_title()),8) . '</h4>';
+											$title = get_post_meta( get_the_ID(), 'title_override', true );
+											echo ( ! empty( $title ) ) ? '<h4>' . make_trim_characters( esc_html( $title ), 72 ) . '</h4>' : '<h4>' . make_trim_characters( get_the_title(), 72 ) . '</h4>';
 											echo '<p>'.wp_trim_words( strip_shortcodes( get_the_excerpt() ), 12 ).'</p>';
 											echo '</a>';
 										endwhile;
@@ -430,7 +432,8 @@ Template Name: Home Page
 										while ( $the_query->have_posts() ) : $the_query->the_post();
 											echo '<a href="'.get_permalink().'">';
 											the_post_thumbnail('small-home-feature-boxes');
-											echo '<h4>' . wp_trim_words((get_the_title()),8) . '</h4>';
+											$title = get_post_meta( get_the_ID(), 'title_override', true );
+											echo ( ! empty( $title ) ) ? '<h4>' . make_trim_characters( esc_html( $title ), 72 ) . '</h4>' : '<h4>' . make_trim_characters( get_the_title(), 72 ) . '</h4>';
 											echo '<p>'.wp_trim_words( strip_shortcodes( get_the_excerpt() ), 12 ).'</p>';
 											echo '</a>';
 										endwhile;
@@ -468,7 +471,8 @@ Template Name: Home Page
 										while ( $the_query->have_posts() ) : $the_query->the_post();
 											echo '<a href="'.get_permalink().'">';
 											the_post_thumbnail('small-home-feature-boxes');
-											echo '<h4>' . wp_trim_words((get_the_title()),8) . '</h4>';
+											$title = get_post_meta( get_the_ID(), 'title_override', true );
+											echo ( ! empty( $title ) ) ? '<h4>' . make_trim_characters( esc_html( $title ), 72 ) . '</h4>' : '<h4>' . make_trim_characters( get_the_title(), 72 ) . '</h4>';
 											echo '<p>'.wp_trim_words( strip_shortcodes( get_the_excerpt() ), 12 ).'</p>';
 											echo '</a>';
 										endwhile;
@@ -504,7 +508,8 @@ Template Name: Home Page
 										while ( $the_query->have_posts() ) : $the_query->the_post();
 											echo '<a href="'.get_permalink().'">';
 											the_post_thumbnail('small-home-feature-boxes');
-											echo '<h4>' . wp_trim_words((get_the_title()),8) . '</h4>';
+											$title = get_post_meta( get_the_ID(), 'title_override', true );
+											echo ( ! empty( $title ) ) ? '<h4>' . make_trim_characters( esc_html( $title ), 72 ) . '</h4>' : '<h4>' . make_trim_characters( get_the_title(), 72 ) . '</h4>';
 											echo '<p>'.wp_trim_words( strip_shortcodes( get_the_excerpt() ), 12 ).'</p>';
 											echo '</a>';
 										endwhile;
