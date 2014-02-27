@@ -419,7 +419,7 @@ function make_carousel( $args, $title_link = true ) {
 							$output .= '">';
 							$output .= get_the_title( $post->ID );
 							$output .= '</a></h4>';
-							$output .= '<p>' . wp_trim_words( strip_shortcodes( $post->post_content ), 15, '...' ) . '</p>';
+							$output .= ( ! empty( $post->post_excerpt ) ) ? Markdown( wp_trim_words( strip_shortcodes( $post->post_excerpt ), 15, '...' ) ) : Markdown( wp_trim_words( strip_shortcodes( $post->post_content ), 15, '...' ) ) ;
 							$output .= '</div>'. "\n";
 							if ($type == 'video') {
 								$link = get_post_meta( $post->ID, 'Link', true );
