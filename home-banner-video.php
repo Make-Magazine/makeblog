@@ -62,7 +62,14 @@
 
 						<div class="video pull-right">
 
-							<?php echo do_shortcode( '[youtube="' . esc_url( get_theme_mod( 'make_banner_video_youtube_url' ) ) . '&w=329"]' ); ?>
+							<?php 
+
+								if ( get_theme_mod( 'make_banner_video_youtube_url' ) ) {
+									echo do_shortcode( '[youtube="' . esc_url( get_theme_mod( 'make_banner_video_youtube_url' ) ) . '&w=329"]' );
+								} else {
+									echo '<img src="' . wpcom_vip_get_resized_remote_image_url( esc_url( get_theme_mod( 'make_banner_video_featured_image' ) ), 329, 216 ) . '" alt="Image">';
+								} 
+							?>
 
 						</div>
 

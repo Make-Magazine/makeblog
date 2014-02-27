@@ -767,10 +767,26 @@ function make_theme_banner_video_home_takeover( $wp_customize ) {
 
 	$wp_customize->add_control( 'make_banner_video_youtube_url', array(
 		'section' => 'make_banner_video',
-		'label' => 'YouTube Video URL to feature',
+		'label' => 'YouTube Video URL to feature. If URL is present, this will override the featured image.',
 		'type' => 'text',
 		'priority' => 19,
 	) );
+
+	// Register the featured image
+	$wp_customize->add_setting( 'make_banner_video_featured_image', array(
+		'default' => '',
+		'transport' => 'postMessage',
+		'sanitize_callback' => 'esc_url',
+	) );
+
+	$wp_customize->add_control( 
+		new WP_Customize_Image_Control( $wp_customize, 'make_banner_video_featured_image', array(
+			'settings' => 'make_banner_video_featured_image',
+			'section' => 'make_banner_video',
+			'label' => 'Featured Image',
+			'priority' => 19,
+		) )
+	);	
 
 	// Register the html for the page.
 	$wp_customize->add_setting( 'make_banner_video_feat_post_id', array(
