@@ -182,6 +182,47 @@ function galileo_list( $atts, $content = null ) {
 add_shortcode( 'gal', 'galileo_list' );
 
 /**
+ * Signup form for free pdf copy of Galileo Book (different list then galileo_list)
+ * http://makezine.com/books/getting-started-with-intel-galileo/
+ */
+function download_galileo( $atts, $content = null ) {
+	return '
+		<form class="form-stacked" action="http://newsletter.makezine.com/t/r/s/tiirbu/" method="post" id="subForm">
+			<fieldset>
+				<div class="clearfix">
+					<label for="name">Name:</label>
+					<div class="input">
+						<input class="xlarge" id="name" name="cm-name" size="30" type="text">
+					</div>
+				</div>
+				<!-- /clearfix -->
+				<div class="clearfix">
+					<label for="tiirbu-tiirbu">Email:</label>
+					<div class="input">
+						<input class="xlarge" id="tiirbu-tiirbu" name="cm-tiirbu-tiirbu" size="30" type="text">
+					</div>
+				</div>
+				<!-- /clearfix -->
+				<div class="clearfix">
+					<div class="control-group">
+						<div class="controls">
+							<label class="checkbox" for="MAKENewsletter">MAKE Newsletter<input type="checkbox" name="cm-ol-jjuylk" id="MAKENewsletter" /></label>
+							<label class="checkbox" for="MAKENewsletter">Maker Faire Newsletter<input type="checkbox" name="cm-ol-jjuruj" id="MAKENewsletter" /></label>
+							<label class="checkbox" for="MakerShed-MasterList">Maker Shed<input type="checkbox" name="cm-ol-tyvyh" id="MakerShed-MasterList" /></label>
+							<label class="checkbox" for="MakerProNewsletter">Maker Pro Newsletter<input type="checkbox" name="cm-ol-jrsydu" id="MakerProNewsletter" /></label>
+						</div>
+					</div>
+				</div>
+				<!-- /clearfix -->
+			</fieldset>
+			<div class="actions">
+				<button type="submit" class="btn btn-primary">Subscribe</button>
+			</div>
+		</form>';
+}
+add_shortcode( 'freegal', 'download_galileo' );
+
+/**
  * Adds check boxes for newsletter signup.
  * This can be deleted after the sweepstakes are over. Dec. 2013 
  * http://makezine.com/meetup/3dprinter/
