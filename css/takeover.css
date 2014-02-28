@@ -136,6 +136,9 @@
 .home-banner .pull-up .red {
   text-transform: uppercase;
 }
+.home-banner .pull-up ul {
+  margin-bottom: -15px;
+}
 .home-banner .pull-up ul li {
   line-height: 100%;
 }
@@ -195,6 +198,9 @@
 .home-banner-video .pull-up .feat-post .da-post .title h3 {
   text-transform: uppercase;
   font-size: 16px;
+}
+.home-banner-video .pull-up .feat-post .da-post .title h3.pink a {
+  color: #CA2853;
 }
 .home-banner-video .pull-up .feat-post .contest {
   margin: 20px 0 0 60px;

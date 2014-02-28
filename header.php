@@ -30,9 +30,22 @@
 			</script>
 		<?php endif; ?>
 
+		<script type="text/javascript">
+			dataLayer = [];
+		</script>
 	</head>
 
 	<body <?php body_class(); ?>>
+		<!-- Google Tag Manager -->
+		<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-WR8NLB"
+		height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+		<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+		new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+		j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+		'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+		})(window,document,'script','dataLayer','GTM-WR8NLB');</script>
+		<!-- End Google Tag Manager -->
+		
 		<div class="container hidden-print">
 			<div class="row">
 				<div id="div-gpt-ad-664089004995786621-1" class="text-center">
@@ -104,3 +117,18 @@
 				</div>
 			</div>
 		</header>
+
+		<?php if ( ! is_page_template( 'page-home.php' ) ) :
+			if ( ! is_post_type_archive() ) :
+				if ( ! is_author() ) : 
+					if ( ! is_page( 'weekendprojects' ) ) : ?>
+				
+		<div class="canvas-ad">
+			<div id="div-gpt-ad-664089004995786621-7" class="banner-canvas">
+				<script type='text/javascript'>
+					googletag.cmd.push(function(){googletag.display('div-gpt-ad-664089004995786621-7')});
+				</script>
+			</div>
+		</div>
+
+		<?php endif; endif; endif; endif; ?>

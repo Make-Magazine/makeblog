@@ -1019,16 +1019,17 @@ add_filter('the_excerpt_rss', 'make_rss_post_thumbnail');
 add_filter('the_content_feed', 'make_rss_post_thumbnail');
 
 
-//add_filter( 'the_content', 'make_add_sharing_to_content_top' ); 
+add_filter( 'the_content', 'make_add_sharing_to_content_top' ); 
 
 /**
  * Adds the WordPress.com sharing bar to the top of posts.
  */
 function make_add_sharing_to_content_top( $content ) {
 
-	if ( ('post' == get_post_type()) && function_exists( 'sharing_display') )
+	if ( function_exists( 'sharing_display') )
 		$content = sharing_display() . $content;
-		return $content; 
+		
+	return $content; 
 }
 
 /**
@@ -1677,3 +1678,38 @@ function make_copyright_footer() { ?>
 		</div>
 	</div>
 <?php } 
+
+
+/**
+ * Custom string length.
+ * Just a wrapper for substr()
+ * @param  string $str String to be shortened
+ * @param  int $length Character count to limit the string
+ * @param  bool $echo Whether to echo or return the string. Default is to return.
+ */
+function make_trim_characters( $str, $length, $echo = false ) {
+	if ( $echo == false ) {
+		return substr( $str, 0, $length);
+	} else {
+		echo substr( $str, 0, $length);
+	}
+}
+
+/**
+ * Add a post title override for the home page.
+ */
+$field_data = array (
+	'title_takeover' => array(
+		'fields' => array(
+			'title_override' 	=> array(
+				'label' 		=> 'Title Override',
+				'hint'			=> 'Use this to create a custom shortened title.',
+				'type' 			=> 'text',
+				),		
+		),
+		'title' => 'Post Override',
+		'context' => 'advanced',
+		'pages' => array( 'post', 'page', 'projects', 'review', 'craft', 'magazine' ),
+	),
+);
+$easy_cf = new Easy_CF( $field_data );

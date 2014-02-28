@@ -5563,7 +5563,7 @@ ul.inline.urban-sensor-nav li a:hover {
 }
 .look_like_h3 {
   font-size: 16px;
-  font-weight: normal;
+  font-weight: bold;
   height: auto;
   text-transform: uppercase;
   line-height: 24px;
@@ -5573,7 +5573,7 @@ ul.inline.urban-sensor-nav li a:hover {
 .look_like_h3_heading a {
   font-size: 22px;
   font-style: normal;
-  font-weight: 900;
+  font-weight: bold;
   height: auto;
   line-height: 24px;
   text-decoration: none;
@@ -7115,7 +7115,7 @@ body#shop {
   font-weight: bold;
 }
 .new-footer .about-column-01 {
-  width: 90px;
+  width: 86px;
   float: left;
   margin-left: 0;
 }
@@ -7125,9 +7125,12 @@ body#shop {
 .new-footer .about-column-01 ul li {
   line-height: 20px;
 }
+.new-footer .about-column-01 ul li a {
+  margin-left: -2px;
+}
 .new-footer .about-column-02 {
   float: left;
-  width: 130px;
+  width: 134px;
   margin-left: 0;
 }
 .new-footer .about-column-02 ul {
@@ -7135,6 +7138,9 @@ body#shop {
 }
 .new-footer .about-column-02 ul li {
   line-height: 20px;
+}
+.new-footer .about-column-02 ul li a {
+  margin-left: -2px;
 }
 .new-footer .email-area #appendedInputButton {
   border-radius: 0;
@@ -7802,6 +7808,10 @@ p:empty {
   font-family: "proxima-nova", sans-serif;
   border-bottom: 3px solid #DBDBDB;
   padding-top: 20px;
+  position: relative;
+  z-index: 1;
+  margin: 0 auto;
+  width: 940px;
 }
 .category-top h1 {
   font-size: 38px;
@@ -8639,6 +8649,10 @@ ul#tabs .current > a:hover {
 .author-bio .author-photo {
   margin-left: 0;
 }
+/* Fix for bootstrap span issue with author Dan Spangler */
+.author-365883 {
+  float: none !important;
+}
 .video.carousel .carousel-inner {
   background-color: #000;
   background-image: url('../images/ajax-loader.gif');
@@ -8728,7 +8742,6 @@ a.oembed {
 }
 .huff.small {
   width: 620px;
-  height: 540px;
   left: 45%;
 }
 .huff.small .carousel {
@@ -8746,11 +8759,18 @@ a.oembed {
 .huff.small .nexus {
   display: none;
 }
+.huff.small .modal-footer p {
+  margin: 5px 0 !important;
+}
 body .single {
   font-family: "proxima-nova", sans-serif;
   border-bottom: 3px solid #DBDBDB;
   padding-top: 20px;
   border-bottom: 0px;
+  position: relative;
+  z-index: 1;
+  width: 940px;
+  margin: 0 auto;
 }
 body .single h1 {
   font-size: 38px;
@@ -9053,6 +9073,10 @@ body .single .projects-masthead p {
 }
 .page-id-344802 .projects-masthead,
 .page-id-342608 .projects-masthead {
+  display: none;
+}
+#jp-post-flair,
+.sd-title {
   display: none;
 }
 .widget:first-child {
@@ -9424,6 +9448,15 @@ body .single .projects-masthead p {
     margin: 0;
     padding: 0;
   }
+}
+.canvas-ad {
+  height: 547px;
+  margin-bottom: -547px;
+  top: 0px;
+  left: 50%;
+  margin-left: -1080px;
+  position: relative;
+  z-index: 1;
 }
 .page-template-page-weekend-projects-two-col-php .grey {
   padding: 30px 0;
@@ -11104,7 +11137,14 @@ body.makercamp a.button.small-button {
   font-family: "proxima-nova", sans-serif;
   border-bottom: 3px solid #DBDBDB;
   padding-top: 20px;
+  position: relative;
+  z-index: 1;
+  margin: 0 auto;
+  width: 940px;
   border-bottom: 0px;
+  position: static;
+  width: inherit;
+  margin: inherit;
 }
 .archive h1 {
   font-size: 38px;

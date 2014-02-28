@@ -83,8 +83,9 @@ $field_data = array (
 	'advanced_testgroup' => array (
 		'fields' => array(
 			'Description'				=> array(),
-			'EmbedLink'					=> array(),
-			'Link'						=> array(),
+			'Link'						=> array(
+											'hint' => 'Add a URL here for the YouTube video that is the in post. This is also where the thumbnail comes from.',
+											),
 			'MakeProjectsGuideNumber'	=> array(),
 			'Image'						=> array(),
 	),

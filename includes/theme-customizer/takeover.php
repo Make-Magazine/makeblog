@@ -730,7 +730,7 @@ function make_theme_banner_video_home_takeover( $wp_customize ) {
 	$wp_customize->add_setting( 'make_banner_video_top_gradient_color', array(
 		'default' => '',
 		'transport' => 'postMessage',
-		'sanitize_callback'	=> 'sanitize_hex_color_no_hash',
+		'sanitize_callback'	=> 'esc_html',
 	) );
 
 	$wp_customize->add_control( 
@@ -746,7 +746,7 @@ function make_theme_banner_video_home_takeover( $wp_customize ) {
 	$wp_customize->add_setting( 'make_banner_video_bottom_gradient_color', array(
 		'default' => '',
 		'transport' => 'postMessage',
-		'sanitize_callback'	=> 'sanitize_hex_color_no_hash',
+		'sanitize_callback'	=> 'esc_html',
 	) );
 
 	$wp_customize->add_control( 
@@ -755,7 +755,7 @@ function make_theme_banner_video_home_takeover( $wp_customize ) {
 			'label'		=> 'Bottom Gradient Color',
 			'section'	=> 'make_banner_video',
 			'priority'	=> 18,
-			'sanitize_callback'	=> 'sanitize_hex_color_no_hash',
+			'sanitize_callback'	=> 'esc_html',
 		) ) 
 	);
 
@@ -767,10 +767,26 @@ function make_theme_banner_video_home_takeover( $wp_customize ) {
 
 	$wp_customize->add_control( 'make_banner_video_youtube_url', array(
 		'section' => 'make_banner_video',
-		'label' => 'YouTube Video URL to feature',
+		'label' => 'YouTube Video URL to feature. If URL is present, this will override the featured image.',
 		'type' => 'text',
 		'priority' => 19,
 	) );
+
+	// Register the featured image
+	$wp_customize->add_setting( 'make_banner_video_featured_image', array(
+		'default' => '',
+		'transport' => 'postMessage',
+		'sanitize_callback' => 'esc_url',
+	) );
+
+	$wp_customize->add_control( 
+		new WP_Customize_Image_Control( $wp_customize, 'make_banner_video_featured_image', array(
+			'settings' => 'make_banner_video_featured_image',
+			'section' => 'make_banner_video',
+			'label' => 'Featured Image',
+			'priority' => 19,
+		) )
+	);	
 
 	// Register the html for the page.
 	$wp_customize->add_setting( 'make_banner_video_feat_post_id', array(
@@ -823,6 +839,18 @@ function make_theme_banner_video_home_takeover( $wp_customize ) {
 	$wp_customize->add_control( 'make_banner_video_contest_image_link', array(
 		'section' => 'make_banner_video',
 		'label' => 'Link to the contest page.',
+		'type' => 'text',
+		'priority' => 23,
+	) );
+
+	$wp_customize->add_setting( 'make_banner_video_post_type', array(
+		'default' => '',
+		'sanitize_callback' => 'wp_kses_post',
+	) );
+
+	$wp_customize->add_control( 'make_banner_video_post_type', array(
+		'section' => 'make_banner_video',
+		'label' => 'Text of the heading above the post title.',
 		'type' => 'text',
 		'priority' => 23,
 	) );
