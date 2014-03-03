@@ -1621,7 +1621,7 @@ function make_generate_title_tag() {
 	if ( is_home() || is_front_page() ) {
 		$output .= get_bloginfo('name') . ' | ' . get_bloginfo('description');
 	} elseif ( is_page( 235220 ) || is_post_type_archive( 'craft' ) ) {
-		$output .= 'Craft | Crocheting, kniting, sewing, jewelry making, and papercraft';
+		$output .= 'Craft | Crocheting, knitting, sewing, jewelry making, and papercraft';
 	} elseif ( is_singular( 'craft' ) ) {
 		$output .= wp_title( '', false ) . ' | MAKE: Craft';
 	} else {
