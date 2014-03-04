@@ -9079,6 +9079,12 @@ body .single .projects-masthead p {
 .sd-title {
   display: none;
 }
+.sd-social-official .sd-content ul > li {
+  margin-right: 9px !important;
+}
+li.share-email {
+  padding-top: 2px !important;
+}
 .widget:first-child {
   margin: 0 0 20px 0;
 }
