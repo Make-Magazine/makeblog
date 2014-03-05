@@ -18,7 +18,7 @@
 		 * @version  1.0
 		 * @since    1.0
 		 */
-		public function make_get_author_data() {
+		public function get_author_data() {
 			global $post;
 			$coauthors = get_coauthors();
 
@@ -69,7 +69,7 @@
 		 * @since    1.0
 		 */
 		public function full_author_formatted() {
-			$authors = $this->make_get_author_data();
+			$authors = $this->get_author_data();
 			$output = '';
 			
 			// Make sure a user was loaded.
@@ -128,7 +128,7 @@
 		public function author_name() {
 			global $post;
 
-			$output = '<h3 class="jumbo">BY <a class="noborder" href="' . get_author_posts_url( $post->post_author ) . '">' . get_the_author_meta( 'display_name' ) . '</a></h3>';
+			$output = get_the_author_meta( 'display_name' );
 
 			return $output;
 		}
@@ -146,7 +146,7 @@
 
 			$coauthor = array_shift( get_coauthors() );
 
-			$output = '<a href="' . get_author_posts_url( $post->post_author ) . '">' . get_avatar( $coauthor->user_email, 200 ) . '</a>';
+			$output = get_avatar( $coauthor->user_email, 298, null, get_the_author_meta( 'display_name' ) );
 
 			return $output;
 		}
@@ -160,8 +160,11 @@
 		 * @version 1.0
 		 * @since   1.0
 		 */
-		public function author_urls( $urls ) {
-			
+		public function author_urls() {
+			$author = $this->get_author_data();
+
+			$urls = ( isset( $author[0]->entry[0]->urls ) ) ? $author[0]->entry[0]->urls : '';
+
 			$output = '<ul class="links">';
 				foreach ( $urls as $url ) {
 					if ( strpos( $url->value, 'google' ) ) {
@@ -178,16 +181,17 @@
 
 		/**
 		 * Returns only the data for the authors social media websites.
-		 * @param  Object $author Allows us to pass through the $author object if we need to or else we'll load it ourselves.
+		 * @param  Object $author Allows us to pass through the $author accounts object if we need to or else we'll load it ourselves. 
 		 * @return String
 		 *
 		 * @version  1.0
 		 * @since    1.0
 		 */
-		public function author_social( $accounts ) {
-			
+		public function author_social() {
+			$author = $this->get_author_data();
 			$output = '<ul class="social">';
-				foreach ( $accounts as $account ) {
+				foreach ( $author[0]->entry[0]->accounts as $account ) {
+
 					if ( strpos( $account->url, 'google' ) ) {
 						$output .= '<li class="' . esc_attr( $account->shortname ) . '"><a class="noborder" href="' . esc_url( $account->url . '?rel=author' ) . '"><span class="sp">&nbsp;</span></a></li>';
 					} else {
@@ -207,12 +211,19 @@
 		}
 
 
-		public function author_bio( $author ) {
+		public function author_email() {
+			$author = $this->get_author_data();
+
+			$output = ( isset( $author[0]->entry[0]->emails[0]->value ) ) ? sanitize_email( $author[0]->entry[0]->emails[0]->value ) : '';
+		}
+
+
+		public function author_bio( $author = '' ) {
 			// Only load our author data if we aren't passing it already
 			if ( empty( $author ) )
-				$author = $this->make_get_author_data();
+				$author = $this->get_author_data();
 
-			$output = Markdown( $author->aboutMe );
+			$output = Markdown( $author[0]->entry[0]->aboutMe );
 
 			return $output;
 		}
@@ -221,6 +232,44 @@
 	// Load our class into a handy dandy variable so we can use this in our helper function.
 	$make_author_class = new Make_Authors;
 
+
+
+	function make_author_name() {
+		global $make_author_class;
+
+		return $make_author_class->author_name();
+	}
+
+
+	function make_author_avatar() {
+		global $make_author_class;
+
+		return $make_author_class->author_photo();		
+	}
+
+	function make_author_bio() {
+		global $make_author_class;
+
+		return $make_author_class->author_bio();
+	}
+
+	function make_author_social_links() {
+		global $make_author_class;
+
+		return $make_author_class->author_social();
+	}
+
+	function make_author_email() {
+		global $make_author_class;
+
+		return $make_author_class->author_email();
+	}
+
+	function make_author_urls() {
+		global $make_author_class;
+
+		return $make_author_class->author_urls();
+	}
 
 	/**
 	 * Helper function for returning all of our bio info stuff.
@@ -236,32 +285,10 @@
 	 * @version  1.0
 	 * @since    1.0
 	 */
-	function make_author_bio( $type = 'full' ) {
+	function make_author( $type = 'full' ) {
 		global $make_author_class;
 
-		// Return the full HTML block
-		if ( $type == 'full' )
-			return $make_author_class->full_author_formatted();
-
-		// Return the author name only
-		if ( $type == 'name' )
-			echo $make_author_class->author_name();
-
-		// Return the author photo
-		if ( $type == 'photo' )
-			echo $make_author_class->author_photo();
-
-		// Returns the author bio
-		if ( $type == 'bio' )
-			echo $make_author_class->author_bio();
-
-		// Return the author website urls
-		if ( $type == 'urls' )
-			echo $make_author_class->author_urls();
-
-		// Return the author social media buttons
-		if ( $type == 'social' )
-			echo $make_author_class->author_social();
+		return $make_author_class->full_author_formatted();
 	}
 
 	function hook_bio_into_content( $content ) {
