@@ -50,10 +50,6 @@ get_header(); ?>
 					<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 						<?php the_content(); ?>
 					<?php endwhile; ?>
-					<!-- post navigation -->
-					<?php else: ?>
-					<!-- no posts found -->
-					<?php endif; ?>
 					
 				</div>
 				
@@ -91,6 +87,12 @@ get_header(); ?>
 				
 					<?php 
 
+						$first_row = get_post_meta( get_the_id(), 'first_row', true );
+
+						if ( ! empty( $first_row ) ) {
+							do_shortcode( wp_kses_post( $first_row ) );
+						} else {
+
 						$args = array(
 							'post_type'			=> 'projects',
 							'title'				=> 'Latest Weekend Projects',
@@ -109,6 +111,8 @@ get_header(); ?>
 						);
 
 						echo make_carousel($args, false);
+
+						}
 					?>
 				</div>
 			
@@ -119,6 +123,12 @@ get_header(); ?>
 				<div class="span12">
 				
 					<?php 
+
+						$second_row = get_post_meta( get_the_id(), 'second_row', true );
+
+						if ( ! empty( $first_row ) ) {
+							do_shortcode( wp_kses_post( $first_row ) );
+						} else {
 
 						$args = array(
 							'post_type'			=> array( 'post', 'video' ),
@@ -133,6 +143,8 @@ get_header(); ?>
 						);
 
 						echo make_carousel($args, false);
+
+						}
 					?>
 					
 				</div>
@@ -150,6 +162,11 @@ get_header(); ?>
 			</div>
 			
 		</div>
+
+		<!-- post navigation -->
+		<?php else: ?>
+		<!-- no posts found -->
+		<?php endif; ?>
 		
 	</div>
 
