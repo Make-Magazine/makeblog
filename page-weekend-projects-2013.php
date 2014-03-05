@@ -59,6 +59,14 @@ get_header(); ?>
 				
 				<div class="span4">
 
+					<div class="widget">
+						<form role="search" method="get" class="form-search" id="searchform" action="<?php echo home_url( '/' ); ?>">
+							<input type="text" class="input-medium search-query" value="" name="s" id="s" placeholder="Search Weekend Projects" />
+							<input type="hidden" class="btn" name="tag" id="searchsubmit" value="greatcreate" />
+							<input type="submit" class="btn" id="searchsubmit" value="Search" />
+						</form>
+					</div>
+
 					<?php dynamic_sidebar( 'sidebar_weekend_projects' ); ?>
 					
 					<div class="sidebar-ad">
