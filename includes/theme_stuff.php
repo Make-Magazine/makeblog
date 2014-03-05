@@ -1621,7 +1621,7 @@ function make_generate_title_tag() {
 	if ( is_home() || is_front_page() ) {
 		$output .= get_bloginfo('name') . ' | ' . get_bloginfo('description');
 	} elseif ( is_page( 235220 ) || is_post_type_archive( 'craft' ) ) {
-		$output .= 'Craft | Crocheting, kniting, sewing, jewelry making, and papercraft';
+		$output .= 'Craft | Crocheting, knitting, sewing, jewelry making, and papercraft';
 	} elseif ( is_singular( 'craft' ) ) {
 		$output .= wp_title( '', false ) . ' | MAKE: Craft';
 	} else {
@@ -1713,3 +1713,34 @@ $field_data = array (
 	),
 );
 $easy_cf = new Easy_CF( $field_data );
+
+function make_get_post_template() {
+	if ( is_admin() ) {
+		$post_id = isset( $_GET['post'] ) ? intval( $_GET['post'] ) : intval( $_POST['post_ID'] ) ;
+		$template_file = get_post_meta( $post_id, '_wp_page_template', TRUE );
+		$field_data = array (
+			'title_takeover' => array(
+				'fields' => array(
+					'first_row'	=> array(
+						'label' 		=> 'First Row',
+						'hint'			=> 'Insert a shortcode here, or anything else that you want to spit out...',
+						'type' 			=> 'text',
+						),		
+					'second_row'	=> array(
+						'label' 		=> 'Second Row',
+						'hint'			=> 'Insert a shortcode here, or anything else that you want to spit out...',
+						'type' 			=> 'text',
+						),		
+				),
+				'title' => 'Weekend Projects Sliders',
+				'context' => 'advanced',
+				'pages' => array( 'page' ),
+			),
+		);
+		if ( $template_file == 'page-weekend-projects-2013.php' ) {
+			$easy_cf = new Easy_CF( $field_data );
+		}
+	}
+}
+
+add_filter( 'init', 'make_get_post_template' );
