@@ -127,7 +127,7 @@ if ( defined('WP_CLI') && WP_CLI )
 	include_once dirname( __FILE__ ) . '/includes/wp-cli.php';
 
 // 34. Author Bio
-include_once dirname(  __FILE__  ) . '/includes/class-author-profile.php';
+include_once dirname(  __FILE__  ) . '/includes/class-author-bio.php';
 
 // 35. Go Links
 include_once dirname(  __FILE__  ) . '/includes/post-types/go.php';
