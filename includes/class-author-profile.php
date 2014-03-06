@@ -325,14 +325,15 @@
 
 		if ( class_exists( 'WPCOM_Liveblog' ) ) {
 			if( ! WPCOM_Liveblog::is_liveblog_post() && is_single() && is_main_query() && !in_array( get_post_type(),  array( 'page_2', 'projects' ) ) && $post->post_parent == 0  ) {
-				$content .= make_author_bio();
+				$content .= make_author();
 			}
 		} else {
 			if( is_single() && is_main_query() && !in_array( get_post_type(),  array( 'page_2', 'projects' ) ) && $post->post_parent == 0  ) {
-				$content .= make_author_bio();
+				$content .= make_author();
 			}
 		}
 		return $content;
 	}
 
-	add_filter( 'the_content', 'hook_bio_into_content', 5 );
+	// For now we will stop displaying author blocks at the end of posts until we can fix it next week.
+	//add_filter( 'the_content', 'hook_bio_into_content', 5 );
