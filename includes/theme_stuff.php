@@ -77,6 +77,20 @@ function make_action_after_setup_theme() {
 }
 add_action( 'after_setup_theme', 'make_action_after_setup_theme' );
 
+
+/**
+ * Adjusting the areas that Infinite Scroll supports to include author pages
+ *
+ * @since P-body
+ */
+function make_adjust_infinite_scroll_support() {
+	$supported = current_theme_supports( 'infinite-scroll' ) && ( is_home() || is_archive() || is_author() );
+
+	return $supported;
+}
+add_filter( 'infinite_scroll_archive_supported', 'make_adjust_infinite_scroll_support' );
+
+
 /**
  * Initiate the Easy Custom Fields class
  */
@@ -1715,7 +1729,8 @@ $field_data = array (
 $easy_cf = new Easy_CF( $field_data );
 
 function make_get_post_template() {
-	if ( is_admin() ) {
+	global $pagenow;
+	if ( 'post.php' == $pagenow ) {
 		$post_id = isset( $_GET['post'] ) ? intval( $_GET['post'] ) : intval( $_POST['post_ID'] ) ;
 		$template_file = get_post_meta( $post_id, '_wp_page_template', TRUE );
 		$field_data = array (
