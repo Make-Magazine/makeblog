@@ -88,7 +88,7 @@ function make_adjust_infinite_scroll_support() {
 
 	return $supported;
 }
-add_filter( 'infinite_scroll_archive_supported', 'make_add_infinite_scroll_support' );
+add_filter( 'infinite_scroll_archive_supported', 'make_adjust_infinite_scroll_support' );
 
 
 /**
