@@ -77,6 +77,20 @@ function make_action_after_setup_theme() {
 }
 add_action( 'after_setup_theme', 'make_action_after_setup_theme' );
 
+
+/**
+ * Adjusting the areas that Infinite Scroll supports to include author pages
+ *
+ * @since P-body
+ */
+function make_adjust_infinite_scroll_support() {
+	$supported = current_theme_supports( 'infinite-scroll' ) && ( is_home() || is_archive() || is_author() );
+
+	return $supported;
+}
+add_filter( 'infinite_scroll_archive_supported', 'make_add_infinite_scroll_support' );
+
+
 /**
  * Initiate the Easy Custom Fields class
  */
