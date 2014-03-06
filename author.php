@@ -15,21 +15,7 @@ get_header(); ?>
 		
 			<div class="row">
 			
-				<div class="span4">
-				
-					<?php echo make_author_avatar(); ?>
-				
-				</div>
-
-				<div class="span8">
-				
-					<h1 class="jumbo"><?php echo make_author_name(); ?></h1>
-					<?php echo make_author_bio(); ?>
-					<?php echo make_author_social_links(); ?>
-					<?php echo make_author_email(); ?>
-					<?php echo make_author_urls(); ?>
-					
-				</div>
+				<?php make_author_profile(); ?>
 				
 			</div>
 		
@@ -45,13 +31,62 @@ get_header(); ?>
 			
 				<div class="span12">
 				
-					<h2>Latest from <?php // AUTHOR NAME ?></h2>
+					<h2>Latest from <?php echo make_author_name(); ?></h2>
 				
 				</div>
 				
 			</div>
 			
-			<?php // display Author content here ?>
+			<div class="row">
+			
+				<div class="span12">
+					
+					<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+				
+						<div class="projects-masthead">
+							<h2><a href="<?php esc_url( the_permalink() ); ?>"><?php esc_html( the_title() ); ?></a></h2>
+						</div>
+					
+						<ul class="projects-meta">
+							<?php if ( make_get_author( absint( $post->ID ) ) ) : ?>
+								<?php make_get_author( asbint( $post->ID ) ); ?>
+							<?php endif ?>
+							<li>Posted <span class="blue"><?php the_time('m/d/Y \@ g:i a'); ?></span></li>
+							<li>Category <?php the_category(', '); ?></li>
+							<li><a href="<?php esc_url( the_permalink() ); ?>#comments"><?php comments_number( '0', '1', '%' ); ?></a></li>
+						</ul>
+				
+						<article <?php post_class(); ?>>
+							
+							<div class="media">
+								
+								<?php if ( has_post_thumbnail() ) : ?>
+									<a href="<?php esc_url( the_permalink() ); ?>" class="pull-left">
+										<?php the_post_thumbnail( 'archive-thumb', array( 'class' => 'media-object' ) ); ?>
+									</a>
+								<?php endif; ?>
+								
+								<div class="media-body">
+									<p><?php echo wp_trim_words(get_the_excerpt(), 50, '...'); ?> <a href="<?php esc_url( the_permalink() ); ?>">Read more &raquo;</a></p>
+								</div>
+								
+								<div class="jetpack-sharing">
+									<?php if ( function_exists( 'sharing_display') ) echo sharing_display(); ?> 
+								</div>
+								
+							</div>
+						
+						</article>
+
+					<?php endwhile; else: ?>
+					
+						<p><?php echo 'No posts found.' ?></p>
+					
+					<?php endif; ?>
+
+				</div>
+	
+			</div>
 			
 		</div>
 	
