@@ -19,26 +19,16 @@
 		 * @since    1.0
 		 */
 		public function get_author_data() {
-			// Fetch coauthors plug data
-			$authors = get_coauthors();
 			
 			// Also get the author ID as a fallback
 			$author_id = get_the_author_id();
+			$author = get_userdata( absint( $author_id ) );
 
-			var_dump($author_id);
-
-			// Check if any authors were returned
-			if ( ! empty( $authors ) ) {
+			// Its possible nothing is returned via the author ID, so we'll check with coauthors
+			// We check coauthors second because if we check it first on the author page, it can result in displaying the wrong author information.
+			if ( empty( $author ) ) {
+				$authors = get_coauthors( $author_id );
 				$author = $authors[0];
-			} elseif ( ! empty( $author_id ) && $author_id !== 0 ) {
-				// If coauthors plus couldn't return an author, we'll try and manually get it
-				$author = get_userdata( absint( $author_id ) );
-
-				// Last check... if $author is empty at this point, then we have a linked account
-				if ( empty( $author ) ) {
-					$authors = get_coauthors( $author_id );
-					$author = $authors[0];
-				}
 			}
 			
 			// If the user account is a guest-author, then it will always be used over Gravatar data
