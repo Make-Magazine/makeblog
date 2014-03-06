@@ -12035,6 +12035,7 @@ aside.pull-quote h3 span a {
 }
 aside.pull-quote p {
   margin-bottom: 0px;
+  font-size: 14px;
 }
 aside.pull-quote.pull-quote-1 {
   width: 200px;
