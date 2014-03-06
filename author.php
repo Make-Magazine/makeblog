@@ -39,7 +39,7 @@ get_header(); ?>
 			
 			<div class="row">
 			
-				<div class="span12" id="content">
+				<div class="span8 add30" id="content">
 					
 					<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 				
@@ -77,7 +77,7 @@ get_header(); ?>
 							</div>
 						
 						</article>
-
+						
 					<?php endwhile; else: ?>
 					
 						<p><?php echo 'No posts found.' ?></p>
@@ -85,6 +85,8 @@ get_header(); ?>
 					<?php endif; ?>
 
 				</div>
+
+				<?php get_sidebar(); ?>
 	
 			</div>
 			
