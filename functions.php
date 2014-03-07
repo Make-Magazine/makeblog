@@ -74,9 +74,6 @@ include_once dirname( __FILE__ ) . '/includes/cheezcap-config.php';
 // 17. House Ads Custom Post Type
 include_once dirname( __FILE__ ) . '/includes/house-ads-cpt.php';
 
-// 18. Parse.ly Dash
-include_once dirname( __FILE__ ) . '/includes/wp-parsely/wp-parsely.php';
-
 // 19. Magazine Articles
 include_once dirname( __FILE__ ) . '/includes/magazine-cpt.php';
 
@@ -88,9 +85,6 @@ include_once dirname( __FILE__ ) . '/includes/slideshow.php';
 
 // 22. Reviews CPT
 include_once dirname( __FILE__ ) . '/includes/reviews.php';
-
-// 23. Dash API Stuff
-include_once dirname( __FILE__ ) . '/includes/dash.php';
 
 // 24. Projects CPT
 include_once dirname( __FILE__ ) . '/includes/projects-cpt.php';
