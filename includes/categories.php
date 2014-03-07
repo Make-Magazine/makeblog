@@ -153,7 +153,7 @@ function make_category_li( $post_type = '' ) {
 		}
 	} 
 
-	$output .= '<li><a href="' . home_url( 'weekendprojects' ) . '">Weekend Projects</li>';
+	$output .= '<li><a href="http://pubads.g.doubleclick.net/gampad/clk?id=112551178&iu=/11548178/Makezine">Weekend Projects</li>';
 	
 	return $output;
 }
