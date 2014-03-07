@@ -107,8 +107,8 @@
 							<a class="sprite sprite-flickr" href="http://www.flickr.com/groups/make/" title="Flickr" target="_blank"></a>
 							<a class="sprite sprite-facebook" href="http://facebook.com/makemagazine" title="Facebook" target="_blank"></a>
 							<a class="sprite sprite-stumbleupon" href="http://www.stumbleupon.com/to/stumble/stumblethru:makezine.com?utm_source=Makezine&amp;utm_medium=StumbleThru&amp;utm_campaign=StumbleThruButton" title="Stumbleupon" target="_blank"></a>
-							<a class="sprite sprite-instagram" href="http://www.instagram.com/makemagazine" title="Instagram" target="_blank"></a>
-							<a class="sprite sprite-google-plus" href="https://google.com/+MAKE/" rel="publisher" title="Google+" target="_blank"></a>
+							<a class="sprite sprite-instagram" href="http://instagram.com/makemagazine" title="Instagram" target="_blank"></a>
+							<a class="sprite sprite-google-plus" href="https://plus.google.com/+MAKE/posts" rel="publisher" title="Google+" target="_blank"></a>
 						<!-- END socialArea -->
 						</div> 
 					<!-- END span3 about-us -->
