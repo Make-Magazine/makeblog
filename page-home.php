@@ -504,7 +504,7 @@ Template Name: Home Page
 													array(
 														'taxonomy'	=> 'flags',
 														'field'		=> 'slug',
-														'terms'		=> 'weekend-projects'
+														'terms'		=> 'weekend-project'
 													)
 												)
  										);
