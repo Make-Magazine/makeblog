@@ -490,23 +490,30 @@ Template Name: Home Page
 							<div class="span4">
 
 
-								<h2 class="look_like_h3"><a href="<?php echo esc_url( home_url( '/page-2/' ) ); ?>" class="red">Make: Page 2</a></h2>
+								<h2 class="look_like_h3"><a href="http://pubads.g.doubleclick.net/gampad/clk?id=112551178&iu=/11548178/Makezine" class="red">Weekend Projects</a></h2>
 
-								<div class="grid-box boxy">
+								<div class="grid-box boxy weekend-projects-home">
 
 									<?php
 										
 										$args = array(
-											'post_type' => 'page_2',
- 											'posts_per_page'  => 1,
- 											'post__not_in'	=> $post_array,
+											'post_type' 		=> 'projects',
+ 											'posts_per_page'	=> 1,
+ 											'post__not_in'		=> $post_array,
+ 											'tax_query' 		=> array(
+													array(
+														'taxonomy'	=> 'flags',
+														'field'		=> 'slug',
+														'terms'		=> 'weekend-projects'
+													)
+												)
  										);
 										
-
 										$the_query = new WP_Query( $args );
 
 										while ( $the_query->have_posts() ) : $the_query->the_post();
 											echo '<a href="'.get_permalink().'">';
+											echo '<img class="weekend-project-image" src="' . get_stylesheet_directory_uri() . '/img/WP02_Feature_banner_02.jpg" alt="Powered by RadioShack">';
 											the_post_thumbnail('small-home-feature-boxes');
 											$title = get_post_meta( get_the_ID(), 'title_override', true );
 											echo ( ! empty( $title ) ) ? '<h4>' . make_trim_characters( esc_html( $title ), 72 ) . '</h4>' : '<h4>' . make_trim_characters( get_the_title(), 72 ) . '</h4>';

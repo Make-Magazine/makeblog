@@ -8560,6 +8560,16 @@ ul#tabs .current > a:hover {
 .Thumbnail {
   display: block;
 }
+.weekend-projects-home .weekend-project-image {
+  margin-bottom: 0px;
+  position: relative;
+  margin-top: 0px;
+  z-index: 1;
+  margin-left: 8px;
+}
+.weekend-projects-home .attachment-small-home-feature-boxes {
+  margin-top: -50px;
+}
 .avatar-298 {
   margin-bottom: 20px;
   border: 1px solid #cecece;
