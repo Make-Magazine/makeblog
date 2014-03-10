@@ -66,11 +66,13 @@ class Make_Contribute {
 		// Check our nonce and make sure it's correct
 		// check_ajax_referer( 'contribute_post', 'nonce' );
 
-		var_dump( $_POST );
+		// var_dump( $_POST );
 
-		var_dump( $_FILES );
+		// var_dump( $_FILES );
 
-		die( 'Hey, it worked!' );
+		$post = json_encode( $_POST );
+
+		die( $post );
 		
 		// // Make sure some required fields are being passed first for security reasons
 		// if ( isset( $_POST['request'] ) && $_POST['request'] == 'login' && wp_verify_nonce( $_POST['nonce'], 'ajax-nonce' ) ) {
