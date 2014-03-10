@@ -118,6 +118,7 @@ class Make_Gigya {
 			'loading' => 'Loading',
 			'secure_it' => wp_create_nonce( 'ajax-nonce' ),
 			'root_path' => esc_url( home_url( '/' ) ),
+			'loggedin' => is_user_logged_in()
 		) );
 	}
 

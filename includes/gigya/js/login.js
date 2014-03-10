@@ -35,16 +35,17 @@ jQuery( document ).ready(function() {
 		});
 	});
 
-	// Listen for a click event to logout
-	jQuery( document ).on( 'click', '.user-creds.signout', function( e ) {
-		e.preventDefault();
+	// Check that we aren't dealing with a logged in WP user, if not, log them out of Gigya.
+	if ( ! make_gigya.loggedin ) {
+		jQuery( document ).on( 'click', '.user-creds.signout', function( e ) {
+			e.preventDefault();
 
-		if ( gigya_debug )
-			console.log( 'Logout Started' );
+			if ( gigya_debug )
+				console.log( 'Logout Started' );
 
-		gigya.accounts.logout();
-	});
-
+			gigya.accounts.logout();
+		});
+	}
 });
 
 
@@ -95,7 +96,7 @@ function make_on_login( eventObj ) {
 
 			// Check that everything went well
 			if ( results.loggedin === true ) {
-				document.location = make_gigya.root_path + 'maker-account';
+				document.location = make_gigya.root_path + 'contribute';
 			} else {
 				// We may have logged into Gigya, but something happened on our end. Let's correct Gigya.
 				gigya.accounts.logout();
@@ -142,14 +143,19 @@ function make_on_logout() {
  * @since  SPRINT_NAME
  */
 function make_is_logged_in( maker ) {
-	if ( gigya_debug )
+	if ( gigya_debug ) {
 		console.log( maker );
+		console.log( 'WP Logged in: ' + make_gigya.loggedin );
+	}
 	
-	if ( maker.errorCode === 0 ) {
+	if ( make_gigya.loggedin || maker.errorCode === 0 ) {
 		if ( gigya_debug )
 			console.log( 'User Logged In.' );
 
-		jQuery( '.main-header' ).find( '.row' ).append( '<div class="login-wrapper"><a href="#signout" class="user-creds signout">Sign Out</a> / <a href="' + make_gigya.root_path + 'maker-account" class="user-creds profile">Your Account</a></div>' );
+		// We only want to provide a sign out feature for Gigya users
+		var signout = ( ! make_gigya.loggedin ) ? '<a href="#signout" class="user-creds signout">Sign Out</a> / ' : '';
+
+		jQuery( '.main-header' ).find( '.row' ).append( '<div class="login-wrapper">' + signout + '<a href="' + make_gigya.root_path + 'contribute" class="user-creds profile">Contribute</a></div>' );
 	} else {
 		if ( gigya_debug )
 			console.log( 'User Not Logged In.' );
@@ -157,7 +163,7 @@ function make_is_logged_in( maker ) {
 		// Add our login/register links
 		jQuery( '.main-header' ).find( '.row' ).append( '<div class="login-wrapper"><a href="#signin" class="user-creds signin">Sign In</a> / <a href="#join" class="user-creds join">Join</a></div>' );
 
-		if ( path.indexOf( 'exhibit' ) >= 0 || path.indexOf( 'presenter' ) >= 0 || path.indexOf( 'performer' ) >= 0 || path.indexOf( 'makerprofile' ) >= 0 )
+		if ( path.indexOf( 'contribute' ) >= 0 )
 			jQuery( '.content' ).html( '<h2>You must be logged in to access this area.<br />Please <a href="#login" class="user-creds login">Login</a> or <a href="#register" class="user-creds register">Register</a>.</h2>' );
 	}
 }

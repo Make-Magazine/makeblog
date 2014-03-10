@@ -29,10 +29,10 @@ if ( defined( 'WP_CLI' ) && WP_CLI )
 // 2. WordPress.com VIP Hosting Stuff
 include_once dirname( __FILE__ ) . '/includes/vip.php';
 
-// 2a Load Gigya!
+// Load Gigya!
 include_once dirname( __FILE__ ) . '/includes/gigya/gigya.php';
 
-// 2b Load the scripts for our Maker accounts
+// Load the scripts for our Maker accounts
 include_once dirname( __FILE__ ) . '/includes/maker-profile/maker-profile.php';
 
 // 3. NUMBERED PAGE NAVIGATION
