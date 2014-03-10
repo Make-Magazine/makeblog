@@ -60,9 +60,20 @@ get_header(); ?>
 										<button type="submit" class="btn btn-warning">Want to add steps to the post?</button>
 										<button type="submit" class="btn btn-primary submit-review">Submit for Review</button>
 									</div>
-									<section class="steps"></section>
-									<section class="parts"></section>
-									<section class="tools"></section>
+									<section class="steps-wrapper">
+										<div class="step row">
+											<div class="image-wrapper">
+												<img src="http://placehold.it/80x80" alt="">
+												<input type="hidden" name="step-image" value="">
+											</div>
+											<div class="content-wrapper">
+												<input type="text" placeholder="Enter your step title..." value="">
+												<?php wp_editor( 'Describe your step...', 'step_content', array( 'teeny' => true ) ); ?>
+											</div>
+										</div>
+									</section>
+									<section class="parts-wrapper"></section>
+									<section class="tools-wrapper"></section>
 									<div class="form-actions">
 										<button type="submit" class="btn btn-primary submit-review">Submit for Review</button>
 									</div>
