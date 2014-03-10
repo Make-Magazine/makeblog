@@ -29,8 +29,8 @@ jQuery( document ).ready(function() {
 		e.preventDefault();
 
 		gigya.accounts.showScreenSet({
-			screenSet: 'Login-web',
-			mobileScreenSet: 'Login-mobile',
+			screenSet: 'makezine-login',
+			mobileScreenSet: 'makezine-mobile-login',
 			startScreen: 'gigya-register-screen'
 		});
 	});
@@ -156,6 +156,9 @@ function make_is_logged_in( maker ) {
 		var signout = ( ! make_gigya.loggedin ) ? '<a href="#signout" class="user-creds signout">Sign Out</a> / ' : '';
 
 		jQuery( '.main-header' ).find( '.row' ).append( '<div class="login-wrapper">' + signout + '<a href="' + make_gigya.root_path + 'contribute" class="user-creds profile">Contribute</a></div>' );
+
+		// Display our content
+		jQuery( '.container.authentication' ).show();
 	} else {
 		if ( gigya_debug )
 			console.log( 'User Not Logged In.' );
@@ -163,7 +166,7 @@ function make_is_logged_in( maker ) {
 		// Add our login/register links
 		jQuery( '.main-header' ).find( '.row' ).append( '<div class="login-wrapper"><a href="#signin" class="user-creds signin">Sign In</a> / <a href="#join" class="user-creds join">Join</a></div>' );
 
-		if ( path.indexOf( 'contribute' ) >= 0 )
-			jQuery( '.content' ).html( '<h2>You must be logged in to access this area.<br />Please <a href="#login" class="user-creds login">Login</a> or <a href="#register" class="user-creds register">Register</a>.</h2>' );
+		console.log('asdfsdfasdf');
+		jQuery( '.container.authentication' ).html( '<div class="row"><div class="span12 login-required"><h2>You must be logged in to access this area.<br />Please <a href="#signin" class="user-creds signin">Sign In</a> or <a href="#join" class="user-creds join">Join</a>.</h2></div></div>' ).show();
 	}
 }

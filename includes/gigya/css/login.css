@@ -1,3 +1,7 @@
+.authentication { display:none; }
+.login-required {
+	height:300px;
+}
 .gigya-screen *, div.gigya-screen, .gigya-screen span, .gigya-screen a:hover, .gigya-screen a:visited, .gigya-screen a:link, .gigya-screen a:active {
 	border: none;
 	padding: 0px;
