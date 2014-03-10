@@ -15,13 +15,13 @@ get_header(); ?>
 			<div class="row">
 			
 				<div class="span12">
-
+					
 					<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 
 						<article <?php post_class(); ?>>
 
-							<form class="form form-horizontal" method="post">
-								<?php echo wp_nonce_field( 'contribute_post' ); ?>
+							<form class="form form-horizontal contribute-form" method="post">
+								<?php echo wp_nonce_field( 'contribute_post', 'contribute_post' ); ?>
 								<fieldset>
 									<div class="control-group">
 										<div class="control-label"></div>
@@ -34,7 +34,7 @@ get_header(); ?>
 									<div class="control-group">
 										<label class="control-label" for="post_title">Title</label>
 										<div class="controls">
-											<input type="text" class="input-xlarge" id="post_title">
+											<input type="text" class="input-xlarge" name="post_title" id="post_title">
 											<p class="help-block">Add the name of the post here.</p>
 										</div>
 									</div>
@@ -51,18 +51,16 @@ get_header(); ?>
 										</div>
 									</div>
 									<div class="control-group">
-										<label class="control-label" for="post_featured_image">Add an Image</label>
+										<label class="control-label" for="browse_file">Image</label>
 										<div class="controls">
-											<input class="input-file" id="post_featured_image" type="file">
+											<a class="button" id="browse_file">Add an Image</a>
 										</div>
 									</div>
 									<div class="form-actions">
 										<button type="submit" class="btn btn-warning">Want to add steps to the post?</button>
 										<button type="submit" class="btn btn-primary submit-review">Submit for Review</button>
 									</div>
-									<section class="steps">
-										
-									</section>
+									<section class="steps"></section>
 									<section class="parts"></section>
 									<section class="tools"></section>
 									<div class="form-actions">
@@ -70,9 +68,9 @@ get_header(); ?>
 									</div>
 								</fieldset>
 							</form>
-							
+						
 						</article>
-
+						
 					<?php endwhile; else: endif; ?>
 
 				<div>
