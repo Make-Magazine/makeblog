@@ -53,7 +53,7 @@ get_header(); ?>
 								<div class="control-group">
 									<label class="control-label" for="browse_file">Image</label>
 									<div class="controls">
-										<a class="button" id="browse_file">Add an Image</a>
+										<input type="file" name="file" id="file" value="">
 									</div>
 								</div>
 								<div class="form-actions">
