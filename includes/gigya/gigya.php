@@ -112,7 +112,6 @@ class Make_Gigya {
 
 		// JavaScript
 		wp_enqueue_script( 'make-login', MAKE_GIGYA_URL . '/js/login.js', array( 'jquery' ), MAKE_GIGYA_VERSION, true );
-		wp_enqueue_script( 'make-isc-users', MAKE_GIGYA_URL . '/js/users.js', array( 'jquery' ), MAKE_GIGYA_VERSION, true );
 		wp_localize_script( 'make-login', 'make_gigya', array(
 			'ajax' => esc_url( admin_url( 'admin-ajax.php' ) ),
 			'loading' => 'Loading',
@@ -216,7 +215,7 @@ class Make_Gigya {
 		$user_hash = md5( sanitize_text_field( $uid ) );
 
 		// Check if our makers are already cached.
-		$users = false; //wp_cache_get( 'mf_user_' . $user_hash );
+		$users = wp_cache_get( 'mf_user_' . $user_hash );
 
 		if ( $users == false ) {
 			$maker_guid_query = array(
@@ -240,7 +239,7 @@ class Make_Gigya {
 			}
 
 			// Save the results to the cache
-			// wp_cache_set( 'mf_user_' . $user_hash, $users, '', 86400 ); // Since we are caching each user, might as well hold onto it for 24 hours.
+			wp_cache_set( 'mf_user_' . $user_hash, $users, '', 86400 ); // Since we are caching each user, might as well hold onto it for 24 hours.
 			
 			if ( isset( $found_with_email ) && $found_with_email )
 				$users->posts['add_guid'] = true;
