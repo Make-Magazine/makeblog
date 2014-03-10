@@ -162,5 +162,7 @@ include_once dirname( __FILE__ ) . '/includes/theme-customizer/takeover.php';
 // 45. Related Content Blocks
 include_once dirname( __FILE__ ) . '/includes/related.php';
 
+// 45. Contribute Form
+include_once dirname( __FILE__ ) . '/includes/contribute/contribute.php';
 
 ?>
