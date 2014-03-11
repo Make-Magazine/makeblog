@@ -48,9 +48,9 @@ jQuery( document ).ready( function( $ ) {
 		});
 
 		data.append( 'nonce', 			$( '.contribute-form #contribute_post' ).val() );
-		data.append( 'title', 			$( '.contribute-form #post_title' ).val() );
+		data.append( 'post_title', 		$( '.contribute-form #post_title' ).val() );
 		data.append( 'post_content', 	$( '.contribute-form #post_content' ).val() );
-		data.append( 'category', 		$( '.contribute-form #cat' ).val() );
+		data.append( 'cat', 			$( '.contribute-form #cat' ).val() );
 		data.append( 'action', 			'contribute_post' );
 
 		console.log( data );
