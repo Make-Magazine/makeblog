@@ -49,10 +49,7 @@ class Make_Contribute {
 		// JavaScript
 		wp_enqueue_script( 'underscore' );
 		wp_enqueue_script( 'backbone' );
-		wp_enqueue_script( 'make-contribute-models', get_stylesheet_directory_uri() . '/includes/contribute/js/models.js', array( 'jquery', 'underscore', 'backbone' ), '1.0', true );
-		wp_enqueue_script( 'make-contribute-views', get_stylesheet_directory_uri() . '/includes/contribute/js/views.js', array( 'jquery', 'underscore', 'backbone' ), '1.0', true );
-		wp_enqueue_script( 'make-contribute-collections', get_stylesheet_directory_uri() . '/includes/contribute/js/collections.js', array( 'jquery', 'underscore', 'backbone' ), '1.0', true );
-		wp_enqueue_script( 'make-contribute',  get_stylesheet_directory_uri() . '/includes/contribute/js/contribute.js', array( 'jquery', 'backbone' ), '1.0', true );
+		wp_enqueue_script( 'make-contribute',  get_stylesheet_directory_uri() . '/includes/contribute/js/contribute.js', array( 'jquery', 'underscore', 'backbone' ), '1.0', true );
 	}
 
 	/**

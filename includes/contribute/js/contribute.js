@@ -44,17 +44,84 @@ jQuery( document ).ready( function( $ ) {
 });
 
 
-// Backbone contribute object
-var contrib = contrib || {
-	model: {},
-	view: {},
-	collection: {}
+// Define our projects object
+var Contrib = {
+	Models: {},
+	Views: {},
+	Collections: {}
 };
 
-jQuery( function() {
-	var steps = [
-		{ title: 'taco' }
+
+// Models
+///////////////////
+Contrib.Models.Step = Backbone.Model.extend({
+
+	// Default attributes
+	defaults: {
+		step_title: '',
+		step_content: 'Describe your step...',
+		step_images: {}
+	}
+});
+
+// Collections
+///////////////////
+Contrib.Collections = Backbone.Collection.extend({
+	model: Contrib.Models.Step
+});
+
+// Views
+///////////////////
+
+// This view will produce a single step
+Contrib.Views.Step = Backbone.View.extend({
+	tagName: 'div',
+	className: 'step',
+	template: _.template( jQuery( '#steps-template' ).html() ),
+
+	render: function() {
+		this.$el.html( this.template( this.model.toJSON() ) );
+
+		return this;
+	}
+});
+
+// This view will produce a list of steps
+Contrib.Views.StepsList = Backbone.View.extend({
+	el: '.steps-wrapper',
+
+	initialize: function( step ) {
+		this.collection = new Contrib.Collections( step );
+
+		this.render();
+	},
+
+	// Render each project stored in the collection
+	render: function() {
+		this.collection.each( function( step ) {
+            this.add_step( step );
+        }, this );
+	},
+
+	// Add a project by creating a project_view and appending the element it render to the parent element
+	add_step: function( step ) {
+		var Steps = new Contrib.Views.Step({
+			model: step
+		});
+
+		this.$el.append( Steps.render().el );
+	}
+});
+
+
+// Run when the DOM is ready
+jQuery( function()  {
+	var list_steps = [
+		{ step_title: 'Step 1', step_content: 'CONTENT', step_images: ['http://cl.ly/image/1U3L1v3s3w22/u66_normal.jpg'] },
+		{ step_title: 'Step 2', step_content: 'CONTENT 2', step_images: ['http://cl.ly/image/1U3L1v3s3w22/u66_normal.jpg'] },
+		{ step_title: 'Step 3', step_content: 'CONTENT 3', step_images: ['http://cl.ly/image/1U3L1v3s3w22/u66_normal.jpg'] }
 	];
 
-	new contrib.view.stepsList( steps );
+	// Load the latest projects by default
+	new Contrib.Views.StepsList( list_steps );
 });

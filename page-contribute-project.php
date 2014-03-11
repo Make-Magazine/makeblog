@@ -65,26 +65,16 @@ get_header(); ?>
 							<form class="form form-horizontal contribute-form-steps" method="post">
 								<fieldset>
 									<?php echo wp_nonce_field( 'contribute_steps', 'contribute_steps' ); ?>
-									<section class="steps-wrapper">
-										<div class="step row">
-											<div class="image-wrapper span3">
-												<input type="file" name="" value="" id="file" multiple>
-											</div>
-											<div class="content-wrapper span9">
-												<input type="text" class="title" placeholder="Enter your step title..." value="">
-												<?php wp_editor( 'Describe your step...', 'step_content', array( 'teeny' => true ) ); ?>
-											</div>
-										</div>
-									</section>
+									<section class="steps-wrapper"></section>
 								</fieldset>
 								<script id="steps-template" type="text/template">
 									<div class="step row">
 										<div class="image-wrapper span3">
-											<input type="file" name="" value="" id="file" multiple>
+											<input type="file" name="" value="<%= step_images %>" id="file" multiple>
 										</div>
 										<div class="content-wrapper span9">
-											<input type="text" class="title" placeholder="Enter your step title..." value="">
-											<?php wp_editor( 'Describe your step...', 'step_content', array( 'teeny' => true ) ); ?>
+											<input type="text" class="title" placeholder="Enter your step title..." value="<%= step_title %>">
+											<textarea name="step_content" id="step_content"><%= step_content %></textarea>
 										</div>
 									</div>
 								</script>

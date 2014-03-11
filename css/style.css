@@ -12330,6 +12330,10 @@ aside.pull-quote.pull-quote-1.pull-left img {
   border-style: dashed;
   font-size: 14px;
 }
+.page-template-page-contribute-project-php #step_content {
+  width: 98%;
+  min-height: 100px;
+}
 .page-template-page-contribute-project-php .wp-core-ui .button {
   color: #555 !important;
 }
