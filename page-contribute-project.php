@@ -20,6 +20,7 @@ get_header(); ?>
 
 						<article <?php post_class(); ?>>
 
+							<!-- Contribute -->
 							<form class="form form-horizontal contribute-form" method="post">
 								<?php echo wp_nonce_field( 'contribute_post', 'contribute_post' ); ?>
 								<fieldset>
@@ -62,6 +63,8 @@ get_header(); ?>
 									</div>
 								</fieldset>
 							</form>
+
+							<!-- Steps -->
 							<form class="form form-horizontal contribute-form-steps" method="post">
 								<fieldset>
 									<?php echo wp_nonce_field( 'contribute_steps', 'contribute_steps' ); ?>
@@ -70,7 +73,10 @@ get_header(); ?>
 								<script id="steps-template" type="text/template">
 									<div class="step row">
 										<div class="image-wrapper span3">
-											<input type="file" name="" value="<%= step_images %>" id="file" multiple>
+											<form class="upload-image">
+												<input type="file" class="btn btn-file" name="" id="file" multiple>
+												<input type="submit" class="btn btn-mini" name="" value="Upload Images">
+											</form>
 										</div>
 										<div class="content-wrapper span9">
 											<input type="text" class="title" placeholder="Enter your step title..." value="<%= step_title %>">
