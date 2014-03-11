@@ -1,5 +1,9 @@
 jQuery( document ).ready( function( $ ) {
 
+	// Store our post object in here as we go along.
+	var post_obj = {};
+
+	// Handle the AJAX for saving the first stage of the post. The rest will be over Backbone.
 	$( '.submit-review' ).on( 'click', function( e ) {
 
 		e.preventDefault()
@@ -27,6 +31,7 @@ jQuery( document ).ready( function( $ ) {
 			processData: false,
 			type: 'POST',
 			success: function( data ){
+				post_obj = data;
 				console.log( data );
 			}
 		});
@@ -35,5 +40,8 @@ jQuery( document ).ready( function( $ ) {
 		// $('.contribute-form').slideUp();
 
 	});
+
+
+
 
 });
