@@ -62,7 +62,7 @@ get_header(); ?>
 									</div>
 								</fieldset>
 							</form>
-							<form lass="form form-horizontal contribute-form-steps" method="post">
+							<form class="form form-horizontal contribute-form-steps" method="post">
 								<fieldset>
 									<?php echo wp_nonce_field( 'contribute_steps', 'contribute_steps' ); ?>
 									<section class="steps-wrapper">
@@ -78,20 +78,30 @@ get_header(); ?>
 									</section>
 								</fieldset>
 							</form>
-							<form lass="form form-horizontal contribute-form-parts" method="post">
+							<form class="form form-horizontal contribute-form-parts" method="post">
 								<fieldset>
 									<?php echo wp_nonce_field( 'contribute_parts', 'contribute_parts' ); ?>
 									<section class="parts-wrapper"></section>
 								</fieldset>
 							</form>
-							<form lass="form form-horizontal contribute-form-tools" method="post">
+							<form class="form form-horizontal contribute-form-tools" method="post">
 								<fieldset>
-									<?php echo wp_nonce_field( 'contribute_tools', 'contribute_tools' ); ?>
-									<section class="tools-wrapper">
-										<div class="tools-wrapper hide" id="tool-1" style="display: block;">
-											<input type="hidden" name="tool-number-1" value="1">
-											<div class="tool-title">
-												<h3>Tool 1</h3>
+									<section class="control-group">
+										<div class="control-label"></div>
+										<div class="controls">
+											<h1>Add Tools to the Project</h1>
+										</div>
+									</section>
+									<section class="nonce">
+										<?php echo wp_nonce_field( 'contribute_tools', 'contribute_tools' ); ?>
+									</section>
+									<section class="tools-wrapper" id="tool-1">
+											<div class="control-group">
+												<label class="control-label"></label>
+												<div class="controls">
+													<h4>Tool 1</h4>
+													<input type="hidden" name="tool-number-1" value="1">
+												</div>
 											</div>
 											<div class="control-group">
 												<label class="control-label" for="tools-name">Name</label>
@@ -100,13 +110,22 @@ get_header(); ?>
 												</div>
 											</div>
 											<div class="control-group">
-												<label class="controls-label" for="tools-url">URL</label>
-												<input type="text" name="tools-url-1" id="tools-url" class="input-xlarge" value="">
+												<label class="control-label" for="tools-url">URL</label>
+												<div class="controls">
+													<input type="text" name="tools-url-1" id="tools-url" class="input-xlarge" value="">
+												</div>
 											</div>
-										</div>
+									</section>
+									<section class="repeater-tools">
+										<div class="control-group">
+												<label class="control-label" for="tools-url"></label>
+												<div class="controls">
+													<button class="btn add-part"><i class="icon icon-plus"></i> Add Another Tool</button>
+												</div>
+											</div>
 									</section>
 									<div class="form-actions">
-										<button type="submit" class="btn btn-primary submit-review">Submit for Review</button>
+										<button type="submit" class="btn btn-primary submit-tools">Save Tools</button>
 									</div>
 								</fieldset>
 							</form>
