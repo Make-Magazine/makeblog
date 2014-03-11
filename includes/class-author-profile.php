@@ -19,16 +19,16 @@
 		 * @since    1.0
 		 */
 		public function get_author_data() {
-			
+
 			// Also get the author ID as a fallback
 			$author_id = get_the_author_id();
 			$author = get_userdata( absint( $author_id ) );
-
+			
 			// Its possible nothing is returned via the author ID, so we'll check with coauthors
 			// We check coauthors second because if we check it first on the author page, it can result in displaying the wrong author information.
 			if ( empty( $author ) ) {
-				$authors = get_coauthors( $author_id );
-				$author = $authors[0];
+				$authors = new CoAuthorsIterator( $author_id );
+				$author = $authors->current_author;
 			}
 			
 			// If the user account is a guest-author, then it will always be used over Gravatar data
