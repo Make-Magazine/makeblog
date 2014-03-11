@@ -36,6 +36,14 @@ class Make_Contribute {
 		// Since our login may be used by users logged into WordPress, we'll need the second option to run ajax requests.
 		add_action( 'wp_ajax_nopriv_contribute_post', array( $this, 'contribute_post' ) );
 		add_action( 'wp_ajax_contribute_post', array( $this, 'contribute_post' ) );
+
+		// Add the tools ajax actions.
+		add_action( 'wp_ajax_nopriv_add_tools', array( $this, 'add_tools' ) );
+		add_action( 'wp_ajax_add_tools', array( $this, 'add_tools' ) );
+
+		// Add the parts ajax actions.
+		add_action( 'wp_ajax_nopriv_add_parts', array( $this, 'add_parts' ) );
+		add_action( 'wp_ajax_add_parts', array( $this, 'add_parts' ) );
 	}
 
 	/**
@@ -130,9 +138,11 @@ class Make_Contribute {
 	 */
 	public function contribute_post() {
 
+		////////////////////
 		// Check our nonce and make sure it's correct
 		check_ajax_referer( 'contribute_post', 'nonce' );
 
+		////////////////////
 		// Setup the post variables yo.
 		$post = array(
 			'post_title'	=> ( isset( $_POST['post_title'] ) ) ? sanitize_text_field( $_POST['post_title'] ) : '',
@@ -141,42 +151,71 @@ class Make_Contribute {
 			'post_category'	=> ( isset( $_POST['cat'] ) ) ? array( intval( $_POST['cat'] ) ) : '',
 		);
 
+		////////////////////
+		// Insert the post
 		$pid = wp_insert_post( $post );
 
+		////////////////////
+		// Upload the files
 		$this->upload_files( $pid, $_FILES );
 
+		////////////////////
+		// Get the newly created post
 		$post = get_post( $pid );
 
+		////////////////////
+		// Turn that post into JSON
 		$json = json_encode( $post );
 
+		////////////////////
+		// Send back the JSON Post
 		die( $json );
 
 	}
 
 	public function add_tools() {
 
+		////////////////////
 		// Check our nonce and make sure it's correct
-		check_ajax_referer( 'contribute_tools', 'nonce' );
+		if ( ! wp_verify_nonce( $_POST['contribute_tools'], 'contribute_tools' ) )
+			die( 'We weren\'t able to verify that nonce...' );
 
-		// Setup the post variables yo.
-		$post = array(
-			'post_title'	=> ( isset( $_POST['post_title'] ) ) ? sanitize_text_field( $_POST['post_title'] ) : '',
-			'post_name'		=> ( isset( $_POST['post_title'] ) ) ? sanitize_title( $_POST['post_title'] ) : '',
-			'post_content'	=> ( isset( $_POST['post_content'] ) ) ? wp_kses_post( $_POST['post_content'] ) : '',
-			'post_category'	=> ( isset( $_POST['cat'] ) ) ? array( intval( $_POST['cat'] ) ) : '',
-		);
+		////////////////////
+		// Build the tools object
+		$tools_object = make_magazine_projects_build_tools_data( $_POST );
 
-		$pid = wp_insert_post( $post );
+		////////////////////
+		// Update our post meta for Steps. Unlike Steps and Tools, we want one meta key.
+		update_post_meta( absint( absint( $_POST['post_ID'] ) ), 'Tools', $tools_object );
 
-		$this->upload_files( $pid, $_FILES );
+		////////////////////
+		// Send back the tools object
+		die( json_encode( $tools_object ) );
 
-		$post = get_post( $pid );
+	}
 
-		$json = json_encode( $post );
+	public function add_parts() {
 
-		die( $json );
+		////////////////////
+		// Check our nonce and make sure it's correct
+		if ( ! wp_verify_nonce( $_POST['contribute_parts'], 'contribute_parts' ) )
+			die( 'We weren\'t able to verify that nonce...' );
+
+		///////////////////////
+		// PARTS
+		$parts = make_magazine_projects_build_parts_data( $_POST );
+
+		$meta_obj = array();
+		foreach ( $parts as $part ) {
+			$meta_obj[] = add_post_meta( absint( $_POST['post_ID'] ), 'parts', $part );
+		}
+
+		////////////////////
+		// Send back the tools object
+		die( json_encode( $meta_obj ) );
 
 	}
 
 }
-$make_gigya = new Make_Contribute();
+
+$make_contribute = new Make_Contribute();
