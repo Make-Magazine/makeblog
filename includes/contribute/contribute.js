@@ -3,13 +3,13 @@ jQuery( document ).ready( function( $ ) {
 	// var myUploader = new plupload.Uploader({
 	// 	browse_button: 'browse_file', // id of the browser button
 	// 	multipart: true,              // <- this is important because you want to pass other data as well
-	// 	url: make_gigya.ajax 
+	// 	url: make_gigya.ajax
 	// });
 
 	// myUploader.init();
 
 	// myUploader.bind('FilesAdded', function( up, files ) {
-	// 	$('#browse_file').text('Selected: ' + files[0].name); 
+	// 	$('#browse_file').text('Selected: ' + files[0].name);
 	// 	// do a console.log(files) to see what file was selected...
 	// });
 
@@ -33,7 +33,7 @@ jQuery( document ).ready( function( $ ) {
 	// // trigger submission when this button is clicked
 	// $( '.submit-review' ).on( 'click', function( e ) {
 	// 	myUploader.start();
-	// 	e.preventDefault();      
+	// 	e.preventDefault();
 	// });
 
 	$( '.submit-review' ).on( 'click', function( e ) {
@@ -66,6 +66,9 @@ jQuery( document ).ready( function( $ ) {
 				console.log( data );
 			}
 		});
+
+		// We'll do something like this...
+		// $('.contribute-form').slideUp();
 
 	});
 

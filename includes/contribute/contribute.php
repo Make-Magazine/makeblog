@@ -17,7 +17,7 @@
  * @since  Quantrons
  */
 class Make_Contribute {
-	
+
 	/**
 	 * THE CONSTRUCT.
 	 *
@@ -124,13 +124,13 @@ class Make_Contribute {
 
 	/**
 	 * Take the form data, and add a post/project.
-	 * 
+	 *
 	 * @return json
 	 *
 	 * @since  Quantrons
 	 */
 	public function contribute_post() {
-		
+
 		// Check our nonce and make sure it's correct
 		check_ajax_referer( 'contribute_post', 'nonce' );
 
@@ -146,9 +146,13 @@ class Make_Contribute {
 
 		$this->upload_files( $pid, $_FILES );
 
-		die( $pid );
-		
+		$post = get_post( $pid );
+
+		$json = json_encode( $post );
+
+		die( $json );
+
 	}
-	
+
 }
 $make_gigya = new Make_Contribute();
