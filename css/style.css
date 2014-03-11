@@ -12333,3 +12333,10 @@ aside.pull-quote.pull-quote-1.pull-left img {
 .page-template-page-contribute-project-php .wp-core-ui .button {
   color: #555 !important;
 }
+.page-template-page-contribute-project-php .wp-core-ui .button:hover {
+  background-color: #fafafa !important;
+  color: #222 !important;
+}
+.page-template-page-contribute-project-php .wp-editor-container {
+  border: 1px solid #dedede;
+}

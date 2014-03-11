@@ -67,11 +67,7 @@ get_header(); ?>
 									<section class="steps-wrapper">
 										<div class="step row">
 											<div class="image-wrapper span3">
-												<ul>
-													<li>
-														<a class="button" id="browse_file">Add an Image</a>
-													</li>
-												</ul>
+												<input type="file" name="" value="" id="file" multiple>
 											</div>
 											<div class="content-wrapper span9">
 												<input type="text" class="title" placeholder="Enter your step title..." value="">
