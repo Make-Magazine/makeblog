@@ -110,28 +110,28 @@ get_header(); ?>
 										<input type="hidden" name="total-tools" value="1">
 										<input type="hidden" name="pid" value="80">
 									</section>
-									<section class="tools-wrapper" id="tools-1">
-											<div class="control-group">
-												<label class="control-label"></label>
-												<div class="controls">
-													<h4>Tool 1</h4>
-													<input type="hidden" name="tools-number-1" value="1">
-													<input type="hidden" name="tools-thumb-1" value="">
-													<input type="hidden" name="tools-notes-1" value="">
-												</div>
+									<section class="tool" id="tools-1">
+										<div class="control-group">
+											<label class="control-label"></label>
+											<div class="controls">
+												<h4>Tool 1</h4>
+												<input type="hidden" name="tools-number-1" value="1">
+												<input type="hidden" name="tools-thumb-1" value="">
+												<input type="hidden" name="tools-notes-1" value="">
 											</div>
-											<div class="control-group">
-												<label class="control-label" for="tools-name">Name</label>
-												<div class="controls">
-													<input type="text" name="tools-name-1" id="tools-name" class="input-xlarge" value="">
-												</div>
+										</div>
+										<div class="control-group">
+											<label class="control-label" for="tools-name">Name</label>
+											<div class="controls">
+												<input type="text" name="tools-name-1" id="tools-name" class="input-xlarge" value="">
 											</div>
-											<div class="control-group">
-												<label class="control-label" for="tools-url">URL</label>
-												<div class="controls">
-													<input type="text" name="tools-url-1" id="tools-url" class="input-xlarge" value="">
-												</div>
+										</div>
+										<div class="control-group">
+											<label class="control-label" for="tools-url">URL</label>
+											<div class="controls">
+												<input type="text" name="tools-url-1" id="tools-url" class="input-xlarge" value="">
 											</div>
+										</div>
 									</section>
 									<section class="repeater-tools">
 										<div class="control-group">
