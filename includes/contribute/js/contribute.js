@@ -6,7 +6,7 @@ jQuery( document ).ready( function( $ ) {
 	// Handle the AJAX for saving the first stage of the post. The rest will be over Backbone.
 	$( '.submit-review' ).on( 'click', function( e ) {
 
-		e.preventDefault()
+		e.preventDefault();
 
 		var form = $('contribute-form');
 
@@ -54,7 +54,7 @@ var contrib = contrib || {
 jQuery( function() {
 	var steps = [
 		{ title: 'taco' }
-	]
+	];
 
 	new contrib.view.stepsList( steps );
 });
