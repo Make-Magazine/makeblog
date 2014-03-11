@@ -99,6 +99,7 @@ jQuery( document ).ready( function( $ ) {
 
 });
 
+
 // Define our projects object
 var Contrib = {
 	Models: {},
@@ -110,12 +111,10 @@ var Contrib = {
 // Models
 ///////////////////
 Contrib.Models.Step = Backbone.Model.extend({
-
-	// Default attributes
 	defaults: {
 		step_title: '',
 		step_content: 'Describe your step...',
-		step_images: {}
+		step_images: []
 	}
 });
 
@@ -156,6 +155,10 @@ Contrib.Views.StepsList = Backbone.View.extend({
 		this.collection.each( function( step ) {
             this.add_step( step );
         }, this );
+	},
+
+	events: {
+		'click #add-step' : 'add_step'
 	},
 
 	// Add a project by creating a project_view and appending the element it render to the parent element
