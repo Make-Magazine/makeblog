@@ -44,13 +44,6 @@ jQuery( document ).ready( function( $ ) {
 
 		var $inputs = $('.contribute-form-tools :input');
 
-		var form = {};
-		$inputs.each(function() {
-			form[this.name] = $(this).val();
-		});
-
-		form.action = 'add_tools';
-
 		console.log( form );
 
 		$.ajax({
@@ -68,4 +61,19 @@ jQuery( document ).ready( function( $ ) {
 
 	});
 
+});
+
+// Backbone contribute object
+var contrib = contrib || {
+	model: {},
+	view: {},
+	collection: {}
+};
+
+jQuery( function() {
+	var steps = [
+		{ title: 'taco' }
+	];
+
+	new contrib.view.stepsList( steps );
 });
