@@ -37,14 +37,23 @@ jQuery( document ).ready( function( $ ) {
 		});
 	});
 
-		// Handle the AJAX for saving the first stage of the post. The rest will be over Backbone.
 	$( '.submit-tools' ).on( 'click', function( e ) {
 
 		// Prevent the button from trggering
 		e.preventDefault();
 
+		// Grab all of the inputs
+		var inputs = $('.contribute-form-parts :input');
+
 		// Grab all of the form data.
-		var $inputs = $('.contribute-form-tools :input');
+		var form = {};
+		inputs.each( function() {
+			form[this.name] = $(this).val();
+		});
+
+		form.action = 'add_tools';
+
+		console.log( form );
 
 		// Make the ajax request with the form data.
 		$.ajax({
@@ -52,8 +61,37 @@ jQuery( document ).ready( function( $ ) {
 			data: form,
 			type: 'POST',
 			success: function( data ){
-				post_obj = JSON.parse( data );
-				console.log( post_obj );
+				tools_obj = JSON.parse( data );
+				console.log( tools_obj );
+			}
+		});
+
+	});
+
+	$( '.submit-parts' ).on( 'click', function( e ) {
+
+		// Prevent the button from trggering
+		e.preventDefault();
+
+		var inputs = $('.contribute-form-parts :input');
+
+		var form = {};
+		inputs.each(function() {
+			form[this.name] = $(this).val();
+		});
+
+		form.action = 'add_parts';
+
+		console.log( form );
+
+		// Make the ajax request with the form data.
+		$.ajax({
+			url: make_gigya.ajax,
+			data: form,
+			type: 'POST',
+			success: function( data ){
+				parts_obj = JSON.parse( data );
+				console.log( parts_obj );
 			}
 		});
 

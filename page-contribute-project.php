@@ -89,10 +89,70 @@ get_header(); ?>
 									</div>
 								</script>
 							</form>
+
+							<!-- Parts Form -->
 							<form class="form form-horizontal contribute-form-parts" method="post">
 								<fieldset>
-									<?php echo wp_nonce_field( 'contribute_parts', 'contribute_parts' ); ?>
-									<section class="parts-wrapper"></section>
+									<section class="control-group">
+										<div class="control-label"></div>
+										<div class="controls">
+											<h1>Add Parts to the Project</h1>
+										</div>
+									</section>
+									<section class="nonce">
+										<?php echo wp_nonce_field( 'contribute_parts', 'contribute_parts' ); ?>
+										<input type="hidden" name="total-parts" value="1">
+										<input type="hidden" name="post_ID" value="80">
+									</section>
+									<section class="parts-wrapper">
+										<div id="part-1" class="parts-wrapper">
+											<div class="control-group">
+												<label class="control-label"></label>
+												<div class="controls">
+													<h4>Part 1</h4>
+													<input type="hidden" name="part-number-1" value="1">
+													<input type="hidden" name="parts-notes-1" id="parts-notes">
+												</div>
+											</div>
+											<section class="part">
+												<div class="control-group">
+													<label class="control-label" for="parts-name">Name</label>
+													<div class="controls">
+														<input type="text" name="parts-name-1" id="parts-name" class="input-xlarge" value="">
+													</div>
+												</div>
+												<div class="control-group">
+													<label class="control-label" for="parts-qty">Quantity</label>
+													<div class="controls">
+														<input type="number" name="parts-qty-1" id="parts-qty" class="input-xlarge" value="">
+													</div>
+												</div>
+												<div class="control-group">
+													<label class="control-label" for="parts-url">URL</label>
+													<div class="controls">
+														<input type="url" name="parts-url-1" id="parts-url" class="input-xlarge" value="">
+													</div>
+												</div>
+												<div class="control-group">
+													<label class="control-label" for="parts-type">Type</label>
+													<div class="controls">
+														<input type="text" name="parts-type-1" id="parts-type" class="input-xlarge" value="">
+													</div>
+												</div>
+											</section>
+										</div>
+										<section class="repeater-tools">
+											<div class="control-group">
+													<label class="control-label" for="tools-url"></label>
+													<div class="controls">
+														<button class="btn add-part"><i class="icon icon-plus"></i> Add Another Tool</button>
+													</div>
+												</div>
+										</section>
+										<div class="form-actions">
+											<button type="submit" class="btn btn-primary submit-parts">Add Parts</button>
+										</div>
+									</section>
 								</fieldset>
 							</form>
 
@@ -108,36 +168,38 @@ get_header(); ?>
 									<section class="nonce">
 										<?php echo wp_nonce_field( 'contribute_tools', 'contribute_tools' ); ?>
 										<input type="hidden" name="total-tools" value="1">
-										<input type="hidden" name="pid" value="80">
+										<input type="hidden" name="post_ID" value="80">
 									</section>
-									<section class="tool" id="tools-1">
-										<div class="control-group">
-											<label class="control-label"></label>
-											<div class="controls">
-												<h4>Tool 1</h4>
-												<input type="hidden" name="tools-number-1" value="1">
-												<input type="hidden" name="tools-thumb-1" value="">
-												<input type="hidden" name="tools-notes-1" value="">
+									<div class="tool-wrapper">
+										<section class="tool" id="tools-1">
+											<div class="control-group">
+												<label class="control-label"></label>
+												<div class="controls">
+													<h4>Tool 1</h4>
+													<input type="hidden" name="tools-number-1" value="1">
+													<input type="hidden" name="tools-thumb-1" value="">
+													<input type="hidden" name="tools-notes-1" value="">
+												</div>
 											</div>
-										</div>
-										<div class="control-group">
-											<label class="control-label" for="tools-name">Name</label>
-											<div class="controls">
-												<input type="text" name="tools-name-1" id="tools-name" class="input-xlarge" value="">
+											<div class="control-group">
+												<label class="control-label" for="tools-name">Name</label>
+												<div class="controls">
+													<input type="text" name="tools-name-1" id="tools-name" class="input-xlarge" value="">
+												</div>
 											</div>
-										</div>
-										<div class="control-group">
-											<label class="control-label" for="tools-url">URL</label>
-											<div class="controls">
-												<input type="text" name="tools-url-1" id="tools-url" class="input-xlarge" value="">
+											<div class="control-group">
+												<label class="control-label" for="tools-url">URL</label>
+												<div class="controls">
+													<input type="text" name="tools-url-1" id="tools-url" class="input-xlarge" value="">
+												</div>
 											</div>
-										</div>
-									</section>
+										</section>
+									</div>
 									<section class="repeater-tools">
 										<div class="control-group">
 												<label class="control-label" for="tools-url"></label>
 												<div class="controls">
-													<button class="btn add-part"><i class="icon icon-plus"></i> Add Another Tool</button>
+													<button class="btn add-tools"><i class="icon icon-plus"></i> Add Another Tool</button>
 												</div>
 											</div>
 									</section>

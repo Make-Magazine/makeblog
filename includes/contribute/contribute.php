@@ -40,6 +40,10 @@ class Make_Contribute {
 		// Add the tools ajax actions.
 		add_action( 'wp_ajax_nopriv_add_tools', array( $this, 'add_tools' ) );
 		add_action( 'wp_ajax_add_tools', array( $this, 'add_tools' ) );
+
+		// Add the parts ajax actions.
+		add_action( 'wp_ajax_nopriv_add_parts', array( $this, 'add_parts' ) );
+		add_action( 'wp_ajax_add_parts', array( $this, 'add_parts' ) );
 	}
 
 	/**
@@ -172,7 +176,7 @@ class Make_Contribute {
 
 	}
 
-	private function add_tools() {
+	public function add_tools() {
 
 		////////////////////
 		// Check our nonce and make sure it's correct
@@ -185,11 +189,33 @@ class Make_Contribute {
 
 		////////////////////
 		// Update our post meta for Steps. Unlike Steps and Tools, we want one meta key.
-		update_post_meta( absint( absint( $_POST['pid'] ) ), 'Tools', $tools_object );
+		update_post_meta( absint( absint( $_POST['post_ID'] ) ), 'Tools', $tools_object );
 
 		////////////////////
 		// Send back the tools object
 		die( json_encode( $tools_object ) );
+
+	}
+
+	public function add_parts() {
+
+		////////////////////
+		// Check our nonce and make sure it's correct
+		if ( ! wp_verify_nonce( $_POST['contribute_parts'], 'contribute_parts' ) )
+			die( 'We weren\'t able to verify that nonce...' );
+
+		///////////////////////
+		// PARTS
+		$parts = make_magazine_projects_build_parts_data( $_POST );
+
+		$meta_obj = array();
+		foreach ( $parts as $part ) {
+			$meta_obj[] = add_post_meta( absint( $_POST['post_ID'] ), 'parts', $part );
+		}
+
+		////////////////////
+		// Send back the tools object
+		die( json_encode( $meta_obj ) );
 
 	}
 
