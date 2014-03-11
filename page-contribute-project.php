@@ -77,6 +77,17 @@ get_header(); ?>
 										</div>
 									</section>
 								</fieldset>
+								<script id="steps-template" type="text/template">
+									<div class="step row">
+										<div class="image-wrapper span3">
+											<input type="file" name="" value="" id="file" multiple>
+										</div>
+										<div class="content-wrapper span9">
+											<input type="text" class="title" placeholder="Enter your step title..." value="">
+											<?php wp_editor( 'Describe your step...', 'step_content', array( 'teeny' => true ) ); ?>
+										</div>
+									</div>
+								</script>
 							</form>
 							<form lass="form form-horizontal contribute-form-parts" method="post">
 								<fieldset>
