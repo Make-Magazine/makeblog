@@ -41,7 +41,20 @@ jQuery( document ).ready( function( $ ) {
 
 	});
 
+});
 
 
+// Backbone contribute object
+var contrib = contrib || {
+	model: {},
+	view: {},
+	collection: {}
+};
 
+jQuery( function() {
+	var steps = [
+		{ title: 'taco' }
+	]
+
+	new contrib.view.stepsList( steps );
 });
