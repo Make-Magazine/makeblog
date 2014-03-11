@@ -48,7 +48,7 @@ class Make_Contribute {
 	public function load_resources() {
 		// JavaScript
 		wp_enqueue_script( 'make-contribute',  get_stylesheet_directory_uri() . '/includes/contribute/contribute.js', array( 'jquery' ), true );
-		wp_enqueue_script( 'ajax-upload-pattern', get_stylesheet_directory_uri() . '/ajaxLoops/ajax-upload_pattern.js', array('plupload-all', 'jquery'), 1.0 );
+		wp_enqueue_script( 'ajax-upload-pattern', get_stylesheet_directory_uri() . '/ajaxLoops/ajax-upload_pattern.js', array( 'jquery' ), 1.0 );
 
 
 	}
