@@ -4,18 +4,18 @@
  *
  * @package    makeblog
  * @license    http://opensource.org/licenses/gpl-license.php  GNU Public License
- * 
+ *
  */
 get_header(); ?>
-		
+
 	<div class="single">
-	
+
 		<div class="container authentication">
 
 			<div class="row">
-			
+
 				<div class="span12">
-					
+
 					<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 
 						<article <?php post_class(); ?>>
@@ -60,6 +60,10 @@ get_header(); ?>
 										<button type="submit" class="btn btn-warning">Want to add steps to the post?</button>
 										<button type="submit" class="btn btn-primary submit-review">Submit for Review</button>
 									</div>
+								</fieldset>
+							</form>
+							<form lass="form form-horizontal contribute-form-steps" method="post">
+								<fieldset>
 									<section class="steps-wrapper">
 										<div class="step row">
 											<div class="image-wrapper span3">
@@ -75,22 +79,29 @@ get_header(); ?>
 											</div>
 										</div>
 									</section>
+								</fieldset>
+							</form>
+							<form lass="form form-horizontal contribute-form-parts" method="post">
+								<fieldset>
 									<section class="parts-wrapper"></section>
+								</fieldset>
+							</form>
+							<form lass="form form-horizontal contribute-form-tools" method="post">
+								<fieldset>
 									<section class="tools-wrapper"></section>
 									<div class="form-actions">
 										<button type="submit" class="btn btn-primary submit-review">Submit for Review</button>
 									</div>
 								</fieldset>
 							</form>
-						
 						</article>
-						
+
 					<?php endwhile; else: endif; ?>
 
 				<div>
-				
+
 			</div>
-			
+
 		</div>
 
 	</div>
