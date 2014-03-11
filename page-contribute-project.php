@@ -95,7 +95,9 @@ get_header(); ?>
 									<section class="parts-wrapper"></section>
 								</fieldset>
 							</form>
-							<form class="form form-horizontal contribute-form-tools" method="post">
+
+							<!-- Let's add the tools -->
+							<form class="form form-horizontal contribute-form-tools" action="" method="post">
 								<fieldset>
 									<section class="control-group">
 										<div class="control-label"></div>
@@ -105,13 +107,17 @@ get_header(); ?>
 									</section>
 									<section class="nonce">
 										<?php echo wp_nonce_field( 'contribute_tools', 'contribute_tools' ); ?>
+										<input type="hidden" name="total-tools" value="1">
+										<input type="hidden" name="pid" value="80">
 									</section>
-									<section class="tools-wrapper" id="tool-1">
+									<section class="tools-wrapper" id="tools-1">
 											<div class="control-group">
 												<label class="control-label"></label>
 												<div class="controls">
 													<h4>Tool 1</h4>
-													<input type="hidden" name="tool-number-1" value="1">
+													<input type="hidden" name="tools-number-1" value="1">
+													<input type="hidden" name="tools-thumb-1" value="">
+													<input type="hidden" name="tools-notes-1" value="">
 												</div>
 											</div>
 											<div class="control-group">

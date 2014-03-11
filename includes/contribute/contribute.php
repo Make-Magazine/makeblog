@@ -36,6 +36,10 @@ class Make_Contribute {
 		// Since our login may be used by users logged into WordPress, we'll need the second option to run ajax requests.
 		add_action( 'wp_ajax_nopriv_contribute_post', array( $this, 'contribute_post' ) );
 		add_action( 'wp_ajax_contribute_post', array( $this, 'contribute_post' ) );
+
+		// Add the tools ajax actions.
+		add_action( 'wp_ajax_nopriv_add_tools', array( $this, 'add_tools' ) );
+		add_action( 'wp_ajax_add_tools', array( $this, 'add_tools' ) );
 	}
 
 	/**
@@ -158,26 +162,19 @@ class Make_Contribute {
 
 	public function add_tools() {
 
+		////////////////////
 		// Check our nonce and make sure it's correct
-		check_ajax_referer( 'contribute_tools', 'nonce' );
+		if ( ! wp_verify_nonce( $_POST['contribute_tools'], 'contribute_tools' ) )
+			return;
 
-		// Setup the post variables yo.
-		$post = array(
-			'post_title'	=> ( isset( $_POST['post_title'] ) ) ? sanitize_text_field( $_POST['post_title'] ) : '',
-			'post_name'		=> ( isset( $_POST['post_title'] ) ) ? sanitize_title( $_POST['post_title'] ) : '',
-			'post_content'	=> ( isset( $_POST['post_content'] ) ) ? wp_kses_post( $_POST['post_content'] ) : '',
-			'post_category'	=> ( isset( $_POST['cat'] ) ) ? array( intval( $_POST['cat'] ) ) : '',
-		);
+		////////////////////
+		// TOOLS
+		$tools_object = make_magazine_projects_build_tools_data( $_POST );
 
-		$pid = wp_insert_post( $post );
-
-		$this->upload_files( $pid, $_FILES );
-
-		$post = get_post( $pid );
-
-		$json = json_encode( $post );
-
-		die( $json );
+		////////////////////
+		// Update our post meta for Steps. Unlike Parts and Tools, we want one meta key.
+		update_post_meta( absint( absint( $_POST['pid'] ) ), 'Tools', $tools_object );
+		die( json_encode( $tools_object ) );
 
 	}
 
