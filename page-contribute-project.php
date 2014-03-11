@@ -64,6 +64,7 @@ get_header(); ?>
 							</form>
 							<form lass="form form-horizontal contribute-form-steps" method="post">
 								<fieldset>
+									<?php echo wp_nonce_field( 'contribute_steps', 'contribute_steps' ); ?>
 									<section class="steps-wrapper">
 										<div class="step row">
 											<div class="image-wrapper span3">
@@ -79,11 +80,13 @@ get_header(); ?>
 							</form>
 							<form lass="form form-horizontal contribute-form-parts" method="post">
 								<fieldset>
+									<?php echo wp_nonce_field( 'contribute_parts', 'contribute_parts' ); ?>
 									<section class="parts-wrapper"></section>
 								</fieldset>
 							</form>
 							<form lass="form form-horizontal contribute-form-tools" method="post">
 								<fieldset>
+									<?php echo wp_nonce_field( 'contribute_tools', 'contribute_tools' ); ?>
 									<section class="tools-wrapper"></section>
 									<div class="form-actions">
 										<button type="submit" class="btn btn-primary submit-review">Submit for Review</button>
