@@ -218,21 +218,30 @@ Contrib.Views.StepsList = Backbone.View.extend({
 	// Render each project stored in the collection
 	render: function() {
 		this.collection.each( function( step ) {
-            this.add_step( step );
+            this.add_step_collection( step );
         }, this );
 	},
 
 	events: {
-		'click #add-step' : 'add_step'
+		'click .add-step' : 'add_step'
 	},
 
 	// Add a project by creating a project_view and appending the element it render to the parent element
-	add_step: function( step ) {
+	add_step_collection: function( step ) {
 		var Steps = new Contrib.Views.Step({
 			model: step
 		});
 
 		this.$el.append( Steps.render().el );
+	},
+
+	add_empty_step: function() {
+
+		var Steps = new Contrib.Views.Step({
+			model: step
+		});
+
+		this.$el.append( Steps.render().el);
 	}
 });
 

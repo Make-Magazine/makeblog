@@ -67,8 +67,29 @@ get_header(); ?>
 							<!-- Steps -->
 							<form class="form form-horizontal contribute-form-steps" method="post">
 								<fieldset>
-									<?php echo wp_nonce_field( 'contribute_steps', 'contribute_steps' ); ?>
+									<section class="control-group">
+										<div class="control-label"></div>
+										<div class="controls">
+											<h1>Add Steps to the Project</h1>
+										</div>
+									</section>
+									<section class="nonce">
+										<?php echo wp_nonce_field( 'contribute_steps', 'contribute_steps' ); ?>
+										<input type="hidden" name="total-steps" value="1">
+										<input type="hidden" name="post_ID" value="80">
+									</section>
 									<section class="steps-wrapper"></section>
+									<section class="repeater-tools">
+										<div class="control-group">
+												<label class="control-label" for="tools-url"></label>
+												<div class="controls">
+													<button class="btn add-step"><i class="icon icon-plus"></i> Add Another Step</button>
+												</div>
+											</div>
+									</section>
+									<div class="form-actions">
+										<button type="submit" class="btn btn-primary submit-steps">Save Steps</button>
+									</div>
 								</fieldset>
 								<script id="steps-template" type="text/template">
 									<div class="step row">
@@ -146,7 +167,7 @@ get_header(); ?>
 												</div>
 										</section>
 										<div class="form-actions">
-											<button type="submit" class="btn btn-primary submit-parts">Add Parts</button>
+											<button type="submit" class="btn btn-primary submit-parts">Save Parts</button>
 										</div>
 									</section>
 								</fieldset>
