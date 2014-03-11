@@ -62,12 +62,15 @@ get_header(); ?>
 									</div>
 									<section class="steps-wrapper">
 										<div class="step row">
-											<div class="image-wrapper">
-												<img src="http://placehold.it/80x80" alt="">
-												<input type="hidden" name="step-image" value="">
+											<div class="image-wrapper span3">
+												<ul>
+													<li>
+														<a class="button" id="browse_file">Add an Image</a>
+													</li>
+												</ul>
 											</div>
-											<div class="content-wrapper">
-												<input type="text" placeholder="Enter your step title..." value="">
+											<div class="content-wrapper span9">
+												<input type="text" class="title" placeholder="Enter your step title..." value="">
 												<?php wp_editor( 'Describe your step...', 'step_content', array( 'teeny' => true ) ); ?>
 											</div>
 										</div>
