@@ -87,7 +87,24 @@ get_header(); ?>
 							<form lass="form form-horizontal contribute-form-tools" method="post">
 								<fieldset>
 									<?php echo wp_nonce_field( 'contribute_tools', 'contribute_tools' ); ?>
-									<section class="tools-wrapper"></section>
+									<section class="tools-wrapper">
+										<div class="tools-wrapper hide" id="tool-1" style="display: block;">
+											<input type="hidden" name="tool-number-1" value="1">
+											<div class="tool-title">
+												<h3>Tool 1</h3>
+											</div>
+											<div class="control-group">
+												<label class="control-label" for="tools-name">Name</label>
+												<div class="controls">
+													<input type="text" name="tools-name-1" id="tools-name" class="input-xlarge" value="">
+												</div>
+											</div>
+											<div class="control-group">
+												<label class="controls-label" for="tools-url">URL</label>
+												<input type="text" name="tools-url-1" id="tools-url" class="input-xlarge" value="">
+											</div>
+										</div>
+									</section>
 									<div class="form-actions">
 										<button type="submit" class="btn btn-primary submit-review">Submit for Review</button>
 									</div>
