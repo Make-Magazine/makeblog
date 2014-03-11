@@ -156,5 +156,30 @@ class Make_Contribute {
 
 	}
 
+	public function add_tools() {
+
+		// Check our nonce and make sure it's correct
+		check_ajax_referer( 'contribute_tools', 'nonce' );
+
+		// Setup the post variables yo.
+		$post = array(
+			'post_title'	=> ( isset( $_POST['post_title'] ) ) ? sanitize_text_field( $_POST['post_title'] ) : '',
+			'post_name'		=> ( isset( $_POST['post_title'] ) ) ? sanitize_title( $_POST['post_title'] ) : '',
+			'post_content'	=> ( isset( $_POST['post_content'] ) ) ? wp_kses_post( $_POST['post_content'] ) : '',
+			'post_category'	=> ( isset( $_POST['cat'] ) ) ? array( intval( $_POST['cat'] ) ) : '',
+		);
+
+		$pid = wp_insert_post( $post );
+
+		$this->upload_files( $pid, $_FILES );
+
+		$post = get_post( $pid );
+
+		$json = json_encode( $post );
+
+		die( $json );
+
+	}
+
 }
 $make_gigya = new Make_Contribute();
