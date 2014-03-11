@@ -53,10 +53,78 @@ class Make_Contribute {
 
 	}
 
+	/**
+	 * Uploads images and documents.
+	 * @param  Integer $post_id The post ID we are adding the image to
+	 * @param  Array   $files   An array of files being uploaded (captured via $_FILES)
+	 * @return Array
+	 */
+	private function upload_files( $post_id, $files ) {
+
+		if ( ! function_exists( 'wp_handle_upload' ) )
+			require_once( ABSPATH . 'wp-admin/includes/file.php' );
+
+		if ( ! function_exists( 'wp_crop_image' ) )
+				require_once( ABSPATH . 'wp-admin/includes/image.php' );
+
+		// And array of allowed file types to be uploaded
+		$allowed_file_types = array(
+			'jpg',
+			'jpeg',
+			'png',
+			'gif',
+		);
+
+		// Loop through all of our uploaded files
+		foreach ( $files as $name => $values ) {
+
+			$file_type = wp_check_filetype( $values['name'] );
+			// Ensure the file type being passed matches the field type (ie. photo uploads should only allow photos and documents as documents)
+			if ( ! in_array( $file_type['ext'], $allowed_file_types ) )
+				return;
+
+			$overrides = array( 'test_form' => false );
+			$file = wp_handle_upload( $values, $overrides );
+
+			// Check if there were any errors
+			if ( isset( $file['error'] ) ) {
+				// TODO: update this to trigger a wp_error instead...
+				return $results['error'] = $file['error'];
+				exit();
+			}
+
+			$attachment = array(
+				'guid' => $file['url'],
+				'post_mime_type' => $file['type'],
+				'post_title' => preg_replace( '/\.[^.]+$/', '', basename( $values['name'] ) ),
+				'post_content' => '',
+				'post_status' => 'inherit'
+			);
+			$attachment_id = wp_insert_attachment( $attachment, $file['file'], $post_id );
+
+			$attachment_data = wp_generate_attachment_metadata( $attachment_id, $values['name'] );
+
+			wp_update_attachment_metadata( $attachment_id, $attachment_data );
+
+			// Attach as a featured image if we are uploading the project photo
+			if ( $name === 'file' )
+				update_post_meta( $post_id, '_thumbnail_id', $attachment_id );
+
+			// Get the upload directory
+			$wp_upload_dir = wp_upload_dir();
+			$thumb = image_make_intermediate_size( $file['file'], 500, 500 );
+
+			$img = array(
+				'id' => $attachment_id,
+				'url' => $file['url'],
+				'thumb'=> ( $thumb ? $wp_upload_dir['url'] . '/' . $thumb['file'] : $file['url'] )
+			);
+		}
+	}
 
 	/**
-	 * Process' our Gigya interactions with the database. This method will take the info processed from the Gigya JS API and pass it through to either login or log out.
-	 * These users are created and managed through the Tools > Guest Authors.
+	 * Take the form data, and add a post/project.
+	 * 
 	 * @return json
 	 *
 	 * @since  Quantrons
@@ -64,83 +132,23 @@ class Make_Contribute {
 	public function contribute_post() {
 		
 		// Check our nonce and make sure it's correct
-		// check_ajax_referer( 'contribute_post', 'nonce' );
+		check_ajax_referer( 'contribute_post', 'nonce' );
 
-		// var_dump( $_POST );
+		// Setup the post variables yo.
+		$post = array(
+			'post_title'	=> ( isset( $_POST['post_title'] ) ) ? sanitize_text_field( $_POST['post_title'] ) : '',
+			'post_name'		=> ( isset( $_POST['post_title'] ) ) ? sanitize_title( $_POST['post_title'] ) : '',
+			'post_content'	=> ( isset( $_POST['post_content'] ) ) ? wp_kses_post( $_POST['post_content'] ) : '',
+			'post_category'	=> ( isset( $_POST['cat'] ) ) ? array( intval( $_POST['cat'] ) ) : '',
+		);
 
-		// var_dump( $_FILES );
+		$pid = wp_insert_post( $post );
 
-		$post = json_encode( $_POST );
+		$this->upload_files( $pid, $_FILES );
 
-		die( $post );
+		die( $pid );
 		
-		// // Make sure some required fields are being passed first for security reasons
-		// if ( isset( $_POST['request'] ) && $_POST['request'] == 'login' && wp_verify_nonce( $_POST['nonce'], 'ajax-nonce' ) ) {
-
-		// 	// Before we continue we must verify this request is even a valid request from Gigya
-		// 	if ( $this->verify_user( $uid, $_POST['object']['signatureTimestamp'], $_POST['object']['UIDSignature'] ) ) {
-
-		// 		// Search for a maker and return them or else false.
-		// 		$users = $this->search_for_maker( $uid, $_POST['object']['profile']['email'] );
-
-		// 		// Check if a user already exists, if not we'll create one.
-		// 		if ( $users ) {
-
-		// 			// Check if the user existed and needs to have a Gigya ID added to the post meta
-		// 			if ( isset( $users['add_guid'] ) && $users['add_guid'] ) {
-		// 				update_post_meta( absint( $users[0]->ID ), 'cap-guid', sanitize_text_field( $uid ) );
-		// 			}
-
-		// 			// mark when the user logged in
-		// 			update_post_meta( absint( $users[0]->ID ), 'cap-last_login', date( 'm/d/Y g:i:s a', time() ) );
-
-		// 			$results = array(
-		// 				'loggedin' => true,
-		// 				'message' => 'Login Successful!',
-		// 				'maker' => absint( $users[0]->ID ),
-		// 			);
-
-		// 		// User didn't exist, let's make one.
-		// 		} else {
-		// 			// Pass our User Info sent from Gigya
-		// 			$user = ( is_array( $_POST['object']['profile'] ) ) ? $_POST['object']['profile'] : '';
-
-		// 			// Create the maker and return their ID
-		// 			$maker_id = $this->create_maker( $user, $uid );
-
-		// 			// Report our status to pass back to the modal window
-		// 			if ( is_wp_error( $maker_id ) ) {
-		// 				$results = array(
-		// 					'loggedin' => false,
-		// 					'message'  => 'A user account could not be created. Please try again.',
-		// 					'user' => absint( $maker_id ),
-		// 				);
-		// 			} else {
-		// 				$results = array(
-		// 					'loggedin' => true,
-		// 					'message'  => 'User account created and logged in!',
-		// 					'maker'    => absint( $maker_id ),
-		// 				);
-		// 			}
-		// 		}
-		// 	} else {
-		// 		$results = array(
-		// 			'loggedin' => false,
-		// 			'message' => 'Request could not be validated. Please try again.',
-		// 		);
-		// 	}
-		// } else {
-		// 	$results = array(
-		// 		'loggedin' => false,
-		// 		'message' => 'Missing required parameters', 
-		// 	);
-		// }
-
-		// Return our results and handle them in the Ajax callback
-		die( json_encode( $results ) );
 	}
-
-
 	
 }
 $make_gigya = new Make_Contribute();
