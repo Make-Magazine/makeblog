@@ -67,37 +67,6 @@ jQuery( document ).ready( function( $ ) {
 
 	// });
 
-	$( '.upload' ).on( 'click', function( e ) {
-
-		e.preventDefault();
-
-		var form = $('contribute-form');
-
-		var data = new FormData( form );
-		jQuery.each( $( '#file' )[0].files, function( i, file ) {
-			data.append( 'file-'+ i, file );
-		});
-
-		data.append( 'nonce',			$( '.contribute-form #contribute_post' ).val() );
-		data.append( 'post_parent',		$( '.contribute-form #post_title' ).val() );
-		data.append( 'action',			'upload_files' );
-
-		console.log( data );
-
-		$.ajax({
-			url: make_gigya.ajax,
-			data: data,
-			cache: false,
-			contentType: false,
-			processData: false,
-			type: 'POST',
-			success: function( data ){
-				post_obj = JSON.parse( data );
-				console.log( data );
-			}
-		});
-	});
-
 	$( '.submit-tools' ).on( 'click', function( e ) {
 
 		// Prevent the button from trggering
@@ -172,18 +141,21 @@ jQuery( document ).ready( function( $ ) {
 
 		var data = new FormData( form );
 
-		var form = {};
+		var form_obj = {};
+		form_obj['action'] = 'add_steps';
 		inputs.each(function() {
-			form[this.name] = $(this).val();
+			form_obj[this.name] = $(this).val();
 			data.append( form[this.name], $(this).val() );
 		});
 
-		console.log( form );
+		data.append( 'action', 'add_steps' );
+
+		console.log( form_obj );
 		console.log( data );
 
 		$.ajax({
 			url: make_gigya.ajax,
-			data: form,
+			data: form_obj,
 			cache: false,
 			contentType: false,
 			processData: false,

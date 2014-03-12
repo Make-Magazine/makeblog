@@ -181,7 +181,9 @@ class Make_Contribute {
 	 */
 	public function add_steps() {
 
-		var_dump( $_POST );
+
+
+		die( 'Does anything come back?' );
 
 		////////////////////
 		// Check our nonce and make sure it's correct
