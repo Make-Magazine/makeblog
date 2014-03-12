@@ -37,8 +37,10 @@ jQuery( document ).ready( function( $ ) {
 		});
 	});
 
-	$('input.step-image').on('image_added', function(evt) {
-		console.log('Hellow')
+	$('#step-image').bind('change', function(event){});
+
+	$('#step-image').on('change', function(evt) {
+		console.log('Hellow');
 	});
 
 	$( '.upload' ).on( 'click', function( e ) {

@@ -102,15 +102,11 @@ get_header(); ?>
 													<span class="btn btn-default btn-file">
 														<span class="fileinput-new">Select image</span>
 														<span class="fileinput-exists">Change</span>
-														<input type="file" class="step-image" name="step-images-1">
+														<input type="file" id="step-image" name="step-images-1">
 													</span>
 													<a href="#" class="btn btn-default fileinput-exists" data-dismiss="fileinput">Remove</a>
 												</div>
 											</div>
-											<!--<form class="upload-image">
-												<input type="file" class="btn btn-file" name="" id="file" multiple>
-												<input type="submit" class="btn btn-mini" name="" value="Upload Images">
-											</form>-->
 										</div>
 										<div class="content-wrapper span9">
 											<input type="text" class="title" placeholder="Enter your step title..." value="<%= step_title %>">
