@@ -87,6 +87,8 @@
         element.addClass('fileinput-exists').removeClass('fileinput-new')
 
         element.trigger('change.bs.fileinput', e.target.files)
+        element.trigger('image_added');
+
       }
 
       reader.readAsDataURL(file)
