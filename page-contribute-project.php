@@ -106,7 +106,9 @@ get_header(); ?>
 										</div>
 										<script id="steps-template" type="text/template">
 											<div class="step row">
-												<h4>Step ##count##</h4>
+												<div class="span12">
+													<h4>Step ##count##</h4>
+												</div>
 												<div class="image-wrapper span3">
 													<div class="fileinput fileinput-new" data-provides="fileinput">
 														<div class="fileinput-preview thumbnail" data-trigger="fileinput" style="width: 200px; height: 150px;"></div>
