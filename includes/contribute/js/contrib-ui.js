@@ -41,7 +41,9 @@ function remove_step() {
 		var count = jQuery( 'input[name="total-steps"]' ).val();
 		count--;
 
-		console.log(jQuery(this).parent());
-		jQuery( this ).parent( '.step.row' ).remove();
+		jQuery( this ).parents( '.step.row' ).remove();
+
+		// Update our step count
+		jQuery( 'input[name="total-steps"]' ).val( count );
 	});
 }
