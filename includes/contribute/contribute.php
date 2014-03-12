@@ -172,6 +172,52 @@ class Make_Contribute {
 
 	}
 
+	/**
+	 * Take the form data, and add a post/project.
+	 *
+	 * @return json
+	 *
+	 * @since  Quantrons
+	 */
+	public function add_steps() {
+
+		var_dump( $_POST );
+
+		////////////////////
+		// Check our nonce and make sure it's correct
+		check_ajax_referer( 'contribute_steps', 'nonce' );
+
+		////////////////////
+		// Setup the post variables yo.
+		$post = array(
+			'post_title'	=> ( isset( $_POST['post_title'] ) ) ? sanitize_text_field( $_POST['post_title'] ) : '',
+			'post_name'		=> ( isset( $_POST['post_title'] ) ) ? sanitize_title( $_POST['post_title'] ) : '',
+			'post_content'	=> ( isset( $_POST['post_content'] ) ) ? wp_kses_post( $_POST['post_content'] ) : '',
+			'post_category'	=> ( isset( $_POST['cat'] ) ) ? array( intval( $_POST['cat'] ) ) : '',
+		);
+
+		////////////////////
+		// Insert the post
+		$pid = wp_insert_post( $post );
+
+		////////////////////
+		// Upload the files
+		$this->upload_files( $pid, $_FILES );
+
+		////////////////////
+		// Get the newly created post
+		$post = get_post( $pid );
+
+		////////////////////
+		// Turn that post into JSON
+		$json = json_encode( $post );
+
+		////////////////////
+		// Send back the JSON Post
+		die( $json );
+
+	}
+
 	public function add_tools() {
 
 		////////////////////
