@@ -164,32 +164,35 @@ jQuery( document ).ready( function( $ ) {
 		// Prevent the button from trggering
 		e.preventDefault();
 
-		console.log( form );
-
 		var form = $('contribute-form');
 
 		var inputs = $('.contribute-form-steps :input');
 
+		console.log( inputs );
+
 		var data = new FormData( form );
 
+		var form = {};
 		inputs.each(function() {
-			data.append( 'this.name', $(this).val());
+			form[this.name] = $(this).val();
+			data.append( form[this.name], $(this).val() );
 		});
 
+		console.log( form );
 		console.log( data );
 
-		// $.ajax({
-		// 	url: make_gigya.ajax,
-		// 	data: data,
-		// 	cache: false,
-		// 	contentType: false,
-		// 	processData: false,
-		// 	type: 'POST',
-		// 	success: function( data ){
-		// 		post_obj = JSON.parse( data );
-		// 		console.log( data );
-		// 	}
-		// });
+		$.ajax({
+			url: make_gigya.ajax,
+			data: form,
+			cache: false,
+			contentType: false,
+			processData: false,
+			type: 'POST',
+			success: function( data ){
+				post_obj = JSON.parse( data );
+				console.log( data );
+			}
+		});
 
 	});
 
