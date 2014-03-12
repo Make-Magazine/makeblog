@@ -37,6 +37,10 @@ jQuery( document ).ready( function( $ ) {
 		});
 	});
 
+	$('input.step-image').on('image_added', function(evt) {
+		console.log('Hellow')
+	});
+
 	$( '.upload' ).on( 'click', function( e ) {
 
 		e.preventDefault();
@@ -249,8 +253,8 @@ Contrib.Views.StepsList = Backbone.View.extend({
 jQuery( function()  {
 	var list_steps = [
 		{ step_title: 'Step 1', step_content: 'CONTENT', step_images: ['http://cl.ly/image/1U3L1v3s3w22/u66_normal.jpg'] },
-		{ step_title: 'Step 2', step_content: 'CONTENT 2', step_images: ['http://cl.ly/image/1U3L1v3s3w22/u66_normal.jpg'] },
-		{ step_title: 'Step 3', step_content: 'CONTENT 3', step_images: ['http://cl.ly/image/1U3L1v3s3w22/u66_normal.jpg'] }
+		// { step_title: 'Step 2', step_content: 'CONTENT 2', step_images: ['http://cl.ly/image/1U3L1v3s3w22/u66_normal.jpg'] },
+		// { step_title: 'Step 3', step_content: 'CONTENT 3', step_images: ['http://cl.ly/image/1U3L1v3s3w22/u66_normal.jpg'] }
 	];
 
 

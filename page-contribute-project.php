@@ -96,10 +96,21 @@ get_header(); ?>
 								<script id="steps-template" type="text/template">
 									<div class="step row">
 										<div class="image-wrapper span3">
-											<form class="upload-image">
+											<div class="fileinput fileinput-new" data-provides="fileinput">
+												<div class="fileinput-preview thumbnail" data-trigger="fileinput" style="width: 200px; height: 150px;"></div>
+												<div>
+													<span class="btn btn-default btn-file">
+														<span class="fileinput-new">Select image</span>
+														<span class="fileinput-exists">Change</span>
+														<input type="file" class="step-image" name="step-images-1">
+													</span>
+													<a href="#" class="btn btn-default fileinput-exists" data-dismiss="fileinput">Remove</a>
+												</div>
+											</div>
+											<!--<form class="upload-image">
 												<input type="file" class="btn btn-file" name="" id="file" multiple>
 												<input type="submit" class="btn btn-mini" name="" value="Upload Images">
-											</form>
+											</form>-->
 										</div>
 										<div class="content-wrapper span9">
 											<input type="text" class="title" placeholder="Enter your step title..." value="<%= step_title %>">
