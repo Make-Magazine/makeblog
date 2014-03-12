@@ -164,7 +164,7 @@ jQuery( document ).ready( function( $ ) {
 		// Ajax request.
 		$.ajax({
 			url: make_gigya.ajax,
-			data: form_obj,
+			data: data,
 			cache: false,
 			contentType: false,
 			processData: false,
