@@ -93,13 +93,14 @@ get_header(); ?>
 										</div>
 									</section>
 								</fieldset>
-								<script id="steps-template" type="text/template">
+
 									<div class="step row">
 										<div class="image-wrapper span3">
 											<div class="fileinput fileinput-new" data-provides="fileinput">
 												<div class="fileinput-preview thumbnail" data-trigger="fileinput" style="width: 200px; height: 150px;"></div>
 												<div>
 													<span class="btn btn-default btn-file">
+														<?php echo wp_nonce_field( 'step-image', 'step-image' ); ?>
 														<span class="fileinput-new">Select image</span>
 														<span class="fileinput-exists">Change</span>
 														<input type="file" class="step-image" name="step-images-1">
@@ -117,7 +118,7 @@ get_header(); ?>
 											<textarea name="step_content" id="step_content"><%= step_content %></textarea>
 										</div>
 									</div>
-								</script>
+
 							</form>
 
 							<!-- Parts Form -->
