@@ -79,7 +79,28 @@ get_header(); ?>
 										<input type="hidden" name="post_ID" value="80">
 									</section>
 									<section class="steps-wrapper">
-										<div class="steps-list"></div>
+										<div class="steps-list">
+											<div class="step row">
+												<div class="image-wrapper span3">
+													<div class="fileinput fileinput-new" data-provides="fileinput">
+														<div class="fileinput-preview thumbnail" data-trigger="fileinput" style="width: 200px; height: 150px;"></div>
+														<div>
+															<span class="btn btn-default btn-file">
+																<?php echo wp_nonce_field( 'step-image', 'step-image' ); ?>
+																<span class="fileinput-new">Select image</span>
+																<span class="fileinput-exists">Change</span>
+																<input type="file" id="step-image" name="step-images-1">
+															</span>
+															<a href="#" class="btn btn-default fileinput-exists" data-dismiss="fileinput">Remove</a>
+														</div>
+													</div>
+												</div>
+												<div class="content-wrapper span9">
+													<input type="text" class="title" placeholder="Enter your step title..." value="">
+													<textarea name="step_content" id="step_content"></textarea>
+												</div>
+											</div>
+										</div>
 										<section class="repeater-tools">
 											<div class="control-group">
 												<label class="control-label" for="tools-url"></label>
@@ -93,28 +114,6 @@ get_header(); ?>
 										</div>
 									</section>
 								</fieldset>
-
-									<div class="step row">
-										<div class="image-wrapper span3">
-											<div class="fileinput fileinput-new" data-provides="fileinput">
-												<div class="fileinput-preview thumbnail" data-trigger="fileinput" style="width: 200px; height: 150px;"></div>
-												<div>
-													<span class="btn btn-default btn-file">
-														<?php echo wp_nonce_field( 'step-image', 'step-image' ); ?>
-														<span class="fileinput-new">Select image</span>
-														<span class="fileinput-exists">Change</span>
-														<input type="file" id="step-image" name="step-images-1">
-													</span>
-													<a href="#" class="btn btn-default fileinput-exists" data-dismiss="fileinput">Remove</a>
-												</div>
-											</div>
-										</div>
-										<div class="content-wrapper span9">
-											<input type="text" class="title" placeholder="Enter your step title..." value="<%= step_title %>">
-											<textarea name="step_content" id="step_content"><%= step_content %></textarea>
-										</div>
-									</div>
-
 							</form>
 
 							<!-- Parts Form -->

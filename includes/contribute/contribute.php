@@ -55,7 +55,8 @@ class Make_Contribute {
 	 */
 	public function load_resources() {
 		// JavaScript
-		wp_enqueue_script( 'make-contribute',  get_stylesheet_directory_uri() . '/includes/contribute/js/contribute.js', array( 'jquery' ), '1.0', true );
+		wp_enqueue_script( 'make-contribute', get_stylesheet_directory_uri() . '/includes/contribute/js/contribute.js', array( 'jquery' ), '1.0', true );
+		wp_enqueue_script( 'make-contrib-ui', get_stylesheet_directory_uri() . '/includes/contribute/js/contrib-ui.js', array( 'jquery' ), '1.0', true );
 	}
 
 	/**
