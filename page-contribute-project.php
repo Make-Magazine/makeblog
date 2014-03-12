@@ -82,7 +82,9 @@ get_header(); ?>
 									<section class="steps-wrapper">
 										<div class="steps-list">
 											<div class="step row">
-												<h4>Step 1</h4>
+												<div class="span12">
+													<h4>Step 1</h4>
+												</div>
 												<div class="image-wrapper span3">
 													<div class="fileinput fileinput-new" data-provides="fileinput">
 														<div class="fileinput-preview thumbnail" data-trigger="fileinput" style="width: 200px; height: 150px;"></div>
