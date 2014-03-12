@@ -133,26 +133,35 @@ jQuery( document ).ready( function( $ ) {
 		// Prevent the button from trggering
 		e.preventDefault();
 
-		var form = $('contribute-form');
+		// Let's get the steps initialized.
+		var form = $('contribute-form-steps');
 
+		// Grab all of the inputs.
 		var inputs = $('.contribute-form-steps :input');
 
-		console.log( inputs );
-
+		// New FormData
 		var data = new FormData( form );
 
+		// Setup the form object, just kinda playing with this as a source of data.
 		var form_obj = {};
+
+		// Add the add_steps action to the object.
 		form_obj['action'] = 'add_steps';
+
+		// Loop through all of the inputs, add the to the form_object, and then to the data object.
 		inputs.each(function() {
 			form_obj[this.name] = $(this).val();
 			data.append( form[this.name], $(this).val() );
 		});
 
+		// Append the action to the data object.
 		data.append( 'action', 'add_steps' );
 
+		// Spit some stuff out so that we can see it.
 		console.log( form_obj );
 		console.log( data );
 
+		// Ajax request.
 		$.ajax({
 			url: make_gigya.ajax,
 			data: form_obj,
@@ -160,9 +169,9 @@ jQuery( document ).ready( function( $ ) {
 			contentType: false,
 			processData: false,
 			type: 'POST',
-			success: function( data ){
-				post_obj = JSON.parse( data );
-				console.log( data );
+			success: function( response ){
+				post_obj = JSON.parse( response );
+				console.log( response );
 			}
 		});
 
