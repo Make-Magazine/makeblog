@@ -19,7 +19,12 @@ function add_step() {
 
 	console.log( 'adding step ' + count );
 
-	var step = jQuery( '.steps-list > .step:first' ).clone();
+	var step = jQuery( '#steps-template' ).html();
+
+	step = step.replace( new RegExp( '##count##', 'g' ), count );
 
 	jQuery( '.steps-list' ).append( step );
+
+	// Update our step count
+	jQuery( 'input[name="total-steps"]' ).val( count );
 }
