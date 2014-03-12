@@ -82,6 +82,7 @@ get_header(); ?>
 									<section class="steps-wrapper">
 										<div class="steps-list">
 											<div class="step row">
+												<h4>Step 1</h4>
 												<div class="image-wrapper span3">
 													<div class="fileinput fileinput-new" data-provides="fileinput">
 														<div class="fileinput-preview thumbnail" data-trigger="fileinput" style="width: 200px; height: 150px;"></div>
@@ -100,49 +101,10 @@ get_header(); ?>
 													<textarea name="step-lines-1" id="step_content"></textarea>
 												</div>
 											</div>
-											<div class="step row">
-												<div class="image-wrapper span3">
-													<div class="fileinput fileinput-new" data-provides="fileinput">
-														<div class="fileinput-preview thumbnail" data-trigger="fileinput" style="width: 200px; height: 150px;"></div>
-														<div>
-															<span class="btn btn-default btn-file">
-																<?php echo wp_nonce_field( 'step-image', 'step-image' ); ?>
-																<span class="fileinput-new">Select image</span>
-																<span class="fileinput-exists">Change</span>
-																<input type="file" id="step-image" name="step-images-2">
-															</span>
-															<a href="#" class="btn btn-default fileinput-exists" data-dismiss="fileinput">Remove</a>
-														</div>
-													</div>
-												</div>
-												<div class="content-wrapper span9">
-													<input type="text" class="title" name="step-title-2" placeholder="Enter your step title..." value="">
-													<textarea name="step-lines-2" id="step_content"></textarea>
-												</div>
-											</div>
-											<div class="step row">
-												<div class="image-wrapper span3">
-													<div class="fileinput fileinput-new" data-provides="fileinput">
-														<div class="fileinput-preview thumbnail" data-trigger="fileinput" style="width: 200px; height: 150px;"></div>
-														<div>
-															<span class="btn btn-default btn-file">
-																<?php echo wp_nonce_field( 'step-image', 'step-image' ); ?>
-																<span class="fileinput-new">Select image</span>
-																<span class="fileinput-exists">Change</span>
-																<input type="file" id="step-image" name="step-images-3">
-															</span>
-															<a href="#" class="btn btn-default fileinput-exists" data-dismiss="fileinput">Remove</a>
-														</div>
-													</div>
-												</div>
-												<div class="content-wrapper span9">
-													<input type="text" class="title" name="step-title-3" placeholder="Enter your step title..." value="">
-													<textarea name="step-lines-3" id="step_content"></textarea>
-												</div>
-											</div>
 										</div>
 										<script id="steps-template" type="text/template">
 											<div class="step row">
+												<h4>Step ##count##</h4>
 												<div class="image-wrapper span3">
 													<div class="fileinput fileinput-new" data-provides="fileinput">
 														<div class="fileinput-preview thumbnail" data-trigger="fileinput" style="width: 200px; height: 150px;"></div>
@@ -159,6 +121,7 @@ get_header(); ?>
 												<div class="content-wrapper span9">
 													<input type="text" class="title" name="step-title-##count##" placeholder="Enter your step title..." value="">
 													<textarea name="step-lines-##count##" id="step_content"></textarea>
+													<button class="btn alignright remove-step"><i class="icon icon-minus"></i> Remove Step</button>
 												</div>
 											</div>
 										</script>
