@@ -78,18 +78,20 @@ get_header(); ?>
 										<input type="hidden" name="total-steps" value="1">
 										<input type="hidden" name="post_ID" value="80">
 									</section>
-									<section class="steps-wrapper"></section>
-									<section class="repeater-tools">
-										<div class="control-group">
+									<section class="steps-wrapper">
+										<div class="steps-list"></div>
+										<section class="repeater-tools">
+											<div class="control-group">
 												<label class="control-label" for="tools-url"></label>
 												<div class="controls">
 													<button class="btn add-step"><i class="icon icon-plus"></i> Add Another Step</button>
 												</div>
 											</div>
+										</section>
+										<div class="form-actions">
+											<button type="submit" class="btn btn-primary submit-steps">Save Steps</button>
+										</div>
 									</section>
-									<div class="form-actions">
-										<button type="submit" class="btn btn-primary submit-steps">Save Steps</button>
-									</div>
 								</fieldset>
 								<script id="steps-template" type="text/template">
 									<div class="step row">

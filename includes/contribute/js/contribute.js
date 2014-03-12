@@ -208,9 +208,13 @@ Contrib.Views.Step = Backbone.View.extend({
 // This view will produce a list of steps
 Contrib.Views.StepsList = Backbone.View.extend({
 	el: '.steps-wrapper',
+	events: {
+		'click .add-step' : 'add_empty_step'
+	},
 
 	initialize: function( step ) {
 		this.collection = new Contrib.Collections( step );
+		this.listenTo( this.collection, 'add', this.add_step_collection );
 
 		this.render();
 	},
@@ -218,31 +222,26 @@ Contrib.Views.StepsList = Backbone.View.extend({
 	// Render each project stored in the collection
 	render: function() {
 		this.collection.each( function( step ) {
-            this.add_step_collection( step );
+            this.render_step( step );
         }, this );
 	},
 
-	events: {
-		'click .add-step' : 'add_step'
-	},
-
 	// Add a project by creating a project_view and appending the element it render to the parent element
-	add_step_collection: function( step ) {
+	render_step: function( step ) {
 		var Steps = new Contrib.Views.Step({
 			model: step
 		});
 
-		this.$el.append( Steps.render().el );
+		this.$el.find('.steps-list').append( Steps.render().el );
 	},
 
-	add_empty_step: function() {
+	add_empty_step: function( e ) {
+		e.preventDefault();
+		console.log('TACO');
+		this.collection.add( new Contrib.Models.Step({}) );
+	},
 
-		var Steps = new Contrib.Views.Step({
-			model: step
-		});
 
-		this.$el.append( Steps.render().el);
-	}
 });
 
 
@@ -253,6 +252,7 @@ jQuery( function()  {
 		{ step_title: 'Step 2', step_content: 'CONTENT 2', step_images: ['http://cl.ly/image/1U3L1v3s3w22/u66_normal.jpg'] },
 		{ step_title: 'Step 3', step_content: 'CONTENT 3', step_images: ['http://cl.ly/image/1U3L1v3s3w22/u66_normal.jpg'] }
 	];
+
 
 	// Load the latest projects by default
 	new Contrib.Views.StepsList( list_steps );
