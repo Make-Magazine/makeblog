@@ -37,36 +37,6 @@ jQuery( document ).ready( function( $ ) {
 		});
 	});
 
-	// $('.fileinput').on('change.bs.fileinput', function(evt) {
-
-	// 	var form = $('contribute-form');
-
-	// 	var data = new FormData( form );
-	// 	jQuery.each( $( '.step-image' )[0].files, function( i, file ) {
-	// 		data.append( 'file-'+ i, file );
-	// 	});
-
-	// 	data.append( 'nonce',			$( '.fileinput .step-image' ).val() );
-	// 	// data.append( 'post_parent',		$( '.contribute-form #post_title' ).val() );
-	// 	data.append( 'action',			'upload_files' );
-
-	// 	console.log( data );
-
-	// 	$.ajax({
-	// 		url: make_gigya.ajax,
-	// 		data: data,
-	// 		cache: false,
-	// 		contentType: false,
-	// 		processData: false,
-	// 		type: 'POST',
-	// 		success: function( data ){
-	// 			post_obj = JSON.parse( data );
-	// 			console.log( data );
-	// 		}
-	// 	});
-
-	// });
-
 	$( '.submit-tools' ).on( 'click', function( e ) {
 
 		// Prevent the button from trggering
@@ -151,7 +121,7 @@ jQuery( document ).ready( function( $ ) {
 		// Loop through all of the inputs, add the to the form_object, and then to the data object.
 		inputs.each(function() {
 			form_obj[this.name] = $(this).val();
-			data.append( form[this.name], $(this).val() );
+			data.append( this.name, $(this).val() );
 		});
 
 		// Append the action to the data object.

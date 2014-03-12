@@ -44,6 +44,10 @@ class Make_Contribute {
 		// Add the parts ajax actions.
 		add_action( 'wp_ajax_nopriv_add_parts', array( $this, 'add_parts' ) );
 		add_action( 'wp_ajax_add_parts', array( $this, 'add_parts' ) );
+
+		// Add the parts ajax actions.
+		add_action( 'wp_ajax_nopriv_add_steps', array( $this, 'add_steps' ) );
+		add_action( 'wp_ajax_add_steps', array( $this, 'add_steps' ) );
 	}
 
 	/**
@@ -183,7 +187,7 @@ class Make_Contribute {
 
 
 
-		die( 'Does anything come back?' );
+		die( var_dump( $_POST ) );
 
 		////////////////////
 		// Check our nonce and make sure it's correct
