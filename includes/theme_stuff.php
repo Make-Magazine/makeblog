@@ -1546,13 +1546,6 @@ function make_remove_metaboxes_for_authors() {
 		remove_meta_box( 'edit-flow-notifications', 'review', 'advanced' );
 		remove_meta_box( 'edit-flow-notifications', 'video', 'advanced' );
 
-		// Remove Featured Image
-		remove_meta_box( 'postimagediv', 'post', 'side' );
-		remove_meta_box( 'postimagediv', 'projects', 'side' );
-		remove_meta_box( 'postimagediv', 'magazine', 'side' );
-		remove_meta_box( 'postimagediv', 'review', 'side' );
-		remove_meta_box( 'postimagediv', 'craft', 'side' );
-
 		// Remove Makers Taxonomy
 		remove_meta_box( 'tagsdiv-maker', 'post', 'side' );
 		remove_meta_box( 'tagsdiv-maker', 'projects', 'side' );
