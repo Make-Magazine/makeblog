@@ -121,6 +121,7 @@ jQuery( document ).ready( function( $ ) {
 
 		console.log( the_files );
 
+		// Append each of the images to the object, giving each a name.
 		jQuery.each( the_files, function( i, file ) {
 			data.append( 'step-image-' + ( i + 1 ), file );
 			console.log( file );

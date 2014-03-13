@@ -88,8 +88,6 @@ class Make_Contribute {
 		// Setup the image array
 		$images = array();
 
-		var_dump( $files );
-
 		// Loop through all of our uploaded files
 		foreach ( $files as $name => $values ) {
 
@@ -200,6 +198,7 @@ class Make_Contribute {
 		if ( ! wp_verify_nonce( $_POST['contribute_steps_nonce'], 'contribute_steps_nonce' ) )
 			die( 'We weren\'t able to verify that nonce...' );
 
+		var_dump( $_POST );
 		var_dump( $_FILES );
 
 		////////////////////
