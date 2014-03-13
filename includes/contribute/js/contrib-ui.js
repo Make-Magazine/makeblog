@@ -42,21 +42,14 @@ function make_contribute_remove_field( fields ) {
 
 		// Count the number of fields we have and decrement
 		var count = jQuery( 'input[name="total-' + fields + '"]' ).val();
-		count--;
-		console.log(count);
 
 		// Remove the element
 		jQuery( this ).parents( '.' + field + '.row' ).remove();
 
 		// Update our field count
-		jQuery( 'input[name="total-' + fields + '"]' ).val( count );
+		jQuery( 'input[name="total-' + fields + '"]' ).val( count - 1 );
 
-		// Make sure we reiterate over our steps and update their count. This will allow users to remove steps inbetween steps
-		make_contribute_update_fields( fields );
+		// Make sure we reiterate over our steps and update their count. This will allow users to remove steps in-between steps
+		// make_contribute_update_fields( fields );
 	});
-}
-
-
-function make_contribute_update_fields( fields ) {
-
 }
