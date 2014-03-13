@@ -8049,10 +8049,6 @@ p:empty {
   font-family: "proxima-nova", sans-serif;
   border-bottom: 3px solid #DBDBDB;
   padding-top: 20px;
-  position: relative;
-  z-index: 1;
-  margin: 0 auto;
-  width: 940px;
 }
 .category-top h1 {
   font-size: 38px;
@@ -9018,10 +9014,6 @@ body .single {
   border-bottom: 3px solid #DBDBDB;
   padding-top: 20px;
   border-bottom: 0px;
-  position: relative;
-  z-index: 1;
-  width: 940px;
-  margin: 0 auto;
 }
 body .single h1 {
   font-size: 38px;
@@ -9461,8 +9453,13 @@ li.share-email {
   -moz-box-shadow: 0 0 0 transparent;
   box-shadow: 0 0 0 transparent;
 }
-.main-header .additional-content .search-make input[type="image"] {
-  margin: 4px 8px 5px;
+.main-header .additional-content .search-make input[type="submit"] {
+  background: url('../images/search-btn.png');
+  width: 19px;
+  height: 19px;
+  border: none;
+  margin-right: 5px;
+  outline: none;
 }
 .main-header .additional-content .search-make.open {
   border: 1px solid #ed1c24;
@@ -9722,13 +9719,7 @@ li.share-email {
   }
 }
 .canvas-ad {
-  height: 547px;
-  margin-bottom: -547px;
-  top: 0px;
-  left: 50%;
-  margin-left: -1080px;
-  position: relative;
-  z-index: 1;
+  display: none;
 }
 .page-template-page-weekend-projects-two-col-php .grey {
   padding: 30px 0;
@@ -11409,10 +11400,6 @@ body.makercamp a.button.small-button {
   font-family: "proxima-nova", sans-serif;
   border-bottom: 3px solid #DBDBDB;
   padding-top: 20px;
-  position: relative;
-  z-index: 1;
-  margin: 0 auto;
-  width: 940px;
   border-bottom: 0px;
   position: static;
   width: inherit;
@@ -11765,6 +11752,7 @@ body.hiw .single {
   padding-top: 0;
 }
 body.hiw .single .container {
+  margin-left: -20px;
   padding-top: 20px;
   padding-bottom: 20px;
 }
