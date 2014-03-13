@@ -9197,8 +9197,13 @@ li.share-email {
   -moz-box-shadow: 0 0 0 transparent;
   box-shadow: 0 0 0 transparent;
 }
-.main-header .additional-content .search-make input[type="image"] {
-  margin: 4px 8px 5px;
+.main-header .additional-content .search-make input[type="submit"] {
+  background: url('../images/search-btn.png');
+  width: 19px;
+  height: 19px;
+  border: none;
+  margin-right: 5px;
+  outline: none;
 }
 .main-header .additional-content .search-make.open {
   border: 1px solid #ed1c24;
