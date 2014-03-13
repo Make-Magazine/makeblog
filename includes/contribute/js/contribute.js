@@ -107,7 +107,8 @@ jQuery( document ).ready( function( $ ) {
 		var form = $('contribute-form-steps');
 
 		// Grab all of the inputs.
-		var inputs = $('.contribute-form-steps :input');
+		var the_files = $('.contribute-form-steps :file');
+		var inputs = $('.contribute-form-steps input:not(:file), .contribute-form-steps textarea');
 
 		// New FormData
 		var data = new FormData( form );
@@ -118,7 +119,15 @@ jQuery( document ).ready( function( $ ) {
 		// Add the add_steps action to the object.
 		form_obj['action'] = 'add_steps';
 
-		// Loop through all of the inputs, add the to the form_object, and then to the data object.
+		console.log( the_files );
+
+		// Append each of the images to the object, giving each a name.
+		jQuery.each( the_files, function( i, file ) {
+			data.append( 'step-image-' + ( i + 1 ), file );
+			console.log( file );
+		});
+
+		// Loop through all of the inputs, with the exception of the file ones, and add the to the form_object, and then to the data object.
 		inputs.each(function() {
 			form_obj[this.name] = $(this).val();
 			data.append( this.name, $(this).val() );
@@ -128,8 +137,8 @@ jQuery( document ).ready( function( $ ) {
 		data.append( 'action', 'add_steps' );
 
 		// Spit some stuff out so that we can see it.
-		console.log( form_obj );
-		console.log( data );
+		// console.log( form_obj );
+		// console.log( data );
 
 		// Ajax request.
 		$.ajax({
