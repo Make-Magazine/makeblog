@@ -119,20 +119,12 @@ jQuery( document ).ready( function( $ ) {
 		// Add the add_steps action to the object.
 		form_obj['action'] = 'add_steps';
 
-		console.log( the_files );
-
 		// Append each of the images to the object, giving each a name.
 		jQuery.each( the_files, function( i, file_obj ) {
 			jQuery.each( file_obj.files, function( key, file ) {
-				data.append( 'step-image-' + ( i + 1 ), file );
-				console.log( i );
-				console.log( file );
+				data.append( 'step-images-' + ( i + 1 ), file );
 			});
 		});
-
-		// jQuery.each( $( '#file' )[0].files, function( i, file ) {
-		// 	data.append( 'file-'+ i, file );
-		// });
 
 		// Loop through all of the inputs, with the exception of the file ones, and add the to the form_object, and then to the data object.
 		inputs.each(function() {
@@ -143,9 +135,6 @@ jQuery( document ).ready( function( $ ) {
 		// Append the action to the data object.
 		data.append( 'action', 'add_steps' );
 
-		// Spit some stuff out so that we can see it.
-		// console.log( form_obj );
-		// console.log( data );
 
 		// Ajax request.
 		$.ajax({

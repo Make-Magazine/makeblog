@@ -127,7 +127,13 @@ class Make_Contribute {
 			$wp_upload_dir = wp_upload_dir();
 			$thumb = image_make_intermediate_size( $file['file'], 500, 500 );
 
-			$images[ esc_attr( $name ) ] = esc_url( $file['url'] );
+			// $images[ esc_attr( $name ) ] = esc_url( $file['url'] );
+
+			$images[] = array(
+				sanitize_key( $name ) => esc_url( $file['url'] ),
+				sanitize_key( $name ) => '',
+				sanitize_key( $name ) => '',
+			);
 
 		}
 
@@ -200,11 +206,11 @@ class Make_Contribute {
 		// Merge the files array and the $_POST array.
 		$merged = array_merge( $_POST, $files );
 
+		var_dump( $merged );
+
 		//////////////////////////
 		// STEPS
 		$step_object = make_magazine_projects_build_step_data( $_POST );
-
-		var_dump( $step_object );
 
 		// Update our post meta for Steps if any exist
 		// update_post_meta( absint( $_POST['post_id'] ), 'Steps', $step_object );

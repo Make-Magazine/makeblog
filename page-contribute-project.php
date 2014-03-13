@@ -99,7 +99,7 @@ get_header(); ?>
 												</div>
 												<div class="content-wrapper span9">
 													<input type="text" class="title" name="step-title-1" placeholder="Enter your step title..." value="">
-													<textarea name="step-lines-1" id="step_content"></textarea>
+													<textarea name="step-lines-1[]" id="step_content"></textarea>
 												</div>
 											</div>
 										</div>
@@ -123,7 +123,7 @@ get_header(); ?>
 												</div>
 												<div class="content-wrapper span9">
 													<input type="text" class="title" name="step-title-##count##" placeholder="Enter your step title..." value="">
-													<textarea name="step-lines-##count##" id="step_content"></textarea>
+													<textarea name="step-lines-##count##[]" id="step_content"></textarea>
 													<button class="btn alignright remove-step"><i class="icon icon-minus"></i> Remove Step</button>
 												</div>
 											</div>
