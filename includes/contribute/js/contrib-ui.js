@@ -7,43 +7,56 @@ jQuery( document ).ready( function( $ ) {
 	$( '.btn.add-step' ).click( function( e ) {
 		e.preventDefault();
 
-		add_step();
+		make_contribute_add_field( 'steps' );
 	});
 });
 
 
-function add_step() {
-	// Count the number of steps we have and increment
-	var count = jQuery( 'input[name="total-steps"]' ).val();
+function make_contribute_add_field( fields ) {
+	// Count the number of fields we have and increment
+	var count = jQuery( 'input[name="total-' + fields + '"]' ).val();
 	count++;
 
-	var step = jQuery( '#steps-template' ).html();
+	var field_obj = jQuery( '#' + fields + '-template' ).html();
 
-	// Run a find and replace on the template to add our step count
-	step = step.replace( new RegExp( '##count##', 'g' ), count );
+	// Run a find and replace on the template to add our field count variable
+	field_obj = field_obj.replace( new RegExp( '##count##', 'g' ), count );
 
-	jQuery( '.steps-list' ).append( step );
+	jQuery( '.' + fields + '-list' ).append( field_obj );
 
 	// Update our step count
-	jQuery( 'input[name="total-steps"]' ).val( count );
+	jQuery( 'input[name="total-' + fields + '"]' ).val( count );
 
-	// Make sure we load the removal of the step after its been added
-	remove_step();
-
+	// Make sure we trigger the removal event of the field after its been added
+	make_contribute_remove_field( fields );
 }
 
-function remove_step() {
-	// Trigger the step removal
-	jQuery( '.btn.remove-step' ).click( function( e ) {
+function make_contribute_remove_field( fields ) {
+
+	// The field variable is passed as a plural, let's remove make singular
+	field = fields.substring( 0, fields.length - 1 );
+
+	// Trigger the field removal
+	jQuery( '.btn.remove-' + field ).click( function( e ) {
 		e.preventDefault();
 
-		// Count the number of steps we have and decrement
-		var count = jQuery( 'input[name="total-steps"]' ).val();
+		// Count the number of fields we have and decrement
+		var count = jQuery( 'input[name="total-' + fields + '"]' ).val();
 		count--;
+		console.log(count);
 
-		jQuery( this ).parents( '.step.row' ).remove();
+		// Remove the element
+		jQuery( this ).parents( '.' + field + '.row' ).remove();
 
-		// Update our step count
-		jQuery( 'input[name="total-steps"]' ).val( count );
+		// Update our field count
+		jQuery( 'input[name="total-' + fields + '"]' ).val( count );
+
+		// Make sure we reiterate over our steps and update their count. This will allow users to remove steps inbetween steps
+		make_contribute_update_fields( fields );
 	});
+}
+
+
+function make_contribute_update_fields( fields ) {
+
 }

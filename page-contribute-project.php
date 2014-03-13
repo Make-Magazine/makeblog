@@ -159,47 +159,87 @@ get_header(); ?>
 										<input type="hidden" name="post_ID" value="80">
 									</section>
 									<section class="parts-wrapper">
-										<div id="part-1" class="parts-wrapper">
-											<div class="control-group">
-												<label class="control-label"></label>
-												<div class="controls">
-													<h4>Part 1</h4>
-													<input type="hidden" name="part-number-1" value="1">
-													<input type="hidden" name="parts-notes-1" id="parts-notes">
+										<div class="parts-list">
+											<div id="part-1" class="parts-wrapper">
+												<div class="control-group">
+													<label class="control-label"></label>
+													<div class="controls">
+														<h4>Part 1</h4>
+														<input type="hidden" name="part-number-1" value="1">
+														<input type="hidden" name="parts-notes-1" id="parts-notes">
+													</div>
 												</div>
+												<section class="part">
+													<div class="control-group">
+														<label class="control-label" for="parts-name">Name</label>
+														<div class="controls">
+															<input type="text" name="parts-name-1" id="parts-name" class="input-xlarge" value="">
+														</div>
+													</div>
+													<div class="control-group">
+														<label class="control-label" for="parts-qty">Quantity</label>
+														<div class="controls">
+															<input type="number" name="parts-qty-1" id="parts-qty" class="input-xlarge" value="">
+														</div>
+													</div>
+													<div class="control-group">
+														<label class="control-label" for="parts-url">URL</label>
+														<div class="controls">
+															<input type="url" name="parts-url-1" id="parts-url" class="input-xlarge" value="">
+														</div>
+													</div>
+													<div class="control-group">
+														<label class="control-label" for="parts-type">Type</label>
+														<div class="controls">
+															<input type="text" name="parts-type-1" id="parts-type" class="input-xlarge" value="">
+														</div>
+													</div>
+												</section>
 											</div>
-											<section class="part">
-												<div class="control-group">
-													<label class="control-label" for="parts-name">Name</label>
-													<div class="controls">
-														<input type="text" name="parts-name-1" id="parts-name" class="input-xlarge" value="">
-													</div>
-												</div>
-												<div class="control-group">
-													<label class="control-label" for="parts-qty">Quantity</label>
-													<div class="controls">
-														<input type="number" name="parts-qty-1" id="parts-qty" class="input-xlarge" value="">
-													</div>
-												</div>
-												<div class="control-group">
-													<label class="control-label" for="parts-url">URL</label>
-													<div class="controls">
-														<input type="url" name="parts-url-1" id="parts-url" class="input-xlarge" value="">
-													</div>
-												</div>
-												<div class="control-group">
-													<label class="control-label" for="parts-type">Type</label>
-													<div class="controls">
-														<input type="text" name="parts-type-1" id="parts-type" class="input-xlarge" value="">
-													</div>
-												</div>
-											</section>
 										</div>
+										<script id="steps-template" type="text/template">
+											<div id="part-##count##" class="parts-wrapper">
+												<div class="control-group">
+													<label class="control-label"></label>
+													<div class="controls">
+														<h4>Part ##count##</h4>
+														<input type="hidden" name="part-number-##count##" value="1">
+														<input type="hidden" name="parts-notes-##count##" id="parts-notes">
+													</div>
+												</div>
+												<section class="part">
+													<div class="control-group">
+														<label class="control-label" for="parts-name">Name</label>
+														<div class="controls">
+															<input type="text" name="parts-name-##count##" id="parts-name" class="input-xlarge" value="">
+														</div>
+													</div>
+													<div class="control-group">
+														<label class="control-label" for="parts-qty">Quantity</label>
+														<div class="controls">
+															<input type="number" name="parts-qty-##count##" id="parts-qty" class="input-xlarge" value="">
+														</div>
+													</div>
+													<div class="control-group">
+														<label class="control-label" for="parts-url">URL</label>
+														<div class="controls">
+															<input type="url" name="parts-url-##count##" id="parts-url" class="input-xlarge" value="">
+														</div>
+													</div>
+													<div class="control-group">
+														<label class="control-label" for="parts-type">Type</label>
+														<div class="controls">
+															<input type="text" name="parts-type-##count##" id="parts-type" class="input-xlarge" value="">
+														</div>
+													</div>
+												</section>
+											</div>
+										</script>
 										<section class="repeater-tools">
 											<div class="control-group">
-													<label class="control-label" for="tools-url"></label>
+													<label class="control-label" for="parts-url"></label>
 													<div class="controls">
-														<button class="btn add-part"><i class="icon icon-plus"></i> Add Another Tool</button>
+														<button class="btn add-part"><i class="icon icon-plus"></i> Add Another Part</button>
 													</div>
 												</div>
 										</section>
