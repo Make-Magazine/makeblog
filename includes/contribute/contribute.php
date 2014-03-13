@@ -85,6 +85,11 @@ class Make_Contribute {
 			'gif',
 		);
 
+		// Setup the image array
+		$images = array();
+
+		var_dump( $files );
+
 		// Loop through all of our uploaded files
 		foreach ( $files as $name => $values ) {
 
@@ -127,9 +132,14 @@ class Make_Contribute {
 			$img = array(
 				'id' => $attachment_id,
 				'url' => $file['url'],
-				'thumb'=> ( $thumb ? $wp_upload_dir['url'] . '/' . $thumb['file'] : $file['url'] )
+				'thumb'=> ( $thumb ? $wp_upload_dir['url'] . '/' . $thumb['file'] : $file['url'] ),
+				'name'	=> $name,
 			);
+
+			$images[] = $img;
 		}
+
+		return $images;
 	}
 
 	/**
@@ -185,42 +195,39 @@ class Make_Contribute {
 	 */
 	public function add_steps() {
 
-
-
-		die( var_dump( $_POST ) );
-
 		////////////////////
 		// Check our nonce and make sure it's correct
-		check_ajax_referer( 'contribute_steps', 'nonce' );
+		if ( ! wp_verify_nonce( $_POST['contribute_steps_nonce'], 'contribute_steps_nonce' ) )
+			die( 'We weren\'t able to verify that nonce...' );
 
-		////////////////////
-		// Setup the post variables yo.
-		$post = array(
-			'post_title'	=> ( isset( $_POST['post_title'] ) ) ? sanitize_text_field( $_POST['post_title'] ) : '',
-			'post_name'		=> ( isset( $_POST['post_title'] ) ) ? sanitize_title( $_POST['post_title'] ) : '',
-			'post_content'	=> ( isset( $_POST['post_content'] ) ) ? wp_kses_post( $_POST['post_content'] ) : '',
-			'post_category'	=> ( isset( $_POST['cat'] ) ) ? array( intval( $_POST['cat'] ) ) : '',
-		);
-
-		////////////////////
-		// Insert the post
-		$pid = wp_insert_post( $post );
+		var_dump( $_FILES );
 
 		////////////////////
 		// Upload the files
-		$this->upload_files( $pid, $_FILES );
+		$files = $this->upload_files( $_POST['post_ID'], $_FILES );
+
+		// We'll get to this soon.
+
+		//////////////////////////
+		// STEPS
+		// $step_object = make_magazine_projects_build_step_data( $_POST );
+
+		// Update our post meta for Steps if any exist
+		// update_post_meta( absint( $_POST['post_id'] ), 'Steps', $step_object );
 
 		////////////////////
 		// Get the newly created post
-		$post = get_post( $pid );
+		// $post = get_post( $pid );
 
 		////////////////////
 		// Turn that post into JSON
-		$json = json_encode( $post );
+		// $json = json_encode( $post );
 
 		////////////////////
 		// Send back the JSON Post
-		die( $json );
+		// die( $json );
+
+		die();
 
 	}
 
