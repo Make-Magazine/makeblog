@@ -122,10 +122,17 @@ jQuery( document ).ready( function( $ ) {
 		console.log( the_files );
 
 		// Append each of the images to the object, giving each a name.
-		jQuery.each( the_files, function( i, file ) {
-			data.append( 'step-image-' + ( i + 1 ), file );
-			console.log( file );
+		jQuery.each( the_files, function( i, file_obj ) {
+			jQuery.each( file_obj.files, function( key, file ) {
+				data.append( 'step-image-' + ( i + 1 ), file );
+				console.log( i );
+				console.log( file );
+			});
 		});
+
+		// jQuery.each( $( '#file' )[0].files, function( i, file ) {
+		// 	data.append( 'file-'+ i, file );
+		// });
 
 		// Loop through all of the inputs, with the exception of the file ones, and add the to the form_object, and then to the data object.
 		inputs.each(function() {

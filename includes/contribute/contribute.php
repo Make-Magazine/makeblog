@@ -127,14 +127,8 @@ class Make_Contribute {
 			$wp_upload_dir = wp_upload_dir();
 			$thumb = image_make_intermediate_size( $file['file'], 500, 500 );
 
-			$img = array(
-				'id' => $attachment_id,
-				'url' => $file['url'],
-				'thumb'=> ( $thumb ? $wp_upload_dir['url'] . '/' . $thumb['file'] : $file['url'] ),
-				'name'	=> $name,
-			);
+			$images[ esc_attr( $name ) ] = esc_url( $file['url'] );
 
-			$images[] = $img;
 		}
 
 		return $images;
@@ -198,18 +192,19 @@ class Make_Contribute {
 		if ( ! wp_verify_nonce( $_POST['contribute_steps_nonce'], 'contribute_steps_nonce' ) )
 			die( 'We weren\'t able to verify that nonce...' );
 
-		var_dump( $_POST );
-		var_dump( $_FILES );
-
 		////////////////////
 		// Upload the files
 		$files = $this->upload_files( $_POST['post_ID'], $_FILES );
 
-		// We'll get to this soon.
+		////////////////////
+		// Merge the files array and the $_POST array.
+		$merged = array_merge( $_POST, $files );
 
 		//////////////////////////
 		// STEPS
-		// $step_object = make_magazine_projects_build_step_data( $_POST );
+		$step_object = make_magazine_projects_build_step_data( $_POST );
+
+		var_dump( $step_object );
 
 		// Update our post meta for Steps if any exist
 		// update_post_meta( absint( $_POST['post_id'] ), 'Steps', $step_object );
