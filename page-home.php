@@ -5,7 +5,7 @@ Template Name: Home Page
 ?>
 
 <?php get_header(); ?>
-		
+
 		<?php if ( make_get_cap_option( 'make_camp_takeover' ) ) : ?>
 
 			<?php get_template_part( 'maker-camp-takover' ); ?>
@@ -17,7 +17,7 @@ Template Name: Home Page
 		<?php elseif ( make_get_cap_option( 'weekly_takeover_enabled' ) ) : ?>
 
 			<?php get_template_part( 'weekly-take-over' ); ?>
-		
+
 		<?php elseif ( get_theme_mod( 'make_enable_takeover' ) === 'on' ) : ?>
 
 			<?php get_template_part( 'home-takeover' ); ?>
@@ -42,6 +42,16 @@ Template Name: Home Page
 
 					<div class="row">
 
+						<?php if ( get_theme_mod( 'make_home_banner' ) === 'on' ) : ?>
+
+							<div class="span12 home-banner">
+								<a href="<?php echo esc_url( get_theme_mod( 'make_home_banner_link', 'http://www.makershed.com/SearchResults.asp?Cat=227&Click=174124' ) ); ?>">
+									<img src="<?php echo esc_url( get_theme_mod( 'make_home_banner_video', get_stylesheet_directory_uri() . '/img/cnc.jpg' ) ); ?>">
+								</a>
+							</div>
+
+						<?php endif; ?>
+
 						<div class="span8">
 
 							<div class="checkers">
@@ -51,23 +61,23 @@ Template Name: Home Page
 									<div class="span4">
 
 										<div class="paddme">
-											
-											<?php if ( make_get_cap_option( 'ribbon_title_display' ) ) : 
+
+											<?php if ( make_get_cap_option( 'ribbon_title_display' ) ) :
 												$ribbon_class = 'attachment-p1'; ?>
 												<div class="ribbon"><?php echo esc_html( make_get_cap_option( 'ribbon_title' ) ); ?></div>
 											<?php else : $ribbon_class = ''; endif; ?>
 
 											<a href="<?php echo esc_html( make_get_cap_option( 'main_link' ) ); ?>">
-											
+
 												<?php
 													if ( make_get_cap_option( 'main_id' ) ) {
 														echo wp_get_attachment_image( absint( make_get_cap_option( 'main_id' ) ), 'p1', 0, array( 'class' => $ribbon_class ) );
 													} else {
-														echo '<img src="' . esc_url( make_get_cap_option( 'main_url' ) ) . '"'; 
+														echo '<img src="' . esc_url( make_get_cap_option( 'main_url' ) ) . '"';
 														if ( make_get_cap_option( 'ribbon_title_display' ) )
 															echo 'id="top-left" ';
 														echo '/>';
-													} 
+													}
 												?>
 
 											</a>
@@ -92,15 +102,15 @@ Template Name: Home Page
 												<div class="paddme small">
 
 													<a href="<?php echo esc_url( make_get_cap_option( 'top_link' ) ); ?>">
-													
+
 														<?php
 															if ( make_get_cap_option( 'top_url_id' ) ) {
 																echo wp_get_attachment_image( absint( make_get_cap_option( 'top_url_id' ) ), 'p2' );
 															} else {
 																echo '<img class="home-biggest" src="' . esc_url( make_get_cap_option( 'top_url' ) ) . '" />';
-															} 
+															}
 														?>
-														
+
 													</a>
 
 													<div class="caption">
@@ -119,15 +129,15 @@ Template Name: Home Page
 												<div class="paddme small">
 
 													<a href="<?php echo esc_url( make_get_cap_option( 'bottom_link' ) ); ?>">
-														
+
 														<?php
 															if ( make_get_cap_option( 'bottom_url_id' ) ) {
 																echo wp_get_attachment_image( absint( make_get_cap_option( 'bottom_url_id' ) ), 'p2' );
 															} else {
 																echo '<img class="home-biggest" src="' . esc_url( make_get_cap_option( 'bottom_url' ) ) . '" />';
-															} 
+															}
 														?>
-														
+
 													</a>
 
 													<div class="caption">
@@ -145,25 +155,25 @@ Template Name: Home Page
 										</div>
 
 									</div>
-									
+
 									<div class="row-fluid">
-										
+
 										<div class="span12">
-										
+
 											<div class="featured">
-												
-												<?php echo make_featured_post(); ?>	
-												
+
+												<?php echo make_featured_post(); ?>
+
 											</div>
-											
+
 										</div>
-										
+
 									</div>
 
 								</div>
 
 							</div>
-							
+
 						</div>
 
 						<div class="span4">
@@ -240,9 +250,9 @@ Template Name: Home Page
 
 					<div class="span4 posts">
 
-						<h2 class="look_like_h3_blue"><a href="<?php echo esc_url( home_url( '/blog/' ) ); ?>">Blog Feed</a></h2>	
+						<h2 class="look_like_h3_blue"><a href="<?php echo esc_url( home_url( '/blog/' ) ); ?>">Blog Feed</a></h2>
 
-						<?php 
+						<?php
 							$args = array(
 								'posts_per_page'  => 6,
 								'no_found_rows' => true,
@@ -259,9 +269,9 @@ Template Name: Home Page
 						?>
 
 						<?php while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
-	
+
 						<article <?php post_class(); ?>>
-							
+
 							<div class="entry-content">
 
 								<a href="<?php the_permalink(); ?>">
@@ -274,15 +284,15 @@ Template Name: Home Page
 										<?php echo wp_trim_words(strip_shortcodes( get_the_excerpt() ), 20, '...') ; ?>
 									</span>
 								</a>
-							
+
 							</div>
-						
+
 						</article>
 
 						<?php endwhile; wp_reset_postdata(); ?>
 
 						<p><a href="<?php echo esc_url( home_url( '/blog/' ) ); ?>"><span class="pull-right aqua seeall right">See All Posts</span></a></p>
-						
+
 					</div>
 					<!--<div class="shadow"></div>-->
 
@@ -310,11 +320,11 @@ Template Name: Home Page
 								echo '<div class="small-youtube">';
 								echo do_shortcode('[youtube='. esc_url( $cap_youtube ) .'&amp;w=590&amp;h=332]');
 								echo '</div>';
-							}; 
+							};
 							?>
 
 							<div class="clear"></div>
-							
+
 						</div>
 
 						<div class="clear"></div>
@@ -337,7 +347,7 @@ Template Name: Home Page
 											'tag__not_in' => '22815',
 											'post__not_in'	=> $post_array,
 										);
-										
+
 										$proj_query = new WP_Query( $args );
 
 										while ( $proj_query->have_posts() ) : $proj_query->the_post();
@@ -380,7 +390,7 @@ Template Name: Home Page
 								<div class="grid-box boxy">
 
 									<?php
-										
+
 										$args = array(
 											'tag__in' => 296748,
 											'tag__not_in' => array( 92075710, 22815 ),
@@ -389,7 +399,7 @@ Template Name: Home Page
 											'post_type' => array( 'post', 'projects', 'review', 'video', 'magazine' ),
 											'post__not_in'	=> $post_array,
 										);
-										
+
 
 										$the_query = new WP_Query( $args );
 
@@ -419,14 +429,14 @@ Template Name: Home Page
 								<div class="grid-box boxy">
 
 									<?php
-										
+
 										$args = array(
 											'tag_id' => 785128,
  											'posts_per_page'  => 1,
  											'no_found_rows' => true,
  											'post__not_in'	=> $post_array,
  										);
-										
+
 										$the_query = new WP_Query( $args );
 
 										while ( $the_query->have_posts() ) : $the_query->the_post();
@@ -458,7 +468,7 @@ Template Name: Home Page
 								<div class="grid-box boxy">
 
 									<?php
-										
+
 										$args = array(
 											'tag_id' => 115565268,
 											'posts_per_page'  => 1,
@@ -495,7 +505,7 @@ Template Name: Home Page
 								<div class="grid-box boxy weekend-projects-home">
 
 									<?php
-										
+
 										$args = array(
 											'post_type' 		=> 'projects',
  											'posts_per_page'	=> 1,
@@ -508,7 +518,7 @@ Template Name: Home Page
 													)
 												)
  										);
-										
+
 										$the_query = new WP_Query( $args );
 
 										while ( $the_query->have_posts() ) : $the_query->the_post();
@@ -531,7 +541,7 @@ Template Name: Home Page
 							</div>
 
 						</div>
-						
+
 						<div id="myCarousel" class="carousel slide">
 							<ol class="carousel-indicators">
 								<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
