@@ -31,6 +31,7 @@ jQuery( document ).ready( function( $ ) {
 		// Append all of the other field.s
 		data.append( 'nonce',			$( '.contribute-form #contribute_post' ).val() );
 		data.append( 'post_title',		$( '.contribute-form #post_title' ).val() );
+		data.append( 'user_id',			$( '.contribute-form user_id' ).val() );
 		data.append( 'post_content',	tinyMCE.activeEditor.getContent() );
 		data.append( 'cat',				$( '.contribute-form #cat' ).val() );
 		data.append( 'post_type',		$( this ).data( 'type' ) );
