@@ -154,7 +154,12 @@ class Make_Contribute {
 
 			// We'll need to check for this gigya user and return their information
 			$guest_author = $make_gigya->search_for_maker_by_id( $id );
-			return array( 'author' => $guest_author->ID );
+
+			if ( $guest_author ) {
+				return array( 'author' => $guest_author[0]->ID );
+			} else {
+				return false;
+			}
 		}
 	}
 

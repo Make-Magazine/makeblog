@@ -275,12 +275,9 @@ class Make_Gigya {
 
 			// Save the results to the cache
 			wp_cache_set( 'mf_user_' . $user_hash, $user, '', 86400 ); // Since we are caching each user, might as well hold onto it for 24 hours.
-
-			if ( isset( $found_with_email ) && $found_with_email )
-				$user->posts['add_guid'] = true;
 		}
 
-		return $user->posts[0];
+		return $user->posts;
 	}
 
 
