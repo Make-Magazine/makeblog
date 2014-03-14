@@ -187,16 +187,23 @@ class Make_Contribute {
 			'post_content'	=> ( isset( $_POST['post_content'] ) ) ? wp_kses_post( $_POST['post_content'] ) : '',
 			'post_category'	=> ( isset( $_POST['cat'] ) ) ? array( absint( $_POST['cat'] ) ) : '',
 			'post_type'		=> ( isset( $_POST['post_type'] ) && in_array( $_POST['post_type'], $allowed_post_types ) ) ? sanitize_text_field( $_POST['post_type'] ) : 'post',
+			'post_author'	=> ( isset( $author_id['post_author'] ) ) ? absint( $author_id['post_author'] ) : 604631,
 		);
 
 		// Insert the post
 		$pid = wp_insert_post( $post );
+
+		if ( isset( $author_id['author'] ) ) {
+			$terms = wp_set_object_terms( $pid, $author_id['author'], 'author' );
+		}
 
 		// Upload the files
 		$this->upload_files( $pid, $_FILES );
 
 		// Get the newly created post
 		$post = get_post( $pid );
+
+		$post->terms = ( isset( $terms ) ) ? $terms : '';
 
 		// Send back the Post as JSON
 		die( json_encode( $post ) );
