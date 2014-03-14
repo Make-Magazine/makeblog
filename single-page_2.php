@@ -1,4 +1,4 @@
-<?php 
+<?php
 	$bio = get_post_custom_values('author_bio');
 	$name = get_post_custom_values('author');
 	$url = get_post_custom_values('author_website');
@@ -9,37 +9,37 @@
 
 <?php
 /**
- * Page 2 Template 
+ * Page 2 Template
  *
  * @package    makeblog
  * @license    http://opensource.org/licenses/gpl-license.php  GNU Public License
  * @author     Jake Spurlock <jspurlock@makermedia.com>
- * 
+ *
  */
 get_header(); ?>
-		
+
 	<div class="single">
-	
+
 		<div class="container">
 
 			<div class="row">
 
 				<div class="span12">
-					
+
 					<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
-			
+
 					<div class="projects-masthead">
-						
+
 						<h1><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h1>
-						
+
 					</div>
-					
+
 					<ul class="projects-meta">
 						<li>
 							By <?php echo esc_html( $name[0] ); ?>
 						</li>
 						<li>
-							Posted <span class="blue"><?php the_date(); ?></span>
+							Posted <span class="blue"><time itemprop="startDate" datetime="<?php the_time( 'c' ); ?>"><?php the_time( 'F jS\, Y g:i a' ); ?></time></span>
 						</li>
 						<li>
 							Category <?php the_category(', '); ?>
@@ -48,33 +48,33 @@ get_header(); ?>
 							<a href="<?php the_permalink(); ?>#comments"><?php comments_number( '0', '1', '%' ); ?></a>
 						</li>
 					</ul>
-		
+
 				</div>
-			
+
 			</div>
-									
+
 			<div class="row">
-			
+
 				<div class="span8">
-				
+
 					<article <?php post_class(); ?>>
 
 						<?php the_content(); ?>
-					
+
 					</article>
 
 					<div class="media">
 
 						<div class="media-object pull-left">
-						
+
 							<?php echo get_avatar( $email, $size ); ?>
-						
+
 						</div>
-						
+
 						<div class="media-body well">
-						
+
 							<p>Posted by: <a href="<?php echo esc_url( $url[0] ); ?>"><?php echo esc_html( $name[0] ); ?></a> | <a href="<?php the_permalink(); ?>"><?php the_time('l F jS, Y g:i A'); ?></a></p>
-							<?php 
+							<?php
 								if (isset($bio[0])) {
 									echo '<p>Bio: ';
 									echo wp_kses_post( $bio[0] );
@@ -86,27 +86,27 @@ get_header(); ?>
 						</div>
 
 					</div>
-					
+
 					<div class="clearfix"></div>
-					
+
 					<?php endwhile; ?>
-					
+
 					<div class="comments">
 						<?php comments_template(); ?>
 					</div>
-					
+
 					<?php if (function_exists('make_featured_products')) { make_featured_products(); } ?>
-					
+
 					<?php else: ?>
-					
+
 						<p><?php _e('Sorry, no posts matched your criteria.'); ?></p>
-					
+
 					<?php endif; ?>
 				</div>
-				
-				
+
+
 				<?php get_sidebar(); ?>
-					
+
 			</div>
 
 		</div>
