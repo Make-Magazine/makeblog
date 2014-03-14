@@ -64,10 +64,15 @@ get_header(); ?>
 								</fieldset>
 							</form>
 
-							<article class="post-holder">
-								<h1 class="post-title"></h1>
+							<article class="post-holder category-top">
+								<header class="projects-masthead">
+									<h1 class="post-title"></h1>
+								</header>
+								<div class="alert alert-info">
+									<a class="close" data-dismiss="alert">&times;</a>
+									<strong>Note:</strong> We will be reviewing your project, and will publish shortly.
+								</div>
 								<section class="post-content">
-									<img class="featured-image">
 								</section>
 							</section>
 
