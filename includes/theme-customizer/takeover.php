@@ -14,7 +14,7 @@ add_action( 'customize_preview_init', 'make_register_theme_customizer' );
 
 
 /**
- * 
+ *
  * Sets up the interface in the theme customizer for the takeover options
  * @param  object $wp_customize An instance of the WP_Customize_Manager class
  * @return void
@@ -53,7 +53,7 @@ function make_theme_customizer_home_takeover( $wp_customize ) {
 		'transport' => 'postMessage',
 	) );
 
-	$wp_customize->add_control( 
+	$wp_customize->add_control(
 		new WP_Customize_Image_Control( $wp_customize, 'make_banner_takeover', array(
 			'settings' => 'make_banner_takeover',
 			'section' => 'make_takeover',
@@ -348,7 +348,7 @@ function make_get_takeover_mod( $mod_name, $echo = true ) {
 		// Handle the featured post excerpt
 		case 'make_featured_post_excerpt' :
 			$featured_excerpt = get_theme_mod( 'make_featured_post_excerpt' );
-			
+
 			if ( ! empty( $featured_excerpt ) ) {
 				$result = $featured_excerpt;
 			} else {
@@ -393,7 +393,7 @@ function make_textarea_customize_register($wp_customize) {
 	 * Class example from: http://ottopress.com/2012/making-a-custom-control-for-the-theme-customizer/
 	 */
 	class Make_Customize_Textarea_Control extends WP_Customize_Control {
-		
+
 		public $type = 'textarea';
 
 		function render() {
@@ -411,7 +411,7 @@ function make_textarea_customize_register($wp_customize) {
 }
 
 /**
- * 
+ *
  * Sets up the interface in the theme customizer for the takeover options
  * @param  object $wp_customize An instance of the WP_Customize_Manager class
  * @return void
@@ -449,7 +449,7 @@ function make_theme_canvas_home_takeover( $wp_customize ) {
 		'transport' => 'postMessage',
 	) );
 
-	$wp_customize->add_control( 
+	$wp_customize->add_control(
 		new WP_Customize_Image_Control( $wp_customize, 'make_canvas_takeover', array(
 			'settings' => 'make_canvas_takeover',
 			'section' => 'make_canvas',
@@ -475,7 +475,7 @@ function make_theme_canvas_home_takeover( $wp_customize ) {
 add_action( 'customize_register', 'make_theme_canvas_home_takeover' );
 
 /**
- * 
+ *
  * Sets up the interface in the theme customizer for the banner takeover options
  * @param  object $wp_customize An instance of the WP_Customize_Manager class
  * @return void
@@ -513,7 +513,7 @@ function make_theme_banner_home_takeover( $wp_customize ) {
 		'transport' => 'postMessage',
 	) );
 
-	$wp_customize->add_control( 
+	$wp_customize->add_control(
 		new WP_Customize_Image_Control( $wp_customize, 'make_banner_takeover', array(
 			'settings' => 'make_banner_takeover',
 			'section' => 'make_banner',
@@ -528,7 +528,7 @@ function make_theme_banner_home_takeover( $wp_customize ) {
 		'transport' => 'postMessage',
 	) );
 
-	$wp_customize->add_control( 
+	$wp_customize->add_control(
 		new WP_Customize_Image_Control( $wp_customize, 'make_banner_top_image', array(
 			'settings' => 'make_banner_top_image',
 			'section' => 'make_banner',
@@ -596,7 +596,7 @@ function make_theme_banner_home_takeover( $wp_customize ) {
 		'section' => 'make_banner',
 		'label' => 'How many articles to show from the related posts.',
 		'type' => 'select',
-		'choices' => array( 1 => 1, 2 => 2, 3 => 3, 4 => 4, 5 => 5 ), 
+		'choices' => array( 1 => 1, 2 => 2, 3 => 3, 4 => 4, 5 => 5 ),
 		'priority' => 28,
 	) );
 
@@ -633,7 +633,7 @@ function make_theme_banner_home_takeover( $wp_customize ) {
 		'section' => 'make_banner',
 		'label' => 'How should we sort the posts?',
 		'type' => 'select',
-		'choices' => array( 'ASC' => 'Ascending', 'DESC' => 'Descending' ), 
+		'choices' => array( 'ASC' => 'Ascending', 'DESC' => 'Descending' ),
 		'priority' => 29,
 	) );
 
@@ -643,7 +643,7 @@ add_action( 'customize_register', 'make_theme_banner_home_takeover' );
 
 
 /**
- * 
+ *
  * Sets up the interface in the theme customizer for the banner takeover options
  * @param  object $wp_customize An instance of the WP_Customize_Manager class
  * @return void
@@ -683,7 +683,7 @@ function make_theme_banner_video_home_takeover( $wp_customize ) {
 		'sanitize_callback'	=> 'esc_url',
 	) );
 
-	$wp_customize->add_control( 
+	$wp_customize->add_control(
 		new WP_Customize_Image_Control( $wp_customize, 'make_banner_video_takeover', array(
 			'settings' => 'make_banner_video_takeover',
 			'section' => 'make_banner_video',
@@ -699,7 +699,7 @@ function make_theme_banner_video_home_takeover( $wp_customize ) {
 		'sanitize_callback' => 'esc_url',
 	) );
 
-	$wp_customize->add_control( 
+	$wp_customize->add_control(
 		new WP_Customize_Image_Control( $wp_customize, 'make_banner_video_left_image', array(
 			'settings' => 'make_banner_video_left_image',
 			'section' => 'make_banner_video',
@@ -716,7 +716,7 @@ function make_theme_banner_video_home_takeover( $wp_customize ) {
 		'sanitize_callback' => 'esc_url',
 	) );
 
-	$wp_customize->add_control( 
+	$wp_customize->add_control(
 		new WP_Customize_Image_Control( $wp_customize, 'make_banner_video_top_image', array(
 			'settings' => 'make_banner_video_top_image',
 			'section' => 'make_banner_video',
@@ -733,13 +733,13 @@ function make_theme_banner_video_home_takeover( $wp_customize ) {
 		'sanitize_callback'	=> 'esc_html',
 	) );
 
-	$wp_customize->add_control( 
+	$wp_customize->add_control(
 		new WP_Customize_Color_Control( $wp_customize, 'make_banner_video_top_gradient_color', array(
 			'settings'	=> 'make_banner_video_top_gradient_color',
 			'label'		=> 'Top Gradient Color',
 			'section'	=> 'make_banner_video',
 			'priority'	=> 17,
-		) ) 
+		) )
 	);
 
 	// Register the banner image
@@ -749,14 +749,14 @@ function make_theme_banner_video_home_takeover( $wp_customize ) {
 		'sanitize_callback'	=> 'esc_html',
 	) );
 
-	$wp_customize->add_control( 
+	$wp_customize->add_control(
 		new WP_Customize_Color_Control( $wp_customize, 'make_banner_video_bottom_gradient_color', array(
 			'settings'	=> 'make_banner_video_bottom_gradient_color',
 			'label'		=> 'Bottom Gradient Color',
 			'section'	=> 'make_banner_video',
 			'priority'	=> 18,
 			'sanitize_callback'	=> 'esc_html',
-		) ) 
+		) )
 	);
 
 	// Register the html for the page.
@@ -779,14 +779,14 @@ function make_theme_banner_video_home_takeover( $wp_customize ) {
 		'sanitize_callback' => 'esc_url',
 	) );
 
-	$wp_customize->add_control( 
+	$wp_customize->add_control(
 		new WP_Customize_Image_Control( $wp_customize, 'make_banner_video_featured_image', array(
 			'settings' => 'make_banner_video_featured_image',
 			'section' => 'make_banner_video',
 			'label' => 'Featured Image',
 			'priority' => 19,
 		) )
-	);	
+	);
 
 	// Register the html for the page.
 	$wp_customize->add_setting( 'make_banner_video_feat_post_id', array(
@@ -821,7 +821,7 @@ function make_theme_banner_video_home_takeover( $wp_customize ) {
 		'sanitize_callback' => 'esc_url',
 	) );
 
-	$wp_customize->add_control( 
+	$wp_customize->add_control(
 		new WP_Customize_Image_Control( $wp_customize, 'make_banner_video_contest_image', array(
 			'settings' => 'make_banner_video_contest_image',
 			'section' => 'make_banner_video',
@@ -856,7 +856,7 @@ function make_theme_banner_video_home_takeover( $wp_customize ) {
 	) );
 
 }
-add_action( 'customize_register', 'make_theme_banner_video_home_takeover' );add_action( 'customize_register', 'make_theme_banner_video_home_takeover' );
+add_action( 'customize_register', 'make_theme_banner_video_home_takeover' );
 
 /**
  *
@@ -918,3 +918,6 @@ function make_default_home( $wp_customize ) {
 		'type' => 'text',
 		'priority' => 20,
 	) );
+
+}
+add_action( 'customize_register', 'make_default_home' );
