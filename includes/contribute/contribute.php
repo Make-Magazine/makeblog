@@ -145,15 +145,16 @@ class Make_Contribute {
 	 * @since
 	 */
 	function get_author_id( $id ) {
+
 		// Gigya always passed IDs as long strings, if it's an integer, then we have a WP user
-		if ( absint( $id ) ) {
-			return $id;
+		if ( is_int( $id ) ) {
+			return array( 'post_author' => $id );
 		} else {
 			global $make_gigya;
-			var_dump($id);
+
 			// We'll need to check for this gigya user and return their information
-			var_dump($make_gigya->search_for_maker_by_id( $id ) );
-			die();
+			$guest_author = $make_gigya->search_for_maker_by_id( $id );
+			return array( 'author' => $guest_author->ID );
 		}
 	}
 
@@ -172,7 +173,8 @@ class Make_Contribute {
 			die( 'We weren\'t able to verify that nonce...' );
 
 		// Get the author ID
-		$author_id = $this->get_author_id( $_POST['post_author'] );
+		var_dump($this->get_author_id( $_POST['post_author'] ));
+		die();
 
 		$allowed_post_types = array(
 			'post',

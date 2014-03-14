@@ -274,13 +274,13 @@ class Make_Gigya {
 			$user = new WP_Query( $maker_guid_query );
 
 			// Save the results to the cache
-			wp_cache_set( 'mf_user_' . $user_hash, $users, '', 86400 ); // Since we are caching each user, might as well hold onto it for 24 hours.
+			wp_cache_set( 'mf_user_' . $user_hash, $user, '', 86400 ); // Since we are caching each user, might as well hold onto it for 24 hours.
 
 			if ( isset( $found_with_email ) && $found_with_email )
 				$user->posts['add_guid'] = true;
 		}
 
-		return $user;
+		return $user->posts[0];
 	}
 
 
