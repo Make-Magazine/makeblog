@@ -1,12 +1,12 @@
 // Top Banner Ad
-#div-gpt-ad-664089004995786621-1 { 
-	margin:5px auto; 
+#div-gpt-ad-664089004995786621-1 {
+	margin:5px auto;
 }
 // Set some variables that is only used in the main nav
 @secondary-color: #ebebeb;
 
 // Wrapper that contains both the main and secondary navigations
-.top-navigation-wrapper { 
+.top-navigation-wrapper {
 	.nav { margin-bottom:0; }
 }
 
@@ -87,13 +87,20 @@
 				.box-shadow(0 0 0 transparent);
 				// &:focus { .box-shadow(0 0 0 transparent); }
 			}
-			input[type="image"] { margin:4px 8px 5px; }
+			input[type="submit"] {
+				background:url( '../images/search-btn.png' );
+				width:19px;
+				height:19px;
+				border:none;
+				margin-right:5px;
+				outline:none;
+			}
 			&.open {
 				border:@the-border solid @red;
 				border-top:none;
 				.border-bottom-right-radius(5px);
 				.border-bottom-left-radius(5px);
-				input[type="text"] { 
+				input[type="text"] {
 					padding:3px 0 3px 8px;
 					margin-bottom:0;
 				}
@@ -121,7 +128,7 @@
 	}
 	a, .dropdown-menu a {
 		color:@blue;
-		background:none; 
+		background:none;
 		&:hover {
 			color:@blue !important;
 			text-decoration:underline !important;
@@ -147,13 +154,13 @@
 	position:relative;
 	top:65px;
 	ul {
-		> li { 
+		> li {
 			margin-right: 18px;
 			font-size:17px;
 			> a {
 				padding-bottom:3px;
 			}
-		}	
+		}
 	}
 	.dropdown-menu {
 		margin-top:0px;
@@ -183,7 +190,7 @@
 	.wrapper-container {
 		background:#fff;
 		padding:5px 0;
-		.container { 
+		.container {
 			display:none;
 
 			// Style over rides from HIW pages
@@ -221,7 +228,7 @@
 			&.open { background-position:0px -42px; }
 		}
 	}
-	.border-right { 
+	.border-right {
 		border-right:2px solid #d7d7d7;
 		min-height:102px;
 	}
@@ -239,7 +246,7 @@
 		font-size:14px;
 		margin:0;
 		.clearfix;
-		li { 
+		li {
 			.pull-left;
 			margin-right:19px;
 			&.last { margin-right:0 !important; }
@@ -334,11 +341,12 @@
 }
 
 .canvas-ad {
-	height: 547px;
-	margin-bottom: -547px;
-	top: 0px;
-	left: 50%;
-	margin-left: -1080px;
-	position: relative;
-	z-index: 1;
+	// height: 547px;
+	// margin-bottom: -547px;
+	// top: 0px;
+	// left: 50%;
+	// margin-left: -1080px;
+	// position: relative;
+	// z-index: 1;
+	display: none;
 }

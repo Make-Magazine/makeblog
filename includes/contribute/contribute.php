@@ -159,6 +159,7 @@ class Make_Contribute {
 			'post_name'		=> ( isset( $_POST['post_title'] ) ) ? sanitize_title( $_POST['post_title'] ) : '',
 			'post_content'	=> ( isset( $_POST['post_content'] ) ) ? wp_kses_post( $_POST['post_content'] ) : '',
 			'post_category'	=> ( isset( $_POST['cat'] ) ) ? array( intval( $_POST['cat'] ) ) : '',
+			'post_type'		=> ( isset( $_POST['post_type'] ) ) ? sanitize_text_field( $_POST['post_type'] ) : 'post',
 		);
 
 		////////////////////

@@ -1,12 +1,14 @@
-// Store our post object in here as we go along.
-var post_obj = {};
-
 jQuery( document ).ready( function( $ ) {
+
+	// Let's hide all of the steps.
+	$('.contribute-form-steps, .contribute-form-parts, .contribute-form-tools' ).hide();
 
 	// Handle the AJAX for saving the first stage of the post. The rest will be over Backbone.
 	$( '.submit-review' ).on( 'click', function( e ) {
 
 		e.preventDefault();
+
+		tinyMCE.triggerSave();
 
 		var form = $('contribute-form');
 
@@ -17,8 +19,9 @@ jQuery( document ).ready( function( $ ) {
 
 		data.append( 'nonce',			$( '.contribute-form #contribute_post' ).val() );
 		data.append( 'post_title',		$( '.contribute-form #post_title' ).val() );
-		data.append( 'post_content',	$( '.contribute-form #post_content' ).val() );
+		data.append( 'post_content',	tinyMCE.activeEditor.getContent() );
 		data.append( 'cat',				$( '.contribute-form #cat' ).val() );
+		data.append( 'post_type',		$( this ).data( 'type' ) );
 		data.append( 'action',			'contribute_post' );
 
 		console.log( data );
@@ -32,10 +35,17 @@ jQuery( document ).ready( function( $ ) {
 			type: 'POST',
 			success: function( data ){
 				post_obj = JSON.parse( data );
-				console.log( data );
+				console.log( post_obj );
+				$('.contribute-form').slideUp();
+				post_filler( post_obj );
 			}
 		});
 	});
+
+	function post_filler( data ) {
+		$('.post-title').html( data.post_title );
+		$('.post-content').html( data.post_content );
+	}
 
 	$( '.submit-tools' ).on( 'click', function( e ) {
 

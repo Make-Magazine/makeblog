@@ -58,11 +58,18 @@ get_header(); ?>
 										</div>
 									</div>
 									<div class="form-actions">
-										<button type="submit" class="btn btn-warning">Want to add steps to the post?</button>
-										<button type="submit" class="btn btn-primary submit-review">Submit for Review</button>
+										<button type="submit" class="btn btn-warning submit-review" data-type="projects">Want to add steps to the post?</button>
+										<button type="submit" class="btn btn-primary submit-review" data-type="post">Submit for Review</button>
 									</div>
 								</fieldset>
 							</form>
+
+							<article class="post-holder">
+								<h1 class="post-title"></h1>
+								<section class="post-content">
+									<img class="featured-image">
+								</section>
+							</section>
 
 							<!-- Steps -->
 							<form class="form form-horizontal contribute-form-steps" action="add_steps" method="post">
