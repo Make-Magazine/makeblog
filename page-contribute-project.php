@@ -23,12 +23,13 @@ get_header(); ?>
 							<!-- Contribute -->
 							<form class="form form-horizontal contribute-form" method="post">
 								<?php echo wp_nonce_field( 'contribute_post', 'contribute_post' ); ?>
+								<input type="hidden" name="user_id" class="user_id" value="<?php echo get_current_user_id(); ?>">
 								<fieldset>
 									<div class="control-group">
 										<div class="control-label"></div>
 										<div class="controls">
 											<div class="projects-masthead">
-												<h1><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h1>
+												<h1><?php the_title(); ?></h1>
 											</div>
 										</div>
 									</div>

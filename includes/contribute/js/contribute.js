@@ -1,10 +1,9 @@
 jQuery( document ).ready( function( $ ) {
 
-	//////////////////////
 	// Let's hide all of the steps.
-	$('.contribute-form-steps, .contribute-form-parts, .contribute-form-tools' ).hide();
+	$( '.contribute-form-steps, .contribute-form-parts, .contribute-form-tools' ).hide();
 
-	//////////////////////
+
 	// Handle the AJAX for saving the first stage of the post. The rest will be over Backbone.
 	$( '.submit-review' ).on( 'click', function( e ) {
 
@@ -12,21 +11,21 @@ jQuery( document ).ready( function( $ ) {
 		e.preventDefault();
 
 		// Disable the inputs.
-		input_disabler( 'contribute-form' );
+		make_contribute_input_disabler( 'contribute-form' );
 
 		// Hide the form
-		$('.contribute-form').slideUp();
+		$( '.contribute-form' ).slideUp();
 
 		// Save the form, pushing the data back.
 		tinyMCE.triggerSave();
 
 		// Setup the form.
-		var form = $('contribute-form');
+		var form = $( 'contribute-form' );
 
 		var data = new FormData( form );
 		jQuery.each( $( '#file' )[0].files, function( i, file ) {
 			// Inject the files
-			data.append( 'file-'+ i, file );
+			data.append( 'file-' + i, file );
 		});
 
 		// Append all of the other field.s
@@ -48,36 +47,16 @@ jQuery( document ).ready( function( $ ) {
 			success: function( data ){
 				post_obj = JSON.parse( data );
 				console.log( post_obj );
-				post_filler( post_obj );
-				$('.contribute-form-steps').slideDown();
-				$('.post_ID').each( function() {
+				make_contribute_post_filler( post_obj );
+				$( '.contribute-form-steps' ).slideDown();
+				$( '.post_ID' ).each( function() {
 					$( this ).val( post_obj.ID );
 				});
 			}
 		});
 	});
 
-	//////////////////////
-	// Take the saved data, and display it on the page.
-	function post_filler( data ) {
-		$('.post-title').html( 'Submitted:  ' + data.post_title );
-		$('.post-content').html( data.post_content );
 
-	}
-
-	//////////////////////
-	// Disable inputs
-	function input_disabler( form ) {
-		// Grab the inputs
-		var inputs = jQuery('.' + form + ' :input');
-
-		// Disable them all.
-		inputs.each( function() {
-			jQuery( this ).prop('disabled', true);
-		});
-	}
-
-	//////////////////////
 	// Save all of the tools data.
 	$( '.submit-tools' ).on( 'click', function( e ) {
 
@@ -85,12 +64,12 @@ jQuery( document ).ready( function( $ ) {
 		e.preventDefault();
 
 		// Grab all of the inputs
-		var inputs = $('.contribute-form-parts :input');
+		var inputs = $( '.contribute-form-parts :input' );
 
 		// Grab all of the form data.
 		var form = {};
 		inputs.each( function() {
-			form[this.name] = $(this).val();
+			form[ this.name ] = $( this ).val();
 		});
 
 		form.action = 'add_tools';
@@ -110,18 +89,18 @@ jQuery( document ).ready( function( $ ) {
 
 	});
 
-	//////////////////////
+
 	// Save the parts data
 	$( '.submit-parts' ).on( 'click', function( e ) {
 
 		// Prevent the button from trggering
 		e.preventDefault();
 
-		var inputs = $('.contribute-form-parts :input');
+		var inputs = $( '.contribute-form-parts :input' );
 
 		var form = {};
-		inputs.each(function() {
-			form[this.name] = $(this).val();
+		inputs.each( function() {
+			form[ this.name ] = $( this ).val();
 		});
 
 		form.action = 'add_parts';
@@ -149,11 +128,11 @@ jQuery( document ).ready( function( $ ) {
 		e.preventDefault();
 
 		// Let's get the steps initialized.
-		var form = $('contribute-form-steps');
+		var form = $( 'contribute-form-steps' );
 
 		// Grab all of the inputs.
-		var the_files = $('.contribute-form-steps :file');
-		var inputs = $('.contribute-form-steps input:not(:file), .contribute-form-steps textarea');
+		var the_files = $( '.contribute-form-steps :file' );
+		var inputs = $( '.contribute-form-steps input:not(:file), .contribute-form-steps textarea' );
 
 		// New FormData
 		var data = new FormData( form );
@@ -167,15 +146,15 @@ jQuery( document ).ready( function( $ ) {
 		// Append each of the images to the object, giving each a name.
 		jQuery.each( the_files, function( i, file_obj ) {
 			jQuery.each( file_obj.files, function( key, file ) {
-				form_obj['step-images-' + (i+1)] = file;
+				form_obj['step-images-' + ( i + 1 )] = file;
 				data.append( 'step-images-' + ( i + 1 ), file );
 			});
 		});
 
 		// Loop through all of the inputs, with the exception of the file ones, and add the to the form_object, and then to the data object.
-		inputs.each(function() {
-			form_obj[this.name] = $(this).val();
-			data.append( this.name, $(this).val() );
+		inputs.each( function() {
+			form_obj[ this.name ] = $( this ).val();
+			data.append( this.name, $( this ).val() );
 		});
 
 		// Append the action to the data object.
@@ -198,3 +177,35 @@ jQuery( document ).ready( function( $ ) {
 	});
 
 });
+
+//////////////////////
+// Take the saved data, and display it on the page.
+function make_contribute_post_filler( data ) {
+	jQuery( '.post-title' ).html( 'Submitted:  ' + data.post_title );
+	jQuery( '.post-content' ).html( data.post_content );
+
+}
+
+//////////////////////
+// Disable inputs
+function make_contribute_input_disabler( form ) {
+	// Grab the inputs
+	var inputs = jQuery( '.' + form + ' :input' );
+
+	// Disable them all.
+	inputs.each( function() {
+		jQuery( this ).prop( 'disabled', true );
+	});
+}
+
+
+/**
+ * Allows us to assign a Gigya ID so we can assign the coauthor to the contribute form
+ *
+ * @since
+ */
+function make_contribute_add_gigya_id( uid ) {
+	jQuery( 'input.user_id[type="hidden"]' ).each( function() {
+		jQuery( this ).val( uid );
+	});
+}

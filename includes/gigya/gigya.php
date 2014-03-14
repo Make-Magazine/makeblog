@@ -90,14 +90,14 @@ class Make_Gigya {
 	 * Sadly, we have to manually echo this to wp_head() because Gigya requires the socialize.js API key to be passed with options wrapped in the same script tag... lame sauce.
 	 *
 	 * Well only enable Facebook, Twitter and Google+ as social media providers, we'll also tell Gigya to end the users session with their service after 24 hours.
-	 * 
+	 *
 	 * @return html
 	 * @since  SPRINT_NAME
 	 */
 	public function socialize_api() { ?>
 		<script src="http://cdn.gigya.com/JS/socialize.js?apikey=<?php echo urlencode( MAKE_GIGYA_PUBLIC_KEY ); ?>">{ enabledProviders: 'facebook,twitter,googleplus', sessionExpiration: 86400 }</script>
 	<?php }
-	
+
 
 	/**
 	 * Let's add all of our resouces to make our magic happen.
@@ -130,17 +130,17 @@ class Make_Gigya {
 	 * @since  SPRINT_NAME
 	 */
 	public function user_login() {
-		
+
 		// Check our nonce and make sure it's correct
 		check_ajax_referer( 'ajax-nonce', 'nonce' );
 
 		$uid = $_POST['object']['UID'];
-		
+
 		// Make sure some required fields are being passed first for security reasons
 		if ( isset( $_POST['request'] ) && $_POST['request'] == 'login' && wp_verify_nonce( $_POST['nonce'], 'ajax-nonce' ) ) {
 
 			// Before we continue we must verify this request is even a valid request from Gigya
-			if ( $this->verify_user( $uid, $_POST['object']['signatureTimestamp'], $_POST['object']['UIDSignature'] ) ) {
+			if ( $this->verify_gigya_user( $uid, $_POST['object']['signatureTimestamp'], $_POST['object']['UIDSignature'] ) ) {
 
 				// Search for a maker and return them or else false.
 				$users = $this->search_for_maker( $uid, $_POST['object']['profile']['email'] );
@@ -194,7 +194,7 @@ class Make_Gigya {
 		} else {
 			$results = array(
 				'loggedin' => false,
-				'message' => 'Missing required parameters', 
+				'message' => 'Missing required parameters',
 			);
 		}
 
@@ -240,7 +240,7 @@ class Make_Gigya {
 
 			// Save the results to the cache
 			wp_cache_set( 'mf_user_' . $user_hash, $users, '', 86400 ); // Since we are caching each user, might as well hold onto it for 24 hours.
-			
+
 			if ( isset( $found_with_email ) && $found_with_email )
 				$users->posts['add_guid'] = true;
 		}
@@ -323,7 +323,7 @@ class Make_Gigya {
 	 *
 	 * @since  SPRINT_NAME
 	 */
-	public function verify_user( $uid, $timestamp, $sig) {
+	public function verify_gigya_user( $uid, $timestamp, $sig) {
 
 		// Validate the signature is authentic
 		$valid = SigUtils::validateUserSignature( sanitize_text_field( $uid ), absint( $timestamp ), MAKE_GIGYA_PRIVATE_KEY, sanitize_text_field( $sig ) );

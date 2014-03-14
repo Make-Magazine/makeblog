@@ -29,7 +29,6 @@ class Make_Contribute {
 	 * @since  Quantrons
 	 */
 	public function __construct() {
-
 		add_action( 'wp_enqueue_scripts', array( $this, 'load_resources' ), 30 );
 
 		// Process our ajax requests. We need ajax processing for both logged in and logged out users.

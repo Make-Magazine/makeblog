@@ -57,7 +57,7 @@ jQuery( document ).ready(function() {
  *
  * @since  SPRINT_NAME
  */
-gigya.accounts.addEventHandlers({ // 
+gigya.accounts.addEventHandlers({ //
 	onLogin: make_on_login,
 	onLogout: make_on_logout
 });
@@ -68,7 +68,7 @@ gigya.accounts.addEventHandlers({ //
  * http://developers.gigya.com/020_Client_API/010_Socialize/socialize.addEventHandlers#section_1
  *
  * NOTE: It is important to use the REST API for logging in or registering users http://developers.gigya.com/037_API_reference/010_Socialize
- * 
+ *
  * @param  object eventObj The event object?
  * @since  SPRINT_NAME
  */
@@ -123,7 +123,7 @@ function make_on_login( eventObj ) {
 /**
  * onLogout Event handler
  * After we have successfully logged out, we'll redirect to the homepage.
- * 
+ *
  * @since SPRINT_NAME
  */
 function make_on_logout() {
@@ -145,9 +145,13 @@ function make_on_logout() {
 function make_is_logged_in( maker ) {
 	if ( gigya_debug ) {
 		console.log( maker );
-		console.log( 'WP Logged in: ' + make_gigya.loggedin );
+		if ( ! make_gigya.loggedin ) {
+			console.log( 'WP not logged in' );
+		} else {
+			console.log( 'WP logged in' );
+		}
 	}
-	
+
 	if ( make_gigya.loggedin || maker.errorCode === 0 ) {
 		if ( gigya_debug )
 			console.log( 'User Logged In.' );
@@ -159,6 +163,10 @@ function make_is_logged_in( maker ) {
 
 		// Display our content
 		jQuery( '.container.authentication' ).show();
+
+		// Append the Gigya UID to the contribute form
+		if ( ! make_gigya.loggedin )
+			make_contribute_add_gigya_id( maker.UID );
 	} else {
 		if ( gigya_debug )
 			console.log( 'User Not Logged In.' );
@@ -166,7 +174,6 @@ function make_is_logged_in( maker ) {
 		// Add our login/register links
 		jQuery( '.main-header' ).find( '.row' ).append( '<div class="login-wrapper"><a href="#signin" class="user-creds signin">Sign In</a> / <a href="#join" class="user-creds join">Join</a></div>' );
 
-		console.log('asdfsdfasdf');
 		jQuery( '.container.authentication' ).html( '<div class="row"><div class="span12 login-required"><h2>You must be logged in to access this area.<br />Please <a href="#signin" class="user-creds signin">Sign In</a> or <a href="#join" class="user-creds join">Join</a>.</h2></div></div>' ).show();
 	}
 }
