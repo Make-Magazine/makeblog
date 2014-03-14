@@ -8566,6 +8566,9 @@ ul#tabs .current > a:hover {
 .weekend-projects-home .attachment-small-home-feature-boxes {
   margin-top: -50px;
 }
+.home-banner {
+  margin-top: 10px;
+}
 .avatar-298 {
   margin-bottom: 20px;
   border: 1px solid #cecece;
