@@ -76,13 +76,14 @@ get_header(); ?>
 									<section class="nonce">
 										<?php echo wp_nonce_field( 'contribute_steps_nonce', 'contribute_steps_nonce' ); ?>
 										<input type="hidden" name="total-steps" value="1">
-										<input type="hidden" name="post_ID" value="80">
+										<input type="hidden" name="post_ID" value="345419">
 									</section>
 									<section class="steps-wrapper">
 										<div class="steps-list">
 											<div class="step row">
 												<div class="span12">
 													<h4>Step 1</h4>
+													<input type="hidden" name="step-number-1" value="0">
 												</div>
 												<div class="image-wrapper span3">
 													<div class="fileinput fileinput-new" data-provides="fileinput">
@@ -91,7 +92,7 @@ get_header(); ?>
 															<span class="btn btn-default btn-file">
 																<span class="fileinput-new">Select image</span>
 																<span class="fileinput-exists">Change</span>
-																<input type="file" class="step-file" id="step-image" name="step-images-1">
+																<input type="file" class="step-file" id="step-image" name="step-images-1[]">
 															</span>
 															<a href="#" class="btn btn-default fileinput-exists" data-dismiss="fileinput">Remove</a>
 														</div>
@@ -107,6 +108,7 @@ get_header(); ?>
 											<div class="step row">
 												<div class="span12">
 													<h4>Step ##count##</h4>
+													<input type="hidden" name="step-number-##count##" value="##count##">
 												</div>
 												<div class="image-wrapper span3">
 													<div class="fileinput fileinput-new" data-provides="fileinput">
@@ -115,7 +117,7 @@ get_header(); ?>
 															<span class="btn btn-default btn-file">
 																<span class="fileinput-new">Select image</span>
 																<span class="fileinput-exists">Change</span>
-																<input type="file" class="step-file" id="step-image" name="step-images-##count##">
+																<input type="file" class="step-file" id="step-image" name="step-images-##count##[]">
 															</span>
 															<a href="#" class="btn btn-default fileinput-exists" data-dismiss="fileinput">Remove</a>
 														</div>
@@ -155,7 +157,7 @@ get_header(); ?>
 									<section class="nonce">
 										<?php echo wp_nonce_field( 'contribute_parts', 'contribute_parts' ); ?>
 										<input type="hidden" name="total-parts" value="1">
-										<input type="hidden" name="post_ID" value="80">
+										<input type="hidden" name="post_ID" value="345419">
 									</section>
 									<section class="parts-wrapper">
 										<div class="parts-list">
@@ -261,7 +263,7 @@ get_header(); ?>
 									<section class="nonce">
 										<?php echo wp_nonce_field( 'contribute_tools', 'contribute_tools' ); ?>
 										<input type="hidden" name="total-tools" value="1">
-										<input type="hidden" name="post_ID" value="80">
+										<input type="hidden" name="post_ID" value="345419">
 									</section>
 									<div class="tool-wrapper">
 										<section class="tool" id="tools-1">

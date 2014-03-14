@@ -117,11 +117,12 @@ jQuery( document ).ready( function( $ ) {
 		var form_obj = {};
 
 		// Add the add_steps action to the object.
-		form_obj['action'] = 'add_steps';
+		form_obj.action = 'add_steps';
 
 		// Append each of the images to the object, giving each a name.
 		jQuery.each( the_files, function( i, file_obj ) {
 			jQuery.each( file_obj.files, function( key, file ) {
+				form_obj['step-images-' + (i+1)] = file;
 				data.append( 'step-images-' + ( i + 1 ), file );
 			});
 		});
@@ -134,7 +135,6 @@ jQuery( document ).ready( function( $ ) {
 
 		// Append the action to the data object.
 		data.append( 'action', 'add_steps' );
-
 
 		// Ajax request.
 		$.ajax({

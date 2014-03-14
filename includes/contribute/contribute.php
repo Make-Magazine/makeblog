@@ -37,6 +37,10 @@ class Make_Contribute {
 		add_action( 'wp_ajax_nopriv_contribute_post', array( $this, 'contribute_post' ) );
 		add_action( 'wp_ajax_contribute_post', array( $this, 'contribute_post' ) );
 
+		// Add the steps ajax actions.
+		add_action( 'wp_ajax_nopriv_add_steps', array( $this, 'add_steps' ) );
+		add_action( 'wp_ajax_add_steps', array( $this, 'add_steps' ) );
+
 		// Add the tools ajax actions.
 		add_action( 'wp_ajax_nopriv_add_tools', array( $this, 'add_tools' ) );
 		add_action( 'wp_ajax_add_tools', array( $this, 'add_tools' ) );
@@ -44,10 +48,6 @@ class Make_Contribute {
 		// Add the parts ajax actions.
 		add_action( 'wp_ajax_nopriv_add_parts', array( $this, 'add_parts' ) );
 		add_action( 'wp_ajax_add_parts', array( $this, 'add_parts' ) );
-
-		// Add the parts ajax actions.
-		add_action( 'wp_ajax_nopriv_add_steps', array( $this, 'add_steps' ) );
-		add_action( 'wp_ajax_add_steps', array( $this, 'add_steps' ) );
 	}
 
 	/**
@@ -127,14 +127,13 @@ class Make_Contribute {
 			$wp_upload_dir = wp_upload_dir();
 			$thumb = image_make_intermediate_size( $file['file'], 500, 500 );
 
-			// $images[ esc_attr( $name ) ] = esc_url( $file['url'] );
-
-			$images[] = array(
-				sanitize_key( $name ) => esc_url( $file['url'] ),
-				sanitize_key( $name ) => '',
-				sanitize_key( $name ) => '',
+			// Due to legacy code, we need to pass two empty fields.
+			// TODO: Update the image handling in make_magazine_projects_build_step_data() to allow a varying number of images, fixing the need to pass two empty values.
+			$images[ sanitize_key( $name ) ] = array(
+				esc_url( $file['url'] ),
+				'',
+				'',
 			);
-
 		}
 
 		return $images;
@@ -175,12 +174,8 @@ class Make_Contribute {
 		$post = get_post( $pid );
 
 		////////////////////
-		// Turn that post into JSON
-		$json = json_encode( $post );
-
-		////////////////////
-		// Send back the JSON Post
-		die( $json );
+		// Send back the Post as JSON
+		die( json_encode( $post ) );
 
 	}
 
@@ -200,28 +195,28 @@ class Make_Contribute {
 
 		////////////////////
 		// Upload the files
-		$files = $this->upload_files( $_POST['post_ID'], $_FILES );
+		$files = $this->upload_files( absint( $_POST['post_ID'] ), $_FILES );
 
 		////////////////////
 		// Merge the files array and the $_POST array.
 		$merged = array_merge( $_POST, $files );
 
-		var_dump( $merged );
-
 		//////////////////////////
 		// STEPS
-		$step_object = make_magazine_projects_build_step_data( $_POST );
+		$step_object = make_magazine_projects_build_step_data( $merged );
+
+		var_dump($step_object);
 
 		// Update our post meta for Steps if any exist
-		// update_post_meta( absint( $_POST['post_id'] ), 'Steps', $step_object );
+		update_post_meta( absint( $_POST['post_ID'] ), 'Steps', $step_object );
 
 		////////////////////
 		// Get the newly created post
-		// $post = get_post( $pid );
+		$post = get_post( absint( $_POST['post_ID'] ) );
 
 		////////////////////
 		// Turn that post into JSON
-		// $json = json_encode( $post );
+		$json = json_encode( $post );
 
 		////////////////////
 		// Send back the JSON Post
