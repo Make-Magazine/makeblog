@@ -856,4 +856,65 @@ function make_theme_banner_video_home_takeover( $wp_customize ) {
 	) );
 
 }
-add_action( 'customize_register', 'make_theme_banner_video_home_takeover' );
+add_action( 'customize_register', 'make_theme_banner_video_home_takeover' );add_action( 'customize_register', 'make_theme_banner_video_home_takeover' );
+
+/**
+ *
+ * Add some home page settings.
+ * @param  object $wp_customize An instance of the WP_Customize_Manager class
+ * @return void
+ *
+ * @since  Quantrons
+ */
+function make_default_home( $wp_customize ) {
+
+	// Register our section
+	$wp_customize->add_section( 'make_home', array(
+		'title' => 'Default Home Layout Settings',
+		'priority' => 1
+	) );
+
+
+	// Register the enable field
+	$wp_customize->add_setting( 'make_home_banner', array(
+		'default' => 'off',
+	) );
+
+	$wp_customize->add_control( 'make_home_banner', array(
+		'section' => 'make_home',
+		'label'   => 'Enable the giant home banner',
+		'type' 	  => 'select',
+		'choices' => array(
+			'on'  => 'Enabled',
+			'off' => 'Disabled',
+		),
+		'priority' => 10,
+	) );
+
+	// Register the banner image
+	$wp_customize->add_setting( 'make_home_takeover_image', array(
+		'default' => '',
+		'transport' => 'postMessage',
+	) );
+
+	$wp_customize->add_control(
+		new WP_Customize_Image_Control( $wp_customize, 'make_home_takeover_image', array(
+			'settings' => 'make_home_takeover_image',
+			'section' => 'make_home',
+			'label' => 'Banner Image',
+			'priority' => 15,
+		) )
+	);
+
+	// Register the html for the page.
+	$wp_customize->add_setting( 'make_home_banner_link', array(
+		'default' => '',
+		'sanitize_callback' => 'esc_url',
+	) );
+
+	$wp_customize->add_control( 'make_home_banner_link', array(
+		'section' => 'make_home',
+		'label' => 'Link for the banner',
+		'type' => 'text',
+		'priority' => 20,
+	) );
