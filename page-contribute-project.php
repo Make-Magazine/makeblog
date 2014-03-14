@@ -22,8 +22,8 @@ get_header(); ?>
 
 							<!-- Contribute -->
 							<form class="form form-horizontal contribute-form" method="post">
-								<?php echo wp_nonce_field( 'contribute_post', 'contribute_post' ); ?>
-								<input type="hidden" name="user_id" class="user_id" value="<?php echo get_current_user_id(); ?>">
+								<?php echo wp_nonce_field( 'contribute_post_nonce', 'contribute_post' ); ?>
+								<input type="hidden" name="post_author" class="user_id" value="<?php echo get_current_user_id(); ?>">
 								<fieldset>
 									<div class="control-group">
 										<div class="control-label"></div>

@@ -138,6 +138,26 @@ class Make_Contribute {
 		return $images;
 	}
 
+
+	/**
+	 * Allows us to determine if the contributing author is a WordPress user or Guest Author based on the ID passed
+	 *
+	 * @since
+	 */
+	function get_author_id( $id ) {
+		// Gigya always passed IDs as long strings, if it's an integer, then we have a WP user
+		if ( absint( $id ) ) {
+			return $id;
+		} else {
+			global $make_gigya;
+			var_dump($id);
+			// We'll need to check for this gigya user and return their information
+			var_dump($make_gigya->search_for_maker_by_id( $id ) );
+			die();
+		}
+	}
+
+
 	/**
 	 * Take the form data, and add a post/project.
 	 *
@@ -147,15 +167,18 @@ class Make_Contribute {
 	 */
 	public function contribute_post() {
 
-		////////////////////
 		// Check our nonce and make sure it's correct
-		check_ajax_referer( 'contribute_post', 'nonce' );
+		if ( ! wp_verify_nonce( $_POST['contribute_post'], 'contribute_post_nonce' ) )
+			die( 'We weren\'t able to verify that nonce...' );
+
+		// Get the author ID
+		$author_id = $this->get_author_id( $_POST['post_author'] );
+
 		$allowed_post_types = array(
 			'post',
 			'projects'
 		);
 
-		////////////////////
 		// Setup the post variables yo.
 		$post = array(
 			'post_title'	=> ( isset( $_POST['post_title'] ) ) ? sanitize_text_field( $_POST['post_title'] ) : '',
@@ -165,19 +188,15 @@ class Make_Contribute {
 			'post_type'		=> ( isset( $_POST['post_type'] ) && in_array( $_POST['post_type'], $allowed_post_types ) ) ? sanitize_text_field( $_POST['post_type'] ) : 'post',
 		);
 
-		////////////////////
 		// Insert the post
 		$pid = wp_insert_post( $post );
 
-		////////////////////
 		// Upload the files
 		$this->upload_files( $pid, $_FILES );
 
-		////////////////////
 		// Get the newly created post
 		$post = get_post( $pid );
 
-		////////////////////
 		// Send back the Post as JSON
 		die( json_encode( $post ) );
 

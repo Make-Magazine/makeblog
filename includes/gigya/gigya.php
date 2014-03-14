@@ -250,6 +250,41 @@ class Make_Gigya {
 
 
 	/**
+	 * Searches the Makers lists and locates a usr based on their UID. While this is similar to search_for_maker(), this has a different use case.
+	 * We need this function for checking against already logged in users. search_for_maker() method is used primarily for logging in and pairing Gigya to an account.
+	 * This method will specifically find an existing user by Gigya ID and return their profile object
+	 * @param  string $uid The user ID from Gigya
+	 * @return object
+	 *
+	 * @since  SPRINT_NAME
+	 */
+	public function search_for_maker_by_id( $uid ) {
+		// Stick a hashed version of our usr ID for wp cache
+		$user_hash = md5( sanitize_text_field( $uid ) );
+
+		// Check if our makers are already cached.
+		$user = wp_cache_get( 'mf_user_' . $user_hash );
+
+		if ( $user == false ) {
+			$maker_guid_query = array(
+				'post_type'  => 'guest-author',
+				'meta_key'   => 'cap-guid',
+				'meta_value' => sanitize_text_field( $uid ),
+			);
+			$user = new WP_Query( $maker_guid_query );
+
+			// Save the results to the cache
+			wp_cache_set( 'mf_user_' . $user_hash, $users, '', 86400 ); // Since we are caching each user, might as well hold onto it for 24 hours.
+
+			if ( isset( $found_with_email ) && $found_with_email )
+				$user->posts['add_guid'] = true;
+		}
+
+		return $user;
+	}
+
+
+	/**
 	 * Creates a new maker in the makers listings and returns the makers ID
 	 * @param  array $user The data passed from Gigya for use in the maker creation
 	 * @return integer

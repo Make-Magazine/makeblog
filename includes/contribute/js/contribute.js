@@ -29,11 +29,12 @@ jQuery( document ).ready( function( $ ) {
 		});
 
 		// Append all of the other field.s
-		data.append( 'nonce',			$( '.contribute-form #contribute_post' ).val() );
+		data.append( 'contribute_post',	$( '.contribute-form #contribute_post' ).val() );
 		data.append( 'post_title',		$( '.contribute-form #post_title' ).val() );
 		data.append( 'post_content',	tinyMCE.activeEditor.getContent() );
 		data.append( 'cat',				$( '.contribute-form #cat' ).val() );
 		data.append( 'post_type',		$( this ).data( 'type' ) );
+		data.append( 'post_author',		$( '.user_id' ).val() );
 		data.append( 'action',			'contribute_post' );
 
 		// Send off the AJAX request.
