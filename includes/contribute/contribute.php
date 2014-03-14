@@ -173,8 +173,7 @@ class Make_Contribute {
 			die( 'We weren\'t able to verify that nonce...' );
 
 		// Get the author ID
-		var_dump($this->get_author_id( $_POST['post_author'] ));
-		die();
+		$author_id = $this->get_author_id( $_POST['post_author'] );
 
 		$allowed_post_types = array(
 			'post',
