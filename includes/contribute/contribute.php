@@ -150,6 +150,10 @@ class Make_Contribute {
 		////////////////////
 		// Check our nonce and make sure it's correct
 		check_ajax_referer( 'contribute_post', 'nonce' );
+		$allowed_post_types = array(
+			'post',
+			'projects'
+		);
 
 		////////////////////
 		// Setup the post variables yo.
@@ -157,8 +161,8 @@ class Make_Contribute {
 			'post_title'	=> ( isset( $_POST['post_title'] ) ) ? sanitize_text_field( $_POST['post_title'] ) : '',
 			'post_name'		=> ( isset( $_POST['post_title'] ) ) ? sanitize_title( $_POST['post_title'] ) : '',
 			'post_content'	=> ( isset( $_POST['post_content'] ) ) ? wp_kses_post( $_POST['post_content'] ) : '',
-			'post_category'	=> ( isset( $_POST['cat'] ) ) ? array( intval( $_POST['cat'] ) ) : '',
-			'post_type'		=> ( isset( $_POST['post_type'] ) ) ? sanitize_text_field( $_POST['post_type'] ) : 'post',
+			'post_category'	=> ( isset( $_POST['cat'] ) ) ? array( absint( $_POST['cat'] ) ) : '',
+			'post_type'		=> ( isset( $_POST['post_type'] ) && in_array( $_POST['post_type'], $allowed_post_types ) ) ? sanitize_text_field( $_POST['post_type'] ) : 'post',
 		);
 
 		////////////////////
