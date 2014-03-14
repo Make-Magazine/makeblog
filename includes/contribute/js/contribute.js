@@ -8,19 +8,28 @@ jQuery( document ).ready( function( $ ) {
 	// Handle the AJAX for saving the first stage of the post. The rest will be over Backbone.
 	$( '.submit-review' ).on( 'click', function( e ) {
 
-		input_disabler( 'contribute-form' );
-
+		// Prevent the button from sending the form.
 		e.preventDefault();
 
+		// Disable the inputs.
+		input_disabler( 'contribute-form' );
+
+		// Hide the form
+		$('.contribute-form').slideUp();
+
+		// Save the form, pushing the data back.
 		tinyMCE.triggerSave();
 
+		// Setup the form.
 		var form = $('contribute-form');
 
 		var data = new FormData( form );
 		jQuery.each( $( '#file' )[0].files, function( i, file ) {
+			// Inject the files
 			data.append( 'file-'+ i, file );
 		});
 
+		// Append all of the other field.s
 		data.append( 'nonce',			$( '.contribute-form #contribute_post' ).val() );
 		data.append( 'post_title',		$( '.contribute-form #post_title' ).val() );
 		data.append( 'post_content',	tinyMCE.activeEditor.getContent() );
@@ -28,8 +37,7 @@ jQuery( document ).ready( function( $ ) {
 		data.append( 'post_type',		$( this ).data( 'type' ) );
 		data.append( 'action',			'contribute_post' );
 
-		console.log( data );
-
+		// Send off the AJAX request.
 		$.ajax({
 			url: make_gigya.ajax,
 			data: data,
@@ -40,9 +48,11 @@ jQuery( document ).ready( function( $ ) {
 			success: function( data ){
 				post_obj = JSON.parse( data );
 				console.log( post_obj );
-				$('.contribute-form').slideUp();
 				post_filler( post_obj );
 				$('.contribute-form-steps').slideDown();
+				$('.post_ID').each( function() {
+					$( this ).val( post_obj.ID );
+				});
 			}
 		});
 	});
@@ -52,6 +62,7 @@ jQuery( document ).ready( function( $ ) {
 	function post_filler( data ) {
 		$('.post-title').html( 'Submitted:  ' + data.post_title );
 		$('.post-content').html( data.post_content );
+
 	}
 
 	//////////////////////

@@ -68,10 +68,6 @@ get_header(); ?>
 								<header class="projects-masthead">
 									<h1 class="post-title"></h1>
 								</header>
-								<div class="alert alert-info">
-									<a class="close" data-dismiss="alert">&times;</a>
-									<strong>Note:</strong> We will be reviewing your project, and will publish shortly.
-								</div>
 								<section class="post-content">
 								</section>
 							</section>
@@ -88,7 +84,7 @@ get_header(); ?>
 									<section class="nonce">
 										<?php echo wp_nonce_field( 'contribute_steps_nonce', 'contribute_steps_nonce' ); ?>
 										<input type="hidden" name="total-steps" value="1">
-										<input type="hidden" name="post_ID" value="345419">
+										<input type="hidden" class="post_ID" name="post_ID" value="">
 									</section>
 									<section class="steps-wrapper">
 										<div class="steps-list">
@@ -169,7 +165,7 @@ get_header(); ?>
 									<section class="nonce">
 										<?php echo wp_nonce_field( 'contribute_parts', 'contribute_parts' ); ?>
 										<input type="hidden" name="total-parts" value="1">
-										<input type="hidden" name="post_ID" value="345419">
+										<input type="hidden" class="post_ID" name="post_ID" value="">
 									</section>
 									<section class="parts-wrapper">
 										<div class="parts-list">
@@ -275,7 +271,7 @@ get_header(); ?>
 									<section class="nonce">
 										<?php echo wp_nonce_field( 'contribute_tools', 'contribute_tools' ); ?>
 										<input type="hidden" name="total-tools" value="1">
-										<input type="hidden" name="post_ID" value="345419">
+										<input type="hidden" class="post_ID" name="post_ID" value="">
 									</section>
 									<div class="tool-wrapper">
 										<section class="tool" id="tools-1">
