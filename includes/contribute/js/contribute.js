@@ -1,10 +1,14 @@
 jQuery( document ).ready( function( $ ) {
 
+	//////////////////////
 	// Let's hide all of the steps.
 	$('.contribute-form-steps, .contribute-form-parts, .contribute-form-tools' ).hide();
 
+	//////////////////////
 	// Handle the AJAX for saving the first stage of the post. The rest will be over Backbone.
 	$( '.submit-review' ).on( 'click', function( e ) {
+
+		input_disabler( 'contribute-form' );
 
 		e.preventDefault();
 
@@ -38,15 +42,32 @@ jQuery( document ).ready( function( $ ) {
 				console.log( post_obj );
 				$('.contribute-form').slideUp();
 				post_filler( post_obj );
+				$('.contribute-form-steps').slideDown();
 			}
 		});
 	});
 
+	//////////////////////
+	// Take the saved data, and display it on the page.
 	function post_filler( data ) {
-		$('.post-title').html( data.post_title );
+		$('.post-title').html( 'Submitted:  ' + data.post_title );
 		$('.post-content').html( data.post_content );
 	}
 
+	//////////////////////
+	// Disable inputs
+	function input_disabler( form ) {
+		// Grab the inputs
+		var inputs = jQuery('.' + form + ' :input');
+
+		// Disable them all.
+		inputs.each( function() {
+			jQuery( this ).prop('disabled', true);
+		});
+	}
+
+	//////////////////////
+	// Save all of the tools data.
 	$( '.submit-tools' ).on( 'click', function( e ) {
 
 		// Prevent the button from trggering
@@ -78,6 +99,8 @@ jQuery( document ).ready( function( $ ) {
 
 	});
 
+	//////////////////////
+	// Save the parts data
 	$( '.submit-parts' ).on( 'click', function( e ) {
 
 		// Prevent the button from trggering
@@ -107,7 +130,8 @@ jQuery( document ).ready( function( $ ) {
 
 	});
 
-	// Handle the AJAX for saving the first stage of the post. The rest will be over Backbone.
+	//////////////////////
+	// Save the steps.
 	$( '.submit-steps' ).on( 'click', function( e ) {
 
 		// Prevent the button from trggering
