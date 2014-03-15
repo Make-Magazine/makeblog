@@ -174,25 +174,23 @@ jQuery( document ).ready( function( $ ) {
 			processData: false,
 			type: 'POST',
 			success: function( response ){
-				post_obj = JSON.parse( response );
+				response = JSON.parse( response );
 				console.log( response );
 				$( '.contribute-form-steps' ).slideUp();
+				get_steps( response.post_id );
 			}
 		});
 
 	});
 
 	// Grab the steps.
-	$( '.get-steps' ).on( 'click', function( e ) {
-
-		// Prevent the button from trggering
-		e.preventDefault();
+	function get_steps( post_id ) {
 
 		var inputs = $( '.contribute-form-get-steps :input' );
 
 		var form = {
 			action : 'get_steps',
-			post_ID: 80,
+			post_ID: post_id,
 		};
 
 		inputs.each( function() {
@@ -211,6 +209,7 @@ jQuery( document ).ready( function( $ ) {
 			}
 		});
 
+		form.action = '';
 		form.action = 'get_steps_list';
 
 		console.log( form );
@@ -225,7 +224,7 @@ jQuery( document ).ready( function( $ ) {
 			}
 		});
 
-	});
+	};
 
 });
 
