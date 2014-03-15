@@ -313,6 +313,56 @@ class Make_Contribute {
 
 	}
 
+	/**
+	 * Get the steps HTML
+	 */
+	public function get_steps() {
+
+		////////////////////
+		// Check our nonce and make sure it's correct
+		if ( ! wp_verify_nonce( $_POST['get_steps'], 'get_steps' ) )
+			die( 'We weren\'t able to verify that nonce...' );
+
+		///////////////////////
+		// Get the steps.
+		$steps = get_post_custom_values( 'Steps', absint( $_POST['post_ID'] ) );
+
+		///////////////////////
+		// HTMLify the steps.
+		make_projects_steps( $steps );
+
+		////////////////////
+		// We are done here right?
+		die();
+
+	}
+
+	/**
+	 * Get the steps HTML
+	 */
+	public function get_steps_list() {
+
+		////////////////////
+		// Check our nonce and make sure it's correct
+		if ( ! wp_verify_nonce( $_POST['get_steps'], 'get_steps' ) )
+			die( 'We weren\'t able to verify that nonce...' );
+
+		///////////////////////
+		// Get the steps.
+		$steps = get_post_custom_values( 'Steps', absint( $_POST['post_ID'] ) );
+
+		///////////////////////
+		// HTMLify the steps.
+		make_projects_steps_list( $steps );
+
+		////////////////////
+		// Done here right?
+		die();
+
+	}
+
+
+
 }
 
 $make_contribute = new Make_Contribute();
