@@ -47,6 +47,14 @@ class Make_Contribute {
 		// Add the parts ajax actions.
 		add_action( 'wp_ajax_nopriv_add_parts', array( $this, 'add_parts' ) );
 		add_action( 'wp_ajax_add_parts', array( $this, 'add_parts' ) );
+
+		// Get the steps for a project.
+		add_action( 'wp_ajax_nopriv_get_steps',  array( $this, 'get_steps' ) );
+		add_action( 'wp_ajax_get_steps',  array( $this, 'get_steps' ) );
+
+		// Get the steps for a project.
+		add_action( 'wp_ajax_nopriv_get_steps_list',  array( $this, 'get_steps_list' ) );
+		add_action( 'wp_ajax_get_steps_list',  array( $this, 'get_steps_list' ) );
 	}
 
 	/**
