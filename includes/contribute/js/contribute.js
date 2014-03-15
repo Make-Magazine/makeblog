@@ -205,7 +205,7 @@ jQuery( document ).ready( function( $ ) {
 			data: form,
 			type: 'POST',
 			success: function( data ){
-				$('.steps').html( data );
+				$('.steps-output').html( data );
 			}
 		});
 
