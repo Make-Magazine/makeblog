@@ -129,6 +129,9 @@ jQuery( document ).ready( function( $ ) {
 		// Prevent the button from trggering
 		e.preventDefault();
 
+		// Disable the form inputs
+		make_contribute_input_disabler( 'contribute-form-steps' );
+
 		// Let's get the steps initialized.
 		var form = $( 'contribute-form-steps' );
 
@@ -173,7 +176,7 @@ jQuery( document ).ready( function( $ ) {
 			success: function( response ){
 				post_obj = JSON.parse( response );
 				console.log( response );
-				$( '.contribute-form-steps' ).slideDown();
+				$( '.contribute-form-steps' ).slideUp();
 			}
 		});
 
