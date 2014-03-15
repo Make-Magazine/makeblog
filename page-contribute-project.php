@@ -183,7 +183,7 @@ get_header(); ?>
 
 										<div class="tab-content" id="steppers">
 
-											<div class="steps"></div>
+											<div class="steps-output"></div>
 
 										</div>
 
