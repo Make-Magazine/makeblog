@@ -173,6 +173,52 @@ jQuery( document ).ready( function( $ ) {
 			success: function( response ){
 				post_obj = JSON.parse( response );
 				console.log( response );
+				$( '.contribute-form-steps' ).slideDown();
+			}
+		});
+
+	});
+
+	// Grab the steps.
+	$( '.get-steps' ).on( 'click', function( e ) {
+
+		// Prevent the button from trggering
+		e.preventDefault();
+
+		var inputs = $( '.contribute-form-get-steps :input' );
+
+		var form = {
+			action : 'get_steps',
+			post_ID: 80,
+		};
+
+		inputs.each( function() {
+			form[ this.name ] = $( this ).val();
+		});
+
+		console.log( form );
+
+		// Make the ajax request with the form data.
+		$.ajax({
+			url: make_gigya.ajax,
+			data: form,
+			type: 'POST',
+			success: function( data ){
+				$('.steps').html( data );
+			}
+		});
+
+		form.action = 'get_steps_list';
+
+		console.log( form );
+
+		// Make the ajax request with the form data.
+		$.ajax({
+			url: make_gigya.ajax,
+			data: form,
+			type: 'POST',
+			success: function( data ){
+				$('.steps-list-output').html( data );
 			}
 		});
 
