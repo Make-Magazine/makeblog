@@ -20,12 +20,6 @@ get_header(); ?>
 
 						<article <?php post_class(); ?>>
 
-							<form class="form form-horizontal contribute-form-get-steps" method="post">
-								<?php echo wp_nonce_field( 'get_steps', 'get_steps' ); ?>
-								<input type="hidden" name="post_id" value="80">
-								<input type="submit" name="" class="btn btn-primary get-steps" value="Get Steps">
-							</form>
-
 							<!-- Contribute -->
 							<form class="form form-horizontal contribute-form" method="post">
 								<?php echo wp_nonce_field( 'contribute_post_nonce', 'contribute_post' ); ?>
@@ -162,6 +156,11 @@ get_header(); ?>
 
 							<!-- Output the Steps -->
 							<div class="bottom-steps" id="target">
+
+								<form class="form form-horizontal contribute-form-get-steps" method="post">
+									<?php echo wp_nonce_field( 'get_steps', 'get_steps' ); ?>
+									<input type="hidden" name="post_id" value="80">
+								</form>
 
 								<div class="row">
 
