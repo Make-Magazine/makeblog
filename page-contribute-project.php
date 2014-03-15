@@ -20,6 +20,12 @@ get_header(); ?>
 
 						<article <?php post_class(); ?>>
 
+							<form class="form form-horizontal contribute-form-get-steps" method="post">
+								<?php echo wp_nonce_field( 'get_steps', 'get_steps' ); ?>
+								<input type="hidden" name="post_id" value="80">
+								<input type="submit" name="" class="btn btn-primary get-steps" value="Get Steps">
+							</form>
+
 							<!-- Contribute -->
 							<form class="form form-horizontal contribute-form" method="post">
 								<?php echo wp_nonce_field( 'contribute_post_nonce', 'contribute_post' ); ?>
@@ -153,6 +159,38 @@ get_header(); ?>
 									</section>
 								</fieldset>
 							</form>
+
+							<!-- Output the Steps -->
+							<div class="bottom-steps" id="target">
+
+								<div class="row">
+
+									<div class="span4">
+
+										<div class="steps-list-output"></div>
+
+										<!-- Beginning Sync AdSlot 3 for Ad unit header ### size: [[300,250]]  -->
+										<div id='div-gpt-ad-664089004995786621-3'>
+											<script type='text/javascript'>
+												// We should find a way to display this ad...
+												// googletag.display('div-gpt-ad-664089004995786621-3');
+											</script>
+										</div>
+										<!-- End AdSlot 3 -->
+
+									</div>
+
+									<div class="span8">
+
+										<div class="tab-content" id="steppers">
+
+											<div class="steps"></div>
+
+										</div>
+
+									</div>
+
+								</div>
 
 							<!-- Parts Form -->
 							<form class="form form-horizontal contribute-form-parts" method="post">
