@@ -249,24 +249,11 @@ class Make_Contribute {
 		// STEPS
 		$step_object = make_magazine_projects_build_step_data( $merged );
 
-		var_dump($step_object);
-
 		// Update our post meta for Steps if any exist
 		update_post_meta( absint( $_POST['post_ID'] ), 'Steps', $step_object );
 
-		////////////////////
-		// Get the newly created post
-		$post = get_post( absint( $_POST['post_ID'] ) );
-
-		////////////////////
-		// Turn that post into JSON
-		$json = json_encode( $post );
-
-		////////////////////
-		// Send back the JSON Post
-		// die( $json );
-
-		die();
+		// Send back the
+		die( json_encode( array( 'post_id' => $_POST['post_ID'] ) ) );
 
 	}
 
