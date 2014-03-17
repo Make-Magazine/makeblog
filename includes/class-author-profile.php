@@ -7,7 +7,7 @@
 	 * @author  Cole Geissinger <cgeissinger@makermedia.com>
 	 *
 	 */
-	
+
 
 	class Make_Authors {
 
@@ -19,18 +19,18 @@
 		 * @since    1.0
 		 */
 		public function get_author_data() {
+			global $authordata;
 
-			// Also get the author ID as a fallback
-			$author_id = get_the_author_id();
-			$author = get_userdata( absint( $author_id ) );
-			
+			// Get the true author data
+			$author = $authordata;
+
 			// Its possible nothing is returned via the author ID, so we'll check with coauthors
 			// We check coauthors second because if we check it first on the author page, it can result in displaying the wrong author information.
 			if ( empty( $author ) ) {
 				$authors = new CoAuthorsIterator( $author_id );
 				$author = $authors->current_author;
 			}
-			
+
 			// If the user account is a guest-author, then it will always be used over Gravatar data
 			if ( $author->type === 'guest-author' ) { // Author account is linked, so we'll make sure we ignor Gravatar and pull from the guest author account
 				return $author;
@@ -51,7 +51,7 @@
 				} else {
 					// well, it seems Gravatar returned empty... let's pull from WordPress then.
 					$author = get_userdata( absint( $author_id ) );
-					
+
 					return $author;
 				}
 			}
@@ -92,7 +92,7 @@
 
 			// If we have a Gravatar object, we'll process that, other wise, we need to hook into WordPress
 			if ( isset( $author->thumbnailUrl ) ) {
-				
+
 				$url = $author->thumbnailUrl . '?s=298&d=retro';
 
 				$output = '<img src="' . esc_url( $url ) . '" alt="' . esc_attr( $this->author_name( $author ) ) . '" class="avatar avatar-298" width="298" height="298">';
@@ -178,11 +178,11 @@
 		 * @since    1.0
 		 */
 		public function author_contact_info( $author ) {
-			
+
 			// Currently Guest Authors does not provide social media links so we'll only pull if Gravatar object is present
 			if ( isset( $author->accounts ) ) {
 				$output = '<ul class="social clearfix">';
-					
+
 					// Add social media accounts
 					foreach ( $author->accounts as $account ) {
 						// Update the Google URL so we can do some Author appeneding magic stuff?
@@ -216,7 +216,7 @@
 		 * @since   1.0
 		 */
 		public function author_urls( $author ) {
-			
+
 			// Load this if we have either a list of links from Gravatar or a single website from Guest Authors
 			if ( isset( $author->urls ) || isset( $author->website ) ) {
 
@@ -291,7 +291,7 @@
 	function make_author_avatar() {
 		global $make_author_class;
 
-		return $make_author_class->author_photo();		
+		return $make_author_class->author_photo();
 	}
 
 	function make_author_bio( $author = '' ) {
@@ -336,4 +336,5 @@
 	}
 
 	// For now we will stop displaying author blocks at the end of posts until we can fix it next week.
+	//add_filter( 'the_content', 'hook_bio_into_content', 5 );an fix it next week.
 	//add_filter( 'the_content', 'hook_bio_into_content', 5 );
