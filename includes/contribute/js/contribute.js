@@ -16,6 +16,9 @@ jQuery( document ).ready( function( $ ) {
 		// Hide the form
 		$( '.contribute-form' ).slideUp();
 
+		// Added this for Cole...
+		$( '.post-content' ).html( '<h3 style="text-align:center">Working...</h3><div class="progress progress-striped active"><div class="bar" style="width: 100%;"></div></div>' );
+
 		// Save the form, pushing the data back.
 		tinyMCE.triggerSave();
 
@@ -231,6 +234,7 @@ jQuery( document ).ready( function( $ ) {
 //////////////////////
 // Take the saved data, and display it on the page.
 function make_contribute_post_filler( data ) {
+	jQuery( '.post-content' ).html();
 	jQuery( '.post-title' ).html( 'Submitted:  ' + data.post_title );
 	jQuery( '.post-content' ).html( data.post_content );
 
