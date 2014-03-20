@@ -471,20 +471,7 @@ Template Name: Home Page
 												)
  										);
 
-										$the_query = new WP_Query( $args );
-
-										while ( $the_query->have_posts() ) : $the_query->the_post();
-											echo '<a href="'.get_permalink().'">';
-											echo '<img class="weekend-project-image" src="' . get_stylesheet_directory_uri() . '/img/WP02_Feature_banner_02.jpg" alt="Powered by RadioShack">';
-											the_post_thumbnail('small-home-feature-boxes');
-											$title = get_post_meta( get_the_ID(), 'title_override', true );
-											echo ( ! empty( $title ) ) ? '<h4>' . make_trim_characters( esc_html( $title ), 72 ) . '</h4>' : '<h4>' . make_trim_characters( get_the_title(), 72 ) . '</h4>';
-											echo '<p>'.wp_trim_words( strip_shortcodes( get_the_excerpt() ), 12 ).'</p>';
-											echo '</a>';
-										endwhile;
-
-										// Reset Post Data
-										wp_reset_postdata();
+										echo make_post_card( $args );
 
 									?>
 
