@@ -240,7 +240,7 @@ function make_register_sidebar() {
 }
 
 // This bit is added so that we can get a fresher read on the stuff. Notably the Maker Faire feed for live events.
-add_filter( 'wp_feed_cache_transient_lifetime', create_function( '$a', 'return 900;' ) );
+add_filter( 'wp_feed_cache_transient_lifetime', function() { return 900; } );
 
 
 /**
