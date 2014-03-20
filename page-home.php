@@ -459,6 +459,7 @@ Template Name: Home Page
 									<?php
 
 										$args = array(
+											'weekend-projects'	=> true,
 											'post_type' 		=> 'projects',
  											'posts_per_page'	=> 1,
  											'post__not_in'		=> $post_array,

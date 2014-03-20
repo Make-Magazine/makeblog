@@ -1762,6 +1762,7 @@ function make_post_card( $args ) {
 
 	while ( $the_query->have_posts() ) : $the_query->the_post();
 		$output .= '<a href="' . esc_url( get_permalink() ) . '">';
+		$output .= ( isset( $args[ 'weekend-projects'] ) ) ? '<img class="weekend-project-image" src="' . get_stylesheet_directory_uri() . '/img/WP02_Feature_banner_02.jpg" alt="Powered by RadioShack">' : '';
 		$output .= get_the_post_thumbnail( get_the_id(), 'small-home-feature-boxes' );
 		$title = get_post_meta( get_the_ID(), 'title_override', true );
 		$output .= ( ! empty( $title ) ) ? '<h4>' . make_trim_characters( esc_html( $title ), get_theme_mod( 'make_home_title_text' ) ) . '</h4>' : '<h4>' . make_trim_characters( get_the_title(), get_theme_mod( 'make_home_caption_taxt' ) ) . '</h4>';
