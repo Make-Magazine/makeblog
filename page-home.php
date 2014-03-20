@@ -348,19 +348,7 @@ Template Name: Home Page
 											'post__not_in'	=> $post_array,
 										);
 
-										$proj_query = new WP_Query( $args );
-
-										while ( $proj_query->have_posts() ) : $proj_query->the_post();
-											echo '<a href="'.get_permalink().'">';
-											the_post_thumbnail('small-home-feature-boxes');
-											$title = get_post_meta( get_the_ID(), 'title_override', true );
-											echo ( ! empty( $title ) ) ? '<h4>' . make_trim_characters( esc_html( $title ), 72 ) . '</h4>' : '<h4>' . make_trim_characters( get_the_title(), 72 ) . '</h4>';
-											echo '<p>'.wp_trim_words( strip_shortcodes( get_the_excerpt() ), 12 ).'</p>';
-											echo '</a>';
-										endwhile;
-
-										// Reset Post Data
-										wp_reset_postdata();
+										echo make_post_card( $args );
 
 									?>
 
@@ -401,19 +389,7 @@ Template Name: Home Page
 										);
 
 
-										$the_query = new WP_Query( $args );
-
-										while ( $the_query->have_posts() ) : $the_query->the_post();
-											echo '<a href="'.get_permalink().'">';
-											the_post_thumbnail('small-home-feature-boxes');
-											$title = get_post_meta( get_the_ID(), 'title_override', true );
-											echo ( ! empty( $title ) ) ? '<h4>' . make_trim_characters( esc_html( $title ), 72 ) . '</h4>' : '<h4>' . make_trim_characters( get_the_title(), 72 ) . '</h4>';
-											echo '<p>'.wp_trim_words( strip_shortcodes( get_the_excerpt() ), 12 ).'</p>';
-											echo '</a>';
-										endwhile;
-
-										// Reset Post Data
-										wp_reset_postdata();
+										echo make_post_card( $args );
 
 									?>
 
@@ -437,20 +413,7 @@ Template Name: Home Page
  											'post__not_in'	=> $post_array,
  										);
 
-										$the_query = new WP_Query( $args );
-
-										while ( $the_query->have_posts() ) : $the_query->the_post();
-											echo '<a href="'.get_permalink().'">';
-											the_post_thumbnail('small-home-feature-boxes');
-											$title = get_post_meta( get_the_ID(), 'title_override', true );
-											echo ( ! empty( $title ) ) ? '<h4>' . make_trim_characters( esc_html( $title ), 72 ) . '</h4>' : '<h4>' . make_trim_characters( get_the_title(), 72 ) . '</h4>';
-											echo '<p>'.wp_trim_words( strip_shortcodes( get_the_excerpt() ), 12 ).'</p>';
-											echo '</a>';
-										endwhile;
-
-										// Reset Post Data
-										wp_reset_postdata();
-
+										echo make_post_card( $args );
 									?>
 
 								</div>
@@ -473,22 +436,11 @@ Template Name: Home Page
 											'tag_id' => 115565268,
 											'posts_per_page'  => 1,
 											'no_found_rows' => true,
+											'post_type' => array( 'post', 'projects', 'review', 'video', 'magazine' ),
 											'post__not_in'	=> $post_array,
 										);
 
-										$the_query = new WP_Query( $args );
-
-										while ( $the_query->have_posts() ) : $the_query->the_post();
-											echo '<a href="'.get_permalink().'">';
-											the_post_thumbnail('small-home-feature-boxes');
-											$title = get_post_meta( get_the_ID(), 'title_override', true );
-											echo ( ! empty( $title ) ) ? '<h4>' . make_trim_characters( esc_html( $title ), 72 ) . '</h4>' : '<h4>' . make_trim_characters( get_the_title(), 72 ) . '</h4>';
-											echo '<p>'.wp_trim_words( strip_shortcodes( get_the_excerpt() ), 12 ).'</p>';
-											echo '</a>';
-										endwhile;
-
-										// Reset Post Data
-										wp_reset_postdata();
+										echo make_post_card( $args );
 
 									?>
 
@@ -507,6 +459,7 @@ Template Name: Home Page
 									<?php
 
 										$args = array(
+											'weekend-projects'	=> true,
 											'post_type' 		=> 'projects',
  											'posts_per_page'	=> 1,
  											'post__not_in'		=> $post_array,
@@ -519,20 +472,7 @@ Template Name: Home Page
 												)
  										);
 
-										$the_query = new WP_Query( $args );
-
-										while ( $the_query->have_posts() ) : $the_query->the_post();
-											echo '<a href="'.get_permalink().'">';
-											echo '<img class="weekend-project-image" src="' . get_stylesheet_directory_uri() . '/img/WP02_Feature_banner_02.jpg" alt="Powered by RadioShack">';
-											the_post_thumbnail('small-home-feature-boxes');
-											$title = get_post_meta( get_the_ID(), 'title_override', true );
-											echo ( ! empty( $title ) ) ? '<h4>' . make_trim_characters( esc_html( $title ), 72 ) . '</h4>' : '<h4>' . make_trim_characters( get_the_title(), 72 ) . '</h4>';
-											echo '<p>'.wp_trim_words( strip_shortcodes( get_the_excerpt() ), 12 ).'</p>';
-											echo '</a>';
-										endwhile;
-
-										// Reset Post Data
-										wp_reset_postdata();
+										echo make_post_card( $args );
 
 									?>
 

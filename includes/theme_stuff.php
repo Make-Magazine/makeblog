@@ -1,7 +1,7 @@
 <?php
 /**
  * General makeblog theme functions
- * 
+ *
  * @package    makeblog
  * @license    http://opensource.org/licenses/gpl-license.php  GNU Public License
  *
@@ -96,8 +96,8 @@ add_filter( 'infinite_scroll_archive_supported', 'make_adjust_infinite_scroll_su
  */
 $field_data = array (
 	'advanced_testgroup' => array (										// unique group id
-		'fields' => array(												// array "fields" with field definitions 
-			/** 
+		'fields' => array(												// array "fields" with field definitions
+			/**
 			  * @depracated
 			 */
 			'Big_Video'		=> array(									// globally unique field id
@@ -141,7 +141,7 @@ function make_get_short_title( $length ) {
  * A fancy schmancy method to stick a big video in the post area.
  *
  * The goal was to copy what BoingBoing was doing, editors never really got excited about it. Now, deprecated.
- * 
+ *
  * @deprecated 	Since January 2013.
  * @param 		$content
  * @return 		string $content with video.
@@ -165,7 +165,7 @@ function make_insert_video($content) {
 				else {
 					return $content;
 				}
-				
+
 }
 add_filter('the_excerpt_rss', 'make_insert_video');
 add_filter('the_content_rss', 'make_insert_video');
@@ -173,10 +173,10 @@ add_filter('the_content_rss', 'make_insert_video');
 
 
 /**
- * Method for cleaning content. 
+ * Method for cleaning content.
  *
  * This is some old code that Stefan wrote back in the day.
- * 
+ *
  * @deprecated 	Since January 2013.
  * @param 		string $text Text to be cleaned.
  * @return 		string Cleaned text
@@ -192,18 +192,18 @@ function make_richClean($text) {
 		array(chr(145), chr(146), chr(147), chr(148), chr(150), chr(151), chr(133)),
 		array("'", "'", '"', '"', '-', '--', '...'),
 	$text);
-	
+
 	return($text);
 }
 
 add_action('widgets_init', 'make_register_sidebar');
 /**
  * Register the WordPress sidebar to site.
- * 
+ *
  */
 function make_register_sidebar() {
 	if( function_exists('register_sidebar')) {
-		register_sidebar( 
+		register_sidebar(
 			array(
 				'id'=>'sidebar_top',
 				'name'=>__('Sidebar Top'),
@@ -214,7 +214,7 @@ function make_register_sidebar() {
 				'after_title'=>'</h3>'
 			)
 		);
-		register_sidebar( 
+		register_sidebar(
 			array(
 				'id'=>'sidebar_bottom',
 				'name'=>__('Sidebar Bottom'),
@@ -225,7 +225,7 @@ function make_register_sidebar() {
 				'after_title'=>'</h3>'
 			)
 		);
-		register_sidebar( 
+		register_sidebar(
 			array(
 				'id'=>'sidebar_weekend_projects',
 				'name'=>__('Weekend Projects Sidebar'),
@@ -240,7 +240,7 @@ function make_register_sidebar() {
 }
 
 // This bit is added so that we can get a fresher read on the stuff. Notably the Maker Faire feed for live events.
-add_filter( 'wp_feed_cache_transient_lifetime', create_function( '$a', 'return 900;' ) );
+add_filter( 'wp_feed_cache_transient_lifetime', function() { return 900; } );
 
 
 /**
@@ -280,7 +280,7 @@ function make_load_resources() {
 	wp_enqueue_script( 'make-projects', get_stylesheet_directory_uri() . '/js/projects.js', array( 'jquery' ), false, true );
 	wp_enqueue_script( 'make-header', get_stylesheet_directory_uri() . '/js/header.js', array( 'jquery' ), false, true );
 	wp_enqueue_script( 'make-oembed', get_stylesheet_directory_uri() . '/js/jquery.oembed.js', array( 'jquery' ) );
-	
+
 	// display our map sort plugin for Maker Camp
 	if ( is_page( 315793 ) )
 		wp_enqueue_script( 'make-sort-table', get_stylesheet_directory_uri() . '/js/jquery.tablesorter.min.js', array( 'jquery' ), false, true );
@@ -314,7 +314,7 @@ add_action( 'admin_enqueue_scripts', 'make_enqueue_resources_admin' );
 
 /**
  * Catch a description for the OG protocol
- * 
+ *
  * @deprecated 	Since January 2013.
  * @param 		string $post->post_content to be trimmed, stripped, and shortened.
  * @return 		string Cleansed text.
@@ -328,16 +328,16 @@ function make_catch_that_desc() {
 
 /**
  * List all Makers that are associated with the post.
- * 
+ *
  * @deprecated 	Since January 2013.
  * @return 		string List of Makers
  */
 function make_makers() {
-	
+
 	$terms = get_the_terms(get_the_ID(), 'maker');
 	$count = count($terms);
 		if($terms > 0) {
-			
+
 			echo '<hr>';
 			echo '<h4>Makers in this post:</h4>';
 			the_terms( get_the_ID(), 'maker');
@@ -352,7 +352,7 @@ function make_makers() {
 
 /**
  * List all Makers that are associated with the post.
- * 
+ *
  * Grabs the feed of featured products, randomizes it, and then spits out the products at the bottom of blog posts and archive pages.
  * @return 	string HTML for featured products.
  */
@@ -390,7 +390,7 @@ function make_featured_products() {
 	<div class="twenty-five">
 
 	<a href="http://www.makershed.com/ProductDetails.asp?&Click=107309&ProductCode=<?php echo $products[$arr[0]]->ProductCode; ?>">
-		<?php 
+		<?php
 			if ( function_exists( 'wpcom_vip_get_resized_remote_image_url' ) ) {
 				echo '<img src="' . wpcom_vip_get_resized_remote_image_url( $products[$arr[0]]->PhotoURL, 115, 115 ) . '" alt="'. $products[$arr[0]]->ProductName.'" />';
 			} else {
@@ -398,15 +398,15 @@ function make_featured_products() {
 			}
 		?>
 	</a>
-	
+
 	<div class="clear"></div>
-	
+
 	<div class="blurb">
-	
+
 		<h4><a href="http://www.makershed.com/ProductDetails.asp?&Click=107309&ProductCode=<?php echo $products[$arr[0]]->ProductCode; ?>"><?php echo $products[$arr[0]]->ProductName; ?></a></h4>
-	
+
 	</div>
-	
+
 	</div>
 
 <?php } ?>
@@ -416,7 +416,7 @@ function make_featured_products() {
 <div class="twenty-five">
 
 	<a href="http://www.makershed.com/ProductDetails.asp?&Click=107309&ProductCode=<?php echo $products[$arr[1]]->ProductCode; ?>">
-		<?php 
+		<?php
 			if ( function_exists( 'wpcom_vip_get_resized_remote_image_url' ) ) {
 				echo '<img src="' . wpcom_vip_get_resized_remote_image_url( $products[$arr[1]]->PhotoURL, 115, 115 ) . '" alt="'. $products[$arr[1]]->ProductName.'" />';
 			} else {
@@ -424,7 +424,7 @@ function make_featured_products() {
 			}
 		?>
 	</a>
-	
+
 <div class="clear"></div>
 
 <div class="blurb">
@@ -440,9 +440,9 @@ function make_featured_products() {
 <?php if (isset($products[$arr[2]])) { ?>
 
 	<div class="twenty-five">
-	
+
 	<a href="http://www.makershed.com/ProductDetails.asp?&Click=107309&ProductCode=<?php echo $products[$arr[2]]->ProductCode; ?>">
-		<?php 
+		<?php
 			if ( function_exists( 'wpcom_vip_get_resized_remote_image_url' ) ) {
 				echo '<img src="' . wpcom_vip_get_resized_remote_image_url( $products[$arr[2]]->PhotoURL, 115, 115) . '" alt="'. $products[$arr[2]]->ProductName.'" />';
 			} else {
@@ -450,17 +450,17 @@ function make_featured_products() {
 			}
 		?>
 	</a>
-	
+
 	<div class="clear"></div>
-	
+
 	<div class="blurb">
-	
+
 		<h4><a href="http://www.makershed.com/ProductDetails.asp?&Click=107309&ProductCode=<?php echo $products[$arr[2]]->ProductCode; ?>"><?php echo $products[$arr[2]]->ProductName; ?></a></h4>
-		
+
 	</div>
-	
+
 	</div>
-	
+
 <?php } ?>
 
 <?php if (isset($products[$arr[3]])) { ?>
@@ -468,7 +468,7 @@ function make_featured_products() {
 <div class="twenty-five">
 
 	<a href="http://www.makershed.com/ProductDetails.asp?&Click=107309&ProductCode=<?php echo $products[$arr[3]]->ProductCode; ?>">
-		<?php 
+		<?php
 			if ( function_exists( 'wpcom_vip_get_resized_remote_image_url' ) ) {
 				echo '<img src="' . wpcom_vip_get_resized_remote_image_url( $products[$arr[3]]->PhotoURL, 115, 115 ) . '" alt="'. $products[$arr[2]]->ProductName.'" />';
 			} else {
@@ -476,13 +476,13 @@ function make_featured_products() {
 			}
 		?>
 	</a>
-	
+
 <div class="clear"></div>
 
 <div class="blurb">
 
 	<h4><a href="http://www.makershed.com/ProductDetails.asp?&Click=107309&ProductCode=<?php echo $products[$arr[3]]->ProductCode; ?>"><?php echo $products[$arr[3]]->ProductName; ?></a></h4>
-	
+
 </div>
 
 </div>
@@ -562,7 +562,7 @@ function make_get_category_name() {
 		$cat = get_queried_object();
 	}
 	if (is_single() || is_category()) {
-		$output = '/';	
+		$output = '/';
 	} else {
 		$output = null;
 	}
@@ -607,7 +607,7 @@ function make_add_custom_types( $query ) {
 		} else {
 			$query->set( 'post_type', array( 'post', 'craft', 'projects', 'video', 'review', 'magazine' ) );
 		}
-		
+
 		return $query;
 	}
 }
@@ -695,7 +695,7 @@ function make_qualtrics_script() {
 		var q_viewrate = <?php echo esc_js( intval( make_get_cap_option( 'qualtrics_script_percent' ) ) ); ?>;
 		var url = 'http://s.qualtrics.com/ControlPanel/Graphic.php?IM=IM_ef9i42Jt6yJs8OV&V=1378824622';
 		if ( Math.random() < q_viewrate / 100 ){
-			var q_popup_f = function(){ 
+			var q_popup_f = function(){
 				var q_script = document.createElement("script");
 				var q_popup_g = function(){
 					new QualtricsEmbeddedPopup( {
@@ -715,7 +715,7 @@ function make_qualtrics_script() {
 					});
 				};
 				q_script.onreadystatechange= function () {
-					if (this.readyState == "loaded") 
+					if (this.readyState == "loaded")
 						q_popup_g();
 				};
 				q_script.onload = q_popup_g;
@@ -894,7 +894,7 @@ function add_page_2_article_counts() {
 			if ( current_user_can( 'edit_posts' ) ) {
 				$url = admin_url( 'edit.php?post_status=pending&post_type=page_2' );
 				$num = '<a href="'.$url.'">'.$num.'</a>';
-				$text = '<a href="'.$url.'">'.$text.'</a>';	
+				$text = '<a href="'.$url.'">'.$text.'</a>';
 			}
 			echo '<td class="first b b-page_2">' . $num . '</td>';
 			echo '<td class="t b-page_2">' . $text . '</td>';
@@ -921,7 +921,7 @@ function make_cat_change() {
 			dropdown.onchange = onCatChange;
 		</script>
 
-<?php } 
+<?php }
 
 }
 
@@ -932,25 +932,25 @@ function make_cat_change() {
  */
 function make_get_better_tag_title( $title = null ) {
 	if ( $title == null ) {
-		$title = single_cat_title('', false);	
+		$title = single_cat_title('', false);
 	}
 	$machine = array(
-		'robotskills', 
-		'castmat', 
-		'advancedmaterials', 
-		'reusedmat', 
-		'plywoodmat', 
-		'naturalmaterials', 
-		'naturalmaterial', 
-		'metalmat', 
-		'ceramicsmat', 
-		'concretematerial', 
-		'circuitskills', 
-		'electronskills', 
-		'foodskills', 
-		'hobbyskills', 
-		'machineskills', 
-		'MechanicSkills', 
+		'robotskills',
+		'castmat',
+		'advancedmaterials',
+		'reusedmat',
+		'plywoodmat',
+		'naturalmaterials',
+		'naturalmaterial',
+		'metalmat',
+		'ceramicsmat',
+		'concretematerial',
+		'circuitskills',
+		'electronskills',
+		'foodskills',
+		'hobbyskills',
+		'machineskills',
+		'MechanicSkills',
 		'metalskills',
 		'Photo Skills',
 		'plasticskills',
@@ -962,22 +962,22 @@ function make_get_better_tag_title( $title = null ) {
 		'greatcreate'
 		);
 	$human   = array(
-		'Robot Skill Builder', 
-		'Casting Materials', 
-		'Advanced Mataerials', 
-		'Reused Materials', 
-		'Plywood', 
-		'Natural Materials', 
-		'Natural Materials', 
-		'Metal', 
-		'Ceramics', 
-		'Concrete', 
+		'Robot Skill Builder',
+		'Casting Materials',
+		'Advanced Mataerials',
+		'Reused Materials',
+		'Plywood',
+		'Natural Materials',
+		'Natural Materials',
+		'Metal',
+		'Ceramics',
+		'Concrete',
 		'Circuit Skill Builder',
-		'Electronics Skill Builder', 
+		'Electronics Skill Builder',
 		'Food Skill Builder',
-		'Hobby Skill Builder', 
-		'Machining Skill Builder', 
-		'Mechanic Skill Builder', 
+		'Hobby Skill Builder',
+		'Machining Skill Builder',
+		'Mechanic Skill Builder',
 		'Metal Skill Builder',
 		'Photo Skill Builder',
 		'Plastic Skill Builder',
@@ -1003,7 +1003,7 @@ function make_projects_title_change( $title ) {
 		case 'projects':
 			$title = 'New Project: ' . $title;
 			break;
-		
+
 		case 'review':
 			$title = 'New Review: ' . $title;
 			break;
@@ -1033,7 +1033,7 @@ add_filter('the_excerpt_rss', 'make_rss_post_thumbnail');
 add_filter('the_content_feed', 'make_rss_post_thumbnail');
 
 
-add_filter( 'the_content', 'make_add_sharing_to_content_top' ); 
+add_filter( 'the_content', 'make_add_sharing_to_content_top' );
 
 /**
  * Adds the WordPress.com sharing bar to the top of posts.
@@ -1042,8 +1042,8 @@ function make_add_sharing_to_content_top( $content ) {
 
 	if ( function_exists( 'sharing_display') )
 		$content = sharing_display() . $content;
-		
-	return $content; 
+
+	return $content;
 }
 
 /**
@@ -1264,11 +1264,11 @@ function make_daily_themes() {
 			$output .= '<strong>Family Friday:</strong> ';
 		$output .= get_the_title( $post->ID );
 		$output .= '</a></li>';
-		
+
 	}
 	$output .= '</ul>';
 	return $output;
-	
+
 	wp_reset_query();
 }
 
@@ -1309,7 +1309,7 @@ function make_post_type_better_name( $name ) {
 		return 'reviews';
 	} elseif ( $name == 'craft' ) {
 		return 'craft';
-	} 
+	}
 }
 
 add_action( 'init', 'make_allow_data_atts' );
@@ -1317,7 +1317,7 @@ function make_allow_data_atts() {
 	global $allowedposttags;
 
 	$tags = array( 'div,a,li' );
-	$new_attributes = array( 
+	$new_attributes = array(
 		'data-toggle'	=> true,
 		'data-dismiss'	=> true,
 		'data-slide'	=> true,
@@ -1329,17 +1329,17 @@ function make_allow_data_atts() {
 	}
 }
 
-add_filter('tiny_mce_before_init', 'make_filter_tiny_mce_before_init'); 
-function make_filter_tiny_mce_before_init( $options ) { 
+add_filter('tiny_mce_before_init', 'make_filter_tiny_mce_before_init');
+function make_filter_tiny_mce_before_init( $options ) {
 
-	if ( ! isset( $options['extended_valid_elements'] ) ) 
-		$options['extended_valid_elements'] = ''; 
+	if ( ! isset( $options['extended_valid_elements'] ) )
+		$options['extended_valid_elements'] = '';
 
 	$options['extended_valid_elements'] .= ',a[data*|class|id|style|href]';
 	$options['extended_valid_elements'] .= ',li[data*|class|id|style]';
 	$options['extended_valid_elements'] .= ',div[data*|class|id|style]';
 
-	return $options; 
+	return $options;
 }
 
 add_filter( 'wpcom_sitemap_post_types', 'make_sitemap_add_gallery_post_type' );
@@ -1377,32 +1377,32 @@ add_action( 'init', 'make_register_menu' );
 add_filter( 'wp_kses_allowed_html', 'mf_allow_data_atts', 10, 2 );
 function mf_allow_data_atts( $allowedposttags, $context ) {
 	$tags = array( 'div', 'a', 'li' );
-	$new_attributes = array( 
+	$new_attributes = array(
 		'data-toggle' 	=> true,
 		'data-dismiss' 	=> true,
 		'data-interval'	=> true,
 		);
- 
+
 	foreach ( $tags as $tag ) {
 		if ( isset( $allowedposttags[ $tag ] ) && is_array( $allowedposttags[ $tag ] ) )
 			$allowedposttags[ $tag ] = array_merge( $allowedposttags[ $tag ], $new_attributes );
 	}
-	
+
 	return $allowedposttags;
 }
 
 
-add_filter('tiny_mce_before_init', 'mf_filter_tiny_mce_before_init'); 
-function mf_filter_tiny_mce_before_init( $options ) { 
+add_filter('tiny_mce_before_init', 'mf_filter_tiny_mce_before_init');
+function mf_filter_tiny_mce_before_init( $options ) {
 
-	if ( ! isset( $options['extended_valid_elements'] ) ) 
-		$options['extended_valid_elements'] = ''; 
+	if ( ! isset( $options['extended_valid_elements'] ) )
+		$options['extended_valid_elements'] = '';
 
 	$options['extended_valid_elements'] .= ',a[data*|class|id|style|href]';
 	$options['extended_valid_elements'] .= ',li[data*|class|id|style]';
 	$options['extended_valid_elements'] .= ',div[data*|class|id|style]';
 
-	return $options; 
+	return $options;
 }
 
 
@@ -1429,10 +1429,10 @@ function make_get_author( $post_id, $prefix = 'By' ) {
 	echo '<li>';
 	echo esc_attr( $prefix ) . ' ';
 
-	if( function_exists( 'coauthors_posts_links' ) ) {	
-		coauthors_posts_links(); 
-	} else { 
-		the_author_posts_link(); 
+	if( function_exists( 'coauthors_posts_links' ) ) {
+		coauthors_posts_links();
+	} else {
+		the_author_posts_link();
 	}
 
 	echo '</li>';
@@ -1454,7 +1454,7 @@ function make_add_post_types_to_feed( $query_var ) {
 		$query_var['post_type'] = array( 'post', 'projects', 'review', 'video', 'magazine' );
 
 	return $query_var;
-	
+
 }
 add_filter( 'request', 'make_add_post_types_to_feed' );
 
@@ -1482,17 +1482,17 @@ function make_popdown_menu() { ?>
 					<div class="span2 border-right">
 						<?php wp_nav_menu( array(
 							'theme_location'  => 'popdown-menu-top',
-							'container'       => false, 
+							'container'       => false,
 							'menu_class'      => 'first nav ga-nav',
-							'depth'           => 1 
+							'depth'           => 1
 						) ); ?>
 					</div>
 					<div class="span4">
 						<?php wp_nav_menu( array(
 							'theme_location'  => 'popdown-menu-middle',
-							'container'       => false, 
+							'container'       => false,
 							'menu_class'      => 'second nav ga-nav',
-							'depth'           => 1 
+							'depth'           => 1
 						) ); ?>
 					</div>
 				</div>
@@ -1501,9 +1501,9 @@ function make_popdown_menu() { ?>
 						<p>What's Hot on Makezine.com:</p>
 						<?php wp_nav_menu( array(
 							'theme_location'  => 'popdown-menu-last',
-							'container'       => false, 
+							'container'       => false,
 							'menu_class'      => 'last nav ga-nav',
-							'depth'           => 1 
+							'depth'           => 1
 						) ); ?>
 					</div>
 				</div>
@@ -1538,7 +1538,7 @@ function make_remove_metaboxes_for_authors() {
 		remove_meta_box( 'edit-flow-editorial-comments', 'review', 'normal' );
 		remove_meta_box( 'edit-flow-editorial-comments', 'craft', 'normal' );
 		remove_meta_box( 'edit-flow-editorial-comments', 'video', 'normal' );
-		
+
 		// Remove Edit Flow Notifications
 		remove_meta_box( 'edit-flow-notifications', 'post', 'advanced' );
 		remove_meta_box( 'edit-flow-notifications', 'projects', 'advanced' );
@@ -1621,7 +1621,7 @@ function make_remove_admin_areas_for_authors() {
 add_action( 'admin_menu', 'make_remove_admin_areas_for_authors' );
 
 /**
- * Function to generate the title tags for page heads.	
+ * Function to generate the title tags for page heads.
  */
 function make_generate_title_tag() {
 	$output = '';
@@ -1638,7 +1638,7 @@ function make_generate_title_tag() {
 }
 
 /**
- * Generate a description for the meta description tag. 
+ * Generate a description for the meta description tag.
  *
  * On the home page, use the bloginfo() description, if a single page, use 20 words of the post content. At some point, need to use the excerpt if it exists, then default to the post content. At the end, run it through esc_attr().
  */
@@ -1684,7 +1684,7 @@ function make_copyright_footer() { ?>
 			<p><?php if ( function_exists('vip_powered_wpcom') ) { echo vip_powered_wpcom(4); } ?></p>
 		</div>
 	</div>
-<?php } 
+<?php }
 
 
 /**
@@ -1712,7 +1712,7 @@ $field_data = array (
 				'label' 		=> 'Title Override',
 				'hint'			=> 'Use this to create a custom shortened title.',
 				'type' 			=> 'text',
-				),		
+				),
 		),
 		'title' => 'Post Override',
 		'context' => 'advanced',
@@ -1733,12 +1733,12 @@ function make_get_post_template() {
 						'label' 		=> 'First Row',
 						'hint'			=> 'Insert a shortcode here, or anything else that you want to spit out...',
 						'type' 			=> 'text',
-						),		
+						),
 					'second_row'	=> array(
 						'label' 		=> 'Second Row',
 						'hint'			=> 'Insert a shortcode here, or anything else that you want to spit out...',
 						'type' 			=> 'text',
-						),		
+						),
 				),
 				'title' => 'Weekend Projects Sliders',
 				'context' => 'advanced',
@@ -1752,3 +1752,26 @@ function make_get_post_template() {
 }
 
 add_filter( 'init', 'make_get_post_template' );
+
+
+function make_post_card( $args ) {
+
+	$the_query = new WP_Query( $args );
+
+	$output = '';
+
+	while ( $the_query->have_posts() ) : $the_query->the_post();
+		$output .= '<a href="' . esc_url( get_permalink() ) . '">';
+		$output .= ( isset( $args[ 'weekend-projects'] ) ) ? '<img class="weekend-project-image" src="' . get_stylesheet_directory_uri() . '/img/WP02_Feature_banner_02.jpg" alt="Powered by RadioShack">' : '';
+		$output .= get_the_post_thumbnail( get_the_id(), 'small-home-feature-boxes' );
+		$title = get_post_meta( get_the_ID(), 'title_override', true );
+		$output .= ( ! empty( $title ) ) ? '<h4>' . make_trim_characters( esc_html( $title ), get_theme_mod( 'make_home_title_text' ) ) . '</h4>' : '<h4>' . make_trim_characters( get_the_title(), get_theme_mod( 'make_home_caption_taxt' ) ) . '</h4>';
+		$output .= Markdown( make_trim_characters( strip_shortcodes( get_the_excerpt() ), get_theme_mod( 'make_home_caption_taxt' ) ) );
+		$output .= '</a>';
+	endwhile;
+
+	// Reset Post Data
+	wp_reset_postdata();
+
+	return $output;
+}
