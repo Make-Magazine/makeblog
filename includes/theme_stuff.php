@@ -1752,3 +1752,25 @@ function make_get_post_template() {
 }
 
 add_filter( 'init', 'make_get_post_template' );
+
+
+function make_post_card( $args ) {
+
+	$the_query = new WP_Query( $args );
+
+	$output = '';
+
+	while ( $the_query->have_posts() ) : $the_query->the_post();
+		$output .= '<a href="' . esc_url( get_permalink() ) . '">';
+		$output .= get_the_post_thumbnail( get_the_id(), 'small-home-feature-boxes' );
+		$title = get_post_meta( get_the_ID(), 'title_override', true );
+		$output .= ( ! empty( $title ) ) ? '<h4>' . make_trim_characters( esc_html( $title ), 72 ) . '</h4>' : '<h4>' . make_trim_characters( get_the_title(), 72 ) . '</h4>';
+		$output .= Markdown( wp_trim_words( strip_shortcodes( get_the_excerpt() ), 12 ) );
+		$output .= '</a>';
+	endwhile;
+
+	// Reset Post Data
+	wp_reset_postdata();
+
+	return $output;
+}

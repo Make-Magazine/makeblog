@@ -919,5 +919,31 @@ function make_default_home( $wp_customize ) {
 		'priority' => 20,
 	) );
 
+	// Register the html for the page.
+	$wp_customize->add_setting( 'make_home_title_text', array(
+		'default' => '',
+		'sanitize_callback' => 'intval',
+	) );
+
+	$wp_customize->add_control( 'make_home_title_text', array(
+		'section' => 'make_home',
+		'label' => 'Link for the banner',
+		'type' => 'text',
+		'priority' => 20,
+	) );
+
+	// Register the html for the page.
+	$wp_customize->add_setting( 'make_home_caption_taxt', array(
+		'default' => '',
+		'sanitize_callback' => 'intval',
+	) );
+
+	$wp_customize->add_control( 'make_home_caption_taxt', array(
+		'section' => 'make_home',
+		'label' => 'Link for the banner',
+		'type' => 'text',
+		'priority' => 20,
+	) );
+
 }
 add_action( 'customize_register', 'make_default_home' );
