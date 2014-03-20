@@ -84,7 +84,7 @@ add_action( 'after_setup_theme', 'make_action_after_setup_theme' );
  * @since P-body
  */
 function make_adjust_infinite_scroll_support() {
-	$supported = current_theme_supports( 'infinite-scroll' ) && ( is_home() || is_archive() || is_author() );
+	$supported = current_theme_supports( 'infinite-scroll' ) && ( is_home() || is_author() );
 
 	return $supported;
 }
