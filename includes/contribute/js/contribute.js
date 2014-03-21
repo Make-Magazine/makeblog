@@ -20,7 +20,7 @@ jQuery( document ).ready( function( $ ) {
 		$( '.contribute-form' ).slideUp();
 
 		// Added this for Cole... - Cole appreciates it.
-		make_contribute_loading_screen();
+		make_contribute_loading_screen( '.post-content' );
 
 		// Save the form, pushing the data back.
 		tinyMCE.triggerSave();
@@ -142,7 +142,7 @@ jQuery( document ).ready( function( $ ) {
 		$( '.contribute-form-steps' ).slideUp();
 
 		// Added this for Cole...
-		make_contribute_loading_screen();
+		make_contribute_loading_screen( '.steps-progress' );
 
 		// Let's get the steps initialized.
 		var form = $( 'contribute-form-steps' );
@@ -278,7 +278,7 @@ function make_contribute_add_gigya_id( uid ) {
 /**
  * Add some nifty loading text that is nerdy and fun
  */
-function make_contribute_loading_screen() {
+function make_contribute_loading_screen( selector ) {
 	jQuery( '.post-holder' ).fadeIn();
 
 	var time = 1500;
@@ -298,7 +298,7 @@ function make_contribute_loading_screen() {
 	// Randomly get our text on each call (does it 1 - 10)
 	var index = Math.floor( ( Math.random() * 10 ) + 1 );
 
-	jQuery( '.post-content' ).html( '<h3 class="loading-text" style="text-align:center">' + text[ index ] + '</h3><div class="progress progress-striped active"><div class="bar" style="width: 100%;"></div></div>' );
+	jQuery( selector ).html( '<h3 class="loading-text" style="text-align:center">' + text[ index ] + '</h3><div class="progress progress-striped active"><div class="bar" style="width: 100%;"></div></div>' );
 
 	// Change the loading text every 5 seconds
 	var interval_id = setInterval( function() {
