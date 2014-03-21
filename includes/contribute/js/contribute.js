@@ -283,6 +283,7 @@ function make_contribute_loading_screen() {
 
 	var time = 1500;
 	var text = [
+		'', // Pass an empty variable here as our random number goes from 1-10 and 0 will never be called
 		'Adjusting tension bolts',
 		'Calculating feeds & speeds',
 		'Preheating print gun',
