@@ -505,7 +505,9 @@ function make_projects_to_s3( $haystack ) {
 		return $haystack;
 	}
 	$str = str_replace( $needle, $replace, $haystack);
-	if ( strpos($str, 'make-images') !== true ) {
+	$allowed =  array('gif','png' ,'jpg');
+	$ext = pathinfo( $str, PATHINFO_EXTENSION );
+	if( ! in_array( $ext, $allowed ) ) {
 		return $str . '.jpg';
 	} else {
 		return $str;
