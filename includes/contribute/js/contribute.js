@@ -1,5 +1,9 @@
 jQuery( document ).ready( function( $ ) {
 
+	// Load the nifty file input styling for Bootstrap
+	$('input[type=file]').bootstrapFileInput();
+	$('.file-inputs').bootstrapFileInput();
+
 	// Let's hide all of the steps.
 	$( '.contribute-form-steps, .contribute-form-parts, .contribute-form-tools' ).hide();
 
@@ -16,8 +20,8 @@ jQuery( document ).ready( function( $ ) {
 		// Hide the form
 		$( '.contribute-form' ).slideUp();
 
-		// Added this for Cole...
-		$( '.post-content' ).html( '<h3 style="text-align:center">Working...</h3><div class="progress progress-striped active"><div class="bar" style="width: 100%;"></div></div>' );
+		// Added this for Cole... - Cole appreciates it.
+		make_contribute_loading_screen();
 
 		// Save the form, pushing the data back.
 		tinyMCE.triggerSave();
@@ -139,7 +143,7 @@ jQuery( document ).ready( function( $ ) {
 		$( '.contribute-form-steps' ).slideUp();
 
 		// Added this for Cole...
-		$( '.steps-progress' ).html( '<h3 style="text-align:center">Working...</h3><div class="progress progress-striped active"><div class="bar" style="width: 100%;"></div></div>' );
+		make_contribute_loading_screen();
 
 		// Let's get the steps initialized.
 		var form = $( 'contribute-form-steps' );
@@ -214,8 +218,8 @@ jQuery( document ).ready( function( $ ) {
 			data: form,
 			type: 'POST',
 			success: function( data ){
-				$('.steps-progress').html('');
-				$('.steps-output').html( data );
+				$( '.steps-progress' ).html('');
+				$( '.steps-output' ).html( data );
 			}
 		});
 
@@ -230,7 +234,7 @@ jQuery( document ).ready( function( $ ) {
 			data: form,
 			type: 'POST',
 			success: function( data ){
-				$('.steps-list-output').html( data );
+				$( '.steps-list-output' ).html( data );
 			}
 		});
 
@@ -268,4 +272,41 @@ function make_contribute_add_gigya_id( uid ) {
 	jQuery( 'input.user_id[type="hidden"]' ).each( function() {
 		jQuery( this ).val( uid );
 	});
+}
+
+
+/**
+ * Add some nifty loading text that is nerdy and fun
+ */
+function make_contribute_loading_screen() {
+	var time = 1500;
+	var text = [
+		'Adjusting tension bolts',
+		'Calculating feeds & speeds',
+		'Preheating print gun',
+		'Zeroing out CNC Machine...',
+		'Waiting for glue to dry',
+		'Energizing primary coil...',
+		'Reticulating splines',
+		'Rendering mesh',
+		'Slicing object layer',
+		'Doing science'
+	];
+	// Randomly get our text on each call (does it 1 - 10)
+	var index = Math.floor( ( Math.random() * 10 ) + 1 );
+
+	jQuery( '.post-content' ).html( '<h3 class="loading-text" style="text-align:center">' + text[ index ] + '</h3><div class="progress progress-striped active"><div class="bar" style="width: 100%;"></div></div>' );
+
+	// Change the loading text every 5 seconds
+	var interval_id = setInterval( function() {
+		// Reset the Index on each new interval
+		index = Math.floor( ( Math.random() * 10 ) + 1 );
+
+		// Only run as long as the loading text is present
+		if ( jQuery( '.loading-text' ).length === 1 ) {
+			jQuery( '.post-content' ).find( '.loading-text' ).text(  text[ index ] + '...' );
+		} else {
+			clearInterval( interval_id );
+		}
+	}, time );
 }
