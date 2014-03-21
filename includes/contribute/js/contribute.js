@@ -244,8 +244,9 @@ jQuery( document ).ready( function( $ ) {
 //////////////////////
 // Take the saved data, and display it on the page.
 function make_contribute_post_filler( data ) {
+	jQuery( '.post-holder' ).fadeIn();
 	jQuery( '.post-content' ).html();
-	jQuery( '.post-title' ).html( 'Submitted:  ' + data.post_title );
+	jQuery( '.post-title' ).html( data.post_title );
 	jQuery( '.post-content' ).html( data.post_content );
 }
 
@@ -278,6 +279,8 @@ function make_contribute_add_gigya_id( uid ) {
  * Add some nifty loading text that is nerdy and fun
  */
 function make_contribute_loading_screen() {
+	jQuery( '.post-holder' ).fadeIn();
+
 	var time = 1500;
 	var text = [
 		'Adjusting tension bolts',

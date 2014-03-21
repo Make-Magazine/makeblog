@@ -18,7 +18,17 @@ get_header(); ?>
 
 					<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 
-						<article <?php post_class(); ?>>
+						<article class="post-holder category-top" style="display:none;">
+							<h3 class="submitted-title">Preview</h3>
+							<header class="projects-masthead">
+								<h1 class="post-title"></h1>
+							</header>
+							<section class="post-content"></section>
+						</article>
+
+						<div class="steps-progress"></div>
+
+						<section <?php post_class(); ?>>
 
 							<!-- Contribute -->
 							<form class="form form-horizontal contribute-form" method="post">
@@ -64,15 +74,6 @@ get_header(); ?>
 									</div>
 								</fieldset>
 							</form>
-
-							<article class="post-holder category-top">
-								<header class="projects-masthead">
-									<h1 class="post-title"></h1>
-								</header>
-								<section class="post-content"></section>
-							</article>
-
-							<div class="steps-progress"></div>
 
 							<!-- Steps -->
 							<form class="form form-horizontal contribute-form-steps" action="add_steps" method="post">
@@ -350,7 +351,7 @@ get_header(); ?>
 									</div>
 								</fieldset>
 							</form>
-						</article>
+						</section>
 
 					<?php endwhile; else: endif; ?>
 
