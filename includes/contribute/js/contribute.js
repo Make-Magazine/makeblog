@@ -1,7 +1,6 @@
 jQuery( document ).ready( function( $ ) {
 
 	// Load the nifty file input styling for Bootstrap
-	$('input[type=file]').bootstrapFileInput();
 	$('.file-inputs').bootstrapFileInput();
 
 	// Let's hide all of the steps.

@@ -12332,6 +12332,9 @@ aside.pull-quote.pull-quote-1.pull-left img {
 .page-template-page-contribute-project-php .wp-editor-container {
   border: 1px solid #dedede;
 }
+.page-template-page-contribute-project-php .projects-masthead {
+  padding-top: 0;
+}
 .btn-file {
   overflow: hidden;
   position: relative;

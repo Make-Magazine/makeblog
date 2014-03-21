@@ -55,7 +55,7 @@ get_header(); ?>
 									<div class="control-group">
 										<label class="control-label" for="browse_file">Image</label>
 										<div class="controls">
-											<input type="file" name="" value="" id="file" multiple>
+											<input type="file" name="" value="" title="Add One or More Images" id="file" class="file-inputs" multiple>
 										</div>
 									</div>
 									<div class="form-actions">
@@ -69,9 +69,8 @@ get_header(); ?>
 								<header class="projects-masthead">
 									<h1 class="post-title"></h1>
 								</header>
-								<section class="post-content">
-								</section>
-							</section>
+								<section class="post-content"></section>
+							</article>
 
 							<div class="steps-progress"></div>
 
