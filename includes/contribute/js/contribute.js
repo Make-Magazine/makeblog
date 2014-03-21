@@ -37,7 +37,7 @@ jQuery( document ).ready( function( $ ) {
 		// Append all of the other field.s
 		data.append( 'contribute_post',	$( '.contribute-form #contribute_post' ).val() );
 		data.append( 'post_title',		$( '.contribute-form #post_title' ).val() );
-		data.append( 'user_id',			$( '.contribute-form user_id' ).val() );
+		data.append( 'user_id',			$( '.contribute-form #user_id' ).val() );
 		data.append( 'post_content',	tinyMCE.activeEditor.getContent() );
 		data.append( 'cat',				$( '.contribute-form #cat' ).val() );
 		data.append( 'post_type',		$( this ).data( 'type' ) );
@@ -244,7 +244,6 @@ jQuery( document ).ready( function( $ ) {
 //////////////////////
 // Take the saved data, and display it on the page.
 function make_contribute_post_filler( data ) {
-	jQuery( '.post-holder' ).fadeIn();
 	jQuery( '.post-content' ).html();
 	jQuery( '.post-title' ).html( data.post_title );
 	jQuery( '.post-content' ).html( data.post_content );

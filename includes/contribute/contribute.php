@@ -149,15 +149,17 @@ class Make_Contribute {
 
 
 	/**
-	 * Allows us to determine if the contributing author is a WordPress user or Guest Author based on the ID passed
+	 * Allows us to determine if the contributing author is a WordPress user or Guest Author based on the ID passed and return their username
+	 * @return string
 	 *
-	 * @since
+	 * @since  Robot House
 	 */
-	function get_author_id( $id ) {
+	function get_author_name( $id ) {
+		// Gigya always passes IDs as long strings, if it's an integer, then we have a WP user
+		if ( absint( $id ) && $id !== '0' ) {
+			$author_name = get_the_author_meta( 'user_login', absint( $id ) );
 
-		// Gigya always passed IDs as long strings, if it's an integer, then we have a WP user
-		if ( is_int( $id ) ) {
-			return array( 'post_author' => $id );
+			return array( 'post_author' => $id, 'login_name' => $author_name );
 		} else {
 			global $make_gigya;
 
@@ -165,7 +167,7 @@ class Make_Contribute {
 			$guest_author = $make_gigya->search_for_maker_by_id( $id );
 
 			if ( $guest_author ) {
-				return array( 'author' => $guest_author[0]->ID );
+				return array( 'login_name' => $guest_author[0]->ID );
 			} else {
 				return false;
 			}
@@ -181,13 +183,18 @@ class Make_Contribute {
 	 * @since  Quantrons
 	 */
 	public function contribute_post() {
+		global $coauthors_plus;
 
 		// Check our nonce and make sure it's correct
 		if ( ! wp_verify_nonce( $_POST['contribute_post'], 'contribute_post_nonce' ) )
 			die( 'We weren\'t able to verify that nonce...' );
 
 		// Get the author ID
-		$author_id = $this->get_author_id( $_POST['post_author'] );
+		$author_name = $this->get_author_name( $_POST['user_id'] );
+
+		// Make sure an author was returned
+		if ( ! $author_name )
+			die( json_encode( 'ERROR: AUTHOR NOT FOUND' ) );
 
 		$allowed_post_types = array(
 			'post',
@@ -207,17 +214,14 @@ class Make_Contribute {
 		// Insert the post
 		$pid = wp_insert_post( $post );
 
-		if ( isset( $author_id['author'] ) ) {
-			$terms = wp_set_object_terms( $pid, $author_id['author'], 'author' );
-		}
+		// Add to CoAuthors Plus (for all users, not just Guest Authors)
+		$author_set = $coauthors_plus->add_coauthors( absint( $pid ), array( $author_name['login_name'] ) );
 
 		// Upload the files
 		$this->upload_files( $pid, $_FILES );
 
 		// Get the newly created post
 		$post = get_post( $pid );
-
-		$post->terms = ( isset( $terms ) ) ? $terms : '';
 
 		// Send back the Post as JSON
 		die( json_encode( $post ) );
