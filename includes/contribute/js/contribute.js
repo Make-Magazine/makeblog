@@ -135,6 +135,12 @@ jQuery( document ).ready( function( $ ) {
 		// Disable the form inputs
 		make_contribute_input_disabler( 'contribute-form-steps' );
 
+		// Hide the steps.
+		$( '.contribute-form-steps' ).slideUp();
+
+		// Added this for Cole...
+		$( '.steps-progress' ).html( '<h3 style="text-align:center">Working...</h3><div class="progress progress-striped active"><div class="bar" style="width: 100%;"></div></div>' );
+
 		// Let's get the steps initialized.
 		var form = $( 'contribute-form-steps' );
 
@@ -179,7 +185,6 @@ jQuery( document ).ready( function( $ ) {
 			success: function( response ){
 				response = JSON.parse( response );
 				console.log( response );
-				$( '.contribute-form-steps' ).slideUp();
 				get_steps( response.post_id );
 			}
 		});
@@ -208,6 +213,7 @@ jQuery( document ).ready( function( $ ) {
 			data: form,
 			type: 'POST',
 			success: function( data ){
+				$('.steps-progress').html('');
 				$('.steps-output').html( data );
 			}
 		});
