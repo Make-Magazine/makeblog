@@ -92,7 +92,7 @@ get_header(); ?>
 											<div class="step row">
 												<div class="span12">
 													<h4>Step 1</h4>
-													<input type="hidden" name="step-number-1" value="0">
+													<input type="hidden" name="step-number-1" value="1">
 												</div>
 												<div class="image-wrapper span3">
 													<div class="fileinput fileinput-new" data-provides="fileinput">
