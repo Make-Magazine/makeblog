@@ -185,14 +185,15 @@ jQuery( document ).ready( function( $ ) {
 			success: function( response ){
 				response = JSON.parse( response );
 				console.log( response );
-				get_steps( response.post_id );
+				$( '.contribute-form-steps' ).slideUp();
+				make_contribute_display_steps( response.post_id );
 			}
 		});
 
 	});
 
 	// Grab the steps.
-	function get_steps( post_id ) {
+	function make_contribute_display_steps( post_id ) {
 
 		var inputs = $( '.contribute-form-get-steps :input' );
 
@@ -233,7 +234,7 @@ jQuery( document ).ready( function( $ ) {
 			}
 		});
 
-	};
+	}
 
 });
 
@@ -243,7 +244,6 @@ function make_contribute_post_filler( data ) {
 	jQuery( '.post-content' ).html();
 	jQuery( '.post-title' ).html( 'Submitted:  ' + data.post_title );
 	jQuery( '.post-content' ).html( data.post_content );
-
 }
 
 //////////////////////
