@@ -46,7 +46,7 @@ Template Name: Home Page
 
 							<div class="span12 home-banner">
 								<a href="<?php echo esc_url( get_theme_mod( 'make_home_banner_link', 'http://www.makershed.com/SearchResults.asp?Cat=227&Click=174124' ) ); ?>">
-									<img src="<?php echo esc_url( get_theme_mod( 'make_home_banner_video', get_stylesheet_directory_uri() . '/img/cnc.jpg' ) ); ?>">
+									<img src="<?php echo esc_url( get_theme_mod( 'make_home_takeover_image', get_stylesheet_directory_uri() . '/img/cnc.jpg' ) ); ?>">
 								</a>
 							</div>
 
