@@ -26,6 +26,8 @@ get_header(); ?>
 
 			<div class="row">
 
+				<?php do_action( 'category_top' ); ?>
+
 				<?php
 					$image = apply_filters( 'taxonomy-images-queried-term-image', '', array( 'after' => '</div>', 'before' => '<div id="taxonomy-image">', 'image_size' => 'full') );
 					if ( ! empty( $image ) ) {
