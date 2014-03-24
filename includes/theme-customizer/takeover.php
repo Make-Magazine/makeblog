@@ -920,6 +920,19 @@ function make_default_home( $wp_customize ) {
 	) );
 
 	// Register the html for the page.
+	$wp_customize->add_setting( 'make_home_banner_category', array(
+		'default' => 0,
+		'sanitize_callback' => 'absint',
+	) );
+
+	$wp_customize->add_control( 'make_home_banner_category', array(
+		'section' => 'make_home',
+		'label' => 'Wanna add the banner to a category page?',
+		'type' => 'select',
+		'choices' => make_get_categories_as_array(),
+	) );
+
+	// Register the html for the page.
 	$wp_customize->add_setting( 'make_home_title_text', array(
 		'default' => 72,
 		'sanitize_callback' => 'absint',

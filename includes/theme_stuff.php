@@ -1775,3 +1775,40 @@ function make_post_card( $args ) {
 
 	return $output;
 }
+
+
+/**
+ * Get categories as a simple array
+ */
+function make_get_categories_as_array() {
+	$cats = get_categories();
+	$categories = array( 0 => 'None' );
+	foreach ($cats as $key => $value) {
+		$categories[ absint( $value->term_id )] = esc_html( $value->name );
+	}
+	return $categories;
+}
+
+/**
+ * Assign the takeover banner to the category pages
+ */
+function make_get_banner_to_category_page() {
+	global $post;
+	if ( get_theme_mod( 'make_home_banner_category' ) == get_queried_object_id() ) :
+
+		if ( get_theme_mod( 'make_home_banner' ) === 'on' ) : ?>
+
+			<div class="span12 home-banner">
+				<a href="<?php echo esc_url( get_theme_mod( 'make_home_banner_link', 'http://www.makershed.com/SearchResults.asp?Cat=227&Click=174124' ) ); ?>">
+					<img src="<?php echo esc_url( get_theme_mod( 'make_home_takeover_image', get_stylesheet_directory_uri() . '/img/cnc.jpg' ) ); ?>">
+				</a>
+			</div>
+
+		<?php endif;
+
+	endif;
+
+}
+
+
+add_action( 'category_top', 'make_get_banner_to_category_page' );
