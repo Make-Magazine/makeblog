@@ -130,7 +130,6 @@ get_header(); ?>
 										<li class="active"><a href="#projects" data-toggle="tab">Projects</a></li>
 										<li class=""><a href="#reviews" data-toggle="tab">Reviews</a></li>
 										<li class=""><a href="#articles" data-toggle="tab">Articles</a></li>
-										<li class=""><a href="#extras" data-toggle="tab">Web Extras</a></li>
 									</ul>
 									<div class="tab-content">
 										<div class="tab-pane active" id="projects">
@@ -168,9 +167,6 @@ get_header(); ?>
 												'order' 			=> 'asc',
 												);
 											echo make_magazine_toc( $args ); ?>
-										</div>
-										<div class="tab-pane" id="extras">
-											<?php echo make_magazine_errata('Web Extras'); ?>
 										</div>
 									</div>
 								</div>
