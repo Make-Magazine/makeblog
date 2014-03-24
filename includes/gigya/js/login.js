@@ -36,7 +36,7 @@ jQuery( document ).ready(function() {
 	});
 
 	// Check that we aren't dealing with a logged in WP user, if not, log them out of Gigya.
-	if ( ! make_gigya.loggedin ) {
+	if ( make_gigya.loggedin ) {
 		jQuery( document ).on( 'click', '.user-creds.signout', function( e ) {
 			e.preventDefault();
 
@@ -145,19 +145,20 @@ function make_on_logout() {
 function make_is_logged_in( maker ) {
 	if ( gigya_debug ) {
 		console.log( maker );
-		if ( ! make_gigya.loggedin ) {
+
+		if ( make_gigya.loggedin === 'false' ) {
 			console.log( 'WP not logged in' );
 		} else {
 			console.log( 'WP logged in' );
 		}
 	}
 
-	if ( make_gigya.loggedin || maker.errorCode === 0 ) {
+	if ( make_gigya.loggedin === 'true' || maker.errorCode === 0 ) {
 		if ( gigya_debug )
 			console.log( 'User Logged In.' );
 
 		// We only want to provide a sign out feature for Gigya users
-		var signout = ( ! make_gigya.loggedin ) ? '<a href="#signout" class="user-creds signout">Sign Out</a> / ' : '';
+		var signout = ( make_gigya.loggedin === 'false' ) ? '<a href="#signout" class="user-creds signout">Sign Out</a> / ' : '';
 
 		jQuery( '.main-header' ).find( '.row' ).append( '<div class="login-wrapper">' + signout + '<a href="' + make_gigya.root_path + 'contribute" class="user-creds profile">Contribute</a></div>' );
 
@@ -165,7 +166,7 @@ function make_is_logged_in( maker ) {
 		jQuery( '.container.authentication' ).show();
 
 		// Append the Gigya UID to the contribute form
-		if ( ! make_gigya.loggedin )
+		if ( make_gigya.loggedin === 'false' )
 			make_contribute_add_gigya_id( maker.UID );
 	} else {
 		if ( gigya_debug )

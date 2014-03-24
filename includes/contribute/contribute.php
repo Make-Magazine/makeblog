@@ -150,13 +150,14 @@ class Make_Contribute {
 
 	/**
 	 * Allows us to determine if the contributing author is a WordPress user or Guest Author based on the ID passed and return their username
-	 * @return string
+	 * @return string | false
 	 *
 	 * @since  Robot House
 	 */
 	function get_author_name( $id ) {
+		// var_dump($id);
 		// Gigya always passes IDs as long strings, if it's an integer, then we have a WP user
-		if ( absint( $id ) && $id !== '0' ) {
+		if ( ctype_digit( $id ) ) { // Ensure the string contains only numbers.....
 			$author_name = get_the_author_meta( 'user_login', absint( $id ) );
 
 			return array( 'post_author' => $id, 'login_name' => $author_name );
@@ -167,7 +168,7 @@ class Make_Contribute {
 			$guest_author = $make_gigya->search_for_maker_by_id( $id );
 
 			if ( $guest_author ) {
-				return array( 'login_name' => $guest_author[0]->ID );
+				return array( 'login_name' => $guest_author[0]->post_name );
 			} else {
 				return false;
 			}

@@ -68,7 +68,7 @@ jQuery( document ).ready( function( $ ) {
 	// Save all of the tools data.
 	$( '.submit-tools' ).on( 'click', function( e ) {
 
-		// Prevent the button from trggering
+		// Prevent the button from triggering
 		e.preventDefault();
 
 		// Grab all of the inputs
@@ -244,7 +244,6 @@ jQuery( document ).ready( function( $ ) {
 //////////////////////
 // Take the saved data, and display it on the page.
 function make_contribute_post_filler( data ) {
-	jQuery( '.post-content' ).html();
 	jQuery( '.post-title' ).html( data.post_title );
 	jQuery( '.post-content' ).html( data.post_content );
 }
@@ -268,9 +267,7 @@ function make_contribute_input_disabler( form ) {
  * @since
  */
 function make_contribute_add_gigya_id( uid ) {
-	jQuery( 'input.user_id[type="hidden"]' ).each( function() {
-		jQuery( this ).val( uid );
-	});
+	jQuery( 'input#user_id[type="hidden"]' ).val( uid );
 }
 
 

@@ -117,7 +117,7 @@ class Make_Gigya {
 			'loading' => 'Loading',
 			'secure_it' => wp_create_nonce( 'ajax-nonce' ),
 			'root_path' => esc_url( home_url( '/' ) ),
-			'loggedin' => is_user_logged_in()
+			'loggedin' => ( is_user_logged_in() ) ? 'true' : 'false',
 		) );
 	}
 
@@ -304,6 +304,7 @@ class Make_Gigya {
 			'post_title' => sanitize_text_field( $user_name ),
 			'post_status' => 'publish',
 			'post_type' => 'guest-author',
+			'post_name' => 'cap-' . sanitize_title( $user_name ),
 		);
 		$maker_id = wp_insert_post( $maker );
 

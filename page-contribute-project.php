@@ -91,7 +91,7 @@ get_header(); ?>
 									<div class="control-group">
 										<label class="control-label" for="post_content">Post Content</label>
 										<div class="controls">
-											<?php wp_editor( 'Tell us about your post...', 'post_content', array( 'teeny' => true ) ); ?>
+											<?php wp_editor( '', 'post_content', array( 'teeny' => true ) ); ?>
 										</div>
 									</div>
 									<div class="control-group">
