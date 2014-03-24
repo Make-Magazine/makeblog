@@ -4,26 +4,26 @@
  */
 
 get_header(); ?>
-		
+
 		<div class="single">
 
 			<div class="container">
-				 
+
 				 <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
-				 
-				 	<?php 
+
+				 	<?php
 						$video = get_post_custom_values('VideoURL');
 						if ($video[0]) { ?>
-				
+
 							<h1><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h1>
 
 							<div class="row">
-							
+
 								<div class="span8">
-								
+
 									<div class="row">
-									
-										<?php 
+
+										<?php
 											$video = get_post_custom_values('VideoURL');
 											if ($video[0]) {
 												echo '<div class="span12">';
@@ -31,16 +31,16 @@ get_header(); ?>
 												echo '</div>';
 											}
 										?>
-										
+
 									</div>
-										
+
 									<div class="row">
-									
+
 										<hr>
 										<?php
 											$featuredposts = get_post_custom_values('FeaturedPosts');
 											$posts = array_map( 'get_post', explode( ',', $featuredposts[0] ) );
-											foreach ( $posts as $post ) { 
+											foreach ( $posts as $post ) {
 												//print_r($post); ?>
 												<div class="span2">
 													<a href="<?php echo get_permalink($post->ID); ?>">
@@ -48,61 +48,61 @@ get_header(); ?>
 														<?php echo get_the_title( $post->ID ); ?>
 													</a>
 												</div>
-											
-											<?php } 
+
+											<?php }
 											wp_reset_query(); ?>
-										
+
 									</div>
-														
+
 								</div>
-								
+
 								<div class="span4">
-								
+
 									<?php the_content(); ?>
 
 								</div>
-								
+
 							</div>
-						
+
 						<?php } else { ?>
 
 							<h1><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h1>
 
 							<div class="row-fluid">
-							
+
 								<div class="span8">
-								
+
 									<?php the_content(); ?>
-									
+
 								</div>
-								
+
 								<div class="span4">
-										
+
 									<div class="banner">
-									
+
 										<?php
 											$featuredposts = get_post_custom_values('FeaturedPosts');
 											if ($featuredposts[0]) {
 												$posts = array_map( 'get_post', explode( ',', $featuredposts[0] ) );
-												foreach ( $posts as $post ) { 
+												foreach ( $posts as $post ) {
 													//print_r($post); ?>
 														<a href="<?php echo get_permalink($post->ID); ?>">
 															<?php echo get_the_post_thumbnail( $post->ID, 'side-thumb', array('class' => 'thumbnail' ) ); ?>
 															<?php echo get_the_title( $post->ID ); ?>
 														</a>
-												
-												<?php } 
+
+												<?php }
 												wp_reset_query();
-												
+
 											}
 										?>
-											
-											
-										
+
+
+
 									</div>
-														
+
 								</div>
-								
+
 							</div>
 
 					<?php } ?>
@@ -110,7 +110,7 @@ get_header(); ?>
 				<div class="row">
 
 					<div class="span8">
-			
+
 							<article <?php post_class(); ?>>
 
 								<?php
@@ -174,18 +174,18 @@ get_header(); ?>
 										</div>
 									</div>
 								</div>
-								
+
 								<div class="clear"></div>
-							
+
 							</article>
 
 							<?php endwhile; ?>
 
 							<ul class="pager">
-							
+
 								<li class="previous"><?php previous_posts_link('&larr; Previous Page'); ?></li>
 								<li class="next"><?php next_posts_link('Next Page &rarr;'); ?></li>
-							
+
 							</ul>
 
 							<?php if (function_exists('make_printer_makershed_thing')) { echo make_printer_makershed_thing(); } ?>
@@ -193,11 +193,11 @@ get_header(); ?>
 							<div class="comments">
 								<?php comments_template(); ?>
 							</div>
-							
+
 							<?php else: ?>
-							
+
 								<p><?php _e('Sorry, no posts matched your criteria.'); ?></p>
-							
+
 							<?php endif; ?>
 
 
