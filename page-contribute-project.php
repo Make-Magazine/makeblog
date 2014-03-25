@@ -100,7 +100,7 @@ get_header(); ?>
 						</article>
 
 
-						<section <?php post_class(); ?>>
+						<section id="contribute-form-wrapper" <?php post_class(); ?>>
 
 							<!-- Contribute -->
 							<form class="form form-horizontal validate-form contribute-form" id="add-post-content" method="post">

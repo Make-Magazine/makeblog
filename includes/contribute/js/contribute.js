@@ -86,89 +86,6 @@ jQuery( document ).ready( function( $ ) {
 	});
 
 
-	// Save all of the tools data.
-	$( '.submit-tools' ).on( 'click', function( e ) {
-
-		// Prevent the button from triggering
-		e.preventDefault();
-
-		// Disable the inputs.
-		make_contribute_input_disabler( 'contribute-form-tools' );
-
-		// Grab all of the inputs
-		var inputs = $( '.contribute-form-tools :input' );
-
-		// Hide the form
-		make_contribute_close_forms();
-
-		// Add the loading bar.
-		make_contribute_loading_screen( 'steps-progress' );
-
-		// Grab all of the form data.
-		var form = {};
-		inputs.each( function() {
-			form[ this.name ] = $( this ).val();
-		});
-
-		form.action = 'add_tools';
-
-		// Make the ajax request with the form data.
-		$.ajax({
-			url: make_gigya.ajax,
-			data: form,
-			type: 'POST',
-			success: function( data ){
-				$( '.tools-pane' ).empty();
-				$( '.tools-pane' ).html( data );
-			}
-		});
-
-	});
-
-
-	// Save the parts data
-	$( '.submit-parts' ).on( 'click', function( e ) {
-
-		// Prevent the button from trggering
-		e.preventDefault();
-
-		// Disable the inputs.
-		make_contribute_input_disabler( 'contribute-form-parts' );
-
-		// Hide the form
-		make_contribute_close_forms();
-
-		// Add the loading bar.
-		make_contribute_loading_screen( 'steps-progress' );
-
-		// Let's start gathering values.
-		var inputs = $( '.contribute-form-parts :input' );
-
-		// Create the form array.
-		var form = {};
-		inputs.each( function() {
-			form[ this.name ] = $( this ).val();
-		});
-
-		// Add the action here.
-		form.action = 'add_parts';
-
-		// Make the ajax request with the form data.
-		$.ajax({
-			url: make_gigya.ajax,
-			data: form,
-			type: 'POST',
-			success: function( data ){
-				$( '.parts-tools' ).show();
-				$( '.parts-pane' ).empty();
-				$( '.parts-pane' ).html( data );
-				$( '.contribute-form-tools' ).slideDown();
-			}
-		});
-
-	});
-
-	//////////////////////
 	// Save the steps.
 	$( '.submit-steps' ).on( 'click', function( e ) {
 
@@ -231,36 +148,34 @@ jQuery( document ).ready( function( $ ) {
 				make_contribute_display_steps( response.post_id );
 			}
 		});
-
 	});
 
-	// Grab the steps.
-	function make_contribute_display_steps( post_id ) {
+	// Save the parts data
+	$( '.submit-parts' ).on( 'click', function( e ) {
 
-		var inputs = $( '.contribute-form-get-steps :input' );
+		// Prevent the button from trggering
+		e.preventDefault();
 
-		var form = {
-			action : 'get_steps',
-			post_ID: post_id,
-		};
+		// Disable the inputs.
+		make_contribute_input_disabler( 'contribute-form-parts' );
 
+		// Hide the form
+		make_contribute_close_forms();
+
+		// Add the loading bar.
+		make_contribute_loading_screen( 'steps-progress' );
+
+		// Let's start gathering values.
+		var inputs = $( '.contribute-form-parts :input' );
+
+		// Create the form array.
+		var form = {};
 		inputs.each( function() {
 			form[ this.name ] = $( this ).val();
 		});
 
-		// Make the ajax request with the form data.
-		$.ajax({
-			url: make_gigya.ajax,
-			data: form,
-			type: 'POST',
-			success: function( data ){
-				$( '.steps-progress' ).html('');
-				$( '.steps-output' ).html( data );
-			}
-		});
-
-		form.action = '';
-		form.action = 'get_steps_list';
+		// Add the action here.
+		form.action = 'add_parts';
 
 		// Make the ajax request with the form data.
 		$.ajax({
@@ -268,27 +183,143 @@ jQuery( document ).ready( function( $ ) {
 			data: form,
 			type: 'POST',
 			success: function( data ){
-				// Output the steps.
-				$( '.steps-list-output' ).html( data );
-				// Display the parts form.
-				$( '.contribute-form-parts' ).slideDown();
+				$( '.parts-tools' ).show();
+				$( '.parts-pane' ).empty();
+				$( '.parts-pane' ).html( data );
+				$( '.contribute-form-tools' ).slideDown();
 			}
 		});
+	});
 
-	}
+	// Save the steps.
+	$( '.submit-steps' ).on( 'click', function( e ) {
 
+		// Prevent the button from trggering
+		e.preventDefault();
+
+		// Disable the form inputs
+		make_contribute_input_disabler( 'contribute-form-steps' );
+
+		// Hide the steps.
+		make_contribute_close_forms();
+
+		// Added this for Cole...
+		make_contribute_loading_screen( '.steps-progress' );
+
+		// Let's get the steps initialized.
+		var form = $( 'contribute-form-steps' );
+
+		// Grab all of the inputs.
+		var the_files = $( '.contribute-form-steps :file' );
+		var inputs = $( '.contribute-form-steps input:not(:file), .contribute-form-steps textarea' );
+
+		// New FormData
+		var data = new FormData( form );
+
+		// Setup the form object, just kinda playing with this as a source of data.
+		var form_obj = {};
+
+		// Add the add_steps action to the object.
+		form_obj.action = 'add_steps';
+
+		// Append each of the images to the object, giving each a name.
+		jQuery.each( the_files, function( i, file_obj ) {
+			jQuery.each( file_obj.files, function( key, file ) {
+				form_obj['step-images-' + ( i + 1 )] = file;
+				data.append( 'step-images-' + ( i + 1 ), file );
+			});
+		});
+
+		// Loop through all of the inputs, with the exception of the file ones, and add the to the form_object, and then to the data object.
+		inputs.each( function() {
+			form_obj[ this.name ] = $( this ).val();
+			data.append( this.name, $( this ).val() );
+		});
+
+		// Append the action to the data object.
+		data.append( 'action', 'add_steps' );
+
+		// Ajax request.
+		$.ajax({
+			url: make_gigya.ajax,
+			data: data,
+			cache: false,
+			contentType: false,
+			processData: false,
+			type: 'POST',
+			success: function( response ){
+				response = JSON.parse( response );
+				make_contribute_close_forms();
+				make_contribute_display_steps( response.post_id );
+			}
+		});
+	});
 });
 
-//////////////////////
-// Take the saved data, and display it on the page.
+
+/**
+ * Displays the steps
+ * @param  int post_id The post ID we are going to be updating the form fields to
+ * @return void
+ */
+function make_contribute_display_steps( post_id ) {
+	var inputs = $( '.contribute-form-get-steps :input' );
+
+	var form = {
+		action : 'get_steps',
+		post_ID: post_id,
+	};
+
+	inputs.each( function() {
+		form[ this.name ] = $( this ).val();
+	});
+
+	// Make the ajax request with the form data.
+	$.ajax({
+		url: make_gigya.ajax,
+		data: form,
+		type: 'POST',
+		success: function( data ){
+			$( '.steps-progress' ).html('');
+			$( '.steps-output' ).html( data );
+		}
+	});
+
+	form.action = '';
+	form.action = 'get_steps_list';
+
+	// Make the ajax request with the form data.
+	$.ajax({
+		url: make_gigya.ajax,
+		data: form,
+		type: 'POST',
+		success: function( data ){
+			// Output the steps.
+			$( '.steps-list-output' ).html( data );
+			// Display the parts form.
+			$( '.contribute-form-parts' ).slideDown();
+		}
+	});
+
+}
+
+/**
+ * Take the saved data, and display it on the page.
+ * @param  obj data The data being passed back from a post save so we can inject it into the preview window
+ * @return void
+ */
 function make_contribute_post_filler( data ) {
 	jQuery( '.post-title' ).html( data.post_title );
 	jQuery( '.post-content' ).html( data.post_content );
 	jQuery( '.post-content' ).append( data.media );
 }
 
-//////////////////////
-// Disable inputs
+
+/**
+ * When the forms get saved, we'll disable all inputs
+ * @param  string form The form name we wish to disable
+ * @return void
+ */
 function make_contribute_input_disabler( form ) {
 	// Grab the inputs
 	var inputs = jQuery( '.' + form + ' :input' );
@@ -350,6 +381,10 @@ function make_contribute_loading_screen( selector ) {
 }
 
 
+/**
+ * Any time we save a form, we want to force all form fields to close while saving.
+ * @return void
+ */
 function make_contribute_close_forms() {
 	jQuery( '.contribute-form, .contribute-form-tools, .contribute-form-parts, .contribute-form-steps' ).slideUp();
 }
