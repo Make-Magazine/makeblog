@@ -302,9 +302,11 @@ class Make_Contribute {
 			$meta_obj[] = add_post_meta( absint( $_POST['post_ID'] ), 'parts', $part );
 		}
 
+		$parts = get_post_meta( absint( $_POST['post_ID'] ), 'parts' );
+
 		////////////////////
 		// Send back the tools object
-		die( json_encode( $meta_obj ) );
+		die( make_projects_parts( $parts ) );
 
 	}
 
