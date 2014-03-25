@@ -43,15 +43,15 @@ get_header(); ?>
 
 									<div class="parts-tools">
 										<ul class="top">
-											<li class=""><a href="#parts-pane" data-toggle="tab">Parts</a></li>
+											<li class="active"><a href="#parts-pane" data-toggle="tab">Parts</a></li>
 											<li class="divider"> / </li>
-											<li class="active"><a href="#tools-pane" data-toggle="tab">Tools</a></li>
+											<li class=""><a href="#tools-pane" data-toggle="tab">Tools</a></li>
 										</ul>
 										<div class="tab-content">
-											<div class="tab-pane tools-pane" id="parts-pane">
+											<div class="tab-pane active tools-pane" id="tools-pane">
 												<p>No tools, yet...</p>
 											</div>
-											<div class="tab-pane active parts-pane" id="tools-pane">
+											<div class="tab-pane active parts-pane" id="parts-pane">
 												<p>No tools, yet...</p>
 											</div>
 										</div>
