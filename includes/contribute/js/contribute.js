@@ -263,7 +263,7 @@ jQuery( document ).ready( function( $ ) {
  * @return void
  */
 function make_contribute_display_steps( post_id ) {
-	var inputs = $( '.contribute-form-get-steps :input' );
+	var inputs = jQuery( '.contribute-form-get-steps :input' );
 
 	var form = {
 		action : 'get_steps',
