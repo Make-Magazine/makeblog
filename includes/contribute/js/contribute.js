@@ -9,6 +9,13 @@ jQuery( document ).ready( function( $ ) {
 	// Init our form validation
 	$( '.validate-form' ).parsley();
 
+	// On post creation, we need a way to tell if we are creating a project or post.
+	// The below will help us set a variable accessed in the submission of the form.
+	var make_contribute_post_type = '';
+	$( '.submit-review' ).click( function() {
+		make_contribute_post_type = $( this ).data( 'type' );
+	});
+
 	// Handle the AJAX for saving the first stage of the post. The rest will be over Backbone.
 	$( '#add-post-content' ).submit( function( e ) {
 
@@ -16,7 +23,7 @@ jQuery( document ).ready( function( $ ) {
 		e.preventDefault();
 
 		// Validate that we our form has passed our preliminary check.
-		var check_form = $(this).parsley( 'validate' );
+		var check_form = $( this ).parsley( 'validate' );
 		if ( ! check_form.validationResult )
 			return;
 
@@ -48,9 +55,9 @@ jQuery( document ).ready( function( $ ) {
 		data.append( 'contribute_post',	$( '.contribute-form #contribute_post' ).val() );
 		data.append( 'post_title',		$( '.contribute-form #post_title' ).val() );
 		data.append( 'user_id',			$( '.contribute-form #user_id' ).val() );
-		data.append( 'post_content',	tinyMCE.activeEditor.getContent() );
+		data.append( 'post_content',	$( '.submit-review[clicked="true"]').val() );
 		data.append( 'cat',				$( '.contribute-form #cat' ).val() );
-		data.append( 'post_type',		$( this ).data( 'type' ) );
+		data.append( 'post_type',		make_contribute_post_type );
 		data.append( 'post_author',		$( '.user_id' ).val() );
 		data.append( 'action',			'contribute_post' );
 
@@ -64,7 +71,6 @@ jQuery( document ).ready( function( $ ) {
 			type: 'POST',
 			success: function( data ){
 				post_obj = JSON.parse( data );
-				console.log( post_obj );
 				make_contribute_post_filler( post_obj );
 				$( '.contribute-form-steps' ).slideDown();
 				$( '.post_ID' ).each( function() {
