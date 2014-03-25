@@ -48,11 +48,11 @@ get_header(); ?>
 											<li class=""><a href="#tools-pane" data-toggle="tab">Tools</a></li>
 										</ul>
 										<div class="tab-content">
-											<div class="tab-pane active tools-pane" id="tools-pane">
+											<div class="tab-pane tools-pane" id="tools-pane">
 												<p>No tools, yet...</p>
 											</div>
 											<div class="tab-pane active parts-pane" id="parts-pane">
-												<p>No tools, yet...</p>
+												<p>No parts, yet...</p>
 											</div>
 										</div>
 									</div>
