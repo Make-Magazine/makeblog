@@ -55,7 +55,7 @@ jQuery( document ).ready( function( $ ) {
 		data.append( 'contribute_post',	$( '.contribute-form #contribute_post' ).val() );
 		data.append( 'post_title',		$( '.contribute-form #post_title' ).val() );
 		data.append( 'user_id',			$( '.contribute-form #user_id' ).val() );
-		data.append( 'post_content',	$( '.submit-review[clicked="true"]').val() );
+		data.append( 'post_content',	tinyMCE.activeEditor.getContent() );
 		data.append( 'cat',				$( '.contribute-form #cat' ).val() );
 		data.append( 'post_type',		make_contribute_post_type );
 		data.append( 'post_author',		$( '.user_id' ).val() );
