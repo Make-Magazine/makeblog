@@ -271,17 +271,17 @@ function make_contribute_display_steps( post_id ) {
 	};
 
 	inputs.each( function() {
-		form[ this.name ] = $( this ).val();
+		form[ this.name ] = jQuery( this ).val();
 	});
 
 	// Make the ajax request with the form data.
-	$.ajax({
+	jQuery.ajax({
 		url: make_gigya.ajax,
 		data: form,
 		type: 'POST',
 		success: function( data ){
-			$( '.steps-progress' ).html('');
-			$( '.steps-output' ).html( data );
+			jQuery( '.steps-progress' ).html('');
+			jQuery( '.steps-output' ).html( data );
 		}
 	});
 
@@ -289,15 +289,15 @@ function make_contribute_display_steps( post_id ) {
 	form.action = 'get_steps_list';
 
 	// Make the ajax request with the form data.
-	$.ajax({
+	jQuery.ajax({
 		url: make_gigya.ajax,
 		data: form,
 		type: 'POST',
 		success: function( data ){
 			// Output the steps.
-			$( '.steps-list-output' ).html( data );
+			jQuery( '.steps-list-output' ).html( data );
 			// Display the parts form.
-			$( '.contribute-form-parts' ).slideDown();
+			jQuery( '.contribute-form-parts' ).slideDown();
 		}
 	});
 
