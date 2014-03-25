@@ -155,8 +155,7 @@ class Make_Contribute {
 	 *
 	 * @since  Robot House
 	 */
-	function get_author_name( $id ) {
-		// var_dump($id);
+	public function get_author_name( $id ) {
 		// Gigya always passes IDs as long strings, if it's an integer, then we have a WP user
 		if ( ctype_digit( $id ) ) { // Ensure the string contains only numbers.....
 			$author_name = get_the_author_meta( 'user_login', absint( $id ) );
@@ -176,6 +175,24 @@ class Make_Contribute {
 		}
 	}
 
+	/**
+	 * Build a row of photos based on uploaded images.
+	 */
+	public function image_rows( $id ) {
+		$output = '';
+		$media = get_attached_media( 'image', $id );
+		$rows = array_chunk( $media, 4 );
+		foreach ( $rows as $images ) {
+			$output .= '<div class="row">';
+			foreach ($images as $image) {
+				$output .= '<div class="span2">';
+				$output .= '<img src="' . esc_url( wpcom_vip_get_resized_remote_image_url( $image->guid, '130', '170' ) ) . '" alt="' . esc_attr( $image->post_title ) . '">';
+				$output .= '</div>';
+			}
+			$output .= '</div>';
+		}
+		return $output;
+	}
 
 	/**
 	 * Take the form data, and add a post/project.
@@ -225,6 +242,8 @@ class Make_Contribute {
 
 		// Get the newly created post
 		$post = get_post( $pid );
+
+		$post->media = $this->image_rows( $pid );
 
 		// Send back the Post as JSON
 		die( json_encode( $post ) );

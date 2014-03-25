@@ -279,6 +279,7 @@ jQuery( document ).ready( function( $ ) {
 function make_contribute_post_filler( data ) {
 	jQuery( '.post-title' ).html( data.post_title );
 	jQuery( '.post-content' ).html( data.post_content );
+	jQuery( '.post-content' ).append( data.media );
 }
 
 //////////////////////
