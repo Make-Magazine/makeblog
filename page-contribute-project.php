@@ -63,7 +63,7 @@ get_header(); ?>
 
 							<div class="bottom-steps" id="target">
 
-								<form class="form form-horizontal validate-form contribute-form-get-steps" method="post">
+								<form class="form form-horizontal contribute-form-get-steps" method="post">
 									<?php echo wp_nonce_field( 'get_steps', 'get_steps' ); ?>
 									<input type="hidden" name="post_id" value="80">
 								</form>
@@ -123,7 +123,7 @@ get_header(); ?>
 										</div>
 									</div>
 									<div class="control-group">
-										<label class="control-label" for="post_content">Post Content</label>
+										<label class="control-label" for="post_content">Content</label>
 										<div class="controls">
 											<?php wp_editor( '', 'post_content', array( 'teeny' => true ) ); ?>
 										</div>
@@ -131,13 +131,26 @@ get_header(); ?>
 									<div class="control-group">
 										<label class="control-label" for="category">Category</label>
 										<div class="controls">
-											<?php wp_dropdown_categories( array( 'hierarchical' => true, ) ); ?>
+											<?php
+												$categories = get_categories();
+
+												if ( ! empty( $categories ) ) {
+
+													echo '<select name="cat" id="cat" class="postform" required>';
+														echo '<option value="">– Select A Category –</option>';
+														foreach ( $categories as $cat ) {
+															echo '<option class="category-' . absint( $cat->term_id ) . ' category-' . esc_attr( $cat->slug ) . '" value="' . absint( $cat->term_id ) . '">' . esc_html( $cat->name ) . '</option>';
+														}
+													echo '</select>';
+
+												}
+											?>
 										</div>
 									</div>
 									<div class="control-group">
 										<label class="control-label" for="browse_file">Image</label>
 										<div class="controls">
-											<input type="file" name="" value="" title="Add One or More Images" id="file" class="file-inputs" multiple>
+											<input type="file" name="" value="" title="Add One or More Images" id="file" class="file-inputs" multiple required>
 										</div>
 									</div>
 									<div class="form-actions">

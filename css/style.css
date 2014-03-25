@@ -5729,19 +5729,13 @@ ul.inline.urban-sensor-nav li a:hover {
   background: #E4F4F9;
   color: #ed1c24 !important;
 }
-input.parsley-success,
-select.parsley-success,
-textarea.parsley-success {
-  color: #468847;
-  background-color: #DFF0D8;
-  border: 1px solid #D6E9C6;
-}
 input.parsley-error,
 select.parsley-error,
-textarea.parsley-error {
+textarea.parsley-error,
+div.parsley-error.mce-panel {
   color: #B94A48;
-  background-color: #F2DEDE;
-  border: 1px solid #EED3D7;
+  background: #F2DEDE;
+  border: 1px solid #EED3D7 !important;
 }
 .parsley-errors-list {
   margin: 2px 0 3px 0;
@@ -5752,11 +5746,17 @@ textarea.parsley-error {
   opacity: 0;
   -moz-opacity: 0;
   -webkit-opacity: 0;
+  color: #B94A48;
   transition: all 0.3s ease-in;
   -o-transition: all 0.3s ease-in;
   -ms-transition: all 0.3s ease-in-;
   -moz-transition: all 0.3s ease-in;
   -webkit-transition: all 0.3s ease-in;
+}
+.parsley-errors-list.post_content_errors {
+  position: absolute;
+  bottom: 26px;
+  left: 10px;
 }
 .parsley-errors-list.filled {
   opacity: 1;
