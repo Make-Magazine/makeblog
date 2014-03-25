@@ -300,8 +300,12 @@ class Make_Contribute {
 		update_post_meta( absint( absint( $_POST['post_ID'] ) ), 'Tools', $tools_object );
 
 		////////////////////
+		// Let's get the tools out of the database.
+		$tools = get_post_meta( absint( $_POST['post_ID'] ), 'Tools' );
+
+		////////////////////
 		// Send back the tools object
-		die( json_encode( $tools_object ) );
+		die( make_projects_tools( $tools ) );
 
 	}
 
