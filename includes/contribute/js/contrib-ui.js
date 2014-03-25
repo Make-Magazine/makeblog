@@ -50,7 +50,6 @@ function make_contribute_remove_field( fields ) {
 
 
 function make_contribute_get_update_fields( fields ) {
-	console.log('Find what to update');
 	if ( fields === 'steps' ) {
 		make_contribute_update_steps();
 	} else if ( fields === 'parts' ) {
@@ -63,22 +62,33 @@ function make_contribute_get_update_fields( fields ) {
 
 
 function make_contribute_update_steps() {
-	console.log(jQuery('.step.row').length);
 	var i = 1;
 	jQuery( '.step.row' ).each( function() {
 		var step = jQuery(this);
 
-		// Update the step title
-		step.find( '.step-title-count' ).html( 'Step ' + i );
+		// Update the step number title
+		step.find( '.step-title' ).html( 'Step ' + i );
+
+		// Update the step number
+		step.find( 'input[type="hidden"].step-number' ).attr({
+			'name'  : 'step-number-' + i,
+			'value' : i
+		});
 
 		// Update the step image
+		step.find( 'input[type="file"].step-file' ).attr( 'name', 'step-images-' + i + '[]' );
+
+		// Update the step title
+		step.find( 'input[type="text"].title' ).attr( 'name', 'step-title-' + i );
+
+		// Update the step lines
+		step.find( 'textarea.step_content' ).attr( 'name', 'step-lines-' + i + '[]' );
+
 		i++;
-		console.log(i);
 	});
 
 	// Update the total step count
-	jQuery( '.contribute-form-steps' ).find( 'input[name="total-steps"]' ).val( i );
-	console.log('Done');
+	jQuery( '#add-steps' ).find( 'input[type="hidden"][name="total-steps"]' ).val( i - 1 );
 }
 
 function make_contribute_update_parts() {

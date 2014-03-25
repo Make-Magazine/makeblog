@@ -178,8 +178,8 @@ get_header(); ?>
 										<div class="steps-list">
 											<div class="step row">
 												<div class="span12">
-													<h4>Step 1</h4>
-													<input type="hidden" name="step-number-1" value="1">
+													<h4 class="step-title">Step 1</h4>
+													<input type="hidden" class="step-number" name="step-number-1" value="1">
 												</div>
 												<div class="image-wrapper span3">
 													<div class="fileinput fileinput-new" data-provides="fileinput">
@@ -203,8 +203,8 @@ get_header(); ?>
 										<script id="steps-template" type="text/template">
 											<div class="step row">
 												<div class="span12">
-													<h4>Step ##count##</h4>
-													<input type="hidden" name="step-number-##count##" value="##count##">
+													<h4 class="step-title">Step ##count##</h4>
+													<input type="hidden" class="step-number" name="step-number-##count##" value="##count##">
 												</div>
 												<div class="image-wrapper span3">
 													<div class="fileinput fileinput-new" data-provides="fileinput">
@@ -221,7 +221,7 @@ get_header(); ?>
 												</div>
 												<div class="content-wrapper span9">
 													<input type="text" class="title" name="step-title-##count##" placeholder="Enter your step title..." value="">
-													<textarea name="step-lines-##count##[]" id="step_content"></textarea>
+													<textarea name="step-lines-##count##[]" class="step_content" id="step_content"></textarea>
 													<button class="btn alignright remove-step"><i class="icon icon-minus"></i> Remove Step</button>
 												</div>
 											</div>
