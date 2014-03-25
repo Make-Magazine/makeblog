@@ -1799,7 +1799,7 @@ function make_get_banner_to_category_page() {
 		if ( get_theme_mod( 'make_home_banner' ) === 'on' ) : ?>
 
 			<div class="span12 home-banner">
-				<a href="<?php echo esc_url( get_theme_mod( 'make_home_banner_link', 'http://www.makershed.com/SearchResults.asp?Cat=227&Click=174124' ) ); ?>">
+				<a href="<?php echo esc_url( get_theme_mod( 'make_category_banner_link', 'http://makezine.com/maker-faire-rome-arduino-project-challenge/' ) ); ?>">
 					<img src="<?php echo esc_url( get_theme_mod( 'make_home_takeover_image', get_stylesheet_directory_uri() . '/img/cnc.jpg' ) ); ?>">
 				</a>
 			</div>
