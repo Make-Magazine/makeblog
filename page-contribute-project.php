@@ -29,7 +29,7 @@ get_header(); ?>
 
 							<div class="bottom-steps" id="target">
 
-								<form class="form form-horizontal contribute-form-get-steps" method="post">
+								<form class="form form-horizontal validate-form contribute-form-get-steps" method="post">
 									<?php echo wp_nonce_field( 'get_steps', 'get_steps' ); ?>
 									<input type="hidden" name="post_id" value="80">
 								</form>
@@ -69,7 +69,7 @@ get_header(); ?>
 						<section <?php post_class(); ?>>
 
 							<!-- Contribute -->
-							<form class="form form-horizontal contribute-form" method="post">
+							<form class="form form-horizontal validate-form contribute-form" id="add-post-content" method="post">
 								<?php echo wp_nonce_field( 'contribute_post_nonce', 'contribute_post' ); ?>
 								<input type="hidden" name="user_id" id="user_id" class="user_id" value="<?php echo get_current_user_id(); ?>">
 								<fieldset>
@@ -84,7 +84,7 @@ get_header(); ?>
 									<div class="control-group">
 										<label class="control-label" for="post_title">Title</label>
 										<div class="controls">
-											<input type="text" class="input-xlarge" name="post_title" id="post_title">
+											<input type="text" class="input-xlarge" name="post_title" id="post_title" required>
 											<p class="help-block">Add the name of the post here.</p>
 										</div>
 									</div>
@@ -114,7 +114,7 @@ get_header(); ?>
 							</form>
 
 							<!-- Steps -->
-							<form class="form form-horizontal contribute-form-steps" action="add_steps" method="post">
+							<form class="form form-horizontal validate-form contribute-form-steps" id="add-steps" action="add_steps" method="post">
 								<fieldset>
 									<section class="control-group">
 										<div class="control-label"></div>
@@ -195,7 +195,7 @@ get_header(); ?>
 							</form>
 
 							<!-- Parts Form -->
-							<form class="form form-horizontal contribute-form-parts" method="post">
+							<form class="form form-horizontal validate-form contribute-form-parts" id="add-parts" method="post">
 								<fieldset>
 									<section class="control-group">
 										<div class="control-label"></div>
@@ -301,7 +301,7 @@ get_header(); ?>
 							</form>
 
 							<!-- Let's add the tools -->
-							<form class="form form-horizontal contribute-form-tools" action="" method="post">
+							<form class="form form-horizontal validate-form contribute-form-tools" id="add-tools" method="post">
 								<fieldset>
 									<section class="control-group">
 										<div class="control-label"></div>

@@ -6,12 +6,19 @@ jQuery( document ).ready( function( $ ) {
 	// Let's hide all of the steps.
 	$( '.contribute-form-steps, .contribute-form-parts, .contribute-form-tools' ).hide();
 
+	// Init our form validation
+	$( '.validate-form' ).parsley();
 
 	// Handle the AJAX for saving the first stage of the post. The rest will be over Backbone.
-	$( '.submit-review' ).on( 'click', function( e ) {
+	$( '#add-post-content' ).submit( function( e ) {
 
 		// Prevent the button from sending the form.
 		e.preventDefault();
+
+		// Validate that we our form has passed our preliminary check.
+		var check_form = $(this).parsley( 'validate' );
+		if ( ! check_form.validationResult )
+			return;
 
 		// Disable the inputs.
 		make_contribute_input_disabler( 'contribute-form' );
