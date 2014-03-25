@@ -372,35 +372,72 @@ get_header(); ?>
 										<input type="hidden" class="post_ID" name="post_ID" value="">
 									</section>
 									<div class="tool-wrapper">
-										<section class="tool" id="tools-1">
-											<div class="control-group">
-												<label class="control-label"></label>
-												<div class="controls">
-													<h4 class="part-title">Tool 1</h4>
-													<input type="hidden" name="tools-number-1" value="1">
-													<input type="hidden" name="tools-thumb-1" value="">
-													<input type="hidden" name="tools-notes-1" value="">
+										<div class="tools-list">
+											<div class="tool row">
+												<div class="span12">
+													<div class="control-group">
+														<label class="control-label"></label>
+														<div class="controls">
+															<h4 class="part-title">Tool 1</h4>
+															<input type="hidden" name="tools-number-1" value="1">
+															<input type="hidden" name="tools-thumb-1" value="">
+															<input type="hidden" name="tools-notes-1" value="">
+														</div>
+													</div>
+													<div class="control-group">
+														<label class="control-label" for="tools-name">Name</label>
+														<div class="controls">
+															<input type="text" name="tools-name-1" id="tools-name" class="input-xlarge" value="">
+														</div>
+													</div>
+													<div class="control-group">
+														<label class="control-label" for="tools-url">URL</label>
+														<div class="controls">
+															<input type="url" name="tools-url-1" id="tools-url" class="input-xlarge" value="">
+														</div>
+													</div>
 												</div>
 											</div>
-											<div class="control-group">
-												<label class="control-label" for="tools-name">Name</label>
-												<div class="controls">
-													<input type="text" name="tools-name-1" id="tools-name" class="input-xlarge" value="">
-												</div>
-											</div>
-											<div class="control-group">
-												<label class="control-label" for="tools-url">URL</label>
-												<div class="controls">
-													<input type="text" name="tools-url-1" id="tools-url" class="input-xlarge" value="">
-												</div>
-											</div>
-										</section>
+										</div>
 									</div>
+									<script id="tools-template" type="text/template">
+										<div class="tool row">
+											<div class="span12">
+												<div class="control-group">
+													<label class="control-label"></label>
+													<div class="controls">
+														<h4 class="tool-title">Tool ##count##</h4>
+														<input type="hidden" name="tools-number-##count##" class="tools-number" value="">
+														<input type="hidden" name="tools-thumb-##count##" class="tools-thumb" value="">
+														<input type="hidden" name="tools-notes-##count##" class="tools-notes" value="">
+													</div>
+												</div>
+												<div class="control-group">
+													<label class="control-label" for="tools-name">Name</label>
+													<div class="controls">
+														<input type="text" name="tools-name-##count##" id="tools-name" class="input-xlarge tools-name" value="">
+													</div>
+												</div>
+												<div class="control-group">
+													<label class="control-label" for="tools-url">URL</label>
+													<div class="controls">
+														<input type="url" name="tools-url-##count##" id="tools-url" class="input-xlarge tools-url" value="">
+													</div>
+												</div>
+												<div class="control-group">
+													<label for="" class="control-label"></label>
+													<div class="controls">
+														<button class="btn alignleft remove-tool"><i class="icon icon-minus"></i> Remove Tool</button>
+													</div>
+												</div>
+											</div>
+										</div>
+									</script>
 									<section class="repeater-tools">
 										<div class="control-group">
 												<label class="control-label" for="tools-url"></label>
 												<div class="controls">
-													<button class="btn add-tools"><i class="icon icon-plus"></i> Add Another Tool</button>
+													<button class="btn add-tool"><i class="icon icon-plus"></i> Add Another Tool</button>
 												</div>
 											</div>
 									</section>

@@ -16,6 +16,13 @@ jQuery( document ).ready( function( $ ) {
 
 		make_contribute_add_field( 'parts' );
 	});
+
+	// Trigger the tools addition when we click the "Add Parts" button
+	$( '.btn.add-tool' ).click( function( e ) {
+		e.preventDefault();
+
+		make_contribute_add_field( 'tools' );
+	});
 });
 
 
@@ -128,38 +135,37 @@ function make_contribute_update_steps() {
 function make_contribute_update_parts() {
 	var i = 1;
 	jQuery( '.part.row' ).each( function() {
-		var step = jQuery(this);
+		var part = jQuery(this);
 
-		// Update the step number title
-		step.find( '.part-title' ).html( 'Part ' + i );
+		// Update the part number title
+		part.find( '.part-title' ).html( 'Part ' + i );
 
-		// Update the step number
-		step.find( 'input[type="hidden"].part-number' ).attr({
+		// Update the part number
+		part.find( 'input[type="hidden"].part-number' ).attr({
 			'name'  : 'part-number-' + i,
 			'value' : i
 		});
 
 		// Update the parts notes count
-		step.find( 'input[type="hidden"].parts-notes' ).attr( 'name', 'parts-notes-' + i );
+		part.find( 'input[type="hidden"].parts-notes' ).attr( 'name', 'parts-notes-' + i );
 
 		// Update the part name
-		step.find( 'input[type="text"].parts-name' ).attr( 'name', 'parts-name-' + i );
+		part.find( 'input[type="text"].parts-name' ).attr( 'name', 'parts-name-' + i );
 
 		// Update the parts quantity
-		step.find( 'input[type="number"].parts-qty' ).attr( 'name', 'parts-qty-' + i );
+		part.find( 'input[type="number"].parts-qty' ).attr( 'name', 'parts-qty-' + i );
 
 		// Update the parts url
-		step.find( 'input[type="url"].parts-url' ).attr( 'name', 'parts-url-' + i );
+		part.find( 'input[type="url"].parts-url' ).attr( 'name', 'parts-url-' + i );
 
 		// Update the parts type
-		step.find( 'input[type="text"].parts-type' ).attr( 'name', 'parts-type-' + i );
+		part.find( 'input[type="text"].parts-type' ).attr( 'name', 'parts-type-' + i );
 
 		i++;
-		console.log(i);
 	});
 
 	// Update the total step count
-	jQuery( '#add-parts' ).find( 'input[type="hidden"][name="total-parts"]' ).val( i );
+	jQuery( '#add-parts' ).find( 'input[type="hidden"][name="total-parts"]' ).val( i - 1 );
 }
 
 
@@ -168,5 +174,34 @@ function make_contribute_update_parts() {
  * @return void
  */
 function make_contribute_update_tools() {
+	var i = 1;
+	jQuery( '.tool.row' ).each( function() {
+		var tool = jQuery(this);
 
+		// Update the tools number title
+		tool.find( '.tool-title' ).html( 'Tool ' + i );
+
+		// Update the tools number
+		tool.find( 'input[type="hidden"].tools-number' ).attr({
+			'name'  : 'tool-number-' + i,
+			'value' : i
+		});
+
+		// Update the tools thumb name
+		tool.find( 'input[type="hidden"].tools-thumb' ).attr( 'name', 'tools-thumb-' + i );
+
+		// Update the tool notes name
+		tool.find( 'input[type="hidden"].tools-notes' ).attr( 'name', 'tools-notes-' + i );
+
+		// Update the tool name
+		tool.find( 'input[type="text"].tools-name' ).attr( 'name', 'tools-name-' + i );
+
+		// Update the tool url
+		tool.find( 'input[type="url"].tools-url' ).attr( 'name', 'tools-url-' + i );
+
+		i++;
+	});
+
+	// Update the total step count
+	jQuery( '#add-tools' ).find( 'input[type="hidden"][name="total-tools"]' ).val( i - 1 );
 }
