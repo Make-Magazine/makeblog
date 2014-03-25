@@ -92,8 +92,17 @@ jQuery( document ).ready( function( $ ) {
 		// Prevent the button from triggering
 		e.preventDefault();
 
+		// Disable the inputs.
+		make_contribute_input_disabler( 'contribute-form-tools' );
+
 		// Grab all of the inputs
-		var inputs = $( '.contribute-form-parts :input' );
+		var inputs = $( '.contribute-form-tools :input' );
+
+		// Hide the form
+		$( '.contribute-form-tools' ).slideUp();
+
+		// Add the loading bar.
+		make_contribute_loading_screen( 'steps-progress' );
 
 		// Grab all of the form data.
 		var form = {};
@@ -103,16 +112,14 @@ jQuery( document ).ready( function( $ ) {
 
 		form.action = 'add_tools';
 
-		console.log( form );
-
 		// Make the ajax request with the form data.
 		$.ajax({
 			url: make_gigya.ajax,
 			data: form,
 			type: 'POST',
 			success: function( data ){
-				tools_obj = JSON.parse( data );
-				console.log( tools_obj );
+				$( '.tools-pane' ).empty();
+				$( '.tools-pane' ).html( data );
 			}
 		});
 
@@ -146,9 +153,6 @@ jQuery( document ).ready( function( $ ) {
 		// Add the action here.
 		form.action = 'add_parts';
 
-		// Check the form
-		console.log( form );
-
 		// Make the ajax request with the form data.
 		$.ajax({
 			url: make_gigya.ajax,
@@ -156,6 +160,7 @@ jQuery( document ).ready( function( $ ) {
 			type: 'POST',
 			success: function( data ){
 				$( '.parts-tools' ).show();
+				$( '.parts-pane' ).empty();
 				$( '.parts-pane' ).html( data );
 				$( '.contribute-form-tools' ).slideDown();
 			}
@@ -222,7 +227,6 @@ jQuery( document ).ready( function( $ ) {
 			type: 'POST',
 			success: function( response ){
 				response = JSON.parse( response );
-				console.log( response );
 				$( '.contribute-form-steps' ).slideUp();
 				make_contribute_display_steps( response.post_id );
 			}
@@ -244,8 +248,6 @@ jQuery( document ).ready( function( $ ) {
 			form[ this.name ] = $( this ).val();
 		});
 
-		console.log( form );
-
 		// Make the ajax request with the form data.
 		$.ajax({
 			url: make_gigya.ajax,
@@ -259,8 +261,6 @@ jQuery( document ).ready( function( $ ) {
 
 		form.action = '';
 		form.action = 'get_steps_list';
-
-		console.log( form );
 
 		// Make the ajax request with the form data.
 		$.ajax({
