@@ -31,7 +31,7 @@ jQuery( document ).ready( function( $ ) {
 		make_contribute_input_disabler( 'contribute-form' );
 
 		// Hide the form
-		$( '.contribute-form' ).slideUp();
+		make_contribute_close_forms();
 
 		// Added this for Cole... - Cole appreciates it.
 		make_contribute_loading_screen( '.post-content' );
@@ -99,7 +99,7 @@ jQuery( document ).ready( function( $ ) {
 		var inputs = $( '.contribute-form-tools :input' );
 
 		// Hide the form
-		$( '.contribute-form-tools' ).slideUp();
+		make_contribute_close_forms();
 
 		// Add the loading bar.
 		make_contribute_loading_screen( 'steps-progress' );
@@ -136,7 +136,7 @@ jQuery( document ).ready( function( $ ) {
 		make_contribute_input_disabler( 'contribute-form-parts' );
 
 		// Hide the form
-		$( '.contribute-form-parts' ).slideUp();
+		make_contribute_close_forms();
 
 		// Add the loading bar.
 		make_contribute_loading_screen( 'steps-progress' );
@@ -179,7 +179,7 @@ jQuery( document ).ready( function( $ ) {
 		make_contribute_input_disabler( 'contribute-form-steps' );
 
 		// Hide the steps.
-		$( '.contribute-form-steps' ).slideUp();
+		make_contribute_close_forms();
 
 		// Added this for Cole...
 		make_contribute_loading_screen( '.steps-progress' );
@@ -227,7 +227,7 @@ jQuery( document ).ready( function( $ ) {
 			type: 'POST',
 			success: function( response ){
 				response = JSON.parse( response );
-				$( '.contribute-form-steps' ).slideUp();
+				make_contribute_close_forms();
 				make_contribute_display_steps( response.post_id );
 			}
 		});
@@ -347,4 +347,9 @@ function make_contribute_loading_screen( selector ) {
 			clearInterval( interval_id );
 		}
 	}, time );
+}
+
+
+function make_contribute_close_forms() {
+	jQuery( '.contribute-form, .contribute-form-tools, .contribute-form-parts, .contribute-form-steps' ).slideUp();
 }
