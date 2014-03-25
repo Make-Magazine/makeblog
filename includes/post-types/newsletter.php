@@ -137,8 +137,8 @@ function make_private_page_query_filter($query) {
 	if ( is_admin() ) {
 		if ( function_exists( 'get_current_screen' ) ) {
 			$screen = get_current_screen();
-			if ( 'nav-menus' == $screen->base )
-				$query->set( 'post_status', 'publish,private,future,pending,draft' );
+			// if ( 'nav-menus' == $screen->base )
+				// $query->set( 'post_status', 'publish,private,future,pending,draft' );
 		}
 	}
 	return $query;
