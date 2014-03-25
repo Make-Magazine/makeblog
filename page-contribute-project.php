@@ -23,7 +23,7 @@ get_header(); ?>
 							<header class="projects-masthead">
 								<h1 class="post-title"></h1>
 							</header>
-							<div class="row">
+							<div class="row content-wrapper">
 								<div class="span8">
 									<section class="post-content"></section>
 								</div>

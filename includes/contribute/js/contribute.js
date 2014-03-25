@@ -72,10 +72,15 @@ jQuery( document ).ready( function( $ ) {
 			success: function( data ){
 				post_obj = JSON.parse( data );
 				make_contribute_post_filler( post_obj );
-				$( '.contribute-form-steps' ).slideDown();
-				$( '.post_ID' ).each( function() {
-					$( this ).val( post_obj.ID );
-				});
+
+				if ( make_contribute_post_type === 'projects' ) {
+					$( '.contribute-form-steps' ).slideDown();
+					$( '.post_ID' ).each( function() {
+						$( this ).val( post_obj.ID );
+					});
+				} else {
+					$( '.content-wrapper' ).append( '<div class="row"><div class="span12"><h3>Thanks for submitting a post! We\'ll review your contribution shortly.</h3></div></div>' );
+				}
 			}
 		});
 	});
