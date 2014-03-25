@@ -9,28 +9,48 @@ jQuery( document ).ready( function( $ ) {
 
 		make_contribute_add_field( 'steps' );
 	});
+
+	// Trigger the parts addition when we click the "Add Parts" button
+	$( '.btn.add-part' ).click( function( e ) {
+		e.preventDefault();
+
+		make_contribute_add_field( 'parts' );
+	});
 });
 
 
+/**
+ * Adds new elements of our contributor form to the page
+ * @param  strong fields the type of field we are dealing with
+ * @return void
+ */
 function make_contribute_add_field( fields ) {
 	// Count the number of fields we have and increment
 	var count = jQuery( 'input[name="total-' + fields + '"]' ).val();
 	count++;
 
-	var field_obj = jQuery( '#' + fields + '-template' ).html();
+	// Get the template
+	var template = jQuery( '#' + fields + '-template' ).html();
 
 	// Run a find and replace on the template to add our field count variable
-	field_obj = field_obj.replace( new RegExp( '##count##', 'g' ), count );
+	temp = template.replace( new RegExp( '##count##', 'g' ), count );
 
-	jQuery( '.' + fields + '-list' ).append( field_obj );
+	// Append the new template to our list of items
+	jQuery( '.' + fields + '-list' ).append( temp );
 
-	// Update our step count
+	// Update our item count
 	jQuery( 'input[name="total-' + fields + '"]' ).val( count );
 
 	// Make sure we trigger the removal event of the field after its been added
 	make_contribute_remove_field( fields );
 }
 
+
+/**
+ * Removes an element from the contribute form
+ * @param  string fields the type of field we are dealing with
+ * @return void
+ */
 function make_contribute_remove_field( fields ) {
 
 	// The field variable is passed as a plural, let's remove make singular
@@ -49,6 +69,11 @@ function make_contribute_remove_field( fields ) {
 }
 
 
+/**
+ * A controller function to determine what function we need to use based on the form field type
+ * @param  string fields The type of field we are dealing with
+ * @return void
+ */
 function make_contribute_get_update_fields( fields ) {
 	if ( fields === 'steps' ) {
 		make_contribute_update_steps();
@@ -61,6 +86,10 @@ function make_contribute_get_update_fields( fields ) {
 }
 
 
+/**
+ * Updates the step form fields to ensure they are all labeled with the right number
+ * @return void
+ */
 function make_contribute_update_steps() {
 	var i = 1;
 	jQuery( '.step.row' ).each( function() {
@@ -91,10 +120,53 @@ function make_contribute_update_steps() {
 	jQuery( '#add-steps' ).find( 'input[type="hidden"][name="total-steps"]' ).val( i - 1 );
 }
 
-function make_contribute_update_parts() {
 
+/**
+ * Updates the part form fields to ensure they are all labeled with the right number
+ * @return void
+ */
+function make_contribute_update_parts() {
+	var i = 1;
+	jQuery( '.part.row' ).each( function() {
+		var step = jQuery(this);
+
+		// Update the step number title
+		step.find( '.part-title' ).html( 'Part ' + i );
+
+		// Update the step number
+		step.find( 'input[type="hidden"].part-number' ).attr({
+			'name'  : 'part-number-' + i,
+			'value' : i
+		});
+
+		// Update the parts notes count
+		step.find( 'input[type="hidden"].parts-notes' ).attr( 'name', 'parts-notes-' + i );
+
+		// Update the part name
+		step.find( 'input[type="text"].parts-name' ).attr( 'name', 'parts-name-' + i );
+
+		// Update the parts quantity
+		step.find( 'input[type="number"].parts-qty' ).attr( 'name', 'parts-qty-' + i );
+
+		// Update the parts url
+		step.find( 'input[type="url"].parts-url' ).attr( 'name', 'parts-url-' + i );
+
+		// Update the parts type
+		step.find( 'input[type="text"].parts-type' ).attr( 'name', 'parts-type-' + i );
+
+		i++;
+		console.log(i);
+	});
+
+	// Update the total step count
+	jQuery( '#add-parts' ).find( 'input[type="hidden"][name="total-parts"]' ).val( i );
 }
 
+
+/**
+ * Updates the tools form fields to ensure they are all labeled with the right number
+ * @return void
+ */
 function make_contribute_update_tools() {
 
 }

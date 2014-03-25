@@ -7075,6 +7075,11 @@ div.tools {
   width: 50%;
   float: left;
 }
+div.parts.row,
+div.tools.row {
+  width: 100%;
+  float: none;
+}
 .description {
   text-align: right;
 }
