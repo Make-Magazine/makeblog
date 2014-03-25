@@ -23,7 +23,41 @@ get_header(); ?>
 							<header class="projects-masthead">
 								<h1 class="post-title"></h1>
 							</header>
-							<section class="post-content"></section>
+							<div class="row">
+								<div class="span8">
+									<section class="post-content"></section>
+								</div>
+								<div class="span4">
+
+									<div class="projects-ad">
+
+										<!-- Beginning Sync AdSlot 2 for Ad unit header ### size: [[300,250]]  -->
+										<div id='div-gpt-ad-664089004995786621-2'>
+											<script type='text/javascript'>
+												googletag.cmd.push(function(){googletag.display('div-gpt-ad-664089004995786621-2')});
+											</script>
+										</div>
+										<!-- End AdSlot 2 -->
+
+									</div>
+
+									<div class="parts-tools">
+										<ul class="top">
+											<li class=""><a href="#parts-pane" data-toggle="tab">Parts</a></li>
+											<li class="divider"> / </li>
+											<li class="active"><a href="#tools-pane" data-toggle="tab">Tools</a></li>
+										</ul>
+										<div class="tab-content">
+											<div class="tab-pane tools-pane" id="parts-pane">
+												<p>No tools, yet...</p>
+											</div>
+											<div class="tab-pane active parts-pane" id="tools-pane">
+												<p>No tools, yet...</p>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
 
 							<div class="steps-progress"></div>
 
