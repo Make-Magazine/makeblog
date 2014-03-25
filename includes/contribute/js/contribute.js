@@ -29,6 +29,9 @@ jQuery( document ).ready( function( $ ) {
 		// Added this for Cole... - Cole appreciates it.
 		make_contribute_loading_screen( '.post-content' );
 
+		// Let's hide this, and bring it back when we have something to put in it.
+		$( '.parts-tools').hide();
+
 		// Save the form, pushing the data back.
 		tinyMCE.triggerSave();
 
@@ -111,15 +114,28 @@ jQuery( document ).ready( function( $ ) {
 		// Prevent the button from trggering
 		e.preventDefault();
 
+		// Disable the inputs.
+		make_contribute_input_disabler( 'contribute-form-parts' );
+
+		// Hide the form
+		$( '.contribute-form-parts' ).slideUp();
+
+		// Add the loading bar.
+		make_contribute_loading_screen( 'steps-progress' );
+
+		// Let's start gathering values.
 		var inputs = $( '.contribute-form-parts :input' );
 
+		// Create the form array.
 		var form = {};
 		inputs.each( function() {
 			form[ this.name ] = $( this ).val();
 		});
 
+		// Add the action here.
 		form.action = 'add_parts';
 
+		// Check the form
 		console.log( form );
 
 		// Make the ajax request with the form data.
@@ -128,8 +144,9 @@ jQuery( document ).ready( function( $ ) {
 			data: form,
 			type: 'POST',
 			success: function( data ){
-				parts_obj = JSON.parse( data );
-				console.log( parts_obj );
+				$( '.parts-tools' ).show();
+				$( '.parts-pane' ).html( data );
+				$( '.contribute-form-tools' ).slideDown();
 			}
 		});
 
@@ -240,7 +257,10 @@ jQuery( document ).ready( function( $ ) {
 			data: form,
 			type: 'POST',
 			success: function( data ){
+				// Output the steps.
 				$( '.steps-list-output' ).html( data );
+				// Display the parts form.
+				$( '.contribute-form-parts' ).slideDown();
 			}
 		});
 
