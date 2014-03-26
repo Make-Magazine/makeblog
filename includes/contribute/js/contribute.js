@@ -89,7 +89,7 @@ jQuery( document ).ready( function( $ ) {
 	// Save the steps.
 	$( '.submit-steps' ).on( 'click', function( e ) {
 
-		// Prevent the button from trggering
+		// Prevent the button from triggering
 		e.preventDefault();
 
 		// Disable the form inputs
