@@ -153,9 +153,18 @@ function make_is_logged_in( maker ) {
 		}
 	}
 
+	// Check if we are logged into either WP or Gigya
 	if ( make_gigya.loggedin === 'true' || maker.errorCode === 0 ) {
 		if ( gigya_debug )
 			console.log( 'User Logged In.' );
+
+		// We need to ensure that if we are logged into WP, we force Gigya signout
+		if ( make_gigya.loggedin === 'true' && maker.errorCode === 0 ) {
+			gigya.accounts.logout();
+
+			alert( 'It appears you are logged in twice. We\'ll need to log you out of your guest author account to continue.' );
+			return;
+		}
 
 		// We only want to provide a sign out feature for Gigya users
 		var signout = ( make_gigya.loggedin === 'false' ) ? '<a href="#signout" class="user-creds signout">Sign Out</a> / ' : '';
