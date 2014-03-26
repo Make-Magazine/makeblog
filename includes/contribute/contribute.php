@@ -246,6 +246,12 @@ class Make_Contribute {
 
 		$post->media = $this->image_rows( $pid );
 
+		// Send our auto responders if we have saved a post
+		if ( isset( $_POST['post_type'] ) && $_POST['post_type'] == 'post' ) {
+			$ar_nonce = wp_create_nonce( 'send-auto-responders' );
+			$this->send_auto_responders( $post, $ar_nonce );
+		}
+
 		// Send back the Post as JSON
 		die( json_encode( $post ) );
 
@@ -383,6 +389,105 @@ class Make_Contribute {
 	}
 
 
+	/**
+	 * Allows us to send emails to the editors and author on post completion and acceptance
+	 * @return void
+	 */
+	private function send_auto_responders( $post, $nonce ) {
+
+		// Check that a nonce is set and is valid
+		if ( ! empty( $nonce ) && ! wp_verify_nonce( $nonce, 'send-auto-responders' ) )
+			return 'Auto Responders not sent!';
+
+		// Check if the post variable is an object or an integer. If it's an int, fetch the post object
+		if ( is_object( $post ) ) {
+			$post = $post;
+		} elseif ( is_int( $post ) ) {
+			$post = get_post( absint( $post ) );
+		} else {
+			$post = null;
+		}
+
+		if ( empty( $post ) )
+			return null;
+
+		// Ensure that we are only dealing with posts or projects
+		if ( isset( $post->post_type ) && ! in_array( $post->post_type, array( 'post', 'projects' ) ) )
+			return;
+
+		// Get the author info
+		$author = get_coauthors( absint( $post->ID ) );
+
+		// Build the email object
+		$email_obj = array(
+			'post_title'	 => $post->post_title,
+			'edit_slug'		 => admin_url( '/post.php?post=' . absint( $post->ID ) . '&action=edit' ),
+			'post_type'		 => $post->post_type,
+			'author_name'	 => $author[0]->data->display_name,
+			'author_email' 	 => $author[0]->data->user_email,
+			'author_profile' => home_url( '/author/' . $author[0]->data->user_nicename ),
+			'post_date'		 => strtotime( $post->post_date ),
+		);
+
+		// add our emails to the obj
+		$email_obj['email']['send_tos'] = array(
+			'editors' => '',
+			'author'  => $email_obj['author_email'],
+		);
+
+		// Prevent submissions in our testing environments
+		if ( isset( $_SERVER['HTTP_HOST'] ) && in_array( $_SERVER['HTTP_HOST'], array( 'localhost', 'make.com', 'vip.dev', 'staging.makezine.com' ) ) ) {
+			$email_obj['email']['send_tos'] = array(
+				'editors' => 'cgeissinger@makermedia.com',
+				'author'  => 'cgeissinger@makermedia.com',
+			);
+		}
+
+		// Add a default from address
+		$email_obj['email']['from'] = 'editors@makezine.com';
+
+		// Add the subject
+		$email_obj['email']['subjects'] = array(
+			'editors' => 'New Submission to Make - ' . esc_html( $email_obj['post_title'] ),
+			'author'  => 'Your Recent Submission to makezine.com - ' . esc_html( $email_obj['post_title'] ),
+		);
+
+		// Fetch the email templates
+		$editor_path = __DIR__ . '/emails/notify-new-post.html';
+		$author_path = __DIR__ . '/emails/applicant-receipt.html';
+
+		// Prevent Path Traversal
+		if ( strpos( $editor_path, '../' ) !== false || strpos( $editor_path, "..\\" ) !== false || strpos( $editor_path, '/..' ) !== false || strpos( $editor_path, '\..' ) !== false )
+			return;
+
+		if ( strpos( $author_path, '../' ) !== false || strpos( $author_path, "..\\" ) !== false || strpos( $author_path, '/..' ) !== false || strpos( $author_path, '\..' ) !== false )
+			return;
+
+		// Check if our templates exist
+		if ( ! file_exists( $editor_path ) || ! file_exists( $author_path ) )
+			return;
+
+		// Get the contents of our email templates
+		$editor_body = file_get_contents( $editor_path );
+		$author_body = file_get_contents( $author_path );
+
+		// Perform a search and replace on our HTML templates with actual data
+		$find_and_replace = array(
+			'$post_title' => esc_html( $email_obj['post_title'] ),
+			'$the_permalink' => esc_url( $email_obj['edit_slug'] ),
+			'$post_type' => esc_html( $email_obj['post_type'] ),
+			'$post_author' => esc_html( ucwords( $email_obj['author_name'] ) ),
+			'$author_email' => sanitize_email( $email_obj['author_email'] ),
+			'$author_permalink' => esc_url( $email_obj['author_profile'] ),
+			'$post_date' => date( 'D F d, Y h:i:s A' ),
+		);
+		$editor_message = force_balance_tags( str_replace( array_keys( $find_and_replace ), array_values( $find_and_replace ), $editor_body ) );
+		$author_message = force_balance_tags( str_replace( array_keys( $find_and_replace ), array_values( $find_and_replace ), $author_body ) );
+
+		// Send the emails!
+		wp_mail( sanitize_email( $email_obj['email']['send_tos']['editors'] ), esc_html( $email_obj['email']['subjects']['editors'] ), $editor_message, array( 'Content-Type: text/html', "From: {$email_obj['email']['from']}" ) );
+		wp_mail( sanitize_email( $email_obj['email']['send_tos']['author'] ), esc_html( $email_obj['email']['subjects']['author'] ), $author_message, array( 'Content-Type: text/html', "From: {$email_obj['email']['from']}" ) );
+	}
 
 }
 
