@@ -10,22 +10,6 @@
 	.nav { margin-bottom:0; }
 }
 
-// User Login Wrapper
-.login-wrapper {
-	position:absolute;
-	left:245px;
-	top:-8px;
-	color:#005d8f;
-	font-size:18px;
-	font-weight:bold;
-	a {
-		display:inline-block;
-		&:hover {
-			text-decoration:underline !important;
-		}
-	}
-}
-
 // Wrapper containing the main navigaiton
 .main-header {
 	padding:15px 0 10px;
@@ -41,9 +25,7 @@
 		position:absolute;
 		top:-15px;
 		right:0;
-		.subscribe, .search-make, { 
-			.pull-left;
-		}
+		.subscribe, .search-make, { .pull-left; }
 		.subscribe {
 			> a {
 				margin-right:6px;
@@ -76,8 +58,7 @@
 			}
 		}
 		.search-make {
-			position:absolute;
-			left:-695px;
+			float:right;
 			margin:0;
 			input[type="text"] {
 				width:165px;
@@ -106,6 +87,13 @@
 				}
 			}
 		}
+	}
+	.login-wrapper {
+		position:absolute;
+		right:225px;
+		font-weight:bold;
+		font-size:19px;
+		top:-9px;
 	}
 }
 .makershed-banner {
@@ -152,7 +140,7 @@
 	font-size:20px !important;
 	font-weight:bold;
 	position:relative;
-	top:65px;
+	top:92px;
 	ul {
 		> li {
 			margin-right: 18px;
@@ -179,110 +167,6 @@
 		margin-top:-1px;
 		border-color:lighter(@secondary-color);
 		li { width:100%; }
-	}
-}
-
-// Popdown Menu
-.make-popdown {
-	position:relative;
-	border-bottom:2px solid #bbb;
-	.box-shadow(0 5px 5px -5px #bbb);
-	.wrapper-container {
-		background:#fff;
-		padding:5px 0;
-		.container {
-			display:none;
-
-			// Style over rides from HIW pages
-			padding:0;
-			background:transparent;
-		}
-		&.popdown-open {
-			padding:18px 0;
-		}
-	}
-	.side-text {
-		font-size:18px;
-		font-family:@font;
-		color:#252525;
-		a {
-			font-weight:bold;
-			color:#005d8f;
-			font-size:21px;
-			display:block;
-		}
-	}
-	.menu-button {
-		position:absolute;
-		left:50%;
-		bottom:-39px;
-		padding:0;
-		.popdown-btn {
-			cursor:pointer;
-			position:relative;
-			left:-50%;
-			background:url('../img/make-logo-popdown.png') 0px 0px no-repeat;
-			width:423px;
-			height:41px;
-			display:block;
-			&.open { background-position:0px -42px; }
-		}
-	}
-	.border-right {
-		border-right:2px solid #d7d7d7;
-		min-height:102px;
-	}
-	.menu-bottom {
-		font-weight:bold;
-		padding:9px 0;
-		color:#252525;
-		p, ul {
-			display:inline-block;
-			font-size:18px !important;
-		}
-	}
-	ul.nav {
-		font-family:@font;
-		font-size:14px;
-		margin:0;
-		.clearfix;
-		li {
-			.pull-left;
-			margin-right:19px;
-			&.last { margin-right:0 !important; }
-		}
-		&.first {
-			margin:0;
-			font-size:21px;
-			li { float:none; }
-			a {
-				display:block;
-				font-weight:bold;
-				line-height:1.62em;
-			}
-		}
-		&.second {
-			font-size:20px;
-			li { float:none; }
-			a { line-height:1.2em; }
-		}
-		&.last {
-			position:relative;
-			top:6px;
-			li {
-				margin:0 5px 0 0;
-				padding:0 5px 0 0;
-				border-right:2px solid #d7d7d7;
-				&.last {
-					margin:0;
-					padding:0;
-					border:none;
-				}
-			}
-		}
-		a:hover {
-			background:transparent;
-		}
 	}
 }
 

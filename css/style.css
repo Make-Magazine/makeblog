@@ -9401,20 +9401,6 @@ li.share-email {
 .top-navigation-wrapper .nav {
   margin-bottom: 0;
 }
-.login-wrapper {
-  position: absolute;
-  left: 245px;
-  top: -8px;
-  color: #005d8f;
-  font-size: 18px;
-  font-weight: bold;
-}
-.login-wrapper a {
-  display: inline-block;
-}
-.login-wrapper a:hover {
-  text-decoration: underline !important;
-}
 .main-header {
   padding: 15px 0 10px;
   border-top: 1px solid #ed1c24;
@@ -9477,8 +9463,7 @@ li.share-email {
   color: #ed1c24;
 }
 .main-header .additional-content .search-make {
-  position: absolute;
-  left: -695px;
+  float: right;
   margin: 0;
 }
 .main-header .additional-content .search-make input[type="text"] {
@@ -9511,6 +9496,13 @@ li.share-email {
 .main-header .additional-content .search-make.open input[type="text"] {
   padding: 3px 0 3px 8px;
   margin-bottom: 0;
+}
+.main-header .login-wrapper {
+  position: absolute;
+  right: 225px;
+  font-weight: bold;
+  font-size: 19px;
+  top: -9px;
 }
 .makershed-banner {
   background: #de231a;
@@ -9555,7 +9547,7 @@ li.share-email {
   font-size: 20px !important;
   font-weight: bold;
   position: relative;
-  top: 65px;
+  top: 92px;
 }
 .primary-navigation ul > li {
   margin-right: 18px;
@@ -9585,128 +9577,6 @@ li.share-email {
 }
 .secondary-navigation .dropdown-menu li {
   width: 100%;
-}
-.make-popdown {
-  position: relative;
-  border-bottom: 2px solid #bbb;
-  -webkit-box-shadow: 0 5px 5px -5px #bbbbbb;
-  -moz-box-shadow: 0 5px 5px -5px #bbbbbb;
-  box-shadow: 0 5px 5px -5px #bbbbbb;
-}
-.make-popdown .wrapper-container {
-  background: #fff;
-  padding: 5px 0;
-}
-.make-popdown .wrapper-container .container {
-  display: none;
-  padding: 0;
-  background: transparent;
-}
-.make-popdown .wrapper-container.popdown-open {
-  padding: 18px 0;
-}
-.make-popdown .side-text {
-  font-size: 18px;
-  font-family: "proxima-nova", sans-serif;
-  color: #252525;
-}
-.make-popdown .side-text a {
-  font-weight: bold;
-  color: #005d8f;
-  font-size: 21px;
-  display: block;
-}
-.make-popdown .menu-button {
-  position: absolute;
-  left: 50%;
-  bottom: -39px;
-  padding: 0;
-}
-.make-popdown .menu-button .popdown-btn {
-  cursor: pointer;
-  position: relative;
-  left: -50%;
-  background: url('../img/make-logo-popdown.png') 0px 0px no-repeat;
-  width: 423px;
-  height: 41px;
-  display: block;
-}
-.make-popdown .menu-button .popdown-btn.open {
-  background-position: 0px -42px;
-}
-.make-popdown .border-right {
-  border-right: 2px solid #d7d7d7;
-  min-height: 102px;
-}
-.make-popdown .menu-bottom {
-  font-weight: bold;
-  padding: 9px 0;
-  color: #252525;
-}
-.make-popdown .menu-bottom p,
-.make-popdown .menu-bottom ul {
-  display: inline-block;
-  font-size: 18px !important;
-}
-.make-popdown ul.nav {
-  font-family: "proxima-nova", sans-serif;
-  font-size: 14px;
-  margin: 0;
-  *zoom: 1;
-}
-.make-popdown ul.nav:before,
-.make-popdown ul.nav:after {
-  display: table;
-  content: "";
-  line-height: 0;
-}
-.make-popdown ul.nav:after {
-  clear: both;
-}
-.make-popdown ul.nav li {
-  float: left;
-  margin-right: 19px;
-}
-.make-popdown ul.nav li.last {
-  margin-right: 0 !important;
-}
-.make-popdown ul.nav.first {
-  margin: 0;
-  font-size: 21px;
-}
-.make-popdown ul.nav.first li {
-  float: none;
-}
-.make-popdown ul.nav.first a {
-  display: block;
-  font-weight: bold;
-  line-height: 1.62em;
-}
-.make-popdown ul.nav.second {
-  font-size: 20px;
-}
-.make-popdown ul.nav.second li {
-  float: none;
-}
-.make-popdown ul.nav.second a {
-  line-height: 1.2em;
-}
-.make-popdown ul.nav.last {
-  position: relative;
-  top: 6px;
-}
-.make-popdown ul.nav.last li {
-  margin: 0 5px 0 0;
-  padding: 0 5px 0 0;
-  border-right: 2px solid #d7d7d7;
-}
-.make-popdown ul.nav.last li.last {
-  margin: 0;
-  padding: 0;
-  border: none;
-}
-.make-popdown ul.nav a:hover {
-  background: transparent;
 }
 @media (max-width: 1200px) {
   body.makercamp .make-popdown .menu-bottom p,
