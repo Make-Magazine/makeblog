@@ -191,69 +191,44 @@ jQuery( document ).ready( function( $ ) {
 		});
 	});
 
-	// Save the steps.
-	$( '.submit-steps' ).on( 'click', function( e ) {
+	// Save all of the tools data.
+	$( '.submit-tools' ).on( 'click', function( e ) {
 
-		// Prevent the button from trggering
+		// Prevent the button from triggering
 		e.preventDefault();
 
-		// Disable the form inputs
-		make_contribute_input_disabler( 'contribute-form-steps' );
+		// Disable the inputs.
+		make_contribute_input_disabler( 'contribute-form-tools' );
 
-		// Hide the steps.
-		make_contribute_close_forms();
+		// Grab all of the inputs
+		var inputs = $( '.contribute-form-tools :input' );
 
-		// Added this for Cole...
-		make_contribute_loading_screen( '.steps-progress' );
+		// Hide the form
+		$( '.contribute-form-tools' ).slideUp();
 
-		// Let's get the steps initialized.
-		var form = $( 'contribute-form-steps' );
+		// Add the loading bar.
+		make_contribute_loading_screen( 'steps-progress' );
 
-		// Grab all of the inputs.
-		var the_files = $( '.contribute-form-steps :file' );
-		var inputs = $( '.contribute-form-steps input:not(:file), .contribute-form-steps textarea' );
-
-		// New FormData
-		var data = new FormData( form );
-
-		// Setup the form object, just kinda playing with this as a source of data.
-		var form_obj = {};
-
-		// Add the add_steps action to the object.
-		form_obj.action = 'add_steps';
-
-		// Append each of the images to the object, giving each a name.
-		jQuery.each( the_files, function( i, file_obj ) {
-			jQuery.each( file_obj.files, function( key, file ) {
-				form_obj['step-images-' + ( i + 1 )] = file;
-				data.append( 'step-images-' + ( i + 1 ), file );
-			});
-		});
-
-		// Loop through all of the inputs, with the exception of the file ones, and add the to the form_object, and then to the data object.
+		// Grab all of the form data.
+		var form = {};
 		inputs.each( function() {
-			form_obj[ this.name ] = $( this ).val();
-			data.append( this.name, $( this ).val() );
+			form[ this.name ] = $( this ).val();
 		});
 
-		// Append the action to the data object.
-		data.append( 'action', 'add_steps' );
+		form.action = 'add_tools';
 
-		// Ajax request.
+		// Make the ajax request with the form data.
 		$.ajax({
 			url: make_gigya.ajax,
-			data: data,
-			cache: false,
-			contentType: false,
-			processData: false,
+			data: form,
 			type: 'POST',
-			success: function( response ){
-				response = JSON.parse( response );
-				make_contribute_close_forms();
-				make_contribute_display_steps( response.post_id );
+			success: function( data ){
+				$( '.tools-pane' ).empty();
+				$( '.tools-pane' ).html( data );
 			}
 		});
 	});
+
 });
 
 
