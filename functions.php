@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 /*
 
@@ -32,9 +32,6 @@ include_once dirname( __FILE__ ) . '/includes/vip.php';
 // Load Gigya!
 include_once dirname( __FILE__ ) . '/includes/gigya/gigya.php';
 
-// Load the scripts for our Maker accounts
-include_once dirname( __FILE__ ) . '/includes/maker-profile/maker-profile.php';
-
 // 3. NUMBERED PAGE NAVIGATION
 include_once dirname( __FILE__ ) . '/includes/pagenavi.php';
 
@@ -53,7 +50,7 @@ include_once dirname( __FILE__ ) . '/includes/taxonomies.php';
 // 8. Page 2 - Custom Post Type
 include_once dirname( __FILE__ ) . '/includes/page_2.php';
 
-// 9. YouTube Embed Function 
+// 9. YouTube Embed Function
 include_once dirname( __FILE__ ) . '/includes/youtube.php';
 
 // 10. Contribute Function
