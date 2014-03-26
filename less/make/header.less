@@ -10,6 +10,22 @@
 	.nav { margin-bottom:0; }
 }
 
+// User Login Wrapper
+.login-wrapper {
+	position:absolute;
+	left:245px;
+	top:-8px;
+	color:#005d8f;
+	font-size:18px;
+	font-weight:bold;
+	a {
+		display:inline-block;
+		&:hover {
+			text-decoration:underline !important;
+		}
+	}
+}
+
 // Wrapper containing the main navigaiton
 .main-header {
 	padding:15px 0 10px;
@@ -25,7 +41,9 @@
 		position:absolute;
 		top:-15px;
 		right:0;
-		.subscribe, .search-make, { .pull-left; }
+		.subscribe, .search-make, { 
+			.pull-left;
+		}
 		.subscribe {
 			> a {
 				margin-right:6px;
@@ -58,7 +76,8 @@
 			}
 		}
 		.search-make {
-			float:right;
+			position:absolute;
+			left:-695px;
 			margin:0;
 			input[type="text"] {
 				width:165px;
@@ -133,7 +152,7 @@
 	font-size:20px !important;
 	font-weight:bold;
 	position:relative;
-	top:92px;
+	top:65px;
 	ul {
 		> li {
 			margin-right: 18px;
