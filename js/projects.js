@@ -1,5 +1,5 @@
 jQuery(document).ready(function(){
-	jQuery('#tabs li.steps').click(function() {
+	jQuery('body').on( 'click', '#tabs li.steps', function() {
 		jQuery(this).addClass('current');
 		var id = jQuery(this).attr('id');
 		jQuery('#steppers div#js-' + id).slideDown().removeClass('hide').addClass('active');
@@ -17,7 +17,7 @@ jQuery(document).ready(function(){
 		});
 		return true;
 	});
-	jQuery('.nexter').click(function() {
+	jQuery('body').on('click', '.nexter', function() {
 		var id = jQuery(this).attr('id');
 		jQuery('#steppers div#js-' + id).slideDown().removeClass('hide');
 		jQuery('#steppers div:not(#js-' + id + ')').slideUp();
@@ -36,7 +36,7 @@ jQuery(document).ready(function(){
 		});
 		return true;
 	});
-	jQuery('.aller').click(function() {
+	jQuery('body').on('click', '.aller', function() {
 		jQuery('#steppers').children().slideDown();
 		jQuery('#steppers .nexter, #steppers .disabled').hide();
 		googletag.pubads().refresh();
@@ -176,7 +176,7 @@ jQuery(document).ready(function(){
 			_gaq.push(['_trackPageview']);
 			} );
 	} )( jQuery );
-	
+
 	jQuery('.print-page').on('click', function() {
 		window.print();
 	});
