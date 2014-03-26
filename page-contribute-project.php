@@ -59,8 +59,6 @@ get_header(); ?>
 								</div>
 							</div>
 
-							<div class="steps-progress"></div>
-
 							<div class="bottom-steps" id="target">
 
 								<form class="form form-horizontal contribute-form-get-steps" method="post">
@@ -97,6 +95,8 @@ get_header(); ?>
 
 								</div>
 							</div>
+
+							<div class="saving-progress"></div>
 						</article>
 
 

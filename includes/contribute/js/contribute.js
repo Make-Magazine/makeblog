@@ -33,8 +33,8 @@ jQuery( document ).ready( function( $ ) {
 		// Hide the form
 		make_contribute_close_forms();
 
-		// Added this for Cole... - Cole appreciates it.
-		make_contribute_loading_screen( '.post-content' );
+		// Add the loading bar
+		make_contribute_loading_screen();
 
 		// Let's hide this, and bring it back when we have something to put in it.
 		$( '.parts-tools').hide();
@@ -81,6 +81,8 @@ jQuery( document ).ready( function( $ ) {
 				} else {
 					$( '.content-wrapper' ).append( '<div class="row"><div class="span12"><h3>Thanks for submitting a post! We\'ll review your contribution shortly.</h3></div></div>' );
 				}
+
+				make_contribute_remove_progress_bar();
 			}
 		});
 	});
@@ -99,7 +101,7 @@ jQuery( document ).ready( function( $ ) {
 		make_contribute_close_forms();
 
 		// Added this for Cole...
-		make_contribute_loading_screen( '.steps-progress' );
+		make_contribute_loading_screen();
 
 		// Let's get the steps initialized.
 		var form = $( 'contribute-form-steps' );
@@ -146,6 +148,7 @@ jQuery( document ).ready( function( $ ) {
 				response = JSON.parse( response );
 				make_contribute_close_forms();
 				make_contribute_display_steps( response.post_id );
+				make_contribute_remove_progress_bar();
 			}
 		});
 	});
@@ -163,7 +166,7 @@ jQuery( document ).ready( function( $ ) {
 		make_contribute_close_forms();
 
 		// Add the loading bar.
-		make_contribute_loading_screen( 'steps-progress' );
+		make_contribute_loading_screen();
 
 		// Let's start gathering values.
 		var inputs = $( '.contribute-form-parts :input' );
@@ -183,6 +186,7 @@ jQuery( document ).ready( function( $ ) {
 			data: form,
 			type: 'POST',
 			success: function( data ){
+				make_contribute_remove_progress_bar();
 				$( '.parts-tools' ).show();
 				$( '.parts-pane' ).empty();
 				$( '.parts-pane' ).html( data );
@@ -204,10 +208,10 @@ jQuery( document ).ready( function( $ ) {
 		var inputs = $( '.contribute-form-tools :input' );
 
 		// Hide the form
-		$( '.contribute-form-tools' ).slideUp();
+		make_contribute_close_forms();
 
 		// Add the loading bar.
-		make_contribute_loading_screen( 'steps-progress' );
+		make_contribute_loading_screen();
 
 		// Grab all of the form data.
 		var form = {};
@@ -223,8 +227,10 @@ jQuery( document ).ready( function( $ ) {
 			data: form,
 			type: 'POST',
 			success: function( data ){
+				make_contribute_remove_progress_bar();
 				$( '.tools-pane' ).empty();
 				$( '.tools-pane' ).html( data );
+				$( '#contribute-form-wrapper' ).html( '<h2>Thanks for your project submission!</h2><p>We\'ll review your project and contact you shortly</p>' );
 			}
 		});
 	});
@@ -255,7 +261,7 @@ function make_contribute_display_steps( post_id ) {
 		data: form,
 		type: 'POST',
 		success: function( data ){
-			jQuery( '.steps-progress' ).html('');
+			jQuery( '.saving-progress' ).html('');
 			jQuery( '.steps-output' ).html( data );
 		}
 	});
@@ -319,9 +325,10 @@ function make_contribute_add_gigya_id( uid ) {
 /**
  * Add some nifty loading text that is nerdy and fun
  */
-function make_contribute_loading_screen( selector ) {
+function make_contribute_loading_screen() {
 	jQuery( '.post-holder' ).fadeIn();
 
+	var selector = '.saving-progress';
 	var time = 1500;
 	var text = [
 		'', // Pass an empty variable here as our random number goes from 1-10 and 0 will never be called
@@ -353,6 +360,15 @@ function make_contribute_loading_screen( selector ) {
 			clearInterval( interval_id );
 		}
 	}, time );
+}
+
+
+/**
+ * Removes the saving progress bar. Wunderbar!
+ * @return voide
+ */
+function make_contribute_remove_progress_bar() {
+	jQuery( '.saving-progress' ).html( '' );
 }
 
 
