@@ -246,11 +246,9 @@ class Make_Contribute {
 
 		$post->media = $this->image_rows( $pid );
 
-		// Send our auto responders if we have saved a post
-		if ( isset( $_POST['post_type'] ) && $_POST['post_type'] == 'post' ) {
-			$ar_nonce = wp_create_nonce( 'send-auto-responders' );
-			$this->send_auto_responders( $post, $ar_nonce );
-		}
+		// Send our auto responders on save.
+		$ar_nonce = wp_create_nonce( 'send-auto-responders' );
+		$this->send_auto_responders( $post, $ar_nonce );
 
 		// Send back the Post as JSON
 		die( json_encode( $post ) );
@@ -436,12 +434,8 @@ class Make_Contribute {
 		);
 
 		// Prevent submissions in our testing environments
-		if ( isset( $_SERVER['HTTP_HOST'] ) && in_array( $_SERVER['HTTP_HOST'], array( 'localhost', 'make.com', 'vip.dev', 'staging.makezine.com' ) ) ) {
-			$email_obj['email']['send_tos'] = array(
-				'editors' => 'cgeissinger@makermedia.com',
-				'author'  => 'cgeissinger@makermedia.com',
-			);
-		}
+		if ( isset( $_SERVER['HTTP_HOST'] ) && in_array( $_SERVER['HTTP_HOST'], array( 'localhost', 'make.com', 'vip.dev', 'staging.makezine.com' ) ) )
+			$email_obj['email']['send_tos']['editors'] = 'cgeissinger@makermedia.com';
 
 		// Add a default from address
 		$email_obj['email']['from'] = 'editors@makezine.com';
@@ -485,6 +479,7 @@ class Make_Contribute {
 		$author_message = force_balance_tags( str_replace( array_keys( $find_and_replace ), array_values( $find_and_replace ), $author_body ) );
 
 		// Send the emails!
+		// @TODO: Update to send to wp_cron instead of just pushing emails. This will be more important when the flood gates open and more email is processed.
 		wp_mail( sanitize_email( $email_obj['email']['send_tos']['editors'] ), esc_html( $email_obj['email']['subjects']['editors'] ), $editor_message, array( 'Content-Type: text/html', "From: {$email_obj['email']['from']}" ) );
 		wp_mail( sanitize_email( $email_obj['email']['send_tos']['author'] ), esc_html( $email_obj['email']['subjects']['author'] ), $author_message, array( 'Content-Type: text/html', "From: {$email_obj['email']['from']}" ) );
 	}
