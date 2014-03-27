@@ -153,7 +153,6 @@ jQuery( document ).ready( function( $ ) {
 				response = JSON.parse( response );
 				make_contribute_close_forms();
 				make_contribute_display_steps( response.post_id );
-				make_contribute_remove_progress_bar();
 			}
 		});
 	});
@@ -279,7 +278,8 @@ function make_contribute_display_steps( post_id ) {
 		url: make_gigya.ajax,
 		data: form,
 		type: 'POST',
-		success: function( data ){
+		success: function( data ) {
+			make_contribute_remove_progress_bar();
 			// Output the steps.
 			jQuery( '.steps-list-output' ).html( data );
 			// Display the parts form.
