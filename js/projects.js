@@ -2,15 +2,15 @@ jQuery( document ).ready( function( $ ) {
 
 	// Handle the click actions on the list items in the steps box
 	$( 'body' ).on( 'click', '#tabs li.steps', function() {
-		var id = jQuery(this).attr('id');
+		var id = $(this).attr('id');
 
 		// Progress the slider
 		$( '#steppers' ).find( '.jstep#js-' + id ).slideDown().removeClass( 'hide' );
 		$( '#steppers' ).find( '.jstep:not( #js-' + id + ')' ).slideUp();
 
 		// Update the side navigation list
-		jQuery( this ).addClass( 'current' );
-		jQuery( '#tabs li:not(#' + id + ')' ).removeClass( 'current' );
+		$( this ).addClass( 'current' );
+		$( '#tabs li:not(#' + id + ')' ).removeClass( 'current' );
 
 		// Run our trackers
 		googletag.pubads().refresh();
@@ -35,14 +35,15 @@ jQuery( document ).ready( function( $ ) {
 	});
 
 	// Display all projects when we click "View All"
-	jQuery( 'body' ).on( 'click', '.aller', function() {
+	$( 'body' ).on( 'click', '.aller', function() {
 		// Display all the slides
-		jQuery( '#steppers' ).find( '.js-step' ).each( function() {
-			jQuery( this ).slideDown();
+		$( '#steppers' ).find( '.jstep' ).each( function() {
+			$( this ).removeClass( 'hide' );
+			$( this ).slideDown();
 		});
 
 		// Hide the next/previous buttons
-		jQuery( '#steppers .nexter, #steppers .disabled' ).hide();
+		$( '#steppers .nexter, #steppers .disabled' ).hide();
 
 		// Run our trackers
 		googletag.pubads().refresh();
