@@ -331,7 +331,6 @@ function make_contribute_loading_screen() {
 	var selector = '.saving-progress';
 	var time = 1500;
 	var text = [
-		'', // Pass an empty variable here as our random number goes from 1-10 and 0 will never be called
 		'Adjusting tension bolts',
 		'Calculating feeds & speeds',
 		'Preheating print gun',
@@ -343,8 +342,9 @@ function make_contribute_loading_screen() {
 		'Slicing object layer',
 		'Doing science'
 	];
+
 	// Randomly get our text on each call (does it 1 - 10)
-	var index = Math.floor( ( Math.random() * 10 ) + 1 );
+	var index = Math.floor( ( Math.random() * text.length ) );
 
 	jQuery( selector ).html( '<h3 class="loading-text" style="text-align:center">' + text[ index ] + '...</h3><div class="progress progress-striped active"><div class="bar" style="width: 100%;"></div></div>' );
 
