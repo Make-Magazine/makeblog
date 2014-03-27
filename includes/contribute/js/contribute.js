@@ -79,7 +79,7 @@ jQuery( document ).ready( function( $ ) {
 						$( this ).val( post_obj.ID );
 					});
 				} else {
-					$( '.content-wrapper' ).append( '<div class="row"><div class="span12"><h3>Thanks for submitting a post! We\'ll review your contribution shortly.</h3></div></div>' );
+					$( '.content-wrapper' ).append( '<h2>Thanks for submitting your post!</h2><p>We\'ll review your post and contact you shortly.<p>' );
 				}
 
 				make_contribute_remove_progress_bar();
