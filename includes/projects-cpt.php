@@ -557,7 +557,7 @@ function make_projects_steps( $steps, $print = false ) {
 				}
 			echo '</span>';
 
-			$images = $step->images;
+			$images = ( isset( $step->images ) ) ? $step->images : '';
 			if ( isset( $images[0]->text ) ) {
 				if ( function_exists( 'wpcom_vip_get_resized_remote_image_url' ) ) {
 					echo '<img src="' . wpcom_vip_get_resized_remote_image_url( make_projects_to_s3( $images[0]->text ), 620, 465 ) . '" data-src="' . make_projects_to_s3( $images[0]->text ) . '" alt="' . esc_attr( the_title('', '', false ) ) . '" class="main ' . esc_attr( $images[0]->imageid ) . ' ' . esc_attr( $images[0]->orderby ) .'" />';

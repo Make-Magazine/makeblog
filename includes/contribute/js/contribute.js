@@ -89,10 +89,15 @@ jQuery( document ).ready( function( $ ) {
 
 
 	// Save the steps.
-	$( '.submit-steps' ).on( 'click', function( e ) {
+	$( '#add-steps' ).submit( function( e ) {
 
 		// Prevent the button from triggering
 		e.preventDefault();
+
+		// Validate that we our form has passed our preliminary check.
+		var check_form = $( this ).parsley( 'validate' );
+		if ( ! check_form.validationResult )
+			return;
 
 		// Disable the form inputs
 		make_contribute_input_disabler( 'contribute-form-steps' );

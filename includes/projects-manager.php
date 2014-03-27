@@ -456,15 +456,17 @@
 			// Set our images array and contain each image as an object in the Steps object
 			$int = 0;
 
-			foreach( $data[ 'step-images-' . $i ] as $image ) {
+			if ( isset( $data[ 'step-images-' . $i ] ) ) {
+				foreach( $data[ 'step-images-' . $i ] as $image ) {
 
-				$image_url = ( ! empty( $image ) ) ? esc_url_raw( $image ) : '';
-				$step['images'][ $int ] = (object) array(
-					'imageid' => absint( $data['post_ID'] ),
-					'orderby' => $int,
-					'text'    => $image_url
-				);
-				$int++; // Only increase the integer variable when we encounter a non-empty image value
+					$image_url = ( ! empty( $image ) ) ? esc_url_raw( $image ) : '';
+					$step['images'][ $int ] = (object) array(
+						'imageid' => absint( $data['post_ID'] ),
+						'orderby' => $int,
+						'text'    => $image_url
+					);
+					$int++; // Only increase the integer variable when we encounter a non-empty image value
+				}
 			}
 
 			// Count the number of Steps set in the step manager and save that number

@@ -213,7 +213,7 @@ get_header(); ?>
 															<span class="btn btn-default btn-file">
 																<span class="fileinput-new">Select image</span>
 																<span class="fileinput-exists">Change</span>
-																<input type="file" class="step-file" id="step-image" name="step-images-##count##[]">
+																<input type="file" class="step-file" id="step-image" require name="step-images-##count##[]">
 															</span>
 															<a href="#" class="btn btn-default fileinput-exists" data-dismiss="fileinput">Remove</a>
 														</div>
