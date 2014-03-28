@@ -326,9 +326,8 @@ class Make_Contribute {
 		// PARTS
 		$parts = make_magazine_projects_build_parts_data( $_POST );
 
-		$meta_obj = array();
 		foreach ( $parts as $part ) {
-			$meta_obj[] = add_post_meta( absint( $_POST['post_ID'] ), 'parts', $part );
+			add_post_meta( absint( $_POST['post_ID'] ), 'parts', $part );
 		}
 
 		$parts = get_post_meta( absint( $_POST['post_ID'] ), 'parts' );

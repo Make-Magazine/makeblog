@@ -303,7 +303,7 @@ get_header(); ?>
 														<label class="control-label"></label>
 														<div class="controls">
 															<h4 class="part-title">Part ##count##</h4>
-															<input type="hidden" name="part-number-##count##" class="part-number" value="1">
+															<input type="hidden" name="part-number-##count##" class="part-number" value="##count##">
 															<input type="hidden" name="parts-notes-##count##" class="parts-notes" id="parts-notes">
 														</div>
 													</div>
