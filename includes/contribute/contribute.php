@@ -429,16 +429,19 @@ class Make_Contribute {
 
 		// add our emails to the obj
 		$email_obj['email']['send_tos'] = array(
-			'editors' => '',
-			'author'  => $email_obj['author_email'],
+			'editors' => array( 'jbabler@makermedia.com', 'msenese@makermedia.com' ),
+			'author'  => sanitize_email( $email_obj['author_email'] ),
 		);
 
 		// Prevent submissions in our testing environments
 		if ( isset( $_SERVER['HTTP_HOST'] ) && in_array( $_SERVER['HTTP_HOST'], array( 'localhost', 'make.com', 'vip.dev', 'staging.makezine.com' ) ) )
-			$email_obj['email']['send_tos']['editors'] = 'cgeissinger@makermedia.com';
+			$email_obj['email']['send_tos']['editors'] = array( 'cgeissinger@makermedia.com', 'jspurlock@makermedia.com' );
 
 		// Add a default from address
-		$email_obj['email']['from'] = 'editors@makezine.com';
+		$email_obj['email']['from'] = array(
+			'editors' => esc_html( $email_obj['author_name'] ) . ' <' . sanitize_email( $email_obj['author_email'] ) . '>',
+			'author'  => 'Make Magazine Editors <editor@makezine.com>',
+		);
 
 		// Add the subject
 		$email_obj['email']['subjects'] = array(
@@ -480,8 +483,8 @@ class Make_Contribute {
 
 		// Send the emails!
 		// @TODO: Update to send to wp_cron instead of just pushing emails. This will be more important when the flood gates open and more email is processed.
-		wp_mail( sanitize_email( $email_obj['email']['send_tos']['editors'] ), esc_html( $email_obj['email']['subjects']['editors'] ), $editor_message, array( 'Content-Type: text/html', "From: {$email_obj['email']['from']}" ) );
-		wp_mail( sanitize_email( $email_obj['email']['send_tos']['author'] ), esc_html( $email_obj['email']['subjects']['author'] ), $author_message, array( 'Content-Type: text/html', "From: {$email_obj['email']['from']}" ) );
+		wp_mail( $email_obj['email']['send_tos']['editors'], esc_html( $email_obj['email']['subjects']['editors'] ), $editor_message, array( 'Content-Type: text/html', "From: {$email_obj['email']['from']['editors']}" ) );
+		wp_mail( $email_obj['email']['send_tos']['author'], esc_html( $email_obj['email']['subjects']['author'] ), $author_message, array( 'Content-Type: text/html', "From: {$email_obj['email']['from']['author']}" ) );
 	}
 
 }
