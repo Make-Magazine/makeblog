@@ -433,7 +433,7 @@ class Make_Contribute {
 			'author'  => sanitize_email( $email_obj['author_email'] ),
 		);
 
-		// Prevent submissions in our testing environments
+		// Prevent submissions in our testing environments to be sent to the editors
 		if ( isset( $_SERVER['HTTP_HOST'] ) && in_array( $_SERVER['HTTP_HOST'], array( 'localhost', 'make.com', 'vip.dev', 'staging.makezine.com' ) ) )
 			$email_obj['email']['send_tos']['editors'] = array( 'cgeissinger@makermedia.com', 'jspurlock@makermedia.com' );
 
