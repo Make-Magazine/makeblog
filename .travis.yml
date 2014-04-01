@@ -23,8 +23,8 @@ env:
     - WP_VERSION=3.7.1 WP_MULTISITE=1
 
 
-# Tun Travis CI against develop and master branches
+# Tun Travis CI against develop and master branches.
 branches:
   only:
-    - master
+    # - master
     - develop
