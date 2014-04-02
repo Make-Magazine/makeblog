@@ -2,13 +2,13 @@
 /**
  * The search sidebar template
  *
- * 
+ *
  * @package    makeblog
  * @license    http://opensource.org/licenses/gpl-license.php  GNU Public License
  */
 ?>
-					
-					<div class="span4 sidebar">
+
+					<div class="span4">
 
 						<?php dynamic_sidebar( 'search' ); ?>
 
@@ -45,7 +45,7 @@
 							<?php echo makershed_weekly_deal(); ?>
 
 						</div>
-						
+
 						<div class="sidebar-ad">
 
 							<!-- Beginning Sync AdSlot 3 for Ad unit header ### size: [[300,250]]  -->
