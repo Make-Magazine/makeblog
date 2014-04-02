@@ -416,14 +416,18 @@ class Make_Contribute {
 		// Get the author info
 		$author = get_coauthors( absint( $post->ID ) );
 
+		// WordPress users data is returned in an object called data, let's rework that to match the Guest Authors
+		if ( isset( $author[0]->data ) )
+			$author[0] = $author[0]->data;
+
 		// Build the email object
 		$email_obj = array(
 			'post_title'	 => $post->post_title,
 			'edit_slug'		 => admin_url( '/post.php?post=' . absint( $post->ID ) . '&action=edit' ),
 			'post_type'		 => $post->post_type,
-			'author_name'	 => $author[0]->data->display_name,
-			'author_email' 	 => $author[0]->data->user_email,
-			'author_profile' => home_url( '/author/' . $author[0]->data->user_nicename ),
+			'author_name'	 => $author[0]->display_name,
+			'author_email' 	 => $author[0]->user_email,
+			'author_profile' => home_url( '/author/' . $author[0]->user_nicename ),
 			'post_date'		 => strtotime( $post->post_date ),
 		);
 
