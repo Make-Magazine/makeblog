@@ -243,7 +243,7 @@ function make_magazine_toc( $args ) {
 		'title' 			=> 'Articles',
 		'cat' 				=> '',
 		'post_parent' 		=> null,
-		'posts_per_page' 	=> -1,
+		'posts_per_page' 	=> 200,
 		'orderby' 			=> 'name',
 		'order' 			=> 'asc',
 		'post_status'		=> array( 'publish', 'published-in-mag' ),
