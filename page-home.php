@@ -174,6 +174,8 @@ Template Name: Home Page
 
 							</div>
 
+
+
 						</div>
 
 						<div class="span4">
@@ -205,6 +207,20 @@ Template Name: Home Page
 						</div>
 
 					</div>
+
+
+					<div class="row">
+
+						<?php if ( get_theme_mod( 'make_waist_banner' ) === 'on' ) : ?>
+
+							<div class="span12 home-waist-banner" style="margin-bottom:10px;">
+								<a href="<?php echo esc_url( get_theme_mod( 'make_waist_banner_link', 'http://makezine.com/2014/03/24/enter-to-win-the-maker-faire-rome-arduino-challenge/' ) ); ?>">
+									<img src="<?php echo esc_url( get_theme_mod( 'make_waist_banner_image', get_stylesheet_directory_uri() . '/img/arduio_month.jpg' ) ); ?>">
+								</a>
+							</div>
+
+						<?php endif; ?>
+				      </div>
 
 				</div>
 
