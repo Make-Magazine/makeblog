@@ -171,9 +171,9 @@ class Make_Contribute {
 
 			if ( $guest_author ) {
 				return array(
-					'login_name'	=> $guest_author[0]->post_name,
-					'post_author'	=> $guest_author[0]->ID,
-					);
+					'login_name'  => $guest_author[0]->post_name,
+					'post_author' => $guest_author[0]->ID,
+				);
 			} else {
 				return false;
 			}

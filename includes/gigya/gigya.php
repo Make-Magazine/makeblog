@@ -211,39 +211,28 @@ class Make_Gigya {
 	 * @since  SPRINT_NAME
 	 */
 	private function search_for_maker( $uid, $email ) {
-		// Stick a hashed version of our usr ID for wp cache
-		$user_hash = md5( sanitize_text_field( $uid ) );
+		$maker_guid_query = array(
+			'post_type'  => 'guest-author',
+			'meta_key'   => 'cap-guid',
+			'meta_value' => sanitize_text_field( $uid ),
+		);
+		$users = new WP_Query( $maker_guid_query );
 
-		// Check if our makers are already cached.
-		$users = wp_cache_get( 'mf_user_' . $user_hash );
-
-		if ( $users == false ) {
-			$maker_guid_query = array(
+		// If a user was not found with a Gigya ID, let's check for an email
+		if ( empty ( $users->posts ) ) {
+			$maker_email_query = array(
 				'post_type'  => 'guest-author',
-				'meta_key'   => 'cap-guid',
-				'meta_value' => sanitize_text_field( $uid ),
+				'meta_key'   => 'cap-user_email',
+				'meta_value' => sanitize_email( $email ),
 			);
-			$users = new WP_Query( $maker_guid_query );
+			$users = new WP_Query( $maker_email_query );
 
-			// If a user was not found with a Gigya ID, let's check for an email
-			if ( empty ( $users->posts ) ) {
-				$maker_email_query = array(
-					'post_type'  => 'guest-author',
-					'meta_key'   => 'cap-user_email',
-					'meta_value' => sanitize_email( $email ),
-				);
-				$users = new WP_Query( $maker_email_query );
-
-				if ( ! empty( $users->posts ) )
-					$found_with_email = true;
-			}
-
-			// Save the results to the cache
-			wp_cache_set( 'mf_user_' . $user_hash, $users, '', 86400 ); // Since we are caching each user, might as well hold onto it for 24 hours.
-
-			if ( isset( $found_with_email ) && $found_with_email )
-				$users->posts['add_guid'] = true;
+			if ( ! empty( $users->posts ) )
+				$found_with_email = true;
 		}
+
+		if ( isset( $found_with_email ) && $found_with_email )
+			$users->posts['add_guid'] = true;
 
 		return $users->posts;
 	}
