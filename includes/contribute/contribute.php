@@ -170,7 +170,10 @@ class Make_Contribute {
 			$guest_author = $make_gigya->search_for_maker_by_id( $id );
 
 			if ( $guest_author ) {
-				return array( 'login_name' => $guest_author[0]->post_name );
+				return array(
+					'login_name'	=> $guest_author[0]->post_name,
+					'post_author'	=> $guest_author[0]->ID,
+					);
 			} else {
 				return false;
 			}
@@ -230,7 +233,7 @@ class Make_Contribute {
 			'post_content'	=> ( isset( $_POST['post_content'] ) ) ? wp_kses_post( $_POST['post_content'] ) : '',
 			'post_category'	=> ( isset( $_POST['cat'] ) ) ? array( absint( $_POST['cat'] ) ) : '',
 			'post_type'		=> ( isset( $_POST['post_type'] ) && in_array( $_POST['post_type'], $allowed_post_types ) ) ? sanitize_text_field( $_POST['post_type'] ) : 'post',
-			'post_author'	=> ( isset( $author_id['post_author'] ) ) ? absint( $author_id['post_author'] ) : 604631,
+			'post_author'	=> ( isset( $author_name['post_author'] ) ) ? absint( $author_name['post_author'] ) : 4, /* 604631 */
 		);
 
 		// Insert the post
