@@ -56,7 +56,7 @@ function makeblog_page2form (){
 
 		if( !is_user_logged_in() ) {
 
-			$post_author = sanitize_text_field($_POST['page2_author']);		
+			$post_author = sanitize_text_field($_POST['page2_author']);
 			$post_author_email = is_email( $_POST['page2_email'] ) !== false ? $_POST['page2_email'] : false;
 			$post_author_website =  esc_url_raw($_POST['page2_website']);
 			$post_author_bio =  wp_filter_post_kses($_POST['page2_bio']);
@@ -68,7 +68,7 @@ function makeblog_page2form (){
 			$post_author = $user->display_name;
 			$post_author_email = $user->user_email;
 			$post_author_website = $user->user_url;
-			$post_author_bio = get_the_author_meta( 'description', $user->ID); 
+			$post_author_bio = get_the_author_meta( 'description', $user->ID);
 
 		}
 
@@ -78,10 +78,10 @@ function makeblog_page2form (){
 			'post_author' => $post_author_id,
 			'post_status' => 'draft',
 			'post_type' => 'page_2'
-		); 
-		
+		);
+
 		$make_post_id = wp_insert_post( $post );
-		
+
 		makeblog_update_post_meta( $make_post_id, 'author',  $post_author );
 		makeblog_update_post_meta( $make_post_id, 'author_email',  $post_author_email );
 		makeblog_update_post_meta( $make_post_id, 'author_website', $post_author_website );
@@ -90,7 +90,7 @@ function makeblog_page2form (){
 
 		echo $make_post_id;
 
-		$email = array( 'jspurlock@makermedia.com','kdenmead@makermedia.com', 'sholbrook@makermedia.com' );
+		$email = array( 'jspurlock@makermedia.com','editor@makezine.com');
 
 		$page2_title = "Page2 Submission: " . $post_title;
 
@@ -98,7 +98,7 @@ function makeblog_page2form (){
 		$page2_content .= '<p>A summary of the content in the form you just submitted to MAKE.</p>';
 		$page2_content .= '<table rules="all" style="border-color: #666;" cellpadding="10">';
 		$page2_content .= "<tr style='background: #eee;'><td><strong>Page2 Submission</strong> </td><td></td></tr>";
-		$page2_content .= "<tr><td><strong>Title:</strong> </td><td>" . $post_title . "</td></tr>";		
+		$page2_content .= "<tr><td><strong>Title:</strong> </td><td>" . $post_title . "</td></tr>";
 		$page2_content .= "<tr><td><strong>Content:</strong> </td><td>" . $post_content . "</td></tr>";
 		$page2_content .= "<tr><td><strong>URL:</strong> </td><td>" . $post_link . "</td></tr>";
 		$page2_content .= "<tr><td><strong>Author Name:</strong> </td><td>" . $post_author . "</td></tr>";
@@ -115,7 +115,7 @@ function makeblog_page2form (){
 		if( $post_author_email !== false )
 			wp_mail($post_author_email, $page2_title, $page2_content, $headers[1]);
 
-	} 
+	}
 
 	exit;
 
@@ -143,11 +143,11 @@ function makeblog_linksubform () {
 			$link_name = $user->display_name;
 			$link_email = $user->user_email;
 			$link_website = $user->user_url;
-			$link_bio = get_the_author_meta( 'description', $user->ID); 
-			
+			$link_bio = get_the_author_meta( 'description', $user->ID);
+
 		}
 
-		$email = 'x+6185406202074@mail.asana.com';
+		$email = 'editor@makezine.com';
 
 		$link_title = "User Link: " . $link_title;
 
@@ -210,11 +210,11 @@ function makeblog_articleform (){
 			$article_name = $user->display_name;
 			$article_email = $user->user_email;
 			$article_website = $user->user_url;
-			$article_bio = get_the_author_meta( 'description', $user->ID); 
+			$article_bio = get_the_author_meta( 'description', $user->ID);
 
 		}
 
-		$email = 'x+6185406202074@mail.asana.com';
+		$email = 'editor@makezine.com';
 
 		$article_title = 'Article/Project: ' . $article_title;
 
