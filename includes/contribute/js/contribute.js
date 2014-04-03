@@ -36,6 +36,10 @@ jQuery( document ).ready( function( $ ) {
 		// Add the loading bar
 		make_contribute_loading_screen();
 
+		if ( make_contribute_post_type === 'projects' ) {
+			$( '.contribute-form-steps' ).slideDown();
+		}
+
 		// Let's hide this, and bring it back when we have something to put in it.
 		$( '.parts-tools').hide();
 
