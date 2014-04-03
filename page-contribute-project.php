@@ -235,7 +235,7 @@ get_header(); ?>
 											</div>
 										</section>
 										<div class="form-actions">
-											<button type="submit" class="btn btn-primary submit-steps">Save Steps</button>
+											<button type="submit" class="btn btn-primary submit-steps" disabled="disabled">Save Steps</button>
 										</div>
 									</section>
 								</fieldset>
@@ -351,7 +351,7 @@ get_header(); ?>
 											</div>
 										</section>
 										<div class="form-actions">
-											<button type="submit" class="btn btn-primary submit-parts">Save Parts</button>
+											<button type="submit" class="btn btn-primary submit-parts" disabled="disabled">Save Parts</button>
 										</div>
 									</section>
 								</fieldset>
@@ -442,7 +442,7 @@ get_header(); ?>
 											</div>
 									</section>
 									<div class="form-actions">
-										<button type="submit" class="btn btn-primary submit-tools">Save Tools</button>
+										<button type="submit" class="btn btn-primary submit-tools" disabled="disabled">Save Tools</button>
 									</div>
 								</fieldset>
 							</form>

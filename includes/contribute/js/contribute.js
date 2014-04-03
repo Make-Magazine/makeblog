@@ -78,10 +78,12 @@ jQuery( document ).ready( function( $ ) {
 				make_contribute_post_filler( post_obj );
 
 				if ( make_contribute_post_type === 'projects' ) {
-					$( '.contribute-form-steps' ).slideDown();
 					$( '.post_ID' ).each( function() {
 						$( this ).val( post_obj.ID );
 					});
+
+					// Allow users to save steps now that we have the post id
+					$( 'button.submit-steps' ).removeAttr( 'disabled' );
 				} else {
 					$( '.content-wrapper' ).append( '<h2>Thanks for submitting your post!</h2><p>We\'ll review your post and contact you shortly.<p>' );
 				}
@@ -156,6 +158,8 @@ jQuery( document ).ready( function( $ ) {
 			success: function( response ){
 				response = JSON.parse( response );
 				make_contribute_close_forms();
+				// Allow users to save steps now that we have the post id
+				$( 'button.submit-parts' ).removeAttr( 'disabled' );
 				make_contribute_display_steps( response.post_id );
 			}
 		});
@@ -198,6 +202,8 @@ jQuery( document ).ready( function( $ ) {
 				$( '.parts-tools' ).show();
 				$( '.parts-pane' ).empty();
 				$( '.parts-pane' ).html( data );
+				// Allow users to save steps now that we have the post id
+				$( 'button.submit-tools' ).removeAttr( 'disabled' );
 				$( '.contribute-form-tools' ).slideDown();
 			}
 		});
