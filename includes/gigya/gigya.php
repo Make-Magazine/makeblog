@@ -248,23 +248,13 @@ class Make_Gigya {
 	 * @since  SPRINT_NAME
 	 */
 	public function search_for_maker_by_id( $uid ) {
-		// Stick a hashed version of our usr ID for wp cache
-		$user_hash = md5( sanitize_text_field( $uid ) );
 
-		// Check if our makers are already cached.
-		$user = wp_cache_get( 'mf_user_' . $user_hash );
-
-		if ( $user == false ) {
-			$maker_guid_query = array(
-				'post_type'  => 'guest-author',
-				'meta_key'   => 'cap-guid',
-				'meta_value' => sanitize_text_field( $uid ),
-			);
-			$user = new WP_Query( $maker_guid_query );
-
-			// Save the results to the cache
-			wp_cache_set( 'mf_user_' . $user_hash, $user, '', 86400 ); // Since we are caching each user, might as well hold onto it for 24 hours.
-		}
+		$maker_guid_query = array(
+			'post_type'  => 'guest-author',
+			'meta_key'   => 'cap-guid',
+			'meta_value' => sanitize_text_field( $uid ),
+		);
+		$user = new WP_Query( $maker_guid_query );
 
 		return $user->posts;
 	}
