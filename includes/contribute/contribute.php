@@ -273,7 +273,7 @@ class Make_Contribute {
 		global $coauthors_plus;
 
 		// Check our nonce and make sure it's correct
-		if ( ! wp_verify_nonce( $_POST['contribute_post'], 'contribute_post_nonce' ) )
+		if ( ! wp_verify_nonce( $_POST['update_post'], 'update_post_nonce' ) )
 			die( 'We weren\'t able to verify that nonce...' );
 
 		// Get the author ID
@@ -317,10 +317,6 @@ class Make_Contribute {
 
 		// Let us know that the post was updated.
 		$post->updated = true;
-
-		// Send our auto responders on save.
-		$ar_nonce = wp_create_nonce( 'send-auto-responders' );
-		$this->send_auto_responders( $post, $ar_nonce );
 
 		// Send back the Post as JSON
 		die( json_encode( $post ) );

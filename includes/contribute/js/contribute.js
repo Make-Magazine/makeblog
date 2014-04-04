@@ -19,6 +19,8 @@ jQuery( document ).ready( function( $ ) {
 	// Handle the AJAX for saving the first stage of the post. The rest will be over Backbone.
 	$( '#add-post-content' ).submit( function( e ) {
 
+		console.log('The wrong function was called...');
+
 		// Prevent the button from sending the form.
 		e.preventDefault();
 
@@ -96,8 +98,7 @@ jQuery( document ).ready( function( $ ) {
 	// Update the post
 	$( '#update-post-content' ).submit( function( e ) {
 
-		console.log( 'Let\'s get this going...' );
-
+		console.log( 'Updating post ' + $('.post_ID').val() );
 
 		// Prevent the button from sending the form.
 		e.preventDefault();
@@ -133,7 +134,7 @@ jQuery( document ).ready( function( $ ) {
 
 		// Append all of the other fields.
 		update.append( 'ID',				$( '.post_ID' ).val() );
-		update.append( 'contribute_post',	$( '.contribute-form #contribute_post' ).val() );
+		update.append( 'update_post',		$( '.contribute-form #update_post' ).val() );
 		update.append( 'post_title',		$( '.contribute-form #post_title' ).val() );
 		update.append( 'user_id',			$( '.contribute-form #user_id' ).val() );
 		update.append( 'post_content',	tinyMCE.activeEditor.getContent() );
@@ -337,6 +338,8 @@ jQuery( document ).ready( function( $ ) {
 
 		// Let's bring the form back...
 		$('.contribute-form').slideDown();
+
+		$( '#add-post-content' ).attr( 'id', 'update-post-content' );
 
 		// Disable the inputs.
 		make_contribute_input_enabler( 'contribute-form' );
