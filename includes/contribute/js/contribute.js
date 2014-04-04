@@ -137,9 +137,9 @@ jQuery( document ).ready( function( $ ) {
 		update.append( 'update_post',		$( '.contribute-form #update_post' ).val() );
 		update.append( 'post_title',		$( '.contribute-form #post_title' ).val() );
 		update.append( 'user_id',			$( '.contribute-form #user_id' ).val() );
-		update.append( 'post_content',	tinyMCE.activeEditor.getContent() );
+		update.append( 'post_content',		tinyMCE.activeEditor.getContent() );
 		update.append( 'cat',				$( '.contribute-form #cat' ).val() );
-		update.append( 'post_type',		make_contribute_post_type );
+		update.append( 'post_type',			make_contribute_post_type );
 		update.append( 'post_author',		$( '.user_id' ).val() );
 		update.append( 'action',			'update_post' );
 
