@@ -19,43 +19,18 @@ get_header(); ?>
 					<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 
 						<article class="post-holder category-top" style="display:none;">
-							<h3 class="submitted-title">Preview</h3>
-							<header class="projects-masthead">
-								<h1 class="post-title"></h1>
-							</header>
+
 							<div class="row content-wrapper">
-								<div class="span8">
+								<div class="span8 offset2">
+
+									<h3 class="submitted-title">Preview</h3>
+
+									<header class="projects-masthead">
+										<h1 class="post-title"></h1>
+									</header>
+
 									<section class="post-content"></section>
-								</div>
-								<div class="span4">
 
-									<div class="projects-ad">
-
-										<!-- Beginning Sync AdSlot 2 for Ad unit header ### size: [[300,250]]  -->
-										<div id='div-gpt-ad-664089004995786621-2'>
-											<script type='text/javascript'>
-												googletag.cmd.push(function(){googletag.display('div-gpt-ad-664089004995786621-2')});
-											</script>
-										</div>
-										<!-- End AdSlot 2 -->
-
-									</div>
-
-									<div class="parts-tools">
-										<ul class="top">
-											<li class="active"><a href="#parts-pane" data-toggle="tab">Parts</a></li>
-											<li class="divider"> / </li>
-											<li class=""><a href="#tools-pane" data-toggle="tab">Tools</a></li>
-										</ul>
-										<div class="tab-content">
-											<div class="tab-pane tools-pane" id="tools-pane">
-												<p>No tools, yet...</p>
-											</div>
-											<div class="tab-pane active parts-pane" id="parts-pane">
-												<p>No parts, yet...</p>
-											</div>
-										</div>
-									</div>
 								</div>
 							</div>
 
@@ -123,7 +98,7 @@ get_header(); ?>
 										</div>
 									</div>
 									<div class="control-group">
-										<label class="control-label" for="post_content">Content</label>
+										<label class="control-label" for="post_content">Summary</label>
 										<div class="controls">
 											<?php wp_editor( '', 'post_content', array( 'teeny' => true ) ); ?>
 										</div>
@@ -153,9 +128,9 @@ get_header(); ?>
 											<input type="file" name="" value="" title="Add One or More Images" id="file" class="file-inputs" multiple required>
 										</div>
 									</div>
-									<div class="form-actions">
-										<button type="submit" class="btn btn-warning submit-review" data-type="projects">Want to add steps to the post?</button>
-										<button type="submit" class="btn btn-primary submit-review" data-type="post">Submit for Review</button>
+									<div class="form-actions" style="text-align:center">
+										<p><button type="submit" class="btn btn-large btn-warning submit-review" data-type="projects">Want to add steps to the post?</button></p>
+										<p><button type="submit" class="btn btn-primary submit-review" data-type="post">Submit for Review</button></p>
 									</div>
 								</fieldset>
 							</form>

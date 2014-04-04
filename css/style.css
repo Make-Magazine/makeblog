@@ -12209,6 +12209,9 @@ aside.pull-quote.pull-quote-1.pull-left {
 aside.pull-quote.pull-quote-1.pull-left img {
   margin-right: 10px;
 }
+.page-template-page-contribute-project-php .form-actions.center {
+  padding-left: 0px;
+}
 .page-template-page-contribute-project-php .title {
   width: 98%;
   margin-bottom: 10px;
