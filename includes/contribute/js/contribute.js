@@ -263,8 +263,6 @@ jQuery( document ).ready( function( $ ) {
 		// Let's bring the form back...
 		$('.contribute-form').slideDown();
 
-		$( '#add-post-content' ).attr( 'id', 'update-post-content' );
-
 		// Disable the inputs.
 		make_contribute_input_enabler( 'contribute-form' );
 

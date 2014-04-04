@@ -335,6 +335,7 @@
 			exit;
 		}
 	}
+	add_action( 'template_redirect', 'capx_template_redirect' );
 
 
 	function hook_bio_into_content( $content ) {
