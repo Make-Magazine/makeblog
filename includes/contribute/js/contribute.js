@@ -93,6 +93,86 @@ jQuery( document ).ready( function( $ ) {
 		});
 	});
 
+	// Update the post
+	$( '#update-post-content' ).submit( function( e ) {
+
+		console.log( 'Let\'s get this going...' );
+
+
+		// Prevent the button from sending the form.
+		e.preventDefault();
+
+		// Validate that we our form has passed our preliminary check.
+		var check_form = $( this ).parsley( 'validate' );
+		if ( ! check_form.validationResult )
+			return;
+
+		// Disable the inputs.
+		make_contribute_input_disabler( 'contribute-form' );
+
+		// Hide the form
+		make_contribute_close_forms();
+
+		// Add the loading bar
+		make_contribute_loading_screen();
+
+		// Let's hide this, and bring it back when we have something to put in it.
+		$( '.parts-tools').hide();
+
+		// Save the form, pushing the data back.
+		tinyMCE.triggerSave();
+
+		// Setup the form.
+		var form = $( 'contribute-form' );
+
+		var update = new FormData( form );
+		jQuery.each( $( '#file' )[0].files, function( i, file ) {
+			// Inject the files
+			update.append( 'file-' + i, file );
+		});
+
+		// Append all of the other fields.
+		update.append( 'ID',				$( '.post_ID' ).val() );
+		update.append( 'contribute_post',	$( '.contribute-form #contribute_post' ).val() );
+		update.append( 'post_title',		$( '.contribute-form #post_title' ).val() );
+		update.append( 'user_id',			$( '.contribute-form #user_id' ).val() );
+		update.append( 'post_content',	tinyMCE.activeEditor.getContent() );
+		update.append( 'cat',				$( '.contribute-form #cat' ).val() );
+		update.append( 'post_type',		make_contribute_post_type );
+		update.append( 'post_author',		$( '.user_id' ).val() );
+		update.append( 'action',			'update_post' );
+
+		console.log( update );
+
+		// Send off the AJAX request.
+		$.ajax({
+			url: make_gigya.ajax,
+			data: update,
+			cache: false,
+			contentType: false,
+			processData: false,
+			type: 'POST',
+			success: function( data ){
+				post_obj = JSON.parse( data );
+				console.log( post_obj );
+				make_contribute_post_filler( post_obj );
+
+				if ( make_contribute_post_type === 'projects' ) {
+					$( '.post_ID' ).each( function() {
+						$( this ).val( post_obj.ID );
+					});
+
+					// Allow users to save steps now that we have the post id
+					$( 'button.submit-steps' ).removeAttr( 'disabled' );
+				} else {
+					$( '.content-wrapper' ).append( '<h2>Thanks for submitting your post!</h2><p>We\'ll review your post and contact you shortly.<p>' );
+				}
+
+				make_contribute_remove_progress_bar();
+			}
+		});
+	});
+
 
 	// Save the steps.
 	$( '#add-steps' ).submit( function( e ) {
