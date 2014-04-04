@@ -247,7 +247,7 @@ jQuery( document ).ready( function( $ ) {
 				make_contribute_remove_progress_bar();
 				$( '.tools-pane' ).empty();
 				$( '.tools-pane' ).html( data );
-				$( '#contribute-form-wrapper' ).html( '<h2>Thanks for your project submission!</h2><p>We\'ll review your project and contact you shortly</p>' );
+				$( '#contribute-form-wrapper' ).html( '<div class="row"><div class="span8 offset2"><h2>Thanks for your project submission!</h2><p>We\'ll review your project and contact you shortly</p></div></div>' );
 			}
 		});
 	});
@@ -331,7 +331,7 @@ function make_contribute_post_filler( data ) {
 	jQuery( '.post-title' ).html( data.post_title );
 	jQuery( '.post-content' ).html( data.post_content );
 	jQuery( '.post-content' ).append( data.media );
-	jQuery( '.edit-post, .submitted-title').fadeIn();
+	jQuery( '.form-actions.edit, .edit-post, .submitted-title').show();
 }
 
 

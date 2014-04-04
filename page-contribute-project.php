@@ -31,7 +31,7 @@ get_header(); ?>
 
 									<section class="post-content"></section>
 
-									<p><button type="submit" class="btn btn-warning edit-post hide">Edit Post</button></p>
+									<div class="form-actions edit hide"><button type="submit" class="btn btn-warning edit-post hide">Edit Post</button></p>
 
 								</div>
 							</div>
@@ -57,6 +57,21 @@ get_header(); ?>
 											</script>
 										</div>
 										<!-- End AdSlot 3 -->
+
+										<div class="parts-tools">
+
+										<ul class="top">
+												<li class="active"><a href="#1" data-toggle="tab">Parts</a></li>
+												<li class="divider"> / </li>
+												<li><a href="#2" data-toggle="tab">Tools</a></li>
+											</ul>
+											<div class="tab-content">
+												<div class="tab-pane parts-pane active" id="1">No parts, yet...</div>
+												<div class="tab-pane tools-pane" id="2">No tools, yet...</div>
+
+											</div>
+
+										</div>
 
 									</div>
 
