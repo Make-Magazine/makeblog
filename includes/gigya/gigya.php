@@ -159,7 +159,7 @@ class Make_Gigya {
 					$results = array(
 						'loggedin' => true,
 						'message' => 'Login Successful!',
-						'maker' => absint( $users[0]->ID ),
+						'maker' => sanitize_title( $users[0]->post_title ),
 					);
 
 				// User didn't exist, let's make one.

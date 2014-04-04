@@ -96,7 +96,7 @@ function make_on_login( eventObj ) {
 
 			// Check that everything went well
 			if ( results.loggedin === true ) {
-				document.location = make_gigya.root_path + 'contribute';
+				document.location = make_gigya.root_path + '/author/' + results.maker;
 			} else {
 				// We may have logged into Gigya, but something happened on our end. Let's correct Gigya.
 				gigya.accounts.logout();
