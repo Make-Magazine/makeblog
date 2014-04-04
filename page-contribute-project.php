@@ -23,13 +23,15 @@ get_header(); ?>
 							<div class="row content-wrapper">
 								<div class="span8 offset2">
 
-									<h3 class="submitted-title">Preview</h3>
+									<h3 class="submitted-title hide">Preview</h3>
 
 									<header class="projects-masthead">
 										<h1 class="post-title"></h1>
 									</header>
 
 									<section class="post-content"></section>
+
+									<p><button type="submit" class="btn btn-warning edit-post hide">Edit Post</button></p>
 
 								</div>
 							</div>
@@ -130,7 +132,7 @@ get_header(); ?>
 											<input type="file" name="" value="" title="Add One or More Images" id="file" class="file-inputs" multiple required>
 										</div>
 									</div>
-									<div class="form-actions" style="text-align:center">
+									<div class="form-actions center">
 										<p><button type="submit" class="btn btn-large btn-warning submit-review" data-type="projects">Want to add steps to the post?</button></p>
 										<p><button type="submit" class="btn btn-primary submit-review" data-type="post">Submit for Review</button></p>
 										<p><button type="submit" class="btn btn-primary update-post-content resubmit hide" data-type="post">Save post</button></p>
@@ -214,7 +216,6 @@ get_header(); ?>
 										</section>
 										<div class="form-actions">
 											<button type="submit" class="btn btn-primary submit-steps" disabled="disabled">Save Steps</button>
-											<button type="submit" class="btn btn-warning edit-post">Edit Post</button>
 										</div>
 									</section>
 								</fieldset>
