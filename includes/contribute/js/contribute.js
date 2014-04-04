@@ -68,8 +68,6 @@ jQuery( document ).ready( function( $ ) {
 		data.append( 'post_author',		$( '.user_id' ).val() );
 		data.append( 'action',			'contribute_post' );
 
-		console.log( data.post_ID );
-
 		// Send off the AJAX request.
 		$.ajax({
 			url: make_gigya.ajax,
@@ -333,6 +331,7 @@ function make_contribute_post_filler( data ) {
 	jQuery( '.post-title' ).html( data.post_title );
 	jQuery( '.post-content' ).html( data.post_content );
 	jQuery( '.post-content' ).append( data.media );
+	jQuery( '.edit-post, .submitted-title').fadeIn();
 }
 
 
