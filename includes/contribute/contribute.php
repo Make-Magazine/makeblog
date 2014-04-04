@@ -244,9 +244,6 @@ class Make_Contribute {
 		// Insert or update the post.
 		$pid = ( empty( $post['id'] ) ) ? wp_insert_post( $post ) : wp_update_post( $post ) ;
 
-		// Insert the post
-		$pid = wp_insert_post( $post );
-
 		// Add to CoAuthors Plus (for all users, not just Guest Authors)
 		$author_set = $coauthors_plus->add_coauthors( absint( $pid ), array( $author_name['login_name'] ) );
 
@@ -259,8 +256,8 @@ class Make_Contribute {
 		$post->media = $this->image_rows( $pid );
 
 		// Send our auto responders on save.
-		$ar_nonce = wp_create_nonce( 'send-auto-responders' );
-		$this->send_auto_responders( $post, $ar_nonce );
+		// $ar_nonce = wp_create_nonce( 'send-auto-responders' );
+		// $this->send_auto_responders( $post, $ar_nonce );
 
 		// Send back the Post as JSON
 		die( json_encode( $post ) );

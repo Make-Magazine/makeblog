@@ -68,8 +68,6 @@ jQuery( document ).ready( function( $ ) {
 		data.append( 'post_author',		$( '.user_id' ).val() );
 		data.append( 'action',			'contribute_post' );
 
-		console.log( data.post_ID );
-
 		// Send off the AJAX request.
 		$.ajax({
 			url: make_gigya.ajax,
@@ -249,7 +247,7 @@ jQuery( document ).ready( function( $ ) {
 				make_contribute_remove_progress_bar();
 				$( '.tools-pane' ).empty();
 				$( '.tools-pane' ).html( data );
-				$( '#contribute-form-wrapper' ).html( '<h2>Thanks for your project submission!</h2><p>We\'ll review your project and contact you shortly</p>' );
+				$( '#contribute-form-wrapper' ).html( '<div class="row"><div class="span8 offset2"><h2>Thanks for your project submission!</h2><p>We\'ll review your project and contact you shortly</p></div></div>' );
 			}
 		});
 	});
@@ -333,6 +331,7 @@ function make_contribute_post_filler( data ) {
 	jQuery( '.post-title' ).html( data.post_title );
 	jQuery( '.post-content' ).html( data.post_content );
 	jQuery( '.post-content' ).append( data.media );
+	jQuery( '.form-actions.edit, .edit-post, .submitted-title').show();
 }
 
 
@@ -401,16 +400,16 @@ function make_contribute_loading_screen() {
 	// Randomly get our text on each call (does it 1 - 10)
 	var index = Math.floor( ( Math.random() * text.length ) );
 
-	jQuery( selector ).html( '<h3 class="loading-text" style="text-align:center">' + text[ index ] + '...</h3><div class="progress progress-striped active"><div class="bar" style="width: 100%;"></div></div>' );
+	jQuery( selector ).html( '<h3 class="loading-text" style="text-align:center">Saving and ' + text[ index ] + '...</h3><div class="progress progress-striped active"><div class="bar" style="width: 100%;"></div></div>' );
 
 	// Change the loading text every 5 seconds
 	var interval_id = setInterval( function() {
 		// Reset the Index on each new interval
-		index = Math.floor( ( Math.random() * 10 ) + 1 );
+		var index = Math.floor( ( Math.random() * text.length ) );
 
 		// Only run as long as the loading text is present
 		if ( jQuery( '.loading-text' ).length === 1 ) {
-			jQuery( '.loading-text' ).text( text[ index ] + '...' );
+			jQuery( '.loading-text' ).text( 'Saving and ' + text[ index ] + '...' );
 		} else {
 			clearInterval( interval_id );
 		}
