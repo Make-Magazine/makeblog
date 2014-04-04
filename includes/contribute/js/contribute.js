@@ -401,16 +401,16 @@ function make_contribute_loading_screen() {
 	// Randomly get our text on each call (does it 1 - 10)
 	var index = Math.floor( ( Math.random() * text.length ) );
 
-	jQuery( selector ).html( '<h3 class="loading-text" style="text-align:center">' + text[ index ] + '...</h3><div class="progress progress-striped active"><div class="bar" style="width: 100%;"></div></div>' );
+	jQuery( selector ).html( '<h3 class="loading-text" style="text-align:center">Saving and ' + text[ index ] + '...</h3><div class="progress progress-striped active"><div class="bar" style="width: 100%;"></div></div>' );
 
 	// Change the loading text every 5 seconds
 	var interval_id = setInterval( function() {
 		// Reset the Index on each new interval
-		index = Math.floor( ( Math.random() * 10 ) + 1 );
+		var index = Math.floor( ( Math.random() * text.length ) );
 
 		// Only run as long as the loading text is present
 		if ( jQuery( '.loading-text' ).length === 1 ) {
-			jQuery( '.loading-text' ).text( text[ index ] + '...' );
+			jQuery( '.loading-text' ).text( 'Saving and ' + text[ index ] + '...' );
 		} else {
 			clearInterval( interval_id );
 		}
