@@ -173,14 +173,19 @@ function make_is_logged_in( maker ) {
 		// We only want to provide a sign out feature for Gigya users
 		var signout = ( make_gigya.loggedin === 'false' ) ? '<a href="#signout" class="user-creds signout">Sign Out</a> / ' : '';
 
-		jQuery( '.main-header' ).find( '.row' ).append( '<div class="login-wrapper">' + signout + '<a href="' + make_gigya.root_path + 'contribute" class="user-creds profile">Contribute</a></div>' );
+		jQuery( '.main-header' ).find( '.row' ).append( '<div class="login-wrapper">' + signout + '<a href="' + make_gigya.root_path + 'contribute/" class="user-creds profile">Contribute</a></div>' );
 
 		// Display our content
 		jQuery( '.container.authentication' ).show();
 
 		// Append the Gigya UID to the contribute form
-		if ( make_gigya.loggedin === 'false' )
-			make_contribute_add_gigya_id( maker.UID );
+		if ( make_gigya.loggedin === 'false' ) {
+			if ( typeof make_contribute_add_gigya_id == 'function' ) {
+				make_contribute_add_gigya_id( maker.UID );
+			}
+
+			jQuery( '.author-profile-bio' ).append( '<a href="' + make_gigya.root_path + 'contribute/" class="btn btn-large btn-primary">Contribute to MAKE!</a>' );
+		}
 	} else {
 		if ( gigya_debug )
 			console.log( 'User Not Logged In.' );

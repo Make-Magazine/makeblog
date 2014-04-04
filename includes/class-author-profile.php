@@ -70,7 +70,7 @@
 			<div class="span4">
 				<?php echo $this->author_avatar( $author ); ?>
 			</div>
-			<div class="span8">
+			<div class="span8 author-profile-bio">
 				<h1 class="jumbo"><?php echo esc_html( $this->author_name( $author ) ); ?></h1>
 				<?php echo $this->author_bio( $author ); ?>
 				<?php echo $this->author_contact_info( $author ); ?>
