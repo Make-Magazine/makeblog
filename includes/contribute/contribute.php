@@ -256,8 +256,8 @@ class Make_Contribute {
 		$post->media = $this->image_rows( $pid );
 
 		// Send our auto responders on save.
-		$ar_nonce = wp_create_nonce( 'send-auto-responders' );
-		$this->send_auto_responders( $post, $ar_nonce );
+		// $ar_nonce = wp_create_nonce( 'send-auto-responders' );
+		// $this->send_auto_responders( $post, $ar_nonce );
 
 		// Send back the Post as JSON
 		die( json_encode( $post ) );
