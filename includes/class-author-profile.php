@@ -75,6 +75,9 @@
 				<?php echo $this->author_bio( $author ); ?>
 				<?php echo $this->author_contact_info( $author ); ?>
 				<?php echo $this->author_urls( $author ); ?>
+				<?php if ( is_user_logged_in() ) : ?>
+					<a href="<?php echo esc_url( home_url( '/contribute/' ) ); ?>" class="btn btn-large btn-primary">Contribute to MAKE!</a>
+				<?php endif; ?>
 			</div>
 		<?php }
 
