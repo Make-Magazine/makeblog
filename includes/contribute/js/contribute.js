@@ -426,6 +426,21 @@ function make_contribute_input_disabler( form ) {
 	});
 }
 
+/**
+ * When the forms get saved, we'll enable all the inputs
+ * @param  string form The form name we wish to disable
+ * @return void
+ */
+function make_contribute_input_enabler( form ) {
+	// Grab the inputs
+	var inputs = jQuery( '.' + form + ' :input' );
+
+	// Disable them all.
+	inputs.each( function() {
+		jQuery( this ).removeAttr('disabled');
+	});
+}
+
 
 /**
  * Allows us to assign a Gigya ID so we can assign the coauthor to the contribute form
