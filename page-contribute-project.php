@@ -87,6 +87,7 @@ get_header(); ?>
 										<div class="controls">
 											<div class="projects-masthead">
 												<h1><?php the_title(); ?></h1>
+												<input type="hidden" class="post_ID" name="post_ID" value="">
 											</div>
 										</div>
 									</div>
@@ -131,6 +132,7 @@ get_header(); ?>
 									<div class="form-actions" style="text-align:center">
 										<p><button type="submit" class="btn btn-large btn-warning submit-review" data-type="projects">Want to add steps to the post?</button></p>
 										<p><button type="submit" class="btn btn-primary submit-review" data-type="post">Submit for Review</button></p>
+										<p><button type="submit" class="btn btn-primary update-post-content resubmit hide" data-type="post">Save post</button></p>
 									</div>
 								</fieldset>
 							</form>
@@ -211,6 +213,7 @@ get_header(); ?>
 										</section>
 										<div class="form-actions">
 											<button type="submit" class="btn btn-primary submit-steps" disabled="disabled">Save Steps</button>
+											<button type="submit" class="btn btn-warning edit-post">Edit Post</button>
 										</div>
 									</section>
 								</fieldset>
