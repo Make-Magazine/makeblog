@@ -76,6 +76,9 @@ function make_on_login( eventObj ) {
 	if ( gigya_debug )
 		console.log( 'Logged in to Gigya!' );
 
+	jQuery( 'body' ).append( '<div id="logging-in" class="modal fade"><div class="modal-body"><h2 class="text-center" style="margin-bottom:20px;">Please wait while we redirect you...<h2><div class="progress progress-striped active"><div class="bar" style="width: 100%;"></div></div></div></div>' );
+	jQuery( '#logging-in' ).modal( 'show' );
+
 	// Send our data via Ajax to the server to verify if the user is a returning user or a new one and create their profile.
 	jQuery.ajax({
 		type: 'POST',
@@ -101,6 +104,7 @@ function make_on_login( eventObj ) {
 				// We may have logged into Gigya, but something happened on our end. Let's correct Gigya.
 				gigya.accounts.logout();
 
+				jQuery( '#logging-in' ).remove();
 				alert( 'Something went wrong and we couldn\'t log you in. Please try again.' );
 			}
 
