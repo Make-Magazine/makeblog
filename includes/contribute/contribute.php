@@ -244,9 +244,6 @@ class Make_Contribute {
 		// Insert or update the post.
 		$pid = ( empty( $post['id'] ) ) ? wp_insert_post( $post ) : wp_update_post( $post ) ;
 
-		// Insert the post
-		$pid = wp_insert_post( $post );
-
 		// Add to CoAuthors Plus (for all users, not just Guest Authors)
 		$author_set = $coauthors_plus->add_coauthors( absint( $pid ), array( $author_name['login_name'] ) );
 
