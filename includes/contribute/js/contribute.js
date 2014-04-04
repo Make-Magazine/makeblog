@@ -329,6 +329,26 @@ jQuery( document ).ready( function( $ ) {
 		});
 	});
 
+	// Bring back the contribute form so that it can be edited
+	$( '.edit-post' ).on( 'click', function( e ) {
+
+		// Prevent the button from triggering
+		e.preventDefault();
+
+		// Let's bring the form back...
+		$('.contribute-form').slideDown();
+
+		// Disable the inputs.
+		make_contribute_input_enabler( 'contribute-form' );
+
+		// Hide the other buttons
+		$('.submit-review').hide();
+
+		// Let's bring the form back...
+		$('.contribute-form .resubmit').show();
+
+	});
+
 });
 
 
