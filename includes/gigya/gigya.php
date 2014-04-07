@@ -317,6 +317,9 @@ class Make_Gigya {
 		$email = ( isset( $user['email'] ) && ! empty( $user['email'] ) ) ? $user['email'] : '';
 		update_post_meta( absint( $maker_id ), 'cap-user_email', sanitize_email( $email ) );
 
+		// @TODO: Add bio
+		// @TODO: Update Maker photo to featured image
+
 		// Add the maker photo
 		$user_photo = ( isset( $user['photoURL'] ) && ! empty( $user['photoURL'] ) ) ? $user['photoURL'] : '';
 		update_post_meta( absint( $maker_id ), 'cap-photo_url', esc_url( $user_photo ) );
