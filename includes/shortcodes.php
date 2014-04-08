@@ -156,7 +156,7 @@ function galileo_list( $atts, $content = null ) {
 					<label for="name">Name:</label>
 					<div class="input">
 						<input class="xlarge" id="name" name="cm-name" size="30" type="text">
-					</div>		
+					</div>
 					<label for="ttdutih-ttdutih">Email:</label>
 					<div class="input">
 						<input class="xlarge" id="ttdutih-ttdutih" name="cm-ttdutih-ttdutih" size="30" type="text">
@@ -171,7 +171,7 @@ function galileo_list( $atts, $content = null ) {
 						<option value="4420691">Student</option>
 						<option value="4420692">Professor</option>
 					</select>
-					</div>			
+					</div>
 				</fieldset>
 				<div class="actions">
 					<button type="submit" class="btn btn-primary btn-large">Submit</button>
@@ -224,7 +224,7 @@ add_shortcode( 'freegal', 'download_galileo' );
 
 /**
  * Adds check boxes for newsletter signup.
- * This can be deleted after the sweepstakes are over. Dec. 2013 
+ * This can be deleted after the sweepstakes are over. Dec. 2013
  * http://makezine.com/meetup/3dprinter/
  */
 
@@ -545,7 +545,7 @@ add_shortcode('github', 'make_github_3d_viewer');
  * Modal Window Builder
  */
 function make_modal_builder( $atts, $content = null ) {
-	
+
 	extract( shortcode_atts( array(
 		'launch' 	=> 'Launch Window',
 		'title' 	=> 'Modal Title',
@@ -554,7 +554,7 @@ function make_modal_builder( $atts, $content = null ) {
 	), $atts ) );
 
 	$number = mt_rand();
-	$args = array( 
+	$args = array(
 		'a' => array(
 			'href' => array(),
 			'title' => array()
@@ -562,7 +562,7 @@ function make_modal_builder( $atts, $content = null ) {
 		'br' => array(),
 		'em' => array(),
 		'strong' => array(),
-		'iframe' => array( 
+		'iframe' => array(
 			'src' => array(),
 			'height' => array(),
 			'border' => array(),
@@ -623,7 +623,7 @@ function make_makercamp_register_summer_program_gf() {
 		  </div>
 	   </div>
 	</div>
-	<br> 
+	<br>
 	<div class="errorbox-good">
 	   <div class="ss-item ss-item-required ss-text">
 		  <div class="ss-form-entry">
@@ -777,7 +777,7 @@ function multi_newsletter_subscribe( $atts, $content = null ) {
 							</label>
 						<label for="MarketWireNewsletter">
 													<input type="checkbox" name="cm-ol-jrsydu" id="MAKEMarketWirenewsletter" /> Maker Pro Newsletter
-													</label> 
+													</label>
 						</div>
 					</div>
 					<div class="form-actions">
@@ -908,9 +908,9 @@ function make_volume_tease( $atts, $content = null ) {
  */
 function maker_short_post_loop( $args ) {
 
-	$defaults = array( 
+	$defaults = array(
 		'post_type' 		=> array( 'post', 'craft', 'magazine', 'video', 'projects' ),
-		'posts_per_page' 	=> 5, 
+		'posts_per_page' 	=> 5,
 		'social'			=> false,
 		);
 
@@ -919,18 +919,18 @@ function maker_short_post_loop( $args ) {
 	$output = '<div class="newsies"><div class="news post">';
 
 	$output .= ( isset( $args['title'] ) ) ? '<h3 class="red">' . wp_kses_post( $args['title'] ) . '</h3>' : '';
-	
+
 	$query = new WP_Query($args);
 	if( $query->have_posts() ) : while ( $query->have_posts() ) : $query->the_post();
-		
+
 		$output .= '<div class="media"><div class="pull-left">';
 		$output .= get_the_image( array( 'image_scan' => true, 'size' => 'faire-thumb', 'echo' => false, 'image_class' => 'media-object hide-thumbnail' ) );
 		$output .= '</div><div class="media-body">';
 		$output .= '<h4 class="media-heading"><a href="' . get_permalink() . '">' . get_the_title() . '</a></h4><p>' . get_the_excerpt() . '</p>';
 		$output .= '<ul class="unstyled"><li>Posted by ';
-		if( function_exists( 'coauthors_posts_links' ) ) {	
-			$output .= coauthors_posts_links( null, null, null, null, false); 
-		} else { 
+		if( function_exists( 'coauthors_posts_links' ) ) {
+			$output .= coauthors_posts_links( null, null, null, null, false);
+		} else {
 			$output .= the_author_posts_link();
 		}
 		$output .= ' | ' . get_the_time('F jS, Y g:i A') . '</li>';
@@ -939,10 +939,10 @@ function maker_short_post_loop( $args ) {
 		$output .= ( $args['social'] == true ) ? sharing_display() : '';
 		$output .= '</div></div></div>';
 
-		endwhile; 
+		endwhile;
 	endif;
 	wp_reset_postdata();
-		
+
 	$output .= '</div></div>';
 	return $output;
 }
@@ -956,7 +956,7 @@ add_shortcode( 'make_post_loop', 'maker_short_post_loop' );
 function makershed_weekly_deal() {
 
 	$output = '';
-							
+
 	$args = array(
 		'post_type' 	=> 'from-the-maker-shed',
 		'posts_per_page'=> 1
@@ -978,7 +978,7 @@ function makershed_weekly_deal() {
 		wp_reset_postdata();
 
 		return $output;
-						
+
 }
 
 add_shortcode( 'shedpromo', 'makershed_weekly_deal' );
@@ -994,8 +994,8 @@ function make_wizehive_shortcode() {
 add_shortcode( 'ford_challenge', 'make_wizehive_shortcode' );
 
 /**
- * 3D Printer SIP Promo 
- * Example using left alignment: [3d_sip alignment="left"] 
+ * 3D Printer SIP Promo
+ * Example using left alignment: [3d_sip alignment="left"]
  */
 function make_3d_promo( $atts, $content = null ) {
 	extract( shortcode_atts( array(
@@ -1018,8 +1018,8 @@ function make_3d_promo( $atts, $content = null ) {
 add_shortcode( '3d_sip', 'make_3d_promo' );
 
 /**
- * Volume 37 Promo 
- * Example using left alignment: [promo_37 alignment="left"] 
+ * Volume 37 Promo
+ * Example using left alignment: [promo_37 alignment="left"]
  */
 function make_37_promo( $atts, $content = null ) {
 	extract( shortcode_atts( array(
@@ -1148,3 +1148,19 @@ function make_printrbot_newsletter() {
 	return $output;
 }
 add_shortcode( 'make_printrbot_newsletter', 'make_printrbot_newsletter' );
+
+function make_get_dfp_ad_unit( $atts ) {
+	extract( shortcode_atts( array(
+		'unit' => '2',
+	), $atts ) );
+
+	$output = '<!-- Beginning Sync AdSlot ' . intval( $unit ) . ' for Ad unit header ### size: [[300,250]]  -->';
+
+	$output .= '<div id=\'div-gpt-ad-664089004995786621-' . intval( $unit ) . '\'>';
+		$output .= '<script type=\'text/javascript\'>googletag.cmd.push(function(){googletag.display(\'div-gpt-ad-664089004995786621-' . esc_js( intval( $unit ) ) . '\')});</script>';
+	$output .= '</div>';
+	$output .= '<!-- End AdSlot ' . intval( $unit ) . ' -->';
+	return $output;
+}
+
+add_shortcode( 'ad_unit', 'make_get_dfp_ad_unit' );
