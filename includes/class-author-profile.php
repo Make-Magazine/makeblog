@@ -94,7 +94,7 @@
 			$output .= '</div>';
 			$output .= '<div class="span9 -author-profile-bio">';
 				// Author name
-				$output .= '<h3 class="jumbo"><a href="' . esc_html( home_url( 'author/' . $author->user_nicename ) ) . '">' . esc_html( $this->author_name( $author ) ) . '</a></h3>';
+				$output .= '<h3 class="jumbo"><a href="' . esc_url( home_url( 'author/' . $author->user_nicename ) ) . '">' . esc_html( $this->author_name( $author ) ) . '</a></h3>';
 
 				if ( $author->type != 'guest-author' ) {
 					// Grab the meta information for WordPress.com users
