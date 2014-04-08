@@ -314,6 +314,8 @@ get_header(); ?>
 
 								<div class="span8">
 
+									<?php echo make_author(); ?>
+
 									<div class="comments">
 										<?php comments_template(); ?>
 									</div>
