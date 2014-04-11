@@ -26,12 +26,10 @@ get_header(); ?>
 									<h3 class="submitted-title hide">Preview</h3>
 
 									<header class="projects-masthead">
-										<h1 class="post-title"></h1>
+										<h1 class="post-title"><span></span><button type="submit" class="btn btn-warning edit-post hide">Edit Post</button></h1>
 									</header>
 
 									<section class="post-content"></section>
-
-									<div class="form-actions edit hide"><button type="submit" class="btn btn-warning edit-post hide">Edit Post</button></p>
 
 								</div>
 							</div>

@@ -469,7 +469,7 @@ function make_projects_steps_nav( $steps ) {
 function make_projects_steps_list( $steps ) {
 	$steps = unserialize($steps[0]);
 	if ( !empty( $steps ) ) {
-		echo '<div class="well" style="padding:8px 0px;"><ul class="nav nav-list" id="tabs">';
+		echo '<div class="well steps-list-nav" style="padding:8px 0px;"><ul class="nav nav-list" id="tabs">';
 		echo '<li class="nav-header">Project Steps <span class="badge aller">View All</span></li>';
 		echo '<li></li>';
 		foreach ($steps as $idx =>$step) {
@@ -482,7 +482,7 @@ function make_projects_steps_list( $steps ) {
 
 			echo '</li>';
 		}
-		echo '</ul></div>';
+		echo '</ul><span class="edit"></span></div>';
 	}
 }
 

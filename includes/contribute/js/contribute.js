@@ -103,6 +103,8 @@ jQuery( document ).ready( function( $ ) {
 		// Prevent the button from triggering
 		e.preventDefault();
 
+		$('.edit-row').slideUp();
+
 		// Validate that we our form has passed our preliminary check.
 		var check_form = $( this ).parsley( 'validate' );
 		if ( ! check_form.validationResult )
@@ -272,8 +274,40 @@ jQuery( document ).ready( function( $ ) {
 
 	});
 
-});
+	// Bring back the steps form so that it can be edited
+	$( 'body' ).on( 'click', '.edit-steps', function( e ) {
 
+		// Prevent the button from triggering
+		e.preventDefault();
+
+		// Let's bring the form back...
+		$('.contribute-form-steps').slideDown();
+
+		// Disable the inputs.
+		make_contribute_input_enabler( 'contribute-form-steps' );
+
+		jQuery('.edit-row').append(' <button class="btn cancel-edit-steps">Cancel Step Edit</button>');
+
+
+	});
+
+	// Bring back the steps form so that it can be edited
+	$( 'body' ).on( 'click', '.cancel-edit-steps', function( e ) {
+
+		// Prevent the button from triggering
+		e.preventDefault();
+
+		// Disable the inputs.
+		make_contribute_input_disabler( 'contribute-form-steps' );
+
+		// Let's bring the form back...
+		$('.contribute-form-steps').slideUp();
+
+	});
+
+
+
+});
 
 /**
  * Displays the steps
@@ -317,6 +351,8 @@ function make_contribute_display_steps( post_id ) {
 			jQuery( '.steps-list-output' ).html( data );
 			// Display the parts form.
 			jQuery( '.contribute-form-parts' ).slideDown();
+			jQuery('.steps-list-nav .nav-list').append('<li class="edit-row"><button class="btn edit-steps">Edit Steps</button><li>');
+
 		}
 	});
 
@@ -328,7 +364,7 @@ function make_contribute_display_steps( post_id ) {
  * @return void
  */
 function make_contribute_post_filler( data ) {
-	jQuery( '.post-title' ).html( data.post_title );
+	jQuery( '.post-title span' ).html( data.post_title + ' ' );
 	jQuery( '.post-content' ).html( data.post_content );
 	jQuery( '.post-content' ).append( data.media );
 	jQuery( '.form-actions.edit, .edit-post, .submitted-title').show();
