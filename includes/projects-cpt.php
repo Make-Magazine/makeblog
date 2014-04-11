@@ -5,7 +5,7 @@
  * @package    makeblog
  * @license    http://opensource.org/licenses/gpl-license.php  GNU Public License
  * @author     Jake Spurlock <jspurlock@makermedia.com>
- * 
+ *
  */
 
 add_action( 'init', 'register_cpt_project' );
@@ -19,7 +19,7 @@ function register_cpt_project() {
 
 	add_rewrite_rule( 'projects/([^/]*)/([^/]*)/?$','index.php?projects=$matches[2]','top' );
 
-	$labels = array( 
+	$labels = array(
 		'name' => _x( 'Projects', 'Project' ),
 		'singular_name' => _x( 'Project', 'Project' ),
 		'add_new' => _x( 'Add New', 'Project' ),
@@ -34,7 +34,7 @@ function register_cpt_project() {
 		'menu_name' => _x( 'Projects', 'Project' ),
 	);
 
-	$args = array( 
+	$args = array(
 		'labels' => $labels,
 		'hierarchical' => true,
 		'description' => 'MAKE magazine Projects will be stored here. Goal is to build the back archive of all issues and Projects.',
@@ -68,7 +68,7 @@ $field_data = array (
 			'Image'						=> array(),
 			'TimeRequired'				=> array(),
 			'PageNumber'				=> array(),
-			'Conclusion'		=> array( 
+			'Conclusion'		=> array(
 									'type' 	=> 'textarea',
 									'label'	=> 'Projects Conclusion',
 									),
@@ -86,7 +86,7 @@ $easy_cf = new Easy_CF($field_data);
  * Generate the TOC for projects.
  *
  * @deprecated February 2013. The make_magazine_toc has been made more flexible to allow for any post type.
- * 
+ *
  */
 function make_magazine_projects_toc() {
 	global $post;
@@ -95,7 +95,7 @@ function make_magazine_projects_toc() {
 		'no_found_rows' => true,
 		'post_type' => 'projects'
 	);
-	
+
 	if($post->post_parent == 0) {
 		echo '<h3>Projects</h3>';
 	}
@@ -124,10 +124,10 @@ function make_magazine_projects_toc() {
 			</div>
 
 			<div class="clear"></div>
-			
+
 			<hr />
 
-		</Project> 
+		</Project>
 
 	<?php endwhile;
 
@@ -140,9 +140,9 @@ add_action('add_meta_boxes', 'make_projects_add_meta_box');
 
 /**
  * Add the parent selector to assign to a project to a volume.
- * 
+ *
  */
-function make_projects_add_meta_box() { 
+function make_projects_add_meta_box() {
 	add_meta_box('volume-parent', 'Magazine Volume', 'make_magazine_parent_page', 'projects', 'side', 'high');
 }
 
@@ -150,9 +150,9 @@ add_action( 'admin_menu', 'make_projects_remove_parent_meta_box' );
 
 /**
  * Remove the existing parent selector meta box.
- * 
+ *
  */
-function make_projects_remove_parent_meta_box() { 
+function make_projects_remove_parent_meta_box() {
 	remove_meta_box('pageparentdiv', 'projects', 'normal');
 }
 
@@ -176,11 +176,11 @@ add_action( 'init', 'make_register_taxonomy_flags' );
 
 /**
  * Register the flags taxonomy
- * 
+ *
  */
 function make_register_taxonomy_flags() {
 
-	$labels = array( 
+	$labels = array(
 		'name' => _x( 'Flags', 'flags' ),
 		'singular_name' => _x( 'Flag', 'flags' ),
 		'search_items' => _x( 'Search Flags', 'flags' ),
@@ -198,7 +198,7 @@ function make_register_taxonomy_flags() {
 		'menu_name' => _x( 'Flags', 'flags' ),
 	);
 
-	$args = array( 
+	$args = array(
 		'labels' => $labels,
 		'public' => true,
 		'show_in_nav_menus' => true,
@@ -217,11 +217,11 @@ add_action( 'init', 'make_register_taxonomy_difficulty' );
 
 /**
  * Add the difficulty taxonomy
- * 
+ *
  */
 function make_register_taxonomy_difficulty() {
 
-	$labels = array( 
+	$labels = array(
 		'name' => _x( 'Difficulties', 'difficulty' ),
 		'singular_name' => _x( 'Difficulty', 'difficulty' ),
 		'search_items' => _x( 'Search Difficulties', 'difficulty' ),
@@ -239,7 +239,7 @@ function make_register_taxonomy_difficulty() {
 		'menu_name' => _x( 'Difficulties', 'difficulty' ),
 	);
 
-	$args = array( 
+	$args = array(
 		'labels' => $labels,
 		'public' => true,
 		'show_in_nav_menus' => true,
@@ -257,11 +257,11 @@ add_action( 'init', 'register_taxonomy_tools' );
 
 /**
  * Add the tools taxonomy
- * 
+ *
  */
 function register_taxonomy_tools() {
 
-	$labels = array( 
+	$labels = array(
 		'name' => _x( 'Tools', 'tools' ),
 		'singular_name' => _x( 'Tool', 'tools' ),
 		'search_items' => _x( 'Search Tools', 'tools' ),
@@ -279,7 +279,7 @@ function register_taxonomy_tools() {
 		'menu_name' => _x( 'Tools', 'tools' ),
 	);
 
-	$args = array( 
+	$args = array(
 		'labels' => $labels,
 		'public' => true,
 		'show_in_nav_menus' => true,
@@ -297,11 +297,11 @@ add_action( 'init', 'register_taxonomy_parts' );
 
 /**
  * Add the parts taxonomy
- * 
+ *
  */
 function register_taxonomy_parts() {
 
-	$labels = array( 
+	$labels = array(
 		'name' => _x( 'Parts', 'parts' ),
 		'singular_name' => _x( 'Part', 'parts' ),
 		'search_items' => _x( 'Search Parts', 'parts' ),
@@ -319,7 +319,7 @@ function register_taxonomy_parts() {
 		'menu_name' => _x( 'Parts', 'parts' ),
 	);
 
-	$args = array( 
+	$args = array(
 		'labels' => $labels,
 		'public' => true,
 		'show_in_nav_menus' => true,
@@ -338,11 +338,11 @@ add_action( 'init', 'register_taxonomy_types' );
 
 /**
  * Add the types taxonomy
- * 
+ *
  */
 function register_taxonomy_types() {
 
-	$labels = array( 
+	$labels = array(
 		'name' => _x( 'Types', 'types' ),
 		'singular_name' => _x( 'Type', 'types' ),
 		'search_items' => _x( 'Search Types', 'types' ),
@@ -360,7 +360,7 @@ function register_taxonomy_types() {
 		'menu_name' => _x( 'Types', 'types' ),
 	);
 
-	$args = array( 
+	$args = array(
 		'labels' => $labels,
 		'public' => true,
 		'show_in_nav_menus' => true,
@@ -376,19 +376,19 @@ function register_taxonomy_types() {
 
 /**
  * Simple grid for the projects landing page.
- * 
+ *
  */
 function make_projects_grid( $label, $posts, $taxonomy, $terms ) {
 
 	$output = '<div class="' . $label . '">
 
 		<div class="page-header">
-		
+
 			<h3>' . $label . '</h3>
-			
+
 		</div>
-		
-		
+
+
 		<div class="row-fluid">';
 
 				$args = array(
@@ -415,7 +415,7 @@ function make_projects_grid( $label, $posts, $taxonomy, $terms ) {
 					} elseif ( $posts == 6 ) {
 						$output .= '<div class="span2">';
 					}
-					
+
 					$url = get_post_custom_values('Image');
 					//$url = esc_url($url);
 					$output .= '<img src="' . wpcom_vip_get_resized_remote_image_url( $url[0] , 293, 200 ) . '" alt="' . esc_attr( get_the_title() ) . '" />';
@@ -424,7 +424,7 @@ function make_projects_grid( $label, $posts, $taxonomy, $terms ) {
 					$output .= esc_html( $description[0] );
 					$output .= '</div></div>';
 				endwhile;
-				
+
 		$output .= '</div>';
 
 	$output .= '</div><!--' . $label . '-->';
@@ -433,7 +433,7 @@ function make_projects_grid( $label, $posts, $taxonomy, $terms ) {
 
 /**
  * The steps thumbmails for the projects pages.
- * 
+ *
  */
 function make_projects_steps_nav( $steps ) {
 	$steps = unserialize($steps[0]);
@@ -455,7 +455,7 @@ function make_projects_steps_nav( $steps ) {
 					echo '<img src="' . get_stylesheet_directory_uri() . '/img/placeholder.jpg" alt="No Image" class="' . esc_attr( $step->number ) . '" />';
 				}
 				echo '<h4 class="red">Step #' . esc_html( $step->number ) . '</h4>';
-				echo '</div>'; 
+				echo '</div>';
 			}
 			echo '</div>';
 		}
@@ -464,12 +464,12 @@ function make_projects_steps_nav( $steps ) {
 
 /**
  * Spit out the steps as a list.
- * 
+ *
  */
 function make_projects_steps_list( $steps ) {
 	$steps = unserialize($steps[0]);
 	if ( !empty( $steps ) ) {
-		echo '<div class="well" style="padding:8px 0px;"><ul class="nav nav-list" id="tabs">';
+		echo '<div class="well steps-list-nav" style="padding:8px 0px;"><ul class="nav nav-list" id="tabs">';
 		echo '<li class="nav-header">Project Steps <span class="badge aller">View All</span></li>';
 		echo '<li></li>';
 		foreach ($steps as $idx =>$step) {
@@ -479,10 +479,10 @@ function make_projects_steps_list( $steps ) {
 			} else {
 				echo '<a>' . esc_html( $step->number ) . ". " . esc_html( wp_trim_words( stripslashes( $step->lines[0]->text ),  5, '...' ) ) . '</a>';
 			}
-			
-			echo '</li>'; 
+
+			echo '</li>';
 		}
-		echo '</ul></div>';
+		echo '</ul><span class="edit"></span></div>';
 	}
 }
 
@@ -503,10 +503,12 @@ function make_projects_to_s3( $haystack ) {
 	$replace = 'make-images.s3.amazonaws.com/';
 	if ( $haystack == 'http://cacher.dozuki.net/static/images/make/guide/NoImageMP_96x72.gif' or empty( $haystack ) ) {
 		return $haystack;
-	}	
+	}
 	$str = str_replace( $needle, $replace, $haystack);
-	if ( strpos($str, 'make-images') !== true ) {
-		return $str . '.jpg';	
+	$allowed =  array('gif','png' ,'jpg');
+	$ext = pathinfo( $str, PATHINFO_EXTENSION );
+	if( ! in_array( $ext, $allowed ) ) {
+		return $str . '.jpg';
 	} else {
 		return $str;
 	}
@@ -514,7 +516,7 @@ function make_projects_to_s3( $haystack ) {
 
 /**
  * Full content of the steps.
- * 
+ *
  */
 function make_projects_steps( $steps, $print = false ) {
 	$steps = unserialize($steps[0]);
@@ -554,8 +556,8 @@ function make_projects_steps( $steps, $print = false ) {
 					echo '';
 				}
 			echo '</span>';
-			
-			$images = $step->images;
+
+			$images = ( isset( $step->images ) ) ? $step->images : '';
 			if ( isset( $images[0]->text ) ) {
 				if ( function_exists( 'wpcom_vip_get_resized_remote_image_url' ) ) {
 					echo '<img src="' . wpcom_vip_get_resized_remote_image_url( make_projects_to_s3( $images[0]->text ), 620, 465 ) . '" data-src="' . make_projects_to_s3( $images[0]->text ) . '" alt="' . esc_attr( the_title('', '', false ) ) . '" class="main ' . esc_attr( $images[0]->imageid ) . ' ' . esc_attr( $images[0]->orderby ) .'" />';
@@ -573,11 +575,15 @@ function make_projects_steps( $steps, $print = false ) {
 				echo '</span><!--.row-->';
 			}
 			$lines = $step->lines;
-			echo '<ul>';
-			foreach ($lines as $line) {
-				echo '<li>' . wp_kses_post( stripslashes( $line->text ) ) . '</li>';
+			if ( isset( $lines[1] ) ) {
+				echo '<ul>';
+				foreach ($lines as $line) {
+					echo '<li>' . wp_kses_post( stripslashes( $line->text ) ) . '</li>';
+				}
+				echo '</ul>';
+			} else {
+				echo Markdown( wp_kses_post( $lines[0]->text ) );
 			}
-			echo '</ul>';
 			echo '</div><!--.right_column-->';
 		}
 	}
@@ -617,7 +623,7 @@ function make_projects_parts( $parts ) {
 		}
 
 		$output .= '</a> ';
-		
+
 		$output .= ' <span class="muted">';
 		$output .= wp_kses_post( $notes );
 		$output .= '</span>';
