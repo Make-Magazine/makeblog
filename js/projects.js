@@ -1,56 +1,55 @@
-jQuery(document).ready(function(){
-	jQuery('#tabs li.steps').click(function() {
-		jQuery(this).addClass('current');
-		var id = jQuery(this).attr('id');
-		jQuery('#steppers div#js-' + id).slideDown().removeClass('hide').addClass('active');
-		jQuery('#steppers div:not(#js-' + id + ')').slideUp();
-		jQuery('#tabs li:not(#' + id + ')').removeClass('current');
+jQuery( document ).ready( function( $ ) {
+
+	// Handle the click actions on the list items in the steps box
+	$( 'body' ).on( 'click', '#tabs li.steps', function() {
+		var id = $(this).attr('id');
+
+		// Progress the slider
+		$( '#steppers' ).find( '.jstep#js-' + id ).slideDown().removeClass( 'hide' );
+		$( '#steppers' ).find( '.jstep:not( #js-' + id + ')' ).slideUp();
+
+		// Update the side navigation list
+		$( this ).addClass( 'current' );
+		$( '#tabs li:not(#' + id + ')' ).removeClass( 'current' );
+
+		// Run our trackers
 		googletag.pubads().refresh();
 		_gaq.push(['_trackPageview']);
-		console.log('Pushed a pageview, like a boss.');
-		var urlref = location.href;
-		PARSELY.beacon.trackPageView({
-			url: urlref,
-			urlref: urlref,
-			js: 1,
-			action_name: "Step Clicked"
-		});
-		return true;
 	});
-	jQuery('.nexter').click(function() {
-		var id = jQuery(this).attr('id');
-		jQuery('#steppers div#js-' + id).slideDown().removeClass('hide');
-		jQuery('#steppers div:not(#js-' + id + ')').slideUp();
-		jQuery(this).addClass('current');
-		jQuery('#tabs li#' + id).addClass('current');
-		jQuery('#tabs li:not(#' + id + ')').removeClass('current');
+
+	// Allows us to advance in the slider
+	$( 'body' ).on( 'click', '.nexter', function() {
+		var id = $(this).attr('id');
+
+		// Progress the slider
+		$( '#steppers' ).find( '.jstep#js-' + id ).slideDown().removeClass( 'hide' );
+		$( '#steppers' ).find( '.jstep:not( #js-' + id + ')' ).slideUp();
+
+		// Update side navigation list
+		$( '#tabs').find( ' li#' + id ).addClass( 'current' );
+		$( '#tabs' ).find( 'li:not( #' + id + ')' ).removeClass( 'current' );
+
+		// Run our trackers
 		googletag.pubads().refresh();
 		_gaq.push(['_trackPageview']);
-		console.log('Pushed a pageview, like a boss.');
-		var urlref = location.href;
-		PARSELY.beacon.trackPageView({
-			url: urlref,
-			urlref: urlref,
-			js: 1,
-			action_name: "Next Project Step"
-		});
-		return true;
 	});
-	jQuery('.aller').click(function() {
-		jQuery('#steppers').children().slideDown();
-		jQuery('#steppers .nexter, #steppers .disabled').hide();
+
+	// Display all projects when we click "View All"
+	$( 'body' ).on( 'click', '.aller', function() {
+		// Display all the slides
+		$( '#steppers' ).find( '.jstep' ).each( function() {
+			$( this ).removeClass( 'hide' );
+			$( this ).slideDown();
+		});
+
+		// Hide the next/previous buttons
+		$( '#steppers .nexter, #steppers .disabled' ).hide();
+
+		// Run our trackers
 		googletag.pubads().refresh();
 		_gaq.push(['_trackPageview']);
-		console.log('Pushed a pageview, like a boss.');
-		var urlref = location.href;
-		PARSELY.beacon.trackPageView({
-			url: urlref,
-			urlref: urlref,
-			js: 1,
-			action_name: "View all on the projects"
-		});
-		return true;
 	});
+
 	jQuery('.carousel').on('slid', function () {
 		jQuery('.slide').find('iframe').each( function(){
 			jQuery(this).attr('src', '');
@@ -176,7 +175,7 @@ jQuery(document).ready(function(){
 			_gaq.push(['_trackPageview']);
 			} );
 	} )( jQuery );
-	
+
 	jQuery('.print-page').on('click', function() {
 		window.print();
 	});

@@ -51,6 +51,7 @@ get_header(); ?>
 						<li>
 							<a href="<?php the_permalink(); ?>#comments"><?php comments_number( '0', '1', '%' ); ?></a>
 						</li>
+						<?php edit_post_link( 'Edit', '<li>', '</li>' ); ?>
 					</ul>
 
 				</div>

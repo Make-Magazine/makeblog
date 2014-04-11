@@ -74,6 +74,8 @@
 @borderRadiusLarge:     6px;
 @borderRadiusSmall:     3px;
 
+@line-height-base:        1.428571429; // 20/14
+@line-height-computed:    floor(@baseFontSize * @line-height-base); // ~20px
 
 // Tables
 // -------------------------
@@ -232,6 +234,37 @@
 @navbarBlueSearchPlaceholderColor:    #ccc;
 
 @navbarBlueBrandColor:                #ED1C24;
+
+// Panels
+// -------------------------
+@panel-bg:                    #fff;
+@panel-inner-border:          #ddd;
+@panel-border-radius:         @baseBorderRadius;
+@panel-footer-bg:             #f5f5f5;
+
+@panel-default-text:          @grayDark;
+@panel-default-border:        #ddd;
+@panel-default-heading-bg:    #f5f5f5;
+
+@panel-primary-text:          #fff;
+@panel-primary-border:        #000;
+@panel-primary-heading-bg:    #ccc;
+
+@panel-success-text:          @successText;
+@panel-success-border:        @successBorder;
+@panel-success-heading-bg:    @successBackground;
+
+@panel-warning-text:          @warningText;
+@panel-warning-border:        @warningBorder;
+@panel-warning-heading-bg:    @warningBackground;
+
+@panel-danger-text:           @errorText;
+@panel-danger-border:         @errorBorder;
+@panel-danger-heading-bg:     @errorBackground;
+
+@panel-info-text:             @infoText;
+@panel-info-border:           @infoBorder;
+@panel-info-heading-bg:       @infoBackground;
 
 
 // Pagination
