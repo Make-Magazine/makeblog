@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 global $post;
 
@@ -12,7 +12,7 @@ global $post;
 			gads.async = true;
 			gads.type = 'text/javascript';
 			var useSSL = 'https:' == document.location.protocol;
-			gads.src = (useSSL ? 'https:' : 'http:') + 
+			gads.src = (useSSL ? 'https:' : 'http:') +
 			'//www.googletagservices.com/tag/js/gpt.js';
 			var node = document.getElementsByTagName('script')[0];
 			node.parentNode.insertBefore(gads, node);
@@ -22,7 +22,7 @@ global $post;
 
 		googletag.cmd.push(function() {
 
-		<?php 
+		<?php
 		$parent = (!empty($_REQUEST['parent']) ? $_REQUEST['parent'] : null);
 			if (isset($parent)) { ?>
 				var slot1= googletag.defineSlot('/11548178/Makezine/Blog/<?php echo esc_js( $parent ); ?>', [[728,90]],'div-gpt-ad-664089004995786621-1').addService(googletag.pubads()).setTargeting('pos', 'atf');
@@ -108,8 +108,8 @@ global $post;
 				var slot7= googletag.defineSlot('/11548178/Makezine/Blog<?php echo esc_js( make_get_category_name() ); ?>', [[125,125]],'div-gpt-ad-664089004995786621-10').addService(googletag.pubads());
 			<?php } ?>
 		<?php } ?>
-		
-			<?php 
+
+			<?php
 				if (has_tag('project-remake')) {
 					echo "googletag.pubads().setTargeting('sponsor',['schick']);";
 				}
@@ -148,6 +148,9 @@ global $post;
 				}
 				elseif ( has_category( '3d-printing-workshop' ) ) {
 					echo "googletag.pubads().setTargeting('sponsor',['sketchup']);";
+				}
+				elseif ( has_tag( 'nikon' ) || is_page( array( 388070 ) ) ) {
+					echo "googletag.pubads().setTargeting('sponsor',['nikon']);";
 				}
 			?>
 			googletag.enableServices();
