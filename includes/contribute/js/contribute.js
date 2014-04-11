@@ -19,8 +19,6 @@ jQuery( document ).ready( function( $ ) {
 	// Handle the AJAX for saving the first stage of the post. The rest will be over Backbone.
 	$( '#add-post-content' ).submit( function( e ) {
 
-		console.log('Let\'s try this another way...');
-
 		// Prevent the button from sending the form.
 		e.preventDefault();
 
@@ -119,6 +117,9 @@ jQuery( document ).ready( function( $ ) {
 		// Added this for Cole...
 		make_contribute_loading_screen();
 
+		// Display the parts form.
+		jQuery( '.contribute-form-parts' ).slideDown();
+
 		// Let's get the steps initialized.
 		var form = $( 'contribute-form-steps' );
 
@@ -162,12 +163,12 @@ jQuery( document ).ready( function( $ ) {
 			type: 'POST',
 			success: function( response ){
 				response = JSON.parse( response );
-				make_contribute_close_forms();
 				// Allow users to save steps now that we have the post id
 				$( 'button.submit-parts' ).removeAttr( 'disabled' );
 				make_contribute_display_steps( response.post_id );
 			}
 		});
+
 	});
 
 	// Save the parts data
@@ -349,10 +350,8 @@ function make_contribute_display_steps( post_id ) {
 			make_contribute_remove_progress_bar();
 			// Output the steps.
 			jQuery( '.steps-list-output' ).html( data );
-			// Display the parts form.
-			jQuery( '.contribute-form-parts' ).slideDown();
+			// Add the edit button to the newly created element.
 			jQuery('.steps-list-nav .nav-list').append('<li class="edit-row"><button class="btn edit-steps">Edit Steps</button><li>');
-
 		}
 	});
 
