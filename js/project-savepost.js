@@ -56,7 +56,7 @@ jQuery(document).ready(function($) {
 	setInterval( function() {
 		if ( idle_state === false ) {
 			var post = $( '#post ').serialize();
-
+			
 			$.ajax({
 				type: 'POST',
 				dataType: 'json',

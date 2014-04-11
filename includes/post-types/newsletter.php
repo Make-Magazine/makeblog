@@ -107,10 +107,10 @@ function make_page_attributes_metabox_add_parents( $dropdown_args, $post = NULL 
 	$dropdown_args['post_status'] = array('publish', 'draft', 'pending', 'future', 'private');
 	return $dropdown_args;
 }
-
-add_filter( 'page_attributes_dropdown_pages_args', 'make_page_attributes_metabox_add_parents', 10, 2 );
+ 
+add_filter( 'page_attributes_dropdown_pages_args', 'make_page_attributes_metabox_add_parents', 10, 2 ); 
 add_filter( 'quick_edit_dropdown_pages_args', 'make_page_attributes_metabox_add_parents', 10);
-
+ 
 /**
  * Add (status) to titles in page parent dropdowns
  *
@@ -124,9 +124,9 @@ function make_page_parent_status_filter( $title, $page ) {
 		$title .= " ($status)";
 	return $title;
 }
-
+ 
 add_filter( 'list_pages', 'make_page_parent_status_filter', 10, 2);
-
+ 
 /**
  * Filter pages metabox on menu admin screen to include all built-in statuses.
  *
@@ -137,17 +137,17 @@ function make_private_page_query_filter($query) {
 	if ( is_admin() ) {
 		if ( function_exists( 'get_current_screen' ) ) {
 			$screen = get_current_screen();
-			// if ( 'nav-menus' == $screen->base )
-				// $query->set( 'post_status', 'publish,private,future,pending,draft' );
+			if ( 'nav-menus' == $screen->base )
+				$query->set( 'post_status', 'publish,private,future,pending,draft' );
 		}
 	}
 	return $query;
 }
-
+ 
 add_filter('pre_get_posts', 'make_private_page_query_filter');
-
+ 
 /**
- * Filter lists of pages to include privately published ones.
+ * Filter lists of pages to include privately published ones. 
  * This a duplicate of wp_list_pages() except we change post_status in the default args, and we return without echoing.
  *
  * @param string $output Original output of wp_list_pages(), which we will overwrite.
@@ -156,38 +156,38 @@ add_filter('pre_get_posts', 'make_private_page_query_filter');
  */
 function make_wp_list_pages_with_private($output, $args) {
 	$defaults = array( 'post_status' => 'publish,private' );  // other defaults already parsed in wp_list_pages()
-
+ 
 	$r = wp_parse_args( $args, $defaults );
 	extract( $r, EXTR_SKIP );
-
+ 
 	$output = '';
 	$current_page = 0;
-
+ 
 	// sanitize, mostly to keep spaces out
 	$r['exclude'] = preg_replace('/[^0-9,]/', '', $r['exclude']);
-
+ 
 	// Allow plugins to filter an array of excluded pages (but don't put a nullstring into the array)
 	$exclude_array = ( $r['exclude'] ) ? explode(',', $r['exclude']) : array();
 	$r['exclude'] = implode( ',', apply_filters('wp_list_pages_excludes', $exclude_array) );
-
+ 
 	// Query pages.
 	$r['hierarchical'] = 0;
 	$pages = get_pages($r);
-
+ 
 	if ( !empty($pages) ) {
 		if ( $r['title_li'] )
 			$output .= '<li class="pagenav">' . $r['title_li'] . '<ul>';
-
+ 
 		global $wp_query;
 		if ( is_page() || is_attachment() || $wp_query->is_posts_page )
 			$current_page = $wp_query->get_queried_object_id();
 		$output .= walk_page_tree($pages, $r['depth'], $current_page, $r);
-
+ 
 		if ( $r['title_li'] )
 			$output .= '</ul></li>';
 	}
-
+ 
 	return $output;
 }
-
+ 
 add_filter('wp_list_pages', 'make_wp_list_pages_with_private', 1, 2);
