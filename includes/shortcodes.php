@@ -1166,3 +1166,25 @@ function make_get_dfp_ad_unit( $atts ) {
 }
 
 add_shortcode( 'ad_unit', 'make_get_dfp_ad_unit' );
+
+/**
+ * Some stuff for the Nikon Contest
+ */
+function make_nikon_shortcode_iframe( $atts ) {
+	$defaults = array(
+		'width'		=> 920,
+		'height'	=> 2000,
+		'iframe'	=> 'portal'
+		);
+	$atts = shortcode_atts( $defaults, $atts );
+	if ( $atts[ 'iframe' ] == 'portal' ) {
+		$output = '<iframe id="wizehiveportal" scrolling="auto" frameborder="0" width="' . $atts[ 'width' ] . 'px" height="' . $atts[ 'height' ] . 'px"></iframe> ';
+		$output .= '<script src="http://review.wizehive.com/js/portaliframe.js" type="text/javascript"></script>';
+		$output .= '<script type="text/javascript">displayPortal('nikon');</script>';
+	} elseif ( $atts[ 'iframe' ] == 'webform' ) {
+		$output .= '<iframe src="http://app.wizehive.com/webform/nikon2014" style="width:' . $atts[ 'width' ] . 'px; height: ' . $atts[ 'height' ] . 'px;" scrolling="auto" frameborder="0"></iframe>';
+	}
+}
+
+
+add_shortcode( 'nikon', 'make_nikon_shortcode_iframe' );
