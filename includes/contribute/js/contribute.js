@@ -183,6 +183,9 @@ jQuery( document ).ready( function( $ ) {
 		// Hide the form
 		make_contribute_close_forms();
 
+		// Display the tools form.
+		jQuery( '.contribute-form-tools' ).slideDown();
+
 		// Add the loading bar.
 		make_contribute_loading_screen();
 
@@ -210,7 +213,6 @@ jQuery( document ).ready( function( $ ) {
 				$( '.parts-pane' ).html( data );
 				// Allow users to save steps now that we have the post id
 				$( 'button.submit-tools' ).removeAttr( 'disabled' );
-				$( '.contribute-form-tools' ).slideDown();
 			}
 		});
 	});
