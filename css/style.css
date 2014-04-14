@@ -8101,10 +8101,9 @@ p:empty {
 }
 .category-top p a {
   color: #005d8f;
-  border-bottom: 1px solid #005d8f;
 }
 .category-top p a:hover {
-  text-decoration: none;
+  text-decoration: underline;
 }
 .category-top p a.btn {
   color: white;
@@ -8275,10 +8274,9 @@ p:empty {
 }
 .content-type p a {
   color: #005d8f;
-  border-bottom: 1px solid #005d8f;
 }
 .content-type p a:hover {
-  text-decoration: none;
+  text-decoration: underline;
 }
 .content-type .subs {
   margin: 0px 0px 20px;
@@ -9072,10 +9070,9 @@ body .single p {
 }
 body .single p a {
   color: #005d8f;
-  border-bottom: 1px solid #005d8f;
 }
 body .single p a:hover {
-  text-decoration: none;
+  text-decoration: underline;
 }
 body .single p a.btn {
   color: white;
@@ -11332,10 +11329,9 @@ body.makercamp a.button.small-button {
 }
 .archive p a {
   color: #005d8f;
-  border-bottom: 1px solid #005d8f;
 }
 .archive p a:hover {
-  text-decoration: none;
+  text-decoration: underline;
 }
 .archive p a.btn {
   color: white;
