@@ -1150,16 +1150,18 @@ function make_printrbot_newsletter() {
 add_shortcode( 'make_printrbot_newsletter', 'make_printrbot_newsletter' );
 
 function make_get_dfp_ad_unit( $atts ) {
-	extract( shortcode_atts( array(
+	$defaults = array(
 		'unit' => '2',
-	), $atts ) );
+	);
 
-	$output = '<!-- Beginning Sync AdSlot ' . intval( $unit ) . ' for Ad unit header ### size: [[300,250]]  -->';
+	$atts = shortcode_atts( $defaults, $atts );
 
-	$output .= '<div id=\'div-gpt-ad-664089004995786621-' . intval( $unit ) . '\'>';
-		$output .= '<script type=\'text/javascript\'>googletag.cmd.push(function(){googletag.display(\'div-gpt-ad-664089004995786621-' . esc_js( intval( $unit ) ) . '\')});</script>';
+	$output = '<!-- Beginning Sync AdSlot ' . intval( $atts['unit'] ) . ' for Ad unit header ### size: [[300,250]]  -->';
+
+	$output .= '<div id=\'div-gpt-ad-664089004995786621-' . intval( $atts['unit'] ) . '\'>';
+		$output .= '<script type=\'text/javascript\'>googletag.cmd.push(function(){googletag.display(\'div-gpt-ad-664089004995786621-' . esc_js( intval( $atts['unit'] ) ) . '\')});</script>';
 	$output .= '</div>';
-	$output .= '<!-- End AdSlot ' . intval( $unit ) . ' -->';
+	$output .= '<!-- End AdSlot ' . intval( $atts['unit'] ) . ' -->';
 	return $output;
 }
 
