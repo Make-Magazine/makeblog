@@ -1820,19 +1820,19 @@ add_action( 'category_top', 'make_get_banner_to_category_page' );
 
 function make_tab_link() {
 
-	if (is_page(388070)) { ?>
+	if ( is_page( 388070 ) ) { ?>
 
-	<script type="text/javascript">
-	var url = document.location.toString();
-	if (url.match('#')) {
-	    $('.nav-tabs a[href=#'+url.split('#')[1]+']').tab('show') ;
-	}
+		<script type="text/javascript">
+			var url = document.location.toString();
+			if ( url.match('#') ) {
+				$('.nav-tabs a[href=#'+url.split('#')[1]+']').tab('show') ;
+			}
 
-	// Change hash for page-reload
-	$('.nav-tabs a').on('shown', function (e) {
-	    window.location.hash = e.target.hash;
-	})
-	</script>
+			// Change hash for page-reload
+			$('.nav-tabs a').on('shown', function (e) {
+				window.location.hash = e.target.hash;
+			})
+		</script>
 
 <?php }
 
