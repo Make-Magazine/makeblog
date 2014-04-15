@@ -17,19 +17,25 @@ _gaq.push(['_trackPageview']);
 	var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
 })();
 
-// Sadly the Facebook Comment Box does not allow us to change the positioning
-jQuery( document ).ready( function( $ ) {
-    $( '.comment-list' ).appendTo( '#comments' );
-//Allow links within boostrap tabs for sharing url of a particular  tab
-    var url = document.location.toString();
 
+jQuery( document ).ready( function( $ ) {
+    // Sadly the Facebook Comment Box does not allow us to change the positioning
+    $( '.comment-list' ).appendTo( '#comments' );
+    
+    // Allow links within bootstrap tabs for sharing URL of a particular tab
+    var url = document.location.toString();
     if ( url.match( '#' ) ) {
-        console.log( $( '.nav-tabs a[href=#' + url.split( '#' )[1] + ']' ).length );
-        $('.nav-tabs a[href=#'+url.split('#')[1]+']').tab('show') ;
+        $( '.nav-tabs a[href=#' + url.split( '#' )[1] + ']').tab( 'show' ) ;
     }
 
-    // Change hash for page-reload
-    $('.nav-tabs a').on('shown', function (e) {
-        window.location.hash = e.target.hash;
+    // Change hash in URL for tab linking
+    $( '.nav-tabs a' ).on( 'shown', function( e ) {
+        // Use the History API if possible, or else, fall back.
+        // The History API will allow us to hash a URL without page jump in modern browsers.
+        if ( history.pushState ) {
+            window.history.pushState( null, null, e.target.hash );
+        } else {
+            window.location.hash = e.target.hash;
+        }
     });
 });
