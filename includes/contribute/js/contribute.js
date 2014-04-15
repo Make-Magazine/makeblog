@@ -76,42 +76,20 @@ jQuery( document ).ready( function( $ ) {
 			type: 'POST',
 			success: function( data ){
 				post_obj = JSON.parse( data );
-				if ( post_obj.failed ) {
+				make_contribute_post_filler( post_obj );
 
-					make_contribute_remove_progress_bar();
+				if ( make_contribute_post_type === 'projects' ) {
+					$( '.post_ID' ).each( function() {
+						$( this ).val( post_obj.ID );
+					});
 
-					alert( 'Shoot, looks like the ' + post_obj.failed + '\n\r It was probably Jake\'s fault...' );
-
-					// Let's bring the form back...
-					$('.contribute-form').slideDown();
-
-					// Disable the inputs.
-					make_contribute_input_enabler( 'contribute-form' );
-
-					// Hide the other buttons
-					$('.submit-review').hide();
-
-					// Let's bring the form back...
-					$('.contribute-form .resubmit').show();
-
+					// Allow users to save steps now that we have the post id
+					$( 'button.submit-steps' ).removeAttr( 'disabled' );
 				} else {
-
-					make_contribute_post_filler( post_obj );
-
-					if ( make_contribute_post_type === 'projects' ) {
-						$( '.post_ID' ).each( function() {
-							$( this ).val( post_obj.ID );
-						});
-
-						// Allow users to save steps now that we have the post id
-						$( 'button.submit-steps' ).removeAttr( 'disabled' );
-					} else {
-						$( '.content-wrapper' ).append( '<h2>Thanks for submitting your post!</h2><p>We\'ll review your post and contact you shortly.<p>' );
-					}
-
-					make_contribute_remove_progress_bar();
-
+					$( '.content-wrapper' ).append( '<h2>Thanks for submitting your post!</h2><p>We\'ll review your post and contact you shortly.<p>' );
 				}
+
+				make_contribute_remove_progress_bar();
 			}
 		});
 	});
