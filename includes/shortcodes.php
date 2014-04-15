@@ -1173,7 +1173,7 @@ add_shortcode( 'ad_unit', 'make_get_dfp_ad_unit' );
 function make_nikon_shortcode_iframe( $atts ) {
 	$defaults = array(
 		'width'		=> 920,
-		'height'	=> 2000,
+		'height'	=> 2150,
 		'iframe'	=> 'portal'
 		);
 	$atts = shortcode_atts( $defaults, $atts );
