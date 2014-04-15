@@ -215,14 +215,14 @@ class Make_Contribute {
 
 		// Check our nonce and make sure it's correct
 		if ( ! wp_verify_nonce( $_POST['contribute_post'], 'contribute_post_nonce' ) )
-			die( 'We weren\'t able to verify that nonce...' );
+			die( json_encode( array( 'failed' => 'nonce failed.' ) ) );
 
 		// Get the author ID
 		$author_name = $this->get_author_name( $_POST['user_id'] );
 
 		// Make sure an author was returned
 		if ( ! $author_name )
-			die( json_encode( 'ERROR: AUTHOR NOT FOUND' ) );
+			die( json_encode( array( 'failed' => 'author wasn\'t found.' ) ) );
 
 		$allowed_post_types = array(
 			'post',
