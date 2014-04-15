@@ -19,5 +19,17 @@ _gaq.push(['_trackPageview']);
 
 // Sadly the Facebook Comment Box does not allow us to change the positioning
 jQuery( document ).ready( function( $ ) {
-	$( '.comment-list' ).appendTo( '#comments' );
+    $( '.comment-list' ).appendTo( '#comments' );
+//Allow links within boostrap tabs for sharing url of a particular  tab
+    var url = document.location.toString();
+
+    if ( url.match( '#' ) ) {
+        console.log( $( '.nav-tabs a[href=#' + url.split( '#' )[1] + ']' ).length );
+        $('.nav-tabs a[href=#'+url.split('#')[1]+']').tab('show') ;
+    }
+
+    // Change hash for page-reload
+    $('.nav-tabs a').on('shown', function (e) {
+        window.location.hash = e.target.hash;
+    });
 });
