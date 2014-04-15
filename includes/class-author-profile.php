@@ -111,7 +111,7 @@
 						$output .= '<ul class="clearfix inline">';
 						$output .= ( !empty( $author->user_email ) ) ? '<li><a href="' . esc_url( antispambot( "mailto:" . $author->user_email ) ) . '">' . antispambot( $author->user_email ) . '</a></li>' : '' ;
 						$output .= ( !empty( $author->user_email ) && !empty( $author->website ) ) ? ' <li>//</li>' : '' ;
-						$output .= ( !empty( $author->website ) ) ? '<li><a href="' . esc_url( $author->website ) . '">Website</a></li>' : 's' ;
+						$output .= ( !empty( $author->website ) ) ? '<li><a href="' . esc_url( $author->website ) . '">Website</a></li>' : '' ;
 						$output .= '</ul>';
 					} else {
 						$output .= $this->author_bio( $author_meta );
