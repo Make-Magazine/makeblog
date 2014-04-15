@@ -1816,8 +1816,9 @@ function make_get_banner_to_category_page() {
 
 add_action( 'category_top', 'make_get_banner_to_category_page' );
 
-// Javascript to enable link to tab
-
+/**
+  * Javascript to enable link to change to the active tab.
+  */
 function make_tab_link() {
 
 	if ( is_page( 388070 ) ) { ?>
