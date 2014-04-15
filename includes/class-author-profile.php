@@ -3,7 +3,7 @@
 	/**
 	 * The function to display author/maker bios
 	 *
-	 * @version  1.1
+	 * @version  1.2
 	 * @author  Cole Geissinger <cgeissinger@makermedia.com>
 	 *
 	 */
@@ -44,7 +44,7 @@
 						return $profile->entry[0];
 					} else {
 						// well, it seems Gravatar returned empty... let's pull from WordPress then.
-						$author = get_userdata( absint( $author_id ) );
+						$author = get_userdata( absint( $author->ID ) );
 
 						return $author;
 					}
@@ -86,7 +86,7 @@
 		 * Generates the HTML output of the author profile header
 		 * @return html
 		 *
-		 * @version 1.0
+		 * @version 1.1
 		 * @since   1.1
 		 */
 		public function author_block( $author ) {
@@ -103,24 +103,15 @@
 				if ( $author->type != 'guest-author' ) {
 					// Grab the meta information for WordPress.com users
 					$author_meta = wpcom_vip_get_user_profile( $author->ID );
+
 					$output .= $this->author_bio( $author_meta );
 					$output .= $this->author_contact_info( $author_meta );
 					$output .= $this->author_urls( $author_meta );
 				} elseif ( $author->type == 'guest-author' ) {
-					// Let's see if that user has Gravatar information
-					$author_meta = wpcom_vip_get_user_profile( $author->user_email );
-					// Don't seem to have Gravatar, let's fill with guest author information.
-					if ( $author_meta === false ) {
-						$output .= wp_kses_post( Markdown( $author->description ) );
-						$output .= '<ul class="clearfix inline">';
-						$output .= ( !empty( $author->user_email ) && !empty( $author->website ) ) ? ' <li>//</li>' : '' ;
-						$output .= ( !empty( $author->website ) ) ? '<li><a href="' . esc_url( $author->website ) . '">Website</a></li>' : '' ;
-						$output .= '</ul>';
-					} else {
-						$output .= $this->author_bio( $author_meta );
-						$output .= $this->author_contact_info( $author_meta );
-						$output .= $this->author_urls( $author_meta );
-					}
+					// Return the Guest Author information.
+					$output .= $this->author_bio( $author );
+					$output .= $this->author_contact_info( $author );
+					$output .= $this->author_urls( $author );
 				}
 
 				$output .= '</div>';
@@ -437,7 +428,7 @@
 			exit;
 		}
 	}
-	// add_action( 'template_redirect', 'capx_template_redirect' );
+	add_action( 'template_redirect', 'capx_template_redirect' );
 
 
 	function hook_bio_into_content( $content ) {
