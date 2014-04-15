@@ -19,41 +19,38 @@
 		 * @since    1.0
 		 */
 		public function get_author_data() {
+			global $authordata;
 
-			// Also get the author ID as a fallback
-			$author_id = get_the_author_id();
-			$author = get_userdata( absint( $author_id ) );
+			// Get the true author data
+			$author = $authordata;
 
-			// Its possible nothing is returned via the author ID, so we'll check with coauthors
-			// We check coauthors second because if we check it first on the author page, it can result in displaying the wrong author information.
-			if ( empty( $author ) ) {
-				$authors = new CoAuthorsIterator( $author_id );
-				$author = $authors->current_author;
-			}
-
-			// If the user account is a guest-author, then it will always be used over Gravatar data
-			if ( $author->type === 'guest-author' ) { // Author account is linked, so we'll make sure we ignore Gravatar and pull from the guest author account
-				return $author;
-			} else { // If no type is passed, then we'll check for Gravatar information
-				$email = $author->data->user_email;
-
-				// We need to hash out the email so we can properlly and securely request the right Gravatar account
-				$hash = md5( strtolower( trim( sanitize_email( $email ) ) ) );
-
-				// Request the data from gravatar
-				$gdata = wpcom_vip_file_get_contents( esc_url( 'http://www.gravatar.com/' . $hash . '.json' ) );
-
-				// Make sure data was actually returned
-				if ( $gdata ) {
-					$profile = json_decode( $gdata );
-
-					return $profile->entry[0];
-				} else {
-					// well, it seems Gravatar returned empty... let's pull from WordPress then.
-					$author = get_userdata( absint( $author_id ) );
-
+			if ( ! empty( $author ) ) {
+				// If the user account is a guest-author, then it will always be used over Gravatar data
+				if ( $author->type === 'guest-author' ) { // Author account is linked, so we'll make sure we ignor Gravatar and pull from the guest author account
 					return $author;
+				} else { // If no type is passed, then we'll check for Gravatar information
+					$email = $author->data->user_email;
+
+					// We need to hash out the email so we can properlly and securely request the right Gravatar account
+					$hash = md5( strtolower( trim( sanitize_email( $email ) ) ) );
+
+					// Request the data from gravatar
+					$gdata = wpcom_vip_file_get_contents( esc_url( 'http://www.gravatar.com/' . $hash . '.json' ) );
+
+					// Make sure data was actually returned
+					if ( $gdata ) {
+						$profile = json_decode( $gdata );
+
+						return $profile->entry[0];
+					} else {
+						// well, it seems Gravatar returned empty... let's pull from WordPress then.
+						$author = get_userdata( absint( $author_id ) );
+
+						return $author;
+					}
 				}
+			} else {
+				return false;
 			}
 		}
 
@@ -66,16 +63,23 @@
 		 * @since   1.1
 		 */
 		public function author_profile() {
-			$author = $this->get_author_data(); ?>
-			<div class="span4">
-				<?php echo $this->author_avatar( $author ); ?>
-			</div>
-			<div class="span8 author-profile-bio">
-				<h1 class="jumbo"><?php echo esc_html( $this->author_name( $author ) ); ?></h1>
-				<?php echo $this->author_bio( $author ); ?>
-				<?php echo $this->author_contact_info( $author ); ?>
-				<?php echo $this->author_urls( $author ); ?>
-			</div>
+			$author = $this->get_author_data(); 
+
+			if ( $author ) : ?>
+				<div class="span4">
+					<?php echo $this->author_avatar( $author ); ?>
+				</div>
+				<div class="span8 author-profile-bio">
+					<h1 class="jumbo"><?php echo esc_html( $this->author_name( $author ) ); ?></h1>
+					<?php echo $this->author_bio( $author ); ?>
+					<?php echo $this->author_contact_info( $author ); ?>
+					<?php echo $this->author_urls( $author ); ?>
+				</div>
+			<?php else : ?>
+				<div class="span12 author-profile-bio">
+					<h1 class="jumbo">Author profile could not be found!</h1>
+				</div>
+			<?php endif; ?>
 		<?php }
 
 		/**
@@ -433,7 +437,7 @@
 			exit;
 		}
 	}
-	add_action( 'template_redirect', 'capx_template_redirect' );
+	// add_action( 'template_redirect', 'capx_template_redirect' );
 
 
 	function hook_bio_into_content( $content ) {
