@@ -26,7 +26,16 @@ get_header(); ?>
 									<h3 class="submitted-title hide">Preview</h3>
 
 									<header class="projects-masthead">
-										<h1 class="post-title"><span></span><button type="submit" class="btn btn-warning edit-post hide">Edit Post</button></h1>
+										<h1 class="post-title">
+											<span class="the-title"></span>
+											<button type="submit" class="btn btn-warning edit-post hide">Edit Post</button>
+											<span> </span>
+											<?php
+												if ( is_user_logged_in() )
+													echo '<a href="#" class="btn btn-warning wordpress-edit">WordPress Edit</button></a>';
+											?>
+										</h1>
+
 									</header>
 
 									<section class="post-content"></section>
