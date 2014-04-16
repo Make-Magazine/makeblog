@@ -253,7 +253,11 @@ class Make_Contribute {
 		// Get the newly created post
 		$post = get_post( $pid );
 
+		// Add the image rows...
 		$post->media = $this->image_rows( $pid );
+
+		// Add the edit post link if the user is logged in.
+		$post->edit = esc_url( get_edit_post_link( $pid ) );
 
 		// Send our auto responders on save.
 		$ar_nonce = wp_create_nonce( 'send-auto-responders' );
