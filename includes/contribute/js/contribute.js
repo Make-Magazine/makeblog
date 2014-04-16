@@ -98,6 +98,8 @@ jQuery( document ).ready( function( $ ) {
 
 					make_contribute_post_filler( post_obj );
 
+					$('.wordpress-edit').attr('href', post_obj.edit );
+
 					if ( make_contribute_post_type === 'projects' ) {
 						$( '.post_ID' ).each( function() {
 							$( this ).val( post_obj.ID );
@@ -387,7 +389,7 @@ function make_contribute_display_steps( post_id ) {
  * @return void
  */
 function make_contribute_post_filler( data ) {
-	jQuery( '.post-title span' ).html( data.post_title + ' ' );
+	jQuery( '.post-title span.the-title' ).html( data.post_title + ' ' );
 	jQuery( '.post-content' ).html( data.post_content );
 	jQuery( '.post-content' ).append( data.media );
 	jQuery( '.form-actions.edit, .edit-post, .submitted-title').show();
