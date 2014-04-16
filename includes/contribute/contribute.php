@@ -269,66 +269,6 @@ class Make_Contribute {
 	}
 
 	/**
-	 * Update the post
-	 */
-	public function update_post() {
-
-		var_dump( 'Are we even hitting this function?' );
-
-		global $coauthors_plus;
-
-		// Check our nonce and make sure it's correct
-		if ( ! wp_verify_nonce( $_POST['update_post'], 'update_post_nonce' ) )
-			die( 'We weren\'t able to verify that nonce...' );
-
-		// Get the author ID
-		$author_name = $this->get_author_name( $_POST['user_id'] );
-
-		// Make sure an author was returned
-		if ( ! $author_name )
-			die( json_encode( 'ERROR: AUTHOR NOT FOUND' ) );
-
-		$allowed_post_types = array(
-			'post',
-			'projects'
-		);
-
-		// Setup the post variables yo.
-		$post = array(
-			'ID'			=> ( isset( $_POST['ID'] ) ) ? absint( $_POST['ID'] ) : '',
-			'post_status'	=> 'draft',
-			'post_title'	=> ( isset( $_POST['post_title'] ) ) ? sanitize_text_field( $_POST['post_title'] ) : '',
-			'post_name'		=> ( isset( $_POST['post_title'] ) ) ? sanitize_title( $_POST['post_title'] ) : '',
-			'post_content'	=> ( isset( $_POST['post_content'] ) ) ? wp_kses_post( $_POST['post_content'] ) : '',
-			'post_category'	=> ( isset( $_POST['cat'] ) ) ? array( absint( $_POST['cat'] ) ) : '',
-			'post_type'		=> ( isset( $_POST['post_type'] ) && in_array( $_POST['post_type'], $allowed_post_types ) ) ? sanitize_text_field( $_POST['post_type'] ) : 'post',
-			'post_author'	=> ( isset( $author_name['post_author'] ) ) ? absint( $author_name['post_author'] ) : 4, /* 604631 */
-		);
-
-		// Insert the post
-		$pid = wp_update_post( $post );
-
-		// Add to CoAuthors Plus (for all users, not just Guest Authors)
-		$author_set = $coauthors_plus->add_coauthors( absint( $pid ), array( $author_name['login_name'] ) );
-
-		// Upload the files
-		$this->upload_files( $pid, $_FILES );
-
-		// Get the newly created post
-		$post = get_post( $pid );
-
-		// Attach the media to the post object
-		$post->media = $this->image_rows( $pid );
-
-		// Let us know that the post was updated.
-		$post->updated = true;
-
-		// Send back the Post as JSON
-		die( json_encode( $post ) );
-
-	}
-
-	/**
 	 * Take the form data, and add a post/project.
 	 *
 	 * @return json
