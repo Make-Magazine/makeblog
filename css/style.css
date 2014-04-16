@@ -12211,6 +12211,11 @@ aside.pull-quote.pull-quote-1.pull-left {
 aside.pull-quote.pull-quote-1.pull-left img {
   margin-right: 10px;
 }
+.page-template-page-contribute-project-php .edit-wordpress {
+  color: #fff;
+  font-weight: normal;
+  letter-spacing: 0px;
+}
 .page-template-page-contribute-project-php .form-actions.center {
   padding-left: 0px;
 }
