@@ -59,6 +59,9 @@ class Make_Contribute {
 		// Update a post/project
 		add_action( 'wp_ajax_nopriv_update_post',  array( $this, 'update_post' ) );
 		add_action( 'wp_ajax_update_post',  array( $this, 'update_post' ) );
+
+		// Let's bring the progress bar/breadcrumb to the footer
+		add_action( 'wp_footer', array( $this, 'progress_footer' ) );
 	}
 
 	/**
@@ -501,6 +504,42 @@ class Make_Contribute {
 		// @TODO: Update to send to wp_cron instead of just pushing emails. This will be more important when the flood gates open and more email is processed.
 		wp_mail( $email_obj['email']['send_tos']['editors'], esc_html( $email_obj['email']['subjects']['editors'] ), $editor_message, array( 'Content-Type: text/html', "From: {$email_obj['email']['from']['editors']}" ) );
 		wp_mail( $email_obj['email']['send_tos']['author'], esc_html( $email_obj['email']['subjects']['author'] ), $author_message, array( 'Content-Type: text/html', "From: {$email_obj['email']['from']['author']}" ) );
+	}
+
+	/**
+	 * Add the progress bar to the footer.
+	 */
+	static function progress_footer() {
+		if ( is_page_template( 'page-contribute-project.php' ) && ! is_admin() ) :
+		?>
+		<section class="progress-footer">
+			<div class="container">
+				<div class="steps">
+					<div class="btn-group">
+						<button class="btn btn-content">Add Content</button>
+						<button class="btn btn-step" disabled>Add Steps</button>
+						<button class="btn btn-parts" disabled>Add Parts</button>
+						<button class="btn btn-tools" disabled>Add Tools</button>
+						<button class="btn btn-submit" disabled>Save and Submit</button>
+					</div>
+					<div class="pull-right">
+						<div class="btn-group show">
+							<button type="submit" class="btn btn-warning submit-review post" data-type="post">Save and submit as a post</button>
+							<button type="submit" class="btn btn-primary submit-review projects" data-type="projects">Save and add steps as a project</button>
+						</div>
+						<div class="btn-group hide edit">
+							<button type="submit" class="btn btn-primary edit-post" data-type="projects">Edit Content</button>
+						</div>
+						<div class="btn-group hide save">
+							<button type="submit" class="btn btn-primary update-post-content resubmit">Save post</button>
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</section>
+		<?php
+		endif;
 	}
 
 }
