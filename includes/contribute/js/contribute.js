@@ -12,12 +12,7 @@ jQuery( document ).ready( function( $ ) {
 	// On post creation, we need a way to tell if we are creating a project or post.
 	// The below will help us set a variable accessed in the submission of the form.
 	var make_contribute_post_type = '';
-	$( '.submit-review' ).click( function() {
-		make_contribute_post_type = $( this ).data( 'type' );
-	});
-
-	// Handle the AJAX for saving the first stage of the post. The rest will be over Backbone.
-	$( '#add-post-content' ).submit( function( e ) {
+	$( '.submit-review' ).click( function( e ) {
 
 		// Prevent the button from sending the form.
 		e.preventDefault();
