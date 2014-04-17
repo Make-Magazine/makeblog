@@ -18,8 +18,8 @@ jQuery( document ).ready( function( $ ) {
 		e.preventDefault();
 
 		// Validate that we our form has passed our preliminary check.
-		var check_form = $( this ).parsley( 'validate' );
-		if ( ! check_form.validationResult )
+		var check_form = $( '#add-post-content' ).parsley().validate()
+		if ( ! check_form )
 			return;
 
 		// Disable the inputs.
