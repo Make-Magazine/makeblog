@@ -1182,7 +1182,7 @@ function make_nikon_shortcode_iframe( $atts ) {
 		$output .= '<script src="http://review.wizehive.com/js/portaliframe.js" type="text/javascript"></script>';
 		$output .= '<script type="text/javascript">displayPortal(\'nikon\');</script>';
 	} elseif ( $atts[ 'iframe' ] == 'webform' ) {
-		$output = '<iframe src="http://app.wizehive.com/webform/nikon2014" style="width:' . absint( $atts[ 'width' ] ) . 'px; height: ' . absint( $atts[ 'height' ] ) . 'px;" scrolling="auto" frameborder="0" onload="parent.location= "http://makezine.com/make-the-shot-camera-challenge/#enter";"></iframe>';
+		$output = '<iframe src="http://app.wizehive.com/webform/nikon2014" style="width:' . absint( $atts[ 'width' ] ) . 'px; height: ' . absint( $atts[ 'height' ] ) . 'px;" scrolling="auto" frameborder="0" onload="parent.location="http://makezine.com/make-the-shot-camera-challenge/#enter";"></iframe><p><a href="http://www.wizehive.com/contest" target="_blank">Online Contest Software</a> provided by WizeHive</p>';
 	}
 
 	return $output;
