@@ -154,11 +154,11 @@ get_header(); ?>
 											<input type="file" name="" value="" title="Add One or More Images" id="file" class="file-inputs" multiple required>
 										</div>
 									</div>
-									<div class="form-actions center">
+									<!-- <div class="form-actions center">
 										<p><button type="submit" class="btn btn-large btn-warning submit-review" data-type="projects">Want to add steps to the post?</button></p>
 										<p><button type="submit" class="btn btn-primary submit-review" data-type="post">Submit for Review</button></p>
 										<p><button type="submit" class="btn btn-primary update-post-content resubmit hide" data-type="post">Save post</button></p>
-									</div>
+									</div> -->
 								</fieldset>
 							</form>
 
