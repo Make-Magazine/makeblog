@@ -22,11 +22,29 @@ jQuery( document ).ready( function( $ ) {
 		if ( ! check_form )
 			return;
 
+		// Figure out the type.
+		make_contribute_post_type = $( this ).data( 'type' );
+
+		// Submit the form.
+		make_submit_contribute_form( $('#add-post-content') );
+
+	});
+
+
+	// Handle the AJAX for saving the first stage of the post. The rest will be over Backbone.
+	function make_submit_contribute_form( the_form ) {
+
+		console.log('Started');
+
 		// Disable the inputs.
 		make_contribute_input_disabler( 'contribute-form' );
 
+		console.log('Inputs disabled');
+
 		// Hide the form
 		make_contribute_close_forms();
+
+		console.log('Closed');
 
 		// Add the loading bar
 		make_contribute_loading_screen();
@@ -91,9 +109,9 @@ jQuery( document ).ready( function( $ ) {
 
 				} else {
 
-					make_contribute_post_filler( post_obj );
+					console.log( post_obj );
 
-					$('.wordpress-edit').attr('href', post_obj.edit );
+					make_contribute_post_filler( post_obj );
 
 					if ( make_contribute_post_type === 'projects' ) {
 
@@ -117,7 +135,7 @@ jQuery( document ).ready( function( $ ) {
 						// Allow users to save steps now that we have the post id
 						$( 'button.submit-steps' ).removeAttr( 'disabled' );
 					} else {
-						$( '.content-wrapper' ).append( '<h2>Thanks for submitting your post!</h2><p>We\'ll review your post and contact you shortly.<p>' );
+						$( '.content-wrapper' ).append( '<div class="clearfix"><h2>Thanks for submitting your post!</h2><p>We\'ll review your post and contact you shortly.<p></div>' );
 					}
 
 					make_contribute_remove_progress_bar();
@@ -125,7 +143,7 @@ jQuery( document ).ready( function( $ ) {
 				}
 			}
 		});
-	});
+	};
 
 
 	// Save the steps.
@@ -296,6 +314,10 @@ jQuery( document ).ready( function( $ ) {
 		// Prevent the button from triggering
 		e.preventDefault();
 
+		$( '.btn-group.edit' ).fadeOut();
+
+		$( '.btn-group.save' ).fadeIn();
+
 		// Let's bring the form back...
 		$('.contribute-form').slideDown();
 
@@ -402,6 +424,7 @@ function make_contribute_post_filler( data ) {
 	jQuery( '.post-content' ).html( data.post_content );
 	jQuery( '.post-content' ).append( data.media );
 	jQuery( '.form-actions.edit, .edit-post, .submitted-title').show();
+	jQuery( '.wordpress-edit' ).attr('href', post_obj.edit ).show();
 }
 
 
