@@ -96,6 +96,20 @@ jQuery( document ).ready( function( $ ) {
 					$('.wordpress-edit').attr('href', post_obj.edit );
 
 					if ( make_contribute_post_type === 'projects' ) {
+
+						// Hide the other buttons
+						$('.submit-review').hide();
+
+						// Drop the button group class
+						$('.progress-footer .btn-group.show').fadeOut();
+
+						// Show the correct button
+						$('.btn-group.hide.edit').fadeIn();
+
+						$('.btn-content').addClass('btn-success');
+
+						$('.btn-steps').removeAttr('disabled');
+
 						$( '.post_ID' ).each( function() {
 							$( this ).val( post_obj.ID );
 						});
