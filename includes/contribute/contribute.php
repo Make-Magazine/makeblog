@@ -231,7 +231,7 @@ class Make_Contribute {
 
 		// Setup the post variables yo.
 		$post = array(
-			'post_status'	=> 'draft',
+			'post_status'	=> 'submission',
 			'post_title'	=> ( isset( $_POST['post_title'] ) ) ? sanitize_text_field( $_POST['post_title'] ) : '',
 			'post_name'		=> ( isset( $_POST['post_title'] ) ) ? sanitize_title( $_POST['post_title'] ) : '',
 			'post_content'	=> ( isset( $_POST['post_content'] ) ) ? wp_kses_post( $_POST['post_content'] ) : '',
@@ -501,13 +501,13 @@ class Make_Contribute {
 
 		// add our emails to the obj
 		$email_obj['email']['send_tos'] = array(
-			'editors' => array( 'jbabler@makermedia.com', 'msenese@makermedia.com' ),
+			'editors' => array( 'editor@makezine.com' ),
 			'author'  => sanitize_email( $email_obj['author_email'] ),
 		);
 
 		// Prevent submissions in our testing environments to be sent to the editors
 		if ( isset( $_SERVER['HTTP_HOST'] ) && in_array( $_SERVER['HTTP_HOST'], array( 'localhost', 'make.com', 'vip.dev', 'staging.makezine.com' ) ) )
-			$email_obj['email']['send_tos']['editors'] = array( 'cgeissinger@makermedia.com', 'jspurlock@makermedia.com' );
+			$email_obj['email']['send_tos']['editors'] = array( 'jspurlock@makermedia.com' );
 
 		// Add a default from address
 		$email_obj['email']['from'] = array(
