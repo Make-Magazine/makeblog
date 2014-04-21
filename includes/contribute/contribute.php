@@ -448,7 +448,7 @@ class Make_Contribute {
 
 		// add our emails to the obj
 		$email_obj['email']['send_tos'] = array(
-			'editors' => array( 'jbabler@makermedia.com', 'msenese@makermedia.com' ),
+			'editors' => array( 'editor@makezine.com' ),
 			'author'  => sanitize_email( $email_obj['author_email'] ),
 		);
 
