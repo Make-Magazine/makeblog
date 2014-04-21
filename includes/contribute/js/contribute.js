@@ -18,7 +18,7 @@ jQuery( document ).ready( function( $ ) {
 		e.preventDefault();
 
 		// Validate that we our form has passed our preliminary check.
-		var check_form = $( '#add-post-content' ).parsley().validate()
+		var check_form = $( '#add-post-content' ).parsley().validate();
 		if ( ! check_form )
 			return;
 
@@ -124,9 +124,9 @@ jQuery( document ).ready( function( $ ) {
 						// Show the correct button
 						$('.btn-group.hide.edit').fadeIn();
 
-						$('.btn-content').addClass('btn-success');
+						$('.btn-content').addClass('btn-success edit-post').html('Edit Content');
 
-						$('.btn-steps').removeAttr('disabled');
+						$('.btn-step').removeAttr('disabled');
 
 						$( '.post_ID' ).each( function() {
 							$( this ).val( post_obj.ID );
