@@ -77,6 +77,7 @@ class Make_Contribute {
 			wp_enqueue_script( 'parseley-js', get_stylesheet_directory_uri() . '/js/parsley.min.js', array( 'jquery' ), '2.0', true );
 			wp_enqueue_script( 'bootstrap-file-input', get_stylesheet_directory_uri() . '/js/bootstrap.file-input.min.js', array( 'jquery' ), '1.0', true );
 			wp_enqueue_script( 'make-contribute', get_stylesheet_directory_uri() . '/includes/contribute/js/contribute.js', array( 'jquery' ), '1.0', true );
+			wp_localize_script( 'make-contribute', 'logged_in', array( 'logged_in' => is_user_logged_in() ) );
 			wp_enqueue_script( 'make-contrib-ui', get_stylesheet_directory_uri() . '/includes/contribute/js/contrib-ui.js', array( 'jquery' ), '1.0', true );
 		}
 	}
@@ -529,6 +530,9 @@ class Make_Contribute {
 						</div>
 						<div class="btn-group hide edit">
 							<button type="submit" class="btn btn-primary edit-post" data-type="projects">Edit Content</button>
+						</div>
+						<div class="btn-group hide save-steps">
+							<button type="submit" class="btn btn-primary save-steps" id="add-steps" data-type="projects">Save Steps</button>
 						</div>
 						<div class="btn-group hide save">
 							<button type="submit" class="btn btn-primary update-post-content resubmit">Save post</button>

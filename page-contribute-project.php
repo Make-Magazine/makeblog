@@ -126,7 +126,13 @@ get_header(); ?>
 									<div class="control-group">
 										<label class="control-label" for="post_content">Summary</label>
 										<div class="controls">
-											<?php wp_editor( '', 'post_content', array( 'teeny' => true ) ); ?>
+											<?php
+												$args = array(
+													'teeny' 	=> true,
+													'tinymce' 	=> ( is_user_logged_in() ) ? true : false,
+													);
+												wp_editor( '', 'post_content', $args );
+											?>
 										</div>
 									</div>
 									<div class="control-group">
