@@ -59,11 +59,6 @@ jQuery( document ).ready( function( $ ) {
 		// Let's hide this, and bring it back when we have something to put in it.
 		$( '.parts-tools').hide();
 
-		// Save the form, pushing the data back.
-		if ( ! logged_in.logged_in ) {
-			tinyMCE.triggerSave();
-		}
-
 		// Setup the form.
 		var form = $( 'contribute-form' );
 
@@ -78,11 +73,7 @@ jQuery( document ).ready( function( $ ) {
 		data.append( 'contribute_post',	$( '.contribute-form #contribute_post' ).val() );
 		data.append( 'post_title',		$( '.contribute-form #post_title' ).val() );
 		data.append( 'user_id',			$( '.contribute-form #user_id' ).val() );
-		if ( logged_in.logged_in ) {
-			data.append( 'post_content',	$( '.contribute-form #post_content' ).val() );
-		} else {
-			data.append( 'post_content',	tinyMCE.activeEditor.getContent() );
-		}
+		data.append( 'post_content',	$( '.contribute-form #post_content' ).val() );
 		data.append( 'cat',				$( '.contribute-form #cat' ).val() );
 		data.append( 'post_type',		make_contribute_post_type );
 		data.append( 'post_author',		$( '.user_id' ).val() );

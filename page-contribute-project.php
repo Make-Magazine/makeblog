@@ -127,7 +127,7 @@ get_header(); ?>
 											<?php
 												$args = array(
 													'teeny' 	=> true,
-													'tinymce' 	=> ( is_user_logged_in() ) ? true : false,
+													'tinymce' 	=> false,
 													);
 												wp_editor( '', 'post_content', $args );
 											?>
