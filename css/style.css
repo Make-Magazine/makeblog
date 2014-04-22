@@ -11786,6 +11786,19 @@ a.button:hover {
   color: #fff !important;
   text-decoration: none;
 }
+.button.disabled,
+a.button.disabled {
+  background-color: #253740;
+  color: #84C7E5 !important;
+  -webkit-box-shadow: 0 5px 0 0 #84c7e5;
+  -moz-box-shadow: 0 5px 0 0 #84c7e5;
+  box-shadow: 0 5px 0 0 #84c7e5;
+}
+.button.disabled:hover,
+a.button.disabled:hover {
+  color: #033978 !important;
+  background-color: #73c1e6 !important;
+}
 .button.blue,
 a.button.blue {
   background-color: #8ed5f6;
@@ -12211,6 +12224,12 @@ aside.pull-quote.pull-quote-1.pull-left {
 aside.pull-quote.pull-quote-1.pull-left img {
   margin-right: 10px;
 }
+.page-template-page-contribute-project-php .wordpress-edit {
+  color: #fff;
+  font-weight: normal;
+  letter-spacing: 0px;
+  display: none;
+}
 .page-template-page-contribute-project-php .form-actions.center {
   padding-left: 0px;
 }
@@ -12246,6 +12265,26 @@ aside.pull-quote.pull-quote-1.pull-left img {
 }
 .page-template-page-contribute-project-php .projects-masthead {
   padding-top: 0;
+}
+.page-template-page-contribute-project-php .progress-footer {
+  overflow: visible;
+  margin-bottom: 20px;
+  *position: relative;
+  *z-index: 2;
+  position: fixed;
+  right: 0;
+  left: 0;
+  z-index: 1030;
+  margin-bottom: 0;
+  bottom: 0;
+  height: 40px;
+  padding-top: 10px;
+  background-color: #efefef;
+}
+.page-template-page-contribute-project-php .progress-footer .navbar-inner {
+  -webkit-box-shadow: 0 -1px 10px rgba(0,0,0,.1);
+  -moz-box-shadow: 0 -1px 10px rgba(0,0,0,.1);
+  box-shadow: 0 -1px 10px rgba(0,0,0,.1);
 }
 .btn-file {
   overflow: hidden;

@@ -59,6 +59,9 @@ class Make_Contribute {
 		// Update a post/project
 		add_action( 'wp_ajax_nopriv_update_post',  array( $this, 'update_post' ) );
 		add_action( 'wp_ajax_update_post',  array( $this, 'update_post' ) );
+
+		// Let's bring the progress bar/breadcrumb to the footer
+		add_action( 'wp_footer', array( $this, 'progress_footer' ) );
 	}
 
 	/**
@@ -74,6 +77,7 @@ class Make_Contribute {
 			wp_enqueue_script( 'parseley-js', get_stylesheet_directory_uri() . '/js/parsley.min.js', array( 'jquery' ), '2.0', true );
 			wp_enqueue_script( 'bootstrap-file-input', get_stylesheet_directory_uri() . '/js/bootstrap.file-input.min.js', array( 'jquery' ), '1.0', true );
 			wp_enqueue_script( 'make-contribute', get_stylesheet_directory_uri() . '/includes/contribute/js/contribute.js', array( 'jquery' ), '1.0', true );
+			wp_localize_script( 'make-contribute', 'logged_in', array( 'logged_in' => is_user_logged_in() ) );
 			wp_enqueue_script( 'make-contrib-ui', get_stylesheet_directory_uri() . '/includes/contribute/js/contrib-ui.js', array( 'jquery' ), '1.0', true );
 		}
 	}
@@ -253,71 +257,15 @@ class Make_Contribute {
 		// Get the newly created post
 		$post = get_post( $pid );
 
+		// Add the image rows...
 		$post->media = $this->image_rows( $pid );
+
+		// Add the edit post link if the user is logged in.
+		$post->edit = esc_url( get_edit_post_link( $pid ) );
 
 		// Send our auto responders on save.
 		$ar_nonce = wp_create_nonce( 'send-auto-responders' );
 		$this->send_auto_responders( $post, $ar_nonce );
-
-		// Send back the Post as JSON
-		die( json_encode( $post ) );
-
-	}
-
-	/**
-	 * Update the post
-	 */
-	public function update_post() {
-
-		var_dump( 'Are we even hitting this function?' );
-
-		global $coauthors_plus;
-
-		// Check our nonce and make sure it's correct
-		if ( ! wp_verify_nonce( $_POST['update_post'], 'update_post_nonce' ) )
-			die( 'We weren\'t able to verify that nonce...' );
-
-		// Get the author ID
-		$author_name = $this->get_author_name( $_POST['user_id'] );
-
-		// Make sure an author was returned
-		if ( ! $author_name )
-			die( json_encode( 'ERROR: AUTHOR NOT FOUND' ) );
-
-		$allowed_post_types = array(
-			'post',
-			'projects'
-		);
-
-		// Setup the post variables yo.
-		$post = array(
-			'ID'			=> ( isset( $_POST['ID'] ) ) ? absint( $_POST['ID'] ) : '',
-			'post_status'	=> 'draft',
-			'post_title'	=> ( isset( $_POST['post_title'] ) ) ? sanitize_text_field( $_POST['post_title'] ) : '',
-			'post_name'		=> ( isset( $_POST['post_title'] ) ) ? sanitize_title( $_POST['post_title'] ) : '',
-			'post_content'	=> ( isset( $_POST['post_content'] ) ) ? wp_kses_post( $_POST['post_content'] ) : '',
-			'post_category'	=> ( isset( $_POST['cat'] ) ) ? array( absint( $_POST['cat'] ) ) : '',
-			'post_type'		=> ( isset( $_POST['post_type'] ) && in_array( $_POST['post_type'], $allowed_post_types ) ) ? sanitize_text_field( $_POST['post_type'] ) : 'post',
-			'post_author'	=> ( isset( $author_name['post_author'] ) ) ? absint( $author_name['post_author'] ) : 4, /* 604631 */
-		);
-
-		// Insert the post
-		$pid = wp_update_post( $post );
-
-		// Add to CoAuthors Plus (for all users, not just Guest Authors)
-		$author_set = $coauthors_plus->add_coauthors( absint( $pid ), array( $author_name['login_name'] ) );
-
-		// Upload the files
-		$this->upload_files( $pid, $_FILES );
-
-		// Get the newly created post
-		$post = get_post( $pid );
-
-		// Attach the media to the post object
-		$post->media = $this->image_rows( $pid );
-
-		// Let us know that the post was updated.
-		$post->updated = true;
 
 		// Send back the Post as JSON
 		die( json_encode( $post ) );
@@ -557,6 +505,53 @@ class Make_Contribute {
 		// @TODO: Update to send to wp_cron instead of just pushing emails. This will be more important when the flood gates open and more email is processed.
 		wp_mail( $email_obj['email']['send_tos']['editors'], esc_html( $email_obj['email']['subjects']['editors'] ), $editor_message, array( 'Content-Type: text/html', "From: {$email_obj['email']['from']['editors']}" ) );
 		wp_mail( $email_obj['email']['send_tos']['author'], esc_html( $email_obj['email']['subjects']['author'] ), $author_message, array( 'Content-Type: text/html', "From: {$email_obj['email']['from']['author']}" ) );
+	}
+
+	/**
+	 * Add the progress bar to the footer.
+	 */
+	static function progress_footer() {
+		if ( is_page_template( 'page-contribute-project.php' ) && ! is_admin() ) :
+		?>
+		<section class="progress-footer">
+			<div class="container">
+				<div class="steps">
+					<div class="btn-group">
+						<button class="btn btn-content">Add Content</button>
+						<button class="btn btn-step" disabled>Add Steps</button>
+						<button class="btn btn-parts" disabled>Add Parts</button>
+						<button class="btn btn-tools" disabled>Add Tools</button>
+						<button class="btn btn-submit" disabled>Done!</button>
+					</div>
+					<div class="pull-right save-buttons">
+						<div class="btn-group show">
+							<button type="submit" class="btn submit-review post" data-type="post">Save and submit as a post</button>
+							<button type="submit" class="btn btn-primary submit-review projects" data-type="projects">Save and add steps as a project</button>
+						</div>
+						<div class="btn-group hide edit">
+							<button type="submit" class="btn btn-primary edit-post" data-type="projects">Edit Content</button>
+						</div>
+						<div class="btn-group hide save-content">
+							<button type="submit" class="btn btn-primary save-content submit-review" data-type="projects">Save Content</button>
+						</div>
+						<div class="btn-group hide save-steps">
+							<button type="submit" class="btn btn-primary save-steps" id="add-steps" data-type="projects">Save Steps</button>
+						</div>
+						<div class="btn-group hide save">
+							<button type="submit" class="btn btn-primary update-post-content resubmit">Save post</button>
+						</div>
+						<div class="btn-group hide save-parts">
+							<button type="submit" class="btn btn-primary save-parts submit-parts" id="add-steps" data-type="projects">Save Parts</button>
+						</div>
+						<div class="btn-group hide save-tools">
+							<button type="submit" class="btn btn-primary save-tools submit-tools" id="add-steps" data-type="projects">Save Tools</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<?php
+		endif;
 	}
 
 }

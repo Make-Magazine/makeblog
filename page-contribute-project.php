@@ -26,7 +26,14 @@ get_header(); ?>
 									<h3 class="submitted-title hide">Preview</h3>
 
 									<header class="projects-masthead">
-										<h1 class="post-title"><span></span><button type="submit" class="btn btn-warning edit-post hide">Edit Post</button></h1>
+										<h1 class="post-title">
+											<span class="the-title"></span>
+											<?php
+												if ( is_user_logged_in() )
+													echo '<a href="#" class="btn btn-warning wordpress-edit">WordPress Edit</button></a>';
+											?>
+										</h1>
+
 									</header>
 
 									<section class="post-content"></section>
@@ -117,7 +124,13 @@ get_header(); ?>
 									<div class="control-group">
 										<label class="control-label" for="post_content">Summary</label>
 										<div class="controls">
-											<?php wp_editor( '', 'post_content', array( 'teeny' => true ) ); ?>
+											<?php
+												$args = array(
+													'teeny' 	=> true,
+													'tinymce' 	=> ( is_user_logged_in() ) ? true : false,
+													);
+												wp_editor( '', 'post_content', $args );
+											?>
 										</div>
 									</div>
 									<div class="control-group">
@@ -144,11 +157,6 @@ get_header(); ?>
 										<div class="controls">
 											<input type="file" name="" value="" title="Add One or More Images" id="file" class="file-inputs" multiple required>
 										</div>
-									</div>
-									<div class="form-actions center">
-										<p><button type="submit" class="btn btn-large btn-warning submit-review" data-type="projects">Want to add steps to the post?</button></p>
-										<p><button type="submit" class="btn btn-primary submit-review" data-type="post">Submit for Review</button></p>
-										<p><button type="submit" class="btn btn-primary update-post-content resubmit hide" data-type="post">Save post</button></p>
 									</div>
 								</fieldset>
 							</form>
@@ -227,9 +235,6 @@ get_header(); ?>
 												</div>
 											</div>
 										</section>
-										<div class="form-actions">
-											<button type="submit" class="btn btn-primary submit-steps" disabled="disabled">Save Steps</button>
-										</div>
 									</section>
 								</fieldset>
 							</form>
@@ -343,9 +348,6 @@ get_header(); ?>
 												</div>
 											</div>
 										</section>
-										<div class="form-actions">
-											<button type="submit" class="btn btn-primary submit-parts" disabled="disabled">Save Parts</button>
-										</div>
 									</section>
 								</fieldset>
 							</form>
@@ -434,9 +436,6 @@ get_header(); ?>
 												</div>
 											</div>
 									</section>
-									<div class="form-actions">
-										<button type="submit" class="btn btn-primary submit-tools" disabled="disabled">Save Tools</button>
-									</div>
 								</fieldset>
 							</form>
 						</section>
