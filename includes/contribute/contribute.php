@@ -521,15 +521,18 @@ class Make_Contribute {
 						<button class="btn btn-step" disabled>Add Steps</button>
 						<button class="btn btn-parts" disabled>Add Parts</button>
 						<button class="btn btn-tools" disabled>Add Tools</button>
-						<button class="btn btn-submit" disabled>Save and Submit</button>
+						<button class="btn btn-submit" disabled>Done!</button>
 					</div>
-					<div class="pull-right">
+					<div class="pull-right save-buttons">
 						<div class="btn-group show">
-							<button type="submit" class="btn btn-warning submit-review post" data-type="post">Save and submit as a post</button>
+							<button type="submit" class="btn submit-review post" data-type="post">Save and submit as a post</button>
 							<button type="submit" class="btn btn-primary submit-review projects" data-type="projects">Save and add steps as a project</button>
 						</div>
 						<div class="btn-group hide edit">
 							<button type="submit" class="btn btn-primary edit-post" data-type="projects">Edit Content</button>
+						</div>
+						<div class="btn-group hide save-content">
+							<button type="submit" class="btn btn-primary save-content submit-review" data-type="projects">Save Content</button>
 						</div>
 						<div class="btn-group hide save-steps">
 							<button type="submit" class="btn btn-primary save-steps" id="add-steps" data-type="projects">Save Steps</button>
@@ -537,7 +540,12 @@ class Make_Contribute {
 						<div class="btn-group hide save">
 							<button type="submit" class="btn btn-primary update-post-content resubmit">Save post</button>
 						</div>
-
+						<div class="btn-group hide save-parts">
+							<button type="submit" class="btn btn-primary save-parts submit-parts" id="add-steps" data-type="projects">Save Parts</button>
+						</div>
+						<div class="btn-group hide save-tools">
+							<button type="submit" class="btn btn-primary save-tools submit-tools" id="add-steps" data-type="projects">Save Tools</button>
+						</div>
 					</div>
 				</div>
 			</div>

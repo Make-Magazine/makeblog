@@ -17,6 +17,9 @@ jQuery( document ).ready( function( $ ) {
 		// Prevent the button from sending the form.
 		e.preventDefault();
 
+		// Disable the inputs
+		$( this, '.submit-review' ).prop( 'disabled', true );
+
 		// Validate that we our form has passed our preliminary check.
 		var check_form = $( '#add-post-content' ).parsley().validate();
 		if ( ! check_form )
@@ -59,7 +62,7 @@ jQuery( document ).ready( function( $ ) {
 		// Save the form, pushing the data back.
 		if ( ! logged_in.logged_in ) {
 			tinyMCE.triggerSave();
-		};
+		}
 
 		// Setup the form.
 		var form = $( 'contribute-form' );
@@ -79,7 +82,7 @@ jQuery( document ).ready( function( $ ) {
 			data.append( 'post_content',	$( '.contribute-form #post_content' ).val() );
 		} else {
 			data.append( 'post_content',	tinyMCE.activeEditor.getContent() );
-		};
+		}
 		data.append( 'cat',				$( '.contribute-form #cat' ).val() );
 		data.append( 'post_type',		make_contribute_post_type );
 		data.append( 'post_author',		$( '.user_id' ).val() );
@@ -130,6 +133,8 @@ jQuery( document ).ready( function( $ ) {
 						// Show the correct button
 						$('.btn-group.hide.save-steps').fadeIn();
 
+						$('.save-steps').show();
+
 						$('.btn-content').addClass('btn-success edit-post').html('Edit Content');
 
 						$('.btn-step').removeAttr('disabled');
@@ -152,18 +157,28 @@ jQuery( document ).ready( function( $ ) {
 	}
 
 
-	// Save the steps.
-	$( '#add-steps' ).submit( function( e ) {
+	$( '.save-steps' ).click( function( e ) {
 
-		// Prevent the button from triggering
+		// Prevent the button from sending the form.
 		e.preventDefault();
 
-		$('.edit-row').slideUp();
+		$( this ).prop( 'disabled', true );
 
 		// Validate that we our form has passed our preliminary check.
-		var check_form = $( this ).parsley( 'validate' );
-		if ( ! check_form.validationResult )
+		var check_form = $( '#add-steps' ).parsley().validate();
+		if ( ! check_form )
 			return;
+
+		// Submit the form.
+		make_submit_steps_form( $('#add-steps') );
+
+	});
+
+
+	// Save the steps.
+	function make_submit_steps_form( steps ) {
+
+		$('.edit-row').slideUp();
 
 		// Disable the form inputs
 		make_contribute_input_disabler( 'contribute-form-steps' );
@@ -223,16 +238,22 @@ jQuery( document ).ready( function( $ ) {
 				// Allow users to save steps now that we have the post id
 				$( 'button.submit-parts' ).removeAttr( 'disabled' );
 				make_contribute_display_steps( response.post_id );
+				$('.btn-step').html('Edit Steps').addClass('btn-success edit-steps').removeAttr('disabled');
+				$('.save-steps').hide();
+				$('.save-parts').show();
+
 			}
 		});
 
-	});
+	}
 
 	// Save the parts data
 	$( '.submit-parts' ).on( 'click', function( e ) {
 
 		// Prevent the button from trggering
 		e.preventDefault();
+
+		$( this ).prop( 'disabled', true );
 
 		// Disable the inputs.
 		make_contribute_input_disabler( 'contribute-form-parts' );
@@ -265,11 +286,14 @@ jQuery( document ).ready( function( $ ) {
 			type: 'POST',
 			success: function( data ){
 				make_contribute_remove_progress_bar();
+				$('.btn-parts').html('Edit Parts').addClass('btn-success edit-parts').removeAttr('disabled');
 				$( '.parts-tools' ).show();
 				$( '.parts-pane' ).empty();
 				$( '.parts-pane' ).html( data );
 				// Allow users to save steps now that we have the post id
 				$( 'button.submit-tools' ).removeAttr( 'disabled' );
+				$('.save-parts').hide();
+				$('.save-tools').show();
 			}
 		});
 	});
@@ -279,6 +303,8 @@ jQuery( document ).ready( function( $ ) {
 
 		// Prevent the button from triggering
 		e.preventDefault();
+
+		$( this ).prop( 'disabled', true );
 
 		// Disable the inputs.
 		make_contribute_input_disabler( 'contribute-form-tools' );
@@ -307,22 +333,30 @@ jQuery( document ).ready( function( $ ) {
 			type: 'POST',
 			success: function( data ){
 				make_contribute_remove_progress_bar();
+				$('.btn-tools').html('Edit Tools').addClass('btn-success edit-tools').removeAttr('disabled');
+				$('.btn-submit').addClass('btn-success').removeAttr('disabled');
 				$( '.tools-pane' ).empty();
 				$( '.tools-pane' ).html( data );
 				$( '#contribute-form-wrapper' ).html( '<div class="row"><div class="span8 offset2"><h2>Thanks for your project submission!</h2><p>We\'ll review your project and contact you shortly</p></div></div>' );
+				$( '.save-tools').hide();
 			}
 		});
 	});
 
 	// Bring back the contribute form so that it can be edited
-	$( '.edit-post' ).on( 'click', function( e ) {
+	$( '.btn-content' ).on( 'click', function( e ) {
 
 		// Prevent the button from triggering
 		e.preventDefault();
 
-		$( '.btn-group.edit' ).fadeOut();
+		// Hide the form
+		make_contribute_close_forms();
 
-		$( '.btn-group.save' ).fadeIn();
+		make_contribute_hide_save_buttons();
+
+		$('.save-content').each( function() {
+			$( '.save-content' ).removeAttr('disabled').show();
+		});
 
 		// Let's bring the form back...
 		$('.contribute-form').slideDown();
@@ -330,11 +364,54 @@ jQuery( document ).ready( function( $ ) {
 		// Disable the inputs.
 		make_contribute_input_enabler( 'contribute-form' );
 
-		// Hide the other buttons
-		$('.submit-review').hide();
-
 		// Let's bring the form back...
 		$('.contribute-form .resubmit').show();
+
+	});
+
+	// Bring back the steps form so that it can be edited
+	$( 'body' ).on( 'click', '.btn-parts', function( e ) {
+
+		// Prevent the button from triggering
+		e.preventDefault();
+
+		// Hide the form
+		make_contribute_close_forms();
+
+		make_contribute_hide_save_buttons();
+
+		$('.save-parts').each( function() {
+			$( '.save-parts' ).removeAttr('disabled').show();
+		});
+
+		// Let's bring the form back...
+		$('.contribute-form-parts').slideDown();
+
+		// Disable the inputs.
+		make_contribute_input_enabler( 'contribute-form-parts' );
+
+	});
+
+	// Bring back the steps form so that it can be edited
+	$( 'body' ).on( 'click', '.btn-tools', function( e ) {
+
+		// Prevent the button from triggering
+		e.preventDefault();
+
+		// Hide the form
+		make_contribute_close_forms();
+
+		make_contribute_hide_save_buttons();
+
+		$('.save-tools').each( function() {
+			$( '.save-tools' ).removeAttr('disabled').show();
+		});
+
+		// Let's bring the form back...
+		$('.contribute-form-tools').slideDown();
+
+		// Disable the inputs.
+		make_contribute_input_enabler( 'contribute-form-tools' );
 
 	});
 
@@ -344,14 +421,20 @@ jQuery( document ).ready( function( $ ) {
 		// Prevent the button from triggering
 		e.preventDefault();
 
+		// Hide the form
+		make_contribute_close_forms();
+
+		make_contribute_hide_save_buttons();
+
+		$('.save-steps').each( function() {
+			$( '.save-steps' ).removeAttr('disabled').show();
+		});
+
 		// Let's bring the form back...
 		$('.contribute-form-steps').slideDown();
 
 		// Disable the inputs.
 		make_contribute_input_enabler( 'contribute-form-steps' );
-
-		jQuery('.edit-row').append(' <button class="btn cancel-edit-steps">Cancel Step Edit</button>');
-
 
 	});
 
@@ -531,4 +614,11 @@ function make_contribute_remove_progress_bar() {
  */
 function make_contribute_close_forms() {
 	jQuery( '.contribute-form, .contribute-form-tools, .contribute-form-parts, .contribute-form-steps' ).slideUp();
+}
+
+/**
+ * Drop all save buttons.
+ */
+function make_contribute_hide_save_buttons() {
+	jQuery('.save-buttons .btn-group .btn').hide();
 }
