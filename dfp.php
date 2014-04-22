@@ -149,7 +149,7 @@ global $post;
 				elseif ( has_category( '3d-printing-workshop' ) ) {
 					echo "googletag.pubads().setTargeting('sponsor',['sketchup']);";
 				}
-				elseif ( has_tag( 'nikon' ) || is_page( array( 388070 ) ) ) {
+				elseif ( ! is_archive() && ( has_tag( 'nikon' ) || is_page( array( 388070 ) ) ) ) {
 					echo "googletag.pubads().setTargeting('sponsor',['nikon']);";
 				}
 			?>
