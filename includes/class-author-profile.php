@@ -63,7 +63,7 @@
 		 * @since   1.1
 		 */
 		public function author_profile() {
-			$author = $this->get_author_data(); 
+			$author = $this->get_author_data();
 
 			if ( $author ) : ?>
 				<div class="span4">
@@ -292,13 +292,16 @@
 				if ( isset( $author->urls ) ) {
 					$urls = $author->urls;
 				} else {
-					$urls = array( (object) array( 'title' => 'website', 'value' => $author->website ) );
+					$urls = array( (object) array( 'title' => 'Website', 'value' => $author->website ) );
 				}
 
 				$output = '<ul class="links">';
 
 					foreach ( $urls as $url ) {
-						$output .= '<li><a class="noborder" href="' . esc_url( $url->value ) . '">' . esc_html( $url->title ) . '</a></li>';
+						if ( ! empty( $url->value ) ) {
+							$output .= '<li><a class="noborder button red small-button" href="' . esc_url( $url->value ) . '">' . esc_html( $url->title ) . '</a></li>';
+						}
+
 					}
 
 				$output .= '</ul>';
