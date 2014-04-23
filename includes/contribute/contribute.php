@@ -219,7 +219,7 @@ class Make_Contribute {
 
 		// Check our nonce and make sure it's correct
 		if ( ! wp_verify_nonce( $_POST['contribute_post'], 'contribute_post_nonce' ) )
-			die( json_encode( array( 'failed' => 'nonce failed.' ) ) );
+			die( json_encode( array( 'failed' => 'nonce failed.', 'post' => $_POST, ) ) );
 
 		// Get the author ID
 		$author_name = $this->get_author_name( $_POST['user_id'] );

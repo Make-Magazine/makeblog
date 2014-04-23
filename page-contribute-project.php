@@ -126,8 +126,8 @@ get_header(); ?>
 										<div class="controls">
 											<?php
 												$args = array(
-													'teeny' 	=> false,
-													'tinymce' 	=> false,
+													'teeny' 	=> true,
+													'tinymce' 	=> true,
 													);
 												wp_editor( '', 'post_content', $args );
 											?>

@@ -68,12 +68,22 @@ jQuery( document ).ready( function( $ ) {
 			data.append( 'file-' + i, file );
 		});
 
+		// Save the form, pushing the data back.
+		tinyMCE.triggerSave();
+
+		if ( $( '.contribute-form #post_content' ).val.length ) {
+			var post_content = $( '.contribute-form #post_content' ).val();
+		} else {
+			var post_content = tinyMCE.activeEditor.getContent()
+		}
+
+
 		// Append all of the other fields.
 		data.append( 'post_ID',			$( '.post_ID' ).val() );
 		data.append( 'contribute_post',	$( '.contribute-form #contribute_post' ).val() );
 		data.append( 'post_title',		$( '.contribute-form #post_title' ).val() );
 		data.append( 'user_id',			$( '.contribute-form #user_id' ).val() );
-		data.append( 'post_content',	$( '.contribute-form #post_content' ).val() );
+		data.append( 'post_content',	post_content );
 		data.append( 'cat',				$( '.contribute-form #cat' ).val() );
 		data.append( 'post_type',		make_contribute_post_type );
 		data.append( 'post_author',		$( '.user_id' ).val() );
@@ -94,6 +104,8 @@ jQuery( document ).ready( function( $ ) {
 					make_contribute_remove_progress_bar();
 
 					alert( 'Shoot, looks like the ' + post_obj.failed + '\n\r It was probably Jake\'s fault...' );
+
+					console.log( post_obj.post );
 
 					// Let's bring the form back...
 					$('.contribute-form').slideDown();
