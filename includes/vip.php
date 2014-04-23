@@ -209,7 +209,8 @@ if ( function_exists( 'vip_redirects' ) ) {
 		'/5issues'					=> 'https://readerservices.makezine.com/mk/subscribe.aspx?PC=MK&PK=M34AIR',
 		'/3DPDF'					=> 'https://readerservices.makezine.com/mk/subscribe.aspx?PC=MK&PK=M35SIP',
 		'/3dpdf'					=> 'https://readerservices.makezine.com/mk/subscribe.aspx?PC=MK&PK=M35SIP',
-		'/magazine'					=> 'http://makezine.com/volume/make-36/',
+		'/magazine'					=> 'http://makezine.com/volume/make-38-cameras-and-av/',
+		'/38'						=> 'http://makezine.com/volume/make-38-cameras-and-av/',
 		'/36'						=> 'http://makezine.com/volume/make-36/',
 		'/37'						=> 'http://makezine.com/volume/make-37/',
 		'/35'						=> 'http://makezine.com/volume/make-35/',
@@ -293,12 +294,12 @@ function makeblog_add_permalink_filter( $the_content ) {
 		add_filter( 'post_link', 'makeblog_filter_the_content_permalink', 10, 2 );
 		add_filter( 'pre_get_shortlink', 'makeblog_filter_the_content_shortlink', 10, 2 );
 	}
-	
+
 	return $the_content;
 }
 add_filter( 'the_content', 'makeblog_remove_permalink_filter', 1000 );
 function makeblog_remove_permalink_filter( $the_content ) {
-	
+
 	remove_filter( 'post_link', 'makeblog_filter_the_content_permalink' );
 	remove_filter( 'pre_get_shortlink', 'makeblog_filter_the_content_shortlink' );
 	return $the_content;
@@ -313,7 +314,7 @@ function makeblog_filter_the_content_permalink( $permalink, $post ) {
 
 	// Remove the trailing slash and append .html
 	$permalink = rtrim( $permalink, '/' );
-	$permalink .= '.html';	
+	$permalink .= '.html';
 	return $permalink;
 }
 function makeblog_filter_the_content_shortlink( $ret, $post_id ) {
@@ -334,10 +335,10 @@ add_action( 'init', function() {
 
 // Sets ElasticSearch facets
 add_action( 'after_setup_theme', function() {
- 
+
     if ( ! function_exists( 'WPCOM_elasticsearch' ) )
         return;
- 
+
     WPCOM_elasticsearch()->set_facets( array(
         'Content Type' => array(
             'type'     => 'post_type',

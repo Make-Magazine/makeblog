@@ -71,10 +71,12 @@ jQuery( document ).ready( function( $ ) {
 		// Save the form, pushing the data back.
 		tinyMCE.triggerSave();
 
+		var post_content = '';
+
 		if ( $( '.contribute-form #post_content' ).val.length ) {
-			var post_content = $( '.contribute-form #post_content' ).val();
+			post_content += $( '.contribute-form #post_content' ).val();
 		} else {
-			var post_content = tinyMCE.activeEditor.getContent()
+			post_content += tinyMCE.activeEditor.getContent();
 		}
 
 
