@@ -74,6 +74,10 @@ function make_action_after_setup_theme() {
 		remove_action('the_content', 'contextly_linker_widget');
 	}
 
+	if ( ! is_admin() ) {
+		remove_filter( 'wp_enqueue_media', 'wpcom_media_modal_tweaks' );
+	}
+
 }
 add_action( 'after_setup_theme', 'make_action_after_setup_theme' );
 
