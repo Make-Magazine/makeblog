@@ -74,6 +74,7 @@ function make_action_after_setup_theme() {
 		remove_action('the_content', 'contextly_linker_widget');
 	}
 
+	// This is hoping to fix the issue that arises, preventing the contribute form from working.
 	if ( ! is_admin() ) {
 		remove_filter( 'wp_enqueue_media', 'wpcom_media_modal_tweaks' );
 	}
