@@ -60,9 +60,10 @@ jQuery( document ).ready( function( $ ) {
 		$( '.parts-tools').hide();
 
 		// Setup the form.
-		var form = $( 'contribute-form' );
+		var form = $( 'contribute-form' )[0];
 
 		var data = new FormData( form );
+
 		jQuery.each( $( '#file' )[0].files, function( i, file ) {
 			// Inject the files
 			data.append( 'file-' + i, file );
