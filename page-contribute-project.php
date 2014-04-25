@@ -8,6 +8,8 @@
  */
 get_header(); ?>
 
+	<?php do_action( 'before_contribute' ); ?>
+
 	<div class="single">
 
 		<div class="container authentication">

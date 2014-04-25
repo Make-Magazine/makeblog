@@ -61,7 +61,7 @@ class Make_Contribute {
 		add_action( 'wp_ajax_update_post',  array( $this, 'update_post' ) );
 
 		// Let's bring the progress bar/breadcrumb to the footer
-		add_action( 'wp_footer', array( $this, 'progress_footer' ) );
+		add_action( 'before_contribute', array( $this, 'progress_footer' ) );
 	}
 
 	/**
