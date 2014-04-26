@@ -210,7 +210,7 @@ jQuery( document ).ready( function( $ ) {
 		$( this ).prop( 'disabled', true );
 
 		// Validate that we our form has passed our preliminary check.
-		var check_form = $( '#add-steps' ).parsley().validate();
+		var check_form = $( '#add-steps' ).parsley('validate');
 		if ( ! check_form )
 			return;
 
