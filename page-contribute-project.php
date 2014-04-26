@@ -22,6 +22,15 @@ get_header(); ?>
 
 						<article class="post-holder category-top" style="display:none;">
 
+							<div class="thanks hide">
+								<div class="row">
+									<div class="span8 offset2">
+										<h2>Thanks for your project submission!</h2>
+										<p>We'll review your project and contact you shortly</p>
+									</div>
+								</div>
+							</div>
+
 							<div class="row content-wrapper">
 								<div class="span8 offset2">
 
