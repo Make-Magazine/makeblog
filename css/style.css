@@ -12271,20 +12271,9 @@ aside.pull-quote.pull-quote-1.pull-left img {
   margin-bottom: 20px;
   *position: relative;
   *z-index: 2;
-  position: fixed;
-  right: 0;
-  left: 0;
-  z-index: 1030;
-  margin-bottom: 0;
-  bottom: 0;
   height: 40px;
   padding-top: 10px;
   background-color: #efefef;
-}
-.page-template-page-contribute-project-php .progress-footer .navbar-inner {
-  -webkit-box-shadow: 0 -1px 10px rgba(0,0,0,.1);
-  -moz-box-shadow: 0 -1px 10px rgba(0,0,0,.1);
-  box-shadow: 0 -1px 10px rgba(0,0,0,.1);
 }
 .btn-file {
   overflow: hidden;
