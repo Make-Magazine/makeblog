@@ -11,7 +11,7 @@ jQuery( document ).ready( function( $ ) {
 	if ( $('body').hasClass('admin-bar') ) {
 		total = total - 32;
 		admin = true;
-	};
+	}
 
 	$( window ).scroll( function( e ) {
 		if ( total < $('body').scrollTop() ) {
