@@ -46,13 +46,13 @@ jQuery( document ).ready( function( $ ) {
 		// Prevent the button from sending the form.
 		e.preventDefault();
 
-		// Disable the inputs
-		$( this, '.submit-review' ).prop( 'disabled', true );
-
 		// Validate that we our form has passed our preliminary check.
 		var check_form = $( '#add-post-content' ).parsley().validate();
 		if ( ! check_form )
 			return;
+
+		// Disable the inputs
+		$( this, '.submit-review' ).prop( 'disabled', true );
 
 		// Figure out the type.
 		make_contribute_post_type = $( this ).data( 'type' );
