@@ -66,6 +66,11 @@ jQuery( document ).ready( function( $ ) {
 	// Handle the AJAX for saving the first stage of the post. The rest will be over Backbone.
 	function make_submit_contribute_form( the_form ) {
 
+		if ( make_contribute_post_type === 'post' ) {
+			$( '.btn-content' ).prop( 'disabled', true ).html('Edit Content');
+			$( '.submit-review' ).prop( 'disabled', true );
+		}
+
 		console.log('Started');
 
 		// Disable the inputs.
@@ -184,7 +189,9 @@ jQuery( document ).ready( function( $ ) {
 						// Allow users to save steps now that we have the post id
 						$( 'button.submit-steps' ).removeAttr( 'disabled' );
 					} else {
-						$( '.content-wrapper' ).append( '<div class="clearfix"><h2>Thanks for submitting your post!</h2><p>We\'ll review your post and contact you shortly.<p></div>' );
+						$( '.btn-content').addClass('btn-success').prop( 'disabled', false );
+						$( '.submit-review' ).prop( 'disabled', true );
+						$( '.thanks' ).show();
 					}
 
 					make_contribute_remove_progress_bar();
@@ -378,7 +385,7 @@ jQuery( document ).ready( function( $ ) {
 				$('.btn-submit').addClass('btn-success').removeAttr('disabled');
 				$( '.tools-pane' ).empty();
 				$( '.tools-pane' ).html( data );
-				$( '#contribute-form-wrapper' ).html( '<div class="row"><div class="span8 offset2"><h2>Thanks for your project submission!</h2><p>We\'ll review your project and contact you shortly</p></div></div>' );
+				$( '.thanks' ).show();
 				$( '.save-tools').hide();
 			}
 		});
