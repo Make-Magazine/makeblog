@@ -45,9 +45,18 @@
 	}
 	.progress-footer {
 		.navbar;
-		// .navbar-fixed-bottom;
 		height: 40px;
 		padding-top: 10px;
 		background-color: #efefef;
+		&.static {
+			.navbar-fixed-top;
+		}
+	}
+	&.admin-bar {
+		.progress-footer {
+			&.static {
+				top: 32px;
+			}
+		}
 	}
 }

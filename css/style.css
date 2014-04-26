@@ -12275,6 +12275,22 @@ aside.pull-quote.pull-quote-1.pull-left img {
   padding-top: 10px;
   background-color: #efefef;
 }
+.page-template-page-contribute-project-php .progress-footer.static {
+  position: fixed;
+  right: 0;
+  left: 0;
+  z-index: 1030;
+  margin-bottom: 0;
+  top: 0;
+}
+.page-template-page-contribute-project-php .progress-footer.static .navbar-inner {
+  -webkit-box-shadow: 0 1px 10px rgba(0,0,0,.1);
+  -moz-box-shadow: 0 1px 10px rgba(0,0,0,.1);
+  box-shadow: 0 1px 10px rgba(0,0,0,.1);
+}
+.page-template-page-contribute-project-php.admin-bar .progress-footer.static {
+  top: 32px;
+}
 .btn-file {
   overflow: hidden;
   position: relative;
