@@ -1,5 +1,34 @@
 jQuery( document ).ready( function( $ ) {
 
+	var position = $('.progress-footer').position();
+	var height = $('.progress-footer').height();
+
+	// This seems totally hacky...
+	var total = position.top + ( 2 * height ) + 15;
+
+	var admin = false;
+
+	if ( $('body').hasClass('admin-bar') ) {
+		total = total - 32;
+		admin = true;
+	};
+
+	$( window ).scroll( function( e ) {
+		if ( total < $('body').scrollTop() ) {
+			$('.progress-footer').addClass('static');
+			if ( admin ) {
+				$('body').css( 'padding-top', 70 );
+			} else {
+				$('body').css( 'padding-top', 40 );
+			}
+
+		}
+		if ( total > $('body').scrollTop() ) {
+			$('.progress-footer').removeClass('static');
+			$('body').css( 'padding-top', '' );
+		}
+	});
+
 	// Load the nifty file input styling for Bootstrap
 	$('.file-inputs').bootstrapFileInput();
 
