@@ -77,7 +77,11 @@ class Make_Contribute {
 			wp_enqueue_script( 'parseley-js', get_stylesheet_directory_uri() . '/js/parsley.min.js', array( 'jquery' ), '2.0', true );
 			wp_enqueue_script( 'bootstrap-file-input', get_stylesheet_directory_uri() . '/js/bootstrap.file-input.min.js', array( 'jquery' ), '1.0', true );
 			wp_enqueue_script( 'make-contribute', get_stylesheet_directory_uri() . '/includes/contribute/js/contribute.js', array( 'jquery' ), '1.0', true );
-			wp_localize_script( 'make-contribute', 'logged_in', array( 'logged_in' => is_user_logged_in() ) );
+			$localize = array(
+				'admin_post' 	=> admin_url( 'admin-ajax.php' ),
+				'logged_in' 	=> is_user_logged_in()
+			);
+			wp_localize_script( 'make-contribute', 'contribute', $localize );
 			wp_enqueue_script( 'make-contrib-ui', get_stylesheet_directory_uri() . '/includes/contribute/js/contrib-ui.js', array( 'jquery' ), '1.0', true );
 		}
 	}

@@ -94,12 +94,15 @@ jQuery( document ).ready( function( $ ) {
 
 		// Send off the AJAX request.
 		$.ajax({
-			url: make_gigya.ajax,
+			url: contribute.admin_post,
 			data: data,
 			cache: false,
 			contentType: false,
 			processData: false,
 			type: 'POST',
+			xhrFields: {
+				withCredentials: true
+			},
 			success: function( data ){
 				post_obj = JSON.parse( data );
 				if ( post_obj.failed ) {
@@ -233,12 +236,15 @@ jQuery( document ).ready( function( $ ) {
 
 		// Ajax request.
 		$.ajax({
-			url: make_gigya.ajax,
+			url: contribute.admin_post,
 			data: data,
 			cache: false,
 			contentType: false,
 			processData: false,
 			type: 'POST',
+			xhrFields: {
+				withCredentials: true
+			},
 			success: function( response ){
 				response = JSON.parse( response );
 				// Allow users to save steps now that we have the post id
@@ -287,7 +293,7 @@ jQuery( document ).ready( function( $ ) {
 
 		// Make the ajax request with the form data.
 		$.ajax({
-			url: make_gigya.ajax,
+			url: contribute.admin_post,
 			data: form,
 			type: 'POST',
 			success: function( data ){
@@ -334,7 +340,7 @@ jQuery( document ).ready( function( $ ) {
 
 		// Make the ajax request with the form data.
 		$.ajax({
-			url: make_gigya.ajax,
+			url: contribute.admin_post,
 			data: form,
 			type: 'POST',
 			success: function( data ){
@@ -481,7 +487,7 @@ function make_contribute_display_steps( post_id ) {
 
 	// Make the ajax request with the form data.
 	jQuery.ajax({
-		url: make_gigya.ajax,
+		url: contribute.admin_post,
 		data: form,
 		type: 'POST',
 		success: function( data ){
@@ -495,7 +501,7 @@ function make_contribute_display_steps( post_id ) {
 
 	// Make the ajax request with the form data.
 	jQuery.ajax({
-		url: make_gigya.ajax,
+		url: contribute.admin_post,
 		data: form,
 		type: 'POST',
 		success: function( data ) {
