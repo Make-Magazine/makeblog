@@ -29,6 +29,7 @@ wpcom_vip_load_plugin( 'taxonomy-images' );
 wpcom_vip_load_plugin( 'simply-show-ids' );
 wpcom_vip_load_plugin( 'view-all-posts-pages' );
 wpcom_vip_load_plugin( 'co-authors-plus' );
+wpcom_vip_load_plugin( 'disqus' );
 
 function make_sitemap_post_types() {
 	$types = array( 'post', 'page', 'projects', 'review', 'craft', 'newsletter', 'magazine', 'video', 'volume', 'errata', 'page_2', 'slideshow' );
