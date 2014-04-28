@@ -238,7 +238,7 @@ jQuery( document ).ready( function( $ ) {
 		jQuery( '.contribute-form-parts' ).slideDown();
 
 		// Let's get the steps initialized.
-		var form = $( 'contribute-form-steps' );
+		var form = $( 'contribute-form-steps' )[0];
 
 		// Grab all of the inputs.
 		var the_files = $( '.contribute-form-steps :file' );
