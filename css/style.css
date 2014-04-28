@@ -9368,6 +9368,9 @@ body .single .projects-masthead p {
 li.share-email {
   padding-top: 2px !important;
 }
+.sd-title {
+  display: none;
+}
 .widget:first-child {
   margin: 0 0 20px 0;
 }
