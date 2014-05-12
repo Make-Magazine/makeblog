@@ -38,8 +38,6 @@ class Make_Instagram {
 		// Build the URL
 		$url = add_query_arg( $params, $base_url );
 
-		var_dump( $url );
-
 		// Request the data
 		$json = wpcom_vip_file_get_contents( $url );
 
@@ -47,13 +45,25 @@ class Make_Instagram {
 		$data = json_decode( $json );
 
 		// Send it off...
-		return $data;
+		return $data->data;
 	}
 
 	public function show_images() {
-		$data = $this->load_data();
-		echo '<img src="' . esc_url( $data->data[1]->images->standard_resolution->url ) . '" alt="Instagram">';
-		var_dump( $data->data[4] );
+		$photos = $this->load_data();
+		$counter = 1;
+		$output = '<div class="row-fluid">';
+		foreach ( $photos as $photo ) {
+			var_dump( $counter );
+			if ( $counter = 3 ) {
+				break;
+			}
+			$output .= '<div class="span4">';
+			$output .= wp_oembed_get( $photo->link );
+			$output .= '</div>';
+			$counter++;
+		}
+		$output .= '</div>';
+		return $output;
 	}
 
 }
