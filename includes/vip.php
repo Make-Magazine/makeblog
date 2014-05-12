@@ -166,7 +166,6 @@ if ( function_exists( 'vip_redirects' ) ) {
 		'/blog/page-2/'					=> 'http://makezine.com/page-2/',
 		'/volume/make-36‎'				=> 'http://makezine.com/magazine/',
 		'/volume/make-38‎'				=> 'http://makezine.com/magazine/',
-		'/volume/make-39'				=> 'http://makezine.com/magazine/',
 		'/volume/make-40‎'				=> 'http://makezine.com/magazine/',
 		'/volume/make-41'				=> 'http://makezine.com/magazine/',
 		'/volume/make-42‎'				=> 'http://makezine.com/magazine/',
