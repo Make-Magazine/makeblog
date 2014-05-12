@@ -1039,3 +1039,66 @@ function make_home_waist_takeover( $wp_customize ) {
 
 }
 add_action( 'customize_register', 'make_home_waist_takeover' );
+
+/**
+ *
+ * Sets up the interface in the theme customizer for the takeover options
+ * @param  object $wp_customize An instance of the WP_Customize_Manager class
+ * @return void
+ *
+ * @since   04.02.14
+ */
+function make_faire_takeover( $wp_customize ) {
+
+	// Register our section
+	$wp_customize->add_section( 'make_faire_banner', array(
+		'title' => 'Maker Faire Takeover',
+		'priority' => 1
+	) );
+
+	// Register the enable field
+	$wp_customize->add_setting( 'make_faire_banner', array(
+		'default' => 'off',
+	) );
+
+	$wp_customize->add_control( 'make_faire_banner', array(
+		'section' => 'make_faire_banner',
+		'label'   => 'Enable Maker Faire Takeover',
+		'type' 	  => 'select',
+		'choices' => array(
+			'on'  => 'Enabled',
+			'off' => 'Disabled',
+		),
+		'priority' => 10,
+	) );
+
+	// Register the banner image
+	$wp_customize->add_setting( 'make_faire_banner_image', array(
+		'default' => '',
+		'transport' => 'postMessage',
+	) );
+
+	$wp_customize->add_control(
+		new WP_Customize_Image_Control( $wp_customize, 'make_faire_banner_image', array(
+			'settings' => 'make_faire_banner_image',
+			'section' => 'make_faire_banner',
+			'label' => 'Background Image',
+			'priority' => 15,
+		) )
+	);
+
+		// Register the html for the page.
+	$wp_customize->add_setting( 'make_faire_banner_link', array(
+		'default' => '',
+		'sanitize_callback' => 'esc_url',
+	) );
+
+	$wp_customize->add_control( 'make_faire_banner_link', array(
+		'section' => 'make_faire_banner',
+		'label' => 'Link for the banner',
+		'type' => 'text',
+		'priority' => 20,
+	) );
+
+}
+add_action( 'customize_register', 'make_faire_takeover' );
