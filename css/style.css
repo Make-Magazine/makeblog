@@ -8860,6 +8860,42 @@ ul#tabs .current > a:hover {
   margin: 10px 0 0 !important;
   height: 350px;
 }
+.spacer {
+  height: 20px;
+}
+.faire-social {
+  width: 300px;
+  margin-top: 65px;
+  float: right;
+}
+.faire-social .faire-social-links li {
+  display: inline-block;
+  width: 32px;
+  height: 32px;
+  background-color: orange;
+  margin-right: 12px;
+}
+.faire-social .faire-social-links li a {
+  display: block;
+  height: 32px;
+  width: 32px;
+}
+.faire-social .faire-social-links li.twitter {
+  background-image: url('../img/faire-social-images.jpg');
+  background-position: -3px;
+}
+.faire-social .faire-social-links li.pinterest {
+  background-image: url('../img/faire-social-images.jpg');
+  background-position: 132px;
+}
+.faire-social .faire-social-links li.facebook {
+  background-image: url('../img/faire-social-images.jpg');
+  background-position: 85px;
+}
+.faire-social .faire-social-links li.plus {
+  background-image: url('../img/faire-social-images.jpg');
+  background-position: 37px;
+}
 .avatar-298 {
   margin-bottom: 20px;
   border: 1px solid #cecece;
