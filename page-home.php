@@ -129,6 +129,7 @@ Template Name: Home Page
 					<!--<div class="shadow"></div>-->
 
 					<div class="span8">
+
 						<?php
 							$feature_url = make_get_cap_option( 'feature_url' );
 							if ( ! empty( $feature_url ) && absint( $feature_url ) ) : // Add a URL by post ID ?>
@@ -160,6 +161,11 @@ Template Name: Home Page
 						</div>
 
 						<div class="clear"></div>
+
+						<?php
+							if ( get_theme_mod( 'make_faire_banner' ) === 'on' )
+								get_template_part( 'home-faire-instagram' );
+						?>
 
 						<div class="row">
 
