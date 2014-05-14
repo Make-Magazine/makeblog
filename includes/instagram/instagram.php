@@ -49,20 +49,27 @@ class Make_Instagram {
 	}
 
 	public function show_images() {
-		$photos = $this->load_data();
-		$counter = 1;
+		$ps = $this->load_data();
 		$output = '<div class="row-fluid">';
-		foreach ( $photos as $photo ) {
-			var_dump( $counter );
-			if ( $counter = 3 ) {
-				break;
-			}
+		for ( $i = 0; $i <= 2; $i++ ) {
 			$output .= '<div class="span4">';
-			$output .= wp_oembed_get( $photo->link );
+			$output .= '<a href="' . esc_url( $ps[ $i ]->link ) . '">';
+			$output .= '<img src="' . esc_url( $ps[ $i ]->images->standard_resolution->url ) . '">';
+			$output .= '</a>';
 			$output .= '</div>';
-			$counter++;
 		}
 		$output .= '</div>';
+		$output .= '<div class="spacer"></div>';
+		$output .= '<div class="row-fluid">';
+		for ( $i = 3; $i <= 5; $i++ ) {
+			$output .= '<div class="span4">';
+			$output .= '<a href="' . esc_url( $ps[ $i ]->link ) . '">';
+			$output .= '<img src="' . esc_url( $ps[ $i ]->images->standard_resolution->url ) . '">';
+			$output .= '</a>';
+			$output .= '</div>';
+		}
+		$output .= '</div>';
+		$output .= '<div class="spacer"></div>';
 		return $output;
 	}
 
