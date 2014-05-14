@@ -2,6 +2,7 @@
 /**
  * Maker Faire Week Header Takeover
  */
+?>
 <div class="waist faire">
 
 	<div class="container">
