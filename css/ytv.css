@@ -25,7 +25,7 @@
 .ytv-video{
 	position: absolute;
 	top: 0;
-    right: 300px;
+    right: 240px;
     bottom: 0;
     left: 0;
     height: 100%;
@@ -47,7 +47,7 @@
     right: 0;
     bottom: 0;
     height: 100%;
-    width: 300px;
+    width: 240px;
 	}
 	.ytv-list-inner{
 		overflow: auto;
@@ -78,7 +78,7 @@
 			border-bottom: 1px solid rgba(0,0,0,0.5);
 			border-left: 2px solid transparent;
 			}
-			.ytv-list a b{		
+			.ytv-list a b{
 			    max-height: 45px;
 			    overflow: hidden;
 			    display: block;
@@ -90,7 +90,7 @@
 			.ytv-list-header .ytv-playlists a:hover{ background: rgba(255,255,255,0.05); }
 			.ytv-list a:active,
 			.ytv-list-header .ytv-playlists a:active{ background: rgba(0,0,0,0.05); }
-		
+
 		.ytv-list .ytv-content{ padding-left: 125px; }
 		.ytv-list .ytv-thumb-stroke{
 			position: absolute;
@@ -119,7 +119,7 @@
 				font-size: 11px;
 				font-weight: bold;
 				padding: 0px 4px;
-				
+
 				-webkit-border-radius: 3px;
 				-moz-border-radius: 3px;
 				border-radius: 3px;
@@ -149,7 +149,7 @@
 			width: 30px;
 			vertical-align: middle;
 			}
-		.ytv-list-header span{		
+		.ytv-list-header span{
 		    padding-left: 10px;
 		    font-size: 12px;
 		    font-weight: bold;
@@ -174,7 +174,7 @@
 	    float: left;
 		}
 	.ytv-playlists a span,
-	.ytv-list-header a span{	
+	.ytv-list-header a span{
 	    white-space: nowrap;
 	    padding-left: 10px;
 	    display: block;
