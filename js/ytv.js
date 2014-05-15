@@ -433,5 +433,9 @@
 }).call(this, window, document);
 
 jQuery( document ).ready( function() {
-    jQuery('.small-youtube').ytv({user: 'makemagazine'});
+    jQuery('.small-youtube').ytv({
+        user: 'makemagazine',
+        playlist: 'PLwhkA66li5vDEuZtgSeshEn3AAzJKxam3'
+        }
+    );
 });
