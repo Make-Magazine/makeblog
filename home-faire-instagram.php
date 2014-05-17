@@ -10,7 +10,7 @@
 		</a>
 	</div>
 	<div class="span6">
-		<a href="https://www.youtube.com/watch?v=7K6DfBwXfyY&list=PLwhkA66li5vDEuZtgSeshEn3AAzJKxam3">
+		<a href="http://www.youtube.com/playlist?list=PLwhkA66li5vDRmuDd6m05-3VFu3qt2cP3">
 			<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/make-live.jpg " alt="Make: Live video stream">
 		</a>
 	</div>
