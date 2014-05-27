@@ -578,11 +578,11 @@ function make_projects_steps( $steps, $print = false ) {
 			if ( isset( $lines[1] ) ) {
 				echo '<ul>';
 				foreach ($lines as $line) {
-					echo '<li>' . wp_kses_post( stripslashes( $line->text ) ) . '</li>';
+					echo '<li>' . do_shortcode( wp_kses_post( stripslashes( $line->text ) ) ) . '</li>';
 				}
 				echo '</ul>';
 			} else {
-				echo Markdown( wp_kses_post( $lines[0]->text ) );
+				echo do_shortcode( Markdown( wp_kses_post( $lines[0]->text ) ) );
 			}
 			echo '</div><!--.right_column-->';
 		}
