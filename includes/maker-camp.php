@@ -5,9 +5,9 @@
 	 * @package    makeblog
 	 * @license    http://opensource.org/licenses/gpl-license.php  GNU Public License
 	 * @author     Cole Geissinger <cgeissinger@makermedia.com>
-	 * 
+	 *
 	 */
-	
+
 	/**
 	 * Adds a menu field to the menus section of the admin area for Maker Camp.
 	 * @return void
@@ -34,7 +34,7 @@
 	}
 	add_action( 'wp_enqueue_scripts', 'make_mc_load_resources' );
 
-	
+
 	/****** Shortcodes *****/
 
 	/**
@@ -50,8 +50,8 @@
 			'width'  => 564, // Only accepts integers
 			'height' => 174, // Only accepts integers
 		), $atts ) );
-		
-		return '<a href="http://google.com/+make" target="_blank"><img src="http://makezineblog.files.wordpress.com/2013/07/makercamp_whtlarge_logo.png?w=' . intval( $width ) . '" alt="Maker Camp - On Google+" width="' . intval( $width ) . '" height="' . intval( $height ) . '"></a>';
+
+		return '<a href="http://google.com/+make" target="_blank"><img src="http://makezineblog.files.wordpress.com/2014/05/makercamp2014_logo_lockup-singlecolor-1.png?w=' . intval( $width ) . '" alt="Maker Camp - On Google+" width="' . intval( $width ) . '" height="' . intval( $height ) . '"></a>';
 	}
 	add_shortcode('maker-camp-logo', 'make_mc_logo' );
 
@@ -107,7 +107,7 @@
 				$output .= '<a href="' . esc_url( $project_url ) . '">';
 
 			$output .= esc_attr( $title );
-				
+
 			// Close the link if it exists
 			if ( ! empty( $project_url ) )
 				$output .= '</a>';
@@ -135,7 +135,7 @@
 
 		// Close the mentor if statement
 		}
-		
+
 		// Close the heading
 		if ( ! empty( $date ) )
 			$output .= '</h3>';
@@ -148,7 +148,7 @@
 
 		// Start the right sidebar
 		$output .= '<div class="span3 project-link">';
-		
+
 		// Let's get the links, and if there isn't one, setup the default.
 		$link  = ( ! empty( $link ) ) ? esc_url( $link ) : 'http://google.com/+make';
 		$links = explode(',', $link);
@@ -163,7 +163,7 @@
 			// Check if a link is set or not and display the right HTML
 			$output .= esc_url( $link );
 			$output .= '" class="button blue small-button">';
-			
+
 			// If there are multiple links, there might be multiple titles.
 			$linktitle = explode(',', $link_title);
 			$output .= esc_html( $linktitle[$i] );
@@ -177,7 +177,7 @@
 
 		// Close the project link
 		$output .= '</div>';
-		
+
 		// Put an end to this madness. Close the .maker class
 		$output .= '</div>';
 
