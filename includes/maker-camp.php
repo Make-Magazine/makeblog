@@ -51,7 +51,7 @@
 			'height' => 174, // Only accepts integers
 		), $atts ) );
 
-		return '<a href="http://google.com/+make" target="_blank"><img src="http://makezineblog.files.wordpress.com/2014/05/makercamp2014_logo_lockup-singlecolor-1.png?w=' . intval( $width ) . '" alt="Maker Camp - On Google+" width="' . intval( $width ) . '" height="' . intval( $height ) . '"></a>';
+		return '<a href="http://google.com/+make" target="_blank"><img src="http://makezineblog.files.wordpress.com/2014/05/maker-camp-2014-logo-01.png?w=' . intval( $width ) . '" alt="Maker Camp - On Google+" width="' . intval( $width ) . '" height="' . intval( $height ) . '"></a>';
 	}
 	add_shortcode('maker-camp-logo', 'make_mc_logo' );
 
