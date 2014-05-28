@@ -5,18 +5,18 @@
  * @package    makeblog
  * @license    http://opensource.org/licenses/gpl-license.php  GNU Public License
  * @author     Cole Geissinger <cgeissinger@makermedia.com>
- * 
+ *
  */
 ?>
 			<section id="footer" class="white-bg new-footer">
 				<div class="container">
 					<div class="row">
-						<div class="span12 logo">	
-							<img class="footer_logo" src="<?php bloginfo('stylesheet_directory'); ?>/img/make-logo.png" alt="MAKE">	
+						<div class="span12 logo">
+							<img class="footer_logo" src="<?php bloginfo('stylesheet_directory'); ?>/img/make-logo.png" alt="MAKE">
 							<a href="http://make-digital.com/" target="_blank"><div class="sprite sprite-digital-book-foot"></div></a>
 							<h5><a href="http://make-digital.com/" target="_blank">Read Digital Edition</a></h5>
-							<a href="http://www.makershed.com/" target="_blank"><div class="sprite sprite-makershed_footer1"></div></a> 
-							<h5><a href="http://www.makershed.com/" target="_blank">Shop Maker Shed</a></h5>					
+							<a href="http://www.makershed.com/" target="_blank"><div class="sprite sprite-makershed_footer1"></div></a>
+							<h5><a href="http://www.makershed.com/" target="_blank">Shop Maker Shed</a></h5>
 						<!-- END span12 -->
 						</div>
 						<div class="clear"></div>
@@ -36,7 +36,7 @@
 						<!-- END trending -->
 						</div>
 						<div class="span3 newsletter visible-desktop">
-							<h5>Get our Newsletters</h5>  
+							<h5>Get our Newsletters</h5>
 							<form action="http://makermedia.createsend.com/t/r/s/jrsydu/" method="post" id="subForm">
 								<fieldset>
 									<div class="control-group">
@@ -50,10 +50,10 @@
 											</label>
 											<label for="MakerShed-MasterList">
 												<input type="checkbox" name="cm-ol-tyvyh" id="MakerShed-MasterList"> Maker Shed
-											</label> 
+											</label>
 											<label for="MarketWireNewsletter">
 												<input type="checkbox" name="cm-ol-jrsydu" id="MAKEMarketWirenewsletter"> Maker Pro Newsletter
-											</label> 
+											</label>
 										<!-- END controls -->
 										</div>
 									<!-- control-group -->
@@ -76,7 +76,7 @@
 										<li><a href="<?php echo esc_url( home_url( '/how-to-get-help/' ) ); ?>">Help</a></li>
 										<li><a href="http://makermedia.com/contact-us/" target="_blank">Contact</a></li>
 										<li><a href="https://www.pubservice.com/MK/subscribe.aspx?PC=MK&amp;PK=M3AMZF">Subscribe</a></li>
-										<li><a href="http://makermedia.com/work-with-us/advertising/" target="_blank">Advertise</a></li> 
+										<li><a href="http://makermedia.com/work-with-us/advertising/" target="_blank">Advertise</a></li>
 										<li><a href="http://makermedia.com/privacy/" target="_blank">Privacy</a></li>
 									</ul>
 								<!-- END span about-column-01 --></div>
@@ -104,13 +104,13 @@
 								<a class="sprite sprite-instagram" href="http://instagram.com/makemagazine" title="Instagram" target="_blank"></a>
 								<a class="sprite sprite-google-plus" href="https://plus.google.com/+MAKE/posts" rel="publisher" title="Google+" target="_blank"></a>
 							<!-- END socialArea -->
-							</div> 
+							</div>
 						<!-- END span3 about-us -->
 						</div>
 						<div class="span3 subscribe hidden-phone">
 							<div class="sprite sprite-arrow-footer"></div>
 							<a href="https://readerservices.makezine.com/mk/subscribe.aspx?PC=MK&amp;PK=M**NEWB" target="_blank">
-								<img src="<?php echo wpcom_vip_get_resized_remote_image_url( make_get_cover_image(), '128', '181' ); ?>" alt="MAKE Magazine Drones" width="128" height="181" id="mag-cover" class="pull-right">
+								<img src="<?php echo wpcom_vip_get_resized_remote_image_url( make_get_cover_image(), '128', '181' ); ?>" alt="MAKE Magazine Robotics" width="128" height="181" id="mag-cover" class="pull-right">
 							</a>
 							<h5>Subscribe<br> to MAKE!</h5>
 							<p>Get the print and digital versions when you subscribe</p>
@@ -122,8 +122,8 @@
 					<?php echo make_copyright_footer(); ?>
 				<!-- END container -->
 				</div>
-			</section>	
-			
+			</section>
+
 		</div> <!-- /container -->
 
 		<!-- Place this tag after the last badge tag. -->
@@ -134,7 +134,7 @@
 				var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
 			})();
 		</script>
-		
+
 		<?php wp_footer(); ?>
 	</body>
 </html>
