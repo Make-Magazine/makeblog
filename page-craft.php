@@ -151,7 +151,7 @@ Template Name: Craft Home Page
 
 					<div class="span4 posts">
 
-						<h3><a href="http://blog.makezine.com/craft">Blog Feed</a></h3>
+						<h3><a href="http://makezine.com/craft/">Blog Feed</a></h3>
 
 						<?php
 							$args = array(
@@ -188,7 +188,7 @@ Template Name: Craft Home Page
 
 						<?php endwhile; wp_reset_postdata(); ?>
 
-						<p><a href="http://blog.makezine.com/craft"><span class="pull-right light aqua seeall right">See All Posts</span></a></p>
+						<p><a href="http://makezine.com/craft/"><span class="pull-right light aqua seeall right">See All Posts</span></a></p>
 
 					</div>
 					<!--<div class="shadow"></div>-->
@@ -215,30 +215,20 @@ Template Name: Craft Home Page
 
 							<div class="span4">
 
-								<h3><a class="red" href="http://blog.makezine.com/category/craft/craft-projects/">Craft Projects</a></h3>
+								<h3><a class="red" href="http://makezine.com/tag/craft-projects/">Craft Projects</a></h3>
 
 								<div class="grid-box boxy">
 
 									<?php
 
 										$args = array(
-											'tag_id' => 169525,
-											'posts_per_page'  => 1,
-											'no_found_rows' => true,
-											'post_type' => 'craft'
+											'tag_id'			=> 169525,
+											'posts_per_page'	=> 1,
+											'no_found_rows'		=> true,
+											'post_type'			=> 'craft'
 										);
-										$proj_query = new WP_Query( $args );
 
-										while ( $proj_query->have_posts() ) : $proj_query->the_post();
-											echo '<a href="'.get_permalink().'">';
-											the_post_thumbnail('small-home-feature-boxes');
-											the_title('<h4>', '</h4>');
-											echo '<p>'.wp_trim_words(strip_shortcodes(get_the_content('...')), 12).'</p>';
-											echo '</a>';
-										endwhile;
-
-										// Reset Post Data
-										wp_reset_postdata();
+										echo make_post_card( $args );
 
 									?>
 
@@ -280,31 +270,20 @@ Template Name: Craft Home Page
 
 							<div class="span4">
 
-								<h3 class="red"><a href="http://blog.makezine.com/tag/makers/" class="red">Crafters</a></h3>
+								<h3 class="red"><a href="http://makezine.com/category/craft/knitting/" class="red">Fiber Crafts</a></h3>
 
 								<div class="grid-box boxy">
 
 									<?php
 
 										$args = array(
-											'tag_id' => 296748,
-											'posts_per_page'  => 1,
-											'no_found_rows' => true,
-											'post_type' => 'craft'
+											'category__in'		=> array( 2389, 1336 ),
+											'posts_per_page'	=> 1,
+											'no_found_rows'		=> true,
+											'post_type'			=> 'craft'
 										);
 
-										$the_query = new WP_Query( $args );
-
-										while ( $the_query->have_posts() ) : $the_query->the_post();
-											echo '<a href="'.get_permalink().'">';
-											the_post_thumbnail('small-home-feature-boxes');
-											the_title('<h4>', '</h4>');
-											echo '<p>'.wp_trim_words(strip_shortcodes(get_the_content('...')), 12).'</p>';
-											echo '</a>';
-										endwhile;
-
-										// Reset Post Data
-										wp_reset_postdata();
+										echo make_post_card( $args );
 
 									?>
 
@@ -315,31 +294,20 @@ Template Name: Craft Home Page
 
 							<div class="span4">
 
-								<h3 class="red"><a href="http://blog.makezine.com/category/home/food-beverage/" class="red">Food &amp; Beverage</a></h3>
+								<h3 class="red"><a href="http://makezine.com/category/home/food-beverage/" class="red">Food &amp; Beverage</a></h3>
 
 								<div class="grid-box boxy">
 
 									<?php
 
 										$args = array(
-											'cat' => 116504,
-											'posts_per_page'  => 1,
-											'no_found_rows' => true,
-											'post_type' => 'craft'
+											'cat'				=> 116504,
+											'posts_per_page'	=> 1,
+											'no_found_rows'		=> true,
+											'post_type'			=> 'craft'
 										);
 
-										$the_query = new WP_Query( $args );
-
-										while ( $the_query->have_posts() ) : $the_query->the_post();
-											echo '<a href="'.get_permalink().'">';
-											the_post_thumbnail('small-home-feature-boxes');
-											the_title('<h4>', '</h4>');
-											echo '<p>'.wp_trim_words(strip_shortcodes(get_the_content('...')), 12).'</p>';
-											echo '</a>';
-										endwhile;
-
-										// Reset Post Data
-										wp_reset_postdata();
+										echo make_post_card( $args );
 
 									?>
 
@@ -353,7 +321,7 @@ Template Name: Craft Home Page
 
 							<div class="span4">
 
-								<h3 class="red"><a href="http://blog.makezine.com/category/craft-2/101/" class="red">Craft 101</a></h3>
+								<h3 class="red"><a href="http://makezine.com/category/craft-2/101/" class="red">Craft 101</a></h3>
 
 								<div class="grid-box boxy">
 
@@ -366,31 +334,20 @@ Template Name: Craft Home Page
 
 							<div class="span4">
 
-								<h3 class="red"><a href="http://blog.makezine.com/category/events-holidays/crafty-events/" class="red">Events</a></h3>
+								<h3 class="red"><a href="http://makezine.com/category/woodworking/?post_type=craft" class="red">Woodworking</a></h3>
 
 								<div class="grid-box boxy">
 
 									<?php
 
 										$args = array(
-											'tag_id' => 362603,
-											'posts_per_page'  => 1,
-											'no_found_rows' => true,
-											'post_type' => 'craft'
+											'cat'				=> 44926,
+											'posts_per_page'	=> 1,
+											'no_found_rows'		=> true,
+											'post_type'			=> 'craft'
 										);
 
-										$the_query = new WP_Query( $args );
-
-										while ( $the_query->have_posts() ) : $the_query->the_post();
-											echo '<a href="'.get_permalink().'">';
-											the_post_thumbnail('small-home-feature-boxes');
-											the_title('<h4>', '</h4>');
-											echo '<p>' . wp_trim_words( ( strip_shortcodes( get_the_content('...') ) ), 12 ) . '</p>';
-											echo '</a>';
-										endwhile;
-
-										// Reset Post Data
-										wp_reset_postdata();
+										echo make_post_card( $args );
 
 									?>
 
