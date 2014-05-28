@@ -50,7 +50,7 @@ Template Name: Craft Home Page
 											<div class="paddme small">
 
 												<a href="<?php echo esc_url( make_get_cap_option( 'craft_top_link' ) ); ?>">
-												
+
 													<img class="home-biggest" src="<?php echo esc_url( make_get_cap_option( 'craft_top_url' ) ); ?>" />
 
 												</a>
@@ -71,7 +71,7 @@ Template Name: Craft Home Page
 											<div class="paddme small">
 
 												<a href="<?php echo esc_url( make_get_cap_option( 'craft_bottom_link' ) ); ?>">
-													
+
 													<img class="home-biggest" src="<?php echo esc_url( make_get_cap_option( 'craft_bottom_url' ) ); ?>" />
 
 												</a>
@@ -151,9 +151,9 @@ Template Name: Craft Home Page
 
 					<div class="span4 posts">
 
-						<h3><a href="http://blog.makezine.com/craft">Blog Feed</a></h3>	
+						<h3><a href="http://blog.makezine.com/craft">Blog Feed</a></h3>
 
-						<?php 
+						<?php
 							$args = array(
 								'posts_per_page'  => 6,
 								'no_found_rows' => true,
@@ -164,9 +164,9 @@ Template Name: Craft Home Page
 						?>
 
 						<?php while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
-	
+
 						<article <?php post_class(); ?>>
-							
+
 							<div class="entry-content">
 
 								<a href="<?php the_permalink(); ?>">
@@ -181,9 +181,9 @@ Template Name: Craft Home Page
 										</span>
 									</a>
 								</h4>
-							
+
 							</div>
-						
+
 						</article>
 
 						<?php endwhile; wp_reset_postdata(); ?>
@@ -220,7 +220,7 @@ Template Name: Craft Home Page
 								<div class="grid-box boxy">
 
 									<?php
-										
+
 										$args = array(
 											'tag_id' => 169525,
 											'posts_per_page'  => 1,
@@ -252,7 +252,7 @@ Template Name: Craft Home Page
 								<div class="new-dotw">
 
 									<?php
-										
+
 										$the_query = new WP_Query( 'post_type=from-the-maker-shed&posts_per_page=1' );
 
 										while ( $the_query->have_posts() ) : $the_query->the_post();
@@ -281,7 +281,7 @@ Template Name: Craft Home Page
 							<div class="span4">
 
 								<h3 class="red"><a href="http://blog.makezine.com/tag/makers/" class="red">Crafters</a></h3>
- 
+
 								<div class="grid-box boxy">
 
 									<?php
@@ -292,7 +292,7 @@ Template Name: Craft Home Page
 											'no_found_rows' => true,
 											'post_type' => 'craft'
 										);
-										
+
 										$the_query = new WP_Query( $args );
 
 										while ( $the_query->have_posts() ) : $the_query->the_post();
@@ -320,14 +320,14 @@ Template Name: Craft Home Page
 								<div class="grid-box boxy">
 
 									<?php
-										
+
 										$args = array(
 											'cat' => 116504,
 											'posts_per_page'  => 1,
 											'no_found_rows' => true,
 											'post_type' => 'craft'
 										);
-										
+
 										$the_query = new WP_Query( $args );
 
 										while ( $the_query->have_posts() ) : $the_query->the_post();
@@ -371,7 +371,7 @@ Template Name: Craft Home Page
 								<div class="grid-box boxy">
 
 									<?php
-										
+
 										$args = array(
 											'tag_id' => 362603,
 											'posts_per_page'  => 1,
