@@ -389,7 +389,7 @@ class Make_Contribute {
 
 		////////////////////
 		// Check our nonce and make sure it's correct
-		if ( ! wp_verify_nonce( $_POST['get_steps'], 'get_steps' ) )
+		if ( ! wp_verify_nonce( $_POST['get_steps_list'], 'get_steps_list' ) )
 			die( 'We weren\'t able to verify that nonce...' );
 
 		///////////////////////
