@@ -56,6 +56,7 @@ get_header(); ?>
 
 								<form class="form form-horizontal contribute-form-get-steps" method="post">
 									<?php echo wp_nonce_field( 'get_steps', 'get_steps' ); ?>
+									<?php echo wp_nonce_field( 'get_steps_list', 'get_steps_list' ); ?>
 									<input type="hidden" name="post_id" value="80">
 								</form>
 
