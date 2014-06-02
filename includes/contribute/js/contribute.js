@@ -526,6 +526,9 @@ function make_contribute_display_steps( post_id ) {
 		url: contribute.admin_post,
 		data: form,
 		type: 'POST',
+		xhrFields: {
+			withCredentials: true
+		},
 		success: function( data ){
 			jQuery( '.saving-progress' ).html('');
 			jQuery( '.steps-output' ).html( data );
@@ -540,6 +543,9 @@ function make_contribute_display_steps( post_id ) {
 		url: contribute.admin_post,
 		data: form,
 		type: 'POST',
+		xhrFields: {
+			withCredentials: true
+		},
 		success: function( data ) {
 			make_contribute_remove_progress_bar();
 			// Output the steps.
