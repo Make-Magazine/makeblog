@@ -65,9 +65,9 @@ function make_action_after_setup_theme() {
 	// Custom Backgrounds
 	add_theme_support( 'custom-background' );
 	//Infinite Scroll!
-	add_theme_support( 'infinite-scroll', array(
-		'container' => 'content',
-	) );
+	// add_theme_support( 'infinite-scroll', array(
+	// 	'container' => 'content',
+	// ) );
 	add_theme_support( 'automatic-feed-links' );
 
 	if ( array('volume', 'project' ) == get_post_type() ) {
