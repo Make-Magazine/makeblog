@@ -1,0 +1,161 @@
+// Set some variables that is only used in the main nav
+@secondary-color: #005d8f;
+@nav_blue: #8ed5f6;
+
+// Wrapper that contains both the main and secondary navigations
+.top-navigation-wrapper { 
+	.nav {
+		margin-bottom:0;
+	}
+}
+
+// Wrapper containing the primary navigation
+.primary-nav-wrap {
+	#gradient > .vertical( lighten( #012a40, 12% ), lighten( #012a40, 5% ) );
+	margin:5px auto 0;
+	border-bottom:1px solid darken( #fff, 25% );
+	.row {
+		position:relative;
+	}
+	&.sticky {
+		position:fixed;
+		top:0px;
+		z-index:999999;
+		margin:0 auto;
+		width:100%;
+	}
+}
+.admin-bar .primary-nav-wrap.sticky {
+	top:32px;
+}
+
+// Global Navigation styles
+.primary-navigation {
+	font-weight:500;
+	.menu-item {
+		padding:10px auto; 
+		border-right:1px solid darken( #fff, 25% );
+		line-height:110%;
+	 	text-align:left;
+	 	.pull-left;
+		&:first-child {
+			border-left: 1px solid darken( #fff, 25% ); 
+		}
+		&:hover {
+			background:#fff;
+	 		color:#000;
+	 		.dropdown-wrapper {
+				left:20px;
+				top:58px;
+			}
+			.main-link-title {
+				color:@red;
+				text-decoration:none;
+				background:#fff;
+				text-shadow:0 0 0 transparent;
+				padding:15px 12px 18px;
+				border-top:1px solid @secondary-color;
+				.sub-description {
+					color:#000;
+				}
+			}
+		}
+		.main-link-title {
+			color:@nav_blue;
+			background:none;
+			text-shadow:1px 1px 1px rgba(0,0,0,.5);
+			display:block;
+			font-size:25px;
+			line-height:.97em;
+			padding:15px 12px 18px;
+			&:hover {
+				color:@red;
+				text-decoration:none;
+				background:#fff;
+				text-shadow:0 0 0 transparent;
+				border-top:1px solid @secondary-color;
+				.sub-description {
+					color:#000;
+				}
+			}
+		}
+		.sub-description {
+			display:block;
+			color:#fff;
+			font-size:14px;
+		}
+	}
+	.dropdown-wrapper {
+		position:absolute;
+		left:-999em;
+		background:#fff;
+		z-index:999999;
+		border:1px solid #ccc;
+		border-top:none;
+		box-shadow:0 5px 3px 0px rgba(0,0,0,.3);
+		.column {
+			padding:0 10px 10px;
+			margin:0;
+			width:33.33444%;
+			&:not(:last-child) {
+				border-right:1px solid #ccc;
+			}
+		}
+		.col-title {
+			font-size:20px;
+			margin:10px 0 0;
+			line-height:1.3em;
+			color:@red;
+		}
+		.project-list-item.media {
+			margin-top:0;
+		}
+		.list {
+			list-style:none;
+			margin:0;
+			padding:0;
+		}
+		.media-heading {
+			font-size:18px;
+			font-weight:normal;
+		}
+		.bottom-divider {
+			border:none;
+			border-bottom:1px solid #ccc;
+		}
+		.nav-pills > li > a {
+			padding-top:5px;
+			padding-bottom:5px;
+		}
+		.price {
+			line-height:18px;
+			font-size:18px;
+			float:left;
+			width:50%;
+			color:#000;
+			.original-price {
+				font-size:14px;
+				text-decoration:line-through;
+				color:#898989;
+				display:block;
+			}
+		}
+		.email-signup {
+			border-top:1px solid #ccc;
+			background:lighten(#ccc, 5%);
+			margin:0;
+			.email-signup-body {
+				font-size:16px;
+				padding:10px;
+				margin:0;
+			}
+			.signup-form {
+				margin:0 0 0 5px;
+				width:28%;
+			}
+		}
+		.view-all-btn {
+			float:right;
+		}
+	}
+}

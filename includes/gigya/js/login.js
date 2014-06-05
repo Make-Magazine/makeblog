@@ -173,7 +173,7 @@ function make_is_logged_in( maker ) {
 		// We only want to provide a sign out feature for Gigya users
 		var signout = ( make_gigya.loggedin === 'false' ) ? '<a href="#signout" class="user-creds signout">Sign Out</a> / ' : '';
 
-		jQuery( '.main-header' ).find( '.row' ).append( '<div class="login-wrapper">' + signout + '<a href="' + make_gigya.root_path + 'contribute/" class="user-creds profile">Contribute</a></div>' );
+		jQuery( '.login-wrapper' ).find( 'div' ).append( '<ul class="login-wrapper nav nav-pills nav-stacked"><li>' + signout + '<a href="' + make_gigya.root_path + 'contribute/" class="user-creds profile">Contribute</a></li></ul>' );
 
 		// Display our content
 		jQuery( '.container.authentication' ).show();
@@ -191,7 +191,7 @@ function make_is_logged_in( maker ) {
 			console.log( 'User Not Logged In.' );
 
 		// Add our login/register links
-		jQuery( '.main-header' ).find( '.row' ).append( '<div class="login-wrapper"><a href="#signin" class="user-creds signin">Sign In</a> / <a href="#join" class="user-creds join">Join</a></div>' );
+		jQuery( '.login-wrapper' ).find( 'div' ).append( '<ul class="login-wrapper nav nav-pills nav-stacked"><li><a href="#signin" class="user-creds signin">Sign In</a> / <a href="#join" class="user-creds join">Join</a></li></ul>' );
 
 		jQuery( '.container.authentication' ).html( '<div class="row"><div class="span12 login-required"><h2>You must be logged in to access this area. Please <a href="#signin" class="user-creds signin">Sign In</a> or <a href="#join" class="user-creds join">Join</a>.</h2></div></div>' ).show();
 	}
