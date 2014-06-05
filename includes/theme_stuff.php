@@ -2005,7 +2005,7 @@ class Bootstrap_Walker_Nav_Menu extends Walker_Nav_Menu {
 		foreach ( $catslugs as $slug ) {
 			$category = wpcom_vip_get_term_by('name', $slug, 'category');
 			if ( ! empty( $post_type ) ) {
-				$output .= '<li><a href="' . get_category_link( $category->term_id ) . '?post_type=' . urlencode( $post_type ) . '" title="' . sprintf( __( 'View all posts in %s' ), esc_attr( $category->name ) ) . '" data-target="#" data-toggle="dropdown" class="dropdown-toggle" ' . '>' . esc_html( $category->name ) .'  <b class="caret"></b></a></li>';
+				$output .= '<li><a href="' . get_category_link( $category->term_id ) . '?post_type=' . urlencode( $post_type ) . '" title="' . sprintf( __( 'View all posts in %s' ), esc_attr( $category->name ) ) . '">' . esc_html( $category->name ) .'</a></li>';
 			}
 		}
 		return $output;
@@ -2058,7 +2058,7 @@ class Bootstrap_Walker_Nav_Menu extends Walker_Nav_Menu {
 
 		$output .= $this->post_loop( $args );
 
-		$output .= '<hr class="bottom-divider" /><h2 class="col-title">Categories</h2><ul>';
+		$output .= '<hr class="bottom-divider" /><h2 class="col-title">Categories</h2><ul class="nav nav-pills nav-stacked">';
 		$output .= $this->make_category_li( 'projects' );
 		$output .= '</ul></div>';
 
