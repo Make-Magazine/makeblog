@@ -6,7 +6,7 @@
     * @license    http://opensource.org/licenses/gpl-license.php  GNU Public License
     * @author     Jake Spurlock <jspurlock@makermedia.com>
     * Template name: Subscribe Footer
-    *
+    * 
     */
 ?>
 							</div>
@@ -18,8 +18,8 @@
 			<div class="container">
 				<div class="row">
 					<div class="span12 logo" >
-						<img src="<?php bloginfo('stylesheet_directory'); ?>/img/make-160-footer.png" alt="MAKE">
-						<img src="https://makezineblog.files.wordpress.com/2013/07/digital-book-foot.png" alt="MAKE">
+						<img src="<?php bloginfo('stylesheet_directory'); ?>/img/make-160-footer.png" alt="MAKE">	
+						<img src="https://makezineblog.files.wordpress.com/2013/07/digital-book-foot.png" alt="MAKE"> 
 						<h5><a href="http://make-digital.com/" target="_blank">Read Digital Edition</a></h5>
 					</div>
 					<div class="clear"></div>
@@ -32,7 +32,7 @@
 					<!-- END span trending -->
 					</div>
 					<div class="span newsletter">
-						<h5>Get our Newsletters</h5>
+						<h5>Get our Newsletters</h5>  
 						<form action="http://makermedia.createsend.com/t/r/s/jrsydu/" method="post" id="subForm">
 							<fieldset>
 								<div class="control-group">
@@ -46,10 +46,10 @@
 										</label>
 										<label for="MakerShed-MasterList">
 										<input type="checkbox" name="cm-ol-tyvyh" id="MakerShed-MasterList" /> Maker Shed
-										</label>
+										</label> 
 										<label for="MarketWireNewsletter">
 										<input type="checkbox" name="cm-ol-jrsydu" id="MAKEMarketWirenewsletter" /> Maker Pro Newsletter
-										</label>
+										</label> 
 									<!-- END controls -->
 									</div>
 								<!-- control-group -->
@@ -70,7 +70,7 @@
 								<li><a href="<?php echo esc_url( home_url( '/how-to-get-help/' ) ); ?>">Help</a></li>
 								<li><a href="http://makermedia.com/contact-us/" target="_blank">Contact</a></li>
 								<li><a href="https://www.pubservice.com/MK/subscribe.aspx?PC=MK&amp;PK=M3AMZF">Subscribe</a></li>
-								<li><a href="http://makermedia.com/work-with-us/advertising/" target="_blank">Advertise</a></li>
+								<li><a href="http://makermedia.com/work-with-us/advertising/" target="_blank">Advertise</a></li> 
 								<li><a href="http://makermedia.com/privacy/" target="_blank">Privacy</a></li>
 							</ul>
 						<!-- END span about-column-01 --></div>
@@ -96,12 +96,12 @@
 								<span class="soci"><a href="https://google.com/+MAKE/" target="_blank"><img src="https://s2.wp.com/wp-content/themes/vip/makeblog/img/google-plus.png?m=1347432875g" alt="MAKE on Google+"></a></span>
 							</p>
 						<!-- END socialArea -->
-						</div>
+						</div> 
 					<!-- END span3 about-us -->
 					</div>
 					<div class="span3 subscribe">
 						<a href="https://readerservices.makezine.com/mk/subscribe.aspx?PC=MK&amp;PK=M**NEWB">
-							<img src="<?php echo wpcom_vip_get_resized_remote_image_url( make_get_cover_image(), '130', '170' ); ?>" alt="MAKE Magazine Robotics" width="130" height="170" id="mag-cover">
+							<img src="<?php echo wpcom_vip_get_resized_remote_image_url( make_get_cover_image(), '130', '170' ); ?>" alt="MAKE Magazine Drones" width="130" height="170" id="mag-cover">
 						</a>
 						<img src="https://s2.wp.com/wp-content/themes/vip/makeblog/img/arrow-footer.png" width="80" height="48" id="mag-arrow">
 						<h5>Subscribe<br /> to MAKE!</h5>
@@ -126,25 +126,25 @@
 	   	jQuery(".scroll").click(function(event){
 	   		//prevent the default action for the click event
 	   		event.preventDefault();
-
+	    
 	   		//get the full url - like mysitecom/index.htm#home
 	   		var full_url = this.href;
-
+	    
 	   		//split the url by # and get the anchor target name - home in mysitecom/index.htm#home
 	   		var parts = full_url.split("#");
 	   		var trgt = parts[1];
-
+	    
 	   		//get the top offset of the target anchor
 	   		var target_offset = jQuery("#"+trgt).offset();
 	   		var target_top = target_offset.top;
-
+	    
 	   		//goto that anchor by setting the body scroll top to anchor top
 	   		jQuery('html, body').animate({scrollTop:target_top - 50}, 1000);
-
+	   
 	   		//Style the pagination links
-
+	   
 	   		jQuery('a span.badge').addClass('badge-info');
-
+	   		
 	   	});
 	   	jQuery('.hide-thumbnail').removeClass('thumbnail');
 	   });

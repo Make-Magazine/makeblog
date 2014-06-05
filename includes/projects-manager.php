@@ -59,7 +59,7 @@
 	 * This function is built to be used by any multidimensional array
 	 * @param  array  REQUIRED $array 	  	The array of steps, parts or tools to sort by.
 	 * @param  string REQUIRED $sort_field 	The field in the array you wish to sort by. TODO: Make this happen.
-	 * @return array
+	 * @return array 
 	 *
 	 * @version  1.1
 	 * @since    GLaDOS
@@ -455,18 +455,16 @@
 
 			// Set our images array and contain each image as an object in the Steps object
 			$int = 0;
-
-			if ( isset( $data[ 'step-images-' . $i ] ) ) {
-				foreach( $data[ 'step-images-' . $i ] as $image ) {
-
-					$image_url = ( ! empty( $image ) ) ? esc_url_raw( $image ) : '';
-					$step['images'][ $int ] = (object) array(
-						'imageid' => absint( $data['post_ID'] ),
-						'orderby' => $int,
-						'text'    => $image_url
-					);
-					$int++; // Only increase the integer variable when we encounter a non-empty image value
-				}
+			
+			foreach( $data[ 'step-images-' . $i ] as $image ) {
+				
+				$image_url = ( ! empty( $image ) ) ? esc_url_raw( $image ) : '';
+				$step['images'][ $int ] = (object) array(
+					'imageid' => absint( $data['post_ID'] ),
+					'orderby' => $int,
+					'text'    => $image_url
+				);
+				$int++; // Only increase the integer variable when we encounter a non-empty image value
 			}
 
 			// Count the number of Steps set in the step manager and save that number
@@ -613,7 +611,7 @@
 		///////////////////////
 		// PARTS
 		$parts = make_magazine_projects_build_parts_data( $_POST );
-
+		
 		foreach ( $parts as $part ) {
 			add_post_meta( absint( $post_id ), 'parts', $part );
 		}
@@ -631,7 +629,7 @@
 
 	/**
 	 * Autosave our post meta.
-	 * Since the core of our projects
+	 * Since the core of our projects 
 	 * @return void
 	 *
 	 * @since  Iron Giant
@@ -648,7 +646,7 @@
 		//////////////////////////
 		// STEPS
 		$step_object = make_magazine_projects_build_step_data( $_POST );
-
+		
 		// Update our post meta for Steps if any exist
 		update_post_meta( absint( $_POST['post_ID'] ), 'Steps', $step_object );
 
@@ -656,7 +654,7 @@
 		///////////////////////
 		// PARTS
 		$parts = make_magazine_projects_build_parts_data( $_POST );
-
+		
 		foreach ( $parts as $part ) {
 			add_post_meta( absint( absint( $_POST['post_ID'] ) ), 'parts', $part );
 		}

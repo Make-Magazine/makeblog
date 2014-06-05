@@ -5,11 +5,11 @@
  * @package    makeblog
  * @license    http://opensource.org/licenses/gpl-license.php  GNU Public License
  * @author     Jake Spurlock <jspurlock@makermedia.com>
- *
+ * 
  */
 ?>
 				<div class="footer-ad" style="padding-top:30px;">
-
+				
 					<div class="" style="width:728px; margin:0 auto;">
 
 						<!-- Beginning Sync AdSlot 4 for Ad unit header ### size: [[728,90]]  -->
@@ -19,11 +19,11 @@
 							</script>
 						</div>
 						<!-- End AdSlot 4 -->
-
+						
 					</div>
 
 				</div>
-
+			
 			</div>
 
 		</div>
@@ -35,7 +35,7 @@
 						<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/craft-logo1.png" alt="MAKE">
 						<a href="http://make-digital.com/" target="_blank"><div class="sprite sprite-digital-book-foot"></div></a>
 						<h5><a href="http://make-digital.com/" target="_blank">Read Digital Edition</a></h5>
-						<a href="http://www.makershed.com/" target="_blank"><div class="sprite sprite-makershed_footer1"></div></a>
+						<a href="http://www.makershed.com/" target="_blank"><div class="sprite sprite-makershed_footer1"></div></a> 
 						<h5><a href="http://www.makershed.com/" target="_blank">Shop Maker Shed</a></h5>
 					</div>
 					<div class="clear"></div>
@@ -47,7 +47,7 @@
 					<!-- END span trending -->
 					</div>
 					<div class="span3 newsletter">
-						<h5>Get our Newsletters</h5>
+						<h5>Get our Newsletters</h5>  
 						<form action="http://makermedia.createsend.com/t/r/s/jrsydu/" method="post" id="subForm">
 							<fieldset>
 								<div class="control-group">
@@ -61,10 +61,10 @@
 										</label>
 										<label for="MakerShed-MasterList">
 										<input type="checkbox" name="cm-ol-tyvyh" id="MakerShed-MasterList" /> Maker Shed
-										</label>
+										</label> 
 										<label for="MarketWireNewsletter">
 										<input type="checkbox" name="cm-ol-jrsydu" id="MAKEMarketWirenewsletter" /> Maker Pro Newsletter
-										</label>
+										</label> 
 									<!-- END controls -->
 									</div>
 								<!-- control-group -->
@@ -85,7 +85,7 @@
 								<li><a href="<?php echo esc_url( home_url( '/how-to-get-help/' ) ); ?>">Help</a></li>
 								<li><a href="http://makermedia.com/contact-us/">Contact</a></li>
 								<li><a href="https://www.pubservice.com/MK/subscribe.aspx?PC=MK&amp;PK=M3AMZF">Subscribe</a></li>
-								<li><a href="http://makermedia.com/work-with-us/advertising/">Advertise</a></li>
+								<li><a href="http://makermedia.com/work-with-us/advertising/">Advertise</a></li> 
 								<li><a href="http://makermedia.com/privacy/">Privacy</a></li>
 							</ul>
 						<!-- END span about-column-01 --></div>
@@ -95,7 +95,6 @@
 								<li><a href="<?php echo esc_url( home_url( '/faq/' ) ); ?>">FAQ</a></li>
 								<li><a href="<?php echo esc_url( home_url( '/forums/' ) ); ?>">Forums</a></li>
 								<li><a href="<?php echo esc_url( home_url( '/contribute/' ) ); ?>">Contribute to MAKE</a></li>
-								<li><a href="http://www.makershed.com/Articles.asp?ID=322">Become an Affiliate</a></li>
 							</ul>
 						<!-- END span about-column-02 -->
 						</div>
@@ -107,15 +106,15 @@
 							<a class="sprite sprite-flickr" href="http://www.flickr.com/groups/make/" title="Flickr" target="_blank"></a>
 							<a class="sprite sprite-facebook" href="http://facebook.com/makemagazine" title="Facebook" target="_blank"></a>
 							<a class="sprite sprite-stumbleupon" href="http://www.stumbleupon.com/to/stumble/stumblethru:makezine.com?utm_source=Makezine&amp;utm_medium=StumbleThru&amp;utm_campaign=StumbleThruButton" title="Stumbleupon" target="_blank"></a>
-							<a class="sprite sprite-instagram" href="http://instagram.com/makemagazine" title="Instagram" target="_blank"></a>
-							<a class="sprite sprite-google-plus" href="https://plus.google.com/+MAKE/posts" rel="publisher" title="Google+" target="_blank"></a>
+							<a class="sprite sprite-instagram" href="http://www.instagram.com/makemagazine" title="Instagram" target="_blank"></a>
+							<a class="sprite sprite-google-plus" href="https://google.com/+MAKE/" rel="publisher" title="Google+" target="_blank"></a>
 						<!-- END socialArea -->
-						</div>
+						</div> 
 					<!-- END span3 about-us -->
 					</div>
 					<div class="span3 subscribe">
 						<a href="https://readerservices.makezine.com/mk/subscribe.aspx?PC=MK&amp;PK=M**NEWB">
-							<img src="<?php echo wpcom_vip_get_resized_remote_image_url( make_get_cover_image(), '130', '170' ); ?>" alt="MAKE Magazine Robotics" width="130" height="170" id="mag-cover">
+							<img src="<?php echo wpcom_vip_get_resized_remote_image_url( make_get_cover_image(), '130', '170' ); ?>" alt="MAKE Magazine Drones" width="130" height="170" id="mag-cover">
 						</a>
 						<div class="sprite sprite-arrow-footer"></div>
 						<h5>Subscribe<br /> to MAKE!</h5>
@@ -125,12 +124,12 @@
 					</div>
 				<!-- END MAIN row (main) -->
 				</div>
-				<?php echo make_copyright_footer(); ?>
+				<?php echo make_copyright_footer(); ?>	
 			<!-- END container -->
 			</div>
 		<!-- END new-footer -->
 		</section>
-
+	
 	</div>
 
 
@@ -156,18 +155,18 @@
 			jQuery(".scroll").click(function(event){
 				//prevent the default action for the click event
 				event.preventDefault();
-
+		 
 				//get the full url - like mysitecom/index.htm#home
 				var full_url = this.href;
-
+		 
 				//split the url by # and get the anchor target name - home in mysitecom/index.htm#home
 				var parts = full_url.split("#");
 				var trgt = parts[1];
-
+		 
 				//get the top offset of the target anchor
 				var target_offset = jQuery("#"+trgt).offset();
 				var target_top = target_offset.top;
-
+		 
 				//goto that anchor by setting the body scroll top to anchor top
 				jQuery('html, body').animate({scrollTop:target_top - 30}, 1000);
 			});

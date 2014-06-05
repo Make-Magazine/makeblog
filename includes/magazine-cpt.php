@@ -6,7 +6,7 @@ function register_cpt_article() {
 
 	add_rewrite_rule( 'magazine/([^/]*)/([^/]*)/?$','index.php?magazine=$matches[2]','top' );
 
-	$labels = array(
+	$labels = array( 
 		'name' => _x( 'Articles', 'article' ),
 		'singular_name' => _x( 'Article', 'article' ),
 		'add_new' => _x( 'Add New', 'article' ),
@@ -21,7 +21,7 @@ function register_cpt_article() {
 		'menu_name' => _x( 'Articles', 'article' ),
 	);
 
-	$args = array(
+	$args = array( 
 		'labels' => $labels,
 		'hierarchical' => true,
 		'description' => 'MAKE magazine articles will be stored here. Goal is to build the back archive of all issues and articles.',
@@ -48,7 +48,7 @@ add_action( 'init', 'volume_register_cpt_article' );
 
 function volume_register_cpt_article() {
 
-	$labels = array(
+	$labels = array( 
 		'name' => _x( 'Volumes', 'volume' ),
 		'singular_name' => _x( 'Volume', 'volume' ),
 		'add_new' => _x( 'Add New', 'volume' ),
@@ -63,7 +63,7 @@ function volume_register_cpt_article() {
 		'menu_name' => _x( 'Volumes', 'volume' ),
 	);
 
-	$args = array(
+	$args = array( 
 		'labels' => $labels,
 		'hierarchical' => true,
 		'description' => 'MAKE magazine articles will be stored here. Goal is to build the back archive of all issues and articles.',
@@ -90,43 +90,28 @@ $field_data = array (
 	'magazine_meta' => array (
 		'fields' => array(
 			'Hed'				=> array(),
-			'Description'		=> array(),
+			'Dek'				=> array(),
 			'PullQuotes'		=> array(),
 			'PageNumber'		=> array(),
 			'ProjectsTeaser'	=> array(),
 			'Cost'	 			=> array(),
 			'Byline' 			=> array(),
-			'Conclusion'		=> array(
+			'Conclusion'		=> array( 
 									'type' 	=> 'textarea',
 									'label'	=> 'Projects Conclusion',
 									),
-			'Updates'			=> array(
+			'Updates'			=> array( 
 									'type' 	=> 'textarea',
 									'label'	=> 'Updates',
 									),
 	),
 	'title'		=> 'Magazine Meta',
 	'context'	=> 'side',
-	'pages'		=> array( 'magazine' ),
+	'pages'		=> array( 'magazine', 'review', 'projects' ),
 	),
 );
 
 $easy_cf = new Easy_CF($field_data);
-
-// Add a description (aka Dek) field for posts - We are going to stick this here because
-// no other spot makes sense
-$field_data = array (
-	'magazine_meta' => array (
-		'fields' => array(
-			'Description'		=> array(),
-		),
-		'title'		=> 'Post Meta',
-		'context'	=> 'side',
-		'pages'		=> array( 'post', 'craft' ),
-	),
-);
-$easy_cf = new Easy_CF($field_data);
-
 
 $field_data = array (
 	'magazine_author' => array (
@@ -144,13 +129,13 @@ $field_data = array (
 $easy_cf = new Easy_CF($field_data);
 
 function make_post_loop( $args ) {
-	$defaults = array(
-		'post_type'			=> 'projects',
+	$defaults = array( 
+		'post_type'			=> 'projects', 
 		'title' 			=> 'Articles',
-		'cat'	 			=> null,
-		'parent' 			=> null,
-		'posts_per_page' 	=> 100,
-		'orderby' 			=> 'name',
+		'cat'	 			=> null, 
+		'parent' 			=> null, 
+		'posts_per_page' 	=> 100, 
+		'orderby' 			=> 'name', 
 		'order' 			=> 'asc',
 		'tax_query'			=> array()
 		);
@@ -158,19 +143,19 @@ function make_post_loop( $args ) {
 	$args = wp_parse_args( $args, $defaults );
 
 	global $post;
-
+	
 	$the_query = new WP_Query( $args );
 
 	// Need a way to filter out the title if there are no results in the query.
 	if($post->post_parent == 0 && !empty($the_query->posts) ) {
 		echo '<h3 class="heading look_like_h4_cat">'. esc_html( $args['title']  ) .'</h3>';
-
+		
 	}
 
 	while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
 
 		<div <?php post_class(); ?>>
-
+		
 			<div class="media video-box">
 
 				<div class="media-object pull-left">
@@ -191,16 +176,16 @@ function make_post_loop( $args ) {
 					<p><?php echo wp_trim_words(get_the_excerpt(), 8, '...'); ?></p>
 
 					<p class="meta">
-						<?php
+						<?php 
 						if(function_exists('coauthors_posts_links')) {
 							coauthors();
-						} else {
+						} else { 
 							the_author_posts_link();
-						}
+						} 
 						echo make_page_number();
 						?>
 					</p>
-
+					
 					<?php if ($args['post_type'] == 'projects' ) {
 						$time = get_post_custom_values( 'TimeRequired' );
 						$terms = get_the_terms( $post->ID, 'difficulty' );
@@ -217,12 +202,12 @@ function make_post_loop( $args ) {
 					} else { ?>
 						<p>Categories: <?php the_category(', '); ?> | <?php comments_popup_link(); ?> <?php edit_post_link('Fix me...', ' | '); ?></p>
 					<?php }	?>
-
+					
 				</div>
-
+			
 			</div>
-
-		</div>
+			
+		</div> 
 
 	<?php endwhile;
 
@@ -239,16 +224,16 @@ function make_magazine_toc( $args ) {
 	global $post;
 
 	$defaults = array(
-		'post_type' 		=> 'magazine',
-		'title' 			=> 'Articles',
+		'post_type' 		=> 'magazine', 
+		'title' 			=> 'Articles', 
 		'cat' 				=> '',
-		'post_parent' 		=> null,
-		'posts_per_page' 	=> 200,
-		'orderby' 			=> 'name',
+		'post_parent' 		=> null, 
+		'posts_per_page' 	=> -1, 
+		'orderby' 			=> 'name', 
 		'order' 			=> 'asc',
 		'post_status'		=> array( 'publish', 'published-in-mag' ),
 		);
-
+	
 	$args = wp_parse_args( $args, $defaults );
 
 	$the_query = new WP_Query( $args );
@@ -264,7 +249,7 @@ function make_magazine_toc( $args ) {
 
 		$post_class = get_post_class( 'row' );
 		$classes = '';
-		foreach ($post_class as $class) {
+		foreach ($post_class as $class) { 
 			$classes .= ' ' . $class;
 		}
 
@@ -288,7 +273,7 @@ function make_magazine_toc( $args ) {
 				} else {
 					$output .= get_the_title();
 				}
-
+				
 				$output .= '</h3>';
 
 				$output .= '<p>' . wp_trim_words(get_the_excerpt(), 30, '...') . '</p>';
@@ -296,9 +281,9 @@ function make_magazine_toc( $args ) {
 				$output .= '<p class="meta">';
 					if(function_exists('coauthors_posts_links')) {
 						$output .= coauthors_posts_links( ', ', ', and ', 'By ', null, false );
-					} else {
+					} else { 
 						$output .= 'By <a href="' .  get_author_posts_url( get_the_author_meta( 'ID' ) ) . '">' . the_author_meta( 'display_name' ) . '</a>';
-					}
+					} 
 					$output .= make_page_number();
 				$output .= '</p>';
 				$categories = get_the_category();
@@ -314,8 +299,8 @@ function make_magazine_toc( $args ) {
 			$output .= '</div>';
 
 		$output .= '</article>';
-
-
+		
+		
 
 
 	endwhile;
@@ -330,13 +315,13 @@ function make_magazine_toc( $args ) {
 
 add_action('add_meta_boxes', 'make_add_meta_box');
 
-function make_add_meta_box() {
+function make_add_meta_box() { 
 	add_meta_box('volume-parent', 'Magazine Volume', 'make_magazine_parent_page', 'magazine', 'side', 'high');
 }
 
 add_action( 'admin_menu', 'make_remove_parent_meta_box' );
 
-function make_remove_parent_meta_box() {
+function make_remove_parent_meta_box() { 
 	remove_meta_box('pageparentdiv', 'magazine', 'normal');
 }
 
@@ -355,7 +340,7 @@ add_action( 'init', 'register_taxonomy_section' );
 
 function register_taxonomy_section() {
 
-	$labels = array(
+	$labels = array( 
 		'name' => _x( 'Section', 'section' ),
 		'singular_name' => _x( 'Section', 'section' ),
 		'search_items' => _x( 'Search Sections', 'section' ),
@@ -373,7 +358,7 @@ function register_taxonomy_section() {
 		'menu_name' => _x( 'Sections', 'section' ),
 	);
 
-	$args = array(
+	$args = array( 
 		'labels' => $labels,
 		'public' => true,
 		'show_in_nav_menus' => true,
@@ -396,11 +381,11 @@ $field_data = array (
 			'Categories'		=> array(),
 			'MarketingCaption'	=> array(
 				'type'	=> 'textarea'
-			),
+				),
 		),
 		'title'		=> 'Magazine Volume Setup',
 		'context'	=> 'side',
-		'pages'		=> array( 'volume', 'magazine' ),
+		'pages'		=> array( 'volume' ),
 	),
 );
 
@@ -501,11 +486,11 @@ function make_maker_projects_projects() {
 /**
  * Get a volume cover image
  */
-function make_get_cover_image( $number = 39 ) {
+function make_get_cover_image( $number = 37 ) {
 	$url = esc_url( 'http://cdn.makezine.com/make/covers/MAKE_V' . absint( $number ) . '_high.jpg' );
 	return $url;
 }
-
+ 
 add_action( 'the_content', 'make_update_to_content' );
 /**
  * Bring updates into the the_content()

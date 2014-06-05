@@ -9,7 +9,7 @@
 global $wp_query;
 get_header(); ?>
 		
-	<div class="single">
+	<div class="">
 	
 		<div class="container">
 

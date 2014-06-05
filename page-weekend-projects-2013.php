@@ -19,7 +19,7 @@ get_header(); ?>
 
 				<div class="span12">
 				
-					<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/WP_webheader_940x110-1.png" alt="Weekend Projects">
+					<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/projects-banner.png" alt="Weekend Projects" style="margin-top:-20px;margin-bottom:-20px;">
 					
 				</div>
 				
@@ -50,18 +50,14 @@ get_header(); ?>
 					<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 						<?php the_content(); ?>
 					<?php endwhile; ?>
+					<!-- post navigation -->
+					<?php else: ?>
+					<!-- no posts found -->
+					<?php endif; ?>
 					
 				</div>
 				
 				<div class="span4">
-
-					<div class="widget">
-						<form role="search" method="get" class="form-search" id="searchform" action="<?php echo home_url( '/' ); ?>">
-							<input type="text" class="input-medium search-query" value="" name="s" id="s" placeholder="Search Weekend Projects" />
-							<input type="hidden" class="btn" name="tag" id="searchsubmit" value="greatcreate" />
-							<input type="submit" class="btn" id="searchsubmit" value="Search" />
-						</form>
-					</div>
 
 					<?php dynamic_sidebar( 'sidebar_weekend_projects' ); ?>
 					
@@ -87,12 +83,6 @@ get_header(); ?>
 				
 					<?php 
 
-						$first_row = get_post_meta( get_the_id(), 'first_row', true );
-
-						if ( ! empty( $first_row ) ) {
-							do_shortcode( wp_kses_post( $first_row ) );
-						} else {
-
 						$args = array(
 							'post_type'			=> 'projects',
 							'title'				=> 'Latest Weekend Projects',
@@ -111,8 +101,6 @@ get_header(); ?>
 						);
 
 						echo make_carousel($args, false);
-
-						}
 					?>
 				</div>
 			
@@ -123,12 +111,6 @@ get_header(); ?>
 				<div class="span12">
 				
 					<?php 
-
-						$second_row = get_post_meta( get_the_id(), 'second_row', true );
-
-						if ( ! empty( $first_row ) ) {
-							do_shortcode( wp_kses_post( $first_row ) );
-						} else {
 
 						$args = array(
 							'post_type'			=> array( 'post', 'video' ),
@@ -143,8 +125,6 @@ get_header(); ?>
 						);
 
 						echo make_carousel($args, false);
-
-						}
 					?>
 					
 				</div>
@@ -162,11 +142,6 @@ get_header(); ?>
 			</div>
 			
 		</div>
-
-		<!-- post navigation -->
-		<?php else: ?>
-		<!-- no posts found -->
-		<?php endif; ?>
 		
 	</div>
 

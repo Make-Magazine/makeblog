@@ -19,7 +19,7 @@ get_header(); ?>
 		
 	<div class="projects-home">
 	
-		<div class="">
+		<div class="art">
 		
 			<div class="container">
 
@@ -31,7 +31,7 @@ get_header(); ?>
 						
 							<div class="row">
 								
-								<div class="span12">
+								<div class="span9">
 									
 									<h1>Make: Projects</h1>
 									
@@ -53,6 +53,8 @@ get_header(); ?>
 									</ul>
 									
 								</div>
+								
+								<div class="span3"></div>
 								
 							</div>
 						

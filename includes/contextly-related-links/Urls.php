@@ -77,9 +77,4 @@ class Urls {
 		return $prefix . 'js/' . $js_file;
 	}
 
-	static public function getApiServerSeoHtmlUrl( $app_id, $page_id )
-	{
-		return sprintf( '%sstatichtml/get/app_id/%s/page_id/%s/#!related_links', Urls::getApiServerUrl(), $app_id, $page_id );
-	}
-
 }

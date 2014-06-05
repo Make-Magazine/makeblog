@@ -419,7 +419,7 @@ function make_carousel( $args, $title_link = true ) {
 							$output .= '">';
 							$output .= get_the_title( $post->ID );
 							$output .= '</a></h4>';
-							$output .= ( ! empty( $post->post_excerpt ) ) ? Markdown( wp_trim_words( strip_shortcodes( $post->post_excerpt ), 15, '...' ) ) : Markdown( wp_trim_words( strip_shortcodes( $post->post_content ), 15, '...' ) ) ;
+							$output .= '<p>' . wp_trim_words( strip_shortcodes( $post->post_content ), 15, '...' ) . '</p>';
 							$output .= '</div>'. "\n";
 							if ($type == 'video') {
 								$link = get_post_meta( $post->ID, 'Link', true );
@@ -612,18 +612,17 @@ function make_video_photo_gallery( $attr ) {
 	$i = 0;
 
 	foreach( $posts as $post ) {
-		$vine = false;
-		$youtube = false;
-		$vimeo = false;
 		if ( strpos( $post, 'youtu' ) ) {
 			$youtube = true;
-		} elseif ( strpos( $post, 'vimeo' ) ) {
-			$vimeo = true;
+			$vine = false;
 		} elseif ( strpos( $post, 'vine' ) ) {
+			$youtube = false;
 			$vine = true;
 		} else {
 			$post = get_post( $post );
 			setup_postdata( $post );
+			$youtube = false;
+			$vine = false;
 		}
 
 		$i++;
@@ -635,8 +634,6 @@ function make_video_photo_gallery( $attr ) {
 		}
 		if ( $youtube == true ) {
 			$output .= do_shortcode('[youtube='. esc_url( $post ) .'&amp;w=620]');
-		} elseif ( $vimeo == true ) {
-			$output .= do_shortcode( '[vimeo '. esc_url( $post ) . ' w=620]');
 		} elseif ( $vine == true ) {
 			$output .= do_shortcode( '[vine url="' . esc_url( $post ) . '" type="simple" width="620"]' );
 		} else {

@@ -29,7 +29,6 @@ wpcom_vip_load_plugin( 'taxonomy-images' );
 wpcom_vip_load_plugin( 'simply-show-ids' );
 wpcom_vip_load_plugin( 'view-all-posts-pages' );
 wpcom_vip_load_plugin( 'co-authors-plus' );
-wpcom_vip_load_plugin( 'disqus' );
 
 function make_sitemap_post_types() {
 	$types = array( 'post', 'page', 'projects', 'review', 'craft', 'newsletter', 'magazine', 'video', 'volume', 'errata', 'page_2', 'slideshow' );
@@ -166,6 +165,7 @@ if ( function_exists( 'vip_redirects' ) ) {
 		'/blog/page-2/'					=> 'http://makezine.com/page-2/',
 		'/volume/make-36‎'				=> 'http://makezine.com/magazine/',
 		'/volume/make-38‎'				=> 'http://makezine.com/magazine/',
+		'/volume/make-39'				=> 'http://makezine.com/magazine/',
 		'/volume/make-40‎'				=> 'http://makezine.com/magazine/',
 		'/volume/make-41'				=> 'http://makezine.com/magazine/',
 		'/volume/make-42‎'				=> 'http://makezine.com/magazine/',
@@ -209,9 +209,7 @@ if ( function_exists( 'vip_redirects' ) ) {
 		'/5issues'					=> 'https://readerservices.makezine.com/mk/subscribe.aspx?PC=MK&PK=M34AIR',
 		'/3DPDF'					=> 'https://readerservices.makezine.com/mk/subscribe.aspx?PC=MK&PK=M35SIP',
 		'/3dpdf'					=> 'https://readerservices.makezine.com/mk/subscribe.aspx?PC=MK&PK=M35SIP',
-		'/magazine'					=> 'http://makezine.com/volume/make-39/',
-		'/39'						=> 'http://makezine.com/volume/make-39/',
-		'/38'						=> 'http://makezine.com/volume/make-38-cameras-and-av/',
+		'/magazine'					=> 'http://makezine.com/volume/make-36/',
 		'/36'						=> 'http://makezine.com/volume/make-36/',
 		'/37'						=> 'http://makezine.com/volume/make-37/',
 		'/35'						=> 'http://makezine.com/volume/make-35/',
@@ -295,12 +293,12 @@ function makeblog_add_permalink_filter( $the_content ) {
 		add_filter( 'post_link', 'makeblog_filter_the_content_permalink', 10, 2 );
 		add_filter( 'pre_get_shortlink', 'makeblog_filter_the_content_shortlink', 10, 2 );
 	}
-
+	
 	return $the_content;
 }
 add_filter( 'the_content', 'makeblog_remove_permalink_filter', 1000 );
 function makeblog_remove_permalink_filter( $the_content ) {
-
+	
 	remove_filter( 'post_link', 'makeblog_filter_the_content_permalink' );
 	remove_filter( 'pre_get_shortlink', 'makeblog_filter_the_content_shortlink' );
 	return $the_content;
@@ -315,7 +313,7 @@ function makeblog_filter_the_content_permalink( $permalink, $post ) {
 
 	// Remove the trailing slash and append .html
 	$permalink = rtrim( $permalink, '/' );
-	$permalink .= '.html';
+	$permalink .= '.html';	
 	return $permalink;
 }
 function makeblog_filter_the_content_shortlink( $ret, $post_id ) {
@@ -336,10 +334,10 @@ add_action( 'init', function() {
 
 // Sets ElasticSearch facets
 add_action( 'after_setup_theme', function() {
-
+ 
     if ( ! function_exists( 'WPCOM_elasticsearch' ) )
         return;
-
+ 
     WPCOM_elasticsearch()->set_facets( array(
         'Content Type' => array(
             'type'     => 'post_type',
@@ -369,3 +367,34 @@ add_action( 'after_setup_theme', function() {
         ),
     ) );
 });
+
+/**
+ * Add Charbeat functions to the header
+ */
+function make_add_chartbeat_to_header() {
+	echo '<script type="text/javascript">var _sf_startpt=(new Date()).getTime()</script>';
+}
+add_filter( 'wp_head', 'make_add_chartbeat_to_header');
+
+/**
+ * Add Chartbeat to the footer
+ */
+function make_add_chartbeat_to_footer() {
+	echo "<script type=\"text/javascript\">
+		  var _sf_async_config = { uid: 53627, domain: 'makezine.com', useCanonical: true };
+			(function() {
+				function loadChartbeat() {
+				window._sf_endpt = (new Date()).getTime();
+				var e = document.createElement('script');
+				e.setAttribute('language', 'javascript');
+				e.setAttribute('type', 'text/javascript');
+				e.setAttribute('src','//static.chartbeat.com/js/chartbeat.js');
+				document.body.appendChild(e);
+		    };
+		    var oldonload = window.onload;
+		    window.onload = (typeof window.onload != 'function') ?
+				loadChartbeat : function() { oldonload(); loadChartbeat(); };
+		  })();
+		</script>";
+}
+add_filter( 'wp_footer', 'make_add_chartbeat_to_footer');

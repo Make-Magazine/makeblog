@@ -32,6 +32,28 @@
 								<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/Make_SIP6-3D_1213_v1-B_300x124.gif" alt="23 3D printers reviewed, get your copy today">
 							</a>
 						</div>
+						
+						<div class="tabbable">
+							<ul class="nav nav-pills">
+								<li class="active"><a href="#1" data-toggle="tab">Trending</a></li>
+								<li><a href="#2" data-toggle="tab">Shared</a></li>
+								<li><a href="#3" data-toggle="tab">Commented</a></li>
+							</ul>
+							<div class="tab-content">
+								<div class="tab-pane active" id="1">
+									<h3>// What's Trending</h3>
+									<?php echo make_the_dash_shares_widget('realtime', 'Hits:', 8, 70); ?>
+								</div>
+								<div class="tab-pane" id="2">
+									<h3>// What's Shared</h3>
+									<?php echo make_the_dash_shares_widget('shares', 'Shares:', 8, 70); ?>
+								</div>
+								<div class="tab-pane" id="3">
+									<h3>// Most Commented</h3>
+									<?php echo make_most_commented_query(); ?>
+								</div>
+							</div>
+						</div>
 
 						<div class="new-dotw widget">
 

@@ -151,9 +151,7 @@ function make_category_li( $post_type = '' ) {
 		} else {
 			$output .= '<li><a href="' . get_category_link( $category->term_id ) . '" title="' . sprintf( __( 'View all posts in %s' ), esc_attr( $category->name ) ) . '" ' . '>' . esc_html( $category->name ) .'</a></li>';
 		}
-	} 
-
-	$output .= '<li><a href="http://pubads.g.doubleclick.net/gampad/clk?id=112551178&iu=/11548178/Makezine">Weekend Projects</li>';
+	}
 	
 	return $output;
 }
