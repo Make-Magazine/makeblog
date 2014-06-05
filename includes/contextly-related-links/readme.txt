@@ -2,7 +2,7 @@
 Contributors: rsingel, andrewcgg
 Tags: related links, SEO, promotion, related, custom posts, sidebars, similar, recommendations, see also, related stories
 Requires at least: 2.0.2
-Tested up to: 3.6
+Tested up to: 3.8
 Stable tag: trunk
 License: GPLv2 or later
 
@@ -88,6 +88,31 @@ You give us an RSS feed of stuff you want us to show off. This can be a feed of 
 
 
 == Changelog ==
+
+= 1.0.97 =
+
+- Updated to include cookies to better track recommendation performance
+- Post-story module now movable via shortcode
+- Minor display bug fixes
+
+
+= 1.0.96 =
+
+- Minor display bug fixes
+
+
+= 1.0.95 =
+
+- Added SEO support. Search Engines can now see and spider the related results. This boosts SEO.
+- Minor display bug fixes
+- Made the "nudge" to add related links off by default
+
+
+= 1.0.93 =
+
+- Minor performance tweaks.
+- CSS optimization.
+
 
 = 1.0.91 =
 

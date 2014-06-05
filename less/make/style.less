@@ -1,6 +1,6 @@
 // Google Custom Search Styles
-.gsc-cursor .gsc-cursor-current-page { 
-	background-color:#005d8f; 
+.gsc-cursor .gsc-cursor-current-page {
+	background-color:#005d8f;
 }
 
 // Generic Page Styles
@@ -22,7 +22,7 @@ body.single-slideshow #wpadminbar {
 	display: none;
 }
 
-body.search .well { 
+body.search .well {
 	margin-bottom:0 !important;
 }
 
@@ -55,16 +55,16 @@ article ul li {
 
 .blog {
 	.projects-masthead {
-		h2 { 
-			margin-bottom: -10px; 
+		h2 {
+			margin-bottom: -10px;
 		}
 	}
 	.projects-meta {
 		color:#333;
 		font-weight:normal;
 	}
-	article { 
-		margin:20px 0 45px; 
+	article {
+		margin:20px 0 45px;
 	}
 }
 // h1 masthead styles
@@ -92,6 +92,47 @@ ul.inline.urban-sensor-nav {
 			}
 		}
 	}
+}
+
+// Parseley Form Validation Styles
+input.parsley-error, select.parsley-error, textarea.parsley-error, div.parsley-error.mce-panel {
+	color: #B94A48;
+	background: #F2DEDE;
+	border: 1px solid #EED3D7 !important;
+}
+
+.parsley-errors-list {
+	margin: 2px 0 3px 0;
+	padding: 0;
+	list-style-type: none;
+	font-size: 0.9em;
+	line-height: 0.9em;
+	opacity: 0;
+	-moz-opacity: 0;
+	-webkit-opacity: 0;
+	color:#B94A48;
+
+	transition: all .3s ease-in;
+	-o-transition: all .3s ease-in;
+	-ms-transition: all .3s ease-in-;
+	-moz-transition: all .3s ease-in;
+	-webkit-transition: all .3s ease-in;
+	&.post_content_errors {
+		position:absolute;
+		bottom:26px;
+		left:10px;
+	}
+}
+
+.parsley-errors-list.filled {
+  opacity: 1;
+}
+
+
+
+.waist {
+	background-image: url('../img/blue_bg1.jpg');
+	border-bottom:2px solid #DBDBDB;
 }
 
 .caption {
@@ -128,8 +169,8 @@ ul.inline.urban-sensor-nav {
 		line-height: 18px;
 }
 
-.look_like_h4 { 
-	font-size: 14px !important; 
+.look_like_h4 {
+	font-size: 14px !important;
 	font-weight: bold !important;
 	line-height: 18px !important;
 	height: 120px !important;
@@ -175,7 +216,7 @@ ul.inline.urban-sensor-nav {
 
 .look_like_h3 {
 		font-size: 16px;
-		font-weight: normal;
+		font-weight: bold;
 		height: auto;
 		text-transform: uppercase;
 		line-height: 24px;
@@ -186,7 +227,7 @@ ul.inline.urban-sensor-nav {
 .look_like_h3_heading a {
 		font-size: 22px;
 		font-style: normal;
-		font-weight: 900;
+		font-weight: bold;
 		height: auto;
 		line-height: 24px;
 		text-decoration: none;
@@ -566,7 +607,7 @@ article h4 a:hover {
 	display: inline-block;
 	padding-bottom: 8px;
 }
-	
+
 footer {
 	padding-top:40px;
 	padding-bottom:20px;
@@ -589,7 +630,7 @@ footer {
 	margin-right: 5px;
     margin-top: 8px;
     max-width: 140px!important;
-} 
+}
 
 //This class is to keep some pages from inheriting the wrong giant font in the footer.
 .p_footer {
@@ -601,14 +642,14 @@ footer {
 .twtr-widget {
 	border:1px solid #D0D0CE !important;
 	}
-	
+
 .more_faires {
 	background-color:#E8F1F4;
 	border:1px solid #D0D0CE;
 	padding:10px;
 	max-height: 373px;
 	}
-	
+
 .more_faires h3 {
 	font-family:"proxima-nova", sans-serif;
 	font-weight:300;
@@ -616,7 +657,7 @@ footer {
 	color:#67abc6;
 	margin-bottom:10px;
 	}
-	
+
 .more_faires h4 {
 	font-family:"proxima-nova", sans-serif;
 	font-weight:300;
@@ -629,19 +670,19 @@ footer {
 	font-size:16px;
 	list-style-image:url('../img/arrow.gif');
 	}
-	
+
 .more_faires ul li a {
 	font-weight:bold;
 	color:#065270;
 	}
-	
-		
-	
-footer .pills {	
+
+
+
+footer .pills {
 	margin-left:100px;
 	margin-top:20px;
 	}
-	
+
 footer .pills a {
 	color:#5a6479;
 	}
@@ -1015,14 +1056,14 @@ a.comment-reply-link > span {
 
 .drop-down {
 	margin-left:0px;
-	columns: auto 3; 
+	columns: auto 3;
 	-webkit-columns: auto 3;
 	-moz-columns: auto 3;
-	margin-top: 23px; 
+	margin-top: 23px;
 }
 
 .drop-down.fix {
-	columns: auto auto; 
+	columns: auto auto;
 	-webkit-columns: auto auto;
 	-moz-columns: auto auto;
 }
@@ -1247,7 +1288,7 @@ hr {
 
 .third:first-child {
 	margin-left:20px;
-} 
+}
 
 .third h4 {
 	color:#045876;
@@ -1397,10 +1438,10 @@ article.magazine-page h3 {
 	-moz-column-rule-style: solid;
 	-webkit-column-rule-width: 1px;
 	-webkit-column-rule-color: #ccc;
-	-webkit-column-rule-style: solid; 
+	-webkit-column-rule-style: solid;
 	column-rule-width: 1px;
 	column-rule-color: #ccc;
-	column-rule-style: solid; 
+	column-rule-style: solid;
 }
 
 .two-column h5 {
@@ -1619,7 +1660,7 @@ div.sharedaddy .sd-content li {
     width: 8em;
     text-align: right;
 }
-.pop-posts a { 
+.pop-posts a {
 	display: block;
 	margin-bottom:15px;
 }
@@ -1672,6 +1713,11 @@ div.parts, div.tools {
 	float:left;
 }
 
+div.parts.row, div.tools.row {
+	width:100%;
+	float:none;
+}
+
 .description {
 	text-align: right;
 }
@@ -1713,14 +1759,14 @@ div.parts, div.tools {
 	text-transform: uppercase;
 	border-bottom:1px solid #b0bac1;
 	}
-	
+
 #review_box h2 {
 	line-height:22px;
 	margin-bottom:2px;
 	color:#021329;
 	font-size:22px;
 	}
-	
+
 #review_box h5 {
 	text-transform: uppercase;
 	margin:5px 0 !important;
@@ -1740,41 +1786,41 @@ div.parts, div.tools {
 	margin-left: 10px;
 	margin-bottom:20px;
 	}
-	
+
 #review_box .meta {
 	border-top:1px solid #b0bac1;
 	border-bottom:1px solid #b0bac1;
 	margin:5px 0;
 	padding:7px 0;
 	}
-	
+
 #review_box .meta p {
 	margin:0px;
 	line-height: 14px;
 	}
-	
+
 .ratings {
 	border-bottom:1px solid #b0bac1;
 	padding-bottom:5px;
 	margin-bottom:5px;
 	}
-	
+
 .ratings dd {
 	height:11px;
 	width:182px;
 	margin:0 0 5px;
-	}	
+	}
 
 .term1 {
 	background-image: url('images/1.gif');
 	background-repeat:no-repeat;
 	}
-	
+
 .term2 {
 	background-image: url('images/2.gif');
 	background-repeat:no-repeat;
 	}
-	
+
 .term3 {
 	background-image: url('images/3.gif');
 	background-repeat:no-repeat;
@@ -1784,7 +1830,7 @@ div.parts, div.tools {
 	background-image: url('images/4.gif');
 	background-repeat:no-repeat;
 	}
-	
+
 .term5 {
 	background-image: url('images/5.gif');
 	background-repeat:no-repeat;
@@ -1793,7 +1839,7 @@ div.parts, div.tools {
 .the_tags {
 	font-size:13px;
 	}
-		
+
 .the_tags a {
 	font-style: italic;
 	color:#5b5a54;
@@ -1829,39 +1875,39 @@ div.parts, div.tools {
 ul#sidebar {
 	margin:0px;
 	}
-	
+
 ul#sidebar li {
 	list-style-type: none;
 	}
-	
+
 .drillz {
 	background-color:#fff;
 	height:20px;
 	line-height:0px;
-	padding:2px 10px 2px 0; 
+	padding:2px 10px 2px 0;
 	}
-	
+
 .drill-list {
 	margin-bottom:15px;
 	}
-	
+
 .term-item {
 	list-style-image:url('images/uncheck.gif');
 	font-weight: bold;
 	}
-	
+
 .current-term {
 	list-style-image:url('images/check.gif');
 	}
-	
+
 #sidebar li ul li {
 	font-weight: bold;
 	}
-	
+
 .nobold li {
 	font-weight: 400 !important;
 	}
-	
+
 #term-list-post_tag ul li {
 	font-weight: 400 !important;
 	}
@@ -1874,7 +1920,7 @@ ul.term-list {
 li.term-item {
 	margin-left:20px;
 	}
-	
+
 .side {
 	background-color: white;
 	margin-top: 10px;
@@ -1900,7 +1946,7 @@ body.embed.single-slideshow h1 {
 	font-style: normal;
 	font-weight: 900;
 	}
-	
+
 body#shop {
 	background: none!important;
 	}
@@ -1927,10 +1973,6 @@ body#shop {
 
 .alcenter span {
 	text-align: center;
-}
-
-.banner {
-	margin-top:12px;
 }
 
 .single-volume h3 {
@@ -2017,24 +2059,30 @@ body#shop {
         font-weight:bold;
     }
     .about-column-01 {
-        width: 90px;
+        width: 86px;
         float:left;
         margin-left:0;
         ul {
         	margin-top:6px;
         	li {
         		line-height: 20px;
+        		a {
+        			margin-left: -2px;
+        		}
         	}
         }
     }
     .about-column-02 {
         float:left;
-        width:130px;
+        width:134px;
         margin-left:0;
         ul {
         	margin-top:5px;
         	li {
         		line-height: 20px;
+        		a {
+        			margin-left: -2px;
+        		}
         	}
         }
     }
@@ -2175,7 +2223,7 @@ body#shop {
 }
 
 .hoa.onair {
-	background-image: url('../img/Google_Hangout_WebAd2_on_air.gif');	
+	background-image: url('../img/Google_Hangout_WebAd2_on_air.gif');
 }
 
 .hoa h4 {
@@ -2204,31 +2252,31 @@ body#shop {
 	background-color:#dff0f8;
 	padding:10px 0 5px 15px;
 	}
-    
+
 #make-money #box-area ul {
-	background-color:#fff; 
+	background-color:#fff;
     padding:20px 10px;
-    margin:15px;color:#333; 
-    list-style-image:none;  
-	list-style-position:outside;  
+    margin:15px;color:#333;
+    list-style-image:none;
+	list-style-position:outside;
 	list-style-type:square;
-	color:#328938;  
-	margin-left:0;  
+	color:#328938;
+	margin-left:0;
 	padding-left:25px;
     }
-	
+
 #make-money #box-area ul li {color:green;}
 
 #make-money #box-area ul li  span { color:black;}
 
-#make-money ul.specials { 
-	list-style-type: square; 
+#make-money ul.specials {
+	list-style-type: square;
 	margin:0 0 10px 15px;
 	padding-bottom:5px;
 }
 
-#make-money ul.specials li { 
-color:green; 
+#make-money ul.specials li {
+color:green;
     font-size:13px;
     line-height:18px;
 }
@@ -2237,14 +2285,14 @@ color:green;
 
 #make-money a.money  {
     color:green;
-	text-decoration:none; 
+	text-decoration:none;
 }
 
 #make-money h3, #make-money li {font-family: "proxima-nova", sans-serif;}
-	   
+
 #make-money h3 {
 	margin:0;
-	font-size:1.2em; 
+	font-size:1.2em;
 	font-weight:normal;
 	margin:0;
 }
@@ -2287,7 +2335,7 @@ color:green;
     width: auto !important;
 }
 #isBillShipAddrNotSame {
-    width:auto !important;  
+    width:auto !important;
     width: auto !important;
 }
 #make_subcription_form .btn-02-area, #make_subcription_form .btn-01-area {
@@ -2556,7 +2604,7 @@ color:green;
 	margin-top: 30px;
 		label {
 			font-size:16px;
-	    } 
+	    }
 		.control-label{
 			font-size:16px;
 			font-weight:600;
@@ -2576,7 +2624,7 @@ color:green;
 	.ctx_blocks_widget2 {
 		.ctx_subhead {
 			background-color: transparent !important;
-		}	
+		}
 		.ctx_link {
 			font-size: 13px !important;
 			line-height: 16px !important;
@@ -2611,65 +2659,88 @@ color:green;
 .sprite {
 		background-image:url('../images/makezine_sprites.png');
 }
-.sprite-arrow-footer { 
-	background-position: 0 0; 
-	width: 95px; 
-	height: 46px; 
+.sprite-arrow-footer {
+	background-position: 0 0;
+	width: 95px;
+	height: 46px;
 	margin: -40px 0 5px -16px;
 	border: none !important;
-} 
-.sprite-digital-book-foot { 
-	background-position: 0 -51px; 
-	width: 29px; 
-	height: 22px; 
+}
+.sprite-digital-book-foot {
+	background-position: 0 -51px;
+	width: 29px;
+	height: 22px;
 	float: left;
 	padding-right: 5px;
 	margin-top: 29px;
-} 
-.sprite-facebook { 
-	background-position: 0 -78px; 
-	width: 24px; 
-	height: 24px; 
-} 
-.sprite-flickr { 
-	background-position: 0 -107px; 
-	width: 24px; 
-	height: 24px; 
-} 
-.sprite-google-plus { 
-	background-position: 0 -136px; 
-	width: 24px; 
-	height: 24px; 
-} 
-.sprite-instagram { 
-	background-position: 0 -165px; 
-	width: 24px; 
-	height: 24px; 
-} 
-.sprite-makershed_footer1 { 
-	background-position: 0 -194px; 
-	width: 29px; 
-	height: 22px; 
+}
+.sprite-facebook {
+	background-position: 0 -78px;
+	width: 24px;
+	height: 24px;
+}
+.sprite-flickr {
+	background-position: 0 -107px;
+	width: 24px;
+	height: 24px;
+}
+.sprite-google-plus {
+	background-position: 0 -136px;
+	width: 24px;
+	height: 24px;
+}
+.sprite-instagram {
+	background-position: 0 -165px;
+	width: 24px;
+	height: 24px;
+}
+.sprite-makershed_footer1 {
+	background-position: 0 -194px;
+	width: 29px;
+	height: 22px;
 	float: left;
 	margin: 30px 5px 0 13px;
-} 
-.sprite-pinterest { 
-	background-position: 0 -221px; 
-	width: 24px; 
-	height: 24px; 
-} 
-.sprite-stumbleupon {  
-	background-position: 0 -274px; 
-	width: 24px; 
-	height: 24px; 
-} 
-.sprite-twitter { 
-	background-position: 0 -303px; 
-	width: 24px; 
-	height: 24px; 
-} 
-.sprite-youtube { 
-	background-position: 0 -332px; 
-	width: 24px; 
-	height: 24px; 
 }
+.sprite-pinterest {
+	background-position: 0 -221px;
+	width: 24px;
+	height: 24px;
+}
+.sprite-stumbleupon {
+	background-position: 0 -274px;
+	width: 24px;
+	height: 24px;
+}
+.sprite-twitter {
+	background-position: 0 -303px;
+	width: 24px;
+	height: 24px;
+}
+.sprite-youtube {
+	background-position: 0 -332px;
+	width: 24px;
+	height: 24px;
+}
+
+// HOME PAGE JPG SPRITES
+.sprite-images {
+		background-image:url('../images/sprite_images.jpg');
+}
+.sprite-forum {
+	background-position: 0 0;
+	width: 620px;
+	height: 174px;
+}
+.sprite-page2 {
+	background-position: 0 -176px;
+	width: 620px;
+	height: 174px;
+}
+.sprite-sip {
+	background-position: 0 -352px;
+	width: 620px;
+	height: 174px;
+}
+.sprite-forum{ background-position: 0 0; width: 620px; height: 174px; }
+.sprite-page2{ background-position: 0 -176px; width: 620px; height: 174px; }
+.sprite-sip{ background-position: 0 -352px; width: 620px; height: 174px; }

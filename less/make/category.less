@@ -1,6 +1,12 @@
 .category-top {
 	font-family: @font;
 	border-bottom: 3px solid #DBDBDB;
+	padding-top:20px;
+	// Position and z-index were added for the Rasp Banner Ad. We could likely remove at some point. -JS
+	// position: relative;
+	// z-index: 1;
+	// margin: 0 auto;
+	// width: 940px;
 	h1 {
 		font-size: 38px;
 	}
@@ -14,10 +20,9 @@
 		line-height: 140%;
 		a {
 			color:@link-color;
-			border-bottom:@the-border solid @link-color;
 		}
 		a:hover {
-			text-decoration: none;
+			text-decoration: underline;
 		}
 		a.btn {
 			color:white;

@@ -15,7 +15,7 @@
 		<!-- Le fav and touch icons -->
 		<link rel="shortcut icon" href="http://1.gravatar.com/blavatar/dab43acfe30c0e28a023bb3b7a700440?s=14">
 
-		<?php if ( is_page( 313086 ) ) 
+		<?php if ( is_page( 313086 ) )
 			echo '<meta property="og:image" content="http://makezineblog.files.wordpress.com/2013/06/makercamp_300x250.jpg" />'; ?>
 
 		<?php wp_head(); ?>
@@ -30,9 +30,22 @@
 			</script>
 		<?php endif; ?>
 
+		<script type="text/javascript">
+			dataLayer = [];
+		</script>
 	</head>
 
 	<body <?php body_class(); ?>>
+		<!-- Google Tag Manager -->
+		<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-WR8NLB"
+		height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+		<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+		new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+		j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+		'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+		})(window,document,'script','dataLayer','GTM-WR8NLB');</script>
+		<!-- End Google Tag Manager -->
+
 		<div class="container hidden-print">
 			<div class="row">
 				<div class="span9">
@@ -69,14 +82,29 @@
 				                    'walker'		 => new Bootstrap_Walker_Nav_Menu(),
 				                ) ); ?>
 							</nav>
-							<div class="span3 search-make additional-content hidden-print">	
+							<div class="span3 search-make additional-content hidden-print">
 								<form action="<?php echo home_url(); ?>" class="search-make open">
 									<input type="text" class="search-field" name="s" placeholder="Find a project, article or video" />
 									<input type="image" src="<?php echo get_stylesheet_directory_uri(); ?>/images/search-btn.png" alt="Search" class="open" value="Search" />
 								</form>
-							</div>				
+							</div>
 						</div>
 					</div>
 				</div>
 			</div>
 		</header>
+
+		<?php if ( ! is_page_template( 'page-home.php' ) ) :
+			if ( ! is_post_type_archive() ) :
+				if ( ! is_author() ) :
+					if ( ! is_page( 'weekendprojects' ) ) : ?>
+
+		<div class="canvas-ad">
+			<div id="div-gpt-ad-664089004995786621-7" class="banner-canvas">
+				<script type='text/javascript'>
+					googletag.cmd.push(function(){googletag.display('div-gpt-ad-664089004995786621-7')});
+				</script>
+			</div>
+		</div>
+
+		<?php endif; endif; endif; endif; ?>

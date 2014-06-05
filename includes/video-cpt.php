@@ -82,8 +82,10 @@ function make_register_taxonomy_playlist() {
 $field_data = array (
 	'advanced_testgroup' => array (
 		'fields' => array(
-			'EmbedLink'					=> array(),
-			'Link'						=> array(),
+			'Description'				=> array(),
+			'Link'						=> array(
+											'hint' => 'Add a URL here for the YouTube video that is the in post. This is also where the thumbnail comes from.',
+											),
 			'MakeProjectsGuideNumber'	=> array(),
 			'Image'						=> array(),
 	),

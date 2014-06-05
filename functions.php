@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 /*
 
@@ -29,6 +29,9 @@ if ( defined( 'WP_CLI' ) && WP_CLI )
 // 2. WordPress.com VIP Hosting Stuff
 include_once dirname( __FILE__ ) . '/includes/vip.php';
 
+// Load Gigya!
+include_once dirname( __FILE__ ) . '/includes/gigya/gigya.php';
+
 // 3. NUMBERED PAGE NAVIGATION
 include_once dirname( __FILE__ ) . '/includes/pagenavi.php';
 
@@ -47,7 +50,7 @@ include_once dirname( __FILE__ ) . '/includes/taxonomies.php';
 // 8. Page 2 - Custom Post Type
 include_once dirname( __FILE__ ) . '/includes/page_2.php';
 
-// 9. YouTube Embed Function 
+// 9. YouTube Embed Function
 include_once dirname( __FILE__ ) . '/includes/youtube.php';
 
 // 10. Contribute Function
@@ -74,9 +77,6 @@ include_once dirname( __FILE__ ) . '/includes/cheezcap-config.php';
 // 17. House Ads Custom Post Type
 include_once dirname( __FILE__ ) . '/includes/house-ads-cpt.php';
 
-// 18. Parse.ly Dash
-include_once dirname( __FILE__ ) . '/includes/wp-parsely/wp-parsely.php';
-
 // 19. Magazine Articles
 include_once dirname( __FILE__ ) . '/includes/magazine-cpt.php';
 
@@ -88,9 +88,6 @@ include_once dirname( __FILE__ ) . '/includes/slideshow.php';
 
 // 22. Reviews CPT
 include_once dirname( __FILE__ ) . '/includes/reviews.php';
-
-// 23. Dash API Stuff
-include_once dirname( __FILE__ ) . '/includes/dash.php';
 
 // 24. Projects CPT
 include_once dirname( __FILE__ ) . '/includes/projects-cpt.php';
@@ -127,7 +124,7 @@ if ( defined('WP_CLI') && WP_CLI )
 	include_once dirname( __FILE__ ) . '/includes/wp-cli.php';
 
 // 34. Author Bio
-include_once dirname(  __FILE__  ) . '/includes/class-author-bio.php';
+include_once dirname(  __FILE__  ) . '/includes/class-author-profile.php';
 
 // 35. Go Links
 include_once dirname(  __FILE__  ) . '/includes/post-types/go.php';
@@ -158,6 +155,15 @@ include_once dirname( __FILE__ ) . '/includes/shed/shed.php';
 
 // 44. Home Take Over - Theme Customizer API
 include_once dirname( __FILE__ ) . '/includes/theme-customizer/takeover.php';
+
+// 45. Related Content Blocks
+include_once dirname( __FILE__ ) . '/includes/related.php';
+
+// 45. Contribute Form
+include_once dirname( __FILE__ ) . '/includes/contribute/contribute.php';
+
+// 45. Instagram
+include_once dirname( __FILE__ ) . '/includes/instagram/instagram.php';
 
 
 ?>

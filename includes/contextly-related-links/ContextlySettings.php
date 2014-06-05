@@ -63,9 +63,9 @@ class ContextlySettings {
         add_settings_field( 'linker_target_id', 'CSS Element ID', array( $this, 'settingsTargetInput' ), self::ADVANCED_SETTINGS_KEY, 'advanced_section' );
         add_settings_field( 'linker_block_position', 'Position', array( $this, 'settingsBlockPosition' ), self::ADVANCED_SETTINGS_KEY, 'advanced_section' );
 
-        add_settings_section( 'display_section', 'Main Settings', array(), self::GENERAL_SETTINGS_KEY );
-	    add_settings_field( 'display_control', 'Display Contextly Widgets For Post Types:', array( $this, 'settingsDisplayFor' ), self::GENERAL_SETTINGS_KEY, 'display_section' );
-	    add_settings_field( 'publish_confirmation', 'Prompt to Choose Related Posts before publishing:', array( $this, 'settingsDisplayPublishConfirmation' ), self::GENERAL_SETTINGS_KEY, 'display_section' );
+        add_settings_section( 'display_section', 'Main Settings', array(), self::ADVANCED_SETTINGS_KEY );
+	    add_settings_field( 'display_control', 'Display Contextly Widgets For Post Types:', array( $this, 'settingsDisplayFor' ), self::ADVANCED_SETTINGS_KEY, 'display_section' );
+	    add_settings_field( 'publish_confirmation', 'Prompt to Choose Related Posts before publishing:', array( $this, 'settingsDisplayPublishConfirmation' ), self::ADVANCED_SETTINGS_KEY, 'display_section' );
 
 	    $this->tabs[ self::GENERAL_SETTINGS_KEY ] = __( 'General' );
 	    $this->tabs[ self::API_SETTINGS_KEY ] = __( 'API' );
@@ -164,13 +164,15 @@ class ContextlySettings {
 
 	            <?php if ( $tab == self::GENERAL_SETTINGS_KEY ) { ?>
 				    <h3>
-					    Most of the controls for Contextly are hosted outside Wordpress. Press the big settings button to securely login. <br />(If that fails, you can still login via Twitter using this <a target="_blank" href="<?php echo $this->getContextlyRegistrationUrl() ?>">link</a>.)
+					    Most of the controls for Contextly are hosted outside Wordpress. Press The Big Settings Button to securely login.
 				    </h3>
 				    <p>
-					    <input type="button" value="Settings" class="button button-hero button-primary" style="font-size: 18px;" id="contextly-settings-btn" onclick="open_contextly_settings();" />
+					    <input type="button" value="The Big Settings Button" class="button button-hero button-primary" style="font-size: 18px;" id="contextly-settings-btn" onclick="open_contextly_settings();" />
 				    </p><br />
 				    <?php
-				    if ( is_admin() ) {
+		            $options = get_option( self::API_SETTINGS_KEY );
+
+		            if ( is_admin() && isset( $options["api_key"] ) && $options["api_key"] ) {
 					    $this->displaySettingsAutoloadStuff();
 				    }
 				    ?>
@@ -186,10 +188,10 @@ class ContextlySettings {
 		                    'submit',
 		                    null,
 		                    array(
-			                    'style' => 'font-size: 18px; margin-top: 20px; background-color: maroon; background-image: linear-gradient(to bottom, #a93232, #982121); border-color: #800000;'
+			                    'style' => 'font-size: 18px; margin-top: 20px;'
 		                    )
 	                    ); ?>
-	                <?php } else { ?>
+	                <?php } elseif ( $tab == self::ADVANCED_SETTINGS_KEY ) { ?>
 	                    <?php submit_button( null, 'primary' ); ?>
                     <?php } ?>
                 </form>
@@ -251,9 +253,15 @@ class ContextlySettings {
 	    $options = get_option( self::API_SETTINGS_KEY );
 	    $input_style = "";
 
-	    if ( isset( $_GET[ 'api_key' ] ) && ( !isset( $options["api_key"] ) || !$options["api_key"] ) ) {
-		    $options["api_key"] = sanitize_text_field( urldecode( $_GET[ 'api_key' ] ) );
-		    $input_style = " style='background-color: #FFEBE8; border-color: #CC0000;'";
+	    if ( isset( $_GET[ 'api_key' ] ) )
+	    {
+			$get_api_key = urldecode( $_GET[ 'api_key' ] );
+
+		    if ( !isset( $options["api_key"] ) || $options["api_key"] != $get_api_key )
+		    {
+			    $options["api_key"] = sanitize_text_field( $get_api_key );
+			    $input_style = " style='background-color: #FFEBE8; border-color: #CC0000;'";
+		    }
 	    }
 
         echo "<label><input name='" . self::API_SETTINGS_KEY . "[api_key]' type='text' size='40' value='{$options["api_key"]}' " . $input_style . "/></label>";
@@ -313,18 +321,20 @@ class ContextlySettings {
 
 	    echo "<table cellpadding='0' cellspacing='0'>";
 	    foreach ( $post_types as $post_type ) {
-		    echo "<tr><td style='padding: 3px;'>";
-		    echo "<input id='post-type-{$post_type->name}' name='" . self::GENERAL_SETTINGS_KEY . "[display_type][]' type='checkbox' value='{$post_type->name}' " . (in_array( $post_type->name, ( array_values( $values ) ) ) ? "checked='checked'" : "" ) . " />";
-		    echo "</td><td style='padding: 3px;'><label for='post-type-{$post_type->name}'>";
-		    echo $post_type->labels->name;
-		    echo "</label></td></tr>";
+		    if ( $post_type->public ) {
+			    echo "<tr><td style='padding: 3px;'>";
+			    echo "<input id='post-type-{$post_type->name}' name='" . self::ADVANCED_SETTINGS_KEY . "[display_type][]' type='checkbox' value='{$post_type->name}' " . (in_array( $post_type->name, ( array_values( $values ) ) ) ? "checked='checked'" : "" ) . " />";
+			    echo "</td><td style='padding: 3px;'><label for='post-type-{$post_type->name}'>";
+			    echo $post_type->labels->name;
+			    echo "</label></td></tr>";
+		    }
 	    }
 	    echo "</table>";
     }
 
 	public function settingsDisplayPublishConfirmation() {
 		$publish_confirmation = $this->getPublishConfirmationValue();
-		$control_name = self::GENERAL_SETTINGS_KEY . "[publish_confirmation]";
+		$control_name = self::ADVANCED_SETTINGS_KEY . "[publish_confirmation]";
 
 		echo "
 		<input type='hidden' name='{$control_name}' value='0' />
@@ -342,12 +352,7 @@ class ContextlySettings {
     }
 
     public function getWidgetDisplayType() {
-        $options = get_option( self::GENERAL_SETTINGS_KEY );
-
-	    if ( !$options ) {
-		    // Old plugins support
-		    $options = get_option( self::ADVANCED_SETTINGS_KEY );
-	    }
+	    $options = get_option( self::ADVANCED_SETTINGS_KEY );
 
 	    // Hack for previous plugin versions and selected values
 	    $values = isset( $options['display_type'] ) ? $options['display_type'] : array();
@@ -368,13 +373,13 @@ class ContextlySettings {
     }
 
 	public function getPublishConfirmationValue() {
-		$options = get_option( self::GENERAL_SETTINGS_KEY );
+		$options = get_option( self::ADVANCED_SETTINGS_KEY );
 
 		if ( isset( $options[ 'publish_confirmation' ] ) ) {
 			return (bool)$options[ 'publish_confirmation' ];
 		}
 
-		return true;
+		return false;
 	}
 
     public function isPageDisplayDisabled( $page_id ) {

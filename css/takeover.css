@@ -7,7 +7,7 @@
 .waist.takeover .takeover-wrapper {
   margin: 15px 0;
 }
-.waist.takeover .banner {
+.waist.takeover .home-banner {
   margin: 0 10px 23px 0;
 }
 .waist.takeover .post-wrapper {
@@ -91,4 +91,117 @@
 }
 .canvas .blur h3 {
   font-size: 18px;
+}
+.home-banner {
+  position: relative;
+  top: 0px;
+  left: 50%;
+  margin-left: -1080px;
+  width: 2160px;
+  min-height: 547px;
+  background-position: center top;
+  cursor: pointer;
+}
+.home-banner .banner-canvas {
+  width: 2160px;
+  height: 547px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+.home-banner .pull-up {
+  position: relative;
+  z-index: 2;
+  margin-top: -547px;
+}
+.home-banner .pull-up .top-image {
+  margin: 10px 0;
+}
+.home-banner .pull-up .feat-post {
+  border-top: 1px solid #70cddc;
+  border-bottom: 1px solid #70cddc;
+  padding: 10px 0;
+  color: #043350;
+}
+.home-banner .pull-up .feat-post h3 {
+  marging-bottom: 15px;
+}
+.home-banner .pull-up .feat-post p {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+.home-banner .pull-up .feat-post img {
+  margin-right: 10px;
+}
+.home-banner .pull-up .red {
+  text-transform: uppercase;
+}
+.home-banner .pull-up ul {
+  margin-bottom: -15px;
+}
+.home-banner .pull-up ul li {
+  line-height: 100%;
+}
+.home-banner .pull-up h2 {
+  font-size: 22px;
+  line-height: 28px;
+}
+.home-banner-video {
+  position: relative;
+  top: 0px;
+  left: 50%;
+  margin-left: -1080px;
+  width: 2160px;
+  min-height: 547px;
+  background-position: center top;
+  cursor: pointer;
+}
+.home-banner-video .banner-canvas {
+  width: 2160px;
+  height: 547px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+.home-banner-video .pull-up {
+  position: relative;
+  z-index: 2;
+  margin-top: -547px;
+  width: 1000px;
+}
+.home-banner-video .pull-up .pi {
+  width: 421px;
+  margin: 20px 20px 0px -20px;
+}
+.home-banner-video .pull-up .feat-post {
+  width: 600px;
+  margin: 20px 0px 0px -54px;
+  margin-left: -54px;
+}
+.home-banner-video .pull-up .feat-post .da-post {
+  margin-top: 30px;
+  margin-left: 50px;
+}
+.home-banner-video .pull-up .feat-post .da-post .video {
+  width: 329px;
+}
+.home-banner-video .pull-up .feat-post .da-post .title {
+  width: 220px;
+}
+.home-banner-video .pull-up .feat-post .da-post .title h1 {
+  font-size: 28px;
+  line-height: 120%;
+}
+.home-banner-video .pull-up .feat-post .da-post .title h1 a {
+  color: black;
+}
+.home-banner-video .pull-up .feat-post .da-post .title h3 {
+  text-transform: uppercase;
+  font-size: 16px;
+}
+.home-banner-video .pull-up .feat-post .da-post .title h3.pink a {
+  color: #CA2853;
+}
+.home-banner-video .pull-up .feat-post .contest {
+  margin: 20px 0 0 60px;
 }

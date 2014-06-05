@@ -67,6 +67,18 @@ $field_data = array (
 $easy_cf = new Easy_CF($field_data);
 
 
+$field_data = array (
+	'magazine_meta' => array (
+		'fields' => array(
+			'Description'		=> array(),
+		),
+		'title'		=> 'Craft Meta',
+		'context'	=> 'side',
+		'pages'		=> array( 'craft' ),
+	),
+);
+$easy_cf = new Easy_CF($field_data);
+
 /**
   * Grab the craft header if we are on a craft page.
   * @deprecated Function deprecated in Jet Jaguar
