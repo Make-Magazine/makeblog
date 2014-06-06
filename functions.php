@@ -165,5 +165,8 @@ include_once dirname( __FILE__ ) . '/includes/contribute/contribute.php';
 // 45. Instagram
 include_once dirname( __FILE__ ) . '/includes/instagram/instagram.php';
 
+// 45. Instagram
+include_once dirname( __FILE__ ) . '/includes/post-types/makers.php';
+
 
 ?>
