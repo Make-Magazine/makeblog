@@ -10,6 +10,7 @@ class Make_Makers {
 	 */
 	public function __construct() {
 		add_action( 'init', array( $this, 'create_post_type' ) );
+		add_action( 'wp_enqueue_scripts', array( $this, 'load_resources' ), 30 );
 	}
 
 	/**
@@ -56,6 +57,24 @@ class Make_Makers {
 		);
 		register_post_type( 'makers', $args );
 	}
+
+	public function load_resources() {
+		if ( is_page_template( 'page-day-of-making.php' ) && ! is_admin() ) {
+			// JavaScript
+			wp_enqueue_script( 'make-contribute', get_stylesheet_directory_uri() . '/includes/contribute/js/contribute.js', array( 'jquery' ), '1.0', true );
+			$localize = array(
+				'admin_post' 	=> admin_url( 'admin-ajax.php' ),
+				'logged_in' 	=> is_user_logged_in(),
+				'jake'			=> 'awesome',
+			);
+			wp_localize_script( 'make-contribute', 'contribute', $localize );
+			wp_enqueue_style( 'day-of-making', get_stylesheet_directory_uri() . '/css/day-of-making.css' );
+			wp_deregister_style( 'make-css' );
+			wp_deregister_style( 'make-print-css' );
+			wp_deregister_style( 'frontend-uploader-css' );
+		}
+	}
+
 }
 
 $makers = new Make_Makers();
