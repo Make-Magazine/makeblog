@@ -29,6 +29,13 @@ jQuery( document ).ready( function( $ ) {
 			success: function( data ){
 				post_obj = JSON.parse( data );
 				console.log( post_obj );
+				$('#myModal').modal('hide');
+				$('.call-out').slideUp();
+				$('.thanks').slideDown();
+				$('.maker-added .image').append( post_obj.email ).addClass('pull-left');
+				$('.maker-added .media-heading').prepend( post_obj.post_title );
+				$('.maker-added .media-heading small').append( ' ' + post_obj.city + ', ' + post_obj.state );
+				$('.maker-added .media').append( post_obj.formatted_content );
 			}
 		});
 	});
