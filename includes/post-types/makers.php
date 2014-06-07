@@ -110,6 +110,9 @@ class Make_Makers {
 		// Get the newly created post
 		$post = get_post( $pid );
 
+		// Let's make it look purdy...
+		$post->formatted_content = Markdown( $post->post_content );
+
 		// Set the email to post_meta.
 		$post->email = ( isset( $_POST['email_address'] ) && add_post_meta( $pid, '_making_email', sanitize_email( $_POST['email_address'] ) ) ) ? sanitize_email( $_POST['email_address'] ) : '';
 		// City
