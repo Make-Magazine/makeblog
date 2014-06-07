@@ -15,6 +15,7 @@
 	<!--[if lt IE 9]>
 		<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
 	<![endif]-->
+
 	<?php wp_head(); ?>
 
 </head>
@@ -33,6 +34,70 @@
 		</div>
 
 	</header><!-- /header -->
+
+	<div class="thanks hide">
+
+		<div class="row">
+
+			<div class="span12">
+
+				<h1>Thank You!</h1>
+
+				<p>Bacon ipsum dolor sit amet pork belly cupidatat laborum prosciutto shankle incididunt, tail nisi chuck kevin nulla anim adipisicing ut nostrud. Sed eu meatloaf, nisi excepteur qui consequat. Porchetta aute in enim sint leberkas. Tail quis tempor pariatur duis in kevin hamburger andouille capicola drumstick nulla ea swine prosciutto.</p>
+
+				<p>Bacon ullamco tri-tip adipisicing, pastrami veniam cillum chicken pork chop. Id aliquip incididunt occaecat voluptate. Tempor non ham cillum, ea salami meatball nostrud porchetta aliqua beef ribs. Pork nulla short ribs biltong ea ad nostrud shank chuck elit tri-tip incididunt sunt. Short loin ad quis consectetur drumstick reprehenderit. Shoulder turducken elit ex meatloaf eiusmod qui ad id fugiat sausage magna laborum.</p>
+
+			</div>
+
+		</div>
+
+		<div class="row">
+
+			<div class="span6">
+
+				<div class="maker media maker-added">
+
+					<div class="image"></div>
+
+					<div class="media-body">
+
+						<h4 class="media-heading"> <small></small></h4>
+
+						<div class="media"></div>
+
+					</div>
+
+				</div>
+
+			</div>
+
+			<div class="span6">
+
+				<div class="row">
+
+					<div class="span3">
+
+						<img src="http://placekitten.com/260/180" alt="" class="thumbnail" >
+
+						<a href="#" class="btn btn-block" title="">Download Your E-Book</a>
+
+					</div>
+
+					<div class="span3">
+
+						<img src="http://placekitten.com/260/180" alt="" class="thumbnail" >
+
+						<a href="#" class="btn btn-block" title="">Download Your Badge</a>
+
+					</div>
+
+				</div>
+
+			</div>
+
+		</div>
+
+	</div>
 
 	<section class="call-out">
 
@@ -396,6 +461,8 @@
 				</div>
 
 				<?php echo wp_nonce_field( 'day-of-making', 'day-of-making' ); ?>
+		</div>
+		<div class="modal-footer">
 				<button type="submit" class="add-maker btn btn-primary">Submit</button>
 				<div class="clearfix"></div>
 			</form>
