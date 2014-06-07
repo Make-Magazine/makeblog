@@ -28,7 +28,7 @@ jQuery( document ).ready( function( $ ) {
 			type: 'POST',
 			success: function( data ){
 				post_obj = JSON.parse( data );
-				console.log( data );
+				console.log( post_obj );
 			}
 		});
 	});
