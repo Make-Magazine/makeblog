@@ -37,18 +37,19 @@ class Make_Makers {
 		$args = array(
 			'labels' 				=> $labels,
 			'description' 			=> 'Makers',
-			'public' 				=> true,
+			'public' 				=> false,
 			'exclude_from_search' 	=> true,
-			'publicly_queryable' 	=> true,
+			'publicly_queryable' 	=> false,
 			'show_ui' 				=> true,
 			'show_in_nav_menus' 	=> true,
 			'show_in_menu' 			=> true,
 			'show_in_admin_bar' 	=> true,
-			'menu_position' 		=> 20,
+			'menu_position' 		=> 25,
 			'menu_icon' 			=> null,
 			'capability_type'		=> 'post',
 			'hierarchical' 			=> true,
 			'supports' 				=> array( 'title', 'editor', 'thumbnail', 'excerpt', 'revisions',  ),
+			'taxonomies'			=> array( 'category' ),
 			'has_archive' 			=> false,
 			'rewrite' 				=> array(
 				'slug' 			=> 'makers',
@@ -92,7 +93,7 @@ class Make_Makers {
 
 		// Setup the post variables yo.
 		$post = array(
-			'post_status'	=> 'submission',
+			'post_status'	=> 'draft',
 			'post_title'	=> ( isset( $_POST['firstname'] ) || isset( $_POST['lastname'] ) ) ? sanitize_text_field( $_POST['firstname'] . ' ' . $_POST['lastname'] ) : '',
 			'post_name'		=> ( isset( $_POST['firstname'] ) ) ? sanitize_title( $_POST['firstname'] . ' ' . $_POST['lastname'] ) : '',
 			'post_content'	=> ( isset( $_POST['post_content'] ) ) ? wp_kses_post( $_POST['post_content'] ) : '',
@@ -106,6 +107,9 @@ class Make_Makers {
 
 		// Get the newly created post
 		$post = get_post( $pid );
+
+		// Add the category...
+		$post->cats = wp_get_post_terms( $pid, 'category' );
 
 		// Send back the Post as JSON
 		die( json_encode( $post ) );
