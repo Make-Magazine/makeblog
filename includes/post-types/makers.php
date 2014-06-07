@@ -99,6 +99,8 @@ class Make_Makers {
 			'post_content'	=> ( isset( $_POST['post_content'] ) ) ? wp_kses_post( $_POST['post_content'] ) : '',
 			'post_category'	=> ( isset( $_POST['cat'] ) ) ? array( absint( $_POST['cat'] ) ) : '',
 			'post_type'		=> 'makers',
+			// When this goes to wpcom, we need to set an author to the post.
+			// Or, do we?
 			// 'post_author'	=> 604631,
 		);
 
