@@ -16,6 +16,7 @@
 		<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
 	<![endif]-->
 	<?php wp_head(); ?>
+
 </head>
 <body class="container">
 
@@ -394,11 +395,10 @@
 					</div>
 				</div>
 
-		</div>
-		<div class="modal-footer">
+				<?php echo wp_nonce_field( 'day-of-making', 'day-of-making' ); ?>
+				<button type="submit" class="add-maker btn btn-primary">Submit</button>
+				<div class="clearfix"></div>
 			</form>
-
-			<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 		</div>
 	</div>
 

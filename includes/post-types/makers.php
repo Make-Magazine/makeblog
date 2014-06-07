@@ -11,6 +11,8 @@ class Make_Makers {
 	public function __construct() {
 		add_action( 'init', array( $this, 'create_post_type' ) );
 		add_action( 'wp_enqueue_scripts', array( $this, 'load_resources' ), 30 );
+		add_action( 'wp_ajax_nopriv_add_maker', array( $this, 'add_maker' ) );
+		add_action( 'wp_ajax_add_maker', array( $this, 'add_maker' ) );
 	}
 
 	/**
@@ -61,18 +63,53 @@ class Make_Makers {
 	public function load_resources() {
 		if ( is_page_template( 'page-day-of-making.php' ) && ! is_admin() ) {
 			// JavaScript
-			wp_enqueue_script( 'make-contribute', get_stylesheet_directory_uri() . '/includes/contribute/js/contribute.js', array( 'jquery' ), '1.0', true );
 			$localize = array(
 				'admin_post' 	=> admin_url( 'admin-ajax.php' ),
 				'logged_in' 	=> is_user_logged_in(),
 				'jake'			=> 'awesome',
 			);
-			wp_localize_script( 'make-contribute', 'contribute', $localize );
 			wp_enqueue_style( 'day-of-making', get_stylesheet_directory_uri() . '/css/day-of-making.css' );
+			wp_enqueue_script( 'day-of-making', get_stylesheet_directory_uri() . '/js/makers.js', array( 'jquery' ) );
+			wp_localize_script( 'day-of-making', 'contribute', $localize );
 			wp_deregister_style( 'make-css' );
 			wp_deregister_style( 'make-print-css' );
 			wp_deregister_style( 'frontend-uploader-css' );
 		}
+	}
+
+	/**
+	 * Take the form data, and add a post/project.
+	 *
+	 * @return json
+	 *
+	 * @since  Quantrons
+	 */
+	public function add_maker() {
+
+		// Check our nonce and make sure it's correct
+		if ( ! wp_verify_nonce( $_POST['day-of-making'], 'day-of-making' ) )
+			die( json_encode( array( 'failed' => 'nonce failed.', 'post' => $_POST, ) ) );
+
+		// Setup the post variables yo.
+		$post = array(
+			'post_status'	=> 'submission',
+			'post_title'	=> ( isset( $_POST['firstname'] ) || isset( $_POST['lastname'] ) ) ? sanitize_text_field( $_POST['firstname'] . ' ' . $_POST['lastname'] ) : '',
+			'post_name'		=> ( isset( $_POST['firstname'] ) ) ? sanitize_title( $_POST['firstname'] . ' ' . $_POST['lastname'] ) : '',
+			'post_content'	=> ( isset( $_POST['post_content'] ) ) ? wp_kses_post( $_POST['post_content'] ) : '',
+			'post_category'	=> ( isset( $_POST['cat'] ) ) ? array( absint( $_POST['cat'] ) ) : '',
+			'post_type'		=> 'makers',
+			// 'post_author'	=> 604631,
+		);
+
+		// Insert the post.
+		$pid = wp_insert_post( $post );
+
+		// Get the newly created post
+		$post = get_post( $pid );
+
+		// Send back the Post as JSON
+		die( json_encode( $post ) );
+
 	}
 
 }
