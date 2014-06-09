@@ -115,10 +115,10 @@ class Make_Makers {
 
 		// Set the email to post_meta.
 		$post->email = ( isset( $_POST['email_address'] ) && add_post_meta( $pid, '_making_email', sanitize_email( $_POST['email_address'] ) ) ) ? get_avatar( sanitize_email( $_POST['email_address'] ), 200 ) : '';
-		// City
-		$post->city = ( isset( $_POST['city'] ) && add_post_meta( $pid, '_city', esc_attr( $_POST['city'] ) ) ) ? esc_attr( $_POST['city'] ) : '';
-		// State
-		$post->state = ( isset( $_POST['state'] ) && add_post_meta( $pid, '_state', esc_attr( $_POST['state'] ) ) ) ? esc_attr( $_POST['state'] ) : '';
+		// Zip
+		$post->zip = ( isset( $_POST['zip'] ) && add_post_meta( $pid, '_zip', esc_attr( $_POST['zip'] ) ) ) ? esc_attr( $_POST['zip'] ) : '';
+		// country
+		$post->country = ( isset( $_POST['country'] ) && add_post_meta( $pid, '_country', esc_attr( $_POST['country'] ) ) ) ? esc_attr( $_POST['country'] ) : '';
 		// Experience
 		$post->experience = ( isset( $_POST['experience'] ) && add_post_meta( $pid, '_experience', esc_attr( $_POST['experience'] ) ) ) ? esc_attr( $_POST['experience'] ) : '';
 		// Experience
