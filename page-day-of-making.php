@@ -135,7 +135,7 @@
 
 		</header><!-- /header -->
 
-
+		<?php do_action( 'maker_rows' ); ?>
 
 		<div class="row">
 
