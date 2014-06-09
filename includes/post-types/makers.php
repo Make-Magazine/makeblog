@@ -157,12 +157,21 @@ class Make_Makers {
 
 		$meta = get_metadata( 'post', $post->ID );
 
-		$output = '<div class="maker media">';
-		$output .= get_avatar( $meta['_email'][0], 200, $default, get_the_title() );
+		$output = '<div class="span6">';
+
+		$output .= '<div class="maker media">';
+		$email = ( isset( $meta['_making_email'][0] ) ) ? $meta['_making_email'][0] : 'webmaster@makezine.com';
+		$output .= get_avatar( $email, 200, '', get_the_title() );
 		// <img src="http://placekitten.com/200/200" alt="Maker Name" class="media-object">
 
 		$output .= '<div class="media-body">';
-		$output .= '<h4 class="media-heading">' . get_the_title() . ' <small>' . esc_html( $meta['_city'][0] ) . ', ' . esc_html( $meta['_state'] ) . '</small></h4>';
+		$output .= '<h4 class="media-heading">';
+		$output .= get_the_title();
+		$output .= ' <small>';
+		$output .= ( isset( $meta['_city'][0] ) ) ? esc_html( $meta['_city'][0] ) : '';
+		$output .= ( isset( $meta['_city'] ) && isset( $meta['_state'] ) ) ? ', ' : '';
+		$output .= ( isset( $meta['_state'][0] ) ) ? esc_html( $meta['_state'][0] ) : '';
+		$output .= '</small></h4>';
 
 		$output .= '<div class="media">';
 		$output .= Markdown( get_the_content() );
