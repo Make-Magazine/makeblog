@@ -354,7 +354,7 @@
 			<form class="form-horizontal" id="day-of-making-form">
 				<!-- Text input-->
 				<div class="control-group">
-					<label class="control-label" for="firstname">Full Name</label>
+					<label class="control-label" for="firstname">Full Name <span class="red">*</span></label>
 					<div class="controls">
 				    	<input id="firstname" name="firstname" type="text" placeholder="" class="input-medium" required="">
 				    	<input id="firstname" name="lastname" type="text" placeholder="" class="input-medium" required="">
@@ -363,7 +363,7 @@
 
 				<!-- Text input-->
 				<div class="control-group">
-					<label class="control-label" for="city">City</label>
+					<label class="control-label" for="city">Location <span class="red">*</span></label>
 					<div class="controls">
 						<input id="city" name="city" type="text" placeholder="" class="input-medium" required="">
 						<select id="state" name="state" class="input-medium">
@@ -426,7 +426,7 @@
 
 				<!-- Text input-->
 				<div class="control-group">
-					<label class="control-label" for="email_address">Email Address</label>
+					<label class="control-label" for="email_address">Email Address <span class="red">*</span></label>
 					<div class="controls">
 				    	<input id="email_address" name="email_address" type="email" placeholder="" class="input-xlarge" required="">
 				    	<p class="help-block"><small><em>We use Gravatar for the images. Don't see yours? Try tying to an account here: <a href="http://en.gravatar.com">http://en.gravatar.com</a></em></small></p>
@@ -455,6 +455,7 @@
 				<!-- Textarea -->
 				<div class="control-group">
 					<label class="control-label" for="post_content">What I make:</label>
+					<label class="control-label" for="post_content">What I make: <span class="red">*</span></label>
 					<div class="controls">
 				    	<textarea id="post_content" class="input-xlarge" rows="3" name="post_content"></textarea>
 					</div>
