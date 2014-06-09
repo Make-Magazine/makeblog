@@ -439,6 +439,7 @@
 							<option value="ZA">South Africa</option>
 							</select>
 						</select>
+						<input id="zip" name="zip" type="text" placeholder="Zip or Territory Code" class="input-medium" required="">
 				  </div>
 				</div>
 
