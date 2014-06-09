@@ -129,11 +129,13 @@
 
 		<header>
 
-			<h2>Latest Makers</h2>
+			<h2>Join over <span class="count"><?php echo intval( wp_count_posts( 'makers' )->publish ); ?></span> Makers!</h2>
 
 			<p>You have what it takes to join an elite force of makers? Sign up here:</p>
 
 		</header><!-- /header -->
+
+
 
 		<div class="row">
 
@@ -352,7 +354,8 @@
 		</div>
 		<div class="modal-body">
 			<form class="form-horizontal" id="day-of-making-form">
-				<!-- Text input-->
+
+				<!-- Name -->
 				<div class="control-group">
 					<label class="control-label" for="firstname">Full Name <span class="red">*</span></label>
 					<div class="controls">
@@ -361,7 +364,7 @@
 					</div>
 				</div>
 
-				<!-- Text input-->
+				<!-- Location (city/state) -->
 				<div class="control-group">
 					<label class="control-label" for="city">Location <span class="red">*</span></label>
 					<div class="controls">
@@ -445,16 +448,27 @@
 				  </div>
 				</div>
 
-				<!-- Text input-->
+				<!-- City/State-->
+				<div class="control-group hide city-state">
+					<label class="control-label" for="firstname">City/State <span class="red">*</span></label>
+					<div class="controls">
+						<input id="city" name="city" type="text" placeholder="City" class="input-medium" required="">
+						<input id="state" name="state" type="text" placeholder="State" class="input-medium" required="">
+					</div>
+				</div>
+
+				<!-- Email Address-->
 				<div class="control-group">
 					<label class="control-label" for="email_address">Email Address <span class="red">*</span></label>
 					<div class="controls">
 				    	<input id="email_address" name="email_address" type="email" placeholder="" class="input-xlarge" required="">
+				    	<div class="spacer"></div>
+				    	<div id="gravatar-placeholder" class="pull-left spacerings"></div>
 				    	<p class="help-block"><small><em>We use Gravatar for the images. Don't see yours? Try tying to an account here: <a href="http://en.gravatar.com">http://en.gravatar.com</a></em></small></p>
 					</div>
 				</div>
 
-				<!-- Select Basic -->
+				<!-- Experience Level -->
 				<div class="control-group">
 				  <label class="control-label" for="experience">Experience Level</label>
 				  <div class="controls">
@@ -465,7 +479,7 @@
 				  </div>
 				</div>
 
-				<!-- Select Basic -->
+				<!-- Category -->
 				<div class="control-group">
 					<label class="control-label" for="category">Category</label>
 					<div class="controls">
@@ -473,7 +487,7 @@
 					</div>
 				</div>
 
-				<!-- Textarea -->
+				<!-- What do you make... -->
 				<div class="control-group">
 					<label class="control-label" for="post_content">What I make: <span class="red">*</span></label>
 					<div class="controls">
