@@ -29,7 +29,7 @@ class Make_Makers {
 			'new_item' 				=> 'New Maker',
 			'view_item' 			=> 'View Maker',
 			'search_items' 			=> 'Search Makers',
-			'not_found' 			=>  'No Makers found...',
+			'not_found' 			=> 'No Makers found...',
 			'not_found_in_trash' 	=> 'No Makers found in trash',
 			'parent_item_colon' 	=> 'Parent Maker:',
 			'menu_name' 			=> 'Makers'
