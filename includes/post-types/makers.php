@@ -116,7 +116,7 @@ class Make_Makers {
 		$post->formatted_content = Markdown( $post->post_content );
 
 		// Set the email to post_meta.
-		$post->email = ( isset( $_POST['email_address'] ) && add_post_meta( $pid, '_making_email', sanitize_email( $_POST['email_address'] ) ) ) ? get_avatar( sanitize_email( $_POST['email_address'] ), 200 ) : '';
+		$post->email = ( isset( $_POST['email_address'] ) && add_post_meta( $pid, '_making_email', sanitize_email( $_POST['email_address'] ) ) ) ? get_avatar( sanitize_email( $_POST['email_address'] ), 200, '', $post->post_title ) : '';
 		// City
 		$post->city = ( isset( $_POST['city'] ) && add_post_meta( $pid, '_city', sanitize_text_field( $_POST['city'] ) ) ) ? sanitize_text_field( $_POST['city'] ) : '';
 		// State
