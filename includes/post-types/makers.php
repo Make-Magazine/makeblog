@@ -155,7 +155,7 @@ class Make_Makers {
 		// Let's get going...
 		setup_postdata( $post );
 
-		$meta = get_post_meta();
+		$meta = get_metadata( 'post', $post->ID );
 
 		$output = '<div class="maker media">';
 		$output .= get_avatar( $meta['_email'][0], 200, $default, get_the_title() );
