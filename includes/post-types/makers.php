@@ -139,6 +139,30 @@ class Make_Makers {
 
 	}
 
+
+	/**
+	 * Build the output of the rows
+	 */
+	public function maker_media( $post ) {
+
+		// Let's get going...
+		setup_postdata( $post );
+
+		$meta = get_post_meta();
+
+		$output = '<div class="maker media">';
+		$output .= get_avatar( $meta['_email'][0], 200, $default, get_the_title() );
+		// <img src="http://placekitten.com/200/200" alt="Maker Name" class="media-object">
+
+		$output .= '<div class="media-body">';
+		$output .= '<h4 class="media-heading">' . get_the_title() . ' <small>' . esc_html( $meta['_city'][0] ) . ', ' . esc_html( $meta['_state'] ) . '</small></h4>';
+
+		$output .= '<div class="media">';
+		$output .= Markdown( get_the_content() );
+
+		$output .= '</div></div></div></div>';
+	}
+
 }
 
 $makers = new Make_Makers();
