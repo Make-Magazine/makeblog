@@ -29,7 +29,7 @@ class Make_Makers {
 			'new_item' 				=> 'New Maker',
 			'view_item' 			=> 'View Maker',
 			'search_items' 			=> 'Search Makers',
-			'not_found' 			=>  'No Makers found...',
+			'not_found' 			=> 'No Makers found...',
 			'not_found_in_trash' 	=> 'No Makers found in trash',
 			'parent_item_colon' 	=> 'Parent Maker:',
 			'menu_name' 			=> 'Makers'
@@ -101,7 +101,7 @@ class Make_Makers {
 			'post_type'		=> 'makers',
 			// When this goes to wpcom, we need to set an author to the post.
 			// Or, do we?
-			// 'post_author'	=> 604631,
+			'post_author'	=> 604631,
 		);
 
 		// Insert the post.
@@ -109,6 +109,8 @@ class Make_Makers {
 
 		// Get the newly created post
 		$post = get_post( $pid );
+
+		$post->number = wp_count_posts( 'makers' );
 
 		// Let's make it look purdy...
 		$post->formatted_content = Markdown( $post->post_content );
@@ -120,11 +122,11 @@ class Make_Makers {
 		// country
 		$post->country = ( isset( $_POST['country'] ) && add_post_meta( $pid, '_country', esc_attr( $_POST['country'] ) ) ) ? esc_attr( $_POST['country'] ) : '';
 		// Experience
-		$post->experience = ( isset( $_POST['experience'] ) && add_post_meta( $pid, '_experience', esc_attr( $_POST['experience'] ) ) ) ? esc_attr( $_POST['experience'] ) : '';
-		// Experience
-		$post->firstname = ( isset( $_POST['firstname'] ) && add_post_meta( $pid, '_firstname', esc_attr( $_POST['firstname'] ) ) ) ? esc_attr( $_POST['firstname'] ) : '';
-		// Experience
-		$post->lastname = ( isset( $_POST['lastname'] ) && add_post_meta( $pid, '_lastname', esc_attr( $_POST['lastname'] ) ) ) ? esc_attr( $_POST['lastname'] ) : '';
+		$post->experience = ( isset( $_POST['experience'] ) && add_post_meta( $pid, '_experience', sanitize_text_field( $_POST['experience'] ) ) ) ? sanitize_text_field( $_POST['experience'] ) : '';
+		// First Name
+		$post->firstname = ( isset( $_POST['firstname'] ) && add_post_meta( $pid, '_firstname', sanitize_text_field( $_POST['firstname'] ) ) ) ? sanitize_text_field( $_POST['firstname'] ) : '';
+		// Last Name
+		$post->lastname = ( isset( $_POST['lastname'] ) && add_post_meta( $pid, '_lastname', sanitize_text_field( $_POST['lastname'] ) ) ) ? sanitize_text_field( $_POST['lastname'] ) : '';
 
 		// Add the category...
 		$post->cats = wp_get_post_terms( $pid, 'category' );

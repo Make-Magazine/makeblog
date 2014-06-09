@@ -26,6 +26,9 @@ jQuery( document ).ready( function( $ ) {
 			url: contribute.admin_post,
 			data: form,
 			type: 'POST',
+			xhrFields: {
+				withCredentials: true
+			},
 			success: function( data ){
 				post_obj = JSON.parse( data );
 				console.log( post_obj );
