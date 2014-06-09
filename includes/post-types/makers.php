@@ -101,7 +101,7 @@ class Make_Makers {
 			'post_type'		=> 'makers',
 			// When this goes to wpcom, we need to set an author to the post.
 			// Or, do we?
-			// 'post_author'	=> 604631,
+			'post_author'	=> 604631,
 		);
 
 		// Insert the post.
