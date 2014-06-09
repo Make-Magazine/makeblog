@@ -116,15 +116,15 @@ class Make_Makers {
 		// Set the email to post_meta.
 		$post->email = ( isset( $_POST['email_address'] ) && add_post_meta( $pid, '_making_email', sanitize_email( $_POST['email_address'] ) ) ) ? get_avatar( sanitize_email( $_POST['email_address'] ), 200 ) : '';
 		// City
-		$post->city = ( isset( $_POST['city'] ) && add_post_meta( $pid, '_city', esc_attr( $_POST['city'] ) ) ) ? esc_attr( $_POST['city'] ) : '';
+		$post->city = ( isset( $_POST['city'] ) && add_post_meta( $pid, '_city', sanitize_text_field( $_POST['city'] ) ) ) ? sanitize_text_field( $_POST['city'] ) : '';
 		// State
-		$post->state = ( isset( $_POST['state'] ) && add_post_meta( $pid, '_state', esc_attr( $_POST['state'] ) ) ) ? esc_attr( $_POST['state'] ) : '';
+		$post->state = ( isset( $_POST['state'] ) && add_post_meta( $pid, '_state', sanitize_text_field( $_POST['state'] ) ) ) ? sanitize_text_field( $_POST['state'] ) : '';
 		// Experience
-		$post->experience = ( isset( $_POST['experience'] ) && add_post_meta( $pid, '_experience', esc_attr( $_POST['experience'] ) ) ) ? esc_attr( $_POST['experience'] ) : '';
+		$post->experience = ( isset( $_POST['experience'] ) && add_post_meta( $pid, '_experience', sanitize_text_field( $_POST['experience'] ) ) ) ? sanitize_text_field( $_POST['experience'] ) : '';
 		// Experience
-		$post->firstname = ( isset( $_POST['firstname'] ) && add_post_meta( $pid, '_firstname', esc_attr( $_POST['firstname'] ) ) ) ? esc_attr( $_POST['firstname'] ) : '';
+		$post->firstname = ( isset( $_POST['firstname'] ) && add_post_meta( $pid, '_firstname', sanitize_text_field( $_POST['firstname'] ) ) ) ? sanitize_text_field( $_POST['firstname'] ) : '';
 		// Experience
-		$post->lastname = ( isset( $_POST['lastname'] ) && add_post_meta( $pid, '_lastname', esc_attr( $_POST['lastname'] ) ) ) ? esc_attr( $_POST['lastname'] ) : '';
+		$post->lastname = ( isset( $_POST['lastname'] ) && add_post_meta( $pid, '_lastname', sanitize_text_field( $_POST['lastname'] ) ) ) ? sanitize_text_field( $_POST['lastname'] ) : '';
 
 		// Add the category...
 		$post->cats = wp_get_post_terms( $pid, 'category' );
