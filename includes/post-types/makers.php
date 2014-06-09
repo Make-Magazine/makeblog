@@ -71,6 +71,7 @@ class Make_Makers {
 			);
 			wp_enqueue_style( 'day-of-making', get_stylesheet_directory_uri() . '/css/day-of-making.css' );
 			wp_enqueue_script( 'day-of-making', get_stylesheet_directory_uri() . '/js/makers.js', array( 'jquery' ) );
+			wp_enqueue_script( 'md5', get_stylesheet_directory_uri() . '/js/md5.js', array( 'jquery' ) );
 			wp_localize_script( 'day-of-making', 'contribute', $localize );
 			wp_deregister_style( 'make-css' );
 			wp_deregister_style( 'make-print-css' );
