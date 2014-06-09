@@ -141,6 +141,11 @@ class Make_Makers {
 
 	}
 
+	public function change_avatar_css($class) {
+		$class = str_replace( "class='avatar", "class='avatar pull-left ", $class ) ;
+		return $class;
+	}
+
 
 	/**
 	 * Build the output of the rows
