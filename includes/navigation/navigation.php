@@ -363,7 +363,7 @@ class Bootstrap_Walker_Nav_Menu extends Walker_Nav_Menu {
 				<li><a href="#">Twitter</a></li>
 				<li><a href="#">MakerSpace</a></li>
 			</ul>
-			<div class="login-wrapper"><div></div>
+			<div class="login-wrapper"><div>
 		</div>';
 
 		return $output;
