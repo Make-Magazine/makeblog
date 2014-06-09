@@ -473,10 +473,9 @@
 
 				<!-- Textarea -->
 				<div class="control-group">
-					<label class="control-label" for="post_content">What I make:</label>
 					<label class="control-label" for="post_content">What I make: <span class="red">*</span></label>
 					<div class="controls">
-				    	<textarea id="post_content" class="input-xlarge" rows="3" name="post_content"></textarea>
+				    	<textarea id="post_content" class="input-xlarge" rows="3" required="" name="post_content"></textarea>
 					</div>
 				</div>
 
