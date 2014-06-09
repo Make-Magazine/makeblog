@@ -110,6 +110,8 @@ class Make_Makers {
 		// Get the newly created post
 		$post = get_post( $pid );
 
+		$post->number = wp_count_posts( 'makers' );
+
 		// Let's make it look purdy...
 		$post->formatted_content = Markdown( $post->post_content );
 
