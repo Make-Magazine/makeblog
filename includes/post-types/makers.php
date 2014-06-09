@@ -177,6 +177,41 @@ class Make_Makers {
 		$output .= Markdown( get_the_content() );
 
 		$output .= '</div></div></div></div>';
+
+		return $output;
+	}
+
+	/**
+	 * Build the rows of user contributed content.
+	 */
+	public function build_rows() {
+		$args = array(
+			'post_type'			=> 'makers',
+			'posts_per_page'	=> 30,
+		);
+
+		$query = new WP_Query( $args );
+
+		$output = '';
+
+		$rows = array_chunk( $query->posts, 2 );
+
+		foreach ( $rows as $row => $posts ) {
+
+			$output .= '<div class="row">';
+
+			foreach ($posts as $post ) {
+
+				$output .= $this->maker_media( $post );
+
+			}
+
+			$output .= '</div>';
+
+		}
+
+		echo $output;
+
 	}
 
 }
