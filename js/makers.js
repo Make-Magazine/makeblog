@@ -43,4 +43,41 @@ jQuery( document ).ready( function( $ ) {
 		});
 	});
 
+	// Get the city and the state based on the ZIP code.
+	// Should we store the Lat/Long while we are at it?
+	$( '#zip' ).focusout( function(){
+
+		// Build the URL.
+		api_base = 'http://api.zippopotam.us/';
+		country = $('#country option:selected').val();
+		zip = $( '#zip' ).val();
+		url = api_base + country + '/' + zip;
+
+		// Send off the AJAX call.
+		$.ajax({
+			url: url,
+			type: 'GET',
+			success: function( location_meta ){
+				$('#city').val( location_meta.places[0]['place name'] );
+				$('#state').val( location_meta.places[0]['state'] );
+				$('.city-state').slideDown();
+			}
+		});
+	});
+
+	$( '#email_address' ).focusout( function() {
+
+		// Get the Email address.
+		var email = $( '#email_address' ).val();
+
+		// Create a new image with the src pointing to the user's gravatar
+		var gravatar = $('<img>').attr({
+			'src'	: 'http://www.gravatar.com/avatar/' + md5( email ),
+			'class'	: 'thumbnail'
+		});
+
+		// Add this image to the placeholder
+		$( '#gravatar-placeholder' ).html( gravatar );
+	});
+
 });
