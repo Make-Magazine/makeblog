@@ -6676,7 +6676,7 @@ p {
 .list-of-makers header p {
   text-align: center;
 }
-.list-of-makers .maker {
+.maker {
   background-color: #efefef;
   margin: 10px;
   padding: 15px;
@@ -6691,7 +6691,7 @@ p {
   color: red;
 }
 .modal-body {
-  max-height: 420px;
+  max-height: 600px;
 }
 .spacer {
   height: 10px;
