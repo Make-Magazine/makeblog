@@ -185,35 +185,32 @@ class Make_Makers {
 	 * Build the rows of user contributed content.
 	 */
 	public function build_rows() {
+
+		// Build the args array. Keep it simple right now.
 		$args = array(
 			'post_type'			=> 'makers',
 			'posts_per_page'	=> 30,
 		);
 
+		// Build the Query.
 		$query = new WP_Query( $args );
 
+		// Start the output.
 		$output = '';
 
+		// Break the results into chunks, so that we can have rows.
 		$rows = array_chunk( $query->posts, 2 );
 
 		foreach ( $rows as $row => $posts ) {
-
 			$output .= '<div class="row">';
-
+			// Inside each of the rows, build the output.
 			foreach ($posts as $post ) {
-
 				$output .= $this->maker_media( $post );
-
 			}
-
 			$output .= '</div>';
-
 		}
-
 		echo $output;
-
 	}
-
 }
 
 $makers = new Make_Makers();
