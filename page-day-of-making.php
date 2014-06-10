@@ -264,7 +264,7 @@
 
 				<!-- URL -->
 				<div class="control-group">
-					<label class="control-label" for="email_address">Link to blog/website</label>
+					<label class="control-label" for="email_address">Show Us Your Maker Site</label>
 					<div class="controls">
 						<input id="url" name="url" type="url" placeholder="" class="input-xlarge">
 						<div class="spacer"></div>
@@ -273,18 +273,23 @@
 
 				<!-- Experience Level -->
 				<div class="control-group">
-					<label class="control-label" for="experience">Experience Level</label>
+					<label class="control-label" for="experience">Which of the following best describes you personally in regard to your making interests?</label>
 					<div class="controls">
 						<select id="experience" name="experience" class="input-medium">
-							<option>Goldsmith</option>
-							<option>Coppersmith</option>
+							<option value="Fan">Fan - I may not make much, but I love finding out what other people are doing and keeping up with new projects/concepts/techniques.</option>
+							<option value="Newbie">Newbie - I'm just starting to learn about something that piqued my interest, and want to start my first project</option>
+							<option value="Beginner">Beginner - I've completed a project or two and am still learning the basics</option>
+							<option value="Intermediate">Intermediate - I've worked on a few projects, know the basics, and am eager to learn more</option>
+							<option value="Advanced">Advanced - I've done several projects and feel very comfortable sharing my knowledge</option>
+							<option value="Expert">Expert - I am a recognized expert in my field of interest and am very confident instructing others</option>
+
 						</select>
 					</div>
 				</div>
 
 				<!-- Category -->
 				<div class="control-group">
-					<label class="control-label" for="category">Category</label>
+					<label class="control-label" for="category">Main Maker Interest</label>
 					<div class="controls">
 						<?php wp_dropdown_categories( array( 'class' => 'input-medium' ) ); ?>
 					</div>
