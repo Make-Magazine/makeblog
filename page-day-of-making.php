@@ -119,7 +119,7 @@
 
 				<p>Plus, get a free PDF of the book Zero to Maker by David Lang.</p>
 
-				<a role="button" data-toggle="modal" class="btn btn-large btn-block" title="Call to Action" data-toggle="modal" href="#myModal">Call to Action</a>
+				<a role="button" data-toggle="modal" class="btn btn-large btn-block" title="Join other makers" data-toggle="modal" href="#join">Join other Makers</a>
 
 			</div>
 
@@ -141,7 +141,7 @@
 
 	</section>
 
-	<div class="modal hide fade" id="myModal">
+	<div class="modal hide fade" id="join">
 		<div class="modal-header">
 			<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 			<h3>Register for the Day of Making</h3>
@@ -267,22 +267,20 @@
 					<label class="control-label" for="email_address">Show Us Your Maker Site</label>
 					<div class="controls">
 						<input id="url" name="url" type="url" placeholder="" class="input-xlarge">
-						<div class="spacer"></div>
 					</div>
 				</div>
 
 				<!-- Experience Level -->
 				<div class="control-group">
-					<label class="control-label" for="experience">Which of the following best describes you personally in regard to your making interests?</label>
+					<label class="control-label" for="experience">Experience</label>
 					<div class="controls">
-						<select id="experience" name="experience" class="input-medium">
-							<option value="Fan">Fan - I may not make much, but I love finding out what other people are doing and keeping up with new projects/concepts/techniques.</option>
-							<option value="Newbie">Newbie - I'm just starting to learn about something that piqued my interest, and want to start my first project</option>
-							<option value="Beginner">Beginner - I've completed a project or two and am still learning the basics</option>
-							<option value="Intermediate">Intermediate - I've worked on a few projects, know the basics, and am eager to learn more</option>
-							<option value="Advanced">Advanced - I've done several projects and feel very comfortable sharing my knowledge</option>
-							<option value="Expert">Expert - I am a recognized expert in my field of interest and am very confident instructing others</option>
-
+						<select id="experience" name="experience" class="input-xlarge">
+							<option value="Fan">Fan: I love finding out what other people are making.</option>
+							<option value="Newbie">Newbie: I want to start my first project.</option>
+							<option value="Beginner">Beginner: I’m still learning the basics.</option>
+							<option value="Intermediate">Intermediate: I’ve completed a few projects andam eager to learn more.</option>
+							<option value="Advanced">Advanced: I’m ready to share my knowledge.</option>
+							<option value="Expert">Expert: I am a Maker Pro or recognized expert.</option>
 						</select>
 					</div>
 				</div>
@@ -291,13 +289,13 @@
 				<div class="control-group">
 					<label class="control-label" for="category">Main Maker Interest</label>
 					<div class="controls">
-						<?php wp_dropdown_categories( array( 'class' => 'input-medium' ) ); ?>
+						<?php wp_dropdown_categories( array( 'class' => 'input-xlarge' ) ); ?>
 					</div>
 				</div>
 
 				<!-- What do you make... -->
 				<div class="control-group">
-					<label class="control-label" for="post_content">What I make: <span class="red">*</span></label>
+					<label class="control-label" for="post_content">What I Make<span class="red">*</span></label>
 					<div class="controls">
 						<textarea id="post_content" class="input-xlarge" maxlength="250" rows="3" required="" name="post_content"></textarea>
 					</div>
