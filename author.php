@@ -81,9 +81,20 @@ get_header(); ?>
 
 					<?php endwhile; else: ?>
 
+
+
 						<p><?php echo 'No posts found.' ?></p>
 
 					<?php endif; ?>
+
+						<div class="clear"></div>
+
+						<div>
+							<ul class="pager">
+								<li class="previous"><?php previous_posts_link('&larr; Previous Page'); ?></li>
+								<li class="next"><?php next_posts_link('Next Page &rarr;'); ?></li>
+							</ul>
+						</div>
 
 				</div>
 
