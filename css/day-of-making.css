@@ -6691,7 +6691,7 @@ p {
   color: red;
 }
 .modal-body {
-  max-height: 600px;
+  max-height: 800px;
 }
 .spacer {
   height: 10px;
