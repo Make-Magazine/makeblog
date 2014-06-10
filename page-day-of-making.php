@@ -418,7 +418,7 @@
 							<option value="Fan">Fan: I love finding out what other people are making.</option>
 							<option value="Newbie">Newbie: I want to start my first project.</option>
 							<option value="Beginner">Beginner: I’m still learning the basics.</option>
-							<option value="Intermediate">Intermediate: I’ve completed a few projects andam eager to learn more.</option>
+							<option value="Intermediate">Intermediate: I’ve completed a few projects and am eager to learn more.</option>
 							<option value="Advanced">Advanced: I’m ready to share my knowledge.</option>
 							<option value="Expert">Expert: I am a Maker Pro or recognized expert.</option>
 						</select>
