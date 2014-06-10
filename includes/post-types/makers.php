@@ -162,11 +162,9 @@ class Make_Makers {
 		$output .= '<div class="maker media">';
 		$email = ( isset( $meta['_making_email'][0] ) ) ? $meta['_making_email'][0] : 'webmaster@makezine.com';
 		$output .= get_avatar( $email, 200, '', get_the_title() );
-		// <img src="http://placekitten.com/200/200" alt="Maker Name" class="media-object">
-
 		$output .= '<div class="media-body">';
 		$output .= '<h4 class="media-heading">';
-		$output .= get_the_title();
+		$output .= esc_html( $post->post_title );
 		$output .= ' <small>';
 		$output .= ( isset( $meta['_city'][0] ) ) ? esc_html( $meta['_city'][0] ) : '';
 		$output .= ( isset( $meta['_city'] ) && isset( $meta['_state'] ) ) ? ', ' : '';
