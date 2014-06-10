@@ -35,7 +35,7 @@
 
 	</header><!-- /header -->
 
-	<div class="thanks hide">
+	<section class="thanks hide">
 
 		<div class="row">
 
@@ -97,7 +97,6 @@
 
 		</div>
 
-	</div>
 
 	<section class="call-out">
 
