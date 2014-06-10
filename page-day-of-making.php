@@ -97,6 +97,147 @@
 
 		</div>
 
+	</section>
+
+	<section class="end-page hide">
+
+		<div class="row">
+
+			<div class="span6">
+
+				<h1>Where are the other Makers?</h1>
+
+				<p class="lead">Tenderloin pig short loin, capicola drumstick rump beef kevin short ribs kielbasa beef ribs salami doner. Pastrami cow turkey, drumstick shankle landjaeger swine beef short ribs sausage kielbasa flank ball tip prosciutto.</p>
+
+				<iframe frameborder="0" src="http://storymaps.esri.com/stories/2014/makerwhere/" width="570" height="400"></iframe>
+
+				<h3>More DC based events:</h3>
+
+				<ul>
+					<li><strong>June 18th:</strong> White House Mini Maker Faire</li>
+					<li><strong>June 29th:</strong> Maker Faire DC</li>
+					<li><strong>June 18th:</strong> White House Mini Maker Faire</li>
+					<li><strong>June 29th:</strong> Maker Faire DC</li>
+					<li><strong>June 18th:</strong> White House Mini Maker Faire</li>
+					<li><strong>June 29th:</strong> Maker Faire DC</li>
+				</ul>
+
+				<h3>Make More Makers</h3>
+
+				<div class="media">
+					<a class="pull-left" href="http://makerspace.com">
+						<img class="media-object" src="http://placekitten.com/120/120" alt="Makerspace">
+					</a>
+					<div class="media-body">
+						<h4 class="media-heading">Create a Makerspace</h4>
+						<p>Tenderloin pig short loin, capicola drumstick rump beef kevin short ribs kielbasa beef ribs salami doner.</p>
+					</div>
+				</div>
+
+				<div class="media">
+					<a class="pull-left" href="http://makerfaire.com">
+						<img class="media-object" src="http://placekitten.com/120/120" alt="Makerspace">
+					</a>
+					<div class="media-body">
+						<h4 class="media-heading">Make a Maker Faire</h4>
+						<p>Tenderloin pig short loin, capicola drumstick rump beef kevin short ribs kielbasa beef ribs salami doner.</p>
+					</div>
+				</div>
+
+				<div class="media">
+					<a class="pull-left" href="http://makerspace.com">
+						<img class="media-object" src="http://placekitten.com/120/120" alt="Makerspace">
+					</a>
+					<div class="media-body">
+						<h4 class="media-heading">Host a Maker Camp for teens</h4>
+						<p>Tenderloin pig short loin, capicola drumstick rump beef kevin short ribs kielbasa beef ribs salami doner.</p>
+					</div>
+				</div>
+
+				<div class="media">
+					<a class="pull-left" href="http://makerspace.com">
+						<img class="media-object" src="http://placekitten.com/120/120" alt="Makerspace">
+					</a>
+					<div class="media-body">
+						<h4 class="media-heading">Teach Making</h4>
+						<p>Tenderloin pig short loin, capicola drumstick rump beef kevin short ribs kielbasa beef ribs salami doner.</p>
+					</div>
+				</div>
+
+				<div class="media">
+					<a class="pull-left" href="http://makerspace.com">
+						<img class="media-object" src="http://placekitten.com/120/120" alt="Makerspace">
+					</a>
+					<div class="media-body">
+						<h4 class="media-heading">Learn about the Maker Movement</h4>
+						<p>Tenderloin pig short loin, capicola drumstick rump beef kevin short ribs kielbasa beef ribs salami doner.</p>
+					</div>
+				</div>
+
+			</div>
+
+			<div class="span6">
+
+				<h2>Day of Making Agenda</h2>
+
+				<h3>White Hose Mini Maker Faire</h3>
+
+				<img src="http://placekitten.com/570/200" alt="">
+
+				<div class="spacer"></div>
+
+				<a class="twitter-timeline" href="https://twitter.com/search?q=%23NationOfMakers" width="570" data-widget-id="476445295467704320">Tweets about "#NationOfMakers"</a>
+				<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+
+				<h3>Make More Stuff</h3>
+
+				<div class="media">
+					<a class="pull-left" href="http://makezine.com/projects/">
+						<img class="media-object" src="http://placekitten.com/120/120" alt="Makerspace">
+					</a>
+					<div class="media-body">
+						<h4 class="media-heading">Start a Project</h4>
+						<p>Tenderloin pig short loin, capicola drumstick rump beef kevin short ribs kielbasa beef ribs salami doner.</p>
+					</div>
+				</div>
+
+				<div class="media">
+					<a class="pull-left" href="http://makerfaire.com">
+						<img class="media-object" src="http://placekitten.com/120/120" alt="Makerspace">
+					</a>
+					<div class="media-body">
+						<h4 class="media-heading">Find a Faire</h4>
+						<p>Tenderloin pig short loin, capicola drumstick rump beef kevin short ribs kielbasa beef ribs salami doner.</p>
+					</div>
+				</div>
+
+				<div class="media">
+					<a class="pull-left" href="http://makerspace.com">
+						<img class="media-object" src="http://placekitten.com/120/120" alt="Makerspace">
+					</a>
+					<div class="media-body">
+						<h4 class="media-heading">Shop for Kits, Tools</h4>
+						<p>Tenderloin pig short loin, capicola drumstick rump beef kevin short ribs kielbasa beef ribs salami doner.</p>
+					</div>
+				</div>
+
+				<div class="media">
+					<a class="pull-left" href="http://makerspace.com">
+						<img class="media-object" src="http://placekitten.com/120/120" alt="Makerspace">
+					</a>
+					<div class="media-body">
+						<h4 class="media-heading">Subscribe to Make:</h4>
+						<p>Tenderloin pig short loin, capicola drumstick rump beef kevin short ribs kielbasa beef ribs salami doner.</p>
+					</div>
+				</div>
+
+
+
+			</div>
+
+		</div>
+
+	</section>
 
 	<section class="call-out">
 
