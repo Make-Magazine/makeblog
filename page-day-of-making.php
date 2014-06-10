@@ -27,7 +27,7 @@
 
 			<div class="span12">
 
-				<img src="<?php echo esc_url( get_stylesheet_directory_uri() . '/img/day-of-making.gif' ); ?>" alt="Day of Making">
+				<img src="<?php echo esc_url( get_stylesheet_directory_uri() . '/img/DayofMaking_logo.png' ); ?>" alt="Day of Making">
 
 			</div>
 
@@ -85,9 +85,9 @@
 
 					<div class="span3">
 
-						<img src="http://placekitten.com/260/180" alt="" class="thumbnail" >
+						<img src="<?php echo esc_url( get_stylesheet_directory_uri() . '/img/day-of-making-badge.png' ); ?>" alt="" class="Day of Making" >
 
-						<a href="#" class="btn btn-block" title="">Download Your Badge</a>
+						<a href="<?php echo esc_url( get_stylesheet_directory_uri() . '/img/day-of-making-badge.png' ); ?>" target="_blank" class="btn btn-block" title="">Download Your Badge</a>
 
 					</div>
 
@@ -105,17 +105,19 @@
 
 			<div class="span7">
 
-				<p>Bacon ipsum dolor sit amet consectetur strip steak nulla exercitation swine. Magna commodo excepteur turkey dolore cupidatat turducken. Sed ut landjaeger, boudin consequat anim laborum fatback. Prosciutto doner veniam tri-tip kevin fatback turducken ad. Pork chop pastrami irure, tail turkey esse drumstick brisket et eu meatball commodo proident. Pariatur exercitation turducken brisket enim pork chop frankfurter flank.</p>
+				<h1>Calling all makers!</h1>
 
-				<p>Tongue voluptate occaecat eu turducken nostrud incididunt meatball ut spare ribs qui. Ut id jowl pork loin jerky. Short ribs brisket anim sirloin voluptate, laboris dolore ex id beef ribs. Meatball duis prosciutto pork ut. Irure beef nostrud sausage.</p>
+				<h3>Add your voice to the National Day of Making!</h3>
+
+				<p>Today, we’re joing with the White House and calling on all makers to stand up and be counted. If you’re passionate about making and love to design, hack, create, build, tinker or engineer, we want to hear from you! </p>
 
 			</div>
 
 			<div class="span5">
 
-				<h3>Here is a headline</h3>
+				<p><strong>Register as a maker today</strong> and demonstrate your proud support of makers around the country. Receive an electronic badge like this to post on your social media channels.</p>
 
-				<p>Tongue voluptate occaecat eu turducken nostrud incididunt meatball ut spare ribs qui. Ut id jowl pork loin jerky. Short ribs brisket anim sirloin voluptate, laboris dolore ex id beef ribs. Meatball duis prosciutto pork ut. Irure beef nostrud sausage.</p>
+				<p>Plus, get a free PDF of the book Zero to Maker by David Lang.</p>
 
 				<a role="button" data-toggle="modal" class="btn btn-large btn-block" title="Call to Action" data-toggle="modal" href="#myModal">Call to Action</a>
 
@@ -137,214 +139,6 @@
 
 		<?php do_action( 'maker_rows' ); ?>
 
-		<div class="row">
-
-			<div class="span6">
-
-				<div class="maker media">
-
-					<a href="#" title="" class="pull-left">
-						<img src="http://placekitten.com/200/200" alt="Maker Name" class="media-object">
-					</a>
-
-					<div class="media-body">
-
-						<h4 class="media-heading">Jake Spurlock <small>Santa Rosa, CA</small></h4>
-
-						<div class="media">
-
-							<p>Bacon ipsum dolor sit amet consectetur strip steak nulla exercitation swine. Magna commodo excepteur turkey dolore cupidatat turducken. Sed ut landjaeger, boudin consequat anim laborum fatback. Prosciutto doner veniam tri-tip kevin fatback turducken ad. Pork chop pastrami irure, tail turkey esse drumstick brisket et eu meatball commodo proident. Pariatur exercitation turducken brisket enim pork chop frankfurter flank.</p>
-
-						</div>
-
-					</div>
-
-				</div>
-
-			</div>
-
-			<div class="span6">
-
-				<div class="maker media">
-
-					<a href="#" title="" class="pull-left">
-						<img src="http://placekitten.com/200/200" alt="Maker Name" class="media-object">
-					</a>
-
-					<div class="media-body">
-
-						<h4 class="media-heading">Jake Spurlock <small>Santa Rosa, CA</small></h4>
-
-						<div class="media">
-
-							<p>Bacon ipsum dolor sit amet consectetur strip steak nulla exercitation swine. Magna commodo excepteur turkey dolore cupidatat turducken. Sed ut landjaeger, boudin consequat anim laborum fatback. Prosciutto doner veniam tri-tip kevin fatback turducken ad. Pork chop pastrami irure, tail turkey esse drumstick brisket et eu meatball commodo proident. Pariatur exercitation turducken brisket enim pork chop frankfurter flank.</p>
-
-						</div>
-
-					</div>
-
-				</div>
-
-			</div>
-
-		</div>
-
-		<div class="row">
-
-			<div class="span6">
-
-				<div class="maker media">
-
-					<a href="#" title="" class="pull-left">
-						<img src="http://placekitten.com/200/200" alt="Maker Name" class="media-object">
-					</a>
-
-					<div class="media-body">
-
-						<h4 class="media-heading">Jake Spurlock <small>Santa Rosa, CA</small></h4>
-
-						<div class="media">
-
-							<p>Bacon ipsum dolor sit amet consectetur strip steak nulla exercitation swine. Magna commodo excepteur turkey dolore cupidatat turducken. Sed ut landjaeger, boudin consequat anim laborum fatback. Prosciutto doner veniam tri-tip kevin fatback turducken ad. Pork chop pastrami irure, tail turkey esse drumstick brisket et eu meatball commodo proident. Pariatur exercitation turducken brisket enim pork chop frankfurter flank.</p>
-
-						</div>
-
-					</div>
-
-				</div>
-
-			</div>
-
-			<div class="span6">
-
-				<div class="maker media">
-
-					<a href="#" title="" class="pull-left">
-						<img src="http://placekitten.com/200/200" alt="Maker Name" class="media-object">
-					</a>
-
-					<div class="media-body">
-
-						<h4 class="media-heading">Jake Spurlock <small>Santa Rosa, CA</small></h4>
-
-						<div class="media">
-
-							<p>Bacon ipsum dolor sit amet consectetur strip steak nulla exercitation swine. Magna commodo excepteur turkey dolore cupidatat turducken. Sed ut landjaeger, boudin consequat anim laborum fatback. Prosciutto doner veniam tri-tip kevin fatback turducken ad. Pork chop pastrami irure, tail turkey esse drumstick brisket et eu meatball commodo proident. Pariatur exercitation turducken brisket enim pork chop frankfurter flank.</p>
-
-						</div>
-
-					</div>
-
-				</div>
-
-			</div>
-
-		</div>
-
-		<div class="row">
-
-			<div class="span6">
-
-				<div class="maker media">
-
-					<a href="#" title="" class="pull-left">
-						<img src="http://placekitten.com/200/200" alt="Maker Name" class="media-object">
-					</a>
-
-					<div class="media-body">
-
-						<h4 class="media-heading">Jake Spurlock <small>Santa Rosa, CA</small></h4>
-
-						<div class="media">
-
-							<p>Bacon ipsum dolor sit amet consectetur strip steak nulla exercitation swine. Magna commodo excepteur turkey dolore cupidatat turducken. Sed ut landjaeger, boudin consequat anim laborum fatback. Prosciutto doner veniam tri-tip kevin fatback turducken ad. Pork chop pastrami irure, tail turkey esse drumstick brisket et eu meatball commodo proident. Pariatur exercitation turducken brisket enim pork chop frankfurter flank.</p>
-
-						</div>
-
-					</div>
-
-				</div>
-
-			</div>
-
-			<div class="span6">
-
-				<div class="maker media">
-
-					<a href="#" title="" class="pull-left">
-						<img src="http://placekitten.com/200/200" alt="Maker Name" class="media-object">
-					</a>
-
-					<div class="media-body">
-
-						<h4 class="media-heading">Jake Spurlock <small>Santa Rosa, CA</small></h4>
-
-						<div class="media">
-
-							<p>Bacon ipsum dolor sit amet consectetur strip steak nulla exercitation swine. Magna commodo excepteur turkey dolore cupidatat turducken. Sed ut landjaeger, boudin consequat anim laborum fatback. Prosciutto doner veniam tri-tip kevin fatback turducken ad. Pork chop pastrami irure, tail turkey esse drumstick brisket et eu meatball commodo proident. Pariatur exercitation turducken brisket enim pork chop frankfurter flank.</p>
-
-						</div>
-
-					</div>
-
-				</div>
-
-			</div>
-
-		</div>
-
-		<div class="row">
-
-			<div class="span6">
-
-				<div class="maker media">
-
-					<a href="#" title="" class="pull-left">
-						<img src="http://placekitten.com/200/200" alt="Maker Name" class="media-object">
-					</a>
-
-					<div class="media-body">
-
-						<h4 class="media-heading">Jake Spurlock <small>Santa Rosa, CA</small></h4>
-
-						<div class="media">
-
-							<p>Bacon ipsum dolor sit amet consectetur strip steak nulla exercitation swine. Magna commodo excepteur turkey dolore cupidatat turducken. Sed ut landjaeger, boudin consequat anim laborum fatback. Prosciutto doner veniam tri-tip kevin fatback turducken ad. Pork chop pastrami irure, tail turkey esse drumstick brisket et eu meatball commodo proident. Pariatur exercitation turducken brisket enim pork chop frankfurter flank.</p>
-
-						</div>
-
-					</div>
-
-				</div>
-
-			</div>
-
-			<div class="span6">
-
-				<div class="maker media">
-
-					<a href="#" title="" class="pull-left">
-						<img src="http://placekitten.com/200/200" alt="Maker Name" class="media-object">
-					</a>
-
-					<div class="media-body">
-
-						<h4 class="media-heading">Jake Spurlock <small>Santa Rosa, CA</small></h4>
-
-						<div class="media">
-
-							<p>Bacon ipsum dolor sit amet consectetur strip steak nulla exercitation swine. Magna commodo excepteur turkey dolore cupidatat turducken. Sed ut landjaeger, boudin consequat anim laborum fatback. Prosciutto doner veniam tri-tip kevin fatback turducken ad. Pork chop pastrami irure, tail turkey esse drumstick brisket et eu meatball commodo proident. Pariatur exercitation turducken brisket enim pork chop frankfurter flank.</p>
-
-						</div>
-
-					</div>
-
-				</div>
-
-			</div>
-
-		</div>
-
 	</section>
 
 	<div class="modal hide fade" id="myModal">
@@ -359,8 +153,8 @@
 				<div class="control-group">
 					<label class="control-label" for="firstname">Full Name <span class="red">*</span></label>
 					<div class="controls">
-				    	<input id="firstname" name="firstname" type="text" placeholder="First Name" class="input-medium" required="">
-				    	<input id="firstname" name="lastname" type="text" placeholder="Last Name" class="input-medium" required="">
+						<input id="firstname" name="firstname" type="text" placeholder="First Name" class="input-medium" required="">
+						<input id="firstname" name="lastname" type="text" placeholder="Last Name" class="input-medium" required="">
 					</div>
 				</div>
 
@@ -445,7 +239,7 @@
 							<option value="VI">Virgin Islands</option>
 						</select>
 						<input id="zip" name="zip" type="text" placeholder="Zip or Territory Code" class="input-medium" required="">
-				  </div>
+					</div>
 				</div>
 
 				<!-- City/State-->
@@ -461,22 +255,31 @@
 				<div class="control-group">
 					<label class="control-label" for="email_address">Email Address <span class="red">*</span></label>
 					<div class="controls">
-				    	<input id="email_address" name="email_address" type="email" placeholder="" class="input-xlarge" required="">
-				    	<div class="spacer"></div>
-				    	<div id="gravatar-placeholder" class="pull-left spacerings"></div>
-				    	<p class="help-block"><small><em>We use Gravatar for the images. Don't see yours? Try tying to an account here: <a href="http://en.gravatar.com">http://en.gravatar.com</a></em></small></p>
+						<input id="email_address" name="email_address" type="email" placeholder="" class="input-xlarge" required="">
+						<div class="spacer"></div>
+						<div id="gravatar-placeholder" class="pull-left spacerings"></div>
+						<p class="help-block"><small><em>We use Gravatar for the images. Don't see yours? Try tying to an account here: <a href="http://en.gravatar.com">http://en.gravatar.com</a></em></small></p>
+					</div>
+				</div>
+
+				<!-- URL -->
+				<div class="control-group">
+					<label class="control-label" for="email_address">Link to blog/website</label>
+					<div class="controls">
+						<input id="url" name="url" type="url" placeholder="" class="input-xlarge">
+						<div class="spacer"></div>
 					</div>
 				</div>
 
 				<!-- Experience Level -->
 				<div class="control-group">
-				  <label class="control-label" for="experience">Experience Level</label>
-				  <div class="controls">
-				    <select id="experience" name="experience" class="input-medium">
-				      <option>Goldsmith</option>
-				      <option>Coppersmith</option>
-				    </select>
-				  </div>
+					<label class="control-label" for="experience">Experience Level</label>
+					<div class="controls">
+						<select id="experience" name="experience" class="input-medium">
+							<option>Goldsmith</option>
+							<option>Coppersmith</option>
+						</select>
+					</div>
 				</div>
 
 				<!-- Category -->
@@ -491,7 +294,7 @@
 				<div class="control-group">
 					<label class="control-label" for="post_content">What I make: <span class="red">*</span></label>
 					<div class="controls">
-				    	<textarea id="post_content" class="input-xlarge" rows="3" required="" name="post_content"></textarea>
+						<textarea id="post_content" class="input-xlarge" maxlength="250" rows="3" required="" name="post_content"></textarea>
 					</div>
 				</div>
 
