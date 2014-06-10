@@ -27,7 +27,7 @@
 
 			<div class="span12">
 
-				<img src="<?php echo esc_url( get_stylesheet_directory_uri() . '/img/DayofMaking_logo.png' ); ?>" alt="Day of Making">
+				<img src="<?php echo esc_url( get_stylesheet_directory_uri() . '/img/DayofMaking_logo.png' ); ?>" width="600" alt="Day of Making">
 
 			</div>
 
