@@ -50,7 +50,7 @@ class Make_Makers {
 			'menu_icon' 			=> null,
 			'capability_type'		=> 'post',
 			'hierarchical' 			=> true,
-			'supports' 				=> array( 'title', 'editor', 'thumbnail', 'excerpt', 'revisions',  ),
+			'supports' 				=> array( 'title', 'editor', 'thumbnail', 'revisions',  ),
 			'taxonomies'			=> array( 'category' ),
 			'has_archive' 			=> false,
 			'rewrite' 				=> array(
