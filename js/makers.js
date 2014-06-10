@@ -32,15 +32,17 @@ jQuery( document ).ready( function( $ ) {
 			success: function( data ){
 				post_obj = JSON.parse( data );
 				console.log( post_obj );
-				$('#myModal').modal('hide');
+				$('#join').modal('hide');
 				$('.call-out').slideUp();
 				$('.thanks').slideDown();
+				$('.end-page').slideDown();
+				$('.list-of-makers').hide();
 				$('.maker-added .image').append( post_obj.email ).addClass('pull-left');
 				$('.maker-added .media-heading').prepend( post_obj.post_title );
 				$('.maker-added .media-heading small').append( ' ' + post_obj.city + ', ' + post_obj.state );
 				$('.maker-added .media').append( post_obj.formatted_content );
 				if ( post_obj.url ) {
-					$('.maker-added .media').append( '<a class="btn btn-mini btn-danger" href="' + post_obj.url + '">Website</a>' );
+					$('.maker-added .media').append( '<a class="btn btn-mini btn-danger" target="_blank" href="' + post_obj.url + '">Website</a>' );
 				}
 				if ( post_obj.cats[0].name ) {
 					$('.maker-added .media-heading').after( ' <span class="label">' + post_obj.cats[0].name + '</span> ' );
