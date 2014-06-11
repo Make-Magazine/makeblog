@@ -7,7 +7,7 @@
  */
 
 // Set debugging mode.
-var gigya_debug = true;
+var gigya_debug = false;
 
 jQuery( document ).ready(function() {
 
