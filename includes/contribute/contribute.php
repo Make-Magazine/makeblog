@@ -92,7 +92,7 @@ class Make_Contribute {
 	 * @param  Array   $files   An array of files being uploaded (captured via $_FILES)
 	 * @return Array
 	 */
-	private function upload_files( $post_id, $files ) {
+	public function upload_files( $post_id, $files ) {
 
 		if ( ! function_exists( 'wp_handle_upload' ) )
 			require_once( ABSPATH . 'wp-admin/includes/file.php' );
