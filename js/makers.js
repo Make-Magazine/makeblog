@@ -79,7 +79,7 @@ jQuery( document ).ready( function( $ ) {
 	$( '#email_address' ).focusout( function() {
 
 		// Get the Email address.
-		var email = $( '#email_address' ).val();
+		var email = $( this ).val();
 
 		// Create a new image with the src pointing to the user's gravatar
 		var gravatar = $('<img>').attr({
