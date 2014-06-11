@@ -75,23 +75,50 @@ jQuery( document ).ready( function( $ ) {
 				if ( post_obj.experience ) {
 					$('.maker-added .media-heading').after( ' <span class="label">' + post_obj.experience + '</span> ' );
 				}
+
+				$('#tweet').modal('show');
+				tweeet( post_obj );
 			}
 		});
 	});
+
+	$('#tweet').on('hidden', function () {
+		refresh_map();
+	})
+
+	function refresh_map() {
+		map_holder = '<iframe frameborder="0" src="http://storymaps.esri.com/stories/2014/makerwhere/" width="100%" height="400"></iframe>';
+		$('.map-holder').html( map_holder );
+	}
+
+	function tweeet( post_obj ){
+		console.log( post_obj );
+		iframe = '<iframe frameborder="0" src="http://storymaps.esri.com/stories/2014/makerwhere/" width="100%" height="400"></iframe>';
+		button_hashtag = 'MakerWhere',
+		text = post_obj.post_title;
+		url = 'https://twitter.com/intent/tweet?button_hashtag=' + encodeURIComponent( button_hashtag ) + '&text=' + encodeURIComponent( text + ' ' + post_obj.city + ', ' + post_obj.state );
+		console.log( url );
+		link = '<a href="' + url + '" class="twitter-hashtag-button" data-related="make" data-url="http://storymaps.esri.com/stories/2014/makerwhere/">Tweet #MakerMap</a>'
+		blurb = "<p>Want to add yourself to the Maker Map? Simply tweet your location and get added!</p>";
+		$( '#tweet .modal-body' ).html( blurb + link + iframe );
+		twttr.widgets.load();
+	}
 
 	$('.nav-map').on('click', function() {
 		$('.list-of-makers, .call-out').hide();
 		$('.end-page').slideDown();
 		$( this ).addClass('active');
 		$( '.nav-home' ).removeClass('active');
-	})
+		refresh_map();
+	});
 
 	$('.nav-home').on('click', function() {
 		$('.list-of-makers, .call-out').slideDown();
 		$('.end-page').hide();
 		$( this ).addClass('active');
 		$( '.nav-map' ).removeClass('active');
-	})
+		refresh_map();
+	});
 
 	// Get the city and the state based on the ZIP code.
 	// Should we store the Lat/Long while we are at it?
