@@ -12,7 +12,7 @@
 
 						</div>
 
-						<div class="plus_forum">
+						<div class="plus_forum widget">
 							<a href="https://plus.google.com/communities/105413589856236995389">
 								<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/Make_Forum_join_banner_mini.jpg" alt="Join the MAKE Forum">
 							</a>
@@ -21,7 +21,7 @@
 						<div class="new-dotw">
 
 							<?php
-								
+
 								$the_query = new WP_Query( 'post_type=from-the-maker-shed&posts_per_page=1' );
 
 								while ( $the_query->have_posts() ) : $the_query->the_post();
