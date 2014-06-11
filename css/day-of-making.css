@@ -6664,12 +6664,96 @@ a.badge:focus {
     overflow: visible !important;
   }
 }
+.button,
+a.button {
+  display: inline;
+  display: inline-block;
+  text-align: center;
+  padding: 10px;
+  color: #fff !important;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  text-decoration: none;
+  background-color: #e01b23;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  -webkit-box-shadow: 0 5px 0 0 #8d1216;
+  -moz-box-shadow: 0 5px 0 0 #8d1216;
+  box-shadow: 0 5px 0 0 #8d1216;
+  border-bottom: none;
+}
+.button:hover,
+a.button:hover {
+  background-color: #b3151b !important;
+  color: #fff !important;
+  text-decoration: none;
+}
+.button.disabled,
+a.button.disabled {
+  background-color: #253740;
+  color: #84C7E5 !important;
+  -webkit-box-shadow: 0 5px 0 0 #84c7e5;
+  -moz-box-shadow: 0 5px 0 0 #84c7e5;
+  box-shadow: 0 5px 0 0 #84c7e5;
+}
+.button.disabled:hover,
+a.button.disabled:hover {
+  color: #033978 !important;
+  background-color: #73c1e6 !important;
+}
+.button.blue,
+a.button.blue {
+  background-color: #8ed5f6;
+  border: none;
+  padding: 10px;
+  color: #033978 !important;
+  font-size: 24px ;
+  line-height: 32px;
+  font-weight: 600;
+  padding-left: 20px;
+  padding-right: 20px;
+  -webkit-box-shadow: 0 5px 0 0 #4d97c5;
+  -moz-box-shadow: 0 5px 0 0 #4d97c5;
+  box-shadow: 0 5px 0 0 #4d97c5;
+}
+.button.blue:hover,
+a.button.blue:hover {
+  color: #033978 !important;
+  background-color: #73c1e6 !important;
+}
+.button.green,
+a.button.green {
+  background-color: #51B926;
+  border-bottom: 3px solid #316B17;
+  padding: 10px;
+  color: #ffffff;
+}
+.button.block,
+a.button.block {
+  display: block;
+}
+.button.big,
+a.button.big {
+  font-size: 1.7em;
+  padding: 12px;
+}
+.button.small-button,
+a.button.small-button {
+  line-height: inherit !important;
+}
+body {
+  margin-top: 20px;
+}
 header .row {
   text-align: center;
 }
 p,
 ul,
-li {
+li,
+dl,
+dt,
+dd {
   font-size: 16px;
 }
 .list-of-makers header h2 {
@@ -6703,4 +6787,15 @@ li {
 }
 #twitter-widget-0 {
   width: 670px !important;
+}
+.samesies a {
+  display: block;
+  width: 160px;
+  margin: 0 auto;
+}
+.samesies img {
+  display: block;
+  margin: 0 auto;
+  height: 160px;
+  width: auto;
 }
