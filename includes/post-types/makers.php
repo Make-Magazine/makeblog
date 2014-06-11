@@ -90,6 +90,8 @@ class Make_Makers {
 	 */
 	public function add_maker() {
 
+		global $make_contribute;
+
 		// Check our nonce and make sure it's correct
 		if ( ! wp_verify_nonce( $_POST['day-of-making'], 'day-of-making' ) )
 			die( json_encode( array( 'failed' => 'nonce failed.', 'post' => $_POST, ) ) );
@@ -134,6 +136,9 @@ class Make_Makers {
 		$post->lastname = ( isset( $_POST['lastname'] ) && add_post_meta( $pid, '_lastname', sanitize_text_field( $_POST['lastname'] ) ) ) ? sanitize_text_field( $_POST['lastname'] ) : '';
 		// URL
 		$post->url = ( isset( $_POST['url'] ) && add_post_meta( $pid, '_url', sanitize_text_field( $_POST['url'] ) ) ) ? sanitize_text_field( $_POST['url'] ) : '';
+
+		// Upload the files
+		$post->image = ( isset( $_FILES ) && ! empty( $_FILES ) ) ? $make_contribute->upload_files( $pid, $_FILES ) : get_avatar( 'webmaster@makezine.com', 200 );
 
 		// Add the category...
 		$post->cats = wp_get_post_terms( $pid, 'category' );
