@@ -34,6 +34,8 @@ jQuery( document ).ready( function( $ ) {
 				console.log( post_obj );
 				$('#join').modal('hide');
 				$('.call-out').slideUp();
+				$('.nav-home').removeClass('active');
+				$('.nav-map').addClass('active');
 				$('.thanks').slideDown();
 				$('.end-page').slideDown();
 				$('.list-of-makers').hide();
@@ -53,6 +55,20 @@ jQuery( document ).ready( function( $ ) {
 			}
 		});
 	});
+
+	$('.nav-map').on('click', function() {
+		$('.list-of-makers, .call-out').hide();
+		$('.end-page').slideDown();
+		$( this ).addClass('active');
+		$( '.nav-home' ).removeClass('active');
+	})
+
+	$('.nav-home').on('click', function() {
+		$('.list-of-makers, .call-out').slideDown();
+		$('.end-page').hide();
+		$( this ).addClass('active');
+		$( '.nav-map' ).removeClass('active');
+	})
 
 	// Get the city and the state based on the ZIP code.
 	// Should we store the Lat/Long while we are at it?
@@ -79,7 +95,7 @@ jQuery( document ).ready( function( $ ) {
 	$( '#email_address' ).focusout( function() {
 
 		// Get the Email address.
-		var email = $( '#email_address' ).val();
+		var email = $( this ).val();
 
 		// Create a new image with the src pointing to the user's gravatar
 		var gravatar = $('<img>').attr({
