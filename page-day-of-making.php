@@ -23,7 +23,7 @@
 
 	<div class="navbar">
 		<div class="navbar-inner">
-			<a class="brand" href="#">Make:</a>
+			<a class="brand" href="http://makezine.com">Make:</a>
 			<ul class="nav">
 				<li class="active nav-home"><a href="#">Home</a></li>
 				<li class="nav-map"><a href="#">Makers on the Map</a></li>
@@ -127,7 +127,7 @@
 
 				<p class="lead">Everywhere! Put yourself on the Maker Map: Tweet your location to #MakerWhere and include a picture of what you’re making on this Day of Making 2014.</p>
 
-				<iframe frameborder="0" src="http://storymaps.esri.com/stories/2014/makerwhere/" width="100%" height="400"></iframe>
+				<div class="map-holder"></div>
 
 				<h3>More DC based events:</h3>
 
@@ -197,14 +197,7 @@
 				</div>
 
 				<div class="media">
-					<div class="media-body">
-						<h4 class="media-heading">Maker Shed: Shop for Kits, Tools</h4>
-						<p>Tenderloin pig short loin, capicola drumstick rump beef kevin short ribs kielbasa beef ribs salami doner.</p>
-					</div>
-					<div class="media">
-						<a class="pull-right" href="#">
-							<img class="media-object" src="http://placekitten.com/100/100" alt="Image">
-						</a>
+
 						<div class="media-body">
 
 						<h4 class="media-heading">Maker Shed: Shop for Kits, Tools</h4>
@@ -248,6 +241,7 @@
 							</div>
 
 						</div>
+
 					</div>
 
 				</div>
@@ -484,9 +478,17 @@
 					</div>
 				</div>
 
+				<!-- Email Address-->
+				<div class="control-group">
+					<label class="control-label" for="email_address">Photo <span class="red">*</span></label>
+					<div class="controls">
+						<input id="photo" name="photo" type="file" placeholder="" class="input-xlarge" required=""><br>
+					</div>
+				</div>
+
 				<!-- URL -->
 				<div class="control-group">
-					<label class="control-label" for="email_address">Show Us Your Maker Site</label>
+					<label class="control-label" for="url">Show Us Your Maker Site</label>
 					<div class="controls">
 						<input id="url" name="url" type="url" placeholder="" class="input-xlarge">
 					</div>
