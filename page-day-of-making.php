@@ -21,6 +21,16 @@
 </head>
 <body class="container">
 
+	<div class="navbar">
+		<div class="navbar-inner">
+			<a class="brand" href="#">Make:</a>
+			<ul class="nav">
+				<li class="active nav-home"><a href="#">Home</a></li>
+				<li class="nav-map"><a href="#">Makers on the Map</a></li>
+			</ul>
+		</div>
+	</div>
+
 	<header id="header" class="">
 
 		<div class="row">
@@ -41,11 +51,7 @@
 
 			<div class="span12">
 
-				<h1>Thank You!</h1>
-
-				<p>Bacon ipsum dolor sit amet pork belly cupidatat laborum prosciutto shankle incididunt, tail nisi chuck kevin nulla anim adipisicing ut nostrud. Sed eu meatloaf, nisi excepteur qui consequat. Porchetta aute in enim sint leberkas. Tail quis tempor pariatur duis in kevin hamburger andouille capicola drumstick nulla ea swine prosciutto.</p>
-
-				<p>Bacon ullamco tri-tip adipisicing, pastrami veniam cillum chicken pork chop. Id aliquip incididunt occaecat voluptate. Tempor non ham cillum, ea salami meatball nostrud porchetta aliqua beef ribs. Pork nulla short ribs biltong ea ad nostrud shank chuck elit tri-tip incididunt sunt. Short loin ad quis consectetur drumstick reprehenderit. Shoulder turducken elit ex meatloaf eiusmod qui ad id fugiat sausage magna laborum.</p>
+				<p><strong>Thank you for Making!</strong> You’ve now declared your membership in the most fascinating and fastest-growing community in the world. Now claim your badge and post it to your social media profiles. Then download your FREE version of Zero to Maker and learn more about how to develop your skills and influence as a Maker.</p>
 
 			</div>
 
@@ -75,19 +81,31 @@
 
 				<div class="row">
 
-					<div class="span3">
+					<div class="span3 samesies">
 
-						<img src="http://placekitten.com/260/180" alt="" class="thumbnail" >
-
-						<a href="#" class="btn btn-block" title="">Download Your E-Book</a>
+						<img src="<?php echo esc_url( get_stylesheet_directory_uri() . '/img/Zero-to-Maker-Cover.jpg' ) ; ?>" width="160" height="160" alt="" class="thumbnail" >
 
 					</div>
 
-					<div class="span3">
+					<div class="span3 samesies">
 
-						<img src="<?php echo esc_url( get_stylesheet_directory_uri() . '/img/day-of-making-badge.png' ); ?>" alt="" class="Day of Making" >
+						<img src="<?php echo esc_url( get_stylesheet_directory_uri() . '/img/day-of-making-badge.png' ); ?>" width="160" height="160" alt="" class="Day of Making" >
 
-						<a href="<?php echo esc_url( get_stylesheet_directory_uri() . '/img/day-of-making-badge.png' ); ?>" target="_blank" class="btn btn-block" title="">Download Your Badge</a>
+					</div>
+
+				</div>
+
+				<div class="row">
+
+					<div class="span3 samesies">
+
+						<a href="#" class="button button-block" title="">Download Your E-Book</a>
+
+					</div>
+
+					<div class="span3 samesies">
+
+						<a href="<?php echo esc_url( get_stylesheet_directory_uri() . '/img/day-of-making-badge.png' ); ?>" target="_blank" class="button button-block" title="">Download Your Badge</a>
 
 					</div>
 
@@ -103,84 +121,81 @@
 
 		<div class="row">
 
-			<div class="span6">
+			<div class="span8">
 
-				<h1>Where are the other Makers?</h1>
+				<h1>Makers on the Map</h1>
 
-				<p class="lead">Tenderloin pig short loin, capicola drumstick rump beef kevin short ribs kielbasa beef ribs salami doner. Pastrami cow turkey, drumstick shankle landjaeger swine beef short ribs sausage kielbasa flank ball tip prosciutto.</p>
+				<p class="lead">Everywhere! Put yourself on the Maker Map: Tweet your location to #MakerWhere and include a picture of what you’re making on this Day of Making 2014.</p>
 
-				<iframe frameborder="0" src="http://storymaps.esri.com/stories/2014/makerwhere/" width="570" height="400"></iframe>
+				<iframe frameborder="0" src="http://storymaps.esri.com/stories/2014/makerwhere/" width="100%" height="400"></iframe>
 
 				<h3>More DC based events:</h3>
 
-				<ul>
-					<li><strong>June 18th:</strong> White House Mini Maker Faire</li>
-					<li><strong>June 29th:</strong> Maker Faire DC</li>
-					<li><strong>June 18th:</strong> White House Mini Maker Faire</li>
-					<li><strong>June 29th:</strong> Maker Faire DC</li>
-					<li><strong>June 18th:</strong> White House Mini Maker Faire</li>
-					<li><strong>June 29th:</strong> Maker Faire DC</li>
-				</ul>
+				<dl>
+					<dt>June 17th:</dt>
+						<dd>TechShop Grand Opening</dd>
+						<dd>Maker Summit</dd>
+					<dt>June 18th:</dt>
+						<dd>White House Maker Faire</dd>
+				</dl>
 
-				<h3>Make More Makers</h3>
+				<h3>Make More Stuff</h3>
 
 				<div class="media">
-					<a class="pull-left" href="http://makerspace.com">
-						<img class="media-object" src="http://placekitten.com/120/120" alt="Makerspace">
-					</a>
 					<div class="media-body">
-						<h4 class="media-heading">Create a Makerspace</h4>
-						<p>Tenderloin pig short loin, capicola drumstick rump beef kevin short ribs kielbasa beef ribs salami doner.</p>
+						<h4 class="media-heading"><a href="http://makezine.com/projects/">Start a Project</a></h4>
+						<p>Explore our growing cookbook of DIY projects for all levels.</p>
+						<blockquote><div class="media">
+													<a class="pull-right" href="#">
+														<img class="media-object" src="http://placekitten.com/100/100" alt="Image">
+													</a>
+													<div class="media-body">
+														<h4 class="media-heading">Media heading</h4>
+														<p>Text goes here...</p>
+													</div>
+												</div></blockquote>
 					</div>
 				</div>
 
 				<div class="media">
-					<a class="pull-left" href="http://makerfaire.com">
-						<img class="media-object" src="http://placekitten.com/120/120" alt="Makerspace">
-					</a>
 					<div class="media-body">
-						<h4 class="media-heading">Make a Maker Faire</h4>
-						<p>Tenderloin pig short loin, capicola drumstick rump beef kevin short ribs kielbasa beef ribs salami doner.</p>
+						<h4 class="media-heading"><a href="http://makerfaire.com/map/">Find a Faire</a></h4>
+						<p>Community-based, independently produced Maker Faires are happening all over the globe.</p>
 					</div>
 				</div>
 
 				<div class="media">
-					<a class="pull-left" href="http://makerspace.com">
-						<img class="media-object" src="http://placekitten.com/120/120" alt="Makerspace">
-					</a>
 					<div class="media-body">
-						<h4 class="media-heading">Host a Maker Camp for teens</h4>
+						<h4 class="media-heading">Maker Shed: Shop for Kits, Tools</h4>
 						<p>Tenderloin pig short loin, capicola drumstick rump beef kevin short ribs kielbasa beef ribs salami doner.</p>
 					</div>
+					<div class="media">
+						<a class="pull-right" href="#">
+							<img class="media-object" src="http://placekitten.com/100/100" alt="Image">
+						</a>
+						<div class="media-body">
+							<h4 class="media-heading">Media heading</h4>
+							<p>Text goes here...</p>
+						</div>
+					</div>
+
 				</div>
 
 				<div class="media">
-					<a class="pull-left" href="http://makerspace.com">
-						<img class="media-object" src="http://placekitten.com/120/120" alt="Makerspace">
-					</a>
 					<div class="media-body">
-						<h4 class="media-heading">Teach Making</h4>
-						<p>Tenderloin pig short loin, capicola drumstick rump beef kevin short ribs kielbasa beef ribs salami doner.</p>
+						<h4 class="media-heading"><a href="https://www.pubservice.com/MK/subscribe.aspx?PC=MK&PK=M3AMZB">Subscribe to Make:</a></h4>
+						<p>Get the Digital Edition</p>
 					</div>
 				</div>
 
-				<div class="media">
-					<a class="pull-left" href="http://makerspace.com">
-						<img class="media-object" src="http://placekitten.com/120/120" alt="Makerspace">
-					</a>
-					<div class="media-body">
-						<h4 class="media-heading">Learn about the Maker Movement</h4>
-						<p>Tenderloin pig short loin, capicola drumstick rump beef kevin short ribs kielbasa beef ribs salami doner.</p>
-					</div>
-				</div>
 
 			</div>
 
-			<div class="span6">
+			<div class="span4">
 
-				<h2>Day of Making Agenda</h2>
+				<h3>Day of Making Agenda</h3>
 
-				<h3>White Hose Mini Maker Faire</h3>
+				<h4>White House Mini Maker Faire</h4>
 
 				<img src="http://placekitten.com/570/200" alt="">
 
@@ -189,49 +204,43 @@
 				<a class="twitter-timeline" href="https://twitter.com/search?q=%23NationOfMakers" width="570" data-widget-id="476445295467704320">Tweets about "#NationOfMakers"</a>
 				<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
 
-				<h3>Make More Stuff</h3>
+
+				<h3>Make More Makers</h3>
 
 				<div class="media">
-					<a class="pull-left" href="http://makezine.com/projects/">
-						<img class="media-object" src="http://placekitten.com/120/120" alt="Makerspace">
-					</a>
 					<div class="media-body">
-						<h4 class="media-heading">Start a Project</h4>
-						<p>Tenderloin pig short loin, capicola drumstick rump beef kevin short ribs kielbasa beef ribs salami doner.</p>
+						<h4 class="media-heading"><a href="http://makerspace.com">Create a Makerspace</a></h4>
+						<p>Makerspaces are community centers with tools. Download your FREE Makerspace playbook and start planning your own.</p>
 					</div>
 				</div>
 
 				<div class="media">
-					<a class="pull-left" href="http://makerfaire.com">
-						<img class="media-object" src="http://placekitten.com/120/120" alt="Makerspace">
-					</a>
 					<div class="media-body">
-						<h4 class="media-heading">Find a Faire</h4>
-						<p>Tenderloin pig short loin, capicola drumstick rump beef kevin short ribs kielbasa beef ribs salami doner.</p>
+						<h4 class="media-heading"><a href="http://makezine.com/maker-camp/">Make a Maker Faire</a></h4>
+						<p>Our Mini Maker Faire program provides all the tools and resources to help you launch a Maker Faire event that reflects the creativity, spirit and ingenuity of your community.</p>
 					</div>
 				</div>
 
 				<div class="media">
-					<a class="pull-left" href="http://makerspace.com">
-						<img class="media-object" src="http://placekitten.com/120/120" alt="Makerspace">
-					</a>
 					<div class="media-body">
-						<h4 class="media-heading">Shop for Kits, Tools</h4>
-						<p>Tenderloin pig short loin, capicola drumstick rump beef kevin short ribs kielbasa beef ribs salami doner.</p>
+						<h4 class="media-heading"><a href="http://makezine.com/maker-camp/">Host a Maker Camp for teens</a></h4>
+						<p>Librarians, Summer Camp Directors, and Teen Program Directors: Check out all the ways you can integrate Maker Camp into your summer program.</p>
 					</div>
 				</div>
 
 				<div class="media">
-					<a class="pull-left" href="http://makerspace.com">
-						<img class="media-object" src="http://placekitten.com/120/120" alt="Makerspace">
-					</a>
 					<div class="media-body">
-						<h4 class="media-heading">Subscribe to Make:</h4>
-						<p>Tenderloin pig short loin, capicola drumstick rump beef kevin short ribs kielbasa beef ribs salami doner.</p>
+						<h4 class="media-heading"><a href="http://makered.org/">Teach Making</a></h4>
+						<p>Calling all Educators: Create more opportunities to develop confidence, creativity and interest in science, technology, engineering, math, arts and learning as a whole through making.</p>
 					</div>
 				</div>
 
-
+				<div class="media">
+					<div class="media-body">
+						<h4 class="media-heading"><a href="http://makerfaire.com/maker-movement/">Learn about the Maker Movement</a></h4>
+						<p>This is grassroots innovation that we can foster in every community. Found out more about the movement and Maker Media.</p>
+					</div>
+				</div>
 
 			</div>
 
@@ -245,7 +254,7 @@
 
 			<div class="span7">
 
-				<h1>Calling all makers!</h1>
+				<h1>I'm a Maker!</h1>
 
 				<h3>Add your voice to the National Day of Making!</h3>
 
@@ -255,11 +264,13 @@
 
 			<div class="span5">
 
-				<p><strong>Register as a maker today</strong> and demonstrate your proud support of makers around the country. Receive an electronic badge like this to post on your social media channels.</p>
+				<img src="<?php echo esc_url( get_stylesheet_directory_uri() . '/img/Zero-to-Maker-Cover.jpg' ); ?>" class="pull-right thumbnail" width="100" alt="">
+
+				<p><strong>Add your story today</strong> and demonstrate your proud support of makers around the country. Receive an electronic badge like this to post on your social media channels.</p>
 
 				<p>Plus, get a free PDF of the book Zero to Maker by David Lang.</p>
 
-				<a role="button" data-toggle="modal" class="btn btn-large btn-block" title="Join other makers" data-toggle="modal" href="#join">Join other Makers</a>
+				<a role="button" data-toggle="modal" class="button btn-block" title="Join other makers" data-toggle="modal" href="#join">Add Your Story</a>
 
 			</div>
 
@@ -271,9 +282,9 @@
 
 		<header>
 
-			<h2>Join over <span class="count"><?php echo intval( wp_count_posts( 'makers' )->publish ); ?></span> Makers!</h2>
+			<h2>Our Maker Community</h2>
 
-			<p>You have what it takes to join an elite force of makers? Sign up here:</p>
+			<p>Over <span class="count"><?php echo intval( wp_count_posts( 'makers' )->publish ); ?></span> added. Share your story.</p>
 
 		</header><!-- /header -->
 
