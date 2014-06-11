@@ -8,23 +8,46 @@ jQuery( document ).ready( function( $ ) {
 
 		$( this ).prop( 'disabled', true );
 
-		// Grab all of the inputs
-		var inputs = $( '#day-of-making-form :input' );
+		// Let's get the steps initialized.
+		var form = $( 'day-of-making-form' )[0];
 
-		// Grab all of the form data.
-		var form = {};
-		inputs.each( function() {
-			form[ this.name ] = $( this ).val();
+		// Grab all of the inputs.
+		var the_files = $( '#day-of-making-form :file' );
+		var inputs = $( '#day-of-making-form input:not(:file), #day-of-making-form textarea' );
+
+		// New FormData
+		var data = new FormData( form );
+
+		// Setup the form object, just kinda playing with this as a source of data.
+		var form_obj = {};
+
+		// Add the add_steps action to the object.
+		form_obj.action = 'add_maker';
+
+		// Append each of the images to the object, giving each a name.
+		jQuery.each( the_files, function( i, file_obj ) {
+			jQuery.each( file_obj.files, function( key, file ) {
+				form_obj['profile-image-' + ( i + 1 )] = file;
+				data.append( 'profile-image-' + ( i + 1 ), file );
+			});
 		});
 
-		form.action = 'add_maker';
+		// Loop through all of the inputs, with the exception of the file ones, and add the to the form_object, and then to the data object.
+		inputs.each( function() {
+			form_obj[ this.name ] = $( this ).val();
+			data.append( this.name, $( this ).val() );
+		});
 
-		console.log( form );
+		// Append the action to the data object.
+		data.append( 'action', 'add_maker' );
 
 		// Make the ajax request with the form data.
 		$.ajax({
 			url: contribute.admin_post,
-			data: form,
+			data: data,
+			cache: false,
+			contentType: false,
+			processData: false,
 			type: 'POST',
 			xhrFields: {
 				withCredentials: true
