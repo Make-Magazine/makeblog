@@ -13,7 +13,7 @@ jQuery( document ).ready( function( $ ) {
 
 		// Grab all of the inputs.
 		var the_files = $( '#day-of-making-form :file' );
-		var inputs = $( '#day-of-making-form input:not(:file), #day-of-making-form textarea' );
+		var inputs = $( '#day-of-making-form input:not(:file), #day-of-making-form textarea, #day-of-making-form select' );
 
 		// New FormData
 		var data = new FormData( form );
