@@ -145,15 +145,47 @@
 					<div class="media-body">
 						<h4 class="media-heading"><a href="http://makezine.com/projects/">Start a Project</a></h4>
 						<p>Explore our growing cookbook of DIY projects for all levels.</p>
-						<blockquote><div class="media">
-													<a class="pull-right" href="#">
-														<img class="media-object" src="http://placekitten.com/100/100" alt="Image">
-													</a>
-													<div class="media-body">
-														<h4 class="media-heading">Media heading</h4>
-														<p>Text goes here...</p>
-													</div>
-												</div></blockquote>
+
+						<div class="row">
+
+							<div class="span2">
+								<div class="thumbnail">
+									<img src="http://placekitten.com/200/200" alt="Project">
+									<div class="caption">
+										<h4>Project Name</h4>
+									</div>
+								</div>
+							</div>
+
+							<div class="span2">
+								<div class="thumbnail">
+									<img src="http://placekitten.com/200/200" alt="Project">
+									<div class="caption">
+										<h4>Project Name</h4>
+									</div>
+								</div>
+							</div>
+
+							<div class="span2">
+								<div class="thumbnail">
+									<img src="http://placekitten.com/200/200" alt="Project">
+									<div class="caption">
+										<h4>Project Name</h4>
+									</div>
+								</div>
+							</div>
+
+							<div class="span2">
+								<div class="thumbnail">
+									<img src="http://placekitten.com/200/200" alt="Project">
+									<div class="caption">
+										<h4>Project Name</h4>
+									</div>
+								</div>
+							</div>
+
+						</div>
+
 					</div>
 				</div>
 
@@ -174,8 +206,47 @@
 							<img class="media-object" src="http://placekitten.com/100/100" alt="Image">
 						</a>
 						<div class="media-body">
-							<h4 class="media-heading">Media heading</h4>
-							<p>Text goes here...</p>
+
+						<h4 class="media-heading">Maker Shed: Shop for Kits, Tools</h4>
+
+						<div class="row">
+
+							<div class="span2">
+								<div class="thumbnail">
+									<img src="http://placekitten.com/200/200" alt="Project">
+									<div class="caption">
+										<h4>Project Name</h4>
+									</div>
+								</div>
+							</div>
+
+							<div class="span2">
+								<div class="thumbnail">
+									<img src="http://placekitten.com/200/200" alt="Project">
+									<div class="caption">
+										<h4>Project Name</h4>
+									</div>
+								</div>
+							</div>
+
+							<div class="span2">
+								<div class="thumbnail">
+									<img src="http://placekitten.com/200/200" alt="Project">
+									<div class="caption">
+										<h4>Project Name</h4>
+									</div>
+								</div>
+							</div>
+
+							<div class="span2">
+								<div class="thumbnail">
+									<img src="http://placekitten.com/200/200" alt="Project">
+									<div class="caption">
+										<h4>Project Name</h4>
+									</div>
+								</div>
+							</div>
+
 						</div>
 					</div>
 
