@@ -22,15 +22,14 @@
 <body class="container">
 
 	<div class="navbar">
-  <div class="navbar-inner">
-    <a class="brand" href="#">Title</a>
-    <ul class="nav">
-      <li class="active"><a href="#">Home</a></li>
-      <li><a href="#">Link</a></li>
-      <li><a href="#">Link</a></li>
-    </ul>
-  </div>
-</div>
+		<div class="navbar-inner">
+			<a class="brand" href="#">Make:</a>
+			<ul class="nav">
+				<li class="active nav-home"><a href="#">Home</a></li>
+				<li class="nav-map"><a href="#">Makers on the Map</a></li>
+			</ul>
+		</div>
+	</div>
 
 	<header id="header" class="">
 
@@ -46,7 +45,7 @@
 
 	</header><!-- /header -->
 
-	<section class="thanks">
+	<section class="thanks hide">
 
 		<div class="row">
 
@@ -82,13 +81,13 @@
 
 				<div class="row">
 
-					<div class="span3">
+					<div class="span3 samesies">
 
 						<img src="<?php echo esc_url( get_stylesheet_directory_uri() . '/img/Zero-to-Maker-Cover.jpg' ) ; ?>" width="160" height="160" alt="" class="thumbnail" >
 
 					</div>
 
-					<div class="span3">
+					<div class="span3 samesies">
 
 						<img src="<?php echo esc_url( get_stylesheet_directory_uri() . '/img/day-of-making-badge.png' ); ?>" width="160" height="160" alt="" class="Day of Making" >
 
@@ -98,13 +97,13 @@
 
 				<div class="row">
 
-					<div class="span3">
+					<div class="span3 samesies">
 
 						<a href="#" class="button button-block" title="">Download Your E-Book</a>
 
 					</div>
 
-					<div class="span3">
+					<div class="span3 samesies">
 
 						<a href="<?php echo esc_url( get_stylesheet_directory_uri() . '/img/day-of-making-badge.png' ); ?>" target="_blank" class="button button-block" title="">Download Your Badge</a>
 
@@ -118,7 +117,7 @@
 
 	</section>
 
-	<section class="end-page">
+	<section class="end-page hide">
 
 		<div class="row">
 
@@ -255,7 +254,7 @@
 
 			<div class="span7">
 
-				<h1>Calling all makers!</h1>
+				<h1>I'm a Maker!</h1>
 
 				<h3>Add your voice to the National Day of Making!</h3>
 
@@ -265,11 +264,13 @@
 
 			<div class="span5">
 
-				<p><strong>Register as a maker today</strong> and demonstrate your proud support of makers around the country. Receive an electronic badge like this to post on your social media channels.</p>
+				<img src="<?php echo esc_url( get_stylesheet_directory_uri() . '/img/Zero-to-Maker-Cover.jpg' ); ?>" class="pull-right thumbnail" width="100" alt="">
+
+				<p><strong>Add your story today</strong> and demonstrate your proud support of makers around the country. Receive an electronic badge like this to post on your social media channels.</p>
 
 				<p>Plus, get a free PDF of the book Zero to Maker by David Lang.</p>
 
-				<a role="button" data-toggle="modal" class="button btn-block" title="Join other makers" data-toggle="modal" href="#join">Join other Makers</a>
+				<a role="button" data-toggle="modal" class="button btn-block" title="Join other makers" data-toggle="modal" href="#join">Add Your Story</a>
 
 			</div>
 
@@ -277,13 +278,13 @@
 
 	</section>
 
-	<section class="list-of-makers hide">
+	<section class="list-of-makers">
 
 		<header>
 
-			<h2>Join over <span class="count"><?php echo intval( wp_count_posts( 'makers' )->publish ); ?></span> Makers!</h2>
+			<h2>Our Maker Community</h2>
 
-			<p>You have what it takes to join an elite force of makers? Sign up here:</p>
+			<p>Over <span class="count"><?php echo intval( wp_count_posts( 'makers' )->publish ); ?></span> added. Share your story.</p>
 
 		</header><!-- /header -->
 
