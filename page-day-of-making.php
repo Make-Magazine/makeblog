@@ -461,6 +461,29 @@
 		</div>
 	</div>
 
+	<div class="modal hide fade" id="tweet">
+
+		<div class="modal-header">
+
+			<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+			<h3>Add yourself to the Maker Map</h3>
+
+		</div>
+
+		<div class="modal-body map-holder">
+
+
+
+		</div>
+
+		<div class="modal-footer">
+
+			<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+
+		</div>
+
+	</div>
+
 	<?php wp_footer(); ?>
 </body>
 </html>
