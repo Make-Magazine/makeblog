@@ -1,21 +1,57 @@
 
 // Bring in Bootstrap
 @import "bootstrap/bootstrap.less";
-@import "bootstrap/responsive.less";
+// @import "bootstrap/responsive.less";
 @import "make/buttons.less";
+@import "style.less";
 
 body {
-	margin-top: 20px;
+	// margin-top: 20px;
+	font-size: 16px;
 }
 
-header {
+header#header {
+	background-image: url( '../img/header-background-bars.png' );
+	background-position: top center;
+	background-repeat: no-repeat;
 	.row {
 		text-align: center;
 	}
 }
 
+nav {
+	border-top: 1px solid #fff;
+	background-color: #C9C9C9;
+	height: 48px;
+	margin-bottom: 40px;
+	ul {
+		text-align: center;
+		margin-top: 8px;
+		li {
+			text-transform: uppercase;
+			font-size: 24px;
+			font-weight: bold;
+			border-right: 1px dashed @blue;
+			padding-right: 10px !important;
+		}
+		li:last-of-type {
+			border-right: 0px;
+		}
+	}
+}
+
 p, ul, li, dl, dt, dd {
 	font-size: 16px;
+}
+
+.call-out {
+	h1 {
+		margin-bottom: 12px;
+	}
+	h3 {
+		line-height: 120%;
+		margin-bottom: 10px;
+	}
 }
 
 .list-of-makers {
@@ -30,9 +66,20 @@ p, ul, li, dl, dt, dd {
 }
 
 .maker {
-	background-color: #efefef;
+	background-color: #E8F4FA;
 	margin: 10px;
 	padding: 15px;
+	color: #0777ba;
+	.media {
+		margin-top: 5px;
+		font-style: italic;
+		.category {
+			color: #656363;
+			font-weight: bold;
+			font-size: 16px;
+			font-style: normal;
+		}
+	}
 }
 
 .thanks {
