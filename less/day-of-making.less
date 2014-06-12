@@ -37,6 +37,15 @@ nav {
 			font-weight: bold;
 			border-right: 1px dashed @blue;
 			padding-right: 10px !important;
+			&.active {
+				a {
+					transition: color 0.5s ease;
+					color: lighten(@blue, 10%);
+				}
+			}
+			a {
+				color: @blue;
+			}
 		}
 		li:last-of-type {
 			border-right: 0px;
@@ -141,12 +150,25 @@ p, ul, li, dl, dt, dd {
 }
 
 .sidebar, .schtuff {
+	h1, h2 {
+		color: #0777ba;
+	}
 	h3 {
 		color: @red;
 		text-align: center;
 		margin: 20px 0;
+		font-size: 27px;
 	}
 	.caption-new {
 		margin: 10px 0;
 	}
+}
+
+.maker-map {
+	background-color: #EAEAEA;
+	padding: 15px;
+}
+
+.subs {
+	text-align: center;
 }

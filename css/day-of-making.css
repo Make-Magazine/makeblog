@@ -12626,6 +12626,13 @@ nav ul li {
   border-right: 1px dashed #005d8f;
   padding-right: 10px !important;
 }
+nav ul li.active a {
+  transition: color 0.5s ease;
+  color: #007ec2;
+}
+nav ul li a {
+  color: #005d8f;
+}
 nav ul li:last-of-type {
   border-right: 0px;
 }
@@ -12702,13 +12709,27 @@ dd {
   margin: 20px;
   text-align: center;
 }
+.sidebar h1,
+.schtuff h1,
+.sidebar h2,
+.schtuff h2 {
+  color: #0777ba;
+}
 .sidebar h3,
 .schtuff h3 {
   color: #ed1c24;
   text-align: center;
   margin: 20px 0;
+  font-size: 27px;
 }
 .sidebar .caption-new,
 .schtuff .caption-new {
   margin: 10px 0;
+}
+.maker-map {
+  background-color: #EAEAEA;
+  padding: 15px;
+}
+.subs {
+  text-align: center;
 }

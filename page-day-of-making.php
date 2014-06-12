@@ -133,17 +133,21 @@
 
 				<div class="span8 schtuff">
 
-					<h1>Makers on the Map</h1>
+					<div class="maker-map">
 
-					<p class="lead">Everywhere! Put yourself on the Maker Map: Tweet your location to #MakerWhere and include a picture of what you’re making on this Day of Making 2014.</p>
+						<h1>Makers on the Map</h1>
 
-					<div class="map-holder"></div>
+						<p class="lead">Everywhere! Put yourself on the Maker Map: Tweet your location to #MakerWhere and include a picture of what you’re making on this Day of Making 2014.</p>
+
+						<div class="map-holder"></div>
+
+					</div>
 
 					<p class="stars"><a role="button" data-toggle="modal" class="btn btn-danger btn-large" style="width:220px;" title="Join other makers" data-toggle="modal" href="#join">Declare Yourself a Maker!</a></p>
 
 					<p class="stars"><img src="<?php echo esc_url( get_stylesheet_directory_uri() . '/img/stars.png' ); ?>" alt="Stars"></p>
 
-					<h3>Make More Stuff</h3>
+					<h2>Make More Stuff</h2>
 
 					<div class="media">
 						<div class="media-body">
@@ -173,38 +177,45 @@
 
 					<p class="stars"><img src="<?php echo esc_url( get_stylesheet_directory_uri() . '/img/stars.png' ); ?>" alt="Stars"></p>
 
-					<div class="media">
-						<div class="media-body">
-							<h4 class="media-heading"><a href="http://makerfaire.com/map/">Find a Faire</a></h4>
-							<p>Community-based, independently produced Maker Faires are happening all over the globe.</p>
-						</div>
-					</div>
-
-					<p class="stars"><img src="<?php echo esc_url( get_stylesheet_directory_uri() . '/img/stars.png' ); ?>" alt="Stars"></p>
-
 					<div class="shed-dotd">
 
 						<?php make_featured_products(); ?>
 
 					</div>
 
-					<div class="media">
-						<div class="media-body">
-							<h4 class="media-heading"><a href="https://www.pubservice.com/MK/subscribe.aspx?PC=MK&PK=M3AMZB">Subscribe to Make:</a></h4>
-							<p>Get the Digital Edition</p>
-						</div>
-					</div>
+					<p class="stars"><img src="<?php echo esc_url( get_stylesheet_directory_uri() . '/img/stars.png' ); ?>" alt="Stars"></p>
 
+					<div class="row subs">
+
+						<div class="span4">
+
+							<p class="stars"><img src="http://cdn.makezine.com/make/makerfaire/bayarea/2012/images/logo.jpg" width="200"></p>
+
+							<h4><a href="http://makerfaire.com/map/">Find a Faire</a></h4>
+							<p>Community-based, independently produced Maker Faires are happening all over the globe.</p>
+
+						</div>
+
+						<div class="span4">
+
+							<p class="stars"><img src="http://vip.dev/wp-content/themes/makeblog/img/make-logo.png" width="165"></p>
+
+							<h4><a href="https://www.pubservice.com/MK/subscribe.aspx?PC=MK&PK=M3AMZB">Subscribe to Make:</a></h4>
+							<p>Get the Digital Edition</p>
+
+						</div>
+
+					</div>
 
 				</div>
 
 				<div class="span4 sidebar">
 
-					<h3>Day of Making Agenda</h3>
-
-					<h4><a href="http://makezine.com/2014/06/04/white-house-maker-faire/">White House Mini Maker Faire</a></h4>
+					<h3>Day of Making Activities</h3>
 
 					<a href="http://makezine.com/2014/06/04/white-house-maker-faire/"><img src="http://makezineblog.files.wordpress.com/2013/03/obama.jpg?w=300" alt="Maker Faire at the White House"></a>
+
+					<h4><a href="http://makezine.com/2014/06/04/white-house-maker-faire/">White House Hosts Its Own Maker Faire</a></h4>
 
 					<div class="spacer"></div>
 
@@ -213,12 +224,13 @@
 
 					<p class="stars"><img src="<?php echo esc_url( get_stylesheet_directory_uri() . '/img/stars.png' ); ?>" alt="Stars"></p>
 
-					<h3>More DC based events:</h3>
+					<h3>More DC-based Events</h3>
 
 					<dl>
 						<dt>June 17th:</dt>
 							<dd>TechShop Grand Opening</dd>
 							<dd>Maker Summit</dd>
+							<div class="spacer"></div>
 						<dt>June 18th:</dt>
 							<dd>White House Maker Faire</dd>
 					</dl>
@@ -280,11 +292,11 @@
 
 					<h1>&ldquo;I&#39;m a Maker!&rdquo;</h1>
 
-					<h3>Add your voice to the<br>National Day of Making!</h3>
+					<h3>Add your voice to the Day of Making!</h3>
 
 					<p>President Obama has proclaimed June 18 as the Day of Making to celebrate those students, entrepreneurs, and hobbyist makers who are inventing America and the world's future.</p>
 
-					<p>Today, we join with the White House in calling on all makers everywhere to stand up and be counted.  If you’re passionate about making and love to design, hack, create, build, tinker or engineer, we want you to declare yourself. Register as a Maker today and demonstrate your proud support of the Maker Movement.</p>
+					<p>We join with the White House in calling on all makers everywhere to stand up and be counted. If you love to design, hack, create, build, tinker or engineer, we want you to declare yourself. <strong>Register as a Maker today and demonstrate your support of the Maker Movement.</strong></p>
 
 				</div>
 
@@ -292,35 +304,16 @@
 
 					<div class="row">
 
-						<div class="span4">
+						<div class="span5">
 
-							<h4>Clain Your Badge</h4>
+							<img src="<?php echo esc_url( get_stylesheet_directory_uri() . '/img/Zero-to-Maker-Cover.jpg' ); ?>" class="pull-right thumbnail" width="100" alt="">
+
+							<h4>Claim Your Badge</h4>
 							<p>Receive an electronic Makey badge to post on your social media channels.</p>
-
-						</div>
-
-						<div class="span1">
-
-							<img src="<?php echo esc_url( get_stylesheet_directory_uri() . '/img/day-of-making-badge.png' ); ?>" width="160" height="160" alt="" class="Day of Making" >
-
-						</div>
-
-					</div>
-
-					<div class="row">
-
-						<div class="span4">
 
 							<p>Plus, get a <strong>FREE</strong> PDF of the book Zero to Maker by David Lang.</p>
 
 						</div>
-
-						<div class="span1">
-
-							<img src="<?php echo esc_url( get_stylesheet_directory_uri() . '/img/Zero-to-Maker-Cover.jpg' ); ?>" class="pull-right thumbnail" width="100" alt="">
-
-						</div>
-
 
 					</div>
 
@@ -355,9 +348,9 @@
 
 			<header>
 
-				<p><img src="<?php echo esc_url( get_stylesheet_directory_uri() . '/img/stars.png' ); ?>" alt="Stars"></p>
-
 				<p><a role="button" data-toggle="modal" class="btn btn-danger btn-large" style="width:200px;" title="Join other makers" data-toggle="modal" href="#join">I'm a Maker!</a></p>
+
+				<p><img src="<?php echo esc_url( get_stylesheet_directory_uri() . '/img/stars.png' ); ?>" alt="Stars"></p>
 
 			</header><!-- /header -->
 
@@ -482,7 +475,7 @@
 						<input id="email_address" name="email_address" type="email" placeholder="" class="input-xlarge" required="">
 						<div class="spacer"></div>
 						<div id="gravatar-placeholder" class="pull-left spacerings"></div>
-						<p class="help-block"><small><em>We use Gravatar for the images. Don't see yours? Try tying to an account here: <a href="http://en.gravatar.com">http://en.gravatar.com</a></em></small></p>
+						<p class="help-block"><small><em>"We'll never publish or resell your email address."</em></small></p>
 					</div>
 				</div>
 
