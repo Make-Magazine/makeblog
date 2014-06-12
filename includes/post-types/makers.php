@@ -119,7 +119,7 @@ class Make_Makers {
 		$post->formatted_content = Markdown( $post->post_content );
 
 		// Set the email to post_meta.
-		$post->email = ( isset( $_POST['email_address'] ) && add_post_meta( $pid, '_making_email', sanitize_email( $_POST['email_address'] ) ) ) ? get_avatar( sanitize_email( $_POST['email_address'] ), 200 ) : '';
+		$post->email = ( isset( $_POST['email_address'] ) && add_post_meta( $pid, '_making_email', sanitize_email( $_POST['email_address'] ) ) ) ? get_avatar( sanitize_email( $_POST['email_address'] ), 120 ) : '';
 		// Zip
 		$post->zip = ( isset( $_POST['zip'] ) && add_post_meta( $pid, '_zip', esc_attr( $_POST['zip'] ) ) ) ? esc_attr( $_POST['zip'] ) : '';
 		// State
@@ -138,7 +138,7 @@ class Make_Makers {
 		$post->url = ( isset( $_POST['url'] ) && add_post_meta( $pid, '_url', sanitize_text_field( $_POST['url'] ) ) ) ? sanitize_text_field( $_POST['url'] ) : '';
 
 		// Upload the files
-		$post->image = ( isset( $_FILES ) && ! empty( $_FILES ) ) ? $make_contribute->upload_files( $pid, $_FILES ) : get_avatar( 'webmaster@makezine.com', 200 );
+		$post->image = ( isset( $_FILES ) && ! empty( $_FILES ) ) ? $make_contribute->upload_files( $pid, $_FILES ) : get_avatar( 'webmaster@makezine.com', 120 );
 
 		// Add the category...
 		$post->cats = wp_get_post_terms( $pid, 'category' );
