@@ -167,7 +167,7 @@ class Make_Makers {
 		$output = '<div class="span6">';
 
 		$output .= '<div class="maker media">';
-		$output .= ( isset( $meta['_url'][0] ) ) ? '<a href="' . esc_url( $meta['_url'][0] ) . '">' : '';
+		$output .= ( isset( $meta['_url'][0] ) ) ? '<a class="pull-left" href="' . esc_url( $meta['_url'][0] ) . '">' : '';
 		$email = ( isset( $meta['_making_email'][0] ) ) ? $meta['_making_email'][0] : 'webmaster@makezine.com';
 		$output .= get_avatar( $email, 120, '', get_the_title() );
 		$output .= ( isset( $meta['_url'][0] ) ) ? '</a>' : '';
@@ -220,7 +220,7 @@ class Make_Makers {
 		foreach ( $rows as $row => $posts ) {
 			$output .= '<div class="row">';
 			// Inside each of the rows, build the output.
-			foreach ($posts as $post ) {
+			foreach ( $posts as $post ) {
 				$output .= $this->maker_media( $post );
 			}
 			$output .= '</div>';
