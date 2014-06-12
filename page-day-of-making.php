@@ -139,6 +139,8 @@
 
 					<div class="map-holder"></div>
 
+					<p class="stars"><a role="button" data-toggle="modal" class="btn btn-danger btn-large" style="width:220px;" title="Join other makers" data-toggle="modal" href="#join">Declare Yourself a Maker!</a></p>
+
 					<p class="stars"><img src="<?php echo esc_url( get_stylesheet_directory_uri() . '/img/stars.png' ); ?>" alt="Stars"></p>
 
 					<h3>Make More Stuff</h3>
@@ -366,7 +368,7 @@
 	<div class="modal hide fade" id="join">
 		<div class="modal-header">
 			<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-			<h3>Register for the Day of Making</h3>
+			<h3>Declare Yourself a Maker</h3>
 		</div>
 		<div class="modal-body">
 			<form class="form-horizontal" id="day-of-making-form">
