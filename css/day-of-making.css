@@ -12695,3 +12695,17 @@ dd {
   height: 160px;
   width: auto;
 }
+.stars {
+  margin: 20px;
+  text-align: center;
+}
+.sidebar h3,
+.schtuff h3 {
+  color: #ed1c24;
+  text-align: center;
+  margin: 20px 0;
+}
+.sidebar .caption-new,
+.schtuff .caption-new {
+  margin: 10px 0;
+}
