@@ -179,6 +179,15 @@ class Make_Makers {
 		$output .= '</small></h4>';
 
 		$output .= '<div class="media">';
+
+		$post_categories = wp_get_post_categories( $post->ID );
+		$cats = array();
+		foreach( $post_categories as $c ){
+			$cat = get_category( $c );
+			$cats[] = array( 'name' => $cat->name, 'slug' => $cat->slug );
+		}
+
+		$output .= ( ! empty( $cats[0]['name'] ) ) ? '<div class="category">' . esc_html( $cats[0]['name'] ) . '</div>' : '';
 		$output .= Markdown( get_the_content() );
 
 		$output .= '</div></div></div></div>';
