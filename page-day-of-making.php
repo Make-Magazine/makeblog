@@ -484,7 +484,15 @@
 					</div>
 				</div>
 
-				<!-- Email Address-->
+				<!-- Category -->
+				<div class="control-group">
+					<label class="control-label" for="category">Main Maker Interest <span class="red">*</span></label>
+					<div class="controls">
+						<?php wp_dropdown_categories( array( 'class' => 'input-xlarge' ) ); ?>
+					</div>
+				</div>
+
+				<!-- Photo-->
 				<div class="control-group">
 					<label class="control-label" for="email_address">Photo <span class="red">*</span></label>
 					<div class="controls">
@@ -515,14 +523,6 @@
 					</div>
 				</div>
 
-				<!-- Category -->
-				<div class="control-group">
-					<label class="control-label" for="category">Main Maker Interest</label>
-					<div class="controls">
-						<?php wp_dropdown_categories( array( 'class' => 'input-xlarge' ) ); ?>
-					</div>
-				</div>
-
 				<!-- What do you make... -->
 				<div class="control-group">
 					<label class="control-label" for="post_content">What I Make<span class="red">*</span></label>
@@ -531,10 +531,14 @@
 					</div>
 				</div>
 
+				<div class="control-group">
+					<label class="control-label"><span class="red">Required *</span></label>
+				</div>
+
 				<?php echo wp_nonce_field( 'day-of-making', 'day-of-making' ); ?>
 		</div>
 		<div class="modal-footer">
-				<button type="submit" class="add-maker btn btn-primary">Submit</button>
+				<button type="submit" class="add-maker btn btn-danger">Claim Your Badge</button>
 				<div class="clearfix"></div>
 			</form>
 		</div>
