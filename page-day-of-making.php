@@ -16,8 +16,6 @@
 		<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
 	<![endif]-->
 
-	<?php include_once 'dfp.php'; ?>
-
 	<?php wp_head(); ?>
 
 </head>
@@ -133,7 +131,7 @@
 
 			<div class="row">
 
-				<div class="span8">
+				<div class="span8 schtuff">
 
 					<h1>Makers on the Map</h1>
 
@@ -141,15 +139,7 @@
 
 					<div class="map-holder"></div>
 
-					<h3>More DC based events:</h3>
-
-					<dl>
-						<dt>June 17th:</dt>
-							<dd>TechShop Grand Opening</dd>
-							<dd>Maker Summit</dd>
-						<dt>June 18th:</dt>
-							<dd>White House Maker Faire</dd>
-					</dl>
+					<p class="stars"><img src="<?php echo esc_url( get_stylesheet_directory_uri() . '/img/stars.png' ); ?>" alt="Stars"></p>
 
 					<h3>Make More Stuff</h3>
 
@@ -160,46 +150,26 @@
 
 							<div class="row">
 
-								<div class="span2">
-									<div class="thumbnail">
-										<img src="http://placekitten.com/200/200" alt="Project">
-										<div class="caption">
-											<h4>Project Name</h4>
-										</div>
-									</div>
-								</div>
+								<div class="span8">
 
-								<div class="span2">
-									<div class="thumbnail">
-										<img src="http://placekitten.com/200/200" alt="Project">
-										<div class="caption">
-											<h4>Project Name</h4>
-										</div>
-									</div>
-								</div>
+									<?php $args = array(
+										'post_type'			=> 'projects',
+										'title'				=> '',
+										'limit'				=> 2,
+										'tag'				=> 'Featured',
+										'projects_landing'	=> true,
+										'all'				=> false
+									);
+									echo make_carousel( $args ); ?>
 
-								<div class="span2">
-									<div class="thumbnail">
-										<img src="http://placekitten.com/200/200" alt="Project">
-										<div class="caption">
-											<h4>Project Name</h4>
-										</div>
-									</div>
-								</div>
-
-								<div class="span2">
-									<div class="thumbnail">
-										<img src="http://placekitten.com/200/200" alt="Project">
-										<div class="caption">
-											<h4>Project Name</h4>
-										</div>
-									</div>
 								</div>
 
 							</div>
 
 						</div>
 					</div>
+
+					<p class="stars"><img src="<?php echo esc_url( get_stylesheet_directory_uri() . '/img/stars.png' ); ?>" alt="Stars"></p>
 
 					<div class="media">
 						<div class="media-body">
@@ -208,53 +178,11 @@
 						</div>
 					</div>
 
-					<div class="media">
+					<p class="stars"><img src="<?php echo esc_url( get_stylesheet_directory_uri() . '/img/stars.png' ); ?>" alt="Stars"></p>
 
-							<div class="media-body">
+					<div class="shed-dotd">
 
-							<h4 class="media-heading">Maker Shed: Shop for Kits, Tools</h4>
-
-							<div class="row">
-
-								<div class="span2">
-									<div class="thumbnail">
-										<img src="http://placekitten.com/200/200" alt="Project">
-										<div class="caption">
-											<h4>Project Name</h4>
-										</div>
-									</div>
-								</div>
-
-								<div class="span2">
-									<div class="thumbnail">
-										<img src="http://placekitten.com/200/200" alt="Project">
-										<div class="caption">
-											<h4>Project Name</h4>
-										</div>
-									</div>
-								</div>
-
-								<div class="span2">
-									<div class="thumbnail">
-										<img src="http://placekitten.com/200/200" alt="Project">
-										<div class="caption">
-											<h4>Project Name</h4>
-										</div>
-									</div>
-								</div>
-
-								<div class="span2">
-									<div class="thumbnail">
-										<img src="http://placekitten.com/200/200" alt="Project">
-										<div class="caption">
-											<h4>Project Name</h4>
-										</div>
-									</div>
-								</div>
-
-							</div>
-
-						</div>
+						<?php make_featured_products(); ?>
 
 					</div>
 
@@ -268,7 +196,7 @@
 
 				</div>
 
-				<div class="span4">
+				<div class="span4 sidebar">
 
 					<h3>Day of Making Agenda</h3>
 
@@ -281,6 +209,19 @@
 					<a class="twitter-timeline" href="https://twitter.com/search?q=%23NationOfMakers" width="570" data-widget-id="476445295467704320">Tweets about "#NationOfMakers"</a>
 					<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
 
+					<p class="stars"><img src="<?php echo esc_url( get_stylesheet_directory_uri() . '/img/stars.png' ); ?>" alt="Stars"></p>
+
+					<h3>More DC based events:</h3>
+
+					<dl>
+						<dt>June 17th:</dt>
+							<dd>TechShop Grand Opening</dd>
+							<dd>Maker Summit</dd>
+						<dt>June 18th:</dt>
+							<dd>White House Maker Faire</dd>
+					</dl>
+
+					<p class="stars"><img src="<?php echo esc_url( get_stylesheet_directory_uri() . '/img/stars.png' ); ?>" alt="Stars"></p>
 
 					<h3>Make More Makers</h3>
 
