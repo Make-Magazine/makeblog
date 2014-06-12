@@ -200,9 +200,9 @@
 
 					<h3>Day of Making Agenda</h3>
 
-					<h4>White House Mini Maker Faire</h4>
+					<h4><a href="http://makezine.com/2014/06/04/white-house-maker-faire/">White House Mini Maker Faire</a></h4>
 
-					<img src="http://placekitten.com/570/200" alt="">
+					<a href="http://makezine.com/2014/06/04/white-house-maker-faire/"><img src="http://makezineblog.files.wordpress.com/2013/03/obama.jpg?w=300" alt="Maker Faire at the White House"></a>
 
 					<div class="spacer"></div>
 
