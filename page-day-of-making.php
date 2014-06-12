@@ -16,28 +16,24 @@
 		<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
 	<![endif]-->
 
+	<?php include_once 'dfp.php'; ?>
+
 	<?php wp_head(); ?>
 
 </head>
-<body class="container">
-
-	<div class="navbar">
-		<div class="navbar-inner">
-			<a class="brand" href="http://makezine.com">Make:</a>
-			<ul class="nav">
-				<li class="active nav-home"><a href="#">Home</a></li>
-				<li class="nav-map"><a href="#">Makers on the Map</a></li>
-			</ul>
-		</div>
-	</div>
+<body <?php body_class(); ?>>
 
 	<header id="header" class="">
 
-		<div class="row">
+		<div class="container">
 
-			<div class="span12">
+			<div class="row">
 
-				<img src="<?php echo esc_url( get_stylesheet_directory_uri() . '/img/DayofMaking_logo.png' ); ?>" width="600" alt="Day of Making">
+				<div class="span12">
+
+					<img src="<?php echo esc_url( get_stylesheet_directory_uri() . '/img/DayofMaking_logo.png' ); ?>" width="600" alt="Day of Making">
+
+				</div>
 
 			</div>
 
@@ -45,67 +41,81 @@
 
 	</header><!-- /header -->
 
+	<nav>
+		<div class="container">
+			<ul class="inline">
+				<li class="nav-site-home"><a href="<?php echo get_site_url(); ?>">Makezine.com</a></li>
+				<li class="active nav-home"><a href="#">Map of Makers</a></li>
+				<li class="nav-map"><a href="#">Day of Making</a></li>
+			</ul>
+		</div>
+	</nav>
+
 	<section class="thanks hide">
 
-		<div class="row">
+		<div class="container">
 
-			<div class="span12">
+			<div class="row">
 
-				<p><strong>Thank you for Making!</strong> You’ve now declared your membership in the most fascinating and fastest-growing community in the world. Now claim your badge and post it to your social media profiles. Then download your FREE version of Zero to Maker and learn more about how to develop your skills and influence as a Maker.</p>
+				<div class="span12">
 
-			</div>
-
-		</div>
-
-		<div class="row">
-
-			<div class="span6">
-
-				<div class="maker media maker-added">
-
-					<div class="image"></div>
-
-					<div class="media-body">
-
-						<h4 class="media-heading"> <small></small></h4>
-
-						<div class="media"></div>
-
-					</div>
+					<p><strong>Thank you for Making!</strong> You’ve now declared your membership in the most fascinating and fastest-growing community in the world. Now claim your badge and post it to your social media profiles. Then download your FREE version of Zero to Maker and learn more about how to develop your skills and influence as a Maker.</p>
 
 				</div>
 
 			</div>
 
-			<div class="span6">
+			<div class="row">
 
-				<div class="row">
+				<div class="span6">
 
-					<div class="span3 samesies">
+					<div class="maker media maker-added">
 
-						<img src="<?php echo esc_url( get_stylesheet_directory_uri() . '/img/Zero-to-Maker-Cover.jpg' ) ; ?>" width="160" height="160" alt="" class="thumbnail" >
+						<div class="image"></div>
 
-					</div>
+						<div class="media-body">
 
-					<div class="span3 samesies">
+							<h4 class="media-heading"> <small></small></h4>
 
-						<img src="<?php echo esc_url( get_stylesheet_directory_uri() . '/img/day-of-making-badge.png' ); ?>" width="160" height="160" alt="" class="Day of Making" >
+							<div class="media"></div>
+
+						</div>
 
 					</div>
 
 				</div>
 
-				<div class="row">
+				<div class="span6">
 
-					<div class="span3 samesies">
+					<div class="row">
 
-						<a href="#" class="button button-block" title="">Download Your E-Book</a>
+						<div class="span3 samesies">
+
+							<img src="<?php echo esc_url( get_stylesheet_directory_uri() . '/img/Zero-to-Maker-Cover.jpg' ) ; ?>" width="160" height="160" alt="" class="thumbnail" >
+
+						</div>
+
+						<div class="span3 samesies">
+
+							<img src="<?php echo esc_url( get_stylesheet_directory_uri() . '/img/day-of-making-badge.png' ); ?>" width="160" height="160" alt="" class="Day of Making" >
+
+						</div>
 
 					</div>
 
-					<div class="span3 samesies">
+					<div class="row">
 
-						<a href="<?php echo esc_url( get_stylesheet_directory_uri() . '/img/day-of-making-badge.png' ); ?>" target="_blank" class="button button-block" title="">Download Your Badge</a>
+						<div class="span3 samesies">
+
+							<a href="http://cdn.makezine.com/make/day-of-making/Zero_to_Maker.pdf" target="_blank" class="button button-block" title="">Download Your E-Book</a>
+
+						</div>
+
+						<div class="span3 samesies">
+
+							<a href="<?php echo esc_url( get_stylesheet_directory_uri() . '/img/day-of-making-badge.png' ); ?>" target="_blank" class="button button-block" title="">Download Your Badge</a>
+
+						</div>
 
 					</div>
 
@@ -119,192 +129,196 @@
 
 	<section class="end-page hide">
 
-		<div class="row">
+		<div class="container">
 
-			<div class="span8">
+			<div class="row">
 
-				<h1>Makers on the Map</h1>
+				<div class="span8">
 
-				<p class="lead">Everywhere! Put yourself on the Maker Map: Tweet your location to #MakerWhere and include a picture of what you’re making on this Day of Making 2014.</p>
+					<h1>Makers on the Map</h1>
 
-				<div class="map-holder"></div>
+					<p class="lead">Everywhere! Put yourself on the Maker Map: Tweet your location to #MakerWhere and include a picture of what you’re making on this Day of Making 2014.</p>
 
-				<h3>More DC based events:</h3>
+					<div class="map-holder"></div>
 
-				<dl>
-					<dt>June 17th:</dt>
-						<dd>TechShop Grand Opening</dd>
-						<dd>Maker Summit</dd>
-					<dt>June 18th:</dt>
-						<dd>White House Maker Faire</dd>
-				</dl>
+					<h3>More DC based events:</h3>
 
-				<h3>Make More Stuff</h3>
+					<dl>
+						<dt>June 17th:</dt>
+							<dd>TechShop Grand Opening</dd>
+							<dd>Maker Summit</dd>
+						<dt>June 18th:</dt>
+							<dd>White House Maker Faire</dd>
+					</dl>
 
-				<div class="media">
-					<div class="media-body">
-						<h4 class="media-heading"><a href="http://makezine.com/projects/">Start a Project</a></h4>
-						<p>Explore our growing cookbook of DIY projects for all levels.</p>
+					<h3>Make More Stuff</h3>
 
-						<div class="row">
-
-							<div class="span2">
-								<div class="thumbnail">
-									<img src="http://placekitten.com/200/200" alt="Project">
-									<div class="caption">
-										<h4>Project Name</h4>
-									</div>
-								</div>
-							</div>
-
-							<div class="span2">
-								<div class="thumbnail">
-									<img src="http://placekitten.com/200/200" alt="Project">
-									<div class="caption">
-										<h4>Project Name</h4>
-									</div>
-								</div>
-							</div>
-
-							<div class="span2">
-								<div class="thumbnail">
-									<img src="http://placekitten.com/200/200" alt="Project">
-									<div class="caption">
-										<h4>Project Name</h4>
-									</div>
-								</div>
-							</div>
-
-							<div class="span2">
-								<div class="thumbnail">
-									<img src="http://placekitten.com/200/200" alt="Project">
-									<div class="caption">
-										<h4>Project Name</h4>
-									</div>
-								</div>
-							</div>
-
-						</div>
-
-					</div>
-				</div>
-
-				<div class="media">
-					<div class="media-body">
-						<h4 class="media-heading"><a href="http://makerfaire.com/map/">Find a Faire</a></h4>
-						<p>Community-based, independently produced Maker Faires are happening all over the globe.</p>
-					</div>
-				</div>
-
-				<div class="media">
-
+					<div class="media">
 						<div class="media-body">
+							<h4 class="media-heading"><a href="http://makezine.com/projects/">Start a Project</a></h4>
+							<p>Explore our growing cookbook of DIY projects for all levels.</p>
 
-						<h4 class="media-heading">Maker Shed: Shop for Kits, Tools</h4>
+							<div class="row">
 
-						<div class="row">
-
-							<div class="span2">
-								<div class="thumbnail">
-									<img src="http://placekitten.com/200/200" alt="Project">
-									<div class="caption">
-										<h4>Project Name</h4>
+								<div class="span2">
+									<div class="thumbnail">
+										<img src="http://placekitten.com/200/200" alt="Project">
+										<div class="caption">
+											<h4>Project Name</h4>
+										</div>
 									</div>
 								</div>
+
+								<div class="span2">
+									<div class="thumbnail">
+										<img src="http://placekitten.com/200/200" alt="Project">
+										<div class="caption">
+											<h4>Project Name</h4>
+										</div>
+									</div>
+								</div>
+
+								<div class="span2">
+									<div class="thumbnail">
+										<img src="http://placekitten.com/200/200" alt="Project">
+										<div class="caption">
+											<h4>Project Name</h4>
+										</div>
+									</div>
+								</div>
+
+								<div class="span2">
+									<div class="thumbnail">
+										<img src="http://placekitten.com/200/200" alt="Project">
+										<div class="caption">
+											<h4>Project Name</h4>
+										</div>
+									</div>
+								</div>
+
 							</div>
 
-							<div class="span2">
-								<div class="thumbnail">
-									<img src="http://placekitten.com/200/200" alt="Project">
-									<div class="caption">
-										<h4>Project Name</h4>
-									</div>
-								</div>
-							</div>
+						</div>
+					</div>
 
-							<div class="span2">
-								<div class="thumbnail">
-									<img src="http://placekitten.com/200/200" alt="Project">
-									<div class="caption">
-										<h4>Project Name</h4>
-									</div>
-								</div>
-							</div>
+					<div class="media">
+						<div class="media-body">
+							<h4 class="media-heading"><a href="http://makerfaire.com/map/">Find a Faire</a></h4>
+							<p>Community-based, independently produced Maker Faires are happening all over the globe.</p>
+						</div>
+					</div>
 
-							<div class="span2">
-								<div class="thumbnail">
-									<img src="http://placekitten.com/200/200" alt="Project">
-									<div class="caption">
-										<h4>Project Name</h4>
+					<div class="media">
+
+							<div class="media-body">
+
+							<h4 class="media-heading">Maker Shed: Shop for Kits, Tools</h4>
+
+							<div class="row">
+
+								<div class="span2">
+									<div class="thumbnail">
+										<img src="http://placekitten.com/200/200" alt="Project">
+										<div class="caption">
+											<h4>Project Name</h4>
+										</div>
 									</div>
 								</div>
+
+								<div class="span2">
+									<div class="thumbnail">
+										<img src="http://placekitten.com/200/200" alt="Project">
+										<div class="caption">
+											<h4>Project Name</h4>
+										</div>
+									</div>
+								</div>
+
+								<div class="span2">
+									<div class="thumbnail">
+										<img src="http://placekitten.com/200/200" alt="Project">
+										<div class="caption">
+											<h4>Project Name</h4>
+										</div>
+									</div>
+								</div>
+
+								<div class="span2">
+									<div class="thumbnail">
+										<img src="http://placekitten.com/200/200" alt="Project">
+										<div class="caption">
+											<h4>Project Name</h4>
+										</div>
+									</div>
+								</div>
+
 							</div>
 
 						</div>
 
 					</div>
 
+					<div class="media">
+						<div class="media-body">
+							<h4 class="media-heading"><a href="https://www.pubservice.com/MK/subscribe.aspx?PC=MK&PK=M3AMZB">Subscribe to Make:</a></h4>
+							<p>Get the Digital Edition</p>
+						</div>
+					</div>
+
+
 				</div>
 
-				<div class="media">
-					<div class="media-body">
-						<h4 class="media-heading"><a href="https://www.pubservice.com/MK/subscribe.aspx?PC=MK&PK=M3AMZB">Subscribe to Make:</a></h4>
-						<p>Get the Digital Edition</p>
+				<div class="span4">
+
+					<h3>Day of Making Agenda</h3>
+
+					<h4>White House Mini Maker Faire</h4>
+
+					<img src="http://placekitten.com/570/200" alt="">
+
+					<div class="spacer"></div>
+
+					<a class="twitter-timeline" href="https://twitter.com/search?q=%23NationOfMakers" width="570" data-widget-id="476445295467704320">Tweets about "#NationOfMakers"</a>
+					<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+
+
+					<h3>Make More Makers</h3>
+
+					<div class="media">
+						<div class="media-body">
+							<h4 class="media-heading"><a href="http://makerspace.com">Create a Makerspace</a></h4>
+							<p>Makerspaces are community centers with tools. Download your FREE Makerspace playbook and start planning your own.</p>
+						</div>
 					</div>
-				</div>
 
-
-			</div>
-
-			<div class="span4">
-
-				<h3>Day of Making Agenda</h3>
-
-				<h4>White House Mini Maker Faire</h4>
-
-				<img src="http://placekitten.com/570/200" alt="">
-
-				<div class="spacer"></div>
-
-				<a class="twitter-timeline" href="https://twitter.com/search?q=%23NationOfMakers" width="570" data-widget-id="476445295467704320">Tweets about "#NationOfMakers"</a>
-				<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-
-
-				<h3>Make More Makers</h3>
-
-				<div class="media">
-					<div class="media-body">
-						<h4 class="media-heading"><a href="http://makerspace.com">Create a Makerspace</a></h4>
-						<p>Makerspaces are community centers with tools. Download your FREE Makerspace playbook and start planning your own.</p>
+					<div class="media">
+						<div class="media-body">
+							<h4 class="media-heading"><a href="http://makezine.com/maker-camp/">Make a Maker Faire</a></h4>
+							<p>Our Mini Maker Faire program provides all the tools and resources to help you launch a Maker Faire event that reflects the creativity, spirit and ingenuity of your community.</p>
+						</div>
 					</div>
-				</div>
 
-				<div class="media">
-					<div class="media-body">
-						<h4 class="media-heading"><a href="http://makezine.com/maker-camp/">Make a Maker Faire</a></h4>
-						<p>Our Mini Maker Faire program provides all the tools and resources to help you launch a Maker Faire event that reflects the creativity, spirit and ingenuity of your community.</p>
+					<div class="media">
+						<div class="media-body">
+							<h4 class="media-heading"><a href="http://makezine.com/maker-camp/">Host a Maker Camp for teens</a></h4>
+							<p>Librarians, Summer Camp Directors, and Teen Program Directors: Check out all the ways you can integrate Maker Camp into your summer program.</p>
+						</div>
 					</div>
-				</div>
 
-				<div class="media">
-					<div class="media-body">
-						<h4 class="media-heading"><a href="http://makezine.com/maker-camp/">Host a Maker Camp for teens</a></h4>
-						<p>Librarians, Summer Camp Directors, and Teen Program Directors: Check out all the ways you can integrate Maker Camp into your summer program.</p>
+					<div class="media">
+						<div class="media-body">
+							<h4 class="media-heading"><a href="http://makered.org/">Teach Making</a></h4>
+							<p>Calling all Educators: Create more opportunities to develop confidence, creativity and interest in science, technology, engineering, math, arts and learning as a whole through making.</p>
+						</div>
 					</div>
-				</div>
 
-				<div class="media">
-					<div class="media-body">
-						<h4 class="media-heading"><a href="http://makered.org/">Teach Making</a></h4>
-						<p>Calling all Educators: Create more opportunities to develop confidence, creativity and interest in science, technology, engineering, math, arts and learning as a whole through making.</p>
+					<div class="media">
+						<div class="media-body">
+							<h4 class="media-heading"><a href="http://makerfaire.com/maker-movement/">Learn about the Maker Movement</a></h4>
+							<p>This is grassroots innovation that we can foster in every community. Found out more about the movement and Maker Media.</p>
+						</div>
 					</div>
-				</div>
 
-				<div class="media">
-					<div class="media-body">
-						<h4 class="media-heading"><a href="http://makerfaire.com/maker-movement/">Learn about the Maker Movement</a></h4>
-						<p>This is grassroots innovation that we can foster in every community. Found out more about the movement and Maker Media.</p>
-					</div>
 				</div>
 
 			</div>
@@ -315,27 +329,64 @@
 
 	<section class="call-out">
 
-		<div class="row">
+		<div class="container">
 
-			<div class="span7">
+			<div class="row">
 
-				<h1>I'm a Maker!</h1>
+				<div class="span7">
 
-				<h3>Add your voice to the National Day of Making!</h3>
+					<h1>&ldquo;I&#39;m a Maker!&rdquo;</h1>
 
-				<p>Today, we’re joing with the White House and calling on all makers to stand up and be counted. If you’re passionate about making and love to design, hack, create, build, tinker or engineer, we want to hear from you! </p>
+					<h3>Add your voice to the<br>National Day of Making!</h3>
 
-			</div>
+					<p>President Obama has proclaimed June 18 as the Day of Making to celebrate those students, entrepreneurs, and hobbyist makers who are inventing America and the world's future.</p>
 
-			<div class="span5">
+					<p>Today, we join with the White House in calling on all makers everywhere to stand up and be counted.  If you’re passionate about making and love to design, hack, create, build, tinker or engineer, we want you to declare yourself. Register as a Maker today and demonstrate your proud support of the Maker Movement.</p>
 
-				<img src="<?php echo esc_url( get_stylesheet_directory_uri() . '/img/Zero-to-Maker-Cover.jpg' ); ?>" class="pull-right thumbnail" width="100" alt="">
+				</div>
 
-				<p><strong>Add your story today</strong> and demonstrate your proud support of makers around the country. Receive an electronic badge like this to post on your social media channels.</p>
+				<div class="span5">
 
-				<p>Plus, get a free PDF of the book Zero to Maker by David Lang.</p>
+					<div class="row">
 
-				<a role="button" data-toggle="modal" class="button btn-block" title="Join other makers" data-toggle="modal" href="#join">Add Your Story</a>
+						<div class="span4">
+
+							<h4>Clain Your Badge</h4>
+							<p>Receive an electronic Makey badge to post on your social media channels.</p>
+
+						</div>
+
+						<div class="span1">
+
+							<img src="<?php echo esc_url( get_stylesheet_directory_uri() . '/img/day-of-making-badge.png' ); ?>" width="160" height="160" alt="" class="Day of Making" >
+
+						</div>
+
+					</div>
+
+					<div class="row">
+
+						<div class="span4">
+
+							<p>Plus, get a <strong>FREE</strong> PDF of the book Zero to Maker by David Lang.</p>
+
+						</div>
+
+						<div class="span1">
+
+							<img src="<?php echo esc_url( get_stylesheet_directory_uri() . '/img/Zero-to-Maker-Cover.jpg' ); ?>" class="pull-right thumbnail" width="100" alt="">
+
+						</div>
+
+
+					</div>
+
+					<div class="spacer"></div>
+					<div class="spacer"></div>
+
+					<a role="button" data-toggle="modal" class="btn btn-danger btn-large btn-block" title="Join other makers" data-toggle="modal" href="#join">I'm a Maker!</a>
+
+				</div>
 
 			</div>
 
@@ -345,15 +396,29 @@
 
 	<section class="list-of-makers">
 
-		<header>
+		<div class="container">
 
-			<h2>Our Maker Community</h2>
+			<header>
 
-			<p>Over <span class="count"><?php echo intval( wp_count_posts( 'makers' )->publish ); ?></span> added. Share your story.</p>
+				<p><img src="<?php echo esc_url( get_stylesheet_directory_uri() . '/img/stars.png' ); ?>" alt="Stars"></p>
 
-		</header><!-- /header -->
+				<h2>Our Maker Community</h2>
 
-		<?php do_action( 'maker_rows' ); ?>
+				<p>Over <span class="count"><?php echo intval( wp_count_posts( 'makers' )->publish ); ?></span> added. Share your story.</p>
+
+			</header><!-- /header -->
+
+			<?php do_action( 'maker_rows' ); ?>
+
+			<header>
+
+				<p><img src="<?php echo esc_url( get_stylesheet_directory_uri() . '/img/stars.png' ); ?>" alt="Stars"></p>
+
+				<p><a role="button" data-toggle="modal" class="btn btn-danger btn-large" style="width:200px;" title="Join other makers" data-toggle="modal" href="#join">I'm a Maker!</a></p>
+
+			</header><!-- /header -->
+
+		</div>
 
 	</section>
 
@@ -557,6 +622,6 @@
 
 	</div>
 
-	<?php wp_footer(); ?>
+	<?php get_footer(); ?>
 </body>
 </html>
