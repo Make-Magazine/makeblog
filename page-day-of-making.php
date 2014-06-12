@@ -43,8 +43,8 @@
 		<div class="container">
 			<ul class="inline">
 				<li class="nav-site-home"><a href="<?php echo get_site_url(); ?>">Makezine.com</a></li>
-				<li class="active nav-home"><a href="#">Map of Makers</a></li>
-				<li class="nav-map"><a href="#">Day of Making</a></li>
+				<li class="active nav-home"><a href="#">Maker Signup</a></li>
+				<li class="nav-map"><a href="#">Day of Making Activities</a></li>
 			</ul>
 		</div>
 	</nav>
@@ -525,7 +525,7 @@
 
 				<!-- What do you make... -->
 				<div class="control-group">
-					<label class="control-label" for="post_content">What I Make<span class="red">*</span></label>
+					<label class="control-label" for="post_content">What I Make <span class="red">*</span></label>
 					<div class="controls">
 						<textarea id="post_content" class="input-xlarge" maxlength="250" rows="3" required="" name="post_content"></textarea>
 					</div>
