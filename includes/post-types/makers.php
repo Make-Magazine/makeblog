@@ -137,8 +137,9 @@ class Make_Makers {
 		// URL
 		$post->url = ( isset( $_POST['url'] ) && add_post_meta( $pid, '_url', sanitize_text_field( $_POST['url'] ) ) ) ? sanitize_text_field( $_POST['url'] ) : '';
 
-		// Upload the files
-		$post->image = ( isset( $_FILES ) && ! empty( $_FILES ) ) ? $make_contribute->upload_files( $pid, $_FILES ) : get_avatar( 'webmaster@makezine.com', 120 );
+		// Upload the files, then build a gravatar image.
+		$img_array = $make_contribute->upload_files( $pid, $_FILES );
+		$post->image = ( $img_array['profile-image-1'][0] && ! empty( $img_array['profile-image-1'][0] ) ) ? $this->build_avatar( $img_array['profile-image-1'][0], 120, 'pull-left' ) : get_avatar( 'webmaster@makezine.com', 120 );
 
 		// Add the category...
 		$post->cats = wp_get_post_terms( $pid, 'category' );
@@ -146,6 +147,10 @@ class Make_Makers {
 		// Send back the Post as JSON
 		die( json_encode( $post ) );
 
+	}
+
+	private function build_avatar( $url, $size = 120, $class ) {
+		return '<img src="' . esc_url( wpcom_vip_get_resized_remote_image_url( $url, $size, $size ) ) . '" class="avatar avatar-' . esc_attr( $size ) . ' photo ' . $class . '">';
 	}
 
 	public function change_avatar_css($class) {
