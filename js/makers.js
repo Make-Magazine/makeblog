@@ -62,7 +62,7 @@ jQuery( document ).ready( function( $ ) {
 				$('.thanks').slideDown();
 				$('.end-page').slideDown();
 				$('.list-of-makers').hide();
-				$('.maker-added .image').append( post_obj.email ).addClass('pull-left');
+				$('.maker-added .image').append( post_obj.image ).addClass('pull-left');
 				$('.maker-added .media-heading').prepend( post_obj.post_title );
 				$('.maker-added .media-heading small').append( ' ' + post_obj.city + ', ' + post_obj.state );
 				$('.maker-added .media').append( post_obj.formatted_content );
