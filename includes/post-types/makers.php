@@ -167,8 +167,10 @@ class Make_Makers {
 		$output = '<div class="span6">';
 
 		$output .= '<div class="maker media">';
+		$output .= ( isset( $meta['_url'][0] ) ) ? '<a href="' . esc_url( $meta['_url'][0] ) . '">' : '';
 		$email = ( isset( $meta['_making_email'][0] ) ) ? $meta['_making_email'][0] : 'webmaster@makezine.com';
-		$output .= get_avatar( $email, 200, '', get_the_title() );
+		$output .= get_avatar( $email, 120, '', get_the_title() );
+		$output .= ( isset( $meta['_url'][0] ) ) ? '</a>' : '';
 		$output .= '<div class="media-body">';
 		$output .= '<h4 class="media-heading">';
 		$output .= esc_html( $post->post_title );
