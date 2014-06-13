@@ -175,7 +175,7 @@ class Make_Makers {
 		// If they added a photo, use that. If no image, build a gravatar. If we don't have an email, fall back to the webmster one.
 		// We might want to drop the email check, and just use the webmaster one...
 		if ( ! empty( $meta['_maker_image'][0] ) ) {
-			$output .= build_avatar( esc_url( $meta['_maker_image'][0] ) );
+			$output .= $this->build_avatar( esc_url( $meta['_maker_image'][0] ) );
 		} else {
 			$email = ( isset( $meta['_making_email'][0] ) ) ? $meta['_making_email'][0] : 'webmaster@makezine.com';
 			$output .= get_avatar( $email, 120, '', get_the_title() );
