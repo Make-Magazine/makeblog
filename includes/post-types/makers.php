@@ -47,7 +47,7 @@ class Make_Makers {
 			'show_in_nav_menus' 	=> true,
 			'show_in_menu' 			=> true,
 			'show_in_admin_bar' 	=> true,
-			'menu_position' 		=> 25,
+			'menu_position' 		=> 46,
 			'menu_icon' 			=> null,
 			'capability_type'		=> 'post',
 			'hierarchical' 			=> true,
