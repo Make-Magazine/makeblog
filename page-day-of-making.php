@@ -145,7 +145,7 @@
 
 					</div>
 
-					<p class="stars"><a role="button" data-toggle="modal" class="btn btn-danger btn-large" style="width:220px;" title="Join other makers" data-toggle="modal" href="#join">Declare Yourself a Maker!</a></p>
+					<p class="stars"><a role="button" data-toggle="modal" class="btn btn-danger btn-large" style="width:220px;" title="Join other makers" data-toggle="modal" href="#join">Declare Yourself a Maker</a></p>
 
 					<p class="stars"><img src="<?php echo esc_url( get_stylesheet_directory_uri() . '/img/stars.png' ); ?>" alt="Stars"></p>
 
@@ -347,7 +347,7 @@
 
 				<div class="spacer"></div>
 
-				<p><a role="button" data-toggle="modal" class="btn btn-danger btn-large" style="width:200px;" title="Join other makers" data-toggle="modal" href="#join">I'm a Maker!</a></p>
+				<p><a role="button" data-toggle="modal" class="btn btn-danger btn-large" style="width:200px;" title="Join other makers" data-toggle="modal" href="#join">I'm a Maker</a></p>
 
 				<p><img src="<?php echo esc_url( get_stylesheet_directory_uri() . '/img/stars.png' ); ?>" alt="Stars"></p>
 
