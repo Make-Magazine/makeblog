@@ -479,12 +479,12 @@
 					<label class="control-label" for="category">Main Maker Interest <span class="red">*</span></label>
 					<div class="controls">
 						<select name="interest" class="span4">
-							<option name="interest" value="Digital">Digital Fabrication (3D Printing, CNC, lasercutting&hellip;)</option>
-							<option name="interest" value="Microcontrollers">Microcontrollers (Arduino, Raspberry Pi...) </option>
-							<option name="interest" value="DIY">DIY Electronics (robotics, drones, R/C technology&hellip;)</option>
-							<option name="interest" value="Art">Art, Design (photography, music&hellip;)</option>
-							<option name="interest" value="Crafts">Crafts (cooking, gardening, sewing&hellip;)</option>
-							<option name="interest" value="Workshop">Workshop (machining, woodworking, welding&hellip;)</option>
+							<option name="interest" value="Digital Fabrication">Digital Fabrication</option>
+							<option name="interest" value="Microcontrollers">Microcontrollers</option>
+							<option name="interest" value="DIY Electronics">DIY Electronics</option>
+							<option name="interest" value="Art, Design">Art &amp; Design</option>
+							<option name="interest" value="Crafts">Crafts</option>
+							<option name="interest" value="Workshop">Workshop</option>
 						</select>
 					</div>
 				</div>
