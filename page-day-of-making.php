@@ -315,6 +315,8 @@
 					<div class="spacer"></div>
 					<div class="spacer"></div>
 
+					<h4>Share your story:</h4>
+
 					<a role="button" data-toggle="modal" class="btn btn-danger btn-large btn-block" title="Join other makers" data-toggle="modal" href="#join">I'm a Maker</a>
 
 				</div>
