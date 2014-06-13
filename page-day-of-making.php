@@ -477,7 +477,7 @@
 						<input id="email_address" name="email_address" type="email" placeholder="" class="input-xlarge" required="">
 						<div class="spacer"></div>
 						<div id="gravatar-placeholder" class="pull-left spacerings"></div>
-						<p class="help-block"><small><em>"We'll never publish or resell your email address."</em></small></p>
+						<p class="help-block"><small><em>We'll never publish or resell your email address.</em></small></p>
 					</div>
 				</div>
 
