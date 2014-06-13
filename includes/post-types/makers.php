@@ -194,7 +194,8 @@ class Make_Makers {
 
 		$output .= ( ! empty( $meta['_interest'][0] ) ) ? '<div class="category">' . esc_html( $meta['_interest'][0] ) . '</div>' : '';
 		$output .= Markdown( get_the_content() );
-
+		// Add the website URL
+		$output .= ( isset( $meta['_url'][0] ) && ! empty( $meta['_url'][0] ) ) ? '<a class="" target="_blank" href="' . esc_url( $meta['_url'][0] ) . '">Website</a>' : '';
 		$output .= '</div></div></div></div>';
 
 		return $output;
