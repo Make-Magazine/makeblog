@@ -136,7 +136,7 @@ class Make_Makers {
 		// Last Name
 		$post->lastname = ( isset( $_POST['lastname'] ) && add_post_meta( $pid, '_lastname', sanitize_text_field( $_POST['lastname'] ) ) ) ? sanitize_text_field( $_POST['lastname'] ) : '';
 		// URL
-		$post->url = ( isset( $_POST['url'] ) && add_post_meta( $pid, '_url', sanitize_text_field( $_POST['url'] ) ) ) ? sanitize_text_field( $_POST['url'] ) : '';
+		$post->url = ( isset( $_POST['url'] ) && add_post_meta( $pid, '_url', esc_url( sanitize_text_field( $_POST['url'] ) ) ) ) ? esc_url( sanitize_text_field( $_POST['url'] ) ) : '';
 
 		// Upload the files, then build a gravatar image.
 		$img_array = $make_contribute->upload_files( $pid, $_FILES );
