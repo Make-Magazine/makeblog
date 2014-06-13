@@ -140,7 +140,7 @@ class Make_Makers {
 
 		// Upload the files, then build a gravatar image.
 		$img_array = $make_contribute->upload_files( $pid, $_FILES );
-		$post->image = ( $img_array['profile-image-1'][0] && ! empty( $img_array['profile-image-1'][0] ) && add_post_meta( $pid, 'maker_image', sanitize_text_field( $img_array['profile-image-1'][0] ) ) ) {
+		$post->image = ( $img_array['profile-image-1'][0] && ! empty( $img_array['profile-image-1'][0] ) && add_post_meta( $pid, '_maker_image', sanitize_text_field( $img_array['profile-image-1'][0] ) ) ) ? $this->build_avatar( $img_array['profile-image-1'][0], 120, 'pull-left' ) : get_avatar( $post->email, 120 );
 
 		// Send back the Post as JSON
 		die( json_encode( $post ) );
