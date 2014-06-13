@@ -137,7 +137,7 @@
 
 						<h1>Makers on the Map</h1>
 
-						<p class="lead">Everywhere! Put yourself on the Maker Map: Tweet your location to #MakerWhere and include a picture of what you’re making on this Day of Making 2014.</p>
+						<p class="lead">Put yourself on the Maker Map: Tweet your location to #MakerWhere and include a picture of what you’re making today.</p>
 
 						<div class="map-holder"></div>
 
