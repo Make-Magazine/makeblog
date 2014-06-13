@@ -123,6 +123,8 @@
 
 		</div>
 
+		<div class="spacer"></div>
+
 	</section>
 
 	<section class="end-page hide">
