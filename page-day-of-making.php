@@ -287,7 +287,7 @@
 
 					<h3>Add your voice to the Day of Making!</h3>
 
-					<p>President Obama is hosting the first-ever White House Maker Faire on June 18, which will also be a Day of Making. Let's celebrate those celebrate those students, entrepreneurs, and hobbyist makers who are inventing America and the world's future.</p>
+					<p>President Obama is hosting the first-ever White House Maker Faire on June 18, which will also be a Day of Making. Let's celebrate those students, entrepreneurs, and hobbyist makers who are inventing America and the world's future.</p>
 
 					<p>We join with the White House in calling on all makers everywhere to stand up and be counted. If you love to design, hack, create, build, tinker or engineer, we want you to declare yourself. <strong>Register as a Maker today and demonstrate your support of the Maker Movement.</strong></p>
 
