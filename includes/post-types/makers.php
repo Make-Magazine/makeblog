@@ -10,6 +10,7 @@ class Make_Makers {
 	 */
 	public function __construct() {
 		add_action( 'init', array( $this, 'create_post_type' ) );
+		add_action( 'init', array( $this, 'custom_fields' ) );
 		add_action( 'wp_enqueue_scripts', array( $this, 'load_resources' ), 30 );
 		add_action( 'wp_ajax_nopriv_add_maker', array( $this, 'add_maker' ) );
 		add_action( 'wp_ajax_add_maker', array( $this, 'add_maker' ) );
@@ -51,7 +52,6 @@ class Make_Makers {
 			'capability_type'		=> 'post',
 			'hierarchical' 			=> true,
 			'supports' 				=> array( 'title', 'editor', 'thumbnail', 'revisions',  ),
-			'taxonomies'			=> array( 'category' ),
 			'has_archive' 			=> false,
 			'rewrite' 				=> array(
 				'slug' 			=> 'makers',
@@ -229,6 +229,47 @@ class Make_Makers {
 			$output .= '</div>';
 		}
 		echo $output;
+	}
+
+	public function custom_fields() {
+		/**
+		 * Initiate the Easy Custom Fields class
+		 */
+		$field_data = array (
+			'maker_info' => array(
+				'fields' => array(
+					'_url'			=> array(
+						'label' 		=> 'Website URL',
+					),
+					'_making_email'	=> array(
+						'label' 		=> 'Email',
+					),
+					'_city'			=> array(
+						'label' 		=> 'City',
+					),
+					'_state'		=> array(
+						'label' 		=> 'State',
+					),
+					'_zip'			=> array(
+						'label' 		=> 'Zip Code',
+					),
+					'_country'		=> array(
+						'label' 		=> 'Country',
+					),
+					'_experience'	=> array(
+						'label' 		=> 'Experience',
+					),
+					'_interest'		=> array(
+						'label' 		=> 'Interest',
+					),
+				),
+				'title' => 'Maker Meta',
+				'context' => 'side',
+				'pages' => array( 'makers' ),
+			),
+		);
+
+		$easy_cf = new Easy_CF($field_data);
 	}
 }
 
