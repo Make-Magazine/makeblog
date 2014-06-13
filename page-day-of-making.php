@@ -486,7 +486,7 @@
 							<option name="interest" value="Digital Fabrication">Digital Fabrication</option>
 							<option name="interest" value="Microcontrollers">Microcontrollers</option>
 							<option name="interest" value="DIY Electronics">DIY Electronics</option>
-							<option name="interest" value="Art, Design">Art &amp; Design</option>
+							<option name="interest" value="Art &amp; Design">Art &amp; Design</option>
 							<option name="interest" value="Crafts">Crafts</option>
 							<option name="interest" value="Workshop">Workshop</option>
 						</select>
