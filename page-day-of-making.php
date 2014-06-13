@@ -485,7 +485,14 @@
 				<div class="control-group">
 					<label class="control-label" for="category">Main Maker Interest <span class="red">*</span></label>
 					<div class="controls">
-						<?php wp_dropdown_categories( array( 'class' => 'input-xlarge' ) ); ?>
+						<select name="interest" class="span4">
+							<option name="interest" value="Digital">Digital Fabrication (3D Printing, CNC, lasercutting&hellip;)</option>
+							<option name="interest" value="Microcontrollers">Microcontrollers (Arduino, Raspberry Pi...) </option>
+							<option name="interest" value="DIY">DIY Electronics (robotics, drones, R/C technology&hellip;)</option>
+							<option name="interest" value="Art">Art, Design (photography, music&hellip;)</option>
+							<option name="interest" value="Crafts">Crafts (cooking, gardening, sewing&hellip;)</option>
+							<option name="interest" value="Workshop">Workshop (machining, woodworking, welding&hellip;)</option>
+						</select>
 					</div>
 				</div>
 
@@ -509,7 +516,7 @@
 				<div class="control-group">
 					<label class="control-label" for="experience">Experience</label>
 					<div class="controls">
-						<select id="experience" name="experience" class="input-xlarge">
+						<select id="experience" name="experience" class="input-xlarge span4">
 							<option value="Fan">Fan: I love finding out what other people are making.</option>
 							<option value="Newbie">Newbie: I want to start my first project.</option>
 							<option value="Beginner">Beginner: I’m still learning the basics.</option>

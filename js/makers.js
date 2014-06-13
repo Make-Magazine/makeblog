@@ -69,8 +69,8 @@ jQuery( document ).ready( function( $ ) {
 				if ( post_obj.url ) {
 					$('.maker-added .media').append( '<a class="btn btn-mini btn-danger" target="_blank" href="' + post_obj.url + '">Website</a>' );
 				}
-				if ( post_obj.cats[0].name ) {
-					$('.maker-added .media-heading').after( ' <span class="label">' + post_obj.cats[0].name + '</span> ' );
+				if ( post_obj.interest ) {
+					$('.maker-added .media-heading').after( ' <span class="label">' + post_obj.interest + '</span> ' );
 				}
 				if ( post_obj.experience ) {
 					$('.maker-added .media-heading').after( ' <span class="label">' + post_obj.experience + '</span> ' );

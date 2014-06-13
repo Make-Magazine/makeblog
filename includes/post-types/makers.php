@@ -102,7 +102,6 @@ class Make_Makers {
 			'post_title'	=> ( isset( $_POST['firstname'] ) || isset( $_POST['lastname'] ) ) ? sanitize_text_field( $_POST['firstname'] . ' ' . $_POST['lastname'] ) : '',
 			'post_name'		=> ( isset( $_POST['firstname'] ) ) ? sanitize_title( $_POST['firstname'] . ' ' . $_POST['lastname'] ) : '',
 			'post_content'	=> ( isset( $_POST['post_content'] ) ) ? wp_kses_post( $_POST['post_content'] ) : '',
-			'post_category'	=> ( isset( $_POST['cat'] ) ) ? array( absint( $_POST['cat'] ) ) : '',
 			'post_type'		=> 'makers',
 			// When this goes to wpcom, we need to set an author to the post.
 			// Or, do we?
@@ -130,6 +129,8 @@ class Make_Makers {
 		$post->country = ( isset( $_POST['country'] ) && add_post_meta( $pid, '_country', esc_attr( $_POST['country'] ) ) ) ? esc_attr( $_POST['country'] ) : '';
 		// Experience
 		$post->experience = ( isset( $_POST['experience'] ) && add_post_meta( $pid, '_experience', sanitize_text_field( $_POST['experience'] ) ) ) ? sanitize_text_field( $_POST['experience'] ) : '';
+		// Interest
+		$post->interest = ( isset( $_POST['interest'] ) && add_post_meta( $pid, '_interest', sanitize_text_field( $_POST['interest'] ) ) ) ? sanitize_text_field( $_POST['interest'] ) : '';
 		// First Name
 		$post->firstname = ( isset( $_POST['firstname'] ) && add_post_meta( $pid, '_firstname', sanitize_text_field( $_POST['firstname'] ) ) ) ? sanitize_text_field( $_POST['firstname'] ) : '';
 		// Last Name
@@ -140,9 +141,6 @@ class Make_Makers {
 		// Upload the files, then build a gravatar image.
 		$img_array = $make_contribute->upload_files( $pid, $_FILES );
 		$post->image = ( $img_array['profile-image-1'][0] && ! empty( $img_array['profile-image-1'][0] ) ) ? $this->build_avatar( $img_array['profile-image-1'][0], 120, 'pull-left' ) : get_avatar( 'webmaster@makezine.com', 120 );
-
-		// Add the category...
-		$post->cats = wp_get_post_terms( $pid, 'category' );
 
 		// Send back the Post as JSON
 		die( json_encode( $post ) );
