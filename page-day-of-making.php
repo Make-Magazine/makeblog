@@ -147,7 +147,7 @@
 
 					<p class="stars"><img src="<?php echo esc_url( get_stylesheet_directory_uri() . '/img/stars.png' ); ?>" alt="Stars"></p>
 
-					<h2>Make More Stuff</h2>
+					<h3>Make More Stuff</h3>
 
 					<div class="media">
 						<div class="media-body">
