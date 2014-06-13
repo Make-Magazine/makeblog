@@ -341,7 +341,11 @@
 
 			</header><!-- /header -->
 
-			<?php do_action( 'maker_rows' ); ?>
+			<div class="makers-fill">
+
+				<?php do_action( 'maker_rows' ); ?>
+
+			</div>
 
 			<header>
 
