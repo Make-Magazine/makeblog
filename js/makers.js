@@ -140,6 +140,27 @@ jQuery( document ).ready( function( $ ) {
 		});
 	});
 
+	// Get the city and the state based on the ZIP code.
+	// Should we store the Lat/Long while we are at it?
+	$( '.advance a' ).on( 'click', function(){
+
+		$( this ).prop( 'disabled', true );
+
+		var form_obj = {};
+		form_obj.paged =  $( this ).data('page');
+		form_obj.action = 'build_rows';
+		form_obj.nonce = $( this ).data('nonce');
+
+		$.ajax({
+			url: ajaxurl,
+			type: 'POST',
+			data: form_obj,
+			success: function( content ){
+				$('.makers-fill').html( content );
+			}
+		});
+	});
+
 	$( '#email_address' ).focusout( function() {
 
 		return;
