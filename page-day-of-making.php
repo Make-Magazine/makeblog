@@ -105,13 +105,13 @@
 
 						<div class="span3 samesies">
 
-							<a href="http://cdn.makezine.com/make/day-of-making/Zero_to_Maker.pdf" target="_blank" class="button button-block" title="">Download Your E-Book</a>
+							<a href="http://cdn.makezine.com/make/day-of-making/Zero_to_Maker.pdf" target="_blank" class="btn btn-danger" title="Zero to Maker" download>Download Your E-Book</a>
 
 						</div>
 
 						<div class="span3 samesies">
 
-							<a href="<?php echo esc_url( get_stylesheet_directory_uri() . '/img/day-of-making-badge.png' ); ?>" target="_blank" class="button button-block" title="">Download Your Badge</a>
+							<a href="<?php echo esc_url( get_stylesheet_directory_uri() . '/img/day-of-making-badge.png' ); ?>" target="_blank" class="btn btn-danger" title="Download your badge" download>Download Your Badge</a>
 
 						</div>
 
