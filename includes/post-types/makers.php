@@ -280,7 +280,7 @@ class Make_Makers {
 					'_interest'		=> array(
 						'label' 		=> 'Interest',
 					),
-					'_maker_image'		=> array(
+					'_maker_image'	=> array(
 						'label' 		=> 'Photo URL',
 					),
 				),
