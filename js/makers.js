@@ -142,6 +142,8 @@ jQuery( document ).ready( function( $ ) {
 
 	$( '#email_address' ).focusout( function() {
 
+		return;
+
 		// Get the Email address.
 		var email = $( this ).val();
 
