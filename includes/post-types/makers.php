@@ -208,10 +208,13 @@ class Make_Makers {
 	 */
 	public function build_rows() {
 
+		$paged = ( isset( $_POST['paged'] ) && ! empty( $_POST['paged'] ) ) ? absint( $_POST['paged'] ) : 1 ;
+
 		// Build the args array. Keep it simple right now.
 		$args = array(
 			'post_type'			=> 'makers',
 			'posts_per_page'	=> 30,
+			'paged'				=> $paged,
 		);
 
 		// Build the Query.
@@ -231,6 +234,18 @@ class Make_Makers {
 			}
 			$output .= '</div>';
 		}
+
+		$output .= '<ul class="pager">';
+
+		if ( $query->query['paged'] > 1  ) {
+			$output .= '<li class="advance previous"><a class="" data-nonce="' . wp_create_nonce( 'build_rows' ) . '" data-page="' . ( $query->query['paged'] - 1 ) . '" data-found_posts="' . intval( $query->found_posts ) . '" data-max_num_pages="' . intval( $query->max_num_pages ) . '" data-paged="' . intval( $query->query['paged'] ) .'">Load Previous Makers</a></li>';
+		} elseif ( $query->max_num_pages > $query->query['paged'] ) {
+			$output .= '<li class="advance next"><a class="" data-nonce="' . wp_create_nonce( 'build_rows' ) . '" data-page="' . ( $query->query['paged'] + 1 ) . '" data-found_posts="' . intval( $query->found_posts ) . '" data-max_num_pages="' . intval( $query->max_num_pages ) . '" data-paged="' . intval( $query->query['paged'] ) .'">Load More Makers</a></li>';
+		}
+
+		$output .= '</ul>';
+
+
 		echo $output;
 	}
 
