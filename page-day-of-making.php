@@ -57,7 +57,7 @@
 
 				<div class="span12">
 
-					<p><strong>Thank you for Making!</strong> You’ve now declared your membership in the most fascinating and fastest-growing community in the world. Now claim your badge and post it to your social media profiles. Then download your FREE version of Zero to Maker and learn more about how to develop your skills and influence as a Maker.</p>
+					<p><strong>Thank you for Making.</strong> You’ve now declared your membership in the most fascinating and fastest-growing community in the world. Now claim your badge and post it to your social media profiles. Then download your FREE version of Zero to Maker and learn more about how to develop your skills and influence as a Maker.</p>
 
 				</div>
 
@@ -287,7 +287,7 @@
 
 					<h1>&ldquo;I&#39;m a Maker!&rdquo;</h1>
 
-					<h3>Add your voice to the Day of Making!</h3>
+					<h3>Add your voice to the Day of Making</h3>
 
 					<p>President Obama is hosting the first-ever White House Maker Faire on June 18, which will also be a Day of Making. Let's celebrate those students, entrepreneurs, and hobbyist makers who are inventing America and the world's future.</p>
 
@@ -315,7 +315,7 @@
 					<div class="spacer"></div>
 					<div class="spacer"></div>
 
-					<a role="button" data-toggle="modal" class="btn btn-danger btn-large btn-block" title="Join other makers" data-toggle="modal" href="#join">I'm a Maker!</a>
+					<a role="button" data-toggle="modal" class="btn btn-danger btn-large btn-block" title="Join other makers" data-toggle="modal" href="#join">I'm a Maker</a>
 
 				</div>
 
