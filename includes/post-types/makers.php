@@ -147,7 +147,7 @@ class Make_Makers {
 
 	}
 
-	private function build_avatar( $url, $size = 120, $class ) {
+	private function build_avatar( $url, $size = 120, $class = '' ) {
 		return '<img src="' . esc_url( wpcom_vip_get_resized_remote_image_url( $url, $size, $size ) ) . '" class="avatar avatar-' . esc_attr( $size ) . ' photo ' . $class . '">';
 	}
 
