@@ -12709,20 +12709,29 @@ dd {
   margin: 20px;
   text-align: center;
 }
-.sidebar h1,
+.dom-sidebar .media-body {
+  text-align: center;
+}
+.dom-sidebar h1,
 .schtuff h1,
-.sidebar h2,
+.dom-sidebar h2,
 .schtuff h2 {
   color: #0777ba;
 }
-.sidebar h3,
+.dom-sidebar h3,
 .schtuff h3 {
   color: #ed1c24;
   text-align: center;
   margin: 20px 0;
   font-size: 27px;
 }
-.sidebar .caption-new,
+.dom-sidebar h4,
+.schtuff h4 {
+  margin: 10px 0;
+  font-size: 22px;
+  line-height: 120%;
+}
+.dom-sidebar .caption-new,
 .schtuff .caption-new {
   margin: 10px 0;
 }
