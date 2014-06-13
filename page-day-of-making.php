@@ -187,18 +187,24 @@
 
 					<div class="row subs">
 
-						<div class="span4">
+						<div class="span4 offset2">
 
-							<p class="stars"><img src="http://cdn.makezine.com/make/makerfaire/bayarea/2012/images/logo.jpg" width="200"></p>
+							<p class="stars"><a href="http://makerfaire.com"><img src="http://cdn.makezine.com/make/makerfaire/bayarea/2012/images/logo.jpg" width="200"></a></p>
 
 							<h4><a href="http://makerfaire.com/map/">Find a Faire</a></h4>
 							<p>Community-based, independently produced Maker Faires are happening all over the globe.</p>
 
 						</div>
 
-						<div class="span4">
+					</div>
 
-							<p class="stars"><img src="http://vip.dev/wp-content/themes/makeblog/img/make-logo.png" width="165"></p>
+					<p class="stars"><img src="<?php echo esc_url( get_stylesheet_directory_uri() . '/img/stars.png' ); ?>" alt="Stars"></p>
+
+					<div class="row subs">
+
+						<div class="span4 offset2">
+
+							<p class="stars"><a href="https://www.pubservice.com/MK/subscribe.aspx?PC=MK&PK=M3AMZB"><img src="<?php echo esc_url( make_get_cover_image(), '120', '160'); ?>"></a></p>
 
 							<h4><a href="https://www.pubservice.com/MK/subscribe.aspx?PC=MK&PK=M3AMZB">Subscribe to Make:</a></h4>
 							<p>Get the Digital Edition</p>
@@ -209,7 +215,7 @@
 
 				</div>
 
-				<div class="span4 sidebar">
+				<div class="span4 dom-sidebar">
 
 					<h3>Day of Making Activities</h3>
 
@@ -221,19 +227,6 @@
 
 					<a class="twitter-timeline" href="https://twitter.com/search?q=%23NationOfMakers" width="570" data-widget-id="476445295467704320">Tweets about "#NationOfMakers"</a>
 					<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-
-					<p class="stars"><img src="<?php echo esc_url( get_stylesheet_directory_uri() . '/img/stars.png' ); ?>" alt="Stars"></p>
-
-					<h3>More DC-based Events</h3>
-
-					<dl>
-						<dt>June 17th:</dt>
-							<dd>TechShop Grand Opening</dd>
-							<dd>Maker Summit</dd>
-							<div class="spacer"></div>
-						<dt>June 18th:</dt>
-							<dd>White House Maker Faire</dd>
-					</dl>
 
 					<p class="stars"><img src="<?php echo esc_url( get_stylesheet_directory_uri() . '/img/stars.png' ); ?>" alt="Stars"></p>
 
