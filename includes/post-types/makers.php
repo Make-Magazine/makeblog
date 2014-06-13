@@ -16,6 +16,8 @@ class Make_Makers {
 		add_action( 'wp_ajax_add_maker', array( $this, 'add_maker' ) );
 		add_filter( 'get_avatar', array( $this, 'change_avatar_css') );
 		add_action( 'maker_rows', array( $this, 'build_rows' ) );
+		add_action( 'wp_ajax_build_rows', array( $this, 'build_rows' ) );
+		add_action( 'wp_ajax_nopriv_build_rows', array( $this, 'build_rows' ) );
 	}
 
 	/**
