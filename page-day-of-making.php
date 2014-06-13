@@ -43,8 +43,8 @@
 		<div class="container">
 			<ul class="inline">
 				<li class="nav-site-home"><a href="<?php echo get_site_url(); ?>">Makezine.com</a></li>
-				<li class="active nav-home"><a href="#">Maker Signup</a></li>
-				<li class="nav-map"><a href="#">Day of Making Activities</a></li>
+				<li class="active nav-home"><a href="#signup">Maker Signup</a></li>
+				<li class="nav-map"><a href="#activities">Day of Making Activities</a></li>
 			</ul>
 		</div>
 	</nav>
