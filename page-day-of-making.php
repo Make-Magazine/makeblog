@@ -146,7 +146,21 @@
 					<div class="spacer"></div>
 					<div class="spacer"></div>
 
-					<p>On June 18th, a select group of makers will get to show off their projects at the White House and talk with the President about making and how it has shaped their lives.</p>
+					<div class="row">
+
+						<div class="span2">
+
+							<img src="<?php echo esc_url( get_stylesheet_directory_uri() . '/img/white-house.png' ); ?>" class="pull-left" alt="White House Mini Maker Faire" style="margin-right: 20px;">
+
+						</div>
+
+						<div class="span6">
+
+							<p>On June 18th, a select group of makers will get to show off their projects at the White House and talk with the President about making and how it has shaped their lives.</p>
+
+						</div>
+
+					</div>
 
 					<h3>Make More Stuff</h3>
 
@@ -290,7 +304,7 @@
 
 					<div class="map-holder"></div>
 
-					<p class="stars"><a role="button" data-toggle="modal" class="btn btn-danger btn-large" style="width:220px;" title="Join other makers" data-toggle="modal" href="#join">Declare Yourself a Maker</a></p>
+					<p class="stars"><a role="button" data-toggle="modal" class="btn btn-danger btn-large" style="width:220px;" title="Join other makers" data-toggle="modal" href="#join">Sign the "Building Maker Communities" pledge</a></p>
 
 					<p class="stars"><img src="<?php echo esc_url( get_stylesheet_directory_uri() . '/img/stars.png' ); ?>" alt="Stars"></p>
 
@@ -310,13 +324,11 @@
 
 				<div class="span7">
 
-					<h1>&ldquo;Build Out the Maker Community&rdquo;</h1>
-
-					<h3>Support Making in Your Community</h3>
+					<h1>Support Making in Your Community</h1>
 
 					<p>President Obama is hosting the first-ever White House Maker Faire on June 18 to recognize the contributions of makers who bring creativity and technical ability to a broad range of projects.  If you are a maker or a friend of makers, please become an advocate for expanding opportunities for making and makers in your community.</p>
 
-					<p>"As individuals, as members of families and community groups, and as makers, we want to help support the continued growth and impact of maker movement in our community and in America.  We want to ensure that more people have access to the tools, materials and mentorship that allows them to develop as makers.   We want our communities to develop a thriving maker ecosystem that takes advantage of new opportunities in manufacturing, education, innovation and design."  &mdash; Barack Obama</p>
+					<p>"As individuals, as members of families and community groups, and as makers, we want to help support the continued growth and impact of maker movement in our community and in America.  We want to ensure that more people have access to the tools, materials and mentorship that allows them to develop as makers.   We want our communities to develop a thriving maker ecosystem that takes advantage of new opportunities in manufacturing, education, innovation and design."  &mdash; <a data-show="pledge"  class="linker nav-pledge" href="#pledge">Maker Pledge</a></p>
 
 				</div>
 
@@ -342,7 +354,7 @@
 
 					<a role="button" data-toggle="modal" class="btn btn-danger btn-large btn-block" title="Join other makers" data-toggle="modal" href="#join">Sign the "Building Maker Communities" pledge</a>
 
-					<p class="stars"><strong>Read the <a href="#pledge" style="text-decoration:underline;">complete pledge here</a>.</strong></p>
+					<p class="stars"><strong>Read the <a data-show="pledge"  class="linker nav-pledge" href="#pledge" style="text-decoration:underline;">complete pledge here</a>.</strong></p>
 
 				</div>
 
@@ -356,7 +368,7 @@
 
 				<p class=><img src="<?php echo esc_url( get_stylesheet_directory_uri() . '/img/stars.png' ); ?>" alt="Stars"></p>
 
-				<h2>Join Our Maker Community</h2>
+				<h2>Committed to Building Maker Communities</h2>
 
 				<p>Over <span class="count"><?php echo intval( wp_count_posts( 'makers' )->publish ); ?></span> added. Share your story.</p>
 
@@ -425,7 +437,7 @@
 
 					<p>We are working together to build maker communities throughout America and the world that introduce the maker movement to more people and expand the benefits that makers can realize through their participation. Thank you for your recognition of the maker community and its strategic importance for our future.  We look forward to working with you and your Administration to make this effort a huge success.</p>
 
-					<p class="stars"><a role="button" data-toggle="modal" class="btn btn-danger btn-large" style="width:220px;" title="Join other makers" data-toggle="modal" href="#join">Declare Yourself a Maker</a></p>
+					<p class="stars"><a role="button" data-toggle="modal" class="btn btn-danger btn-large" style="width:220px;" title="Join other makers" data-toggle="modal" href="#join">Sign the "Building Maker Communities" pledge</a></p>
 
 					<p class="stars"><img src="<?php echo esc_url( get_stylesheet_directory_uri() . '/img/stars.png' ); ?>" alt="Stars"></p>
 
