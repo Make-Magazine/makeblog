@@ -93,7 +93,7 @@ jQuery( document ).ready( function( $ ) {
 	function tweeet( post_obj ){
 		iframe = '<iframe frameborder="0" src="http://storymaps.esri.com/stories/2014/makerwhere/" width="100%" height="400"></iframe>';
 		button_hashtag = 'NationofMakers';
-		text = post_obj.post_title;
+		text = post_obj.post_content;
 		url = 'https://twitter.com/intent/tweet?button_hashtag=' + encodeURIComponent( button_hashtag ) + '&text=' + encodeURIComponent( text + ' ' + post_obj.city + ', ' + post_obj.state );
 		link = '<a href="' + url + '" class="twitter-hashtag-button" data-related="make" data-url="http://storymaps.esri.com/stories/2014/makerwhere/">Tweet #MakerMap</a>';
 		blurb = "<p>Want to add yourself to the Maker Map? Simply tweet your location and get added!</p>";
