@@ -40,7 +40,9 @@
 	</header><!-- /header -->
 
 	<nav>
+
 		<div class="container">
+
 			<ul class="inline">
 				<li data-show="end-page" class="linker nav-map"><a href="#activities">Day of Making</a></li>
 				<li data-show="null"  class="nav-white-house"><a href="http://makezine.com/white-house-maker-faire">White House Maker Faire</a></li>
@@ -48,7 +50,9 @@
 				<li data-show="map"  class="linker nav-map-full"><a href="#map">#NationOfMakers Map</a></li>
 				<li data-show="pledge"  class="linker nav-pledge"><a href="#pledge">Maker Pledge</a></li>
 			</ul>
+
 		</div>
+
 	</nav>
 
 	<section class="thanks hide">
@@ -136,6 +140,13 @@
 			<div class="row">
 
 				<div class="span8 schtuff">
+
+					<iframe width="620" height="360" src="//www.youtube.com/embed/HaTgKLym0Dg" frameborder="0" allowfullscreen></iframe>
+
+					<div class="spacer"></div>
+					<div class="spacer"></div>
+
+					<p>On June 18th, a select group of makers will get to show off their projects at the White House and talk with the President about making and how it has shaped their lives.</p>
 
 					<h3>Make More Stuff</h3>
 
@@ -303,7 +314,7 @@
 
 					<h3>Support Making in Your Community</h3>
 
-					<p>President Obama is hosting the first-ever White House Maker Faire onJune 18 to recognize the contributions of makers who bring creativity and technical ability to a broad range of projects.  If you are a maker or a friend of makers, please become an advocate for expanding opportunities for making and makers in your community.</p>
+					<p>President Obama is hosting the first-ever White House Maker Faire on June 18 to recognize the contributions of makers who bring creativity and technical ability to a broad range of projects.  If you are a maker or a friend of makers, please become an advocate for expanding opportunities for making and makers in your community.</p>
 
 					<p>"As individuals, as members of families and community groups, and as makers, we want to help support the continued growth and impact of maker movement in our community and in America.  We want to ensure that more people have access to the tools, materials and mentorship that allows them to develop as makers.   We want our communities to develop a thriving maker ecosystem that takes advantage of new opportunities in manufacturing, education, innovation and design."  &mdash; Barack Obama</p>
 
