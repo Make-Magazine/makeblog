@@ -56,12 +56,11 @@ jQuery( document ).ready( function( $ ) {
 				post_obj = JSON.parse( data );
 				console.log( post_obj );
 				$('#join').modal('hide');
-				$('.call-out').slideUp();
-				$('.nav-home').removeClass('active');
-				$('.nav-map').addClass('active');
-				$('.thanks').slideDown();
-				$('.end-page').slideDown();
-				$('.list-of-makers').hide();
+				$('section').hide();
+				$('.thanks' ).slideDown();
+				$('.end-page' ).slideDown();
+				$( '.inline li' ).removeClass('active');
+				$( '.nav-map' ).addClass('active');
 				$('.maker-added .image').append( post_obj.image ).addClass('pull-left');
 				$('.maker-added .media-heading').prepend( post_obj.post_title );
 				$('.maker-added .media-heading small').append( ' ' + post_obj.city + ', ' + post_obj.state );
