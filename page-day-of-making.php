@@ -384,7 +384,7 @@
 
 				<div class="spacer"></div>
 
-				<p><a role="button" data-toggle="modal" class="btn btn-danger btn-large" style="width:200px;" title="Join other makers" data-toggle="modal" href="#join">Sign the "Building Maker Communities" pledge</a></p>
+				<p><a role="button" data-toggle="modal" class="btn btn-danger btn-large" title="Join other makers" data-toggle="modal" href="#join">Sign the "Building Maker Communities" pledge</a></p>
 
 				<p><img src="<?php echo esc_url( get_stylesheet_directory_uri() . '/img/stars.png' ); ?>" alt="Stars"></p>
 
@@ -436,6 +436,8 @@
 					</ul>
 
 					<p>We are working together to build maker communities throughout America and the world that introduce the maker movement to more people and expand the benefits that makers can realize through their participation. Thank you for your recognition of the maker community and its strategic importance for our future.  We look forward to working with you and your Administration to make this effort a huge success.</p>
+
+					<p>Dale Dougherty, CEO of maker Media &amp; supporters of the <a data-show="call-out" href="#community" class="linker nav-home active">Maker Community</a></p>
 
 					<p class="stars"><a role="button" data-toggle="modal" class="btn btn-danger btn-large" title="Join other makers" data-toggle="modal" href="#join">Sign the "Building Maker Communities" pledge</a></p>
 
