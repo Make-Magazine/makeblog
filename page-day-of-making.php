@@ -453,9 +453,10 @@
 	<div class="modal hide fade" id="join">
 		<div class="modal-header">
 			<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-			<h3>Declare Yourself a Maker</h3>
+			<h3>I Support the Day of Making</h3>
 		</div>
 		<div class="modal-body">
+			<p>We are working together to build maker communities throughout America and the world that introduce the maker movement to more people and expand the benefits that makers can realize through their participation.</p>
 			<form class="form-horizontal" id="day-of-making-form">
 
 				<!-- Name -->
