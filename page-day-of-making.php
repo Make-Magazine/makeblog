@@ -29,7 +29,7 @@
 
 				<div class="span12">
 
-					<img src="<?php echo esc_url( get_stylesheet_directory_uri() . '/img/DayofMaking_logo.png' ); ?>" width="600" alt="Day of Making">
+					<img data-show="end-page" class="linker nav-map" src="<?php echo esc_url( get_stylesheet_directory_uri() . '/img/DayofMaking_logo.png' ); ?>" width="600" alt="Day of Making" style="cursor:pointer;">
 
 				</div>
 
@@ -42,9 +42,11 @@
 	<nav>
 		<div class="container">
 			<ul class="inline">
-				<li class="nav-site-home"><a href="<?php echo get_site_url(); ?>">Makezine.com</a></li>
-				<li class="active nav-home"><a href="#signup">Maker Signup</a></li>
-				<li class="nav-map"><a href="#activities">Day of Making Activities</a></li>
+				<li data-show="end-page" class="linker nav-map"><a href="#activities">Day of Making</a></li>
+				<li data-show="null"  class="nav-white-house"><a href="http://makezine.com/white-house-maker-faire">White House Maker Faire</a></li>
+				<li data-show="call-out"  class="linker active nav-home"><a href="#signup">Support Your Maker Community</a></li>
+				<li data-show="map"  class="linker nav-map-full"><a href="#map">#NationOfMakers Map</a></li>
+				<li data-show="pledge"  class="linker nav-pledge"><a href="#pledge">Maker Pledge</a></li>
 			</ul>
 		</div>
 	</nav>
@@ -134,20 +136,6 @@
 			<div class="row">
 
 				<div class="span8 schtuff">
-
-					<div class="maker-map">
-
-						<h1>Makers on the Map</h1>
-
-						<p class="lead">Put yourself on the Maker Map: Tweet your location to #NationofMakers and include a picture of what you’re making today.</p>
-
-						<div class="map-holder"></div>
-
-					</div>
-
-					<p class="stars"><a role="button" data-toggle="modal" class="btn btn-danger btn-large" style="width:220px;" title="Join other makers" data-toggle="modal" href="#join">Declare Yourself a Maker</a></p>
-
-					<p class="stars"><img src="<?php echo esc_url( get_stylesheet_directory_uri() . '/img/stars.png' ); ?>" alt="Stars"></p>
 
 					<h3>Make More Stuff</h3>
 
@@ -277,6 +265,32 @@
 
 	</section>
 
+	<section class="map hide">
+
+		<div class="container maker-map">
+
+			<div class="row">
+
+				<div class="span12">
+
+					<h1>Makers on the Map</h1>
+
+					<p class="lead">Put yourself on the Maker Map: Tweet your location to #NationofMakers and include a picture of what you’re making today.</p>
+
+					<div class="map-holder"></div>
+
+					<p class="stars"><a role="button" data-toggle="modal" class="btn btn-danger btn-large" style="width:220px;" title="Join other makers" data-toggle="modal" href="#join">Declare Yourself a Maker</a></p>
+
+					<p class="stars"><img src="<?php echo esc_url( get_stylesheet_directory_uri() . '/img/stars.png' ); ?>" alt="Stars"></p>
+
+				</div>
+
+			</div>
+
+		</div>
+
+	</section>
+
 	<section class="call-out">
 
 		<div class="container">
@@ -285,13 +299,13 @@
 
 				<div class="span7">
 
-					<h1>&ldquo;I&#39;m a Maker!&rdquo;</h1>
+					<h1>&ldquo;Build Out the Maker Community&rdquo;</h1>
 
-					<h3>Add your voice to the Day of Making</h3>
+					<h3>Support Making in Your Community</h3>
 
-					<p>President Obama is hosting the first-ever White House Maker Faire on June 18, which will also be a Day of Making. Let's celebrate those students, entrepreneurs, and hobbyist makers who are inventing America and the world's future.</p>
+					<p>President Obama is hosting the first-ever White House Maker Faire onJune 18 to recognize the contributions of makers who bring creativity and technical ability to a broad range of projects.  If you are a maker or a friend of makers, please become an advocate for expanding opportunities for making and makers in your community.</p>
 
-					<p>We join with the White House in calling on all makers everywhere to stand up and be counted. If you love to design, hack, create, build, tinker or engineer, we want you to declare yourself. <strong>Register as a Maker today and demonstrate your support of the Maker Movement.</strong></p>
+					<p>"As individuals, as members of families and community groups, and as makers, we want to help support the continued growth and impact of maker movement in our community and in America.  We want to ensure that more people have access to the tools, materials and mentorship that allows them to develop as makers.   We want our communities to develop a thriving maker ecosystem that takes advantage of new opportunities in manufacturing, education, innovation and design."  &mdash; Barack Obama</p>
 
 				</div>
 
@@ -303,10 +317,9 @@
 
 							<img src="<?php echo esc_url( get_stylesheet_directory_uri() . '/img/Zero-to-Maker-Cover.jpg' ); ?>" class="pull-right thumbnail" width="100" alt="">
 
-							<h4>Claim Your Badge</h4>
-							<p>Receive an electronic Makey badge to post on your social media channels.</p>
+							<h4>Sign the "Building Maker Communities" pledge</h4>
 
-							<p>Plus, get a <strong>FREE</strong> PDF of the book Zero to Maker by David Lang.</p>
+							<p>Sign the pledge and get a <strong>FREE</strong> PDF of the book "Zero to Maker" by David Lang, which tells David's inspiring story of becoming a maker.</p>
 
 						</div>
 
@@ -315,9 +328,10 @@
 					<div class="spacer"></div>
 					<div class="spacer"></div>
 
-					<h4>Share your story:</h4>
 
-					<a role="button" data-toggle="modal" class="btn btn-danger btn-large btn-block" title="Join other makers" data-toggle="modal" href="#join">I'm a Maker</a>
+					<a role="button" data-toggle="modal" class="btn btn-danger btn-large btn-block" title="Join other makers" data-toggle="modal" href="#join">Sign the "Building Maker Communities" pledge</a>
+
+					<p class="stars"><strong>Read the <a href="#pledge" style="text-decoration:underline;">complete pledge here</a>.</strong></p>
 
 				</div>
 
@@ -325,17 +339,13 @@
 
 		</div>
 
-	</section>
-
-	<section class="list-of-makers">
-
-		<div class="container">
+		<div class="container list-of-makers">
 
 			<header>
 
-				<p><img src="<?php echo esc_url( get_stylesheet_directory_uri() . '/img/stars.png' ); ?>" alt="Stars"></p>
+				<p class=><img src="<?php echo esc_url( get_stylesheet_directory_uri() . '/img/stars.png' ); ?>" alt="Stars"></p>
 
-				<h2>Our Maker Community</h2>
+				<h2>Join Our Maker Community</h2>
 
 				<p>Over <span class="count"><?php echo intval( wp_count_posts( 'makers' )->publish ); ?></span> added. Share your story.</p>
 
@@ -356,6 +366,62 @@
 				<p><img src="<?php echo esc_url( get_stylesheet_directory_uri() . '/img/stars.png' ); ?>" alt="Stars"></p>
 
 			</header><!-- /header -->
+
+		</div>
+
+	</section>
+
+	<section class="pledge hide">
+
+		<div class="container">
+
+			<div class="row">
+
+				<div class="span8 offset2">
+
+					<p class="stars"><img src="<?php echo esc_url( get_stylesheet_directory_uri() . '/img/stars.png' ); ?>" alt="Stars"></p>
+
+					<p>President Barack Obama<br>
+					The White House<br>
+					1600 Pennsylvania Avenue NW<br>
+					Washington, DC 20500</p>
+
+					<p>Dear President Obama:</p>
+
+					<p>The Maker Movement today encourages everyone to think of themselves as makers, and see themselves as producers, not just consumers.   The emergence of the Maker Movement as a social movement might be attributed to three drivers: </p>
+
+					<ol>
+						<li>The broad participation of makers who combine creative goals and technical skills to develop their own projects, some of which become products and lead to new businesses;</li>
+						<li>The self-organizing nature of the movement shows how individual makers and small groups have acted at the grassroots level to foster making in their community and recognize its social and economic value;</li>
+						<li>More children and their parents are recognizing that making provides a personal and social context for learning about science and technology and developing the practices and mindset that empower them to lead productive and meaningful lives.</li>
+					</ol>
+
+					<p>Maker Faire has been a catalyst for bringing together makers and connecting them in communities in America and throughout the world.  The number of events and the size of them continues to grow each year, inviting new people of any age to become makers.   The number of makerspaces continues to expand in cities and rural areas across the country, and they play an important role in providing an on-ramp to the maker community.  At the same time, there are new tools such as 3D printers and new platforms that support collaborative production that make it easier for more and more people to make things.   All this accounts for the growth of the maker movement.</p>
+
+					<p>As individuals, as members of families and community groups, and as makers, we want to help support the continued growth and impact of maker movement in our community and in America.  We want to ensure that more and more people have access to the tools, materials and mentorship that allows them to develop as makers.   We want our communities to develop a thriving maker ecosystem that takes advantage of new opportunities in manufacturing, education, innovation and design. </p>
+
+					<p>As the White House prepares to hold its first-ever Maker Faire, we are committed to working with others in our community and with institutions to advance one or more of the following goals to promote Making, including:</p>
+
+					<ul>
+						<li>To foster a local community of makers who participate in events, workshops, and outreach to grow a vibrant local maker community that is open and inclusive.</li>
+						<li>To create and sustain makerspaces that serve all youth in our community.  We recognize the need for makerspaces in schools, libraries, museums and other community-serving organizations.</li>
+						<li>To provide mentorship and support for students to develop projects that support the engaging, hands-on learning in the classroom and outside class.<br></li>
+						<li>To help organize school-based Maker Faires that showcase student projects for the local community;</li>
+						<li>To provide mentorship and support for makers who are starting new businesses or expanding existing businesses;</li>
+						<li>To recognize and celebrate makers as well as the contributions of those who organize the local maker community.</li>
+						<li>To participate in local and regional efforts to create a productive Maker ecosystem that involves companies, investors, skilled volunteers, state and local officials, libraries, museums, schools, after-school programs, labor unions, and community-based organizations.</p></li>
+					</ul>
+
+					<p>We are working together to build maker communities throughout America and the world that introduce the maker movement to more people and expand the benefits that makers can realize through their participation. Thank you for your recognition of the maker community and its strategic importance for our future.  We look forward to working with you and your Administration to make this effort a huge success.</p>
+
+					<p class="stars"><a role="button" data-toggle="modal" class="btn btn-danger btn-large" style="width:220px;" title="Join other makers" data-toggle="modal" href="#join">Declare Yourself a Maker</a></p>
+
+					<p class="stars"><img src="<?php echo esc_url( get_stylesheet_directory_uri() . '/img/stars.png' ); ?>" alt="Stars"></p>
+
+
+				</div>
+
+			</div>
 
 		</div>
 
