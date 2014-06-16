@@ -12612,7 +12612,7 @@ header#header .row {
 nav {
   border-top: 1px solid #fff;
   background-color: #C9C9C9;
-  height: 48px;
+  height: 35px;
   margin-bottom: 40px;
 }
 nav ul {
@@ -12621,7 +12621,7 @@ nav ul {
 }
 nav ul li {
   text-transform: uppercase;
-  font-size: 24px;
+  font-size: 13px;
   font-weight: bold;
   border-right: 1px dashed #005d8f;
   padding-right: 10px !important;
@@ -12646,6 +12646,7 @@ dd {
 }
 .call-out h1 {
   margin-bottom: 12px;
+  font-size: 32px;
 }
 .call-out h3 {
   line-height: 120%;
