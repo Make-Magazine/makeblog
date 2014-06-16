@@ -147,7 +147,7 @@ jQuery( document ).ready( function( $ ) {
 		form_obj.nonce = $( this ).data('nonce');
 
 		$.ajax({
-			url: ajaxurl,
+			url: contribute.admin_post,
 			type: 'POST',
 			data: form_obj,
 			success: function( content ){
