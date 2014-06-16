@@ -105,7 +105,6 @@ jQuery( document ).ready( function( $ ) {
 	$('.linker').on('click', function() {
 		$('section').hide();
 		section_class = $( this ).data('show');
-		console.log( section_class );
 		$('.' + section_class ).slideDown();
 		$( '.inline li' ).removeClass('active');
 		$( this ).addClass('active');
@@ -135,9 +134,8 @@ jQuery( document ).ready( function( $ ) {
 		});
 	});
 
-	// Get the city and the state based on the ZIP code.
-	// Should we store the Lat/Long while we are at it?
-	$( '.advance a' ).on( 'click', function(){
+	// Let's bring in some more posts...
+	$( 'body' ).on( 'click', '.advance a', function() {
 
 		$( this ).prop( 'disabled', true );
 
