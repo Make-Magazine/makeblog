@@ -45,7 +45,7 @@
 
 			<ul class="inline">
 				<li data-show="end-page" class="linker nav-map"><a href="#activities">Day of Making</a></li>
-				<li data-show="null"  class="nav-white-house"><a href="http://makezine.com/white-house-maker-faire">White House Maker Faire</a></li>
+				<li data-show="null"  class="nav-white-house"><a href="http://makerfaire.com/white-house/">White House Maker Faire</a></li>
 				<li data-show="call-out"  class="linker active nav-home"><a href="#signup">Support Your Maker Community</a></li>
 				<li data-show="map"  class="linker nav-map-full"><a href="#map">#NationOfMakers Map</a></li>
 				<li data-show="pledge"  class="linker nav-pledge"><a href="#pledge">Maker Pledge</a></li>
@@ -384,7 +384,7 @@
 
 				<div class="spacer"></div>
 
-				<p><a role="button" data-toggle="modal" class="btn btn-danger btn-large" style="width:200px;" title="Join other makers" data-toggle="modal" href="#join">I'm a Maker</a></p>
+				<p><a role="button" data-toggle="modal" class="btn btn-danger btn-large" style="width:200px;" title="Join other makers" data-toggle="modal" href="#join">Sign the "Building Maker Communities" pledge</a></p>
 
 				<p><img src="<?php echo esc_url( get_stylesheet_directory_uri() . '/img/stars.png' ); ?>" alt="Stars"></p>
 
