@@ -139,7 +139,7 @@
 
 						<h1>Makers on the Map</h1>
 
-						<p class="lead">Put yourself on the Maker Map: Tweet your location to #MakerWhere and include a picture of what you’re making today.</p>
+						<p class="lead">Put yourself on the Maker Map: Tweet your location to #NationofMakers and include a picture of what you’re making today.</p>
 
 						<div class="map-holder"></div>
 
