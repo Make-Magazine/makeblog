@@ -245,8 +245,13 @@ class Make_Makers {
 
 		$output .= '</ul>';
 
+		if ( defined( 'DOING_AJAX' ) && DOING_AJAX ) {
 
-		echo $output;
+			die( $output );
+
+		} else {
+			echo $output;
+		}
 	}
 
 	public function custom_fields() {
