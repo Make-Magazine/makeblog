@@ -102,21 +102,17 @@ jQuery( document ).ready( function( $ ) {
 		twttr.widgets.load();
 	}
 
-	$('.nav-map').on('click', function() {
-		$('.list-of-makers, .call-out').hide();
-		$('.end-page').slideDown();
+
+	$('.linker').on('click', function() {
+		$('section').hide();
+		section_class = $( this ).data('show');
+		console.log( section_class );
+		$('.' + section_class ).slideDown();
+		$( '.inline li' ).removeClass('active');
 		$( this ).addClass('active');
-		$( '.nav-home' ).removeClass('active');
 		refresh_map();
 	});
 
-	$('.nav-home').on('click', function() {
-		$('.list-of-makers, .call-out').slideDown();
-		$('.end-page').hide();
-		$( this ).addClass('active');
-		$( '.nav-map' ).removeClass('active');
-		refresh_map();
-	});
 
 	// Get the city and the state based on the ZIP code.
 	// Should we store the Lat/Long while we are at it?
