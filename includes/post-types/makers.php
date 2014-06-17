@@ -73,6 +73,7 @@ class Make_Makers {
 				'logged_in' 	=> is_user_logged_in(),
 				'jake'			=> 'awesome',
 			);
+			wp_enqueue_script( 'parseley-js', get_stylesheet_directory_uri() . '/js/parsley.min.js', array( 'jquery' ), '2.0', true );
 			wp_enqueue_style( 'day-of-making', get_stylesheet_directory_uri() . '/css/day-of-making.css' );
 			wp_enqueue_script( 'day-of-making', get_stylesheet_directory_uri() . '/js/makers.js', array( 'jquery' ) );
 			wp_enqueue_script( 'md5', get_stylesheet_directory_uri() . '/js/md5.js', array( 'jquery' ) );

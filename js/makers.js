@@ -6,6 +6,10 @@ jQuery( document ).ready( function( $ ) {
 		// Prevent the button from triggering
 		e.preventDefault();
 
+		if ( ! $("#day-of-making-form").parsley().validate() ) {
+			return;
+		}
+
 		$( this ).prop( 'disabled', true );
 
 		// Let's get the steps initialized.
