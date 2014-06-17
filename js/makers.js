@@ -62,7 +62,7 @@ jQuery( document ).ready( function( $ ) {
 				$('#join').modal('hide');
 				$('section').hide();
 				$('.thanks' ).slideDown();
-				$('.end-page' ).slideDown();
+				$('.activities' ).slideDown();
 				$( '.inline li' ).removeClass('active');
 				$( '.nav-map' ).addClass('active');
 				$('.maker-added .image').append( post_obj.image ).addClass('pull-left');
@@ -184,7 +184,7 @@ jQuery( document ).ready( function( $ ) {
 		$('.' + url.split( '#' )[1] ).slideDown();
 		refresh_map();
     } else {
-    	$('.signup').slideDown();
+		$('.signup').slideDown();
     }
 
 });
