@@ -44,9 +44,9 @@
 		<div class="container">
 
 			<ul class="inline">
-				<li data-show="end-page" class="linker nav-map"><a href="#activities">Day of Making</a></li>
+				<li data-show="activities" class="linker nav-map"><a href="#activities">Day of Making</a></li>
 				<li data-show="null"  class="nav-white-house"><a href="http://makerfaire.com/white-house/">White House Maker Faire</a></li>
-				<li data-show="call-out"  class="linker active nav-home"><a href="#signup">Support Your Maker Community</a></li>
+				<li data-show="signup"  class="linker active nav-home"><a href="#signup">Support Your Maker Community</a></li>
 				<li data-show="map"  class="linker nav-map-full"><a href="#map">#NationOfMakers Map</a></li>
 				<li data-show="pledge"  class="linker nav-pledge"><a href="#pledge">Maker Pledge</a></li>
 			</ul>
@@ -133,7 +133,7 @@
 
 	</section>
 
-	<section class="end-page hide">
+	<section class="activities hide">
 
 		<div class="container">
 
@@ -316,7 +316,7 @@
 
 	</section>
 
-	<section class="call-out">
+	<section class="signup hide">
 
 		<div class="container">
 

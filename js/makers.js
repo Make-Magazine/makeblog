@@ -171,4 +171,16 @@ jQuery( document ).ready( function( $ ) {
 		$( '#gravatar-placeholder' ).html( gravatar );
 	});
 
+    // Allow links within bootstrap tabs for sharing URL of a particular tab
+    var url = document.location.toString();
+    if ( url.match( '#' ) ) {
+        // $( '.nav-tabs a[href=#' + url.split( '#' )[1] + ']').tab( 'show' ) ;
+        $('section').hide();
+		// section_class = $( url.split( '#' )[1] ).data('show');
+		$('.' + url.split( '#' )[1] ).slideDown();
+		refresh_map();
+    } else {
+    	$('.signup').slideDown();
+    }
+
 });
