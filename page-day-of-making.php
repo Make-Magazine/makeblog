@@ -16,6 +16,8 @@
 		<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
 	<![endif]-->
 
+	<meta property="og:description" content="Make's National Day of Making is June 18th. Celebrated around the nation, this day celebrates making in any way." />
+
 	<?php wp_head(); ?>
 
 </head>
