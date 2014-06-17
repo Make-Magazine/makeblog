@@ -31,7 +31,7 @@
 
 				<div class="span12">
 
-					<img data-show="end-page" class="linker nav-map" src="<?php echo esc_url( get_stylesheet_directory_uri() . '/img/DayofMaking_logo.png' ); ?>" width="600" alt="Day of Making" style="cursor:pointer;">
+					<img data-show="activities" class="linker nav-map" src="<?php echo esc_url( get_stylesheet_directory_uri() . '/img/DayofMaking_logo.png' ); ?>" width="600" alt="Day of Making" style="cursor:pointer;">
 
 				</div>
 
