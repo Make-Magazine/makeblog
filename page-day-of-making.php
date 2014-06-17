@@ -46,11 +46,12 @@
 		<div class="container">
 
 			<ul class="inline">
-				<li data-show="activities" class="linker nav-map"><a href="#activities">Day of Making</a></li>
-				<li data-show="null"  class="nav-white-house"><a href="http://makerfaire.com/white-house/">White House Maker Faire</a></li>
-				<li data-show="signup"  class="linker active nav-home"><a href="#signup">Support Your Maker Community</a></li>
-				<li data-show="map"  class="linker nav-map-full"><a href="#map">#NationOfMakers Map</a></li>
-				<li data-show="pledge"  class="linker nav-pledge"><a href="#pledge">Maker Pledge</a></li>
+				<li data-show="activities" class="linker nav-map"><a href="#activities">Day of <br>Making</a></li>
+				<li data-show="null" class="nav-white-house"><a href="http://makerfaire.com/white-house/">White House <br>Maker Faire</a></li>
+				<li data-show="proclamation" class="linker nav-proclamation"><a href="#proclamation">Presidential <br>Proclamation</a></li>
+				<li data-show="signup" class="linker active nav-home"><a href="#signup">Support Your <br>Maker Community</a></li>
+				<li data-show="map" class="linker nav-map-full"><a href="#map">#NationOfMakers <br>Map</a></li>
+				<li data-show="pledge" class="linker nav-pledge"><a href="#pledge">Maker <br>Pledge</a></li>
 			</ul>
 
 		</div>
@@ -447,6 +448,44 @@
 
 
 				</div>
+
+			</div>
+
+		</div>
+
+	</section>
+
+	<section class="proclamation hide container">
+
+		<div class="row">
+
+			<div class="span8 offset2">
+
+				<h2>Presidential Proclamation &mdash; National Day of Making, 2014</h2>
+
+				<h1>NATIONAL DAY OF MAKING, 2014</h1>
+
+				<hr>
+
+				<h3>BY THE PRESIDENT OF THE UNITED STATES OF AMERICA</h3>
+
+				<p><strong>A PROCLAMATION</strong></p>
+
+				<p>Our Nation is home to a long line of innovators who have fueled our economy and transformed our world. Through the generations, American inventors have lit our homes, propelled humanity into the skies, and helped people across the planet connect at the click of a button. American manufacturers have never stopped chasing the next big breakthrough. As a country, we respond to challenge with discovery, determined to meet our great tests while seeking out new frontiers. During the National Day of Making, we celebrate and carry forward this proud tradition.</p>
+
+				<p>Today, more and more Americans are gaining access to 21st century tools, from 3D printers and scanners to design software and laser cutters. Thanks to the democratization of technology, it is easier than ever for inventors to create just about anything. Across our Nation, entrepreneurs, students, and families are getting involved in the Maker Movement. My Administration is increasing their access to advanced design and research tools while organizations, businesses, public servants, and academic institutions are doing their part by investing in makerspaces and mentoring aspiring inventors.</p>
+
+				<p>I am committed to helping Americans of all ages bring their ideas to life. Alongside our partners, my Administration is getting tens of thousands of young people involved in making. We are supporting an apprenticeship program for modern manufacturing and encouraging startups to build their products here at home. Because science, technology, engineering, and mathematics (STEM) are essential to invention, we launched a decade-long national effort to train 100,000 excellent STEM teachers. And we are expanding STEM AmeriCorps so that this summer, 18,000 low-income students will have learning opportunities in these vital fields.</p>
+
+				<p>As we observe this day, I am proud to host the first-ever White House Maker Faire. This event celebrates every maker -- from students learning STEM skills to entrepreneurs launching new businesses to innovators powering the renaissance in American manufacturing. I am calling on people across the country to join us in sparking creativity and encouraging invention in their communities.</p>
+
+				<p>Today, let us continue on the path of discovery, experimentation, and innovation that has been the hallmark not only of human progress, but also of our Nation's progress. ￼ Together, let us unleash the imagination of our people, affirm that we are a Nation of makers, and ensure that the next great technological revolution happens right here in America.</p>
+
+				<p>NOW, THEREFORE, I, BARACK OBAMA, President of the United States of America, by virtue of the authority vested in me by the Constitution and the laws of the United States, do hereby proclaim June 18, 2014, as National Day of Making. I call upon all Americans to observe this day with programs, ceremonies, and activities that encourage a new generation of makers and manufacturers to share their talents and hone their skills.</p>
+
+				<p>IN WITNESS WHEREOF, I have hereunto set my hand this seventeenth day of June, in the year of our Lord two thousand fourteen, and of the Independence of the United States of America the two hundred and thirty-eighth.</p>
+
+				<p><strong>BARACK OBAMA</strong></p>
 
 			</div>
 

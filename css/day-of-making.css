@@ -12601,6 +12601,19 @@ body {
 .control-label {
   font-weight: bold;
 }
+.proclamation h1,
+.proclamation h2,
+.proclamation h3 {
+  text-align: center;
+  margin-bottom: 18px;
+}
+.proclamation h2 {
+  font-size: 22px;
+}
+.proclamation h3 {
+  font-size: 18px;
+  margin-bottom: 32px;
+}
 header#header {
   background-image: url('../img/header-background-bars.png');
   background-position: top center;
