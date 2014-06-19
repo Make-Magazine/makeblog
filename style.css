@@ -1,12 +1,10 @@
 /*
 Theme Name: MAKE Blog (makeblog)
 Theme URI: http://blog.makezine.com
-Author: Jake Spurlock
-Author URI: http://jakespurlock.com
-Description: The goal was to launch this for Maker Faire, here we are a few months later with a better product, something that we can really be proud of. Credits: Jason Babler - Designer Extraordinairre, Melissa Morgan - Content Killer, Tyler Moskowite - Script Foo Bar, and Jake Spurlock, everything else...
-Version: 1.0
+Author: The Make: Web Team
+Author URI: http://dev.makezine.com
+Description: Website for the Make: Magazine, and the Make: Blog.
+Version: 1.1
 License: GNU General Public License
 License URI: license.txt
 */
-
-/* All CSS has been moved into the CSS folder, we are going all new school, and using LESS in conjuction with Bootstrap.*/
