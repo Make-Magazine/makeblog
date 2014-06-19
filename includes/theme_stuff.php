@@ -364,7 +364,6 @@ function make_makers() {
 		}
 }
 
-
 /**
  * Send iTunes requests to a specific feed
  */
