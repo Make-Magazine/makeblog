@@ -38,7 +38,7 @@ function make_featured_products_slider() {
 		$output .= '<div class="span3 shed">';
 		// Add the same click tracker.
 		$output .= '<a target="_blank" onClick="_gaq.push([\'_trackEvent\', \'Links\', \'Click\', \'Maker Shed - ' . esc_js( $products[$product]->ProductName ) . '\']);" href="' . esc_url( make_shed_url( $products[$product]->ProductCode ) ) . '">';
-		$output .= '<img src="' . wpcom_vip_get_resized_remote_image_url( $products[$product]->PhotoURL, 218, 146 ) . '" alt="' . esc_attr( $products[$product]->Product_Name ) . '" />';
+		$output .= '<img src="' . esc_url( wpcom_vip_get_resized_remote_image_url( $products[$product]->PhotoURL, 218, 146 ) ) . '" alt="' . esc_attr( $products[$product]->Product_Name ) . '" />';
 		$output .= '</a>';
 		$output .= '<h4><a target="_blank" href="';
 		// make_shed_url() has esc_url() on it already. But hey, let's add it again.
