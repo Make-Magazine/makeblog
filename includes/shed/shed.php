@@ -9,8 +9,7 @@
 function make_featured_products_slider() {
 	// Let's get the data feed
 	$url = 'http://makershed.com/net/webservice.aspx?api_name=generic\featured_products';
-	$xml = wpcom_vip_file_get_contents( $url, 3, 60*60,  array( 'obey_cache_control_header' => true ) );
-
+	$xml = wpcom_vip_file_get_contents( $url, 3, 60,  array( 'obey_cache_control_header' => true ) );
 	// If a bad response, bail.
 	if ( ! $xml )
 		return;
@@ -19,7 +18,7 @@ function make_featured_products_slider() {
 	$simpleXmlElem = simplexml_load_string( $xml );
 	if ( ! $simpleXmlElem )
 		return;
-	
+
 	$products = $simpleXmlElem->Product;
 
 	// Randomize the counter so that we can get random products.
@@ -71,10 +70,10 @@ function make_shed_url( $code ) {
  * Build a featured products slider for Shed products
  *
  *
- * Usage: 
- * 	if ( function_exists('make_shopify_featured_products_slider') ) { 
- * 		echo make_shopify_featured_products_slider( 'row-fluid' ); // If this is a category page, use 'row' as the parameter. (Or, just leave empty...) 
- * 	} 
+ * Usage:
+ * 	if ( function_exists('make_shopify_featured_products_slider') ) {
+ * 		echo make_shopify_featured_products_slider( 'row-fluid' ); // If this is a category page, use 'row' as the parameter. (Or, just leave empty...)
+ * 	}
  */
 function make_shopify_featured_products_slider( $row = 'row' ) {
 	// Let's get the data feed
@@ -133,7 +132,7 @@ function make_shopify_featured_products_slider( $row = 'row' ) {
 
 
 /**
- * The old shed product feed. 
+ * The old shed product feed.
  *
  * Grabs the feed of featured products, randomizes it, and then spits out the products at the bottom of blog posts and archive pages.
  * @return 	string HTML for featured products.
