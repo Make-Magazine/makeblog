@@ -9,7 +9,7 @@
 function make_featured_products_slider() {
 	// Let's get the data feed
 	$url = 'http://makershed.com/net/webservice.aspx?api_name=generic\featured_products';
-	$xml = wpcom_vip_file_get_contents( $url, 3, 60,  array( 'obey_cache_control_header' => true ) );
+	$xml = wpcom_vip_file_get_contents( $url, 3, 60*60,  array( 'obey_cache_control_header' => true ) );
 
 	// If a bad response, bail.
 	if ( ! $xml )

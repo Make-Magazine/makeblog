@@ -373,7 +373,7 @@ function make_makers() {
 function make_featured_products() {
 
 	$url = 'http://makershed.com/net/webservice.aspx?api_name=generic\featured_products';
-	$xml = wpcom_vip_file_get_contents( $url, 3, 60,  array( 'obey_cache_control_header' => true ) );
+	$xml = wpcom_vip_file_get_contents( $url, 3, 60*60,  array( 'obey_cache_control_header' => false ) );
 
 	if ( ! $xml )
 		return;
