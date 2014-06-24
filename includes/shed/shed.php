@@ -30,7 +30,7 @@ function make_featured_products_slider() {
 
 	// Build the main link, and the carousel wrapper
 	$output = '<h2 class="look_like_h3"><a onClick="_gaq.push([\'_trackEvent\', \'Links\', \'Click\', \'Maker Shed - Products\']);" href="http://makershed.com">Featured Products from the MakerShed</a></h2>';
-	$output .= '<div id="' . intval( $id ) . '" class="carousel slide" data-interval="false"><div class="carousel-inner"><div class="item active"><div class="row">';
+	$output .= '<div id="<?php echo esc_attr( intval( $id ) ); ?>" class="carousel slide" data-interval="false"><div class="carousel-inner"><div class="item active"><div class="row">';
 
 	// Start the product loop.
 	foreach ( $counter as $i => $product ) {
@@ -170,12 +170,12 @@ function make_featured_products() {
 
 	<div class="twenty-five">
 
-	<a href="http://www.makershed.com/ProductDetails.asp?&Click=107309&ProductCode=<?php echo $products[$arr[0]]->ProductCode; ?>">
+	<a href="<?php echo esc_url( 'http://www.makershed.com/ProductDetails.asp?&Click=107309&ProductCode=' . $products[$arr[0]]->ProductCode ); ?>">
 		<?php
 			if ( function_exists( 'wpcom_vip_get_resized_remote_image_url' ) ) {
-				echo '<img src="' . wpcom_vip_get_resized_remote_image_url( $products[$arr[0]]->PhotoURL, 115, 115 ) . '" alt="'. $products[$arr[0]]->ProductName.'" />';
+				echo '<img src="' . wpcom_vip_get_resized_remote_image_url( $products[$arr[0]]->PhotoURL, 115, 115 ) . '" alt="'. esc_attr( $products[$arr[0]]->ProductName ) .'" />';
 			} else {
-				echo '<img src="'.$products[$arr[0]]->PhotoURL.'" alt="'. $products[$arr[0]]->ProductName.'" class="small-thumb"/>';
+				echo '<img src="' . esc_url( $products[$arr[0]]->PhotoURL ) .'" alt="'. esc_attr( $products[$arr[0]]->ProductName ) .'" class="small-thumb"/>';
 			}
 		?>
 	</a>
@@ -184,7 +184,7 @@ function make_featured_products() {
 
 	<div class="blurb">
 
-		<h4><a href="http://www.makershed.com/ProductDetails.asp?&Click=107309&ProductCode=<?php echo $products[$arr[0]]->ProductCode; ?>"><?php echo $products[$arr[0]]->ProductName; ?></a></h4>
+		<h4><a href="<?php echo esc_url( 'http://www.makershed.com/ProductDetails.asp?&Click=107309&ProductCode=' . $products[$arr[0]]->ProductCode ); ?>"><?php echo esc_html( $products[$arr[0]]->ProductName ); ?></a></h4>
 
 	</div>
 
@@ -196,12 +196,12 @@ function make_featured_products() {
 
 <div class="twenty-five">
 
-	<a href="http://www.makershed.com/ProductDetails.asp?&Click=107309&ProductCode=<?php echo $products[$arr[1]]->ProductCode; ?>">
+	<a href="<?php echo esc_url( 'http://www.makershed.com/ProductDetails.asp?&Click=107309&ProductCode=' . $products[$arr[1]]->ProductCode ); ?>">
 		<?php
 			if ( function_exists( 'wpcom_vip_get_resized_remote_image_url' ) ) {
-				echo '<img src="' . wpcom_vip_get_resized_remote_image_url( $products[$arr[1]]->PhotoURL, 115, 115 ) . '" alt="'. $products[$arr[1]]->ProductName.'" />';
+				echo '<img src="' . wpcom_vip_get_resized_remote_image_url( $products[$arr[1]]->PhotoURL, 115, 115 ) . '" alt="'. esc_attr( $products[$arr[1]]->ProductName ) .'" />';
 			} else {
-				echo '<img src="'.$products[$arr[1]]->PhotoURL.'" alt="'. $products[$arr[1]]->ProductName.'" class="small-thumb"/>';
+				echo '<img src="'. esc_url( $products[$arr[1]]->PhotoURL ) .'" alt="'. esc_attr( $products[$arr[1]]->ProductName ) .'" class="small-thumb"/>';
 			}
 		?>
 	</a>
@@ -210,7 +210,7 @@ function make_featured_products() {
 
 <div class="blurb">
 
-	<h4><a href="http://www.makershed.com/ProductDetails.asp?&Click=107309&ProductCode=<?php echo $products[$arr[1]]->ProductCode; ?>"><?php echo $products[$arr[1]]->ProductName; ?></a></h4>
+	<h4><a href="<?php echo esc_url( 'http://www.makershed.com/ProductDetails.asp?&Click=107309&ProductCode=' . $products[$arr[1]]->ProductCode ); ?>"><?php echo esc_html( $products[$arr[1]]->ProductName ); ?></a></h4>
 
 </div>
 
@@ -222,12 +222,12 @@ function make_featured_products() {
 
 	<div class="twenty-five">
 
-	<a href="http://www.makershed.com/ProductDetails.asp?&Click=107309&ProductCode=<?php echo $products[$arr[2]]->ProductCode; ?>">
+	<a href="<?php echo esc_url( 'http://www.makershed.com/ProductDetails.asp?&Click=107309&ProductCode=' . $products[$arr[2]]->ProductCode ); ?>">
 		<?php
 			if ( function_exists( 'wpcom_vip_get_resized_remote_image_url' ) ) {
-				echo '<img src="' . wpcom_vip_get_resized_remote_image_url( $products[$arr[2]]->PhotoURL, 115, 115) . '" alt="'. $products[$arr[2]]->ProductName.'" />';
+				echo '<img src="' . wpcom_vip_get_resized_remote_image_url( $products[$arr[2]]->PhotoURL, 115, 115) . '" alt="'. esc_attr( $products[$arr[2]]->ProductName ) .'" />';
 			} else {
-				echo '<img src="'.$products[$arr[2]]->PhotoURL.'" alt="'. $products[$arr[2]]->ProductName.'" class="small-thumb"/>';
+				echo '<img src="'. esc_url( $products[$arr[2]]->PhotoURL ) .'" alt="'. esc_attr( $products[$arr[2]]->ProductName ) .'" class="small-thumb"/>';
 			}
 		?>
 	</a>
@@ -236,7 +236,7 @@ function make_featured_products() {
 
 	<div class="blurb">
 
-		<h4><a href="http://www.makershed.com/ProductDetails.asp?&Click=107309&ProductCode=<?php echo $products[$arr[2]]->ProductCode; ?>"><?php echo $products[$arr[2]]->ProductName; ?></a></h4>
+		<h4><a href="<?php echo esc_url( 'http://www.makershed.com/ProductDetails.asp?&Click=107309&ProductCode=' . $products[$arr[2]]->ProductCode ); ?>"><?php echo esc_html( $products[$arr[2]]->ProductName ); ?></a></h4>
 
 	</div>
 
@@ -248,12 +248,12 @@ function make_featured_products() {
 
 <div class="twenty-five">
 
-	<a href="http://www.makershed.com/ProductDetails.asp?&Click=107309&ProductCode=<?php echo $products[$arr[3]]->ProductCode; ?>">
+	<a href="<?php echo esc_url( 'http://www.makershed.com/ProductDetails.asp?&Click=107309&ProductCode=' . $products[$arr[3]]->ProductCode ); ?>">
 		<?php
 			if ( function_exists( 'wpcom_vip_get_resized_remote_image_url' ) ) {
-				echo '<img src="' . wpcom_vip_get_resized_remote_image_url( $products[$arr[3]]->PhotoURL, 115, 115 ) . '" alt="'. $products[$arr[2]]->ProductName.'" />';
+				echo '<img src="' . wpcom_vip_get_resized_remote_image_url( $products[$arr[3]]->PhotoURL, 115, 115 ) . '" alt="'. esc_attr( $products[$arr[2]]->ProductName ) .'" />';
 			} else {
-				echo '<img src="'.$products[$arr[3]]->PhotoURL.'" alt="'. $products[$arr[3]]->ProductName.'" class="small-thumb"/>';
+				echo '<img src="'. esc_url( $products[$arr[3]]->PhotoURL ) .'" alt="'. esc_attr( $products[$arr[3]]->ProductName ) .'" class="small-thumb"/>';
 			}
 		?>
 	</a>
@@ -262,7 +262,7 @@ function make_featured_products() {
 
 <div class="blurb">
 
-	<h4><a href="http://www.makershed.com/ProductDetails.asp?&Click=107309&ProductCode=<?php echo $products[$arr[3]]->ProductCode; ?>"><?php echo $products[$arr[3]]->ProductName; ?></a></h4>
+	<h4><a href="<?php echo esc_url( 'http://www.makershed.com/ProductDetails.asp?&Click=107309&ProductCode=' . $products[$arr[3]]->ProductCode ); ?>"><?php echo esc_html( $products[$arr[3]]->ProductName ); ?></a></h4>
 
 </div>
 
