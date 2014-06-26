@@ -211,7 +211,7 @@ Template Name: Home Page
 
 							<div class="span4">
 
-								<h2 class="look_like_h3"><a href="<?php echo esc_url( home_url( '/tag/makers/' ) ); ?>" class="red">Meet the Makers</a></h2>
+								<h2 class="look_like_h3"><a href="<?php echo esc_url( home_url( '/category/makers/' ) ); ?>" class="red">Meet the Makers</a></h2>
 
 								<div class="grid-box boxy">
 
