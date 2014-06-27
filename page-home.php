@@ -1,4 +1,5 @@
 <?php
+
 /*
 Template Name: Home Page
 */
@@ -218,7 +219,7 @@ Template Name: Home Page
 									<?php
 
 										$args = array(
-											'tag__in' => 296748,
+											'category_name' => 'Makers',
 											'tag__not_in' => array( 92075710, 22815 ),
 											'posts_per_page'  => 1,
 											'no_found_rows' => true,
