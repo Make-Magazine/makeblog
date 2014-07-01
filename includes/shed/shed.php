@@ -150,8 +150,8 @@ function grab_xml_feed() {
  */
 function make_featured_products() {
 
-  $xml = get_transient("in-the-maker-shed");
 
+  $xml = false; #get_transient("in-the-maker-shed");
   // no cache available so grab it and set it.
   if(!$xml) {
     // We try three times just in case
