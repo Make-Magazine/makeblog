@@ -150,26 +150,13 @@ function grab_xml_feed() {
  */
 function make_featured_products() {
 
+  $url = 'http://makershed.com/net/webservice.aspx?api_name=generic\featured_products';
+  $xml = wpcom_vip_file_get_contents( $url, 3, 60*60,  array( 'obey_cache_control_header' => false ) );
 
-  $xml = false; #get_transient("in-the-maker-shed");
-  // no cache available so grab it and set it.
-  if(!$xml) {
-    $xml = grab_xml_feed();
-    if(is_wp_error($xml)) {
-      $error_string = $xml->get_error_message();
-      echo '<div id="message" class="error hide"><p>' . $error_string . '</p></div>';
-    } else if($xml) {
-      // set cache
-      set_transient("in-the-maker-shed", $xml, 60*60*12);
-    }
-  }
-
-  if(!$xml) {
+  if ( ! $xml )
     return;
-  }
 
   // Testing for XML, if not available, just return from function call -- no output;
-
   $simpleXmlElem = simplexml_load_string( $xml );
   if ( ! $simpleXmlElem ) {
     echo '<div id="message" class="error hide"><p>Can\'t parse XML.</p></div>';
@@ -191,25 +178,112 @@ function make_featured_products() {
 <div class="clearfix"></div>
 <div class="features well">
   <h3>In the <a href="http://www.makershed.com/?Click=107309">Maker Shed</a></h3>
-  <?php for($i = 0; $i < 4; $i++): ?>
-    <div class="twenty-five">
-      <a href="<?php echo esc_url( 'http://www.makershed.com/ProductDetails.asp?&Click=107309&ProductCode=' . $products[$arr[$i]]->ProductCode ); ?>">
-        <?php
-          if ( function_exists( 'wpcom_vip_get_resized_remote_image_url' ) ) {
-            echo '<img src="' . wpcom_vip_get_resized_remote_image_url( $products[$arr[$i]]->PhotoURL, 115, 115 ) . '" alt="'. esc_attr( $products[$arr[$i]]->ProductName ) .'" />';
-          } else {
-            echo '<img src="' . esc_url( $products[$arr[$i]]->PhotoURL ) .'" alt="'. esc_attr( $products[$arr[$i]]->ProductName ) .'" class="small-thumb"/>';
-          }
-        ?>
-      </a>
-      <div class="clear"></div>
-      <div class="blurb">
-        <h4>
-        <a href="<?php echo esc_url( 'http://www.makershed.com/ProductDetails.asp?&Click=107309&ProductCode=' . $products[$arr[$i]]->ProductCode ); ?>"><?php echo esc_html( $products[$arr[$i]]->ProductName ); ?></a>
-        </h4>
-      </div>
-    </div>
-  <?php endfor; ?>
+
+<?php if (isset($products[$arr[0]])) { ?>
+
+  <div class="twenty-five">
+
+  <a href="<?php echo esc_url( 'http://www.makershed.com/ProductDetails.asp?&Click=107309&ProductCode=' . $products[$arr[0]]->ProductCode ); ?>">
+    <?php
+      if ( function_exists( 'wpcom_vip_get_resized_remote_image_url' ) ) {
+        echo '<img src="' . wpcom_vip_get_resized_remote_image_url( $products[$arr[0]]->PhotoURL, 115, 115 ) . '" alt="'. esc_attr( $products[$arr[0]]->ProductName ) .'" />';
+      } else {
+        echo '<img src="' . esc_url( $products[$arr[0]]->PhotoURL ) .'" alt="'. esc_attr( $products[$arr[0]]->ProductName ) .'" class="small-thumb"/>';
+      }
+    ?>
+  </a>
+
+  <div class="clear"></div>
+
+  <div class="blurb">
+
+    <h4><a href="<?php echo esc_url( 'http://www.makershed.com/ProductDetails.asp?&Click=107309&ProductCode=' . $products[$arr[0]]->ProductCode ); ?>"><?php echo esc_html( $products[$arr[0]]->ProductName ); ?></a></h4>
+
+  </div>
+
+  </div>
+
+<?php } ?>
+
+<?php if (isset($products[$arr[1]])) { ?>
+
+<div class="twenty-five">
+
+  <a href="<?php echo esc_url( 'http://www.makershed.com/ProductDetails.asp?&Click=107309&ProductCode=' . $products[$arr[1]]->ProductCode ); ?>">
+    <?php
+      if ( function_exists( 'wpcom_vip_get_resized_remote_image_url' ) ) {
+        echo '<img src="' . wpcom_vip_get_resized_remote_image_url( $products[$arr[1]]->PhotoURL, 115, 115 ) . '" alt="'. esc_attr( $products[$arr[1]]->ProductName ) .'" />';
+      } else {
+        echo '<img src="'. esc_url( $products[$arr[1]]->PhotoURL ) .'" alt="'. esc_attr( $products[$arr[1]]->ProductName ) .'" class="small-thumb"/>';
+      }
+    ?>
+  </a>
+
+<div class="clear"></div>
+
+<div class="blurb">
+
+  <h4><a href="<?php echo esc_url( 'http://www.makershed.com/ProductDetails.asp?&Click=107309&ProductCode=' . $products[$arr[1]]->ProductCode ); ?>"><?php echo esc_html( $products[$arr[1]]->ProductName ); ?></a></h4>
+
+</div>
+
+</div>
+
+<?php } ?>
+
+<?php if (isset($products[$arr[2]])) { ?>
+
+  <div class="twenty-five">
+
+  <a href="<?php echo esc_url( 'http://www.makershed.com/ProductDetails.asp?&Click=107309&ProductCode=' . $products[$arr[2]]->ProductCode ); ?>">
+    <?php
+      if ( function_exists( 'wpcom_vip_get_resized_remote_image_url' ) ) {
+        echo '<img src="' . wpcom_vip_get_resized_remote_image_url( $products[$arr[2]]->PhotoURL, 115, 115) . '" alt="'. esc_attr( $products[$arr[2]]->ProductName ) .'" />';
+      } else {
+        echo '<img src="'. esc_url( $products[$arr[2]]->PhotoURL ) .'" alt="'. esc_attr( $products[$arr[2]]->ProductName ) .'" class="small-thumb"/>';
+      }
+    ?>
+  </a>
+
+  <div class="clear"></div>
+
+  <div class="blurb">
+
+    <h4><a href="<?php echo esc_url( 'http://www.makershed.com/ProductDetails.asp?&Click=107309&ProductCode=' . $products[$arr[2]]->ProductCode ); ?>"><?php echo esc_html( $products[$arr[2]]->ProductName ); ?></a></h4>
+
+  </div>
+
+  </div>
+
+<?php } ?>
+
+<?php if (isset($products[$arr[3]])) { ?>
+
+<div class="twenty-five">
+  <a href="<?php echo esc_url( 'http://www.makershed.com/ProductDetails.asp?&Click=107309&ProductCode=' . $products[$arr[3]]->ProductCode ); ?>">
+    <?php
+      if ( function_exists( 'wpcom_vip_get_resized_remote_image_url' ) ) {
+        echo '<img src="' . wpcom_vip_get_resized_remote_image_url( $products[$arr[3]]->PhotoURL, 115, 115 ) . '" alt="'. esc_attr( $products[$arr[2]]->ProductName ) .'" />';
+      } else {
+        echo '<img src="'. esc_url( $products[$arr[3]]->PhotoURL ) .'" alt="'. esc_attr( $products[$arr[3]]->ProductName ) .'" class="small-thumb"/>';
+      }
+    ?>
+  </a>
+
+<div class="clear"></div>
+
+<div class="blurb">
+
+  <h4><a href="<?php echo esc_url( 'http://www.makershed.com/ProductDetails.asp?&Click=107309&ProductCode=' . $products[$arr[3]]->ProductCode ); ?>"><?php echo esc_html( $products[$arr[3]]->ProductName ); ?></a></h4>
+
+</div>
+
+</div>
+
+<?php } ?>
+
+
+
   <div class="clear"></div>
 </div><!-- /features-well -->
 
