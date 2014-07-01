@@ -154,21 +154,18 @@ function make_featured_products() {
   $xml = false; #get_transient("in-the-maker-shed");
   // no cache available so grab it and set it.
   if(!$xml) {
-    // We try three times just in case
-    $attempts = 0;
-    while($attempts < 3) {
-      $xml = grab_xml_feed();
-      if(is_wp_error($xml)) {
-        $error_string = $xml->get_error_message();
-        echo '<div id="message" class="error hide"><p>' . $error_string . '</p></div>';
-        break;
-      } else if($xml) {
-        // set cache
-        set_transient("in-the-maker-shed", $xml, 60*60*12);
-        break;
-      }
-      $attempts++;
+    $xml = grab_xml_feed();
+    if(is_wp_error($xml)) {
+      $error_string = $xml->get_error_message();
+      echo '<div id="message" class="error hide"><p>' . $error_string . '</p></div>';
+    } else if($xml) {
+      // set cache
+      set_transient("in-the-maker-shed", $xml, 60*60*12);
     }
+  }
+
+  if(!$xml) {
+    return;
   }
 
   // Testing for XML, if not available, just return from function call -- no output;
