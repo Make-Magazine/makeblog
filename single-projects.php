@@ -107,11 +107,12 @@ get_header(); ?>
 
 									<?php if( is_single( array( '414218', '403102' ))) { ?>
 
-									<div class="maker-camp-promo-01">
+									<div class="maker-camp-promo">
 
-										<a href="http://www.makershed.com/products/rocket-glider-kit" target="_blank"><img src="https://makezineblog.files.wordpress.com/2014/07/7july_rocketglider.jpg" alt="Maker Shed Promo" /></a>
+										<a href="http://www.makershed.com/products/rocket-glider-kit?utm_source=makezine.com&utm_medium=ads&utm_campaign=maker-camp&utm_keyword=Rocket_Glider" target="_blank"><img src="https://makezineblog.files.wordpress.com/2014/07/7july_rocketglider.jpg" alt="Maker Shed Promo" /></a>
 
 									</div>
+
 									<?php } ?>
 
 
