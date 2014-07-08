@@ -138,7 +138,9 @@
 							
 							</ul>
 
-							<?php if (function_exists('make_featured_products')) { make_featured_products(); } ?>
+							<?php if ( function_exists('make_shopify_featured_products_slider') ) {
+		     					echo make_shopify_featured_products_slider( 'row-fluid' );
+		    				} ?>
 
 							<div class="comments">
 								<?php comments_template(); ?>
