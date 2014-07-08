@@ -110,7 +110,7 @@ get_header(); ?>
 
 				<div class="span12">
 
-					<?php echo make_featured_products_slider(); ?>
+					<?php echo make_shopify_featured_products_slider(); ?>
 
 				</div>
 
