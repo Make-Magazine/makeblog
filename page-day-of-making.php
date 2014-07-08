@@ -259,7 +259,7 @@
 
 					<div class="media">
 						<div class="media-body">
-							<h4 class="media-heading"><a href="http://makezine.com/maker-camp/">Make a Maker Faire</a></h4>
+							<h4 class="media-heading"><a href="http://makerfaire.com">Make a Maker Faire</a></h4>
 							<p>Our Mini Maker Faire program provides all the tools and resources to help you launch a Maker Faire event that reflects the creativity, spirit and ingenuity of your community.</p>
 						</div>
 					</div>
