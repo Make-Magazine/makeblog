@@ -8,7 +8,9 @@
  */
 function make_featured_products_slider() {
   // Let's get the data feed
-  $url = 'http://makershed.com/net/webservice.aspx?api_name=generic\featured_products';
+  #$url = 'http://makershed.com/net/webservice.aspx?api_name=generic\featured_products';
+  // Use the new url
+  $url = 'https://my.datafeedwatch.com/static/files/1596/324605c6815f680a42b42b83010f9c5b886bb32e.xml';
   $xml = wpcom_vip_file_get_contents( $url, 3, 60,  array( 'obey_cache_control_header' => true ) );
   // If a bad response, bail.
   if ( ! $xml )
