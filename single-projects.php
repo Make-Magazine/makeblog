@@ -108,7 +108,7 @@ get_header(); ?>
 
 									<div class="maker-camp-promo-01">
 
-										<a href="http://www.makershed.com/Folding_Wing_Glider_kit_p/mkrs2.htm" target="_blank"><img src="https://makezineblog.files.wordpress.com/2014/07/7july_rocketglider.jpg" alt="Maker Shed Promo" /></a>
+										<a href="http://www.makershed.com/products/rocket-glider-kit" target="_blank"><img src="https://makezineblog.files.wordpress.com/2014/07/7july_rocketglider.jpg" alt="Maker Shed Promo" /></a>
 
 									</div>
 									<?php } ?>
