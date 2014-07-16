@@ -78,13 +78,14 @@ function make_shed_url( $code ) {
  */
 function make_shopify_featured_products_slider( $row = 'row' ) {
   // Let's get the data feed
-
+  
+  $output = '<!-- BEGIN ITMS: -->';
   $url = 'https://my.datafeedwatch.com/static/files/1596/324605c6815f680a42b42b83010f9c5b886bb32e.xml';
-  $xml = wpcom_vip_file_get_contents( $url, 3, 60*10,  array( 'obey_cache_control_header' => true ) );
+  $xml = wpcom_vip_file_get_contents( $url, 3, 60*5,  array( 'obey_cache_control_header' => false ) );
 
   // If a bad response, bail.
   if ( ! $xml ) {
-    $output = '<!-- ITMS Error: (XML)';
+    $output .= "<!-- ITMS Error: (XML) \n";
     $output .= print_r($xml, true);
     $output .= '-->';
     return $output;
@@ -93,7 +94,7 @@ function make_shopify_featured_products_slider( $row = 'row' ) {
   $simpleXmlElem = simplexml_load_string( $xml );
 
   if ( ! $simpleXmlElem ) {
-    $output = "<!-- ITMS Error: (XML) \n";
+    $output .= "<!-- ITMS Error: (simpleXml) \n";
     $output .= print_r($simpleXmlElem, true);
     $output .= '-->';
     return $output;
@@ -109,7 +110,7 @@ function make_shopify_featured_products_slider( $row = 'row' ) {
   $id = 'shed-' . mt_rand(0, 100);
 
   // Build the main link, and the carousel wrapper
-  $output = '<h2 class="look_like_h3"><a onClick="_gaq.push([\'_trackEvent\', \'Links\', \'Click\', \'Maker Shed - Products\']);" href="http://makershed.com">Featured Products from the MakerShed</a></h2>';
+  $output .= '<h2 class="look_like_h3"><a onClick="_gaq.push([\'_trackEvent\', \'Links\', \'Click\', \'Maker Shed - Products\']);" href="http://makershed.com">Featured Products from the MakerShed</a></h2>';
   $output .= '<div id="' . intval( $id ) . '" class="carousel slide" data-interval="false"><div class="carousel-inner"><div class="item active"><div class="' . esc_attr( $row ) . '">';
 
   // Start the product loop.
