@@ -103,6 +103,23 @@ get_header(); ?>
 
 									</div>
 
+									<div class="maker-camp-promo">
+										<?php
+											if( is_single( array( '414218', '403102' ))) {
+												echo '<a href="http://www.makershed.com/products/rocket-glider-kit?utm_source=makezine.com&utm_medium=ads&utm_campaign=maker-camp&utm_keyword=Rocket_Glider" target="_blank"><img src="https://makezineblog.files.wordpress.com/2014/07/7july_rocketglider.jpg" alt="Rocket Glider Kit from Maker shed" /></a>';
+											}
+											 if( is_single( array( '414377', '267502' ))) {
+												echo '<a href="http://www.makershed.com/products/brushbots?utm_source=makezine.com&utm_medium=ads&utm_campaign=maker-camp&utm_keyword=brushbots" target="_blank"><img src="https://makezineblog.files.wordpress.com/2014/07/brushbots_300x305.jpg" alt="BrushBots from Maker Shed" /></a>';
+											}
+											if( is_single( array( '267724', '53649' ))) {
+												echo '<a href="http://www.makershed.com/products/littlebits-nasa-kit?utm_source=makezine.com&utm_medium=ads&utm_campaign=maker-camp&utm_keyword=LittleBitsFan" target="_blank"><img src="https://makezineblog.files.wordpress.com/2014/07/littlebitsfan_300x305.jpg" alt="littleBits NASA Kit from Maker Shed" /></a>';
+											}
+											if( is_single( array( '377366', '270116' ))) {
+												echo '<a href="http://www.makershed.com/products/el-wire-starter-packs-10ft?utm_source=makezine.com&utm_medium=ads&utm_campaign=maker-camp&utm_keyword=El_Wire_Starter_Packs_10ft" target="_blank"><img src="https://makezineblog.files.wordpress.com/2014/07/elwire.gif" alt="EL-Wire Starter Pack from Maker Shed" /></a>';
+											}
+										 ?>
+									</div>
+
 									<?php
 										$old_parts = get_the_terms( $post->ID, 'parts' );
 										$parts = get_post_meta( $post->ID , 'parts' );
