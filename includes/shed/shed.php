@@ -67,7 +67,6 @@ function make_shed_url( $code ) {
   return esc_url( 'http://www.makershed.com/ProductDetails.asp?&Click=107309&ProductCode=' . $code  );
 }
 
-
 /**
  * Build a featured products slider for Shed products
  *
@@ -84,13 +83,21 @@ function make_shopify_featured_products_slider( $row = 'row' ) {
   $xml = wpcom_vip_file_get_contents( $url, 3, 60*10,  array( 'obey_cache_control_header' => true ) );
 
   // If a bad response, bail.
-  if ( ! $xml )
-    return;
-
+  if ( ! $xml ) {
+    $output = '<!-- ITMS Error: (XML)';
+    $output .= print_r($xml, true);
+    $output .= '-->';
+    return $output;
+  }
   // If not XML, bail.
   $simpleXmlElem = simplexml_load_string( $xml );
-  if ( ! $simpleXmlElem )
-    return;
+
+  if ( ! $simpleXmlElem ) {
+    $output = "<!-- ITMS Error: (XML) \n";
+    $output .= print_r($simpleXmlElem, true);
+    $output .= '-->';
+    return $output;
+  }
 
   $products = $simpleXmlElem->item_data;
 
@@ -127,7 +134,7 @@ function make_shopify_featured_products_slider( $row = 'row' ) {
   }
   // Close out the markup.
   $output .= '</div></div></div></div>';
-
+  $output .= '<!-- END ITMS -->';
   // Return the content.
   return $output;
 }
