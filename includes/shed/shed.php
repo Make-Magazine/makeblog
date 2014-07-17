@@ -115,14 +115,16 @@ function make_shopify_featured_products_slider( $row = 'row' ) {
 
   // Start the product loop.
   foreach ( $counter as $i => $product ) {
+    print_r($product);
     $output .= '<div class="span3 shed">';
     // Add the same click tracker.
-    $output .= '<a target="_blank" onClick="_gaq.push([\'_trackEvent\', \'Links\', \'Click\', \'Maker Shed - ' . esc_js( $products[$product]->item_name ) . '\']);" href="' . esc_url( $products[$product]->item_page_url ) . '">';
+    $output .= '<a target="_blank" onClick="_gaq.push([\'_trackEvent\', \'Links\', \'Click\', \'Maker Shed - ' . esc_js( $products[$product]->item_name ) . '\']);" href="' . esc_url( $products[$product]->item_page_url ) . '?utm_source=makezine.com&utm_medium=product_ads&utm_term='.str_replace(" ", "_", esc_js( $products[$product]->item_name )).'">';
     $output .= '<img src="' . wpcom_vip_get_resized_remote_image_url( $products[$product]->item_image_url, 218, 146 ) . '" alt="' . esc_attr( $products[$product]->item_name ) . '" />';
     $output .= '</a>';
     $output .= '<h4><a target="_blank" href="';
     // make_shed_url() has esc_url() on it already. But hey, let's add it again.
     $output .= esc_url( $products[$product]->item_page_url );
+    $output .= '?utm_source=makezine.com&utm_medium=product_ads&utm_term='.str_replace(" ", "_", esc_js( $products[$product]->item_name ));
     $output .= '">';
     $output .= wp_kses_post( $products[$product]->item_name );
     $output .= '</a></h4>';
