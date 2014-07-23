@@ -85,18 +85,18 @@ function make_shopify_featured_products_slider( $row = 'row' ) {
 
   // If a bad response, bail.
   if ( ! $xml ) {
-    $output .= "<!-- ITMS Error: (XML) \n";
-    $output .= print_r($xml, true);
-    $output .= '-->';
+    #$output .= "<!-- ITMS Error: (XML) \n";
+    #$output .= print_r($xml, true);
+    #$output .= '-->';
     return $output;
   }
   // If not XML, bail.
   $simpleXmlElem = simplexml_load_string( $xml );
 
   if ( ! $simpleXmlElem ) {
-    $output .= "<!-- ITMS Error: (simpleXml) \n";
-    $output .= print_r($simpleXmlElem, true);
-    $output .= '-->';
+    #$output .= "<!-- ITMS Error: (simpleXml) \n";
+    #$output .= print_r($simpleXmlElem, true);
+    #$output .= '-->';
     return $output;
   }
 
@@ -115,7 +115,6 @@ function make_shopify_featured_products_slider( $row = 'row' ) {
 
   // Start the product loop.
   foreach ( $counter as $i => $product ) {
-    print_r($product);
     $output .= '<div class="span3 shed">';
     // Add the same click tracker.
     $output .= '<a target="_blank" onClick="_gaq.push([\'_trackEvent\', \'Links\', \'Click\', \'Maker Shed - ' . esc_js( $products[$product]->item_name ) . '\']);" href="' . esc_url( $products[$product]->item_page_url ) . '?utm_source=makezine.com&utm_medium=product_ads&utm_term='.str_replace(" ", "_", esc_js( $products[$product]->item_name )).'">';
