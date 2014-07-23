@@ -208,7 +208,7 @@ if ( function_exists( 'vip_redirects' ) ) {
 		'/5issues'					=> 'https://readerservices.makezine.com/mk/subscribe.aspx?PC=MK&PK=M34AIR',
 		'/3DPDF'					=> 'https://readerservices.makezine.com/mk/subscribe.aspx?PC=MK&PK=M35SIP',
 		'/3dpdf'					=> 'https://readerservices.makezine.com/mk/subscribe.aspx?PC=MK&PK=M35SIP',
-		'/magazine'					=> 'http://makezine.com/volume/make-39/',
+		'/magazine'					=> 'http://makezine.com/volume/make-40/',
 		'/40'						=> 'http://makezine.com/volume/make-40/',
 		'/39'						=> 'http://makezine.com/volume/make-39/',
 		'/38'						=> 'http://makezine.com/volume/make-38-cameras-and-av/',
