@@ -334,7 +334,7 @@ get_header(); ?>
 
 									<?php echo make_author(); ?>
 
-									<div class="comments">
+									<div id="comments">
 										<?php comments_template(); ?>
 									</div>
 

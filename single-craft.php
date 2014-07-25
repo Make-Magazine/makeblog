@@ -70,7 +70,7 @@ get_header(); ?>
 
 					<?php endwhile; ?>
 
-					<div class="comments">
+					<div id="comments">
 						<?php comments_template(); ?>
 					</div>
 

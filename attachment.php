@@ -6,13 +6,13 @@
  * @license    http://opensource.org/licenses/gpl-license.php  GNU Public License
  * @author     Jake Spurlock <jspurlock@makermedia.com>
  * Template Name: Archives Page
- * 
+ *
  */
 
 get_header(); ?>
-		
+
 		<div class="single">
-		
+
 			<div class="container">
 
 				<div class="row">
@@ -20,7 +20,7 @@ get_header(); ?>
 					<div class="span8">
 
 						<ul class="breadcrumb">
-		
+
 							<?php if(class_exists('bcn_breadcrumb_trail')) {
 								$breadcrumb_trail = new bcn_breadcrumb_trail;
 								$breadcrumb_trail->opt['home_title'] = "Home";
@@ -33,7 +33,7 @@ get_header(); ?>
 								$breadcrumb_trail->fill();
 								$breadcrumb_trail->display();
 							} ?>
-									
+
 						</ul>
 
 						<p class="breadcrumb">
@@ -46,15 +46,15 @@ get_header(); ?>
 
 
 							 <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
-			
+
 								<article <?php post_class(); ?>>
 
 									<h1><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h1>
 
-									<p class="meta top">By <?php the_author_posts_link(); ?>, <?php the_time('m/d/Y \@ g:i a') ?> 
+									<p class="meta top">By <?php the_author_posts_link(); ?>, <?php the_time('m/d/Y \@ g:i a') ?>
 
 										<?php
-											
+
 											if ( wp_attachment_is_image() ) {
 												echo ' <span class="meta-sep">|</span> ';
 												$metadata = wp_get_attachment_metadata();
@@ -70,7 +70,7 @@ get_header(); ?>
 										?>
 										<?php edit_post_link( __( 'Edit', 'makezine' ), '<span class="meta-sep">|</span> <span class="edit-link">', '</span>' ); ?>
 
-									</p>								
+									</p>
 
 									<div class="entry-attach">
 										<div class="entry-attachment">
@@ -96,8 +96,8 @@ get_header(); ?>
 											?>
 											<p class="attachment">
 												<a href="<?php echo $next_attachment_url; ?>" title="<?php echo esc_attr( get_the_title() ); ?>" rel="attachment">
-													<?php 
-														$attachment_size = apply_filters( 'makezine_attachment_size', 598 ); 
+													<?php
+														$attachment_size = apply_filters( 'makezine_attachment_size', 598 );
 														echo wp_get_attachment_image( $post->ID, array( $attachment_size, 9999 ) ); // filterable image width with, essentially, no limit for image height.
 													?>
 												</a>
@@ -152,72 +152,72 @@ get_header(); ?>
 											if (($imgmeta['image_meta']['pshutter']) != null) {
 												echo "<li><strong>Shutter Speed:</strong> " . esc_html($pshutter) . "</li>";
 											}
-											
+
 										   ?>
 										</ul>
 
 									</div>
-									
+
 									<div class="row">
 
 										<div class="postmeta">
-		
+
 											<div class="span-thumb thumbnail">
-											
+
 												<?php echo get_avatar( get_the_author_meta('user_email'), 72); ?>
-											
+
 											</div>
-											
+
 											<div class="span-well well">
-											
+
 												<p>Posted by <?php the_author_posts_link(); ?> | <a href="<?php the_permalink(); ?>"><?php the_time('l F jS, Y g:i A'); ?></a></p>
 												<p>Categories: <?php the_category(', '); ?> | <?php comments_popup_link(); ?> <?php edit_post_link('Fix me...', ' | '); ?></p>
 
 											</div>
 
 										</div>
-										
+
 									</div>
 
-									
+
 									<?php else : ?>
-									
+
 										<a href="<?php echo wp_get_attachment_url(); ?>" title="<?php echo esc_attr( get_the_title() ); ?>" rel="attachment"><?php echo basename( get_permalink() ); ?></a>
-									
+
 									<?php endif; ?>
-			
+
 								</article>
 
 							<?php endwhile; ?>
-			
+
 								<div class="breadcrumb">
-									
+
 									<div class="pull-left">
 										<?php previous_post_link('&larr;&nbsp;%link'); ?>
 									</div>
-									
+
 									<div class="pull-right">
 										<?php next_post_link('%link&nbsp;&rarr;'); ?>
 									</div>
-									
+
 									<div class="clear"></div>
-								
+
 								</div>
-			
-								<div class="comments">
-								
+
+								<div id="comments">
+
 									<?php comments_template(); ?>
-								
+
 								</div>
-							
+
 							<?php  else: ?>
-			
+
 								<p><?php _e('Sorry, no posts matched your criteria.'); ?></p>
-							
+
 							<?php endif; ?>
-				
-							<?php if(function_exists('wp_pagenavi')) { wp_pagenavi('', '', '', '', 8, false);} ?> 
-		
+
+							<?php if(function_exists('wp_pagenavi')) { wp_pagenavi('', '', '', '', 8, false);} ?>
+
 						</div>
 
 					</div>
