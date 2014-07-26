@@ -1,5 +1,5 @@
 <?php get_header(); ?>
-
+		
 		<div class="clear"></div>
 
 		<div class="sand">
@@ -13,7 +13,7 @@
 						<?php if (!is_home()) { ?>
 
 							<ul class="breadcrumb">
-
+			
 								<?php if(class_exists('bcn_breadcrumb_trail')) {
 									$breadcrumb_trail = new bcn_breadcrumb_trail;
 									$breadcrumb_trail->opt['home_title'] = "Home";
@@ -26,7 +26,7 @@
 									$breadcrumb_trail->fill();
 									$breadcrumb_trail->display();
 								} ?>
-
+										
 							</ul>
 
 						<?php } ?>
@@ -34,13 +34,13 @@
 						<div class="content">
 
 							 <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
-
+			
 								<article <?php post_class(); ?>>
-
+		
 								<h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
-
+								
 								<div class="entry-content">
-
+								
 								<style type="text/css">
 									/*html,body { background-image:url('<?php echo $makers[0]->profileBackground->url; ?>'); }*/
 									.author_meta { background-image:url('<?php echo $makers[0]->profileBackground->url; ?>'); }
@@ -72,18 +72,18 @@
 									.blurbish { width:468px; float:left;}
 									.maker { width:598px; }
 								</style>
-
-								<?php
-
+									
+								<?php 
+									
 									$authors = array('dalepd','garethb2','frauenfelder','phillip','snowgoli','khammondoreillycom','lauracochrane','seanmichaelragan','nerdyjb','makemattr','adfm','pushtheotherbutton','michaelcastor','nicknormal','jepstone','whyisjake');
-
+									
 									foreach ($authors as $author) {
 										$url = 'http://en.gravatar.com/'.$author.'.json';
 										$contents = wpcom_vip_file_get_contents( $url );
 
 										if ( empty( $contents ) || is_wp_error( $contents ) )
 											continue;
-
+										
 										$json_output = json_decode($contents);
 										if ( !$json_output || !isset( $json_output->entry ) )
 											continue;
@@ -97,7 +97,7 @@
 														</a>
 													</div>
 
-													<div class="blurbish">
+													<div class="blurbish">														
 														<h3><a class="noborder" href="http://blog.makezine.com/author/<?php if (isset($author)) {echo $author; } ?>"><?php if (isset($makers[0]->displayName)) {echo $makers[0]->displayName; } ?></a></h3>
 														<p><?php if (isset($makers[0]->aboutMe)) {echo $makers[0]->aboutMe; } ?></p>
 														<?php if (isset($makers[0]->accounts)) { $accounts = $makers[0]->accounts;  ?>
@@ -126,30 +126,30 @@
 										<?php }
 									?>
 								</div>
-
+		
 							</article>
 
 							<?php endwhile; ?>
 
 							<ul class="pager">
-
+							
 								<li class="previous"><?php previous_posts_link('&larr; Previous Page'); ?></li>
 								<li class="next"><?php next_posts_link('Next Page &rarr;'); ?></li>
-
+							
 							</ul>
 
 							<?php if ( function_exists('make_shopify_featured_products_slider') ) {
 		     					echo make_shopify_featured_products_slider( 'row-fluid' );
 		    				} ?>
 
-							<div id="comments">
+							<div class="comments">
 								<?php comments_template(); ?>
 							</div>
-
+							
 							<?php else: ?>
-
+							
 								<p><?php _e('Sorry, no posts matched your criteria.'); ?></p>
-
+							
 							<?php endif; ?>
 
 						</div>

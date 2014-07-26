@@ -5,34 +5,34 @@
  * @package    makeblog
  * @license    http://opensource.org/licenses/gpl-license.php  GNU Public License
  * @author     Jake Spurlock <jspurlock@makermedia.com>
- *
+ * 
  */
 get_header(); ?>
-
+		
 	<div class="single">
-
+	
 		<div class="container">
 
 			<div class="row">
 
 				<div class="span12">
-
+					
 					<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
-
+			
 					<div class="projects-masthead">
-
+						
 						<h1><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h1>
-
+						
 					</div>
-
+		
 				</div>
-
+			
 			</div>
-
+									
 			<div class="row">
-
+			
 				<div class="span8">
-
+				
 					<article <?php post_class(); ?>>
 
 						<div class="banner">
@@ -66,7 +66,7 @@ get_header(); ?>
 									<p class="blurbTitle"><a class="" href="http://blog.makezine.com/projects/bottle-radio/">Bottle Radio</a></p>
 									<p class="blurbBlurb">Explore the airwaves with this batteryless AM radio receiver.</p>
 								</div><!--Bottle Radio-->
-
+						        
 								<div class="blurbMini">
 									<div class="blurbImage">
 										<a class="" href="http://blog.makezine.com/projects/game-show-buttons/">
@@ -96,10 +96,10 @@ get_header(); ?>
 									</div>
 									<p class="blurbTitle"><a class="" href="http://blog.makezine.com/projects/little-big-lamp/">Little Big Lamp</a></p>
 									<p class="blurbBlurb">Build a bright, energy-efficient lamp with LEDs and PVC.</p>
-
+										
 								</div><!--Little Big Lamp-->
 
-
+							
 						    		<div class="blurbMini">
 									<div class="blurbImage">
 										<a class="" href="http://blog.makezine.com/projects/optical-tremolo-box/">
@@ -110,7 +110,7 @@ get_header(); ?>
 									<p class="blurbBlurb">Build a light-programmable effects box for your guitar.</p>
 
 								</div><!--Optical Tremolo Box-->
-
+								
 								<div class="blurbMini">
 									<div class="blurbImage">
 										<a class="" href="http://blog.makezine.com/projects/projects-in-motion-control-three-types-of-motors-with-555-timers">
@@ -119,10 +119,10 @@ get_header(); ?>
 									</div>
 									<p class="blurbTitle"><a class="" href="http://blog.makezine.com/projects/projects-in-motion-control-three-types-of-motors-with-555-timers">Projects in Motion</a></p>
 									<p class="blurbBlurb">Using the humble 555 timer chip you can control three different types of motors.</p>
-
+										
 								</div><!--Project In Motion-->
 
-
+							
 								<div class="blurbMini">
 									<div class="blurbImage">
 										<a class="" href="http://blog.makezine.com/projects/repeat-after-me-a-mintronics-memory-game/">
@@ -144,7 +144,7 @@ get_header(); ?>
 									<p class="blurbBlurb">Wearable fashion technology that glows!</p>
 
 								</div><!--Solar Joule Bracelet-->
-
+						    
 							<div class="blurbMini">
 									<div class="blurbImage">
 										<a class="" href="http://blog.makezine.com/projects/talking-booby-trap/">
@@ -156,7 +156,7 @@ get_header(); ?>
 								</div><!--Talking Booby Trap-->
 
 							</div>
-
+							
 							<div class="columnLast">
 
 								<div class="blurbMini">
@@ -167,9 +167,9 @@ get_header(); ?>
 									</div>
 									<p class="blurbTitle"><a class="" href="http://blog.makezine.com/projects/beam-solar-chariots/">BEAM Solar Chariots</a></p>
 									<p class="blurbBlurb">Build a fun solar-powered roller or symet BEAM bot.</p>
-
+									
 								</div><!--BEAM Solar Chariots-->
-
+						        
 						        <div class="blurbMini">
 									<div class="blurbImage">
 										<a class="" href="http://blog.makezine.com/projects/covert-listening-book-2/">
@@ -180,7 +180,7 @@ get_header(); ?>
 									<p class="blurbBlurb">Make a wireless "bug" and hide it inside a hollowed-out book.</p>
 
 								</div><!--Covert Listening Book-->
-
+						            
 						        	<div class="blurbMini">
 									<div class="blurbImage">
 										<a class="" href="http://blog.makezine.com/projects/extreme-led-throwies/">
@@ -200,8 +200,8 @@ get_header(); ?>
 									<p class="blurbTitle"><a class="" href="http://blog.makezine.com/projects/infrared-string-bass/">Infrared String Bass</a></p>
 									<p class="blurbBlurb">Build an optical guitar using the LM386 amp.</p>
 								</div><!--Infrared String Bass-->
-
-
+						        
+						        
 						        		<div class="blurbMini">
 									<div class="blurbImage">
 										<a class="" href="http://blog.makezine.com/projects/mini-rover-redux/">
@@ -211,7 +211,7 @@ get_header(); ?>
 									<p class="blurbTitle"><a class="" href="http://blog.makezine.com/projects/mini-rover-redux/">Mini Rover Redux</a></p>
 									<p class="blurbBlurb">Mod a remote-controlled toy and see what it sees.</p>
 								</div><!--Mini Rover Redux-->
-
+						        
 
 								<div class="blurbMini">
 									<div class="blurbImage">
@@ -222,7 +222,7 @@ get_header(); ?>
 									<p class="blurbTitle"><a class="" href="http://blog.makezine.com/projects/monkey-couch-guardian/">Monkey Couch Guardian</a></p>
 									<p class="blurbBlurb">Make an obnoxious device to discourage animals from jumping on beds and couches.</p>
 								</div><!--Monkey Couch Guardian-->
-
+						        
 						        		<div class="blurbMini">
 									<div class="blurbImage">
 										<a class="" href="http://blog.makezine.com/projects/monobox-powered-speaker/">
@@ -233,7 +233,7 @@ get_header(); ?>
 									<p class="blurbBlurb">Build a powered speaker and amplify your portable music player.</p>
 
 								</div><!--Mono Box Powered Speaker-->
-
+						        
 						        	<div class="blurbMini">
 									<div class="blurbImage">
 										<a class="" href="http://blog.makezine.com/projects/pir-sensor-arduino-alarm/">
@@ -252,9 +252,9 @@ get_header(); ?>
 									</div>
 									<p class="blurbTitle"><a class="" href="http://blog.makezine.com/projects/sun-logger/">Sun Logger</a></p>
 									<p class="blurbBlurb">Build a data logger to gather information about sunlight.</p>
-								</div><!--Sun Logger-->
-
-
+								</div><!--Sun Logger-->  
+						        
+						        
 								<div class="blurbMini">
 									<div class="blurbImage">
 										<a class="" href="http://blog.makezine.com/projects/a-touchless-3d-tracking-interface/">
@@ -267,7 +267,7 @@ get_header(); ?>
 								</div><!--A Touchless 3D Tracking Interface-->
 
 							</div>
-
+							
 							<div class="clearer"></div>
 
 						</div>
@@ -278,7 +278,7 @@ get_header(); ?>
 						<div class="guideList">
 
 							<div class="column">
-
+							
 								<div class="blurbMini">
 									<div class="blurbImage">
 										<a class="" href="http://blog.makezine.com/projects/add-volume-jack/">
@@ -287,9 +287,9 @@ get_header(); ?>
 									</div>
 									<p class="blurbTitle"><a class="" href="http://blog.makezine.com/projects/add-volume-jack/">Add Volume, Jack</a></p>
 									<p class="blurbBlurb">Plug in and turn up any sound-making battery toy.</p>
-
+									
 								</div><!--Add Volume, Jack-->
-
+								
 								<div class="blurbMini">
 									<div class="blurbImage">
 										<a class="" href="http://blog.makezine.com/projects/alarm-bag/">
@@ -298,9 +298,9 @@ get_header(); ?>
 									</div>
 									<p class="blurbTitle"><a class="" href="http://blog.makezine.com/projects/alarm-bag/">Alarm Bag</a></p>
 									<p class="blurbBlurb">Add an anti-theft alarm to your messenger bag!</p>
-
+									
 								</div><!--Alarm Bag-->
-
+								
 								<div class="blurbMini">
 									<div class="blurbImage">
 										<a class="" href="http://blog.makezine.com/projects/aircraft-band-receiver/">
@@ -309,9 +309,9 @@ get_header(); ?>
 									</div>
 									<p class="blurbTitle"><a class="" href="http://blog.makezine.com/projects/aircraft-band-receiver/">Aircraft Band Receiver</a></p>
 									<p class="blurbBlurb">Modify an ordinary AM/FM radio to eavesdrop on air traffic control.</p>
-
+										
 									</div><!--Aircraft Band Receiver-->
-
+									
 								<div class="blurbMini">
 									<div class="blurbImage">
 										<a class="" href="http://blog.makezine.com/projects/floating-glow-display/">
@@ -320,9 +320,9 @@ get_header(); ?>
 									</div>
 									<p class="blurbTitle"><a style="word-spacing:-2px;" href="http://blog.makezine.com/projects/floating-glow-display/">Floating Glow Display</a></p>
 									<p class="blurbBlurb">Glowing sign uses an LED and internal reflection for a fascinating visual effect.</p>
-
+										
 								</div><!--Floating Glow Display-->
-
+								
 								<div class="blurbMini">
 									<div class="blurbImage">
 										<a class="" href=" http://blog.makezine.com/projects/light-theremin/">
@@ -331,9 +331,9 @@ get_header(); ?>
 									</div>
 									<p class="blurbTitle"><a class="" href=" http://blog.makezine.com/projects/light-theremin/">Light Theremin</a></p>
 									<p class="blurbBlurb">Use the ever-popular 555 timer chip to create an instrument of the retro-future!</p>
-
+									
 								</div><!--Light Theremin-->
-
+								
 								<div class="blurbMini">
 									<div class="blurbImage">
 										<a class="" href="http://blog.makezine.com/projects/the-luna-mod-looper/">
@@ -342,9 +342,9 @@ get_header(); ?>
 									</div>
 									<p class="blurbTitle"><a class="" href="http://blog.makezine.com/projects/the-luna-mod-looper/ ">The Luna Mod Looper</a></p>
 									<p class="blurbBlurb">A simple handheld synth and looper box that generates intriguing sonic rhythms.</p>
-
+									
 								</div><!--Luna Mod Looper-->
-
+								
 								<div class="blurbMini">
 									<div class="blurbImage">
 										<a class="" href="http://blog.makezine.com/projects/make-23/mystery-electronic-switches-2/">
@@ -353,9 +353,9 @@ get_header(); ?>
 									</div>
 									<p class="blurbTitle"><a class="" href="http://blog.makezine.com/projects/make-23/mystery-electronic-switches-2/">Mystery Electronic Switches</a></p>
 									<p class="blurbBlurb">This prank gadget frustrates people, but only you know...</p>
-
+									
 								</div><!--Mystery Electronic Switches -->
-
+								
 								<div class="blurbMini">
 									<div class="blurbImage">
 										<a class="" href="http://blog.makezine.com/projects/simple-laser-communicator/">
@@ -364,11 +364,11 @@ get_header(); ?>
 									</div>
 									<p class="blurbTitle"><a class="" href="http://blog.makezine.com/projects/simple-laser-communicator/">Simple Laser Communicator</a></p>
 									<p class="blurbBlurb">Talk in secret over your own private laser beam link.</p>
-
+									
 								</div><!--Simple Laser Communicator -->
-
+								
 							</div>
-
+							
 							<div class="columnLast">
 
 								<div class="blurbMini">
@@ -379,9 +379,9 @@ get_header(); ?>
 									</div>
 									<p class="blurbTitle"><a class="" href="http://blog.makezine.com/projects/Project/solar-tv-remote/">Solar TV Remote</a></p>
 									<p class="blurbBlurb">Juice your flipper with sunlight.</p>
-
+									
 								</div><!--Solar TV Remote-->
-
+								
 								<div class="blurbMini">
 									<div class="blurbImage">
 										<a class="" href="http://blog.makezine.com/projects/solar-usb-charger">
@@ -390,9 +390,9 @@ get_header(); ?>
 									</div>
 									<p class="blurbTitle"><a class="" href="http://blog.makezine.com/projects/solar-usb-charger/">Solar USB Charger</a></p>
 									<p class="blurbBlurb">A simple-to-make charger that safely recharges many USB devices using solar power.</p>
-
+									
 								</div><!--Solar USB Charger-->
-
+								
 								<div class="blurbMini">
 									<div class="blurbImage">
 										<a class="" href="http://blog.makezine.com/projects/treasure-finder/">
@@ -401,9 +401,9 @@ get_header(); ?>
 									</div>
 									<p class="blurbTitle"><a class="" href="http://blog.makezine.com/projects/treasure-finder/">Treasure Finder</a></p>
 									<p class="blurbBlurb">Build a metal detector for a fraction of the cost.</p>
-
+									
 								</div><!--Treasure Finder-->
-
+								
 								<div class="blurbMini">
 									<div class="blurbImage">
 										<a class="" href="http://blog.makezine.com/projects/usb-webcam-microscope/">
@@ -412,9 +412,9 @@ get_header(); ?>
 									</div>
 									<p class="blurbTitle"><a class="" href="http://blog.makezine.com/projects/usb-webcam-microscope/">USB Webcam Microscope</a></p>
 									<p class="blurbBlurb">Convert a webcam into a fun USB microscope.</p>
-
+									
 								</div><!--USB Webcam Microscope-->
-
+								
 								<div class="blurbMini">
 									<div class="blurbImage">
 										<a class="" href="http://blog.makezine.com/projects/wearable-light-organ/">
@@ -423,9 +423,9 @@ get_header(); ?>
 									</div>
 									<p class="blurbTitle"><a class="" href="http://blog.makezine.com/projects/wearable-light-organ/">Wearable Light Organ</a></p>
 									<p class="blurbBlurb">Turn a few common components into a wearable dance floor light show!</p>
-
+									
 								</div><!--Wearable Light Organ-->
-
+								
 								<div class="blurbMini">
 									<div class="blurbImage">
 										<a class="" href="http://blog.makezine.com/projects/whack-a-mole-game/">
@@ -434,9 +434,9 @@ get_header(); ?>
 									</div>
 									<p class="blurbTitle"><a class="" href="http://blog.makezine.com/projects/whack-a-mole-game/">Whack-a-Mole Game</a></p>
 									<p class="blurbBlurb">555 timer chips create a mini version of the "Whack-a-Mole" arcade game.</p>
-
+									
 								</div><!--Whack-a-Mole Game-->
-
+								
 								<div class="blurbMini">
 									<div class="blurbImage">
 										<a class="" href="http://blog.makezine.com/projects/555-timer-ball-whacker/">
@@ -446,39 +446,39 @@ get_header(); ?>
 									<p class="blurbTitle"><a class="" href="http://blog.makezine.com/projects/555-timer-ball-whacker/">555 Timer Ball Whacker</a></p>
 									<p class="blurbBlurb">A wooden arm swats at objects when they draw near.</p>
 								</div><!--555 Timer Ball Whacker-->
-
+								
 							</div>
-
+							
 							<div class="clearer"></div>
 
 						<div class="clearer"></div>
-
+							
 						</div>
 
-
-
+						
+					
 					</article>
-
+					
 					<?php endwhile; ?>
 
 					<?php if ( function_exists('make_shopify_featured_products_slider') ) {
      					echo make_shopify_featured_products_slider( 'row-fluid' );
     				} ?>
 
-					<div id="comments">
+					<div class="comments">
 						<?php comments_template(); ?>
 					</div>
-
+					
 					<?php else: ?>
-
+					
 						<p><?php _e('Sorry, no posts matched your criteria.'); ?></p>
-
+					
 					<?php endif; ?>
 				</div>
-
-
+				
+				
 				<?php get_sidebar(); ?>
-
+					
 			</div>
 
 		</div>

@@ -6,13 +6,13 @@
  * @license    http://opensource.org/licenses/gpl-license.php  GNU Public License
  * @author     Jake Spurlock <jspurlock@makermedia.com>
  * Template Name: Archives Page
- *
+ * 
  */
 
 get_header(); ?>
 
 		<div class="single">
-
+		
 			<div class="container">
 
 				<div class="row">
@@ -20,7 +20,7 @@ get_header(); ?>
 					<div class="span8">
 
 						<ul class="breadcrumb">
-
+		
 							<?php if(class_exists('bcn_breadcrumb_trail')) {
 								$breadcrumb_trail = new bcn_breadcrumb_trail;
 								$breadcrumb_trail->opt['home_title'] = "Home";
@@ -33,14 +33,14 @@ get_header(); ?>
 								$breadcrumb_trail->fill();
 								$breadcrumb_trail->display();
 							} ?>
-
+									
 						</ul>
 
 						<div class="content">
 
 
 							 <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
-
+			
 							 	<article <?php post_class(); ?>>
 
 
@@ -62,9 +62,9 @@ get_header(); ?>
 										<p>Categories: <?php the_category(', '); ?> | <?php comments_popup_link(); ?> <?php edit_post_link('Fix me...', ' | '); ?></p>
 
 									</div>
-
+								
 								</div>
-
+								
 								</article>
 
 							<?php endwhile; ?>
@@ -72,15 +72,15 @@ get_header(); ?>
 							<?php if ( function_exists('make_shopify_featured_products_slider') ) {
 		     					echo make_shopify_featured_products_slider( 'row-fluid' );
 		    				} ?>
-
-							<div id="comments">
+						
+							<div class="comments">
 								<?php comments_template(); ?>
 							</div>
-
+							
 							<?php else: ?>
-
+							
 								<p><?php _e('Sorry, no posts matched your criteria.'); ?></p>
-
+							
 							<?php endif; ?>
 
 						</div>

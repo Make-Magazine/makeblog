@@ -134,7 +134,7 @@
                 <li class="next"><?php next_posts_link('Next Page &rarr;'); ?></li>
               </ul>
               <?php if (function_exists('make_printer_makershed_thing')) { echo make_printer_makershed_thing(); } ?>
-              <div id="comments">
+              <div class="comments">
                 <?php comments_template(); ?>
               </div>
               <?php else: ?>

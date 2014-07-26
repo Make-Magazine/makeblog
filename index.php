@@ -55,7 +55,7 @@ get_header(); ?>
 
 						<?php endwhile; ?>
 
-						<div id="comments">
+						<div class="comments">
 							<?php comments_template(); ?>
 						</div>
 
