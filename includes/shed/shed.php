@@ -100,10 +100,11 @@ function make_shopify_featured_products_slider( $row = 'row' ) {
     return $output;
   }
 
-  $products = $simpleXmlElem->item_data;
+  #$products = $simpleXmlElem->item_data;
+  $products = $simpleXmlElem->children();
 
   // Randomize the counter so that we can get random products.
-  $counter = range( 0, ( count( $products ) - 1 ) );
+  $counter = range( 0, ( $simpleXmlElem->count() - 1 ) );
   shuffle( $counter );
 
   // Carousel ID
