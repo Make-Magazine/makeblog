@@ -42,7 +42,7 @@
 							 ?>
 						</div>
 
-						<div class="new-dotw">
+						<div class="new-dotw widget">
 							<div id="div-gpt-ad-664089004995786621-9" class="text-center">
 								 <script type='text/javascript'>
 								  googletag.cmd.push(function(){googletag.display('div-gpt-ad-664089004995786621-9')});
