@@ -42,10 +42,12 @@
 							 ?>
 						</div>
 
-						<div class="new-dotw widget">
-
-							<?php echo makershed_weekly_deal(); ?>
-
+						<div class="new-dotw">
+							<div id="div-gpt-ad-664089004995786621-9" class="text-center">
+								 <script type='text/javascript'>
+								  googletag.cmd.push(function(){googletag.display('div-gpt-ad-664089004995786621-9')});
+								 </script>
+							</div>
 						</div>
 
 						<div class="sidebar-ad">
