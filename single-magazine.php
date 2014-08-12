@@ -48,7 +48,7 @@ get_header(); ?>
 							Category <?php the_category(', '); ?>
 						</li>
 						<li>
-							<a href="<?php the_permalink(); ?>#comments"><?php comments_number( '0', '1', '%' ); ?></a>
+							<a href="<?php the_permalink(); ?>#disqus_thread"><?php comments_number( '0', '1', '%' ); ?></a>
 						</li>
 					</ul>
 
