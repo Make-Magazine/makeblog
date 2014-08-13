@@ -8,7 +8,7 @@
 		<?php endif ?>
 		<li>Posted <span class="blue"><?php the_time('m/d/Y \@ g:i a'); ?></span></li>
 		<li>Category <?php the_category(', '); ?></li>
-		<li><a href="<?php the_permalink(); ?>#disqus_thread"></a></li>
+		<li><a href="<?php the_permalink(); ?>#disqus_thread"><?php comments_number( '0', '1', '%' ); ?></a></li>
 	</ul>
 	
 	<div class="media">

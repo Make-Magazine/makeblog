@@ -35,7 +35,7 @@ get_header(); ?>
 							<li>By <a href="<?php echo esc_url( $url[0] ); ?>"><?php echo esc_html( $name[0] ); ?></a></li>
 							<li>Posted <span class="blue"><?php the_time('m/d/Y \@ g:i a'); ?></span></li>
 							<li>Category <?php the_category(', '); ?></li>
-							<li><a href="<?php the_permalink(); ?>#disqus_thread"></a></li>
+							<li><a href="<?php the_permalink(); ?>#disqus_thread"><?php comments_number( '0', '1', '%' ); ?></a></li>
 						</ul>
 							
 						<div class="media">
