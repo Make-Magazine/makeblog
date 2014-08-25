@@ -183,6 +183,7 @@ global $post;
 					echo "googletag.pubads().setTargeting('sponsor',['nikon']);";
 				}
 			?>
+			googletag.pubads().setTargeting('PageID',['424504']);
 			googletag.enableServices();
 			});
 		</script>
