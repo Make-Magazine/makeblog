@@ -15,8 +15,18 @@
 		<!-- Le fav and touch icons -->
 		<link rel="shortcut icon" href="http://1.gravatar.com/blavatar/dab43acfe30c0e28a023bb3b7a700440?s=14">
 
-		<?php if ( is_page( 313086 ) )
-			echo '<meta property="og:image" content="http://makezineblog.files.wordpress.com/2013/06/makercamp_300x250.jpg" />'; ?>
+		<!-- Pingdom for site monitoring -->
+		<script>
+		var _prum = [['id', '53fcea2fabe53d341d4ae0eb'],
+		            ['mark', 'firstbyte', (new Date()).getTime()]];
+		(function() {
+		    var s = document.getElementsByTagName('script')[0]
+		      , p = document.createElement('script');
+		    p.async = 'async';
+		    p.src = '//rum-static.pingdom.net/prum.min.js';
+		    s.parentNode.insertBefore(p, s);
+		})();
+		</script>
 
 		<?php wp_head(); ?>
 
