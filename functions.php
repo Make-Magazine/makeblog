@@ -170,8 +170,12 @@ include_once dirname( __FILE__ ) . '/includes/post-types/makers.php';
 
 
 
-function dfp_add_meta_boxes() {
-	add_meta_box( 'dfp_target_metabox', 'DFP Targeting', 'dfp_target_metabox', 'projects', 'normal', 'default' );
+
+function dfp_add_meta_boxes($postType) {
+  $types = array('page', 'projects');
+  if(in_array($postType, $types)){
+	  add_meta_box( 'dfp_target_metabox', 'DFP Targeting', 'dfp_target_metabox', $postType, 'normal', 'default' );
+  }
 }
 
 add_action( 'add_meta_boxes', 'dfp_add_meta_boxes' );
