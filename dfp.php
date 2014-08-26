@@ -205,7 +205,7 @@
 					echo "googletag.pubads().setTargeting('sponsor',['nikon']);";
 				}
 				elseif (is_single(array(424504))) {
-					echo "googletag.pubads().setTargeting('sponsor',['element14']);";
+					echo "googletag.pubads().setTargeting('sponsor',['element']);";
 				}
 			?>
 			googletag.enableServices();
