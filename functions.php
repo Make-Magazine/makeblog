@@ -190,7 +190,7 @@ function dfp_target_metabox($page) {
         <td>DFP Target Name</td>
       </tr>
       <tr>
-        <td><input style="width: 100%" type="text" name="adslot_targeting_name" value="<?php echo $_adslot_targeting_name; ?>"></td>
+        <td><input style="width: 100%" type="text" name="adslot_targeting_name" value="<?php echo esc_attr($_adslot_targeting_name); ?>"></td>
       </tr>
     </table>
 	<table style="width: 100%">
@@ -198,7 +198,7 @@ function dfp_target_metabox($page) {
         <td>DFP Target IDs</td>
       </tr>
       <tr>
-        <td><input style="width: 100%" type="text" name="adslot_targeting_ids" value="<?php echo $_adslot_targeting_ids; ?>"></td>
+        <td><input style="width: 100%" type="text" name="adslot_targeting_ids" value="<?php echo esc_attr($_adslot_targeting_ids); ?>"></td>
       </tr>
     </table>
   <?php
@@ -209,10 +209,10 @@ add_action('save_post', 'dfp_target_save_post', 10, 2);
 function dfp_target_save_post($page_id, $page) {
 
     if(isset($_POST['adslot_targeting_name']) && $_POST['adslot_targeting_name'] != '') {
-      update_post_meta($page_id, '_adslot_targeting_name', $_POST['adslot_targeting_name']);
+      update_post_meta($page_id, '_adslot_targeting_name', sanitize_text_field($_POST['adslot_targeting_name']));
     }
 
     if(isset($_POST['adslot_targeting_ids']) && $_POST['adslot_targeting_ids'] != '') {
-      update_post_meta($page_id, '_adslot_targeting_ids', $_POST['adslot_targeting_ids']);
+      update_post_meta($page_id, '_adslot_targeting_ids', sanitize_text_field($_POST['adslot_targeting_ids']));
     }
 }

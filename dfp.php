@@ -42,7 +42,7 @@
     if(!empty($post_adslot_targeting_name)) {
         $post_adslot_targeting_ids = (!empty($post_adslot_targeting_name)) ? $post_adslot_targeting_ids : $post->ID;
         $post_adslot_targeting_ids = "'{$post_adslot_targeting_ids}'"; //wrap commas
-        echo "googletag.pubads().setTargeting('{$name}',[{$post_adslot_targeting_ids}]);\n";
+        echo "googletag.pubads().setTargeting('{$post_adslot_targeting_name}',[{$post_adslot_targeting_ids}]);\n";
     }
     
 		$parent = (!empty($_REQUEST['parent']) ? $_REQUEST['parent'] : null);
