@@ -204,6 +204,9 @@
 				elseif ( ! is_archive() && ( has_tag( 'nikon' ) || is_page( array( 388070 ) ) ) ) {
 					echo "googletag.pubads().setTargeting('sponsor',['nikon']);";
 				}
+				elseif (is_single(array(424504))) {
+					echo "googletag.pubads().setTargeting('sponsor',['element14']);";
+				}
 			?>
 			googletag.enableServices();
 			});
