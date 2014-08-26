@@ -1,6 +1,22 @@
 <?php
+/**
+ * DFP Ad Block
+ *
+ * Initializes all of the ads for Maker Faire.
+ *
+ */
+ 
+  global $post;
 
-global $post;
+  $current_page = (is_object($wp_query) && is_array($wp_query->query) && ($wp_query->query['pagename'] != '') && ($wp_query->query['pagename'] != 'wp-cron.php' )) ? $wp_query->query: null;
+
+  if($current_page !== null) {
+
+    $q_posts = get_posts(array('pagename' => $wp_query->query['pagename'], 'post_type' =>'any', 'post_status' => 'any'));
+    $q_post_id = $q_posts[0]->ID;
+	  $post_adslot_targeting_name = get_post_meta($q_post_id, '_adslot_targeting_name', true);
+    $post_adslot_targeting_ids = get_post_meta($q_post_id, '_adslot_targeting_ids', true);
+  } 
 
 ?>
 
@@ -23,6 +39,17 @@ global $post;
 		googletag.cmd.push(function() {
 
 		<?php
+    
+    $current_page = (is_object($wp_query) && is_array($wp_query->query) && ($wp_query->query['pagename'] != '') && ($wp_query->query['pagename'] != 'wp-cron.php' )) ? $wp_query->query: null;
+
+    if($current_page !== null) {
+
+      $q_posts = get_posts(array('pagename' => $wp_query->query['pagename'], 'post_type' =>'any', 'post_status' => 'any'));
+      $q_post_id = $q_posts[0]->ID;
+		  $post_adslot_targeting_name = get_post_meta($q_post_id, '_adslot_targeting_name', true);
+      $post_adslot_targeting_ids = get_post_meta($q_post_id, '_adslot_targeting_ids', true);
+    } 
+    
 		$parent = (!empty($_REQUEST['parent']) ? $_REQUEST['parent'] : null);
 			if (isset($parent)) { ?>
 				var slot1= googletag.defineSlot('/11548178/Makezine/Blog/<?php echo esc_js( $parent ); ?>', [[728,90]],'div-gpt-ad-664089004995786621-1').addService(googletag.pubads()).setTargeting('pos', 'atf');

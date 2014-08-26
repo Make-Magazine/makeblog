@@ -169,4 +169,46 @@ include_once dirname( __FILE__ ) . '/includes/instagram/instagram.php';
 include_once dirname( __FILE__ ) . '/includes/post-types/makers.php';
 
 
-?>
+
+function dfp_add_meta_boxes() {
+	add_meta_box( 'dfp_target_metabox', 'DFP Targeting', 'dfp_target_metabox', 'page', 'normal', 'default' );
+}
+
+add_action( 'add_meta_boxes', 'dfp_add_meta_boxes' );
+
+function dfp_target_metabox($page) {
+
+	$_adslot_targeting_name = get_post_meta( $page->ID, '_adslot_targeting_name', true );
+  $_adslot_targeting_ids = get_post_meta( $page->ID, '_adslot_targeting_ids', true );
+  ?>
+    <table style="width: 100%">
+      <tr>
+        <td>DFP Target Name</td>
+      </tr>
+      <tr>
+        <td><input style="width: 100%" type="text" name="adslot_targeting_name" value="<?php echo $_adslot_targeting_name; ?>"></td>
+      </tr>
+    </table>
+	<table style="width: 100%">
+      <tr>
+        <td>DFP Target IDs</td>
+      </tr>
+      <tr>
+        <td><input style="width: 100%" type="text" name="adslot_targeting_ids" value="<?php echo $_adslot_targeting_ids; ?>"></td>
+      </tr>
+    </table>
+  <?php
+
+}
+
+add_action('save_post', 'dfp_target_save_post', 10, 2);
+function dfp_target_save_post($page_id, $page) {
+
+    if(isset($_POST['adslot_targeting_name']) && $_POST['adslot_targeting_name'] != '') {
+      update_post_meta($page_id, '_adslot_targeting_name', $_POST['adslot_targeting_name']);
+    }
+
+    if(isset($_POST['adslot_targeting_ids']) && $_POST['adslot_targeting_ids'] != '') {
+      update_post_meta($page_id, '_adslot_targeting_ids', $_POST['adslot_targeting_ids']);
+    }
+}
