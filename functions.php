@@ -171,7 +171,7 @@ include_once dirname( __FILE__ ) . '/includes/post-types/makers.php';
 
 
 function dfp_add_meta_boxes() {
-	add_meta_box( 'dfp_target_metabox', 'DFP Targeting', 'dfp_target_metabox', 'page', 'normal', 'default' );
+	add_meta_box( 'dfp_target_metabox', 'DFP Targeting', 'dfp_target_metabox', 'projects', 'normal', 'default' );
 }
 
 add_action( 'add_meta_boxes', 'dfp_add_meta_boxes' );
