@@ -28,7 +28,7 @@
 						</div>
 
 						<div class="plus_forum widget">
-							<a href="http://www.makershed.com/Make_Ultimate_Guide_to_3D_Printing_2_0_p/9781457183027-p.htm?Click=163251">
+							<a href="http://www.makershed.com/products/make-ultimate-guide-to-3d-printing-2014?utm_source=makezine.com&utm_medium=ads&utm_content=sidebar+widget+ad+3Dprintinguide&utm_campaign=sidebar+widget">
 								<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/Make_SIP6-3D_1213_v1-B_300x124.gif" alt="23 3D printers reviewed, get your copy today">
 							</a>
 						</div>
