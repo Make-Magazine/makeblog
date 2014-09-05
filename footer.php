@@ -36,7 +36,7 @@
 						<a href="http://make-digital.com/" target="_blank"><div class="sprite sprite-digital-book-foot"></div></a>
 						<h5><a href="http://make-digital.com/" target="_blank">Read Digital Edition</a></h5>
 						<a href="http://www.makershed.com/" target="_blank"><div class="sprite sprite-makershed_footer1"></div></a>
-						<h5><a href="http://www.makershed.com/" target="_blank">Shop Maker Shed</a></h5>
+						<h5><a href="http://www.makershed.com/?utm_source=makezine.com&utm_medium=ads&utm_term=Shop+Maker+Shed&utm_campaign=footer" target="_blank">Shop Maker Shed</a></h5>
 					</div>
 					<div class="clear"></div>
 				<!-- END row -->
