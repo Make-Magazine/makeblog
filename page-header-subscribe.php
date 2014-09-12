@@ -56,7 +56,7 @@ Template name: Header
 				<div class="container">
 					<div class="row">
 						<div class="logo span2">
-							<a href="<?php echo home_url(); ?>"><img src="<?php echo esc_url( get_stylesheet_directory_uri() . '/img/make-logo.png' ); ?>" /></a>
+							<a style="display:inline-block!important;visibility:visible!important;height:42.422px!important;" href="<?php echo home_url(); ?>"><img src="<?php echo esc_url( get_stylesheet_directory_uri() . '/img/make-logo.png' ); ?>" /></a>
 						</div>
 						<nav role="navigation" class="span7 site-navigation primary-navigation">
 							<?php
