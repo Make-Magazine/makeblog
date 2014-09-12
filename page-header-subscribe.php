@@ -26,6 +26,7 @@ Template name: Header
 			<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->
 
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
 		<script type="text/javascript" src="https://use.typekit.com/fzm8sgx.js"></script>
 		<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
 		<script type="text/javascript">
@@ -41,8 +42,6 @@ Template name: Header
 		})();
 
 		</script>
-	
-		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
 
 		<?php // Since this loads into https://readerservices.makezine.com, the get_template_directory_uri() fails to load https, so we need to hard code. ?>
         <script src="https://s0.wp.com/wp-content/themes/vip/makeblog/js/bootstrap.min.js"></script>
@@ -57,7 +56,7 @@ Template name: Header
 				<div class="container">
 					<div class="row">
 						<div class="logo span2">
-							<a href="<?php echo home_url(); ?>"><img src="<?php echo get_stylesheet_directory_uri(); ?>/img/make-logo.png" /></a>
+							<a href="<?php echo home_url(); ?>"><img style="display:inline-block!important;visibility:visible!important;height:42.422px!important;" src="<?php echo get_stylesheet_directory_uri(); ?>/img/make-logo.png" /></a>
 						</div>
 						<nav role="navigation" class="span7 site-navigation primary-navigation">
 							<?php
