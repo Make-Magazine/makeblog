@@ -55,8 +55,8 @@ Template name: Header
 			<div class="main-header">
 				<div class="container">
 					<div class="row">
-						<div class="logo span2">
-							<a href="<?php echo home_url(); ?>"><img style="display:inline-block!important;visibility:visible!important;height:42.422px!important;" src="<?php echo get_stylesheet_directory_uri(); ?>/img/make-logo.png" /></a>
+						<div class="logo span2" style="height: 50px;background-image: url('http://s0.wp.com/wp-content/themes/vip/makeblog/img/make-logo.png?m=1391167751g');padding-right:12px;">
+							<!--a href="<?php echo home_url(); ?>"><img style="display:inline-block!important;visibility:visible!important;height:42.422px!important;" src="<?php echo get_stylesheet_directory_uri(); ?>/img/make-logo.png" /></a-->
 						</div>
 						<nav role="navigation" class="span7 site-navigation primary-navigation">
 							<?php
