@@ -31,9 +31,7 @@
 		
 			if( $query->have_posts() ) : while ( $query->have_posts() ) : $query->the_post();
 		?>
-		
-		<h4><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h4>
-		
+				
 		<div class="row">
 
 			<div class="span2">
@@ -43,6 +41,8 @@
 			</div>
 
 			<div class="span6">
+
+				<h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
 
 				<p><?php echo get_the_excerpt() ; ?></p>
 		
