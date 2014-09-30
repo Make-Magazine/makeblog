@@ -132,21 +132,6 @@ Template Name: Craft Home Page
 
 			<div class="container">
 
-
-				<div class="row sub-banner">
-
-					<div class="span12">
-
-						<div id='div-gpt-ad-664089004995786621-6'>
-							<script type='text/javascript'>
-								googletag.cmd.push(function(){googletag.display('div-gpt-ad-664089004995786621-6')});
-							</script>
-						</div>
-
-					</div>
-
-				</div>
-
 				<div class="row">
 
 					<div class="span4 posts">
