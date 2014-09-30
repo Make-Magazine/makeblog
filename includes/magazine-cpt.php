@@ -501,7 +501,7 @@ function make_maker_projects_projects() {
 /**
  * Get a volume cover image
  */
-function make_get_cover_image( $number = 40 ) {
+function make_get_cover_image( $number = 41 ) {
 	$url = esc_url( 'http://cdn.makezine.com/make/covers/MAKE_V' . absint( $number ) . '_high.jpg' );
 	return $url;
 }
