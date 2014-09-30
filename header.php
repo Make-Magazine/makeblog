@@ -93,10 +93,8 @@
 								<input type="submit" class="open submit" value="" />
 							</form>
 							<div class="clearfix"></div>
-							<div id="div-gpt-ad-664089004995786621-5" class="hdr-sub-ad-01" >
-								<script type='text/javascript'>
-									googletag.cmd.push(function(){googletag.display('div-gpt-ad-664089004995786621-5')});
-								</script>
+							<div class="hdr-sub-ad-01" >
+								<a href="https://www.pubservice.com/MK/subscribe.aspx?PC=MK&amp;PK=M3BMZA"><img src="<?php echo get_stylesheet_directory_uri(); ?>/img/hdr-mag-sub-01.jpg"  alt="Subscribe to Make Magazine Today!" /></a>
 							</div>
 						</div>
 					</div>
