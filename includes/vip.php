@@ -277,6 +277,14 @@ if ( false !== strpos( $_SERVER['REQUEST_URI'], '_' ) )
 function makeblog_redirect_urls_with_underscores( ) {
 	if ( !is_404() || is_preview() )
 		return;
+
+	// TODO: This isn't the most best fix to this problem, but it is safe to assume that
+	//       we won't be requesting any uris with both an SEO name and a reference to
+	//       post_type. Because of that, look for post_type and don't let it rewrite the
+	//       url otherwise we run into a redirect issues.
+	if ( false !== strpos( $_SERVER['REQUEST_URI'], "post_type=") )
+		return;
+
 	$new_uri = str_replace( '_', '-', $_SERVER['REQUEST_URI'] );
 	$new_url = home_url( $new_uri );
 	wp_safe_redirect( $new_url );
