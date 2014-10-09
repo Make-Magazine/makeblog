@@ -4,7 +4,7 @@
 		<meta charset="utf-8">
 		<title><?php echo make_generate_title_tag(); ?></title>
 		<meta name="description" content="<?php echo esc_attr( make_generate_description() ); ?>" />
-
+		<meta name="twitter:widgets:csp" content="on">
 		<meta name="p:domain_verify" content="c4e1096cb904ca6df87a2bb867715669" >
 		<meta name="google-site-verification" content="tjgq9UGR8WCMZI_40j_B5wda_oVYqKyFtQW547LzMgQ" />
 		<!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
@@ -46,14 +46,30 @@
 	</head>
 
 	<body <?php body_class(); ?>>
+		<!-- Google Universal Analytics -->
+		<script type="text/javascript">
+			  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+			  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+			  ga('create', 'UA-51157-1', 'auto');
+			  ga('send', 'pageview', {
+			 'page': location.pathname + location.search  + location.hash
+			  });
+		</script>
+
 		<!-- Google Tag Manager -->
-		<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-WR8NLB"
-		height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-		<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-		new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-		j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-		'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-		})(window,document,'script','dataLayer','GTM-WR8NLB');</script>
+		<noscript>
+			<iframe src="//www.googletagmanager.com/ns.html?id=GTM-WR8NLB" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+		</noscript>
+		<script>
+			(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+			new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+			j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+			'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+			})(window,document,'script','dataLayer','GTM-WR8NLB');
+		</script>
 		<!-- End Google Tag Manager -->
 
 		<div class="container hidden-print">
