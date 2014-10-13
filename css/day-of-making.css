@@ -7431,6 +7431,9 @@ body#shop {
 .home-ads.bottom {
   margin-bottom: 15px;
 }
+.home-ads:last-child {
+  margin-top: 22px;
+}
 .hangout {
   margin-top: 15px;
 }
@@ -9559,7 +9562,7 @@ li.share-email {
   margin-top: 60px;
 }
 .main-header .hdr-sub-ad-01 {
-  margin-top: 10px;
+  margin-top: 13px;
 }
 .main-header .additional-content {
   position: absolute;
@@ -9690,7 +9693,7 @@ li.share-email {
   font-size: 20px !important;
   font-weight: bold;
   position: relative;
-  top: 92px;
+  top: 94px;
 }
 .primary-navigation ul > li {
   margin-right: 18px;
@@ -9708,7 +9711,7 @@ li.share-email {
   border-bottom: 1px solid lighter(#ebebeb);
 }
 .secondary-navigation a {
-  padding: 9px;
+  padding: 9px 13px;
 }
 .secondary-navigation .first > a {
   padding-left: 0;

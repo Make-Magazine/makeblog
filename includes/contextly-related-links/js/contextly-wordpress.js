@@ -1763,7 +1763,7 @@ Contextly.PageEvents = Contextly.createClass({
     },
 
     trackLinkNewStyle: function (category, action, label) {
-        _gaq.push(['_trackEvent', category, action, label]);
+        ga('send', 'event', category, action, label]);
     }
 
 });

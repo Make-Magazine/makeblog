@@ -47,7 +47,7 @@ jQuery( document ).ready( function( $ ) {
 		var menu_name = $(this).parents('ul.nav').attr('id');
 
 		// Track this click with Google, yo.
-		_gaq.push(['_trackEvent', menu_name, 'Click', link_name]);
+		ga('send', 'event', menu_name, 'Click', link_name);
 	});
 
 });
