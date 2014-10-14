@@ -32,14 +32,6 @@
 
 		<?php get_template_part('dfp'); ?>
 
-		<?php if ( is_404() ) : // Load this last. ?>
-			<script>
-			// Track our 404 errors and log them to GA
-			ga('send', 'event', '404', 'URL', document.location.pathname + document.location.search);
-			ga('send', 'event', '404', 'REF', document.referrer);  
-			</script>
-		<?php endif; ?>
-
 		<script type="text/javascript">
 			dataLayer = [];
 		</script>
@@ -58,6 +50,14 @@
 			 'page': location.pathname + location.search  + location.hash
 			  });
 		</script>
+		
+				<?php if ( is_404() ) : // Load this last. ?>
+			<script>
+			// Track our 404 errors and log them to GA
+			ga('send', 'event', '404', 'URL', document.location.pathname + document.location.search);
+			ga('send', 'event', '404', 'REF', document.referrer);  
+			</script>
+		<?php endif; ?>
 
 		<!-- Google Tag Manager -->
 		<noscript>
