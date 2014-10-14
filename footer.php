@@ -134,9 +134,7 @@
 
 	</div> <!-- /container -->
 
-		<!-- Le javascript
-		================================================== -->
-		<!-- Placed at the end of the document so the pages load faster -->
+		<!-- Le javascript -->
 		<script>jQuery(".entry-content:odd").addClass('odd');</script>
 
 		<script type="text/javascript">
@@ -144,29 +142,45 @@
 			jQuery(".scroll").click(function(event){
 				//prevent the default action for the click event
 				event.preventDefault();
-
 				//get the full url - like mysitecom/index.htm#home
 				var full_url = this.href;
-
 				//split the url by # and get the anchor target name - home in mysitecom/index.htm#home
 				var parts = full_url.split("#");
 				var trgt = parts[1];
-
 				//get the top offset of the target anchor
 				var target_offset = jQuery("#"+trgt).offset();
 				var target_top = target_offset.top;
-
 				//goto that anchor by setting the body scroll top to anchor top
 				jQuery('html, body').animate({scrollTop:target_top - 50}, 1000);
-
 				//Style the pagination links
-
 				jQuery('a span.badge').addClass('badge-info');
-
 			});
 			jQuery('.hide-thumbnail').removeClass('thumbnail');
-
 		});
+		</script>
+
+		<?php wp_footer(); ?>
+		<?php if ( make_get_cap_option( 'survey_monkey_script' ) == true ) : ?>
+			<script src="https://www.surveymonkey.com/jsPop.aspx?sm=t5CAEJmb8Kj1m5yXEHUTOg_3d_3d"> </script>
+		<?php endif; ?>
+
+		<!-- AddRoll Retargeting Pixel -->
+		<script type="text/javascript">
+		adroll_adv_id = "QGYKINSYPVF7BOWKNX2PEL";
+		adroll_pix_id = "PESRBPCQ4BE2DP77N3YSO6";
+		(function () {
+		var oldonload = window.onload;
+		window.onload = function(){
+		   __adroll_loaded=true;
+		   var scr = document.createElement("script");
+		   var host = (("https:" == document.location.protocol) ? "https://s.adroll.com" : "http://a.adroll.com");
+		   scr.setAttribute('async', 'true');
+		   scr.type = "text/javascript";
+		   scr.src = host + "/j/roundtrip.js";
+		   ((document.getElementsByTagName('head') || [null])[0] ||
+		    document.getElementsByTagName('script')[0].parentNode).appendChild(scr);
+		   if(oldonload){oldonload()}};
+		}());
 		</script>
 
 		<script type="text/javascript">
@@ -175,12 +189,6 @@
 			a.src=document.location.protocol+"//dnn506yrbagrg.cloudfront.net/pages/scripts/0013/2533.js?"+Math.floor(new Date().getTime()/3600000);
 			a.async=true;a.type="text/javascript";b.parentNode.insertBefore(a,b)}, 1);
 		</script>
-
-
-		<?php wp_footer(); ?>
-		<?php if ( make_get_cap_option( 'survey_monkey_script' ) == true ) : ?>
-			<script src="https://www.surveymonkey.com/jsPop.aspx?sm=t5CAEJmb8Kj1m5yXEHUTOg_3d_3d"> </script>
-		<?php endif; ?>
 
 	</body>
 </html>
