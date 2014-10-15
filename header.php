@@ -51,11 +51,9 @@
 			  });
 		</script>
 		
-				<?php if ( is_404() ) : // Load this last. ?>
-			<script>
-			// Track our 404 errors and log them to GA
-			ga('send', 'event', '404', 'URL', document.location.pathname + document.location.search);
-			ga('send', 'event', '404', 'REF', document.referrer);  
+		<?php if ( is_404() ) : // Load this last. ?>
+			 <script>
+			ga('send', 'event', '404', document.location.pathname + document.location.search, document.referrer);
 			</script>
 		<?php endif; ?>
 
