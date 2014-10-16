@@ -203,12 +203,10 @@ get_header(); ?>
 									<div class="clear"></div>
 								
 								</div>
-			
 								<div class="comments">
-								
 									<?php comments_template(); ?>
-								
 								</div>
+								<div id="contextly"></div>
 							
 							<?php  else: ?>
 			

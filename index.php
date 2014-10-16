@@ -54,10 +54,10 @@ get_header(); ?>
 						</article>
 
 						<?php endwhile; ?>
-
 						<div class="comments">
 							<?php comments_template(); ?>
 						</div>
+						<div id="contextly"></div>
 
 						<?php else: ?>
 
