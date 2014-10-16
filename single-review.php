@@ -64,6 +64,7 @@ get_header(); ?>
 					<div class="comments">
 						<?php comments_template(); ?>
 					</div>
+					<div id="contextly"></div>
 					
 					<?php if (function_exists('make_featured_products')) { make_featured_products(); } ?>
 					

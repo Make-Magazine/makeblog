@@ -67,10 +67,10 @@ get_header(); ?>
 					</article>
 
 					<?php endwhile; ?>
-
 					<div class="comments">
 						<?php comments_template(); ?>
 					</div>
+					<div id="contextly"></div>
 
 					<?php if ( function_exists('make_shopify_featured_products_slider') ) {
      					echo make_shopify_featured_products_slider( 'row-fluid' );

@@ -137,14 +137,14 @@
 								<li class="next"><?php next_posts_link('Next Page &rarr;'); ?></li>
 							
 							</ul>
+							<div class="comments">
+								<?php comments_template(); ?>
+							</div>
+							<div id="contextly"></div>
 
 							<?php if ( function_exists('make_shopify_featured_products_slider') ) {
 		     					echo make_shopify_featured_products_slider( 'row-fluid' );
 		    				} ?>
-
-							<div class="comments">
-								<?php comments_template(); ?>
-							</div>
 							
 							<?php else: ?>
 							
