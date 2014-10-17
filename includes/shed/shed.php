@@ -111,14 +111,14 @@ function make_shopify_featured_products_slider( $row = 'row' ) {
   $id = 'shed-' . mt_rand(0, 100);
 
   // Build the main link, and the carousel wrapper
-  $output .= '<h2 class="look_like_h3"><a onClick="_gaq.push([\'_trackEvent\', \'Links\', \'Click\', \'Maker Shed - Products\']);" href="http://makershed.com">Related Supplies at Maker Shed</a></h2>';
+  $output .= '<h2 class="look_like_h3"><a onClick="ga(\'send\', \'event\', \'Links\', \'Click\', \'Maker Shed - Products\');" href="http://makershed.com">Related Supplies at Maker Shed</a></h2>';
   $output .= '<div id="' . intval( $id ) . '" class="carousel slide" data-interval="false"><div class="carousel-inner"><div class="item active"><div class="' . esc_attr( $row ) . '">';
 
   // Start the product loop.
   foreach ( $counter as $i => $product ) {
     $output .= '<div class="span3 shed">';
     // Add the same click tracker.
-    $output .= '<a target="_blank" onClick="_gaq.push([\'_trackEvent\', \'Links\', \'Click\', \'Maker Shed - ' . esc_js( $products[$product]->item_name ) . '\']);" href="' . esc_url( $products[$product]->item_page_url ) . '?utm_source=makezine.com&utm_medium=product_ads&utm_term='.str_replace(" ", "_", esc_js( $products[$product]->item_name )).'">';
+    $output .= '<a target="_blank" onClick="ga(\'send\', \'event\', \'Links\', \'Click\', \'Maker Shed - ' . esc_js( $products[$product]->item_name ) . '\']);" href="' . esc_url( $products[$product]->item_page_url ) . '?utm_source=makezine.com&utm_medium=product_ads&utm_term='.str_replace(" ", "_", esc_js( $products[$product]->item_name )).'">';
     $output .= '<img src="' . wpcom_vip_get_resized_remote_image_url( $products[$product]->item_image_url, 218, 146 ) . '" alt="' . esc_attr( $products[$product]->item_name ) . '" />';
     $output .= '</a>';
     $output .= '<h4><a target="_blank" href="';
