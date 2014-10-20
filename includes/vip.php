@@ -347,7 +347,7 @@ add_action( 'after_setup_theme', function() {
 
     if ( ! function_exists( 'WPCOM_elasticsearch' ) )
         return;
-
+// limits the number of results if you change the counts
     WPCOM_elasticsearch()->set_facets( array(
         'Content Type' => array(
             'type'     => 'post_type',
@@ -367,13 +367,13 @@ add_action( 'after_setup_theme', function() {
             'type'     => 'date_histogram',
             'field'    => 'post_date',
             'interval' => 'year',
-            'count'    => 10,
+            'count'    => 15,
         ),
         'Month' => array(
             'type'     => 'date_histogram',
             'field'    => 'post_date',
             'interval' => 'month',
-            'count'    => 10,
+            'count'    => 15,
         ),
     ) );
 });
