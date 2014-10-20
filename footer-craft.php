@@ -71,8 +71,7 @@
 								</div>
 								<div class="input-append control-group email-area">
 									<input class="span2" id="appendedInputButton" name="cm-jrsydu-jrsydu" id="jrsydu-jrsydu" type="text" placeholder="Enter your email">
-									<button type="submit" class="btn" value="Subscribe">JOIN</button>
-								<!-- control-group email-area -->
+									<button type="submit" class="btn" value="Subscribe" onclick="ga('send', 'event', 'Newsletter Sub', 'Join', jQuery('[name|=cm]').serialize().replace(/&/g, ' ') );">JOIN</button>								<!-- control-group email-area -->
 								</div>
 							</fieldset>
 						</form>
