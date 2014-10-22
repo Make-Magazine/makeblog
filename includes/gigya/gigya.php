@@ -48,8 +48,8 @@ if ( ! class_exists( 'GSRequest' ) )
 include_once( 'includes/settings.php' );
 
 // Set a default timezone
-date_default_timezone_set( 'America/Los_Angeles' );
-
+//date_default_timezone_set( 'America/Los_Angeles' );
+//this was killing elasticsearch and timing, wordpress already takes care of this anyway
 /**
  * The guts.
  *
