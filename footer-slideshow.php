@@ -45,7 +45,7 @@
 				jQuery('#myCarousel').on('slid', function () {
 					jQuery('.carousel').carousel('pause');
 					googletag.pubads().refresh();
-					_gaq.push(['_trackPageview']);
+					ga('send', 'pageview');
 					console.log('Paused that sucker...');
 				})
 			});

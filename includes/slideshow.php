@@ -568,7 +568,7 @@ function make_new_gallery_shortcode($attr) {
 					jQuery(".carousel-inner").removeClass("carousel-inner");
 					jQuery(".carousel-control").hide();
 					googletag.pubads().refresh();
-					_gaq.push([\'_trackPageview\']);
+					ga(\'send', 'pageview\');
 					urlref = location.href;
 					PARSELY.beacon.trackPageView({
 						url: urlref,

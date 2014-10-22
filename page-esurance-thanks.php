@@ -71,7 +71,7 @@ get_header(); ?>
 
 	jQuery('a[data-toggle="tab"]').on('shown', function (e) {
 		googletag.pubads().refresh();
-		_gaq.push(['_trackPageview']);
+		ga('send', 'pageview');
 	});
 
 </script>
