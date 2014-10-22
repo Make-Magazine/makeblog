@@ -14,7 +14,7 @@ jQuery( document ).ready( function( $ ) {
 
 		// Run our trackers
 		googletag.pubads().refresh();
-		_gaq.push(['_trackPageview']);
+		ga('send', 'pageview');
 	});
 
 	// Allows us to advance in the slider
@@ -31,7 +31,7 @@ jQuery( document ).ready( function( $ ) {
 
 		// Run our trackers
 		googletag.pubads().refresh();
-		_gaq.push(['_trackPageview']);
+		ga('send', 'pageview');
 	});
 
 	// Display all projects when we click "View All"
@@ -47,7 +47,7 @@ jQuery( document ).ready( function( $ ) {
 
 		// Run our trackers
 		googletag.pubads().refresh();
-		_gaq.push(['_trackPageview']);
+		ga('send', 'pageview');
 	});
 
 	jQuery('.carousel').on('slid', function () {
@@ -63,7 +63,7 @@ jQuery( document ).ready( function( $ ) {
 		if ( ! jQuery( this ).hasClass('huffington')) {
 			googletag.pubads().refresh();
 		}
-		_gaq.push(['_trackPageview']);
+		ga('send', 'pageview');
 		var urlref = location.href;
 		PARSELY.beacon.trackPageView({
 			url: urlref,
@@ -165,14 +165,14 @@ jQuery( document ).ready( function( $ ) {
 	( function( $ ) {
 		$( document.body ).on( 'post-load', function () {
 			googletag.pubads().refresh();
-			_gaq.push(['_trackPageview']);
+			ga('send', 'pageview');
 			} );
 	} )( jQuery );
 
 	( function( $ ) {
 		$( document.body ).on( 'post-load', function () {
 			googletag.pubads().refresh();
-			_gaq.push(['_trackPageview']);
+			ga('send', 'pageview');
 			} );
 	} )( jQuery );
 
