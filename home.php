@@ -62,13 +62,6 @@ get_header(); ?>
 
 					<?php endif; ?>
 
-					<ul class="pager">
-
-						<li class="previous"><?php previous_posts_link('&larr; Previous Page'); ?></li>
-						<li class="next"><?php next_posts_link('Next Page &rarr;'); ?></li>
-
-					</ul>
-
 				</div>
 
 
