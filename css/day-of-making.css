@@ -9539,6 +9539,9 @@ li.share-email {
   display: inline;
 }
 .sidebar-ad {
+  margin-top: 20px;
+}
+.sidebar-ad :first-child {
   margin-top: 77px;
 }
 #div-gpt-ad-664089004995786621-1 {
