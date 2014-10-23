@@ -9458,11 +9458,11 @@ li.share-email {
 .sidebar .badge.badge-info {
   display: inline;
 }
-.sidebar-ad {
+.sidebar .sidebar-ad {
   margin-top: 20px;
 }
-.sidebar-ad :first-child {
-  margin-top: 77px;
+.sidebar .sidebar-ad:first-child {
+  margin-top: 0px;
 }
 #div-gpt-ad-664089004995786621-1 {
   margin: 5px auto;
