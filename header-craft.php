@@ -49,6 +49,26 @@
 	</head>
 
 	<body <?php body_class(); ?>>
+		<!-- Google Universal Analytics -->
+		<script type="text/javascript">
+			  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+			  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+			  ga('create', 'UA-51157-1', 'auto');
+			  ga('require', 'displayfeatures');
+			  ga('send', 'pageview', {
+			 'page': location.pathname + location.search  + location.hash
+			  });
+		</script>
+		
+		<?php if ( is_404() ) : // Load this last. ?>
+			 <script>
+			ga('send', 'event', '404', document.location.pathname + document.location.search, document.referrer);
+			</script>
+		<?php endif; ?>
+		
 		<!-- Google Tag Manager -->
 		<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-WR8NLB"
 		height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
