@@ -1,4 +1,5 @@
-<?php
+
+\<?php
 /**
  * DFP Ad Block
  *
@@ -206,6 +207,12 @@
 				}
 				elseif (is_single(array(424504))) {
 					echo "googletag.pubads().setTargeting('sponsor',['element']);";
+				}
+				elseif (has_tag('lincolnelectric2014') || is_page( array(452017) ) ) {
+					echo "googletag.pubads().setTargeting('sponsor',['lincolnelectric']);";
+				}
+				elseif (has_tag('dremel2014')) {
+					echo "googletag.pubads().setTargeting('sponsor',['dremel']);";
 				}
 			?>
 			googletag.enableServices();
