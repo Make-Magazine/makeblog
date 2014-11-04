@@ -209,10 +209,10 @@
 					echo "googletag.pubads().setTargeting('sponsor',['element']);";
 				}
 				elseif (has_tag('lincolnelectric2014') || is_page( array(452017) ) ) {
-					echo "googletag.pubads().setTargeting('sponsor',['lincolnelectric']);";
+					echo "googletag.pubads().setTargeting('sponsor',['lincolnelectric2014']);";
 				}
 				elseif (has_tag('dremel2014')) {
-					echo "googletag.pubads().setTargeting('sponsor',['dremel']);";
+					echo "googletag.pubads().setTargeting('sponsor',['dremel2014']);";
 				}
 			?>
 			googletag.enableServices();
