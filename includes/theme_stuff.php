@@ -284,7 +284,7 @@ function make_load_resources() {
 	wp_enqueue_script( 'make-common', get_stylesheet_directory_uri() . '/js/common.js', array( 'make-typekit' ) );
 
 	// Load optimizely A/B testing script
-	wp_enqueue_script( 'make-optimizely', '//cdn.optimizely.com/js/299391107.js', array( 'jquery' ) );
+	wp_enqueue_script( 'make-optimizely', '//cdn.optimizely.com/js/2101321427.js', array( 'jquery' ) );
 
 	wp_enqueue_script( 'jquery' );
 	wp_enqueue_script( 'make-bootstrap', get_stylesheet_directory_uri() . '/js/bootstrap.min.js', array( 'jquery' ), false, true );
