@@ -317,7 +317,7 @@ Template Name: Home Page
 							</ol>
 							<div class="carousel-inner">
 								<div class="item active">
-									<a href="http://www.makershed.com/products/make-ultimate-guide-to-3d-printing-2014?utm_source=makezine.com&utm_medium=ads&utm_content=carousel+slide+ad+3Dprintinguide&utm_campaign=carousel+slide">
+									<a href="http://www.makershed.com/products/make-magazine-volume-42?utm_source=makezine.com&utm_medium=ads&utm_content=sidebar+widget+ad+3Dprintinguide+V42&utm_campaign=sidebar+widget">
 										<div class="sprite-images sprite-sip"></div>
 									</a>
 								</div>
