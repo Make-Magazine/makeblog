@@ -37,7 +37,7 @@
 		</script>
 	</head>
 
-	<body <?php body_class(); ?>>
+	<body <?php body_class(); ?>
 		<!-- Google Universal Analytics -->
 		<script type="text/javascript">
 			  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
