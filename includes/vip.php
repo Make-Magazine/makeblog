@@ -166,8 +166,6 @@ if ( function_exists( 'vip_redirects' ) ) {
 		'/blog/page-2/'					=> 'http://makezine.com/page-2/',
 		'/volume/make-36‎'				=> 'http://makezine.com/magazine/',
 		'/volume/make-38‎'				=> 'http://makezine.com/magazine/',
-		'/volume/make-42‎'				=> 'http://makezine.com/magazine/',
-
 		// Add redirects for instances that a blog folder isn't here.
 		'/subscribe' 				=> 'https://readerservices.makezine.com/MK/MKSubnew1.aspx?PC=MK',
 		'/renew'					=> 'https://readerservices.makezine.com/mk/subinfo.aspx?pc=mk',
@@ -207,7 +205,8 @@ if ( function_exists( 'vip_redirects' ) ) {
 		'/5issues'					=> 'https://readerservices.makezine.com/mk/subscribe.aspx?PC=MK&PK=M34AIR',
 		'/3DPDF'					=> 'https://readerservices.makezine.com/mk/subscribe.aspx?PC=MK&PK=M35SIP',
 		'/3dpdf'					=> 'https://readerservices.makezine.com/mk/subscribe.aspx?PC=MK&PK=M35SIP',
-		'/magazine'					=> 'http://makezine.com/volume/make-41/',
+		'/magazine'					=> 'http://makezine.com/volume/make-42/',
+		'/42'						=> 'http://makezine.com/volume/make-41/',
 		'/41'						=> 'http://makezine.com/volume/make-41/',
 		'/40'						=> 'http://makezine.com/volume/make-40/',
 		'/39'						=> 'http://makezine.com/volume/make-39/',
