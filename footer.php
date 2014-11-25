@@ -95,7 +95,7 @@
 								<li><a href="http://makermedia.com" target="_blank">About Us</a></li>
 								<li><a href="<?php echo esc_url( home_url( '/faq/' ) ); ?>">FAQ</a></li>
 								<li><a href="<?php echo esc_url( home_url( '/forums/' ) ); ?>">Forums</a></li>
-								<li><a href="<?php echo esc_url( home_url( '/contribute/' ) ); ?>">Contribute to MAKE</a></li>
+								<li><a href="<?php echo esc_url( home_url( '/contribute/' ) ); ?>">Share Your Project</a></li>
 								<li><a href="http://www.makershed.com/Articles.asp?ID=322">Become an Affiliate</a></li>
 							</ul>
 						<!-- END span about-column-02 -->

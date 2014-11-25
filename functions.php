@@ -30,7 +30,7 @@ if ( defined( 'WP_CLI' ) && WP_CLI )
 include_once dirname( __FILE__ ) . '/includes/vip.php';
 
 // Load Gigya!
-include_once dirname( __FILE__ ) . '/includes/gigya/gigya.php';
+// include_once dirname( __FILE__ ) . '/includes/gigya/gigya.php';
 
 // 3. NUMBERED PAGE NAVIGATION
 include_once dirname( __FILE__ ) . '/includes/pagenavi.php';

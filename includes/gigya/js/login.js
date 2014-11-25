@@ -173,7 +173,7 @@ function make_is_logged_in( maker ) {
 		// We only want to provide a sign out feature for Gigya users
 		var signout = ( make_gigya.loggedin === 'false' ) ? '<a href="#signout" class="user-creds signout">Sign Out</a> / ' : '';
 
-		jQuery( '.main-header' ).find( '.row' ).append( '<div class="login-wrapper">' + signout + '<a href="' + make_gigya.root_path + 'contribute/" class="user-creds profile">Contribute</a></div>' );
+		jQuery( '.main-header' ).find( '.row' ).append( '<div class="login-wrapper">' + signout + '<a href="' + make_gigya.root_path + 'contribute/" class="user-creds profile">Share Your Project</a></div>' );
 
 		// Display our content
 		jQuery( '.container.authentication' ).show();
