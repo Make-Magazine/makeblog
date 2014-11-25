@@ -79,7 +79,7 @@
 								<li><a href="http://makermedia.com/about-us/management-team/" target="_blank">About Us</a></li>
 								<li><a href="<?php echo esc_url( home_url( '/faq/' ) ); ?>">FAQ</a></li>
 								<li><a href="<?php echo esc_url( home_url( '/forums/' ) ); ?>">Forums</a></li>
-								<li><a href="<?php echo esc_url( home_url( '/contribute/' ) ); ?>">Contribute to MAKE</a></li>
+								<li><a href="<?php echo esc_url( home_url( '/contribute/' ) ); ?>">Share Your Project</a></li>
 							</ul>
 						<!-- END span about-column-02 -->
 						</div>
