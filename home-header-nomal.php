@@ -169,8 +169,11 @@
 						</div>
 
 					</div>
-
-
+					<div class="row">
+						<div class="span12 home-waist-banner">
+							<a href="http://pubservice.com/mk/SubGiftCombo.aspx?PC=mk&pk=44BHBN3&AN=&ZP" target="_blank"> <img src="https://makezineblog.files.wordpress.com/2014/11/make14-holiday-web-banner-940x39.jpg" alt="Subscription Promo" /></a>
+						</div>
+					</div>
 					<div class="row">
 
 						<?php if ( get_theme_mod( 'make_waist_banner' ) === 'on' ) : ?>
