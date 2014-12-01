@@ -72,6 +72,8 @@
 								<li><a href="https://www.pubservice.com/MK/subscribe.aspx?PC=MK&amp;PK=M3AMZF">Subscribe</a></li>
 								<li><a href="http://makermedia.com/work-with-us/advertising/" target="_blank">Advertise</a></li>
 								<li><a href="http://makermedia.com/privacy/" target="_blank">Privacy</a></li>
+								<li><a href="http://makermedia.com/work-with-us/job-openings/" target="_blank">Jobs</a></li>
+
 							</ul>
 						<!-- END span about-column-01 --></div>
 						<div class="about-column-02">
@@ -80,6 +82,7 @@
 								<li><a href="<?php echo esc_url( home_url( '/faq/' ) ); ?>">FAQ</a></li>
 								<li><a href="<?php echo esc_url( home_url( '/forums/' ) ); ?>">Forums</a></li>
 								<li><a href="<?php echo esc_url( home_url( '/contribute/' ) ); ?>">Share Your Project</a></li>
+								<li><a href="http://www.makershed.com/Articles.asp?ID=322">Become an Affiliate</a></li>
 							</ul>
 						<!-- END span about-column-02 -->
 						</div>
