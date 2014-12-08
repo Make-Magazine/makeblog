@@ -95,5 +95,6 @@ function make_search_pagination( $wp_query ) {
 		'total' => $wp_query->max_num_pages,
 		'prev_text'    => __('<span class="prev">«</span>'),
 		'next_text'    => __('<span class="next">»</span>'),
+		'add_args'     => false,
 	) );
 }
