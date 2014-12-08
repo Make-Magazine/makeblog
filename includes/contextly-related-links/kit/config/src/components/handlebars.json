@@ -1,0 +1,13 @@
+{
+  "include": [
+    "libraries/handlebars"
+  ],
+
+  "base": "components",
+  "js": [
+    "handlebars",
+    {
+      "dev": "handlebars-dev"
+    }
+  ]
+}

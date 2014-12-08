@@ -1,0 +1,10 @@
+{
+  "include": [
+    "libraries/jquery"
+  ],
+
+  "base": "components",
+  "js": [
+    "sortable"
+  ]
+}

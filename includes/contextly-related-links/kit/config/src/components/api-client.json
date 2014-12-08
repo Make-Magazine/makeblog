@@ -1,0 +1,11 @@
+{
+  "include": [
+    "libraries/jquery",
+    "libraries/easy-xdm"
+  ],
+
+  "base": "components",
+  "js": [
+    "api-client"
+  ]
+}
