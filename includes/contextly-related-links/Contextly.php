@@ -11,12 +11,12 @@ class Contextly
     const API_SETTINGS_KEY = 'contextly_options_api';
     const ADVANCED_SETTINGS_KEY = 'contextly_options_advanced';
 
-    const WIDGET_SNIPPET_ID = 'ctx-module';
-    const WIDGET_SNIPPET_CLASS = 'ctx-module-container ctx-clearfix';
+    const WIDGET_SNIPPET_ID = 'ctx_linker';
+    const WIDGET_SNIPPET_CLASS = 'ctx_widget';
     const WIDGET_SNIPPET_META_BOX_TITLE = 'Contextly Related Links';
     const WIDGET_SOCIALER_META_BOX_TITLE = 'Contextly Socialer';
 
-    const WIDGET_SIDEBAR_CLASS = 'ctx-sidebar-container';
+    const WIDGET_SIDEBAR_CLASS = 'ctx_widget_hidden';
     const WIDGET_SIDEBAR_PREFIX = 'contextly-';
 	const WIDGET_AUTO_SIDEBAR_CODE = '[contextly_auto_sidebar id="%HASH%"]';
 
@@ -24,43 +24,25 @@ class Contextly
 	const MAIN_MODULE_SHORT_CODE_CLASS = 'ctx_widget_hidden';
 	const MAIN_MODULE_SHORT_CODE_ID = 'ctx_main_module_short_code';
 
-	/**
-	 * @var ContextlyKitApi
-	 */
-	protected $api;
-
-	protected function api() {
-		if (!isset($this->api)) {
-			$this->api = ContextlyWpKit::getInstance()->newApi();
-		}
-
-		return $this->api;
-	}
+    function __construct() {
+        Contextly_Api::getInstance()->setOptions( $this->getAPIClientOptions() );
+    }
 
     public function init() {
-	    if ( is_admin() ) {
+        if ( is_admin() ) {
             add_action( 'admin_enqueue_scripts', array( $this, 'initAdmin' ), 1 );
             add_action( 'save_post', array( $this, 'publishBoxControlSavePostHook' ) );
 	        add_filter( 'default_content', array( $this, 'addAutosidebarCodeFilter' ), 10, 2 );
-			add_action( 'admin_head', array( $this, 'insertMetatags' ) );
-			add_action( 'admin_footer', array( $this, 'addQuicktagsEditorIntegration' ) );
-		    register_activation_hook( CONTEXTLY_PLUGIN_FILE, array( $this, 'addActivationHook' ) );
-
-			// Register overlay dialog page.
-			ContextlyWpKit::getInstance()
-					->newWpOverlayPage()
-					->addMenuAction();
         } else {
             add_action( 'init', array( $this, 'initDefault' ), 1 );
-            add_action( 'the_content', array( $this, 'addSnippetWidgetToContent' ) );
-			add_action( 'wp_head', array( $this, 'insertMetatags' ) );
+	        add_action( 'the_content', array( $this, 'addSnippetWidgetToContent' ) );
         }
 
         add_action( 'wp_enqueue_scripts', array( $this, 'loadScripts' ) );
+	    add_action( 'wp_enqueue_scripts', array( $this, 'loadStyles' ) );
         add_action( 'admin_enqueue_scripts', array( $this, 'loadScripts' ) );
 
         add_action( 'publish_post', array( $this, 'publishPost'), 10, 2 );
-        add_action( 'save_post', array( $this, 'publishPost'), 10, 2 );
 
 	    $this->attachAjaxActions();
     }
@@ -69,10 +51,6 @@ class Contextly
 		add_action('wp_ajax_nopriv_contextly_publish_post', array( $this, 'ajaxPublishPostCallback' ) );
 		add_action('wp_ajax_contextly_publish_post', array( $this, 'ajaxPublishPostCallback' ) );
 		add_action('wp_ajax_contextly_get_auth_token', array( $this, 'ajaxGetAuthTokenCallback' ) );
-
-		ContextlyWpKit::getInstance()
-			->newWidgetsEditor()
-			->addAjaxActions();
 	}
 
     private function isAdminEditPage() {
@@ -106,8 +84,10 @@ class Contextly
         return false;
     }
 
-    public static function getAPIClientOptions() {
+    public function getAPIClientOptions() {
         $client_options = array(
+            'server-url'    => Urls::getApiServerUrl(),
+            'auth-api'      => 'auth/auth',
             'appID'         => '',
             'appSecret'     => ''
         );
@@ -126,11 +106,25 @@ class Contextly
         return $client_options;
     }
 
+    private function getPostData() {
+        global $post;
+
+	    if ( isset( $post ) && $post->ID ) {
+	        return array(
+	            'post_id'       => $post->ID,
+	            'post_date'     => $post->post_date,
+	            'post_modified' => $post->post_modified,
+	            'author'        => $post->post_author,
+	            'type'          => $post->post_type,
+	        );
+	    }
+
+	    return null;
+    }
+
     private function getAuthorFullName( $post ) {
-	    if ( get_the_author_meta( "first_name", $post->post_author ) || get_the_author_meta( "last_name", $post->post_author ) )
-	    {
-	        $name = get_the_author_meta( "first_name", $post->post_author ) . ' ' . get_the_author_meta( "last_name", $post->post_author );
-		    return $this->escape( trim( $name ) );
+	    if ( get_the_author_meta( "last_name", $post->post_author ) ) {
+	        return get_the_author_meta( "last_name", $post->post_author ) . ' ' . get_the_author_meta( "first_name", $post->post_author );
 	    }
         return null;
     }
@@ -138,9 +132,8 @@ class Contextly
 	private function getAuthorDisplayName( $post ) {
 		$display_name = get_the_author_meta( "display_name", $post->post_author );
 		$nickname = get_the_author_meta( "nickname", $post->post_author );
-		$name = $display_name ? $display_name : $nickname;
 
-		return $this->escape( $name );
+		return $display_name ? $display_name : $nickname;
 	}
 
     private function getSettingsOptions() {
@@ -155,7 +148,7 @@ class Contextly
 
 	        foreach ( $display_types as $display_type ) {
 		        $this->addAdminMetaboxForPage( $display_type );
-				$this->addAdminPublishMetaboxForPage( $display_type );
+                $this->addAdminPublishMetaboxForPage( $display_type );
 	        }
 
             global $post;
@@ -187,7 +180,7 @@ class Contextly
 
     public function echoAdminPublishMetaboxForPage() {
 	    echo '<div class="misc-pub-section misc-pub-section-last" style="border-top: 1px solid #eee; margin-bottom: 5px;">';
-	    echo 'Contextly: <input type="button" value="Loading..." class="button action button-primary ctx_snippets_editor_btn" disabled="disabled" style="float: right;"/>';
+	    echo 'Contextly: <input type="button" value="Choose Related Posts" class="button action button-primary" onclick="Contextly.PopupHelper.getInstance().snippetPopup();" style="float: right;"/>';
 	    echo '</div>';
     }
 
@@ -208,24 +201,6 @@ class Contextly
         }
     }
 
-	private function addKitAssets( $packages, $ignore = array() ) {
-		$kit = ContextlyWpKit::getInstance();
-		$assets = $kit->newAssetsList();
-		$manager = $kit->newAssetsManager();
-
-		$packages = (array) $packages;
-		foreach ( $packages as $package ) {
-			$manager->extractPackageAssets( $package, $assets, $ignore );
-		}
-
-		$kit->newWpAssetsRenderer( $assets )
-				->renderAll();
-	}
-
-	private function addPostEditor() {
-		wp_enqueue_script( 'contextly-post-editor', $this->getPluginJs( 'contextly-post-editor.js' ), 'contextly', null, true );
-	}
-
     private function addAdminMetaboxForPage( $page_type ) {
         add_meta_box(
             'contextly_linker_sectionid',
@@ -244,19 +219,6 @@ class Contextly
     public function addSnippetWidgetToContent( $content ) {
         return $content . $this->getSnippetWidget();
     }
-
-	public function addQuicktagsEditorIntegration()
-	{
-		if ( $this->checkWidgetDisplayType() ) {
-
-			global $post;
-			$contextly_settings = new ContextlySettings();
-			if ( !$contextly_settings->isPageDisplayDisabled( $post->ID ) )
-			{
-				wp_enqueue_script( 'contextly-quicktags', $this->getPluginJs( 'contextly-quicktags.js' ), 'contextly', null, true );
-			}
-		}
-	}
 
     public function registerMceButtons( $buttons ) {
         $options = get_option( self::ADVANCED_SETTINGS_KEY );
@@ -284,7 +246,8 @@ class Contextly
     }
 
     public function addMceButtons( $plugin_array ) {
-        $plugin_array['contextly'] = plugins_url('js/contextly-tinymce.js?v=' . CONTEXTLY_PLUGIN_VERSION , __FILE__ );
+        $plugin_array['contextlylink'] = plugins_url('js/contextly_linker_wplink.js?v=' . CONTEXTLY_PLUGIN_VERSION , __FILE__ );
+        $plugin_array['contextlysidebar'] = plugins_url('js/contextly_linker_sidebar.js?v=' . CONTEXTLY_PLUGIN_VERSION , __FILE__ );
 
         return $plugin_array;
     }
@@ -297,17 +260,10 @@ class Contextly
             $contextly_settings = new ContextlySettings();
             $flag = $contextly_settings->isPageDisplayDisabled( $post->ID );
 
-						if ( !$flag ) {
-							$html .= '<input type="button" class="button action ctx_snippets_editor_btn" value="Loading..." disabled="disabled" />';
-						}
-
             $html .= '<div style="border-top: 1px solid #DFDFDF; margin-top: 8px; padding-top: 8px;"><span id="timestamp">';
             $html .= '<label>Don\'t display Contextly content on this ' . $post->post_type . ': ';
-            $html .= "<input type='checkbox' name='contextly_display_widgets' " . ( $flag ? "checked='checked'" : "" ) . " onchange=\"jQuery('#post').submit();\" /></label>";
+            $html .= "<input type='checkbox' name='contextly_display_widgets' " . ( $flag == 'on' ? "checked='checked'" : "" ) . " onchange=\"jQuery('#post').submit();\" /></label>";
             $html .= '</span></div>';
-
-					// Wrap with div, so post editor could render button here.
-					$html = '<div class="ctx_preview_admin_controls">' . $html . '</div>';
         }
 
         return $html;
@@ -341,21 +297,33 @@ class Contextly
 	            $additional_html_controls = $this->getAdditionalShowHideControl();
             }
         }
+	    else
+	    {
+		    if ( $this->isLoadWidget() )
+		    {
 
-        return "<div id='" . esc_attr( self::WIDGET_SNIPPET_ID ) . "' class='" . esc_attr( self::WIDGET_SNIPPET_CLASS ) . "'>" . $default_html_code . "</div>" . $additional_html_controls;
+			    $api_options = $this->getAPIClientOptions();
+				if ( isset( $api_options[ 'appID' ] ) && $api_options[ 'appID' ] && isset( $post ) && $post->ID )
+				{
+					$additional_html_controls = sprintf( '<a href="%s" style="display: none;">Related</a>',	Urls::getApiServerSeoHtmlUrl( $api_options[ 'appID' ], $post->ID ) );
+				}
+		    }
+	    }
+
+        return "<div id='" . self::WIDGET_SNIPPET_ID . "' class='" . self::WIDGET_SNIPPET_CLASS . "'>" . $default_html_code . "</div>" . $additional_html_controls;
     }
 
 	public function getPluginJs( $script_name ) {
-		if ( CONTEXTLY_MODE == Urls::MODE_LIVE ) {
-			return Urls::getPluginCdnUrl( $script_name, 'js' );
+		if ( CONTEXTLY_MODE == 'production' ) {
+			return Urls::getPluginJsCdnUrl( $script_name );
 		} else {
 		    return plugins_url( 'js/' . $script_name , __FILE__ );
         }
 	}
 
 	public function getPluginCss( $css_name ) {
-		if ( CONTEXTLY_MODE == Urls::MODE_LIVE ) {
-			return Urls::getPluginCdnUrl( $css_name, 'css' );
+		if ( CONTEXTLY_MODE == 'production' ) {
+			return Urls::getPluginCssCdnUrl( $css_name );
 		} else {
 			return plugins_url( 'css/' . $css_name , __FILE__ );
 		}
@@ -364,47 +332,36 @@ class Contextly
 	public function loadContextlyAjaxJSScripts() {
 		wp_enqueue_script( 'jquery' );
 		wp_enqueue_script( 'json2' );
-
-		$include = array(
-			'widgets/factory',
-		);
-		$ignore = array(
-			'libraries/jquery' => TRUE,
-			'libraries/json2' => TRUE,
-		);
-		$this->addKitAssets( $include, $ignore );
-
-		wp_enqueue_script( 'contextly', $this->getPluginJs( 'contextly-wordpress.js' ), 'jquery', null, true );
+		wp_enqueue_script( 'easy_xdm', Urls::getMainJsCdnUrl( 'easyXDM.min.js' ), 'jquery', null );
+		wp_enqueue_script( 'pretty_photo', $this->getPluginJs( 'jquery.prettyPhoto.js' ), 'jquery', null );
+		wp_enqueue_script( 'jquery_cookie', $this->getPluginJs( 'jquery.cookie.js' ), 'jquery', null );
+		wp_enqueue_script( 'contextly-create-class', $this->getPluginJs( 'contextly-class.min.js' ), 'easy_xdm', null );
+		wp_enqueue_script( 'contextly', $this->getPluginJs( 'contextly-wordpress.js' ), 'contextly-create-class', null );
 	}
 
 	private function getAjaxUrl() {
 		return admin_url( 'admin-ajax.php' );
 	}
 
-	private function getOverlayEditorUrl() {
-		return admin_url( 'admin.php?page=contextly_overlay_dialog&noheader' );
-	}
-
 	public function makeContextlyJSObject( $additional_options = array() ) {
-		global $post;
-
-		$api_options = self::getAPIClientOptions();
+		$api_options = $this->getAPIClientOptions();
 
 		$options = array(
 			'ajax_url'      => $this->getAjaxUrl(),
 			'api_server'    => Urls::getApiServerUrl(),
 			'main_server'   => Urls::getMainServerUrl(),
-			'editor_url'    => $this->getOverlayEditorUrl(),
+			'popup_server'  => Urls::getPopupServerUrl(),
 			'app_id'        => $api_options[ 'appID' ],
 			'settings'      => $this->getSettingsOptions(),
+			'post'          => $this->getPostData(),
 			'admin'         => (boolean)is_admin(),
 			'mode'          => CONTEXTLY_MODE,
 			'https'         => CONTEXTLY_HTTPS,
 			'version'       => CONTEXTLY_PLUGIN_VERSION
 		);
 
-		if ( isset( $post ) && isset( $post->ID ) ) {
-			$options[ 'ajax_nonce' ] = wp_create_nonce( "contextly-post-{$post->ID}" );
+		if ( isset( $api_options[ 'appSecret' ] ) && $api_options[ 'appSecret' ] ) {
+			$options[ 'ajax_nonce' ] = wp_create_nonce( $api_options[ 'appSecret' ] );
 		}
 
 		if ( is_array( $additional_options ) ) {
@@ -412,20 +369,11 @@ class Contextly
 		}
 
 		wp_localize_script(
-			$this->getSettingsHandleName(),
+			'easy_xdm',
 			'Contextly',
 			array( 'l10n_print_after' => 'Contextly = ' . json_encode( $options ) . ';' )
 		);
-	}
 
-	private function getSettingsHandleName()
-	{
-		if ( CONTEXTLY_MODE == Urls::MODE_DEV )
-		{
-			return 'contextly-kit-components-create-class';
-		}
-
-		return 'contextly-kit-widgets--factory';
 	}
 
 	private function isLoadWidget()
@@ -449,24 +397,26 @@ class Contextly
 		    $this->makeContextlyJSObject();
 
 	        if ( $this->isAdminEditPage() ) {
-				$this->addOverlayLibrary();
-				$this->addPostEditor();
-		        $this->addQuicktagsEditorIntegration();
+	            add_thickbox();
 	        }
         }
     }
 
-	protected function addOverlayLibrary() {
-		$ignore = array(
-			'libraries/jquery' => TRUE,
-		);
-		$this->addKitAssets( 'components/overlay', $ignore );
+	public function loadStyles() {
+		if ( $this->isLoadWidget() )
+		{
+			wp_register_style( 'pretty-photo-style', $this->getPluginCss( 'prettyPhoto/style.css' ) );
+			wp_enqueue_style( 'pretty-photo-style' );
+			wp_register_style( 'contextly-branding', $this->getPluginCss( 'branding/branding.css' ) );
+			wp_enqueue_style( 'contextly-branding' );
+		}
 	}
 
 	public function ajaxPublishPostCallback() {
-		$page_id = $_REQUEST['page_id'];
-		check_ajax_referer( "contextly-post-$page_id", 'contextly_nonce');
+		$api_options = $this->getAPIClientOptions();
+		check_ajax_referer( $api_options[ 'appSecret' ], 'contextly_nonce');
 
+		$page_id = $_REQUEST[ 'page_id' ];
 		$post = get_post( $page_id );
 		if ( $post ) {
 			$contextly = new Contextly();
@@ -486,8 +436,8 @@ class Contextly
 		if ( isset( $post ) && $post_ID && $this->checkWidgetDisplayType( $post ) ) {
 			try {
 				// Check if we have this post in our db
-				$contextly_post = $this->api()
-					->method( 'posts', 'get' )
+				$contextly_post = Contextly_Api::getInstance()
+					->api( 'posts', 'get' )
 					->param( 'page_id', $post->ID )
 					->get();
 
@@ -509,8 +459,8 @@ class Contextly
 				);
 
 				// Lets publish this post in our DB
-				$publish_post = $this->api()
-					->method( 'posts', 'put' )
+				$publish_post = Contextly_Api::getInstance()
+					->api( 'posts', 'put' )
 					->extraParams( $post_data );
 
 				if ( isset( $contextly_post->entry ) && $contextly_post->entry->id ) {
@@ -521,11 +471,9 @@ class Contextly
 			} catch ( Exception $e ) {
 	            return $e;
             }
-
-			return true;
 		}
 
-		return false;
+		return true;
 	}
 
 	/**
@@ -538,7 +486,7 @@ class Contextly
 		$post_tags = get_the_tags( $post_id );
 		if (is_array($post_tags) && count($post_tags) > 0) {
 			foreach (array_slice($post_tags, 0, $tags_num_limit) as $post_tag) {
-				$tags_array[] = $this->escape( $post_tag->name );
+				$tags_array[] = $post_tag->name;
 			}
 		}
 
@@ -557,7 +505,7 @@ class Contextly
 			foreach ( array_slice($post_categories, 0, $categories_num_limit) as $category_id ) {
 				$category = get_category( $category_id );
 				if ( $category && strtolower( $category->name ) != "uncategorized" ) {
-					$categories_array[] = $this->escape( $category->name );
+					$categories_array[] = $category->name;
 				}
 			}
 		}
@@ -567,29 +515,19 @@ class Contextly
 
 	/**
 	 * @param $post_id
-	 * @return array|bool
-	 */
-	private function getPostImages($post_id)
-	{
-		$attachment_images = get_children(
-			array(
-				'post_parent'    => $post_id,
-				'post_type'      => 'attachment',
-				'numberposts'    => 0,
-				'post_mime_type' => 'image'
-			)
-		);
-		return $attachment_images;
-	}
-
-	/**
-	 * @param $post_id
 	 * @return array
 	 */
 	private function getPostImagesArray( $post_id ) {
 		$images_array = array();
 
-		$attachment_images = $this->getPostImages($post_id);
+		$attachment_images = get_children(
+			array(
+				'post_parent' => $post_id,
+				'post_type' => 'attachment',
+				'numberposts' => 0,
+				'post_mime_type' => 'image'
+			)
+		);
 
 		if ($attachment_images && is_array($attachment_images)) {
 			foreach($attachment_images as $image) {
@@ -602,53 +540,6 @@ class Contextly
 	}
 
 	/**
-	 * @param $post_id
-	 * @return mixed|null
-	 */
-	private function getPostFeaturedImage( $post_id )
-	{
-		if (has_post_thumbnail( $post_id ) )
-		{
-			list($url) = wp_get_attachment_image_src( get_post_thumbnail_id( $post_id ), 'single-post-thumbnail' );
-
-			if ( $url )
-			{
-				return $url;
-			}
-		}
-		else
-		{
-			$post_images = $this->getPostImages( $post_id );
-
-			if ( count( $post_images ) > 0 )
-			{
-				$sorted_images = array();
-				foreach ( $post_images as $image )
-				{
-					list($url, $width, $height) = wp_get_attachment_image_src( $image->ID, 'full' );
-
-					$image_rank = $width + $height;
-
-					if ( !isset( $sorted_images[$image_rank] ) )
-					{
-						$sorted_images[$image_rank] = array($url);
-					}
-					else
-					{
-						$sorted_images[$image_rank][] = $url;
-					}
-				}
-
-				krsort( $sorted_images );
-
-				return current(reset($sorted_images));
-			}
-		}
-
-		return null;
-	}
-
-	/**
 	 * In this method we will display hidden div. After page loading we will load it's content with javascript.
 	 * This will help to load page without loosing performance.
 	 * @param $attrs
@@ -657,7 +548,7 @@ class Contextly
 	public function prepareSidebar( $attrs ) {
         // We will display sidebar only if we have id for this sidebar
         if ( isset( $attrs[ 'id' ] ) ) {
-            return "<div class='" . esc_attr( self::WIDGET_SIDEBAR_CLASS ) . "' id='" . esc_attr( self::WIDGET_SIDEBAR_PREFIX . $attrs[ 'id' ] ) ."'></div>";
+            return "<div class='" . self::WIDGET_SIDEBAR_CLASS . "' id='" . self::WIDGET_SIDEBAR_PREFIX . $attrs[ 'id' ] ."'></div>";
         }
         else {
             return '';
@@ -666,19 +557,15 @@ class Contextly
 
 	public function ajaxGetAuthTokenCallback() {
 		try {
-			$this->api()->testCredentials();
-
 			$data = array(
 				'success' => 1,
-				'contextly_access_token' => (string) $this->api()
-						->getAccessToken()
+				'contextly_access_token' => Contextly_Api::getInstance()->getAuthorizeToken()
 			);
 		} catch ( Exception $e ) {
 			$data = array(
 				'success' => 0,
 				'code' => $e->getCode(),
-				'message' => $e->getMessage(),
-				'api-object' => print_r($e, true)
+				'message' => $e->getMessage()
 			);
 		}
 
@@ -709,8 +596,8 @@ class Contextly
 	 */
 	private function getNewAutoSidebarHashForPost( $post_id ) {
 		try {
-			$response = $publish_post = $this->api()
-				->method( 'autosidebars', 'put' )
+			$response = $publish_post = Contextly_Api::getInstance()
+				->api( 'autosidebars', 'put' )
 				->extraParams(
 					array(
 						'custom_id' => $post_id,
@@ -755,93 +642,8 @@ class Contextly
 	 * @return string
 	 */
 	public function prepareMainModule() {
-		return sprintf( "<div class='%s' id='%s'></div>", esc_attr( self::MAIN_MODULE_SHORT_CODE_CLASS ), esc_attr( self::MAIN_MODULE_SHORT_CODE_ID ) );
+		return sprintf( "<div class='%s' id='%s'></div>", self::MAIN_MODULE_SHORT_CODE_CLASS, self::MAIN_MODULE_SHORT_CODE_ID );
 	}
 
-	/**
-	 *
-	 */
-	public function insertMetatags()
-	{
-		if ( $this->isLoadWidget() )
-		{
-			global $post;
-			$json_data = null;
-
-			if ( isset( $post ) )
-			{
-				$json_data = array(
-					'title'                    => $this->escape( $post->post_title ),
-					'url'                      => get_permalink( $post->ID ),
-					'pub_date'                 => $post->post_date,
-					'mod_date'                 => $post->post_modified,
-					'type'                     => $post->post_type,
-					'post_id'                  => $post->ID,
-					'author_id'                => $this->escape( $post->post_author ),
-					'author_name'              => $this->getAuthorFullName( $post ),
-					'author_display_name'      => $this->getAuthorDisplayName( $post ),
-					'tags'                     => $this->getPostTagsArray( $post->ID ),
-					'categories'               => $this->getPostCategoriesArray( $post->ID ),
-					'image'                    => $this->getPostFeaturedImage( $post->ID )
-				);
-			}
-
-			if ( $json_data !== null )
-			{
-				?>
-<meta name='contextly-page' id='contextly-page' content='<?php echo json_encode( $json_data ); ?>' />
-<?php
-			}
-		}
-	}
-
-	/**
-	 * @param $text
-	 * @return string
-	 */
-	private function escape($text)
-	{
-		return htmlspecialchars($text, ENT_QUOTES & ~ENT_COMPAT, 'utf-8');
-	}
-
-	public function return404() {
-		status_header( 404 );
-		$GLOBALS['wp_query']->set_404();
-		include( TEMPLATEPATH . '/404.php' );
-		exit;
-	}
-
-	public function return500( $message = NULL ) {
-		status_header( 500 );
-		if ( isset( $message ) ) {
-			@header( 'Content-type: text/plain; charset=' . get_option( 'blog_charset' ) );
-			print $message;
-		}
-		exit;
-	}
-
-	public function addActivationHook()
-	{
-		self::fireAPIEvent( 'contextlyPluginActivated' );
-	}
-
-	public static function fireAPIEvent( $type, $text = '' )
-	{
-		$api = ContextlyWpKit::getInstance()->newApi();
-
-		try {
-			$api->method( 'events', 'put' )
-				->extraParams(
-					array(
-						'event_type' => 'email',
-						'event_name' => $type,
-						'site_path'  => site_url(),
-						'event_message' => $text
-					)
-				)
-				->get();
-		} catch ( Exception $e ) {
-		}
-	}
 
 }
