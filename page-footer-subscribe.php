@@ -19,8 +19,6 @@
 				<div class="row">
 					<div class="span12 logo" >
 						<img src="<?php bloginfo('stylesheet_directory'); ?>/img/make-160-footer.png" alt="MAKE">
-						<img src="https://makezineblog.files.wordpress.com/2013/07/digital-book-foot.png" alt="MAKE">
-						<h5><a href="http://make-digital.com/" target="_blank">Read Digital Edition</a></h5>
 					</div>
 					<div class="clear"></div>
 				<!-- END row -->
@@ -69,20 +67,16 @@
 							<ul>
 								<li><a href="<?php echo esc_url( home_url( '/how-to-get-help/' ) ); ?>">Help</a></li>
 								<li><a href="http://makermedia.com/contact-us/" target="_blank">Contact</a></li>
-								<li><a href="https://www.pubservice.com/MK/subscribe.aspx?PC=MK&amp;PK=M3AMZF">Subscribe</a></li>
 								<li><a href="http://makermedia.com/work-with-us/advertising/" target="_blank">Advertise</a></li>
 								<li><a href="http://makermedia.com/privacy/" target="_blank">Privacy</a></li>
-								<li><a href="http://makermedia.com/work-with-us/job-openings/" target="_blank">Jobs</a></li>
-
 							</ul>
 						<!-- END span about-column-01 --></div>
 						<div class="about-column-02">
 							<ul>
 								<li><a href="http://makermedia.com/about-us/management-team/" target="_blank">About Us</a></li>
 								<li><a href="<?php echo esc_url( home_url( '/faq/' ) ); ?>">FAQ</a></li>
-								<li><a href="<?php echo esc_url( home_url( '/forums/' ) ); ?>">Forums</a></li>
-								<li><a href="<?php echo esc_url( home_url( '/contribute/' ) ); ?>">Share Your Project</a></li>
 								<li><a href="http://www.makershed.com/Articles.asp?ID=322">Become an Affiliate</a></li>
+								<li><a href="http://makermedia.com/work-with-us/job-openings/" target="_blank">Jobs</a></li>
 							</ul>
 						<!-- END span about-column-02 -->
 						</div>
@@ -92,10 +86,7 @@
 								<span class="soci"><a href="http://twitter.com/make" target="_blank"><img src="https://s2.wp.com/wp-content/themes/vip/makeblog/img/twitter.png?m=1351191030g" alt="Make on Twitter"></a></span>
 								<span class="soci"><a href="http://youtube.com/make" target="_blank"><img src="https://s2.wp.com/wp-content/themes/vip/makeblog/img/youtube.png?m=1347432875g" alt="Make on YouTube"></a></span>
 								<span class="soci"><a href="http://pinterest.com/makemagazine/" target="_blank"><img src="https://s2.wp.com/wp-content/themes/vip/makeblog/img/pinterest.png?m=1351191030g" alt="Make on Pintrest"></a></span>
-								<span class="soci"><a href="http://www.flickr.com/groups/make/" target="_blank"><img src="https://s2.wp.com/wp-content/themes/vip/makeblog/img/flickr.png?m=1347432875g" alt="Make on Flickr"></a></span>
 								<span class="soci"><a href="http://facebook.com/makemagazine" target="_blank"><img src="https://s2.wp.com/wp-content/themes/vip/makeblog/img/facebook.png?m=1347432875g" alt="Make on Facebook"></a></span>
-								<span class="soci"><a href="http://www.stumbleupon.com/to/stumble/stumblethru:makezine.com?utm_source=Makezine&amp;utm_medium=StumbleThru&amp;utm_campaign=StumbleThruButton" target="_blank"><img src="https://s2.wp.com/wp-content/themes/vip/makeblog/img/stumbleupon.png?m=1351191030g" alt="Stumble Make Magazine"></a></span>
-								<span class="soci"><a href="http://instagram.com/makemagazine" target="_blank"><img src="https://makezineblog.files.wordpress.com/2012/12/instagram.png" alt="MAKE on Instagram"></a></span>
 								<span class="soci"><a href="https://google.com/+MAKE/" target="_blank"><img src="https://s2.wp.com/wp-content/themes/vip/makeblog/img/google-plus.png?m=1347432875g" alt="MAKE on Google+"></a></span>
 							</p>
 						<!-- END socialArea -->

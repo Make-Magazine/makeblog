@@ -308,43 +308,7 @@ Template Name: Home Page
 							</div>
 
 						</div>
-
-						<div id="myCarousel" class="carousel slide">
-							<ol class="carousel-indicators">
-								<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-								<li data-target="#myCarousel" data-slide-to="1"></li>
-								<li data-target="#myCarousel" data-slide-to="2"></li>
-							</ol>
-							<div class="carousel-inner">
-								<div class="item active">
-									<a href="http://www.makershed.com/products/make-magazine-volume-42?utm_source=makezine.com&utm_medium=ads&utm_content=sidebar+widget+ad+3Dprintinguide+V42&utm_campaign=sidebar+widget">
-										<div class="sprite-images sprite-sip"></div>
-									</a>
-								</div>
-								<div class="item">
-									<a class="sprite_banners sprite-forum" href="https://plus.google.com/communities/105413589856236995389">
-										<div class="sprite-images sprite-forum"></div>
-									</a>
-								</div>
-								<div class="item">
-									<a class="sprite_banners sprite-page2" href="<?php bloginfo( 'url' ); ?>/contribute/">
-										<div class="sprite-images sprite-page2"></div>
-									</a>
-								</div>
-							</div>
-							<a class="pull-left badge" href="#myCarousel" data-slide="prev">&larr;</a>
-							<a class="pull-right badge" href="#myCarousel" data-slide="next">&rarr;</a>
-						</div>
-						<script type="text/javascript">
-							jQuery(document).ready(function(){
-								jQuery('#myCarousel').carousel({
-									interval: false
-								})
-							});
-							jQuery('#myCarousel').on('slid', function () {
-								return true;
-							});
-						</script>
+					
 					</div>
 
 				</div>
