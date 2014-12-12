@@ -27,12 +27,6 @@
 
 						</div>
 
-						<div class="plus_forum widget">
-							<a href="http://www.makershed.com/products/make-magazine-volume-42?utm_source=makezine.com&utm_medium=ads&utm_content=sidebar+widget+ad+3Dprintinguide+V42&utm_campaign=sidebar+widget">
-								<img src="<?php echo esc_url( get_stylesheet_directory_uri() ); ?>/img/sidebar-ad-v42_300x124.jpg" alt="3D printers reviewed, get your copy today">
-							</a>
-						</div>
-
 						<div class="maker-camp-promo">
 							<?php
 
