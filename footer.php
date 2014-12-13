@@ -51,17 +51,18 @@
 								<label class="control-label" for="optionsCheckbox">Sign up to receive exclusive content and offers.</label>
 									<div class="controls">
 										<label for="MAKENewsletter">
-										<input type="checkbox" name="cm-ol-jjuylk" id="MAKENewsletter" /> MAKE Newsletter
+										<input type="checkbox" name="cm-ol-jjuylk" id="MAKENewsletter" /> Make: News
+										</label>
+										<label for="MarketWireNewsletter">
+										<input type="checkbox" name="cm-ol-jrsydu" id="MAKEMarketWirenewsletter" /> Maker Pro 
 										</label>
 										<label for="MakerFaireNewsletter">
-										<input type="checkbox" name="cm-ol-jjuruj" id="MakerFaireNewsletter" /> Maker Faire Newsletter
+										<input type="checkbox" name="cm-ol-jjuruj" id="MakerFaireNewsletter" /> Maker Faire 
 										</label>
 										<label for="MakerShed-MasterList">
 										<input type="checkbox" name="cm-ol-tyvyh" id="MakerShed-MasterList" /> Maker Shed
 										</label>
-										<label for="MarketWireNewsletter">
-										<input type="checkbox" name="cm-ol-jrsydu" id="MAKEMarketWirenewsletter" /> Maker Pro Newsletter
-										</label>
+		
 									<!-- END controls -->
 									</div>
 								<!-- control-group -->
@@ -76,21 +77,21 @@
 					<!-- END span newsletter -->
 					</div>
 					<div class="span3 about-us">
-						<h5>About <a href="http://makermedia.com">Maker Media</a></h5>
+						<h5>About Maker Media</h5>
 						<div class="about-column-01">
 							<ul>
-								<li><a href="<?php echo esc_url( home_url( '/how-to-get-help/' ) ); ?>">Help</a></li>
-								<li><a href="http://makermedia.com/contact-us/" target="_blank">Contact</a></li>
-								<li><a href="http://makermedia.com/work-with-us/advertising/" target="_blank">Advertise</a></li>
+								<li><a href="http://makermedia.com" target="_blank">About Us</a></li>
+								<li><a href="<?php echo esc_url( home_url( '/contactus' ) ); ?>">Contact Us</a></li>
 								<li><a href="http://makermedia.com/privacy/" target="_blank">Privacy</a></li>
+								<li><a href="http://makermedia.com/work-with-us/job-openings/" target="_blank">Jobs</a></li>
+
 							</ul>
 						<!-- END span about-column-01 --></div>
 						<div class="about-column-02">
 							<ul>
-								<li><a href="http://makermedia.com" target="_blank">About Us</a></li>
-								<li><a href="<?php echo esc_url( home_url( '/faq/' ) ); ?>">FAQ</a></li>
-								<li><a href="http://www.makershed.com/Articles.asp?ID=322">Become an Affiliate</a></li>
-								<li><a href="http://makermedia.com/work-with-us/job-openings/" target="_blank">Jobs</a></li>
+								<li><a href="http://makermedia.com/work-with-us/advertising/" target="_blank">Advertise with Us</a></li>
+								<li><a href="http://www.makershed.com/Articles.asp?ID=322" target="_blank">Become an Affiliate</a></li>
+								<li><a href="<?php echo esc_url( home_url( '/makemoneyprogram' ) ); ?>">Make Money</a></li>
 							</ul>
 						<!-- END span about-column-02 -->
 						</div>
