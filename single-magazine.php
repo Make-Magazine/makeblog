@@ -42,13 +42,10 @@ get_header(); ?>
 							} ?>
 						</li>
 						<li>
-							Posted <span class="blue"><time itemprop="startDate" datetime="<?php the_time( 'c' ); ?>"><?php the_time( 'F jS\, Y g:i a' ); ?></time></span>
+							<time itemprop="startDate" datetime="<?php the_time( 'c' ); ?>"><?php the_time( 'F jS\, Y g:i a' ); ?></time>
 						</li>
 						<li>
 							Category <?php the_category(', '); ?>
-						</li>
-						<li>
-							<a href="<?php the_permalink(); ?>#disqus_thread"><?php comments_number( '0', '1', '%' ); ?></a>
 						</li>
 					</ul>
 

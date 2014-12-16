@@ -51,9 +51,8 @@ get_header(); ?>
 							<?php if ( make_get_author( absint( $post->ID ) ) ) : ?>
 								<?php make_get_author( asbint( $post->ID ) ); ?>
 							<?php endif ?>
-							<li>Posted <span class="blue"><?php the_time('m/d/Y \@ g:i a'); ?></span></li>
+							<li><?php the_time('m/d/Y \@ g:i a'); ?></li>
 							<li>Category <?php the_category(', '); ?></li>
-							<li><a href="<?php esc_url( the_permalink() ); ?>#disqus_thread"><?php comments_number( '0', '1', '%' ); ?></a></li>
 							<?php edit_post_link( 'Edit', '<li>', '</li>' ); ?>
 						</ul>
 

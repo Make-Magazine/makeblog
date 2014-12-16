@@ -35,7 +35,7 @@ get_header(); ?>
 							} ?>
 						</li>
 						<li>
-							Posted <span class="blue"><?php the_date(); ?></span>
+							<?php the_date(); ?>
 						</li>
 						<li>
 							Category <?php the_category(', '); ?>
