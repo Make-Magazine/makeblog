@@ -1,0 +1,16 @@
+{
+  "include": [
+    "libraries/jquery"
+  ],
+
+  "base": "libraries/bootstrap",
+  "css": [
+    "css/bootstrap.min"
+  ],
+  "js": [
+    "js/bootstrap.min"
+  ],
+  "media": [
+    "img"
+  ]
+}

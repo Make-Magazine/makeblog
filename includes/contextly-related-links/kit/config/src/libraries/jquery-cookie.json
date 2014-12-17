@@ -1,0 +1,11 @@
+{
+  "aggregate": true,
+  "include": [
+    "libraries/jquery"
+  ],
+
+  "base": "libraries/jquery-cookie",
+  "js": [
+    "jquery.cookie"
+  ]
+}

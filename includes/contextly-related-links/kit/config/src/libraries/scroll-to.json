@@ -1,0 +1,10 @@
+{
+  "include": [
+    "libraries/jquery"
+  ],
+
+  "base": "libraries/scroll-to",
+  "js": [
+    "jquery.scrollTo.min"
+  ]
+}
