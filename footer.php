@@ -84,14 +84,13 @@
 								<li><a href="<?php echo esc_url( home_url( '/contactus' ) ); ?>">Contact Us</a></li>
 								<li><a href="http://makermedia.com/privacy/" target="_blank">Privacy</a></li>
 								<li><a href="http://makermedia.com/work-with-us/job-openings/" target="_blank">Jobs</a></li>
-
 							</ul>
 						<!-- END span about-column-01 --></div>
 						<div class="about-column-02">
 							<ul>
 								<li><a href="http://makermedia.com/work-with-us/advertising/" target="_blank">Advertise with Us</a></li>
 								<li><a href="http://www.makershed.com/Articles.asp?ID=322" target="_blank">Become an Affiliate</a></li>
-								<li><a href="<?php echo esc_url( home_url( '/makemoneyprogram' ) ); ?>">Make Money</a></li>
+								<li><a href="<?php echo esc_url( home_url( '/makemoneyprogram' ) ); ?>">Make: Fundraising</a></li>
 							</ul>
 						<!-- END span about-column-02 -->
 						</div>

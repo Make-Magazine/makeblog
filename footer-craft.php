@@ -33,10 +33,6 @@
 				<div class="row">
 					<div class="span12 logo" >
 						<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/craft-logo1.png" alt="MAKE">
-						<a href="http://make-digital.com/" target="_blank"><div class="sprite sprite-digital-book-foot"></div></a>
-						<h5><a href="http://make-digital.com/" target="_blank">Read Digital Edition</a></h5>
-						<a href="http://www.makershed.com/" target="_blank"><div class="sprite sprite-makershed_footer1"></div></a>
-						<h5><a href="http://www.makershed.com/" target="_blank">Shop Maker Shed</a></h5>
 					</div>
 					<div class="clear"></div>
 				</div>
@@ -81,20 +77,17 @@
 						<h5>About <a href="http://makermedia.com">Maker Media</a></h5>
 						<div class="about-column-01">
 							<ul>
-								<li><a href="<?php echo esc_url( home_url( '/how-to-get-help/' ) ); ?>">Help</a></li>
-								<li><a href="http://makermedia.com/contact-us/">Contact</a></li>
-								<li><a href="https://www.pubservice.com/MK/subscribe.aspx?PC=MK&amp;PK=M3AMZF">Subscribe</a></li>
-								<li><a href="http://makermedia.com/work-with-us/advertising/">Advertise</a></li>
-								<li><a href="http://makermedia.com/privacy/">Privacy</a></li>
+								<li><a href="http://makermedia.com" target="_blank">About Us</a></li>
+								<li><a href="<?php echo esc_url( home_url( '/contactus' ) ); ?>">Contact Us</a></li>
+								<li><a href="http://makermedia.com/privacy/" target="_blank">Privacy</a></li>
+								<li><a href="http://makermedia.com/work-with-us/job-openings/" target="_blank">Jobs</a></li>
 							</ul>
 						<!-- END span about-column-01 --></div>
 						<div class="about-column-02">
 							<ul>
-								<li><a href="http://makermedia.com" target="_blank">About Us</a></li>
-								<li><a href="<?php echo esc_url( home_url( '/faq/' ) ); ?>">FAQ</a></li>
-								<li><a href="<?php echo esc_url( home_url( '/forums/' ) ); ?>">Forums</a></li>
-								<li><a href="<?php echo esc_url( home_url( '/contribute/' ) ); ?>">Contribute to MAKE</a></li>
-								<li><a href="http://www.makershed.com/Articles.asp?ID=322">Become an Affiliate</a></li>
+								<li><a href="http://makermedia.com/work-with-us/advertising/" target="_blank">Advertise with Us</a></li>
+								<li><a href="http://www.makershed.com/Articles.asp?ID=322" target="_blank">Become an Affiliate</a></li>
+								<li><a href="<?php echo esc_url( home_url( '/makemoneyprogram' ) ); ?>">Make: Fundraising</a></li>
 							</ul>
 						<!-- END span about-column-02 -->
 						</div>
@@ -103,10 +96,7 @@
 							<a class="sprite sprite-twitter"  href="http://twitter.com/make" title="Twitter" target="_blank"></a>
 							<a class="sprite sprite-youtube" href="http://youtube.com/make" title="Youtube" target="_blank"></a>
 							<a class="sprite sprite-pinterest" href="http://pinterest.com/makemagazine/" title="Pinterest" target="_blank"></a>
-							<a class="sprite sprite-flickr" href="http://www.flickr.com/groups/make/" title="Flickr" target="_blank"></a>
 							<a class="sprite sprite-facebook" href="http://facebook.com/makemagazine" title="Facebook" target="_blank"></a>
-							<a class="sprite sprite-stumbleupon" href="http://www.stumbleupon.com/to/stumble/stumblethru:makezine.com?utm_source=Makezine&amp;utm_medium=StumbleThru&amp;utm_campaign=StumbleThruButton" title="Stumbleupon" target="_blank"></a>
-							<a class="sprite sprite-instagram" href="http://instagram.com/makemagazine" title="Instagram" target="_blank"></a>
 							<a class="sprite sprite-google-plus" href="https://plus.google.com/+MAKE/posts" rel="publisher" title="Google+" target="_blank"></a>
 						<!-- END socialArea -->
 						</div>
