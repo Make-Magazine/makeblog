@@ -1,3 +1,0 @@
-/* For licensing information see http://contextlysiteimages.contextly.com/_kit/assets/dev/licenses.txt */.contextly-overlay {position: fixed;top: 0;left: 0;width: 100%;height: 100%;}
-.contextly-overlay-dialog {position: fixed;background-color: white;}
-.contextly-overlay-close {position: absolute;top: -12px;right: -12px;width: 24px;height: 24px;overflow: hidden;background: url("components/overlay/img/overlay-close.png") center center no-repeat;}

@@ -1,6 +1,0 @@
-{
-  "base": "components",
-  "js": [
-    "create-class"
-  ]
-}
