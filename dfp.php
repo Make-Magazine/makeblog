@@ -213,6 +213,9 @@
 				elseif (has_tag('dremel2014')) {
 					echo "googletag.pubads().setTargeting('sponsor',['dremel2014']);";
 				}
+				elseif (has_tag('makerpro')) {
+					echo "googletag.pubads().setTargeting('sponsor',['makerpro']);";
+				}
 			?>
 			googletag.enableServices();
 			});
