@@ -62,6 +62,9 @@
 			  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
 			  ga('create', 'UA-51157-1', 'auto');
+			  // Optimizely Universal Analytics Integration
+			  window.optimizely = window.optimizely || [];
+			  window.optimizely.push("activateUniversalAnalytics");
 			  ga('require', 'displayfeatures');
 			  ga('send', 'pageview', {
 			 'page': location.pathname + location.search  + location.hash
