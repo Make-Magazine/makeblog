@@ -28,20 +28,11 @@ get_header(); ?>
 
 				<?php do_action( 'category_top' ); ?>
 
-				<?php
-					$image = apply_filters( 'taxonomy-images-queried-term-image', '', array( 'after' => '</div>', 'before' => '<div id="taxonomy-image">', 'image_size' => 'full') );
-					if ( ! empty( $image ) ) {
-						echo '<div class="span4">';
-						echo $image;
-						echo '</div>';
-						echo '<div class="span8">';
-					} else {
-						echo '<div class="span12">';
-					}
-				?>
+				<?php echo '<div class="span12">'; ?>
+				
 					<h1 class="jumbo"><?php single_cat_title('', true); ?></h1>
 
-					<?php echo Markdown( strip_tags( category_description() ) ); ?>
+					<?php //echo Markdown( strip_tags( category_description() ) ); ?>
 
 					<?php make_child_category_list(); ?>
 

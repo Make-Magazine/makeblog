@@ -185,9 +185,9 @@ function make_child_category_list() {
 
 	$categories = get_categories( $args );
 	
-	if ( make_pregnancy_check( $cat_ID ) ) {
-		echo '<h3>More in ' . get_queried_object()->name . '</h3>';	
-	}
+	// if ( make_pregnancy_check( $cat_ID ) ) {
+	// 	echo '<h3>More in ' . get_queried_object()->name . '</h3>';	
+	// }
 	echo '<ul class="subs">';
 	$count = count($categories);
 	$i = 0;
