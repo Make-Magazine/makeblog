@@ -8088,7 +8088,7 @@ p:empty {
 .category-top {
   font-family: "proxima-nova", sans-serif;
   border-bottom: 3px solid #DBDBDB;
-  padding-top: 20px;
+  padding-top: 15px;
 }
 .category-top h1 {
   font-size: 38px;
@@ -8118,19 +8118,23 @@ p:empty {
 .category-top .subs {
   margin: 0px 0px 20px;
 }
+.category-top .subs ul {
+  list-style-type: none !important;
+}
 .category-top .subs li {
+  list-style-type: none !important;
   font-size: 18px;
   display: inline;
   margin-right: 20px;
 }
 .category-top .subs li a {
   color: #005d8f;
-  font-weight: bold;
+  font-weight: normal;
 }
 .category-top .no_h2_styles {
-  font-size: 18px;
+  font-size: 16px;
   display: inline;
-  line-height: 25px;
+  line-height: 23px;
 }
 .grey {
   padding: 20px 0;
@@ -9110,7 +9114,7 @@ a.oembed {
 body .single {
   font-family: "proxima-nova", sans-serif;
   border-bottom: 3px solid #DBDBDB;
-  padding-top: 20px;
+  padding-top: 15px;
   border-bottom: 0px;
 }
 body .single h1 {
@@ -9141,19 +9145,23 @@ body .single .pull-right a {
 body .single .subs {
   margin: 0px 0px 20px;
 }
+body .single .subs ul {
+  list-style-type: none !important;
+}
 body .single .subs li {
+  list-style-type: none !important;
   font-size: 18px;
   display: inline;
   margin-right: 20px;
 }
 body .single .subs li a {
   color: #005d8f;
-  font-weight: bold;
+  font-weight: normal;
 }
 body .single .no_h2_styles {
-  font-size: 18px;
+  font-size: 16px;
   display: inline;
-  line-height: 25px;
+  line-height: 23px;
 }
 body .single article h1 {
   line-height: 100%;
@@ -11560,11 +11568,17 @@ body.makercamp a.button.small-button {
 .archive {
   font-family: "proxima-nova", sans-serif;
   border-bottom: 3px solid #DBDBDB;
-  padding-top: 20px;
+  padding-top: 15px;
   border-bottom: 0px;
   position: static;
   width: inherit;
   margin: inherit;
+}
+.archive ul.subs {
+  list-style-type: none !important;
+}
+.archive .subs {
+  margin-top: 20px !important;
 }
 .archive h1 {
   font-size: 38px;
@@ -11594,22 +11608,27 @@ body.makercamp a.button.small-button {
 .archive .subs {
   margin: 0px 0px 20px;
 }
+.archive .subs ul {
+  list-style-type: none !important;
+}
 .archive .subs li {
+  list-style-type: none !important;
   font-size: 18px;
   display: inline;
   margin-right: 20px;
 }
 .archive .subs li a {
   color: #005d8f;
-  font-weight: bold;
+  font-weight: normal;
 }
 .archive .no_h2_styles {
-  font-size: 18px;
+  font-size: 16px;
   display: inline;
-  line-height: 25px;
+  line-height: 23px;
 }
 .archive .content ul li {
-  font-size: 16px;
+  font-size: 14px;
+  font-weight: normal;
 }
 .archive .projects-masthead h2 {
   line-height: 100%;

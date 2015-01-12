@@ -192,10 +192,10 @@ function make_child_category_list() {
 	$count = count($categories);
 	$i = 0;
 	foreach ($categories as $category) {
-		echo '<li><h2 class="no_h2_styles"><a href="' . get_category_link( $category->term_id ) . '">' . $category->cat_name . '</a></h2></li>';
-		if(++$i != $count) {
-			echo '<li>&bull;</li>';	
-		}
+		echo '<li><h2 class="no_h2_styles btn"><a href="' . get_category_link( $category->term_id ) . '">' . $category->cat_name . '</a></h2></li>';
+		// if(++$i != $count) {
+		// 	echo '<li>&bull;</li>';	
+		// }
 	}
 	echo '</ul>';
 }
