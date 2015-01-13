@@ -11,60 +11,24 @@ class Urls {
 
 	const MODE_LOCAL = 'local';
 	const MODE_DEV = 'dev';
-	const MODE_LIVE = 'production';
-
-    static private function getScheme() {
-        return 'http' . ( CONTEXTLY_HTTPS ? 's' : '' );
-    }
+	const MODE_LIVE = 'live';
 
 	static public function getMainServerUrl() {
-		if ( CONTEXTLY_MODE == self::MODE_LIVE ) {
-			return 'https://contextly.com/';
-		} elseif ( CONTEXTLY_MODE == self::MODE_DEV ) {
-			return 'https://dev.contextly.com/';
-		} else {
-			return 'http://linker.site/';
-		}
-	}
-
-	static public function getPopupServerUrl() {
-		if ( CONTEXTLY_MODE == self::MODE_LIVE ) {
-			return 'https://app.contextly.com/';
-		} elseif ( CONTEXTLY_MODE == self::MODE_DEV ) {
-			return 'http://devapi.contextly.com/';
-		} else {
-			return 'http://linker.local/';
-		}
+		return ContextlyWpKit::getInstance()->getServerUrl('cp');
 	}
 
 	static public function getApiServerUrl() {
-		if ( CONTEXTLY_MODE == self::MODE_LIVE ) {
-			return self::getScheme() . '://rest.contextly.com/';
-		} elseif ( CONTEXTLY_MODE == self::MODE_DEV ) {
-			return 'http://devrest.contextly.com/';
-		} else {
-			return 'http://contextly-api.local/';
-		}
+		return ContextlyWpKit::getInstance()->getServerUrl('api');
 	}
 
-	static public function getPluginJsCdnUrl( $js_file ) {
+	static public function getPluginCdnUrl( $file, $type = 'js' ) {
 		if ( CONTEXTLY_HTTPS ) {
-			$prefix = 'https://c713421.ssl.cf2.rackcdn.com/';
+			$prefix = 'https://c714015.ssl.cf2.rackcdn.com/';
 		} else {
-			$prefix = 'http://contextlysiteimages.contextly.com/';
+			$prefix = 'http://contextlysitescripts.contextly.com/';
 		}
 
-		return $prefix . '_plugin/' . CONTEXTLY_PLUGIN_VERSION . '/js/' . $js_file;
-	}
-
-	static public function getPluginCssCdnUrl( $css_file ) {
-		if ( CONTEXTLY_HTTPS ) {
-			$prefix = 'https://c713421.ssl.cf2.rackcdn.com/';
-		} else {
-			$prefix = 'http://contextlysiteimages.contextly.com/';
-		}
-
-		return $prefix . '_plugin/' . CONTEXTLY_PLUGIN_VERSION . '/css/' . $css_file;
+		return $prefix . 'wp_plugin/' . CONTEXTLY_PLUGIN_VERSION . '/' . $type . '/' . $file;
 	}
 
 	static public function getMainJsCdnUrl( $js_file ) {
@@ -75,11 +39,6 @@ class Urls {
 		}
 
 		return $prefix . 'js/' . $js_file;
-	}
-
-	static public function getApiServerSeoHtmlUrl( $app_id, $page_id )
-	{
-		return sprintf( '%sstatichtml/get/app_id/%s/page_id/%s/#!related_links', Urls::getApiServerUrl(), $app_id, $page_id );
 	}
 
 }

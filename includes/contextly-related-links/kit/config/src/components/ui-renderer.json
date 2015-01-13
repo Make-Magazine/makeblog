@@ -1,0 +1,10 @@
+{
+  "include": [
+    "components/proxy"
+  ],
+
+  "base": "components",
+  "js": [
+    "ui-renderer"
+  ]
+}

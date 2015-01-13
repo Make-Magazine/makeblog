@@ -1,0 +1,17 @@
+{
+  "aggregate": true,
+  "include": [
+    "libraries/jquery"
+  ],
+
+  "base": "components/overlay",
+  "js": [
+    "overlay"
+  ],
+  "css": [
+    "overlay"
+  ],
+  "media": [
+    "img"
+  ]
+}

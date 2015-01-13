@@ -1,0 +1,8 @@
+{
+  "aggregate": true,
+  "base": "libraries/easyXDM",
+
+  "js": [
+    "easyXDM"
+  ]
+}

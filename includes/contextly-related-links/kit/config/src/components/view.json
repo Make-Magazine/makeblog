@@ -1,0 +1,10 @@
+{
+    "include": [
+        "components/loader"
+    ],
+
+    "base": "components",
+    "js": [
+        "view"
+    ]
+}

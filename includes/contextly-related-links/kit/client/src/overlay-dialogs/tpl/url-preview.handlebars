@@ -1,0 +1,31 @@
+<div class="url-preview-overlay hidden">
+  <div class="url-preview-frame-wrapper">
+    <iframe class="url-preview-frame" src="about:blank" frameBorder="0"></iframe>
+  </div>
+  <div class="url-preview-toolbar">
+    <a href="javascript:" class="url-preview-link">
+      <i class="icon-external-link"></i> {{t 'View in new tab'}}
+    </a>
+    <div class="url-preview-buttons">
+      {{#unless editor.isLink}}
+        <button class="url-preview-remove btn btn-mini btn-danger">
+          <i class="icon-trash"></i> {{t 'Remove link'}}
+        </button>
+      {{/unless}}
+
+      <button class="url-preview-cancel btn btn-mini btn-warning">
+        <i class="icon-remove"></i> {{t 'Close preview'}}
+      </button>
+
+      {{#if editor.isLink}}
+        <button class="url-preview-confirm btn btn-mini btn-success">
+          <i class="icon-ok"></i> {{t 'Use link'}}
+        </button>
+      {{else}}
+        <button class="url-preview-confirm btn btn-mini">
+          <i class="icon-arrow-right"></i> {{t 'Add link'}}
+        </button>
+      {{/if}}
+    </div>
+  </div>
+</div>

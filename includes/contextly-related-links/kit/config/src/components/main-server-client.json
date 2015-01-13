@@ -1,0 +1,10 @@
+{
+  "include": [
+    "libraries/easy-xdm"
+  ],
+
+  "base": "components",
+  "js": [
+    "main-server-client"
+  ]
+}

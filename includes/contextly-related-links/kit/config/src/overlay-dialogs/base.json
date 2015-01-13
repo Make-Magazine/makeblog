@@ -1,0 +1,31 @@
+{
+  "include": [
+    "libraries/bootstrap",
+    "libraries/font-awesome",
+    "libraries/scroll-to",
+    "components/handlebars",
+    "components/ui-renderer"
+  ],
+
+  "base": "overlay-dialogs",
+  "css": [
+    "css/common"
+  ],
+  "js": [
+    "js/base"
+  ],
+  "tpl": {
+    "alert": "tpl/alert",
+    "inputFields": "tpl/input-fields",
+    "progressIndicator": "tpl/progress-indicator",
+    "searchTabs": "tpl/search-tabs",
+    "searchPager": "tpl/search-pager",
+    "searchResults": "tpl/search-results",
+    "searchResultsEmpty": "tpl/search-results-empty",
+    "searchResultsLinks": "tpl/search-results-links",
+    "urlPreview": "tpl/url-preview"
+  },
+  "media": [
+    "img"
+  ]
+}

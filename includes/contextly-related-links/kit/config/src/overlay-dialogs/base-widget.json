@@ -1,0 +1,14 @@
+{
+  "include": [
+    "overlay-dialogs/base",
+    "components/sortable"
+  ],
+
+  "base": "overlay-dialogs",
+  "js": [
+    "js/base-widget"
+  ],
+  "tpl": {
+    "sectionLinks": "tpl/section-links"
+  }
+}

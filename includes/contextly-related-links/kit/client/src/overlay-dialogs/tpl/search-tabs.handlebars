@@ -1,0 +1,14 @@
+<ul class="search-tabs nav nav-tabs hidden">
+  {{#if editor.isSidebar}}
+    <li class="search-tab right" data-search-type="sidebars" data-site-url="">
+      <a class="search-tab-link" href="#">
+        {{t 'Sidebar Library'}}
+      </a>
+    </li>
+  {{/if}}
+  {{#each annotations}}
+    <li class="search-tab" data-search-type="links" data-site-url="{{site_url}}">
+      <a class="search-tab-link" href="#">{{site_name}}</a>
+    </li>
+  {{/each}}
+</ul>

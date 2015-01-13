@@ -1,0 +1,9 @@
+{
+  "base": "libraries/font-awesome",
+  "css": [
+    "css/font-awesome.min"
+  ],
+  "media": [
+    "font"
+  ]
+}

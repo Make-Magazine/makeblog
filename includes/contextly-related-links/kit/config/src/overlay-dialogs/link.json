@@ -1,0 +1,14 @@
+{
+  "aggregate": true,
+  "include": [
+    "overlay-dialogs/base"
+  ],
+
+  "base": "overlay-dialogs",
+  "js": [
+    "js/link"
+  ],
+  "tpl": {
+    "editor": "tpl/link-editor"
+  }
+}
