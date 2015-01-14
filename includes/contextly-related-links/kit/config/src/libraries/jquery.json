@@ -1,7 +1,0 @@
-{
-  "aggregate": true,
-  "base": "libraries/jquery",
-  "js": [
-    "jquery-1.10.2"
-  ]
-}

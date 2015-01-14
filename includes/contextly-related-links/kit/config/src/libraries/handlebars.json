@@ -1,9 +1,0 @@
-{
-  "base": "libraries/handlebars",
-  "js": [
-    {
-      "dev": "handlebars.min",
-      "pkg": "handlebars.runtime.min"
-    }
-  ]
-}
