@@ -114,17 +114,19 @@
 								) );
 							?>
 						</nav>
-						<div class="additional-content">						
+						<div class="additional-content hidden-print">
 							<form action="<?php echo home_url(); ?>" class="search-make open">
 								<input type="text" class="search-field" name="s" placeholder="Search" />
-								<input type="image" src="<?php echo get_stylesheet_directory_uri(); ?>/images/search-btn.png" alt="Search" class="open" />
+								<input type="submit" class="open submit" value="" />
 							</form>
 							<div class="clearfix"></div>
-							<div id="div-gpt-ad-664089004995786621-5" class="hdr-sub-ad-01" >
-								<script type='text/javascript'>
-									googletag.cmd.push(function(){googletag.display('div-gpt-ad-664089004995786621-5')});
-								</script>
+							<div class="hdr-sub-ad-01" >
+								<a href="https://www.pubservice.com/MK/subscribe.aspx?PC=MK&amp;PK=M3BMZA"><img src="<?php echo esc_url( get_stylesheet_directory_uri() ); ?>/img/hdr-mag-sub-01.jpg"  alt="Subscribe to Make Magazine Today!" /></a>
 							</div>
+							
+						</div>
+						<div class="login-wrapper">
+							<a href="<?php echo esc_url( home_url( '/contribute/' ) ); ?>" class="user-creds profile">Share Your Project</a>
 						</div>
 					</div>
 				</div>
