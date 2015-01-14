@@ -43,31 +43,33 @@
 					<!-- END span trending -->
 					</div>
 					<div class="span3 newsletter">
-						<h5>Get our Newsletters</h5>
+									<h5>Get our Newsletters</h5>
 						<form action="http://makermedia.createsend.com/t/r/s/jrsydu/" method="post" id="subForm">
 							<fieldset>
 								<div class="control-group">
 								<label class="control-label" for="optionsCheckbox">Sign up to receive exclusive content and offers.</label>
 									<div class="controls">
 										<label for="MAKENewsletter">
-										<input type="checkbox" name="cm-ol-jjuylk" id="MAKENewsletter" /> MAKE Newsletter
+										<input type="checkbox" name="cm-ol-jjuylk" id="MAKENewsletter" /> Make: News
+										</label>
+										<label for="MarketWireNewsletter">
+										<input type="checkbox" name="cm-ol-jrsydu" id="MAKEMarketWirenewsletter" /> Maker Pro 
 										</label>
 										<label for="MakerFaireNewsletter">
-										<input type="checkbox" name="cm-ol-jjuruj" id="MakerFaireNewsletter" /> Maker Faire Newsletter
+										<input type="checkbox" name="cm-ol-jjuruj" id="MakerFaireNewsletter" /> Maker Faire 
 										</label>
 										<label for="MakerShed-MasterList">
 										<input type="checkbox" name="cm-ol-tyvyh" id="MakerShed-MasterList" /> Maker Shed
 										</label>
-										<label for="MarketWireNewsletter">
-										<input type="checkbox" name="cm-ol-jrsydu" id="MAKEMarketWirenewsletter" /> Maker Pro Newsletter
-										</label>
+		
 									<!-- END controls -->
 									</div>
 								<!-- control-group -->
 								</div>
 								<div class="input-append control-group email-area">
 									<input class="span2" id="appendedInputButton" name="cm-jrsydu-jrsydu" id="jrsydu-jrsydu" type="text" placeholder="Enter your email">
-									<button type="submit" class="btn" value="Subscribe" onclick="ga('send', 'event', 'Newsletter Sub', 'Join', jQuery('[name|=cm]').serialize().replace(/&/g, ' ') );">JOIN</button>								<!-- control-group email-area -->
+									<button type="submit" class="btn" value="Subscribe" onclick="ga('send', 'event', 'Newsletter Sub', 'Join', jQuery('[name|=cm]').serialize().replace(/&/g, ' ') );">JOIN</button>
+								<!-- control-group email-area -->
 								</div>
 							</fieldset>
 						</form>

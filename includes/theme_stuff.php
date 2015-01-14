@@ -280,7 +280,7 @@ function make_load_resources() {
 
 
 	// Load our common scripts first. These should not require jQuery
-	wp_enqueue_script( 'make-typekit', 'http://use.typekit.com/fzm8sgx.js', array() );
+	wp_enqueue_script( 'make-typekit', 'https://use.typekit.com/fzm8sgx.js', array() );
 	wp_enqueue_script( 'make-common', get_stylesheet_directory_uri() . '/js/common.js', array( 'make-typekit' ) );
 
 	// Load optimizely A/B testing script

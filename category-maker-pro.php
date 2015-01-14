@@ -32,7 +32,7 @@ get_header(); ?>
 
 										<em>Maker Pro is about the impact of makers on business and technology. Our coverage includes hardware startups, new products, incubators, innovators, along with technology and market trends. Please send items to us at <a href="mailto:makerpro@makermedia.com">makerpro@makermedia.com</a></em>. 
 										<br/>
-										<strong><a href="http://makezine.com/maker-pro-newsletter/">Click here to subscribe to the Maker Pro newsletter!</a></strong>
+										<strong><a href="<?php echo esc_url( home_url( '/maker-pro-newsletter/' ) ); ?>">Click here to subscribe to the Maker Pro newsletter!</a></strong>
 										</p>
 
 								<div class="clear"></div>
