@@ -91,6 +91,20 @@ Template Name: Craft Home Page
 									</div>
 
 								</div>
+								
+								<div class="row-fluid">
+
+									<div class="span12">
+
+										<div class="featured">
+
+											<?php echo make_featured_post(); ?>
+
+										</div>
+
+									</div>
+
+								</div>
 
 							</div>
 
