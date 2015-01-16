@@ -103,7 +103,7 @@
 				<div class="container">
 					<div class="row">
 						<div class="logo span2 craft_logo">
-							<a href="<?php echo esc_url( home_url( '/craftzine' ) ); ?>"><img src="<?php bloginfo('stylesheet_directory'); ?>/img/craft-logo.png" alt="MAKE" title="MAKE" /></a>
+							<a href="<?php echo esc_url( home_url( '/craftzine' ) ); ?>"><img src="<?php echo esc_url( get_stylesheet_directory_uri() ); ?>/img/craft-logo.png" alt="MAKE" title="MAKE" /></a>
 						</div>
 						<nav role="navigation" class="span7 site-navigation primary-navigation">
 							<?php
@@ -155,7 +155,7 @@
 							</a>
 						</div>
 						<div class="span2">
-							<a href="http://www.makershed.com?utm_source=makezine.com&utm_medium=ads&utm_term=Shop+Now&utm_campaign=makershed+banner" title="Find all your DIY electronics in the MakerShed. 3D Printing, Kits, Arduino, Raspberry Pi, Books &amp; more!"><img src="<?php echo get_stylesheet_directory_uri(); ?>/img/maker-shed-banner-02.png" alt="Find all your DIY electronics in the MakerShed. 3D Printing, Kits, Arduino, Raspberry Pi, Books &amp; more!" /></a>
+							<a href="http://www.makershed.com?utm_source=makezine.com&utm_medium=ads&utm_term=Shop+Now&utm_campaign=makershed+banner" title="Find all your DIY electronics in the MakerShed. 3D Printing, Kits, Arduino, Raspberry Pi, Books &amp; more!"><img src="<?php echo esc_url( get_stylesheet_directory_uri() ); ?>/img/maker-shed-banner-02.png" alt="Find all your DIY electronics in the MakerShed. 3D Printing, Kits, Arduino, Raspberry Pi, Books &amp; more!" /></a>
 						</div>
 					</div>
 				</div>
