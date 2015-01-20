@@ -9574,10 +9574,10 @@ li.share-email {
 }
 .main-header .login-wrapper {
   position: absolute;
-  right: 225px;
+  right: 300px;
   font-weight: bold;
   font-size: 19px;
-  top: -9px;
+  top: 95px;
 }
 .makershed-banner {
   background: #de231a;
