@@ -143,7 +143,7 @@
 							
 						</div>
 						<div class="login-wrapper">
-								<a href="<?php echo esc_url( home_url( '/contribute/' ) ); ?>" class="user-creds profile">Share Your Project</a>
+								<a href="<?php echo esc_url( home_url( '/contribute/' ) ); ?>" class="user-creds profile">Show Us Your Project</a>
 							</div>
 					</div>
 				</div>
