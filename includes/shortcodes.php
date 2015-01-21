@@ -1190,3 +1190,12 @@ function make_nikon_shortcode_iframe( $atts ) {
 
 
 add_shortcode( 'nikon', 'make_nikon_shortcode_iframe' );
+
+function rtmf_wizehive_shortcode() {
+	$output = '<iframe id="wizehiveportal" onload="parent.scrollTo(0,0);" height="1700px" width="940px" frameborder="0" scrolling="auto"></iframe>
+		<script type="text/javascript" src="http://review.wizehive.com/js/portaliframe.js"></script>
+		<script type="text/javascript">displayPortal(\'nikon\');</script>';
+	return $output;
+}
+
+add_shortcode( 'rtmf_challenge', 'rtmf_wizehive_shortcode' );
