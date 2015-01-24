@@ -9759,8 +9759,11 @@ li.share-email {
 }
 .new-footer .about-column-02 {
   float: left;
-  width: 180px;
+  width: 200px;
   margin-left: 0;
+}
+.new-footer .about-column-02 h5 {
+  margin-top: 12px;
 }
 .new-footer .about-column-02 ul {
   margin-top: 3px;

@@ -139,12 +139,8 @@
 							<div class="clearfix"></div>
 							<div class="hdr-sub-ad-01" >
 								<a href="https://www.pubservice.com/MK/subscribe.aspx?PC=MK&amp;PK=M3BMZA"><img src="<?php echo esc_url( get_stylesheet_directory_uri() ); ?>/img/hdr-mag-sub-01.jpg"  alt="Subscribe to Make Magazine Today!" /></a>
-							</div>
-							
+							</div>	
 						</div>
-						<div class="login-wrapper">
-								<a href="<?php echo esc_url( home_url( '/contribute/' ) ); ?>" class="user-creds profile">Show Us Your Project</a>
-							</div>
 					</div>
 				</div>
 			</div>
