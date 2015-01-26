@@ -216,6 +216,9 @@
 				elseif (has_tag('makerpro') || is_page( array(302792) ) ) {
 					echo "googletag.pubads().setTargeting('sponsor',['makerpro']);";
 				}
+				elseif (has_tag('arrowcypress') || is_page( array(431313, 463824, 462353, 463460, 463441) ) ) {
+					echo "googletag.pubads().setTargeting('sponsor',['arrowcypress']);";
+				}
 			?>
 			googletag.enableServices();
 			});
