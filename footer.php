@@ -82,9 +82,17 @@
 							<ul>
 								<li><a href="http://makermedia.com" target="_blank">About Us</a></li>
 								<li><a href="http://makermedia.com/work-with-us/advertising/" target="_blank">Advertise with Us</a></li>
-								<li><a href="http://makermedia.com/work-with-us/job-openings/" target="_blank">Careers</a></li>
+								<li><a href="http://makermedia.com/work-with-us/job-openings/" target="_blank">Work for Us</a></li>
 							</ul>
-							
+						<!-- END span about-column-01 --></div>
+						<div class="about-column-02">
+							<ul>
+								<li><a href="<?php echo esc_url( home_url( '/contactus' ) ); ?>">Contact Us</a></li>
+								<li><a href="http://makermedia.com/privacy/" target="_blank">Privacy</a></li>
+								<li><a href="https://www.pubservice.com/MK/subscribe.aspx?PC=MK&PK=M3AMZB">Subscribe to Make:</a></li>
+							</ul>
+						<!-- END span about-column-02 -->
+						</div>
 						<div class="clearfix"></div>
 							<h5  class="follow">Follow Make:</h5>
 						<div class="soc_icons">
@@ -95,21 +103,6 @@
 							<a class="sprite sprite-google-plus" href="https://plus.google.com/+MAKE/posts" rel="publisher" title="Google+" target="_blank"></a>
 						<!-- END socialArea -->
 						</div>
-						<!-- END span about-column-01 --></div>
-						<div class="about-column-02">
-							<ul>
-								<li><a href="<?php echo esc_url( home_url( '/contactus' ) ); ?>">Contact Us</a></li>
-								<li><a href="http://makermedia.com/privacy/" target="_blank">Privacy</a></li>
-								<li><a href="https://www.pubservice.com/MK/subscribe.aspx?PC=MK&PK=M3AMZB">Subscribe to Make:</a></li>
-							</ul>
-							
-							<h5>
-								<a href="<?php echo esc_url( home_url( '/contribute/' ) ); ?>">Show Us Your Project</a>
-							</h5>
-							
-						<!-- END span about-column-02 -->
-						</div>
-	
 					<!-- END span3 about-us -->
 					</div>
 				<!-- END MAIN row (main) -->

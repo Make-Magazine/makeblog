@@ -7899,6 +7899,9 @@ textarea.narrow,
   margin-top: 0;
   margin-bottom: 3px;
 }
+.ctx_sidebar a.ctx_title {
+font-size: 80%;
+}
 .ctx_widget .ctx_around_site {
   border-radius: 4px !important;
   border: 1px solid #e3e3e3;
@@ -9759,11 +9762,8 @@ li.share-email {
 }
 .new-footer .about-column-02 {
   float: left;
-  width: 200px;
+  width: 180px;
   margin-left: 0;
-}
-.new-footer .about-column-02 h5 {
-  margin-top: 12px;
 }
 .new-footer .about-column-02 ul {
   margin-top: 3px;
