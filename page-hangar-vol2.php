@@ -96,8 +96,6 @@ get_header(); ?>
 			
 			<hr>
 							
-<<<<<<< .mine
-=======
 			<div class="row">
 				
 				<div class="span9">
@@ -121,7 +119,6 @@ get_header(); ?>
 
 	</div>
 					
->>>>>>> .r182068
 	<div class="grey content">
 
 		<div class="container">
