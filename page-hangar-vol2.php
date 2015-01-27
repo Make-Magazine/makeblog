@@ -110,8 +110,11 @@ get_header(); ?>
 			<hr>
 							
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< .mine
+=======
+>>>>>>> hangar
 =======
 >>>>>>> hangar
 			<div class="row">
@@ -138,8 +141,11 @@ get_header(); ?>
 	</div>
 					
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> .r182068
+>>>>>>> hangar
+=======
 >>>>>>> hangar
 	<div class="grey content">
 
