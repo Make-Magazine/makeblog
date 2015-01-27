@@ -42,15 +42,12 @@ get_header(); ?>
 					<div class="row">
 						
 						<div class="span5">
-<<<<<<< HEAD
 							
 							<p><strong>MAKE Magazine</strong> and <strong>Lucas Weakley</strong> have teamed up to bring you Maker Hangar, a 15-episode tutorial series that will teach you everything you need to know to build and fly this custom RC plane, the Maker Trainer.</p>
 
 							<p>I think we’ve all been fascinated by flight at one point in our lives. Whether that fascination leads to folding paper airplanes or piloting full-sized aircraft, we all dream to make something fly. And many of us get there using radio-controlled (R/C) hobby aircraft.</p>
-=======
 
 							<p>We’ve all been fascinated by flight at one point in our lives. Whether that fascination leads to folding paper airplanes or piloting full-sized aircraft, we all dream to make something fly. And many of us get there using radio-controlled (R/C) hobby aircraft.</p>
->>>>>>> hangar
 
 							<p>Plenty of toys can give you limited control of a flying craft, but to get the full sense of flight you need to dive right into the R/C community. You’ll soon be doing exciting activities like acrobatics, speed trials, formation flying, combat, slope soaring, and aerial photography.</p>
 
@@ -58,13 +55,10 @@ get_header(); ?>
 
 							<p>To answer all these questions <em>Make:</em> created Maker Hangar, a one-stop, free resource that anyone can use to easily get into the R/C hobby. Maker Hangar consists of 23 video tutorials, three aircraft you can build, and <a href="https://plus.google.com/communities/111848781234483620161">a community of more than 1,000 members</a> all sharing pictures, videos, and knowledge.</p>
 
-<<<<<<< HEAD
 							<p>Join us on the <a href="https://plus.google.com/communities/111848781234483620161">Maker Hangar Google+ Community page</a> to share your ideas, comments, photos and video and details for your own RC plane project builds.</p>
 
 							<p>NOTE: Be sure to check out the <a href="#parts" role="button" class="" data-toggle="modal">parts list</a> for the materials you’ll need to build the Maker Trainer, and <a href="http://cdn.makezine.com/make/makerhanger/makertrainerver3_1.pdf">download the PDF plans</a>.</p>
-=======
 							<p><ul><li><a href="#parts" role="button" class="" data-toggle="modal">parts list</a></li><li><a href="http://cdn.makezine.com/make/makerhanger/makertrainerver3_1.pdf">Download the PDF plans</a></li></ul></p>
->>>>>>> hangar
 							
 							<!-- Modal -->
 							<div id="parts" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -109,14 +103,6 @@ get_header(); ?>
 			
 			<hr>
 							
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-<<<<<<< .mine
-=======
->>>>>>> hangar
-=======
->>>>>>> hangar
 			<div class="row">
 				
 				<div class="span9">
@@ -140,13 +126,6 @@ get_header(); ?>
 
 	</div>
 					
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> .r182068
->>>>>>> hangar
-=======
->>>>>>> hangar
 	<div class="grey content">
 
 		<div class="container">
@@ -247,9 +226,6 @@ get_header(); ?>
 		</div>
 		
 	</div>
-<<<<<<< HEAD
-				
-=======
 
 			<div class="row">
 				
@@ -274,7 +250,6 @@ get_header(); ?>
 
 	</div>
 									
->>>>>>> hangar
 </div>
 
 <?php get_footer(); ?>
