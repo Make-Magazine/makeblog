@@ -61,7 +61,7 @@ get_header(); ?>
 								</div>
 								<div class="modal-body">
 									<?php 
-										$parts = get_post_meta( 320331, 'parts' );
+										$parts = get_post_meta( 463558, 'parts' );
 										echo make_projects_parts( $parts );
 									?>
 								</div>
