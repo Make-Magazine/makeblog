@@ -21,12 +21,12 @@ get_header(); ?>
 
 				<div class="span3">
 					
-					<img class="thumbnail" src="<?php echo get_stylesheet_directory_uri(); ?>/img/1-Learning-How-To-Fly-210x140.jpg" alt="" >
+					<img class="thumbnail" src="<?php echo get_stylesheet_directory_uri(); ?>/img/1-Learning-How-To-Fly-210x140.jpg" alt="" />
 					<div style="height:10px;"></div>
-					<img class="thumbnail" src="<?php echo get_stylesheet_directory_uri(); ?>/img/2-lucasonset-210x140.jpg" alt="" >
+					<img class="thumbnail" src="<?php echo get_stylesheet_directory_uri(); ?>/img/2-lucasonset-210x140.jpg" alt="" />
 					<div style="height:10px;"></div>
 					<div class="thumbnail">
-						<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/3-tricopter-210x140.jpg" alt="" >
+						<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/3-tricopter-210x140.jpg" alt="" />
 						<div style="padding:5px;color:#555;">
 							<p>Follow along with Lucas and build the Maker Trainer, a custom built RC plane.</p>
 						</div>
@@ -36,7 +36,7 @@ get_header(); ?>
 				
 				<div class="span9">
 				
-					<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/Maker-Hangar-Main-700x400.jpg" alt="Hangar">
+					<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/Maker-Hangar-Main-700x400.jpg" alt="Hangar" />
 					<div style="height:20px;"></div>
 				
 					<div class="row">
@@ -260,7 +260,7 @@ get_header(); ?>
 				
 				<div class="span3">
 					
-					<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/lukas.jpg" alt="Lucas Weakley">
+					<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/lukas.jpg" alt="Lucas Weakley" />
 					<div style="height:20px;"></div>
 					
 				</div>
