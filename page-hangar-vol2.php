@@ -45,9 +45,17 @@ get_header(); ?>
 							
 							<p><strong>MAKE Magazine</strong> and <strong>Lucas Weakley</strong> have teamed up to bring you Maker Hangar, a 15-episode tutorial series that will teach you everything you need to know to build and fly this custom RC plane, the Maker Trainer.</p>
 
-							<p>The first installment airs July 11th and don’t miss Lucas Weakly on Maker Camp as a Guest Maker!</p>
+							<p>We’ve all been fascinated by flight at one point in our lives. Whether that fascination leads to folding paper airplanes or piloting full-sized aircraft, we all dream to make something fly. And many of us get there using radio-controlled (R/C) hobby aircraft.</p>
 
-							<p>New installments will air every Tuesday and Thursday through August 29th!</p>
+							<p>Plenty of toys can give you limited control of a flying craft, but to get the full sense of flight you need to dive right into the R/C community. You’ll soon be doing exciting activities like acrobatics, speed trials, formation flying, combat, slope soaring, and aerial photography.</p>
+
+							<p>However, it can be daunting to get started with your first R/C plane. What motor and speed controller should you get? How should you charge the batteries? What is a BEC and why do you need one? How do you fly?!</p>
+
+							<p>To answer all these questions <em>Make:</em> created Maker Hangar, a one-stop, free resource that anyone can use to easily get into the R/C hobby. Maker Hangar consists of 23 video tutorials, three aircraft you can build, and <a href="https://plus.google.com/communities/111848781234483620161">a community of more than 1,000 members</a> all sharing pictures, videos, and knowledge.</p>
+
+							<p><a href="https://makezineblog.files.wordpress.com/2015/01/lucasonset.jpg"><img class="alignnone size-medium wp-image-463236" src="https://makezineblog.files.wordpress.com/2015/01/lucasonset.jpg?w=620" alt="lucasonset" width="620" height="413" /></a></p>
+							<p><h2>Learn to Build and Fly — All from Videos</h2>
+							The Maker Hangar video series covers the basics of electronic R/C aircraft components, then shows how to build, set up, and fly your first trainer airplane. Following that you'll build a tricopter that's great for aerial video, FPV (first-person view), and just fun flying, and a smaller, tougher trainer plane to hone your flying skills.</p>
 
 							<p>Join us on the <a href="https://plus.google.com/communities/111848781234483620161">Maker Hangar Google+ Community page</a> to share your ideas, comments, photos and video and details for your own RC plane project builds.</p>
 
