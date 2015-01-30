@@ -93,8 +93,6 @@ get_header(); ?>
 				</div>
 				
 			</div>
-			
-			<hr>
 									
 		</div>
 
@@ -205,7 +203,7 @@ get_header(); ?>
 
 						$args = array(
 							'post_type'			=> 'video',
-							'title'				=> 'Recent Videos',
+							'title'				=> '',
 							'projects_landing'	=> false,
 							'all'				=> false,
 							'playlist'			=> 'maker-hangar',
@@ -244,9 +242,6 @@ get_header(); ?>
 				</div>
 			
 			</div>
-			
-			</div>
-
 
 			<div class="row">
 				
@@ -267,11 +262,9 @@ get_header(); ?>
 			
 			</div>
 
-
 		</div>
 		
 	</div>
-				
-</div>
+
 
 <?php get_footer(); ?>
