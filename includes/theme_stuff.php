@@ -1228,8 +1228,8 @@ function make_sitemap_add_gallery_post_type( $post_types ) {
 function make_register_menu() {
 
 	// Make Navigation menus
-	register_nav_menu( 'make-primary', __( 'Make Primary Nav', 'make' ) );
-	register_nav_menu( 'make-secondary', __( 'Make Secondary Nav', 'make' ) );
+	// register_nav_menu( 'make-primary', __( 'Make Primary Nav', 'make' ) );
+	// register_nav_menu( 'make-secondary', __( 'Make Secondary Nav', 'make' ) );
 
 	// Popdown Menus
 	register_nav_menu( 'popdown-menu-top', __( 'Popdown Top', 'make' ) );
