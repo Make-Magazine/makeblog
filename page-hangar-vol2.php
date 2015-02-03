@@ -54,8 +54,8 @@ get_header(); ?>
 							<p>To answer all these questions <em>Make:</em> created Maker Hangar, a one-stop, free resource that anyone can use to easily get into the R/C hobby. Maker Hangar consists of 23 video tutorials, three aircraft you can build, and <a href="https://plus.google.com/communities/111848781234483620161">a community of more than 1,000 members</a> all sharing pictures, videos, and knowledge.</p>
 
 							<p><a href="https://makezineblog.files.wordpress.com/2015/01/lucasonset.jpg"><img class="alignnone size-medium wp-image-463236" src="https://makezineblog.files.wordpress.com/2015/01/lucasonset.jpg?w=620" alt="lucasonset" width="620" height="413" /></a></p>
-							<p><h2>Learn to Build and Fly — All from Videos</h2>
-							The Maker Hangar video series covers the basics of electronic R/C aircraft components, then shows how to build, set up, and fly your first trainer airplane. Following that you'll build a tricopter that's great for aerial video, FPV (first-person view), and just fun flying, and a smaller, tougher trainer plane to hone your flying skills.</p>
+							<h2>Learn to Build and Fly — All from Videos</h2>
+							<p>The Maker Hangar video series covers the basics of electronic R/C aircraft components, then shows how to build, set up, and fly your first trainer airplane. Following that you'll build a tricopter that's great for aerial video, FPV (first-person view), and just fun flying, and a smaller, tougher trainer plane to hone your flying skills.</p>
 
 							<p>Join us on the <a href="https://plus.google.com/communities/111848781234483620161">Maker Hangar Google+ Community page</a> to share your ideas, comments, photos and video and details for your own RC plane project builds.</p>
 
@@ -101,7 +101,7 @@ get_header(); ?>
 				</div>
 				
 			</div>
-									
+												
 		</div>
 
 	</div>
@@ -192,9 +192,9 @@ get_header(); ?>
 							'all'				=> false,
 							'playlist'			=> 'maker-hangar',
 							'order'				=> 'ASC',
-							'limit'				=> 3,
+							'limit'				=> 4,
 							'offset'			=> 12,
-							'posts_per_page'	=> 3,
+							'posts_per_page'	=> 4,
 						);
 						echo make_carousel($args);
 					?>
@@ -251,8 +251,16 @@ get_header(); ?>
 			
 			</div>
 
+		</div>
+		
+	</div>
+
+	<div class="projects-home">
+
+		<div class="container">
+
 			<div class="row">
-				
+			
 				<div class="span9">
 				
 					<h3>About Lucas</h3>
@@ -264,15 +272,15 @@ get_header(); ?>
 				<div class="span3">
 					
 					<img src="<?php echo esc_attr( get_stylesheet_directory_uri() ); ?>/img/lukas.jpg" alt="Lucas Weakley" />
+					
 					<div style="height:20px;"></div>
 					
 				</div>
-			
+				
 			</div>
 
 		</div>
-		
-	</div>
 
+	</div>
 
 <?php get_footer(); ?>
