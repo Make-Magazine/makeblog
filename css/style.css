@@ -8042,6 +8042,11 @@ textarea.narrow,
   height: 250px;
   overflow: hidden;
 }
+/*** Contextly Modifications ***/
+.ctx_sidebar a.ctx_title {
+  font-size: 100% !important;
+  /*** !important used to avoid modifying Contextly core files ***/
+}
 .custom-feed.simple {
   border: 1px solid #dadada;
   border-radius: 5px;
@@ -9722,6 +9727,9 @@ li.share-email {
 }
 .div-gpt-ad-664089004995786621-4 {
   min-height: 90px;
+}
+.sub-menu {
+  z-index: 10000;
 }
 .makershed-banner .container .row p {
   font-size: 15px;

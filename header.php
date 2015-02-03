@@ -149,7 +149,7 @@
 												<li><a href="https://makezine.com/category/electronics/computers-mobile/?post_type=projects&amp;path=FromNav">Computers &amp; Mobile</a></li>
 												<li><a href="https://makezine.com/category/electronics/raspberry-pi/?post_type=projects&amp;path=FromNav">Raspberry Pi</a></li>
 												<li><a href="https://makezine.com/category/electronics/robotics/?post_type=projects&amp;path=FromNav">Robotics</a></li>
-												<li class="browse-all"><a href="http://makezine.com/category/electronics/?path=FromNav">❯ Browse All</a></li>
+												<li class="browse-all"><a href="http://makezine.com/category/electronics/?path=FromNav">&#10095; Browse All</a></li>
 											</ul>
 										</div>
 										<div class="span2">
@@ -161,7 +161,7 @@
 												<li><a href="https://makezine.com/category/workshop/machining/?path=FromNav">Machining</a></li>
 												<li><a href="https://makezine.com/category/workshop/tools/?path=FromNav">Tools</a></li>
 												<li><a href="https://makezine.com/category/workshop/woodworking/?path=FromNav">Woodworking</a></li>
-												<li class="browse-all"><a href="https://makezine.com/category/workshop/?path=FromNav">❯ Browse All</a></li>
+												<li class="browse-all"><a href="https://makezine.com/category/workshop/?path=FromNav">&#10095; Browse All</a></li>
 											</ul>
 
 										</div>
@@ -172,7 +172,7 @@
 												<li><a href="https://makezine.com/category/craft/knitting/?path=FromNav">Knitting</a></li>
 												<li><a href="https://makezine.com/category/craft/paper-crafts/?path=FromNav">Paper Crafts</a></li>
 												<li><a href="https://makezine.com/category/craft/sewing-craft/?path=FromNav">Sewing</a></li>
-												<li class="browse-all"><a href="http://makezine.com/craftzine/?path=FromNav">❯ Browse All</a></li>
+												<li class="browse-all"><a href="http://makezine.com/craftzine/?path=FromNav">&#10095; Browse All</a></li>
 											</ul>
 										</div>
 										<div class="span2">
@@ -181,7 +181,7 @@
 												<li class="top-cat-item"><a href="http://makezine.com/category/science/?path=FromNav">Science</a></li>
 												<li><a href="https://makezine.com/category/science/energy/?post_type=projects&amp;path=FromNav">Energy</a></li>
 												<li><a href="https://makezine.com/category/science/health-science/?post_type=projects&amp;path=FromNav">Health</a></li>
-												<li class="browse-all"><a href="http://makezine.com/category/science/?path=FromNav">❯ Browse All</a></li>
+												<li class="browse-all"><a href="http://makezine.com/category/science/?path=FromNav">&#10095; Browse All</a></li>
 											</ul>
 										</div>
 										<div class="span2">
@@ -193,7 +193,7 @@
 												<li><a href="https://makezine.com/category/home/gardening/?post_type=projects&amp;path=FromNav">Gardening</a></li>
 												<li><a href="https://makezine.com/category/home/hacks/?post_type=projects&amp;path=FromNav">Hacks</a></li>
 												<li><a href="https://makezine.com/category/home/kids-family/?post_type=projects&amp;path=FromNav">Kids &amp; Family</a></li>
-												<li class="browse-all"><a href="https://makezine.com/category/home/?path=FromNav">❯ Browse All</a></li>
+												<li class="browse-all"><a href="https://makezine.com/category/home/?path=FromNav">&#10095; Browse All</a></li>
 											</ul>
 										</div>
 										<div class="span2">
@@ -202,7 +202,7 @@
 												<li><a href="https://makezine.com/category/art-design/architecture-art-design/?post_type=projects&amp;path=FromNav">Architecture</a></li>
 												<li><a href="https://makezine.com/category/art-design/music/?post_type=projects&amp;path=FromNav">Music</a></li>
 												<li><a href="https://makezine.com/category/art-design/photography-video/?post_type=projects&amp;path=FromNav">Photography &amp; Video</a></li>
-												<li class="browse-all"><a href="https://makezine.com/category/art-design/?path=FromNav">❯ Browse All</a></li>
+												<li class="browse-all"><a href="https://makezine.com/category/art-design/?path=FromNav">❯&#10095; Browse All</a></li>
 											</ul>
 										</div>
 										<div class="span12 pull-right mega-nav-footer">
