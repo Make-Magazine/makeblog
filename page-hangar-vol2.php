@@ -45,7 +45,6 @@ get_header(); ?>
 							
 							<p><strong>MAKE Magazine</strong> and <strong>Lucas Weakley</strong> have teamed up to bring you Maker Hangar, a 23-episode tutorial series that will teach you everything you need to know to build and fly three custom R/C aircraft.</p>
 							<p>It can be daunting to get started with your first R/C plane. What motor and speed controller should you get? How should you charge the batteries? What is a BEC and why do you need one? How do you fly?!</p>
-							<p>However, it can be daunting to get started with your first R/C plane. What motor and speed controller should you get? How should you charge the batteries? What is a BEC and why do you need one? How do you fly?!</p>
 							<p>Maker Hangar answers these questions and more. A one-stop, free resource that anyone can use to easily get into the R/C hobby. Plus, join <a href="https://plus.google.com/communities/111848781234483620161" target="_blank">a community of more than 1,000 members</a> all sharing pictures, videos, and knowledge.</p>
 							
 							<ul>
