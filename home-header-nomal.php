@@ -171,7 +171,11 @@
 					</div>
 					<div class="row">
 						<div class="span12 home-waist-banner">
-							<a href="http://pubservice.com/mk/SubGiftCombo.aspx?PC=mk&pk=44BHBN3&AN=&ZP" target="_blank"> <img src="https://makezineblog.files.wordpress.com/2014/11/make14-holiday-web-banner-940x39.jpg" alt="Subscription Promo" /></a>
+							<div id="div-gpt-ad-664089004995786621-10" class="text-center">
+								 <script type='text/javascript'>
+								  googletag.cmd.push(function(){googletag.display('div-gpt-ad-664089004995786621-10')});
+								 </script>
+							</div>
 						</div>
 					</div>
 					<div class="row">
