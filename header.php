@@ -140,74 +140,74 @@
 					<div class="row">
 						<nav class="span12 site-navigation secondary-navigation">
 							<ul id="menu-make-secondary-nav" class="nav navbar-nav ga-nav clearfix">
-								<li class="mega-box dropdown"><a href="https://makezine.com/projects/?path=FromNav" class="dropdown-toggle">Projects</a>
+								<li class="mega-box dropdown"><a href="<?php echo esc_url( home_url( '/projects/?path=FromNav' ) ); ?>" class="dropdown-toggle">Projects</a>
 									<ul class="sub-menu dropdown-menu container dropdown" style="width:940px;">
 										<div class="span2">
 											<ul class="mega-dropdown">
-												<li class="top-cat-item"><a href="https://makezine.com/category/electronics/?path=FromNav">Electronics</a></li>
-												<li><a href="https://makezine.com/category/electronics/arduino/?post_type=projects&amp;path=FromNav">Arduino</a></li>
-												<li><a href="https://makezine.com/category/electronics/computers-mobile/?post_type=projects&amp;path=FromNav">Computers &amp; Mobile</a></li>
-												<li><a href="https://makezine.com/category/electronics/raspberry-pi/?post_type=projects&amp;path=FromNav">Raspberry Pi</a></li>
-												<li><a href="https://makezine.com/category/electronics/robotics/?post_type=projects&amp;path=FromNav">Robotics</a></li>
-												<li class="browse-all"><a href="http://makezine.com/category/electronics/?path=FromNav">&#10095; Browse All</a></li>
+												<li class="top-cat-item"><a href="<?php echo esc_url( home_url( '/category/electronics/?path=FromNav' ) ); ?>">Electronics</a></li>
+												<li><a href="<?php echo esc_url( home_url( '/category/electronics/arduino/?post_type=projects&amp;path=FromNav' ) ); ?>">Arduino</a></li>
+												<li><a href="<?php echo esc_url( home_url( '/category/electronics/computers-mobile/?post_type=projects&amp;path=FromNav' ) ); ?>">Computers &amp; Mobile</a></li>
+												<li><a href="<?php echo esc_url( home_url( '/category/electronics/raspberry-pi/?post_type=projects&amp;path=FromNav' ) ); ?>">Raspberry Pi</a></li>
+												<li><a href="<?php echo esc_url( home_url( '/category/electronics/robotics/?post_type=projects&amp;path=FromNav' ) ); ?>">Robotics</a></li>
+												<li class="browse-all"><a href="<?php echo esc_url( home_url( '/category/electronics/?path=FromNav' ) ); ?>">&#10095; Browse All</a></li>
 											</ul>
 										</div>
 										<div class="span2">
 											<ul class="mega-dropdown">
-												<li class="top-cat-item"><a href="https://makezine.com/category/workshop/?path=FromNav">Workshop</a></li>
-												<li><a href="https://makezine.com/category/workshop/3d-printing-workshop/?path=FromNav">3D Printing</a></li>
-												<li><a href="https://makezine.com/category/workshop/cnc-machining/?path=FromNav">CNC Machining</a></li>
-												<li><a href="https://makezine.com/category/workshop/computer-controlled-cutting/?path=FromNav">Computer-Controlled Cutting</a></li>
-												<li><a href="https://makezine.com/category/workshop/machining/?path=FromNav">Machining</a></li>
-												<li><a href="https://makezine.com/category/workshop/tools/?path=FromNav">Tools</a></li>
-												<li><a href="https://makezine.com/category/workshop/woodworking/?path=FromNav">Woodworking</a></li>
-												<li class="browse-all"><a href="https://makezine.com/category/workshop/?path=FromNav">&#10095; Browse All</a></li>
+												<li class="top-cat-item"><a href="<?php echo esc_url( home_url( '/category/workshop/?path=FromNav' ) ); ?>">Workshop</a></li>
+												<li><a href="<?php echo esc_url( home_url( '/category/workshop/3d-printing-workshop/?path=FromNav' ) ); ?>">3D Printing</a></li>
+												<li><a href="<?php echo esc_url( home_url( '/category/workshop/cnc-machining/?path=FromNav' ) ); ?>">CNC Machining</a></li>
+												<li><a href="<?php echo esc_url( home_url( '/category/workshop/computer-controlled-cutting/?path=FromNav' ) ); ?>">Computer-Controlled Cutting</a></li>
+												<li><a href="<?php echo esc_url( home_url( '/category/workshop/machining/?path=FromNav' ) ); ?>">Machining</a></li>
+												<li><a href="<?php echo esc_url( home_url( '/category/workshop/tools/?path=FromNav' ) ); ?>">Tools</a></li>
+												<li><a href="<?php echo esc_url( home_url( '/category/workshop/woodworking/?path=FromNav' ) ); ?>">Woodworking</a></li>
+												<li class="browse-all"><a href="<?php echo esc_url( home_url( '/category/workshop/?path=FromNav' ) ); ?>">&#10095; Browse All</a></li>
 											</ul>
 
 										</div>
 										<div class="span2">
 											<ul class="mega-dropdown">
-												<li class="top-cat-item"><a href="http://makezine.com/craftzine/?path=FromNav">Craft</a></li>
-												<li><a href="https://makezine.com/category/craft/crochet/?path=FromNav">Crochet</a></li>
-												<li><a href="https://makezine.com/category/craft/knitting/?path=FromNav">Knitting</a></li>
-												<li><a href="https://makezine.com/category/craft/paper-crafts/?path=FromNav">Paper Crafts</a></li>
-												<li><a href="https://makezine.com/category/craft/sewing-craft/?path=FromNav">Sewing</a></li>
-												<li class="browse-all"><a href="http://makezine.com/craftzine/?path=FromNav">&#10095; Browse All</a></li>
+												<li class="top-cat-item"><a href="<?php echo esc_url( home_url( '/craftzine/?path=FromNav' ) ); ?>">Craft</a></li>
+												<li><a href="<?php echo esc_url( home_url( '/category/craft/crochet/?path=FromNav' ) ); ?>">Crochet</a></li>
+												<li><a href="<?php echo esc_url( home_url( '/category/craft/knitting/?path=FromNav' ) ); ?>">Knitting</a></li>
+												<li><a href="<?php echo esc_url( home_url( '/category/craft/paper-crafts/?path=FromNav' ) ); ?>">Paper Crafts</a></li>
+												<li><a href="<?php echo esc_url( home_url( '/category/craft/sewing-craft/?path=FromNav' ) ); ?>">Sewing</a></li>
+												<li class="browse-all"><a href="<?php echo esc_url( home_url( '/craftzine/?path=FromNav' ) ); ?>">&#10095; Browse All</a></li>
 											</ul>
 										</div>
 										<div class="span2">
 
 											<ul class="mega-dropdown">
-												<li class="top-cat-item"><a href="http://makezine.com/category/science/?path=FromNav">Science</a></li>
-												<li><a href="https://makezine.com/category/science/energy/?post_type=projects&amp;path=FromNav">Energy</a></li>
-												<li><a href="https://makezine.com/category/science/health-science/?post_type=projects&amp;path=FromNav">Health</a></li>
-												<li class="browse-all"><a href="http://makezine.com/category/science/?path=FromNav">&#10095; Browse All</a></li>
+												<li class="top-cat-item"><a href="<?php echo esc_url( home_url( '/category/science/?path=FromNav' ) ); ?>">Science</a></li>
+												<li><a href="<?php echo esc_url( home_url( '/category/science/energy/?post_type=projects&amp;path=FromNav' ) ); ?>">Energy</a></li>
+												<li><a href="<?php echo esc_url( home_url( '/category/science/health-science/?post_type=projects&amp;path=FromNav' ) ); ?>">Health</a></li>
+												<li class="browse-all"><a href="<?php echo esc_url( home_url( '/category/science/?path=FromNav' ) ); ?>">&#10095; Browse All</a></li>
 											</ul>
 										</div>
 										<div class="span2">
 											<ul class="mega-dropdown">
-												<li class="top-cat-item"><a href="https://makezine.com/category/home/?path=FromNav">Home</a></li>
-												<li><a href="https://makezine.com/category/home/food-beverage/?post_type=projects&amp;path=FromNav">Food &amp; Beverage</a></li>
-												<li><a href="https://makezine.com/category/home/fun-games/?post_type=projects&amp;path=FromNav">Fun &amp; Games</a></li>
-												<li><a href="https://makezine.com/category/home/furniture/?post_type=projects&amp;path=FromNav">Furniture</a></li>
-												<li><a href="https://makezine.com/category/home/gardening/?post_type=projects&amp;path=FromNav">Gardening</a></li>
-												<li><a href="https://makezine.com/category/home/hacks/?post_type=projects&amp;path=FromNav">Hacks</a></li>
-												<li><a href="https://makezine.com/category/home/kids-family/?post_type=projects&amp;path=FromNav">Kids &amp; Family</a></li>
-												<li class="browse-all"><a href="https://makezine.com/category/home/?path=FromNav">&#10095; Browse All</a></li>
+												<li class="top-cat-item"><a href="<?php echo esc_url( home_url( '/category/home/?path=FromNav' ) ); ?>">Home</a></li>
+												<li><a href="<?php echo esc_url( home_url( '/category/home/food-beverage/?post_type=projects&amp;path=FromNav' ) ); ?>">Food &amp; Beverage</a></li>
+												<li><a href="<?php echo esc_url( home_url( '/category/home/fun-games/?post_type=projects&amp;path=FromNav' ) ); ?>">Fun &amp; Games</a></li>
+												<li><a href="<?php echo esc_url( home_url( '/category/home/furniture/?post_type=projects&amp;path=FromNav' ) ); ?>">Furniture</a></li>
+												<li><a href="<?php echo esc_url( home_url( '/category/home/gardening/?post_type=projects&amp;path=FromNav' ) ); ?>">Gardening</a></li>
+												<li><a href="<?php echo esc_url( home_url( '/category/home/hacks/?post_type=projects&amp;path=FromNav' ) ); ?>">Hacks</a></li>
+												<li><a href="<?php echo esc_url( home_url( '/category/home/kids-family/?post_type=projects&amp;path=FromNav' ) ); ?>">Kids &amp; Family</a></li>
+												<li class="browse-all"><a href="<?php echo esc_url( home_url( '/category/home/?path=FromNav' ) ); ?>">&#10095; Browse All</a></li>
 											</ul>
 										</div>
 										<div class="span2">
 											<ul class="mega-dropdown">
-												<li class="top-cat-item"><a href="http://makezine.com/category/art-design/?path=FromNav">Art &amp; Design</a></li>
-												<li><a href="https://makezine.com/category/art-design/architecture-art-design/?post_type=projects&amp;path=FromNav">Architecture</a></li>
-												<li><a href="https://makezine.com/category/art-design/music/?post_type=projects&amp;path=FromNav">Music</a></li>
-												<li><a href="https://makezine.com/category/art-design/photography-video/?post_type=projects&amp;path=FromNav">Photography &amp; Video</a></li>
-												<li class="browse-all"><a href="https://makezine.com/category/art-design/?path=FromNav">❯&#10095; Browse All</a></li>
+												<li class="top-cat-item"><a href="<?php echo esc_url( home_url( '/category/art-design/?path=FromNav' ) ); ?>">Art &amp; Design</a></li>
+												<li><a href="<?php echo esc_url( home_url( '/category/art-design/architecture-art-design/?post_type=projects&amp;path=FromNav' ) ); ?>">Architecture</a></li>
+												<li><a href="<?php echo esc_url( home_url( '/category/art-design/music/?post_type=projects&amp;path=FromNav' ) ); ?>">Music</a></li>
+												<li><a href="<?php echo esc_url( home_url( '/category/art-design/photography-video/?post_type=projects&amp;path=FromNav' ) ); ?>">Photography &amp; Video</a></li>
+												<li class="browse-all"><a href="<?php echo esc_url( home_url( '/category/art-sign/?path=FromNav' ) ); ?>">&#10095; Browse All</a></li>
 											</ul>
 										</div>
 										<div class="span12 pull-right mega-nav-footer">
-											<a href="http://makezine.com/projects/">All Projects</a>
-											<a href="https://makezine.com/category/workshop/">Weekend Projects</a>
+											<a href="<?php echo esc_url( home_url( '/projects/?path=FromNav' ) ); ?>">All Projects</a>
+											<a href="//pubads.g.doubleclick.net/gampad/clk?id=112551178&iu=/11548178/Makezine&amp;path=FromNav">Weekend Projects</a>
 										</div>
 
 									</ul>
@@ -216,59 +216,59 @@
 									<ul class="sub-menu dropdown-menu" style="width:940px;margin-left:-89px;">
 										<div class="span2">
 											<ul class="mega-dropdown">
-												<li class="top-cat-item"><a href="http://makezine.com/blog/?path=FromNav">All News</a></li>
+												<li class="top-cat-item"><a href="<?php echo esc_url( home_url( '/blog/?path=FromNav' ) ); ?>">All News</a></li>
 											</ul>
 										</div>
 										<div class="span2">
 											<ul class="mega-dropdown">
-												<li class="top-cat-item"><a href="https://makezine.com/category/maker-pro/?path=FromNav">Maker Pro</a></li>
-												<li><a href="https://makezine.com/category/maker-pro/open-source-hardware/?path=FromNav">Open Source Hardware</a></li>
-												<li><a href="https://makezine.com/category/maker-pro/makerspaces/?path=FromNav">Makerspaces</a></li>
-												<li><a href="https://makezine.com/category/maker-pro/crowdfunding/?path=FromNav">Crowdfunding</a></li>
-												<li><a href="https://makezine.com/maker-pro-newsletter/?path=FromNav">Maker Pro Newsletter</a></li>
+												<li class="top-cat-item"><a href="<?php echo esc_url( home_url( '/category/maker-pro/?path=FromNav' ) ); ?>">Maker Pro</a></li>
+												<li><a href="<?php echo esc_url( home_url( '/category/maker-pro/open-source-hardware/?path=FromNav' ) ); ?>">Open Source Hardware</a></li>
+												<li><a href="<?php echo esc_url( home_url( '/category/maker-pro/makerspaces/?path=FromNav' ) ); ?>">Makerspaces</a></li>
+												<li><a href="<?php echo esc_url( home_url( '/category/maker-pro/crowdfunding/?path=FromNav' ) ); ?>">Crowdfunding</a></li>
+												<li><a href="<?php echo esc_url( home_url( '/maker-pro-newsletter/?path=FromNav' ) ); ?>">Maker Pro Newsletter</a></li>
 											</ul>
 										</div>
 										<div class="span2">
 											<ul class="mega-dropdown">
-												<li class="top-cat-item"><a href="http://makezine.com/tag/maker-faire/?path=FromNav">Maker Faire</a></li>
+												<li class="top-cat-item"><a href="<?php echo esc_url( home_url( '/tag/maker-faire/?path=FromNav' ) ); ?>">Maker Faire</a></li>
 											</ul>
 										</div>
 										<div class="span3">
 											<ul class="mega-dropdown">
-												<li class="top-cat-item"><a href="http://makezine.com/category/makers/?path=FromNav">Meet the Makers</a></li>
+												<li class="top-cat-item"><a href="<?php echo esc_url( home_url( '/category/makers/?path=FromNav' ) ); ?>">Meet the Makers</a></li>
 											</ul>
 										</div>
 										<div class="span2">
 											<ul class="mega-dropdown">
-												<li class="top-cat-item"><a href="http://makezine.com/category/kids-family/?path=FromNav">Kids &amp; Family</a></li>
+												<li class="top-cat-item"><a href="<?php echo esc_url( home_url( '/category/kids-family/?path=FromNav' ) ); ?>">Kids &amp; Family</a></li>
 											</ul>
 										</div>
 									</ul>
 								</li>
 								<li class="menu-item dropdown"><a href="#" class="dropdown-toggle">Videos</a>
 									<ul class="sub-menu dropdown-menu">
-										<li class="menu-item"><a href="https://makezine.com/video?path=FromNav">All Videos</a>
+										<li class="menu-item"><a href="<?php echo esc_url( home_url( '/video?path=FromNav' ) ); ?>">All Videos</a>
 									</ul>
 								</li>
 								<li class="menu-item dropdown"><a href="#" class="dropdown-toggle">Events</a>
 									<ul class="sub-menu dropdown-menu">
-										<li><a target="_blank" href="http://makerfaire.com/?path=FromNav">Maker Faire</a></li>
-										<li><a target="_blank" href="http://makercon.com?path=FromNav">MakerCon</a></li>
-										<li><a target="_blank" href="http://makercamp.com?path=FromNav">Maker Camp</a></li>
+										<li><a target="_blank" href="//makerfaire.com/?path=FromNav">Maker Faire</a></li>
+										<li><a target="_blank" href="//makercon.com?path=FromNav">MakerCon</a></li>
+										<li><a target="_blank" href="//makercamp.com?path=FromNav">Maker Camp</a></li>
 									</ul>
 								</li>
 								<li class="menu-item dropdown"><a href="#">Shop</a>
 									<ul class="sub-menu dropdown-menu">
-										<li id="menu-item-318846" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-318846"><a target="_blank" href="http://www.makershed.com/?utm_source=makezine.com&amp;utm_medium=ads&amp;utm_campaign=Top+Nav+Menu&amp;utm_term=Maker+Shed+Store&amp;path=FromNav">Maker Shed Store</a></li>
+										<li id="menu-item-318846" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-318846"><a target="_blank" href="http://www.makershed.com/?utm_source=makezine.com&amp;utm_medium=ads&amp;utm_campaign=Top+Nav+Menu&amp;utm_term=Maker+Shed+Store">Maker Shed Store</a></li>
 									</ul>
 								</li>
 								<li class="menu-item dropdown"><a href="#" class="dropdown-toggle">Publications</a>
 									<ul class="sub-menu dropdown-menu">
-										<li><a target="_blank" href="https://www.pubservice.com/MK/subscribe.aspx?PC=MK&PK=M3BMZA&amp;path=FromNav">Subscribe to Make:</a></li>
-										<li><a target="_blank" href="http://makezine.com/volume/make-43/?path=FromNav">Order Current Issue</a></li>
-										<li><a target="_blank" href="http://www.makershed.com/collections/make-magazine?path=FromNav">Order Back Issues</a></li>
-										<li><a target="_blank" href="http://make-digital.com/?path=FromNav">Digital Edition</a></li>
-										<li><a target="_blank" href="http://www.makershed.com/collections/books-magazines?path=FromNav">Buy Books</a></li>
+										<li><a target="_blank" href="https://www.pubservice.com/MK/subscribe.aspx?PC=MK&PK=M3BMZA">Subscribe to Make:</a></li>
+										<li><a target="_blank" href="<?php echo esc_url( home_url( '/volume/make-43/?path=FromNav' ) ); ?>">Order Current Issue</a></li>
+										<li><a target="_blank" href="//www.makershed.com/collections/make-magazine?utm_source=makezine.com&amp;utm_medium=ads&amp;utm_campaign=Top+Nav+Menu&amp;utm_term=make+magazine">Order Back Issues</a></li>
+										<li><a target="_blank" href="//make-digital.com/?path=FromNav">Digital Edition</a></li>
+										<li><a target="_blank" href="//www.makershed.com/collections/books-magazines?utm_source=makezine.com&amp;utm_medium=ads&amp;utm_campaign=Top+Nav+Menu&amp;utm_term=books+magazines">Buy Books</a></li>
 									</ul>
 								</li>
 							</ul>
@@ -280,12 +280,12 @@
 				<div class="container">
 					<div class="row">
 						<div class="span10">
-							<a href="https://www.makershed.com?utm_source=makezine.com&utm_medium=ads&utm_term=Shop+Now&utm_campaign=makershed+banner" title="Find all your DIY electronics in the MakerShed. 3D Printing, Kits, Arduino, Raspberry Pi, Books &amp; more!">
+							<a href="//makershed.com?utm_source=makezine.com&utm_medium=ads&utm_term=Shop+Now&utm_campaign=makershed+banner" title="Find all your DIY electronics in the MakerShed. 3D Printing, Kits, Arduino, Raspberry Pi, Books &amp; more!">
 								<p>Find your DIY supplies in the Maker Shed &rarr; Kits, Books, Components, 3D Printers, Arduino, Raspberry Pi, More!</p>
 							</a>
 						</div>
 						<div class="span2">
-							<a href="http://www.makershed.com?utm_source=makezine.com&utm_medium=ads&utm_term=Shop+Now&utm_campaign=makershed+banner" title="Find all your DIY electronics in the MakerShed. 3D Printing, Kits, Arduino, Raspberry Pi, Books &amp; more!"><img src="<?php echo esc_url( get_stylesheet_directory_uri() ); ?>/img/maker-shed-banner-02.png" alt="Find all your DIY electronics in the MakerShed. 3D Printing, Kits, Arduino, Raspberry Pi, Books &amp; more!" /></a>
+							<a href="//makershed.com?utm_source=makezine.com&utm_medium=ads&utm_term=Shop+Now&utm_campaign=makershed+banner" title="Find all your DIY electronics in the MakerShed. 3D Printing, Kits, Arduino, Raspberry Pi, Books &amp; more!"><img src="<?php echo esc_url( get_stylesheet_directory_uri() ); ?>/img/maker-shed-banner-02.png" alt="Find all your DIY electronics in the MakerShed. 3D Printing, Kits, Arduino, Raspberry Pi, Books &amp; more!" /></a>
 						</div>
 					</div>
 				</div>
