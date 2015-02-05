@@ -49,7 +49,7 @@ get_header(); ?>
 							
 							<ul>
 								<li><a href="#parts" role="button" class="" data-toggle="modal">Parts List</a></li>
-								<li><a href=<a href="http://cdn.makezine.com/make/makerhanger/makertrainerver3_1.pdf" target="_blank">Download the PDF Plans</a></li>
+								<li><a href="http://cdn.makezine.com/make/makerhanger/makertrainerver3_1.pdf" target="_blank">Download the PDF Plans</a></li>
 							</ul>
 							
 							<!-- Modal -->
