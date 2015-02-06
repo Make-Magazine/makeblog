@@ -32,7 +32,7 @@
 			<div class="container">
 				<div class="row">
 					<div class="span12 logo" >
-						<img class="footer_logo" src="<?php echo get_stylesheet_directory_uri(); ?>/img/make-logo.png" alt="MAKE Logo">
+						<img class="footer_logo" src="<?php echo esc_url( get_stylesheet_directory_uri() ); ?>/img/make-logo.png" alt="MAKE Logo">
 					</div>
 					<div class="clear"></div>
 				<!-- END row -->
@@ -80,9 +80,9 @@
 						<h5>About Maker Media</h5>
 						<div class="about-column-01">
 							<ul>
-								<li><a href="http://makermedia.com" target="_blank">About Us</a></li>
-								<li><a href="http://makermedia.com/work-with-us/advertising/" target="_blank">Advertise with Us</a></li>
-								<li><a href="http://makermedia.com/work-with-us/job-openings/" target="_blank">Careers</a></li>
+								<li><a href="//makermedia.com" target="_blank">About Us</a></li>
+								<li><a href="//makermedia.com/work-with-us/advertising/" target="_blank">Advertise with Us</a></li>
+								<li><a href="//makermedia.com/work-with-us/job-openings/" target="_blank">Careers</a></li>
 							</ul>
 							
 						<div class="clearfix"></div>
@@ -99,7 +99,7 @@
 						<div class="about-column-02">
 							<ul>
 								<li><a href="<?php echo esc_url( home_url( '/contactus' ) ); ?>">Contact Us</a></li>
-								<li><a href="http://makermedia.com/privacy/" target="_blank">Privacy</a></li>
+								<li><a href="//makermedia.com/privacy/" target="_blank">Privacy</a></li>
 								<li><a href="https://www.pubservice.com/MK/subscribe.aspx?PC=MK&PK=M3AMZB">Subscribe to Make:</a></li>
 							</ul>
 							

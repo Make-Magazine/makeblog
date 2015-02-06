@@ -202,7 +202,7 @@
 												<li><a href="<?php echo esc_url( home_url( '/category/art-design/architecture-art-design/?post_type=projects&amp;path=FromNav' ) ); ?>">Architecture</a></li>
 												<li><a href="<?php echo esc_url( home_url( '/category/art-design/music/?post_type=projects&amp;path=FromNav' ) ); ?>">Music</a></li>
 												<li><a href="<?php echo esc_url( home_url( '/category/art-design/photography-video/?post_type=projects&amp;path=FromNav' ) ); ?>">Photography &amp; Video</a></li>
-												<li class="browse-all"><a href="<?php echo esc_url( home_url( '/category/art-sign/?path=FromNav' ) ); ?>">&#10095; Browse All</a></li>
+												<li class="browse-all"><a href="<?php echo esc_url( home_url( '/category/art-design/?path=FromNav' ) ); ?>">&#10095; Browse All</a></li>
 											</ul>
 										</div>
 										<div class="span12 pull-right mega-nav-footer">
