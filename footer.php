@@ -177,6 +177,15 @@
 			a.src=document.location.protocol+"//dnn506yrbagrg.cloudfront.net/pages/scripts/0013/2533.js?"+Math.floor(new Date().getTime()/3600000);
 			a.async=true;a.type="text/javascript";b.parentNode.insertBefore(a,b)}, 1);
 		</script>
-
+	<!-- Hidden Stuff -->
+    <div class="fancybox" style="display:none;">
+	    <h3>Yes I want email updates from makezine!</h3>
+	    <form action="http://makermedia.createsend.com/t/r/s/ittlurh/" method="post" id="subForm">
+	      <div>
+	        <input name="cm-ittlurh-ittlurh" id="ittlurh-ittlurh" placeholder="Your E-mail" required="required" type="text"><br>
+	        <input value="Sign Me Up" class="btn-modal newsletter-set-cookie" id="newsletter-set-cookie" type="submit">
+	      </div>
+	    </form>
+    </div>
 	</body>
 </html>
