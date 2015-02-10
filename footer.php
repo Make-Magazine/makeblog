@@ -4,7 +4,7 @@
  *
  * @package    makeblog
  * @license    http://opensource.org/licenses/gpl-license.php  GNU Public License
- * @author     Jake Spurlock <jspurlock@makermedia.com>
+ * @author     The Make Team webmaster@makermedia.com
  *
  */
 ?>
@@ -180,9 +180,18 @@
 	<!-- Hidden Stuff -->
     <div class="fancybox" style="display:none;">
 	    <h3>Yes I want email updates from makezine!</h3>
-	    <form action="http://makermedia.createsend.com/t/r/s/ittlurh/" method="post" id="subForm">
+
+	    	    <form action="http://whatcounts.com/bin/listctrl" method="POST">
+						<input type="hidden" name="slid" value="6B5869DC547D3D46B52F3516A785F101" />
+						<input type="hidden" name="cmd" value="subscribe" />
+						<input type="hidden" name="custom_source" value="modal01" /> 
+						<input type="hidden" name="custom_incentive" value="none" /> 
+						<input type="hidden" name="custom_url" value="" />
+						<input type="hidden" id="format_mime" name="format" value="mime" />
+						<input type="hidden" name="goto" value="<?php echo $_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"]; ?>" />
+						<input type="hidden" name="errors_to" value="" />
 	      <div>
-	        <input name="cm-ittlurh-ittlurh" id="ittlurh-ittlurh" placeholder="Your E-mail" required="required" type="text"><br>
+	        <input name="email" id="makezinemain" placeholder="Your E-mail" required="required" type="text"><br>
 	        <input value="Sign Me Up" class="btn-modal newsletter-set-cookie" id="newsletter-set-cookie" type="submit">
 	      </div>
 	    </form>
