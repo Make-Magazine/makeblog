@@ -140,7 +140,7 @@
 					<div class="row">
 						<nav class="span12 site-navigation secondary-navigation">
 							<ul id="menu-make-secondary-nav" class="nav navbar-nav ga-nav clearfix">
-								<li class="mega-box dropdown"><a href="<?php echo esc_url( home_url( '/projects/?path=FromNav' ) ); ?>" class="dropdown-toggle">Projects</a>
+								<li class="mega-box dropdown"><a href="#" class="dropdown-toggle">Projects</a>
 									<ul class="sub-menu dropdown-menu container dropdown" style="width:940px;">
 										<div class="span2">
 											<ul class="mega-dropdown">
@@ -149,7 +149,6 @@
 												<li><a href="<?php echo esc_url( home_url( '/category/electronics/computers-mobile/?post_type=projects&amp;path=FromNav' ) ); ?>">Computers &amp; Mobile</a></li>
 												<li><a href="<?php echo esc_url( home_url( '/category/electronics/raspberry-pi/?post_type=projects&amp;path=FromNav' ) ); ?>">Raspberry Pi</a></li>
 												<li><a href="<?php echo esc_url( home_url( '/category/electronics/robotics/?post_type=projects&amp;path=FromNav' ) ); ?>">Robotics</a></li>
-												<li class="browse-all"><a href="<?php echo esc_url( home_url( '/category/electronics/?path=FromNav' ) ); ?>">&#10095; Browse All</a></li>
 											</ul>
 										</div>
 										<div class="span2">
@@ -161,7 +160,6 @@
 												<li><a href="<?php echo esc_url( home_url( '/category/workshop/machining/?path=FromNav' ) ); ?>">Machining</a></li>
 												<li><a href="<?php echo esc_url( home_url( '/category/workshop/tools/?path=FromNav' ) ); ?>">Tools</a></li>
 												<li><a href="<?php echo esc_url( home_url( '/category/workshop/woodworking/?path=FromNav' ) ); ?>">Woodworking</a></li>
-												<li class="browse-all"><a href="<?php echo esc_url( home_url( '/category/workshop/?path=FromNav' ) ); ?>">&#10095; Browse All</a></li>
 											</ul>
 
 										</div>
@@ -172,7 +170,6 @@
 												<li><a href="<?php echo esc_url( home_url( '/category/craft/knitting/?path=FromNav' ) ); ?>">Knitting</a></li>
 												<li><a href="<?php echo esc_url( home_url( '/category/craft/paper-crafts/?path=FromNav' ) ); ?>">Paper Crafts</a></li>
 												<li><a href="<?php echo esc_url( home_url( '/category/craft/sewing-craft/?path=FromNav' ) ); ?>">Sewing</a></li>
-												<li class="browse-all"><a href="<?php echo esc_url( home_url( '/craftzine/?path=FromNav' ) ); ?>">&#10095; Browse All</a></li>
 											</ul>
 										</div>
 										<div class="span2">
@@ -181,7 +178,6 @@
 												<li class="top-cat-item"><a href="<?php echo esc_url( home_url( '/category/science/?path=FromNav' ) ); ?>">Science</a></li>
 												<li><a href="<?php echo esc_url( home_url( '/category/science/energy/?post_type=projects&amp;path=FromNav' ) ); ?>">Energy</a></li>
 												<li><a href="<?php echo esc_url( home_url( '/category/science/health-science/?post_type=projects&amp;path=FromNav' ) ); ?>">Health</a></li>
-												<li class="browse-all"><a href="<?php echo esc_url( home_url( '/category/science/?path=FromNav' ) ); ?>">&#10095; Browse All</a></li>
 											</ul>
 										</div>
 										<div class="span2">
@@ -193,7 +189,6 @@
 												<li><a href="<?php echo esc_url( home_url( '/category/home/gardening/?post_type=projects&amp;path=FromNav' ) ); ?>">Gardening</a></li>
 												<li><a href="<?php echo esc_url( home_url( '/category/home/hacks/?post_type=projects&amp;path=FromNav' ) ); ?>">Hacks</a></li>
 												<li><a href="<?php echo esc_url( home_url( '/category/home/kids-family/?post_type=projects&amp;path=FromNav' ) ); ?>">Kids &amp; Family</a></li>
-												<li class="browse-all"><a href="<?php echo esc_url( home_url( '/category/home/?path=FromNav' ) ); ?>">&#10095; Browse All</a></li>
 											</ul>
 										</div>
 										<div class="span2">
@@ -202,7 +197,6 @@
 												<li><a href="<?php echo esc_url( home_url( '/category/art-design/architecture-art-design/?post_type=projects&amp;path=FromNav' ) ); ?>">Architecture</a></li>
 												<li><a href="<?php echo esc_url( home_url( '/category/art-design/music/?post_type=projects&amp;path=FromNav' ) ); ?>">Music</a></li>
 												<li><a href="<?php echo esc_url( home_url( '/category/art-design/photography-video/?post_type=projects&amp;path=FromNav' ) ); ?>">Photography &amp; Video</a></li>
-												<li class="browse-all"><a href="<?php echo esc_url( home_url( '/category/art-design/?path=FromNav' ) ); ?>">&#10095; Browse All</a></li>
 											</ul>
 										</div>
 										<div class="span12 pull-right mega-nav-footer">
