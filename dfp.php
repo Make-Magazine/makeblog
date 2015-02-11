@@ -65,10 +65,8 @@
 			var slot3= googletag.defineSlot('/11548178/Makezine/Homepage', [[300,250]],'div-gpt-ad-664089004995786621-3').addService(googletag.pubads()).setTargeting('pos', 'house');
 			var slot4= googletag.defineSlot('/11548178/Makezine/Homepage', [[728,90]],'div-gpt-ad-664089004995786621-4').addService(googletag.pubads()).setTargeting('pos', 'btf');
 			var slot5= googletag.defineSlot('/11548178/Makezine/Homepage', [[247,96]],'div-gpt-ad-664089004995786621-5').addService(googletag.pubads()).setTargeting('pos', 'atf');
+			var slot6= googletag.defineSlot('/11548178/Makezine/Homepage', [[940,39]],'div-gpt-ad-664089004995786621-6').addService(googletag.pubads()).setTargeting('pos', 'atf');
 			var slot9= googletag.defineSlot('/11548178/Makezine/Homepage', [[300,250]],'div-gpt-ad-664089004995786621-9').addService(googletag.pubads()).setTargeting('pos', 'shed');
-			<?php if ( get_theme_mod( 'make_faire_banner' ) != 'on' ) : ?>
-				var slot6= googletag.defineSlot('/11548178/Makezine/Blog/<?php echo esc_js( $parent ); ?>', [[940,39]],'div-gpt-ad-664089004995786621-6').addService(googletag.pubads()).setTargeting('pos', 'atf');
-			<?php endif; ?>
 			var slot7= googletag.defineSlot('/11548178/Makezine/Homepage', [[2160,547]],'div-gpt-ad-664089004995786621-7').addService(googletag.pubads()).setTargeting('pos', 'atf');
 			var slot8= googletag.defineSlot('/11548178/Makezine/Homepage', [[1,1]],'div-gpt-ad-664089004995786621-8').addService(googletag.pubads()).setTargeting('pos', 'atf');
 		<?php } elseif ( is_category() ) { ?>
