@@ -285,8 +285,9 @@ function make_load_resources() {
 
 	// Load optimizely A/B testing script
 	wp_enqueue_script( 'make-optimizely', '//cdn.optimizely.com/js/2101321427.js', array( 'jquery' ) );
+	
 	//load data finder
-	wp_enqueue_script( 'user-data-script', '//cdn.makezine.com/js/make-v1.js', array( 'make-optimizely','user-data-script' ) );	
+	wp_enqueue_script( 'user-data-script', '//cdn.makezine.com/js/make-v1.js', array( 'make-optimizely' ) );	
 	
 	//load unbouncer, which pops something up when user goes to exit
 	wp_enqueue_script( 'unbouncer', '//cdn.makezine.com/js/unbouncer-v1.js', array( 'make-optimizely','fancybox','user-data-script' ) );	
