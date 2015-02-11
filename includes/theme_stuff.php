@@ -290,7 +290,7 @@ function make_load_resources() {
 	wp_enqueue_script( 'user-data-script', '//cdn.makezine.com/js/make-v2.js', array( 'make-optimizely' ) );	
 	
 	//load unbouncer, which pops something up when user goes to exit
-	wp_enqueue_script( 'unbouncer', '//cdn.makezine.com/js/unbouncer-v4.js', array( 'make-optimizely','fancybox','user-data-script' ) );	
+	wp_enqueue_script( 'unbouncer', '//cdn.makezine.com/js/unbouncer-v5.js', array( 'make-optimizely','fancybox','user-data-script' ) );	
 	
 	//load fancybox
 	wp_enqueue_script( 'fancybox', '//cdn.makezine.com/js/fancybox.js', array( 'make-optimizely' ) );
