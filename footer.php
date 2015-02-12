@@ -178,9 +178,9 @@
 			a.async=true;a.type="text/javascript";b.parentNode.insertBefore(a,b)}, 1);
 		</script>
 	<!-- Hidden Stuff -->
-    <div class="fancybox" style="display:none;">
+    <div class="fancybox popup" style="display:none;">
 	    <h3>Don't Miss Out!</h3>
-	    <h4>Get our free weekly newsletter and keep up with the latest <i>Make</i>: news and information</h4>
+	    <p>Get our free weekly newsletter and keep up with the latest <i>Make</i>: news and information</p>
 
 	    	    <form action="http://whatcounts.com/bin/listctrl" method="POST">
 						<input type="hidden" name="slid" value="6B5869DC547D3D46B52F3516A785F101" />

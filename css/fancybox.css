@@ -258,13 +258,18 @@
   font-weight: bold;
   text-transform: uppercase;
   margin-bottom: 5px;
+  margin-top:10px;
 }
 .fancybox-inner h4 {
   color: #fff;
   font-weight: bold;
   text-transform: uppercase;
-  margin-bottom: 20px;
 }
+
+.fancybox-inner p {
+font-size:18px;
+}
+
 .fancybox-inner form div label {
   text-align: center;
 }
@@ -276,15 +281,16 @@
 }
 .fancybox-inner input.btn-modal {
   color: #fff;
+  width: 70%;
 }
 #subForm {
   margin-top: 10px;
 }
 #newsletter-set-cookie {
-  margin-top: 20px;
+  margin-top: 10px;
 }
 .fancybox-inner #makezinemain {
-  width: 99%;
+  width: 66%;
   font-size: 15px;
   background-color: white;
   border: solid 1px #d3d3d3;
@@ -333,6 +339,6 @@
     margin-bottom: 10px;
   }
   #newsletter-set-cookie {
-    margin-top: 10px;
+    margin-top: 0px;
   }
 }
