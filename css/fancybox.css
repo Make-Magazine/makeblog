@@ -257,11 +257,13 @@
   color: #de231a;
   font-weight: bold;
   text-transform: uppercase;
+  margin-bottom: 5px;
 }
 .fancybox-inner h4 {
   color: #fff;
   font-weight: bold;
   text-transform: uppercase;
+  margin-bottom: 20px;
 }
 .fancybox-inner form div label {
   text-align: center;
