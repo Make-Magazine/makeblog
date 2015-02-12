@@ -214,7 +214,7 @@
 .fancybox-title-inside-wrap {
   padding-top: 10px;
 }
-.fancybox-title-over-wrap {
+.fancybox-title-over-wrap {  
   position: absolute;
   bottom: 0;
   left: 0;
@@ -254,6 +254,14 @@
   margin-top: 10px;
 }
 .fancybox-inner h3 {
+  color: #de231a;
+  font-weight: bold;
+  font-size: 28px;
+  line-height: 1.5em;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+.fancybox-inner h4 {
   color: #fff;
   font-weight: bold;
   font-size: 28px;
@@ -268,6 +276,7 @@
   font-weight: bold;
   color: #333;
   text-transform: uppercase;
+  text-align: center;
 }
 .fancybox-inner input.btn-modal {
   color: #fff;
