@@ -198,7 +198,7 @@
 												<li class="top-cat-item"><a href="<?php echo esc_url( home_url( '/blog/?path=FromNav' ) ); ?>">All News</a></li>
 											</ul>
 										</div>
-										<div class="span2">
+										<div class="span3">
 											<ul class="mega-dropdown">
 												<li class="top-cat-item"><a href="<?php echo esc_url( home_url( '/category/maker-pro/?path=FromNav' ) ); ?>">Maker Pro</a></li>
 												<li><a href="<?php echo esc_url( home_url( '/category/maker-pro/open-source-hardware/?path=FromNav' ) ); ?>">Open Source Hardware</a></li>
@@ -207,7 +207,7 @@
 												<li><a href="<?php echo esc_url( home_url( '/maker-pro-newsletter/?path=FromNav' ) ); ?>">Maker Pro Newsletter</a></li>
 											</ul>
 										</div>
-										<div class="span2">
+										<div class="span3">
 											<ul class="mega-dropdown">
 												<li class="top-cat-item"><a href="<?php echo esc_url( home_url( '/tag/maker-faire/?path=FromNav' ) ); ?>">Maker Faire</a></li>
 											</ul>
@@ -217,11 +217,7 @@
 												<li class="top-cat-item"><a href="<?php echo esc_url( home_url( '/category/makers/?path=FromNav' ) ); ?>">Meet the Makers</a></li>
 											</ul>
 										</div>
-										<div class="span2">
-											<ul class="mega-dropdown">
-												<li class="top-cat-item"><a href="<?php echo esc_url( home_url( '/category/kids-family/?path=FromNav' ) ); ?>">Kids &amp; Family</a></li>
-											</ul>
-										</div>
+						
 									</ul>
 								</li>
 								<li class="menu-item dropdown"><a href="#" class="dropdown-toggle">Videos</a>
@@ -244,9 +240,7 @@
 								<li class="menu-item dropdown"><a href="#" class="dropdown-toggle">Publications</a>
 									<ul class="sub-menu dropdown-menu">
 										<li><a target="_blank" href="https://www.pubservice.com/MK/subscribe.aspx?PC=MK&PK=M3BMZA">Subscribe to Make:</a></li>
-										<li><a target="_blank" href="<?php echo esc_url( home_url( '/volume/make-43/?path=FromNav' ) ); ?>">Order Current Issue</a></li>
 										<li><a target="_blank" href="//www.makershed.com/collections/make-magazine?utm_source=makezine.com&amp;utm_medium=ads&amp;utm_campaign=Top+Nav+Menu&amp;utm_term=make+magazine">Order Back Issues</a></li>
-										<li><a target="_blank" href="//make-digital.com/?path=FromNav">Digital Edition</a></li>
 										<li><a target="_blank" href="//www.makershed.com/collections/books-magazines?utm_source=makezine.com&amp;utm_medium=ads&amp;utm_campaign=Top+Nav+Menu&amp;utm_term=books+magazines">Buy Books</a></li>
 									</ul>
 								</li>

@@ -98,7 +98,7 @@ Template Name: Home Page
 								</a>
 
 								<a href="<?php the_permalink(); ?>">
-									<span class="arrows">&raquo;</span> <h3 class="look_like_h4"><?php the_title(); ?></h3>
+									<h3 class="look_like_h4"><?php the_title(); ?></h3>
 									<span class="blurb">
 										<?php echo wp_trim_words(strip_shortcodes( get_the_excerpt() ), 20, '...') ; ?>
 									</span>
@@ -110,7 +110,7 @@ Template Name: Home Page
 
 						<?php endwhile; wp_reset_postdata(); ?>
 
-						<p><a href="<?php echo esc_url( home_url( '/blog/' ) ); ?>"><span class="pull-right aqua seeall right">See All Posts</span></a></p>
+						<p><a href="<?php echo esc_url( home_url( '/blog/' ) ); ?>"><span class="pull-right aqua seeall right">Read More News</span></a></p>
 
 					</div>
 					<!--<div class="shadow"></div>-->

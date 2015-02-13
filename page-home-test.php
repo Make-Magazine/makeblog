@@ -235,7 +235,7 @@ Template Name: Home Page Test
 
 								<h4>
 									<a href="<?php the_permalink(); ?>">
-										<span class="arrows">&raquo;</span> <?php the_title(); ?>
+										<?php the_title(); ?>
 										<span class="blurb">
 											<?php echo wp_trim_words(strip_shortcodes( get_the_excerpt() ), 20, '...') ; ?>
 										</span>
@@ -248,7 +248,7 @@ Template Name: Home Page Test
 
 						<?php endwhile; wp_reset_postdata(); ?>
 
-						<p><a href="http://makezine.com/blog/"><span class="pull-right light aqua seeall right">See All Posts</span></a></p>
+						<p><a href="http://makezine.com/blog/"><span class="pull-right light aqua seeall right">Read More News</span></a></p>
 						
 					</div>
 					<!--<div class="shadow"></div>-->
