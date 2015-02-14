@@ -1150,7 +1150,7 @@ function make_featured_post() {
 	$output .= get_the_post_thumbnail( $post->ID , $size = 'featured-thumb' );
 	$output .= '</div>';
 	$output .= '<div class="blurb">';
-	$output .= '<h3> ' . $post->post_title . '</h3>';
+	$output .= '<h3> ' . esc_attr( $post->post_title); . '</h3>';
 	$output .= '<p><small>By: <strong>' . coauthors( ', ', ' & ', '', '', false ) . '</strong></small></p>';
 	$output .= '<p>' . wp_trim_words(strip_shortcodes( $post->post_content ), 20) . '</p>';
 	$output .= '</a></div>';
