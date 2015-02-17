@@ -189,7 +189,7 @@
 						<input type="hidden" name="custom_incentive" value="none" /> 
 						<input type="hidden" name="custom_url" value="" />
 						<input type="hidden" id="format_mime" name="format" value="mime" />
-						<input type="hidden" name="goto" value="<?php echo $_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"]; ?>" />
+						<input type="hidden" name="goto" value="https://<?php echo $_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"]; ?>?thankyou=true" />
 						<input type="hidden" name="host" value="<?php echo $_SERVER["HTTP_HOST"]; ?>" />
 						<input type="hidden" name="errors_to" value="" />
 	      <div>
