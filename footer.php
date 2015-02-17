@@ -180,7 +180,7 @@
 	<!-- Hidden Stuff -->
     <div class="fancybox popup" style="display:none;">
 	    <h3>Don't Miss Out!</h3>
-	    <p>Get our free weekly newsletter and keep up with the latest <i>Make</i>: news and information</p>
+	    <p>Get our free weekly newsletter and keep up with the latest Make: news and information</p>
 
 	    	    <form action="http://whatcounts.com/bin/listctrl" method="POST">
 						<input type="hidden" name="slid" value="6B5869DC547D3D46B52F3516A785F101" />
