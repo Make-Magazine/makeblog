@@ -4,7 +4,7 @@
  *
  * @package    makeblog
  * @license    http://opensource.org/licenses/gpl-license.php  GNU Public License
- * @author     Jake Spurlock <jspurlock@makermedia.com>
+ * @author     The Make Team webmaster@makermedia.com
  *
  */
 ?>
@@ -177,6 +177,32 @@
 			a.src=document.location.protocol+"//dnn506yrbagrg.cloudfront.net/pages/scripts/0013/2533.js?"+Math.floor(new Date().getTime()/3600000);
 			a.async=true;a.type="text/javascript";b.parentNode.insertBefore(a,b)}, 1);
 		</script>
+	<!-- Hidden Stuff -->
+    <div class="fancybox popup" style="display:none;">
+	    <h3>Don't Miss Out!</h3>
+	    <p>Get our free weekly newsletter and keep up with the latest Make: news and information</p>
 
+	    	    <form action="http://whatcounts.com/bin/listctrl" method="POST">
+						<input type="hidden" name="slid" value="6B5869DC547D3D46B52F3516A785F101" />
+						<input type="hidden" name="cmd" value="subscribe" />
+						<input type="hidden" name="custom_source" value="modal01" /> 
+						<input type="hidden" name="custom_incentive" value="none" /> 
+						<input type="hidden" name="custom_url" value="" />
+						<input type="hidden" id="format_mime" name="format" value="mime" />
+						<?
+							$isSecure = 'http://';
+							if (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == 'on') {
+								$isSecure = "https://";
+							}
+						?>
+						<input type="hidden" name="goto" value="<?php echo $isSecure.$_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"]; ?>?thankyou=true" />
+						<input type="hidden" name="host" value="<?php echo $_SERVER["HTTP_HOST"]; ?>" />
+						<input type="hidden" name="errors_to" value="" />
+	      <div>
+	        <input name="email" id="makezinemain" placeholder="Email Address" required="required" type="text"><br>
+	        <input value="Join Now" class="btn-modal newsletter-set-cookie" id="newsletter-set-cookie" type="submit">
+	      </div>
+	    </form>
+    </div>
 	</body>
 </html>
