@@ -10,25 +10,7 @@
  */
 global $catslugs;
 get_header(); ?>
-		
-	<div class="projects-home">
-	
-		<div class="container">
-
-			<div class="row">
-
-				<div class="span12">
-				
-					<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/WP_webheader_940x110-1.png" alt="Weekend Projects">
-					
-				</div>
-				
-			</div>
-			
-		</div>
-
-	</div>
-					
+							
 	<div class="grey">
 
 		<div class="container">

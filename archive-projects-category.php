@@ -32,7 +32,6 @@ get_header(); ?>
 									
 							
 									<?php 
-										echo Markdown($cat->category_description);
 
 										if ( make_pregnancy_check( $cat->cat_ID ) ) {
 											echo '<h3>Find ' . $cat->name . ' Projects by Category:</h3>';

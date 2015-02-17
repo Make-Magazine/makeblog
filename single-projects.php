@@ -4,7 +4,7 @@
  *
  * @package    makeblog
  * @license    http://opensource.org/licenses/gpl-license.php  GNU Public License
- * @author     Jake Spurlock <jspurlock@makermedia.com>
+ * @author     Maker Media Web Team <webmaster@makermedia.com>
  *
  */
 $steps = get_post_custom_values('Steps');
@@ -15,12 +15,6 @@ get_header(); ?>
 		<div class="container">
 
 			<div class="row" style="position:relative;">
-
-				<?php if( has_term( 'Weekend Project', 'flags' ) ) : ?>
-					<div style="position:absolute; right:0; top:-20px;">
-						<a href="http://pubads.g.doubleclick.net/gampad/clk?id=42844138&amp;iu=/11548178/Makezine"><img src="<?php echo get_template_directory_uri(); ?>/images/weekend-projects-btn.png" title="Weekend Projects Powered by Radio Shack" /></a>
-					</div>
-				<?php endif; ?>
 
 				<div class="span12">
 
@@ -95,6 +89,18 @@ get_header(); ?>
 										<div id='div-gpt-ad-664089004995786621-2'>
 											<script type='text/javascript'>
 												googletag.cmd.push(function(){googletag.display('div-gpt-ad-664089004995786621-2')});
+											</script>
+										</div>
+										<!-- End AdSlot 2 -->
+
+									</div>
+
+									<div class="sidebar-ad">
+
+										<!-- Beginning Sync AdSlot 3 for Ad unit sidebar ### size: [[300,250]]  -->
+										<div id='div-gpt-ad-664089004995786621-3'>
+											<script type='text/javascript'>
+												googletag.cmd.push(function(){googletag.display('div-gpt-ad-664089004995786621-3')});
 											</script>
 										</div>
 										<!-- End AdSlot 2 -->

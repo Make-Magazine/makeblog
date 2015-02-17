@@ -71,7 +71,7 @@ get_header(); ?>
 
 									<?php endwhile; wp_reset_postdata(); ?>
 
-									<p><a href="<?php echo home_url(); ?>/category/kids/"><span class="pull-right light aqua seeall right">See All Posts</span></a></p>
+									<p><a href="<?php echo esc_attr( home_url() ); ?>/category/kids/"><span class="pull-right light aqua seeall right">Read More News</span></a></p>
 
 								</div>
 

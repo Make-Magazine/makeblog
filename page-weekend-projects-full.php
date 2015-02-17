@@ -10,24 +10,7 @@
  */
 get_header(); ?>
 		
-	<div class="projects-home">
-	
-		<div class="container">
 
-			<div class="row">
-
-				<div class="span12">
-				
-					<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/projects-banner.png" alt="Weekend Projects" style="margin-top:-20px;margin-bottom:-20px;">
-					
-				</div>
-				
-			</div>
-			
-		</div>
-
-	</div>
-					
 	<div class="grey">
 
 		<div class="container">

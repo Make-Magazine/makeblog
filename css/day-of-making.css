@@ -5839,10 +5839,6 @@ div.parsley-error.mce-panel {
 .parsley-errors-list.filled {
   opacity: 1;
 }
-.waist {
-  background-image: url('../img/blue_bg1.jpg');
-  border-bottom: 2px solid #DBDBDB;
-}
 .caption {
   margin-top: -66px;
   height: 65px;
@@ -5964,6 +5960,7 @@ div.parsley-error.mce-panel {
   background-image: url('../img/sand.png');
 }
 .sand {
+  background-image: url('../img/sand.png');
   text-shadow: 0px 1px 0px white;
 }
 .sand h3 {
@@ -8649,8 +8646,6 @@ a {
   padding-top: 20px;
   padding-bottom: 20px;
   margin: -20px auto 0px;
-  background: url('../img/project_placeholder_smaller.png') no-repeat;
-  background-position: 100% 50%;
 }
 .projects-home h1 {
   font-size: 58px;
@@ -9000,6 +8995,10 @@ ul#tabs .current > a:hover {
 .faire-social .faire-social-links li.plus {
   background-image: url('../img/faire-social-images.jpg');
   background-position: 37px;
+}
+.page-id-116357 .new-sand,
+.page-id-116357 .waist .checkers {
+  background-image: none !important;
 }
 .avatar-298 {
   margin-bottom: 20px;
