@@ -181,22 +181,21 @@
     <div class="fancybox popup" style="display:none;">
 	    <h3>Don't Miss Out!</h3>
 	    <p>Get our free weekly newsletter and keep up with the latest Make: news and information</p>
-
-	    	    <form action="http://whatcounts.com/bin/listctrl" method="POST">
-						<input type="hidden" name="slid" value="6B5869DC547D3D46B52F3516A785F101" />
-						<input type="hidden" name="cmd" value="subscribe" />
-						<input type="hidden" name="custom_source" value="modal01" /> 
-						<input type="hidden" name="custom_incentive" value="none" /> 
-						<input type="hidden" name="custom_url" value="" />
-						<input type="hidden" id="format_mime" name="format" value="mime" />
 						<?
 							$isSecure = 'http://';
 							if (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == 'on') {
 								$isSecure = "https://";
 							}
 						?>
+	    	    <form action="http://whatcounts.com/bin/listctrl" method="POST">
+						<input type="hidden" name="slid" value="6B5869DC547D3D46B52F3516A785F101" />
+						<input type="hidden" name="cmd" value="subscribe" />
+						<input type="hidden" name="custom_source" value="modal_light_blue" /> 
+						<input type="hidden" name="custom_incentive" value="none" /> 
+						<input type="hidden" name="custom_url" value="<?php echo $_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"]; ?>" />
+						<input type="hidden" id="format_mime" name="format" value="mime" />
 						<input type="hidden" name="goto" value="<?php echo $isSecure.$_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"]; ?>?thankyou=true" />
-						<input type="hidden" name="host" value="<?php echo $_SERVER["HTTP_HOST"]; ?>" />
+						<input type="hidden" name="custom_host" value="<?php echo $_SERVER["HTTP_HOST"]; ?>" />
 						<input type="hidden" name="errors_to" value="" />
 	      <div>
 	        <input name="email" id="makezinemain" placeholder="Email Address" required="required" type="text"><br>
