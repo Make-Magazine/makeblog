@@ -8936,9 +8936,9 @@ ul#tabs .current > a:hover {
   z-index: 1;
   margin-left: 8px;
 }
-/*.weekend-projects-home .attachment-small-home-feature-boxes {
+.weekend-projects-home .attachment-small-home-feature-boxes {
   margin-top: -50px;
-}*/
+}
 .home-banner {
   margin-top: 10px;
 }
