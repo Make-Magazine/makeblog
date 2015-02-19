@@ -290,7 +290,7 @@ function make_load_resources() {
 	wp_enqueue_script( 'user-data-script', '//cdn.makezine.com/js/make-v3.js', array( 'make-optimizely' ) );	
 	
 	//load unbouncer, which pops something up when user goes to exit
-	// wp_enqueue_script( 'unbouncer', '//cdn.makezine.com/js/unbouncer-v14.js', array( 'make-optimizely','fancybox','user-data-script' ) );	
+	wp_enqueue_script( 'unbouncer', '//cdn.makezine.com/js/unbouncer-v16.js', array( 'make-optimizely','fancybox','user-data-script' ) );	
 	
 	//load fancybox
 	wp_enqueue_script( 'fancybox', '//cdn.makezine.com/js/fancybox.js', array( 'make-optimizely' ) );
@@ -1160,7 +1160,8 @@ function make_featured_post() {
 	$output .= get_the_post_thumbnail( $post->ID , $size = 'featured-thumb' );
 	$output .= '</div>';
 	$output .= '<div class="blurb">';
-	$output .= '<h3>' . esc_attr( $post->post_title) . '</h3>';
+	$output .= '<h3><span class="trending">What\'s hot:</span> ' . $post->post_title . '</h3>';
+	$output .= '<p><small>By: <strong>' . coauthors( ', ', ' & ', '', '', false ) . '</strong></small></p>';
 	$output .= '<p>' . wp_trim_words(strip_shortcodes( $post->post_content ), 20) . '</p>';
 	$output .= '</a></div>';
 	return $output;
@@ -1372,6 +1373,7 @@ function make_popdown_menu() { ?>
 				</div>
 				<div class="row">
 					<div class="span9 offset2 menu-bottom">
+						<p>What's Hot on Makezine.com:</p>
 						<?php wp_nav_menu( array(
 							'theme_location'  => 'popdown-menu-last',
 							'container'       => false,
@@ -1635,6 +1637,7 @@ function make_post_card( $args ) {
 
 	while ( $the_query->have_posts() ) : $the_query->the_post();
 		$output .= '<a href="' . esc_url( get_permalink() ) . '">';
+		$output .= ( isset( $args[ 'weekend-projects'] ) ) ? '<img class="weekend-project-image" src="' . get_stylesheet_directory_uri() . '/img/WP02_Feature_banner_02.jpg" alt="Powered by RadioShack">' : '';
 		$output .= get_the_post_thumbnail( get_the_id(), 'small-home-feature-boxes' );
 		$title = get_post_meta( get_the_ID(), 'title_override', true );
 		$output .= ( ! empty( $title ) ) ? '<h4>' . make_trim_characters( esc_html( $title ), get_theme_mod( 'make_home_title_text' ) ) . '</h4>' : '<h4>' . make_trim_characters( get_the_title(), get_theme_mod( 'make_home_caption_taxt' ) ) . '</h4>';
