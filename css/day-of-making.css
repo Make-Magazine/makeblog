@@ -9000,6 +9000,27 @@ ul#tabs .current > a:hover {
 .page-id-116357 .waist .checkers {
   background-image: none !important;
 }
+.waist .checkers .paddme {
+  padding: 0px 0 10px 10px;
+  position: relative;
+}
+.waist .checkers .paddme .caption {
+  margin-top: 0;
+  height: auto;
+  margin-right: 0;
+  margin-left: 1px;
+  background-color: rgba(255, 255, 255, 0.8);
+  position: absolute;
+  bottom: 10px;
+  width: 290px;
+  margin-bottom: 1px;
+}
+.waist .checkers .paddme.small:last-child {
+  padding: 0px 10px 10px 0;
+}
+.waist .checkers .span4 .span4:last-child .paddme.small {
+  padding: 12px 10px 10px 0;
+}
 .avatar-298 {
   margin-bottom: 20px;
   border: 1px solid #cecece;
@@ -9889,7 +9910,7 @@ li.top-cat-item a:visited {
 }
 #menu-make-secondary-nav > li > a:first-child:hover {
   text-decoration: none !important;
-  cursor: pointer !important;
+  cursor: default !important;
 }
 .mega-nav-footer {
   border-top: 1px solid #ddd;
