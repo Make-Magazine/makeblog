@@ -9000,6 +9000,9 @@ ul#tabs .current > a:hover {
 .page-id-116357 .waist .checkers {
   background-image: none !important;
 }
+.waist .checkers p {
+  padding-bottom: 5px;
+}
 .waist .checkers .paddme {
   padding: 0px 0 10px 10px;
   position: relative;
