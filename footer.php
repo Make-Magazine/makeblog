@@ -199,7 +199,7 @@
 						<input type="hidden" name="errors_to" value="" />
 	      <div>
 	        <input name="email" id="makezinemain" placeholder="Email Address" required="required" type="text"><br>
-	        <input value="Join Now" class="btn-modal newsletter-set-cookie" id="newsletter-set-cookie" type="submit">
+	        <input value="Start Making" class="btn-modal newsletter-set-cookie" id="newsletter-set-cookie" type="submit">
 	      </div>
 	    </form>
     </div>
