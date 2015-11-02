@@ -181,7 +181,7 @@
     <div class="fancybox popup" style="display:none;">
 	    <h3>Don't Miss Out!</h3>
 	    <p>Get our free weekly newsletter and keep up with the latest Make: news and information</p>
-						<?
+						<?php
 							$isSecure = 'http://';
 							if (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == 'on') {
 								$isSecure = "https://";
